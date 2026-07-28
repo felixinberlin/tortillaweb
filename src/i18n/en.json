@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "recipes": "Recipes",
+    "ingredients": "Ingredients",
+    "techniques": "Techniques",
+    "science": "Science",
+    "about": "About"
+  },
+  "hero": {
+    "badge": "The encyclopedia of Spanish tortilla",
+    "title": "Everything about Tortilla de Patatas",
+    "subtitle": "Recipes, techniques, ingredients, history and science behind Spain's most iconic dish.",
+    "recipesButton": "Explore recipes",
+    "buildButton": "Build your tortilla",
+    "ingredients": "Ingredients",
+    "knowledge": "Knowledge"
+  },
+  "builder": {
+    "badge": "Interactive tortilla builder",
+    "title": "Create your own tortilla",
+    "subtitle": "Choose ingredients, control the heat and discover how every decision changes the final result.",
+    "button": "Start building"
+  },
+  "builderPage": {
+    "title": "Tortilla Builder",
+    "description": "Coming soon."
+  }
+}

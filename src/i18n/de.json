@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "recipes": "Rezepte",
+    "ingredients": "Zutaten",
+    "techniques": "Techniken",
+    "science": "Wissenschaft",
+    "about": "Über uns"
+  },
+  "hero": {
+    "badge": "Die Enzyklopädie der spanischen Tortilla",
+    "title": "Alles über die Tortilla de Patatas",
+    "subtitle": "Rezepte, Techniken, Zutaten, Geschichte und Wissenschaft hinter Spaniens berühmtestem Gericht.",
+    "recipesButton": "Rezepte entdecken",
+    "buildButton": "Erstelle deine Tortilla",
+    "ingredients": "Zutaten",
+    "knowledge": "Wissen"
+  },
+  "builder": {
+    "badge": "Interaktiver Tortilla-Baukasten",
+    "title": "Erstelle deine eigene Tortilla",
+    "subtitle": "Wähle Zutaten, kontrolliere die Hitze und entdecke, wie jede Entscheidung das Ergebnis verändert.",
+    "button": "Starten"
+  },
+  "builderPage": {
+    "title": "Tortilla-Baukasten",
+    "description": "Kommt bald."
+  }
+}
