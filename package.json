@@ -22,6 +22,7 @@
     "react-dom": "^19.2.7",
     "react-i18next": "^17.0.11",
     "react-router-dom": "^7.18.1",
+    "scss": "^0.2.4",
     "shadcn": "^4.16.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
@@ -33,6 +34,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
+    "sass-embedded": "^1.100.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }

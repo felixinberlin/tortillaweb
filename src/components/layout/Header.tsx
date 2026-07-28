@@ -5,12 +5,6 @@ import { useTranslation } from "react-i18next";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-
-import {
   Sheet,
   SheetContent,
   SheetTrigger,
@@ -87,41 +81,35 @@ export default function Header() {
 
 
   return (
-    <header className="border-b bg-background">
-
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-
-
+    <header className="site-header">
+      <div className="header-container">
         {/* Logo */}
         <LocalizedLink
           to="/"
-          className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-amber-900 dark:text-amber-100"
+          className="brand-logo"
         >
-          <div className="p-1.5 rounded-lg bg-amber-500/10 text-amber-600">
+          <div className="brand-icon">
             <ChefHat className="h-6 w-6" />
           </div>
           <span>Tortilla de Patatas</span>
         </LocalizedLink>
 
         {/* Desktop navigation */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList className="gap-1">
-            {navigation.map((item) => (
-              <NavigationMenuItem key={item.href}>
-                <LocalizedLink
-                  to={item.href}
-                  className="px-3.5 py-2 text-sm font-medium transition-colors hover:text-amber-600 rounded-md hover:bg-amber-50 dark:hover:bg-amber-950/30"
-                >
-                  {t(`nav.${item.key}`)}
-                </LocalizedLink>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+        <nav className="nav-desktop" aria-label="Main Navigation">
+          {navigation.map((item) => (
+            <LocalizedLink
+              key={item.href}
+              to={item.href}
+              className="nav-link"
+            >
+              {t(`nav.${item.key}`)}
+            </LocalizedLink>
+          ))}
+        </nav>
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center gap-1 bg-muted/60 p-1 rounded-lg border text-xs font-semibold">
+          <div className="language-switcher" role="region" aria-label="Language Selector">
             <Languages className="h-3.5 w-3.5 text-muted-foreground ml-1.5 mr-0.5" />
             {languages.map((language) => {
               const active = location.pathname.startsWith(`/${language.code}`);
@@ -129,11 +117,8 @@ export default function Header() {
                 <button
                   key={language.code}
                   onClick={() => changeLanguage(language.code)}
-                  className={`px-2 py-1 rounded transition-all ${
-                    active
-                      ? "bg-background text-amber-600 shadow-2xs font-bold"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className={`lang-btn ${active ? "is-active" : ""}`}
+                  aria-pressed={active}
                 >
                   {language.label}
                 </button>
@@ -142,7 +127,7 @@ export default function Header() {
           </div>
 
           <LocalizedLink to="/builder">
-            <Button className="bg-amber-600 hover:bg-amber-700 text-white font-medium">
+            <Button className="bg-[#8D6E63] hover:bg-[#73564B] text-white font-medium shadow-2xs">
               {t("hero.buildButton")}
             </Button>
           </LocalizedLink>

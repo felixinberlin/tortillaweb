@@ -6,6 +6,7 @@ import "@/i18n/config";
 import { router } from "@/app/router";
 
 import "./index.css";
+import "@/styles/main.scss";
 
 ReactDOM.createRoot(
   document.getElementById("root")!

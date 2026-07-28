@@ -95,25 +95,33 @@
     }
   },
   "sciencePage": {
-    "badge": "Physik & Chemie in der Küche",
+    "badge": "Kulinarische Physik, Chemie & Lebensmittelsicherheit",
     "title": "Die Wissenschaft hinter der Tortilla",
-    "subtitle": "Verstehe die molekularen Veränderungen von Eiern und Kartoffeln unter Hitzeeinwirkung.",
+    "subtitle": "Molekulare Veränderungen, thermische Keiminaktivierung und mikrobiologische Sicherheitsstandards.",
     "card1": {
       "title": "Proteinkoagulation",
-      "desc": "Eiproteine beginnen bei 62°C zu gerinnen und erstarren bei 70°C vollständig. Eine Kerntemperatur von ~65°C sorgt für die saftige Cremigkeit."
+      "desc": "Eiproteine gerinnen ab 62°C. Für vollständige bakterizide Sicherheit fordert der Standard **70°C for 2 minutes** ($\\ge 5 \\text{ log}$ Reduktion von *S. Enteritidis*)."
     },
     "card2": {
       "title": "Stärkeverkleisterung",
-      "desc": "Bei 60°C - 65°C nehmen Kartoffelstärkekörner Wasser und Olivenöl auf und quellen zu einer sanften Matrix auf."
+      "desc": "Bei 60°C - 65°C nehmen Kartoffelstärkekörner Wasser und Olivenöl auf und quellen zu einer sanften Bindematrix."
     },
     "card3": {
-      "title": "Maillard-Reaktion",
-      "desc": "Der direkte Kontakt mit der heißen Pfanne (160°C+) karamellisiert Aminosäuren und Zucker für das typische Goldaroma."
+      "title": "Thermische Inaktivierung & Hitze",
+      "desc": "Mittlere Sicherheitsstufe erreicht **63°C for 20 seconds** (für saftige Tortillas zum sofortigen Verzehr). Der bakterizide Goldstandard ist **70°C for 2 minutes**."
     },
     "card4": {
-      "title": "Thermische Trägheit",
-      "desc": "Auch nach dem Herausnehmen steigt die Kerntemperatur um 2°C bis 4°C weiter an. Ein rechzeitiges Beseitigen verhindert Austrocknen."
-    }
+      "title": "Mikrobiologisches Risikomanagement",
+      "desc": "Cremige 'Poco cuajada' Tortillas besitzen einen pH-Wert von 3.8–4.5 und hohe Wasseraktivität ($a_w > 0.99$). Ungekühlte Zubereitungen über **8°C** dürfen maximal **4 hours** bei Raumtemperatur stehen."
+    },
+    "safetySectionTitle": "Lebensmittelsicherheit & Thermische Garstufen",
+    "safetySectionSub": "Die drei thermischen Verarbeitungsstufen nach der Risk-Ranger-Methodik.",
+    "levelPilotTitle": "Umgebungs-Gefahrenzone",
+    "levelPilotDesc": "Raumtemperatur ohne Wärmekontrolle. Bakterienwachstum bei Stehzeiten über **4 hours**.",
+    "levelMediumTitle": "Mittlere Sicherheitsstufe",
+    "levelMediumDesc": "Thermische Erhitzung auf **63°C for 20 seconds**. Für cremige Tortillas zum Sofortverzehr.",
+    "levelSafeTitle": "Bakterizider Goldstandard",
+    "levelSafeDesc": "Garstufe **70°C for 2 minutes**. Garantiert $\\ge 5 \\text{ log}$ Reduktion von *S. Enteritidis*."
   },
   "aboutPage": {
     "badge": "Geschichte & Kultur",

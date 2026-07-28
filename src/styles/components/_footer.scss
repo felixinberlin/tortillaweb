@@ -1,0 +1,117 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.site-footer {
+  background-color: #2A2421;
+  color: $color-potato-cream;
+  border-top: 3px solid $color-yolk-gold;
+  padding: 3rem 1rem 2rem;
+  margin-top: 4rem;
+
+  .footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @include tablet-up {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+
+  .footer-brand {
+    h3 {
+      font-family: $font-serif-heading;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $color-yolk-gold;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: #E8E2D5;
+      max-width: 32rem;
+    }
+  }
+
+  .footer-nav {
+    h4 {
+      font-family: $font-sans-body;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $color-yolk-gold;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-col: column;
+      gap: 0.5rem;
+
+      a {
+        color: #E8E2D5;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+
+        &:hover {
+          color: $color-yolk-gold;
+        }
+      }
+    }
+  }
+
+  .footer-safety-notice {
+    background-color: rgba(255, 184, 0, 0.1);
+    border: 1px solid rgba(255, 184, 0, 0.25);
+    border-radius: 8px;
+    padding: 1rem;
+
+    h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: $color-yolk-gold;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      color: #F5E6BE;
+
+      strong {
+        color: #FFFFFF;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(232, 226, 213, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: #A89C90;
+
+    @include tablet-up {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

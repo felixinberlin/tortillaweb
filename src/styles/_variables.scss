@@ -1,0 +1,36 @@
+/* Design System SCSS Variables - tortilladepatatas.org */
+
+// Brand Colors ("The Star Ingredients")
+$color-yolk-gold: #FFB800;
+$color-potato-cream: #F5E6BE;
+$color-onion-umber: #8D6E63;
+
+// Burner Animation Palette ("Heat & Cooking Levels")
+$color-pilot-blue: #00A3FF;
+$color-safety-orange: #FF8A00;
+$color-bactericidal-crimson: #D32F2F;
+
+// Semantic UI Safety & Risk Status Colors
+$color-risk-danger: #B00020;
+$color-risk-warning: #FFC107;
+$color-risk-safe: #2E7D32;
+
+// Paper & Notebook Neutrals
+$bg-notebook: #FCF9F2;
+$bg-parchment: #FDFBF7;
+$bg-card: #FFFFFF;
+$text-primary: #2A2421;
+$text-secondary: #73675F;
+$text-muted: #8D6E63;
+$border-notebook: #E8E2D5;
+
+// Typography Families
+$font-serif-heading: 'Playfair Display', Georgia, serif;
+$font-sans-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+$font-script-handwritten: 'Caveat', cursive;
+
+// Breakpoints
+$bp-mobile: 640px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;

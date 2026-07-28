@@ -95,25 +95,33 @@
     }
   },
   "sciencePage": {
-    "badge": "Física y Química Culinary",
+    "badge": "Física, Química y Seguridad Alimentaria",
     "title": "La Ciencia Detrás de la Tortilla",
-    "subtitle": "Entiende las transformaciones moleculares del huevo y la patata bajo la acción del calor.",
+    "subtitle": "Entiende las transformaciones moleculares, la inactivación térmica de patógenos y los umbrales microbiológicos.",
     "card1": {
       "title": "Coagulación de Proteínas",
-      "desc": "Las proteínas del huevo (ovoalbúmina) empiezan a coagular a los 62°C y se solidifican del todo a los 70°C. Mantener el interior a ~65°C consigue esa textura cremosa y fluida inolvidable."
+      "desc": "Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C for 2 minutes** (reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*)."
     },
     "card2": {
       "title": "Gelatinización del Almidón",
-      "desc": "A 60°C - 65°C, los gránulos de almidón de la patata absorben agua y grasa del pochado, hinchándose para crear una matriz suave que une la preparación."
+      "desc": "A 60°C - 65°C, los gránulos de almidón de la patata absorben agua y grasa del pochado, hinchándose para crear una matriz suave que estructura la tortilla."
     },
     "card3": {
-      "title": "Reacción de Maillard",
-      "desc": "El contacto directo del exterior con la sartén caliente (160°C+) carameliza los aminoácidos y azúcares reducidos, generando el aroma dorado característico."
+      "title": "Inactivación Térmica & Fuego",
+      "desc": "El nivel de seguridad medio alcanza los **63°C for 20 seconds** (reducción intermedia de *Salmonella* para tortillas jugosas de consumo inmediato). El estándar máximo de pasteurización bactericida se logra alcanzando **70°C for 2 minutes**."
     },
     "card4": {
-      "title": "Inercia Térmica",
-      "desc": "Incluso después de retirar la tortilla del fuego, la temperatura interna continúa subiendo entre 2°C y 4°C. Sacarla unos segundos antes evita que se seque."
-    }
+      "title": "Gestión Microbiológica de Riesgos",
+      "desc": "Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta actividad de agua ($a_w > 0.99$). Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 hours**."
+    },
+    "safetySectionTitle": "Garantía de Seguridad Alimentaria & Térmica",
+    "safetySectionSub": "Los tres umbrales de procesamiento térmico según la metodología Risk Ranger.",
+    "levelPilotTitle": "Zona de Peligro Ambient",
+    "levelPilotDesc": "Temperatura ambiente sin control térmico. Proliferación bacteriana si el consumo supera las **4 hours**.",
+    "levelMediumTitle": "Umbral de Seguridad Medio",
+    "levelMediumDesc": "Procesamiento a **63°C for 20 seconds**. Indicado para tortillas jugosas de consumo inmediato.",
+    "levelSafeTitle": "Estándar Bactericida Oro",
+    "levelSafeDesc": "Procesamiento térmico de **70°C for 2 minutes**. Garantiza una reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*."
   },
   "aboutPage": {
     "badge": "Historia y Cultura",

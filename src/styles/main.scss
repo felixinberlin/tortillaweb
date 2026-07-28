@@ -1,0 +1,86 @@
+/* Main Application SCSS - tortilladepatatas.org */
+@use "variables" as *;
+@use "mixins" as *;
+
+@use "components/header";
+@use "components/footer";
+@use "components/cards";
+
+@use "pages/science";
+@use "pages/builder";
+
+/* Base Design System Styling */
+:root {
+  --font-serif-heading: 'Playfair Display', Georgia, serif;
+  --font-sans-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-script-handwritten: 'Caveat', cursive;
+
+  --color-yolk-gold: #FFB800;
+  --color-potato-cream: #F5E6BE;
+  --color-onion-umber: #8D6E63;
+}
+
+body {
+  background-color: $bg-notebook;
+  color: $text-primary;
+  font-family: $font-sans-body;
+  background-image: radial-gradient(#E8E2D5 0.75px, transparent 0.75px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1, h2, h3, h4, .font-serif-heading {
+  font-family: $font-serif-heading;
+}
+
+.font-script {
+  font-family: $font-script-handwritten;
+}
+
+.bg-notebook-grid {
+  background-color: $bg-notebook;
+  background-image: linear-gradient(to right, rgba(141, 110, 99, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(141, 110, 99, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-parchment {
+  background-color: $bg-parchment;
+  border: 1px solid $border-notebook;
+}
+
+.shadow-stacked-parchment {
+  @include stacked-parchment;
+}
+
+.card-notebook {
+  @include notebook-card;
+}
+
+.chef-note {
+  @include chef-note;
+}
+
+.safety-safe {
+  @include safety-badge('safe');
+}
+
+.safety-warning {
+  @include safety-badge('warning');
+}
+
+.safety-danger {
+  @include safety-badge('danger');
+}

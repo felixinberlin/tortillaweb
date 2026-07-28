@@ -95,25 +95,33 @@
     }
   },
   "sciencePage": {
-    "badge": "Culinary Physics & Chemistry",
+    "badge": "Culinary Physics, Chemistry & Food Safety",
     "title": "The Science Behind Tortilla",
-    "subtitle": "Understand the molecular transformations of eggs and potatoes under heat.",
+    "subtitle": "Understand molecular transformations, thermal pathogen inactivation, and microbiological safety standards.",
     "card1": {
       "title": "Protein Coagulation",
-      "desc": "Egg proteins start coagulating at 62°C (143°F) and fully solidify at 70°C (158°F). Keeping the core at ~65°C yields that legendary creamy texture."
+      "desc": "Egg proteins begin coagulating at 62°C. To ensure bactericidal safety, the core standard requires **70°C for 2 minutes** (achieving a $\\ge 5 \\text{ log}$ reduction of *S. Enteritidis*)."
     },
     "card2": {
       "title": "Starch Gelatinization",
       "desc": "At 60°C - 65°C, potato starch granules absorb water and olive oil, swelling into a soft structural matrix that binds the dish."
     },
     "card3": {
-      "title": "Maillard Reaction",
-      "desc": "Direct contact with the hot pan (160°C+) caramelizes surface amino acids and sugars, producing the rich golden aroma."
+      "title": "Thermal Inactivation & Heat",
+      "desc": "Medium doneness safety threshold reaches **63°C for 20 seconds** (intermediate *Salmonella* reduction for juicy tortillas intended for immediate consumption). The gold bactericidal standard is **70°C for 2 minutes**."
     },
     "card4": {
-      "title": "Thermal Inertia",
-      "desc": "Even after removing from heat, internal temperature continues rising by 2°C to 4°C. Removing it a few seconds early prevents drying out."
-    }
+      "title": "Microbiological Risk Management",
+      "desc": "Runny 'poco cuajada' tortillas feature a pH of 3.8–4.5 and high water activity ($a_w > 0.99$). Unrefrigerated preparations above **8°C** must not exceed **4 hours** at ambient temperature."
+    },
+    "safetySectionTitle": "Food & Thermal Safety Guarantee",
+    "safetySectionSub": "The three thermal processing levels according to Risk Ranger methodology.",
+    "levelPilotTitle": "Ambient Danger Zone",
+    "levelPilotDesc": "Ambient temperature without thermal control. Bacterial proliferation risk if standing time exceeds **4 hours**.",
+    "levelMediumTitle": "Medium Safety Threshold",
+    "levelMediumDesc": "Thermal processing at **63°C for 20 seconds**. Recommended for juicy tortillas for immediate consumption.",
+    "levelSafeTitle": "Gold Bactericidal Standard",
+    "levelSafeDesc": "Thermal processing at **70°C for 2 minutes**. Ensures $\\ge 5 \\text{ log}$ reduction of *S. Enteritidis*."
   },
   "aboutPage": {
     "badge": "History & Culture",
