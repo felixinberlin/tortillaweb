@@ -29,6 +29,11 @@
     "title": "Recetas de tortilla de patatas",
     "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
   },
+  "error": {
+    "title": "This tortilla has flipped...",
+    "description": "It looks like this page doesn't exist. Maybe someone tried to flip it too early.",
+    "button": "Back to the kitchen"
+  },
   "features": {
     "title": "Everything about tortilla de patatas",
     "subtitle": "More than recipes. A complete knowledge base dedicated to Spain's most famous dish.",
