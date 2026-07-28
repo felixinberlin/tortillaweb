@@ -28,5 +28,35 @@
   "recipes": {
     "title": "Recetas de tortilla de patatas",
     "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
+  },
+  "features": {
+    "title": "Everything about tortilla de patatas",
+    "subtitle": "More than recipes. A complete knowledge base dedicated to Spain's most famous dish.",
+    "cards": {
+      "ingredients": {
+        "title": "Ingredients",
+        "description": "Discover potatoes, eggs, onions, oil and the ingredients that define a tortilla."
+      },
+      "recipes": {
+        "title": "Recipes",
+        "description": "Classic recipes, regional variations and your own custom creations."
+      },
+      "techniques": {
+        "title": "Techniques",
+        "description": "Master frying, mixing, resting and the famous tortilla flip."
+      },
+      "science": {
+        "title": "Science",
+        "description": "Understand heat, texture, chemistry and why recipes work."
+      },
+      "history": {
+        "title": "History",
+        "description": "Explore the origins and cultural importance of Spain's iconic dish."
+      },
+      "builder": {
+        "title": "Interactive Builder",
+        "description": "Create, simulate and save your perfect tortilla step by step."
+      }
+    }
   }
 }
