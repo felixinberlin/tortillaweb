@@ -21,27 +21,109 @@
     "subtitle": "Wähle Zutaten, kontrolliere die Hitze und entdecke, wie jede Entscheidung das Ergebnis verändert.",
     "button": "Starten"
   },
-  "builderPage": {
-    "title": "Tortilla-Baukasten",
-    "description": "Kommt bald."
-  },
   "recipes": {
-    "title": "Tortilla de patatas Rezepte",
-    "subtitle": "Entdecken Sie die verschiedenen Möglichkeiten, das berühmteste Gericht der spanischen Küche zuzubereiten."
+    "title": "Tortilla de Patatas Rezepte",
+    "subtitle": "Entdecken Sie die verschiedenen authentischen Zubereitungsarten des berühmtesten spanischen Gerichts."
   },
   "recipeItems": {
     "clasica": {
       "title": "Klassische Tortilla",
-      "description": "Das traditionelle spanische Omelett mit Kartoffeln, Ei und Olivenöl."
+      "description": "Das traditionelle spanische Omelett mit Kartoffeln, Eiern und Olivenöl."
     },
     "con-cebolla": {
       "title": "Tortilla mit Zwiebeln",
-      "description": "Die am meisten diskutierte Version: Kartoffeln, Ei und karamellisierte Zwiebeln."
+      "description": "Die am meisten diskutierte Version: Kartoffeln, Eier und karamellisierte Zwiebeln."
     },
     "betanzos": {
       "title": "Betanzos Tortilla",
       "description": "Berühmt für ihr sehr saftiges und leicht flüssiges Inneres."
     }
+  },
+  "ingredientsPage": {
+    "badge": "Die Grundlagen",
+    "title": "Die 4 Heiligen Zutaten",
+    "subtitle": "Eine großartige Tortilla braucht keine Schnörkel. Das Geheimnis liegt in der Qualität der Rohstoffe und den richtigen Proportionen.",
+    "potatoes": {
+      "title": "Die Kartoffel",
+      "subtitle": "Monalisa, Kennebec oder vorwiegend festkochende Sorten",
+      "desc": "Wir suchen Kartoffeln mit einem ausgewogenen Verhältnis von Stärke und Wasser. Sie werden sanft in Olivenöl confiert, bis sie butterweich sind."
+    },
+    "eggs": {
+      "title": "Das Ei",
+      "subtitle": "Frische Eier aus Freilandhaltung",
+      "desc": "Das Eigelb sorgt für Cremigkeit und eine schöne goldene Farbe. Zimmerwarme frische Eier garantieren eine perfekte Emulsion."
+    },
+    "oil": {
+      "title": "Olivenöl",
+      "subtitle": "Natives Olivenöl Extra (AOVE)",
+      "desc": "Kein bloßes Schmiermittel: Es ist das Kochmedium, in dem die Kartoffeln confiert werden. Gutes Olivenöl verleiht Geschmack, ohne die Kartoffel zu überdecken."
+    },
+    "onion": {
+      "title": "Die Zwiebel",
+      "subtitle": "Süße Zwiebel (Die große Debatte)",
+      "desc": "Für Zwiebelliebhaber bringt feingehackte Zwiebel natürliche Feuchtigkeit und karamellisierte Süße ein, die das Ei perfekt ergänzt."
+    },
+    "salt": {
+      "title": "Das Salz",
+      "subtitle": "Feines Meersalz",
+      "desc": "Salz sollte direkt zu den verquirlten Eiern gegeben werden. Es löst Proteine auf und sorgt für ein sanftes Stocken."
+    }
+  },
+  "techniquesPage": {
+    "badge": "Kulinarische Meisterschaft",
+    "title": "Kritische Küchentechniken",
+    "subtitle": "Vom ersten Schneiden der Kartoffeln bis zum entschlossenen Wenden in der Pfanne.",
+    "step1": {
+      "title": "1. Schneiden & Anbrechen",
+      "desc": "Schneide die Kartoffeln in dünne, unregelmäßige Scheiben ('chascar'). Durch das Anbrechen wird Stärke freigesetzt, die die Masse bindet."
+    },
+    "step2": {
+      "title": "2. Langsames Confieren (Pochado)",
+      "desc": "Gare die Kartoffeln bei mittlerer bis niedriger Hitze (130°C - 140°C) im Olivenöl. Sie sollen weich garen, nicht knusprig frittieren."
+    },
+    "step3": {
+      "title": "3. Die Heiligen 5 Minuten Ruhezeit",
+      "desc": "Gieße die heißen Kartoffeln ab und mische sie sofort mit den Eiern. 5 Minuten ruhen lassen – die Kartoffeln saugen das Ei auf."
+    },
+    "step4": {
+      "title": "4. Der Mutige Wendewurf",
+      "desc": "Verwende einen flachen Teller, der größer als die Pfanne ist. Hand fest auf die Mitte legen und mit einer zügigen Bewegung wenden."
+    },
+    "step5": {
+      "title": "5. Das Finale Anbraten",
+      "desc": "Gleite die Tortilla für nur 30 bis 60 Sekunden zurück in die heiße Pfanne, um eine dünne Goldkruste zu erzeugen."
+    }
+  },
+  "sciencePage": {
+    "badge": "Physik & Chemie in der Küche",
+    "title": "Die Wissenschaft hinter der Tortilla",
+    "subtitle": "Verstehe die molekularen Veränderungen von Eiern und Kartoffeln unter Hitzeeinwirkung.",
+    "card1": {
+      "title": "Proteinkoagulation",
+      "desc": "Eiproteine beginnen bei 62°C zu gerinnen und erstarren bei 70°C vollständig. Eine Kerntemperatur von ~65°C sorgt für die saftige Cremigkeit."
+    },
+    "card2": {
+      "title": "Stärkeverkleisterung",
+      "desc": "Bei 60°C - 65°C nehmen Kartoffelstärkekörner Wasser und Olivenöl auf und quellen zu einer sanften Matrix auf."
+    },
+    "card3": {
+      "title": "Maillard-Reaktion",
+      "desc": "Der direkte Kontakt mit der heißen Pfanne (160°C+) karamellisiert Aminosäuren und Zucker für das typische Goldaroma."
+    },
+    "card4": {
+      "title": "Thermische Trägheit",
+      "desc": "Auch nach dem Herausnehmen steigt die Kerntemperatur um 2°C bis 4°C weiter an. Ein rechzeitiges Beseitigen verhindert Austrocknen."
+    }
+  },
+  "aboutPage": {
+    "badge": "Geschichte & Kultur",
+    "title": "Über Tortilla de Patatas",
+    "subtitle": "Ein Projekt zur Dokumentation, Verbreitung und Perfektionierung von Spaniens kulinarischem Aushängeschild.",
+    "storyTitle": "Die Geschichte eines Icons",
+    "storyP1": "Während Legenden die Erfindung General Tomás de Zumalacárregui in Navarra um 1817 zuschreiben, belegen historische Dokumente den Ursprung in Villanueva de la Serena bereits im Jahr 1798.",
+    "storyP2": "Heute ist die Tortilla de Patatas überall beliebt: Sie prägt die spanische Tapas-Kultur vom Frühstück bis zum Abendessen.",
+    "missionTitle": "Unsere Mission",
+    "missionDesc": "tortilladepatatas.org verbindet Liebhaber der spanischen Küche, dokumentiert traditionelle Techniken und bietet interaktive Baukasten-Tools."
   },
   "error": {
     "title": "Diese Tortilla hat sich gewendet...",

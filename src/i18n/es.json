@@ -21,10 +21,6 @@
     "subtitle": "Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.",
     "button": "Empezar a crear"
   },
-  "builderPage": {
-    "title": "Constructor de Tortilla",
-    "description": "Próximamente."
-  },
   "recipes": {
     "title": "Recetas de tortilla de patatas",
     "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
@@ -41,40 +37,126 @@
     "betanzos": {
       "title": "Tortilla de Betanzos",
       "description": "Famosa por su interior muy jugoso y poco cuajado."
+    }
+  },
+  "ingredientsPage": {
+    "badge": "Los Fundamentos",
+    "title": "Los 4 Ingredientes Sagrados",
+    "subtitle": "Una gran tortilla no necesita artificios. La clave reside en la calidad de la materia prima y la proporción justa.",
+    "potatoes": {
+      "title": "La Patata",
+      "subtitle": "Monalisa, Kennebec o Agria",
+      "desc": "Buscamos patatas con equilibrio entre almidón y agua. La Monalisa o Kennebec son ideales porque al pocharse quedan cremosas por dentro sin deshacerse del todo."
     },
-    "error": {
-      "title": "Esta tortilla se ha dado la vuelta...",
-      "description": "Parece que esta página no existe. Quizás alguien intentó darle la vuelta demasiado pronto.",
-      "button": "Volver a la cocina"
+    "eggs": {
+      "title": "El Huevo",
+      "subtitle": "Camperos o de Cama de Paja (Categoría 0 o 1)",
+      "desc": "La yema aporta la cremosidad y el color dorado natural. Huevos frescos a temperatura ambiente garantizan una emulsión perfecta sin necesidad de batir demasiado."
     },
-    "features": {
-      "title": "Todo sobre la tortilla de patatas",
-      "subtitle": "Mucho más que recetas. Una base de conocimiento completa dedicada al plato más famoso de España.",
-      "cards": {
-        "ingredients": {
-          "title": "Ingredientes",
-          "description": "Descubre las patatas, huevos, cebolla, aceite y los ingredientes que definen una tortilla."
-        },
-        "recipes": {
-          "title": "Recetas",
-          "description": "Recetas clásicas, variantes regionales y tus propias creaciones."
-        },
-        "techniques": {
-          "title": "Técnicas",
-          "description": "Domina la fritura, la mezcla, el reposo y el famoso giro de la tortilla."
-        },
-        "science": {
-          "title": "Ciencia",
-          "description": "Entiende el calor, la textura, la química y por qué funcionan las recetas."
-        },
-        "history": {
-          "title": "Historia",
-          "description": "Explora el origen y la importancia cultural del plato más icónico de España."
-        },
-        "builder": {
-          "title": "Constructor interactivo",
-          "description": "Crea, simula y guarda tu tortilla perfecta paso a paso."
-        }
+    "oil": {
+      "title": "El Aceite de Oliva",
+      "subtitle": "AOVE de acidez suave (Variedad Arbequina o Picual suave)",
+      "desc": "No es un mero lubricante: es el medio de cocción que confita la patata. Un buen aceite de oliva virgen extra transmite sabor sin enmascarar la patata."
+    },
+    "onion": {
+      "title": "La Cebolla",
+      "subtitle": "Cebolla dulce o recia (El gran debate)",
+      "desc": "Para los concebollistas, la cebolla cortada en brunoise fina o pluma aporta humedad natural y azúcares caramelizados que potencian el sabor salado del huevo."
+    },
+    "salt": {
+      "title": "La Sal",
+      "subtitle": "Sal marina fina",
+      "desc": "Se debe salar el huevo batido y no solo la patata. La sal solubiliza las proteínas del huevo permitiendo un cuajado suave y uniforme."
+    }
+  },
+  "techniquesPage": {
+    "badge": "Maestría en la Cocina",
+    "title": "Técnicas y Pasos Críticos",
+    "subtitle": "Desde el chasquido inicial de la patata hasta el movimiento decidido del volteo en la sartén.",
+    "step1": {
+      "title": "1. El Corte y Chasquido",
+      "desc": "Corta la patata en láminas finas e irregulares (chascar). Al partir la patata en lugar de hacer un corte limpio, se libera almidón que espesará la mezcla."
+    },
+    "step2": {
+      "title": "2. El Pochado Lento (Confitar)",
+      "desc": "Sumerge las patatas en aceite a temperatura media-baja (130°C - 140°C). Tienen que cocerse lentamente hasta quedar tiernas, no freírse crujientes."
+    },
+    "step3": {
+      "title": "3. El Reposo Sagrado (5 Minutos)",
+      "desc": "Escurre la patata caliente y mézclala inmediatamente con el huevo batido. Deja reposar 5 minutos. Las patatas absorberán el huevo cremoso como una esponja."
+    },
+    "step4": {
+      "title": "4. El Giro Seguro",
+      "desc": "Utiliza un plato llano más grande que la sartén o un vuelvatortillas. Coloca la mano firme en el centro del plato y gira con un movimiento rápido y decidido."
+    },
+    "step5": {
+      "title": "5. El Sellado Final",
+      "desc": "Vuelve a deslizar la tortilla en la sartén a fuego medio-alto durante solo 30 a 60 segundos para crear la fina corteza dorada exterior manteniendo el interior jugoso."
+    }
+  },
+  "sciencePage": {
+    "badge": "Física y Química Culinary",
+    "title": "La Ciencia Detrás de la Tortilla",
+    "subtitle": "Entiende las transformaciones moleculares del huevo y la patata bajo la acción del calor.",
+    "card1": {
+      "title": "Coagulación de Proteínas",
+      "desc": "Las proteínas del huevo (ovoalbúmina) empiezan a coagular a los 62°C y se solidifican del todo a los 70°C. Mantener el interior a ~65°C consigue esa textura cremosa y fluida inolvidable."
+    },
+    "card2": {
+      "title": "Gelatinización del Almidón",
+      "desc": "A 60°C - 65°C, los gránulos de almidón de la patata absorben agua y grasa del pochado, hinchándose para crear una matriz suave que une la preparación."
+    },
+    "card3": {
+      "title": "Reacción de Maillard",
+      "desc": "El contacto directo del exterior con la sartén caliente (160°C+) carameliza los aminoácidos y azúcares reducidos, generando el aroma dorado característico."
+    },
+    "card4": {
+      "title": "Inercia Térmica",
+      "desc": "Incluso después de retirar la tortilla del fuego, la temperatura interna continúa subiendo entre 2°C y 4°C. Sacarla unos segundos antes evita que se seque."
+    }
+  },
+  "aboutPage": {
+    "badge": "Historia y Cultura",
+    "title": "Sobre Tortilla de Patatas",
+    "subtitle": "Un proyecto dedicado a divulgar, preservar y perfeccionar el icono gastronómico español por excelencia.",
+    "storyTitle": "El Origen de un Ícono",
+    "storyP1": "Aunque la leyenda popular atribuye la invención de la tortilla al general carlista Tomás de Zumalacárregui en Navarra hacia 1817 como un alimento nutritivo y barato para sus tropas, documentos históricos recientes la sitúan en Villanueva de la Serena (Badajoz) a finales del siglo XVIII (1798).",
+    "storyP2": "Hoy en día, la tortilla de patatas trasciende fronteras: es el plato más representativo de las barras de bares en toda España, presente desde el desayuno hasta la cena.",
+    "missionTitle": "Nuestra Misión",
+    "missionDesc": "tortilladepatatas.org nace para unir a la comunidad amante de la gastronomía, documentar las técnicas tradicionales y ofrecer herramientas interactivas como nuestro constructor de proporciones exactas."
+  },
+  "error": {
+    "title": "Esta tortilla se ha dado la vuelta...",
+    "description": "Parece que esta página no existe. Quizás alguien intentó darle la vuelta demasiado pronto.",
+    "button": "Volver a la cocina"
+  },
+  "features": {
+    "title": "Todo sobre la tortilla de patatas",
+    "subtitle": "Mucho más que recetas. Una base de conocimiento completa dedicada al plato más famoso de España.",
+    "cards": {
+      "ingredients": {
+        "title": "Ingredientes",
+        "description": "Descubre las patatas, huevos, cebolla, aceite y los ingredientes que definen una tortilla."
+      },
+      "recipes": {
+        "title": "Recetas",
+        "description": "Recetas clásicas, variantes regionales y tus propias creaciones."
+      },
+      "techniques": {
+        "title": "Técnicas",
+        "description": "Domina la fritura, la mezcla, el reposo y el famoso giro de la tortilla."
+      },
+      "science": {
+        "title": "Ciencia",
+        "description": "Entiende el calor, la textura, la química y por qué funcionan las recetas."
+      },
+      "history": {
+        "title": "Historia",
+        "description": "Explora el origen y la importancia cultural del plato más icónico de España."
+      },
+      "builder": {
+        "title": "Constructor interactivo",
+        "description": "Crea, simula y guarda tu tortilla perfecta paso a paso."
       }
     }
   }

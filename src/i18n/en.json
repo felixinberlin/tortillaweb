@@ -21,27 +21,109 @@
     "subtitle": "Choose ingredients, control the heat and discover how every decision changes the final result.",
     "button": "Start building"
   },
-  "builderPage": {
-    "title": "Tortilla Builder",
-    "description": "Coming soon."
-  },
   "recipes": {
-    "title": "Recetas de tortilla de patatas",
-    "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
+    "title": "Spanish Tortilla Recipes",
+    "subtitle": "Discover the various authentic ways to prepare Spain's most celebrated dish."
   },
   "recipeItems": {
     "clasica": {
-      "title": "Klassische Tortilla",
-      "description": "Das traditionelle spanische Omelett mit Kartoffeln, Ei und Olivenöl."
+      "title": "Classic Tortilla",
+      "description": "The traditional Spanish potato omelette with potatoes, eggs, and olive oil."
     },
     "con-cebolla": {
-      "title": "Tortilla mit Zwiebeln",
-      "description": "Die am meisten diskutierte Version: Kartoffeln, Ei und karamellisierte Zwiebeln."
+      "title": "Tortilla with Onion",
+      "description": "The most debated version: potatoes, eggs, and caramelized sweet onions."
     },
     "betanzos": {
-      "title": "Betanzos Tortilla",
-      "description": "Berühmt für ihr sehr saftiges und leicht flüssiges Inneres."
+      "title": "Betanzos Style Tortilla",
+      "description": "Famous for its juicy, runny, and ultra-creamy center."
     }
+  },
+  "ingredientsPage": {
+    "badge": "The Fundamentals",
+    "title": "The 4 Sacred Ingredients",
+    "subtitle": "A great tortilla needs no artificial additives. The secret lies in ingredient quality and precise ratios.",
+    "potatoes": {
+      "title": "The Potato",
+      "subtitle": "Monalisa, Kennebec, or Yukon Gold",
+      "desc": "We seek potatoes with a balanced starch and water ratio. Monalisa or Kennebec are ideal because they turn tender and creamy when poached without completely falling apart."
+    },
+    "eggs": {
+      "title": "The Egg",
+      "subtitle": "Free-range pasture raised eggs",
+      "desc": "The yolk provides creaminess and rich golden color. Room-temperature fresh eggs ensure smooth emulsification without over-whisking."
+    },
+    "oil": {
+      "title": "Olive Oil",
+      "subtitle": "Mild Extra Virgin Olive Oil (Arbequina)",
+      "desc": "Not merely a lubricant: it is the cooking medium that confits the potatoes. High quality EVOO adds fruity notes without overpowering the natural potato flavor."
+    },
+    "onion": {
+      "title": "The Onion",
+      "subtitle": "Sweet yellow onion (The Eternal Debate)",
+      "desc": "For onion enthusiasts, thinly sliced onion adds natural moisture and caramelized sugars that complement the savory egg."
+    },
+    "salt": {
+      "title": "Salt",
+      "subtitle": "Fine sea salt",
+      "desc": "Salt should be added to the beaten eggs, not just the potatoes. Salt solubilizes egg proteins, allowing for a silky smooth setting."
+    }
+  },
+  "techniquesPage": {
+    "badge": "Kitchen Mastery",
+    "title": "Critical Culinary Techniques",
+    "subtitle": "From the initial slicing of potatoes to the confident flip in the pan.",
+    "step1": {
+      "title": "1. Slicing & Chipping",
+      "desc": "Slice potatoes into thin, irregular bites ('chascar'). Breaking the potato releases natural starches that thicken the mixture."
+    },
+    "step2": {
+      "title": "2. Slow Confit (Pochado)",
+      "desc": "Submerge potatoes in olive oil at medium-low heat (130°C - 140°C / 265°F - 285°F). They must cook slowly until tender, not crisp."
+    },
+    "step3": {
+      "title": "3. The Sacred 5-Minute Rest",
+      "desc": "Drain warm potatoes and immediately mix with beaten eggs. Let rest for 5 minutes so the potatoes absorb the creamy egg mixture like a sponge."
+    },
+    "step4": {
+      "title": "4. The Confident Flip",
+      "desc": "Use a flat plate wider than the pan. Place your hand firmly in the center of the plate and flip with one swift, confident motion."
+    },
+    "step5": {
+      "title": "5. Final Sealing",
+      "desc": "Slide the tortilla back into the hot pan for just 30 to 60 seconds to create a thin golden exterior while keeping the center juicy."
+    }
+  },
+  "sciencePage": {
+    "badge": "Culinary Physics & Chemistry",
+    "title": "The Science Behind Tortilla",
+    "subtitle": "Understand the molecular transformations of eggs and potatoes under heat.",
+    "card1": {
+      "title": "Protein Coagulation",
+      "desc": "Egg proteins start coagulating at 62°C (143°F) and fully solidify at 70°C (158°F). Keeping the core at ~65°C yields that legendary creamy texture."
+    },
+    "card2": {
+      "title": "Starch Gelatinization",
+      "desc": "At 60°C - 65°C, potato starch granules absorb water and olive oil, swelling into a soft structural matrix that binds the dish."
+    },
+    "card3": {
+      "title": "Maillard Reaction",
+      "desc": "Direct contact with the hot pan (160°C+) caramelizes surface amino acids and sugars, producing the rich golden aroma."
+    },
+    "card4": {
+      "title": "Thermal Inertia",
+      "desc": "Even after removing from heat, internal temperature continues rising by 2°C to 4°C. Removing it a few seconds early prevents drying out."
+    }
+  },
+  "aboutPage": {
+    "badge": "History & Culture",
+    "title": "About Tortilla de Patatas",
+    "subtitle": "A dedicated project to document, share, and perfect Spain's iconic culinary treasure.",
+    "storyTitle": "Origin of an Icon",
+    "storyP1": "While popular legend attributes the invention of tortilla to General Tomás de Zumalacárregui in Navarra around 1817 as a cheap, nourishing food for his troops, historical documents trace its origins to Villanueva de la Serena (Extremadura) in 1798.",
+    "storyP2": "Today, Spanish tortilla transcends borders: it is the staple dish across tapas bars in Spain, enjoyed from morning till night.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "tortilladepatatas.org was created to connect food enthusiasts worldwide, document traditional cooking techniques, and offer interactive tools like our ratio builder."
   },
   "error": {
     "title": "This tortilla has flipped...",
