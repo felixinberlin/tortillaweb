@@ -14,23 +14,14 @@ const recipes = [
   {
     id: "clasica",
     image: "/images/tortillaenbar.jpg",
-    title: "Tortilla clásica",
-    description:
-      "La tortilla de patatas tradicional con patata, huevo y aceite de oliva.",
   },
   {
     id: "con-cebolla",
     image: "/images/tortillaenbar.jpg",
-    title: "Tortilla con cebolla",
-    description:
-      "La versión más debatida: patata, huevo y cebolla caramelizada.",
   },
   {
     id: "betanzos",
     image: "/images/tortillaenbar.jpg",
-    title: "Tortilla de Betanzos",
-    description:
-      "Famosa por su interior muy jugoso y poco cuajado.",
   },
 ];
 
@@ -71,7 +62,7 @@ export default function Recipes() {
 
               <img
                 src={recipe.image}
-                alt={recipe.title}
+                alt={t(`recipeItems.${recipe.id}.title`)}
                 className="h-56 w-full object-cover"
               />
 
@@ -79,7 +70,7 @@ export default function Recipes() {
               <CardHeader>
 
                 <CardTitle>
-                  {recipe.title}
+                  {t(`recipeItems.${recipe.id}.title`)}
                 </CardTitle>
 
               </CardHeader>
@@ -88,7 +79,7 @@ export default function Recipes() {
               <CardContent>
 
                 <p className="text-muted-foreground">
-                  {recipe.description}
+                  {t(`recipeItems.${recipe.id}.description`)}
                 </p>
 
               </CardContent>

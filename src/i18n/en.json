@@ -26,7 +26,21 @@
     "description": "Coming soon."
   },
   "recipes": {
-    "title": "Recetas de tortilla de patatas",
-    "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
+    "title": "Tortilla de patatas recipes",
+    "subtitle": "Discover the different ways to prepare the most famous dish in Spanish cuisine."
+  },
+  "recipeItems": {
+    "clasica": {
+      "title": "Classic tortilla",
+      "description": "The traditional Spanish omelet with potato, egg, and olive oil."
+    },
+    "con-cebolla": {
+      "title": "Tortilla with onion",
+      "description": "The most debated version: potato, egg, and caramelized onion."
+    },
+    "betanzos": {
+      "title": "Betanzos tortilla",
+      "description": "Famous for its very juicy and slightly runny interior."
+    }
   }
 }
