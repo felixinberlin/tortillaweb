@@ -1,12 +1,16 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import App from "@/App";
-
 import Home from "@/pages/Home/Home";
 import Builder from "@/pages/Builder/Builder";
 
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/es" replace />,
+  },
+
   {
     path: "/:lang",
     element: <App />,
@@ -20,11 +24,5 @@ export const router = createBrowserRouter([
         element: <Builder />,
       },
     ],
-  },
-
-  // temporary fallback
-  {
-    path: "*",
-    element: <Home />,
   },
 ]);
