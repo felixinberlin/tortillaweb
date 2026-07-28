@@ -17,11 +17,11 @@ const recipes = [
   },
   {
     id: "con-cebolla",
-    image: "/images/tortillaenbar.jpg",
+    image: "/images/concebolla.jpg",
   },
   {
     id: "betanzos",
-    image: "/images/tortillaenbar.jpg",
+    image: "/images/betanzos.jpg",
   },
 ];
 
