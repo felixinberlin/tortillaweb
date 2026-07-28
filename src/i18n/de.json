@@ -28,5 +28,10 @@
   "recipes": {
     "title": "Recetas de tortilla de patatas",
     "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
+  },
+  "error": {
+    "title": "Diese Tortilla hat sich gewendet...",
+    "description": "Es sieht so aus, als ob diese Seite nicht existiert. Vielleicht hat jemand versucht, sie zu früh zu wenden.",
+    "button": "Zurück in die Küche"
   }
 }
