@@ -16,10 +16,10 @@
     "knowledge": "Conocimiento"
   },
   "builder": {
-  "badge": "Constructor interactivo de tortilla",
-  "title": "Crea tu propia tortilla",
-  "subtitle": "Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.",
-  "button": "Empezar a crear"
+    "badge": "Constructor interactivo de tortilla",
+    "title": "Crea tu propia tortilla",
+    "subtitle": "Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.",
+    "button": "Empezar a crear"
   },
   "builderPage": {
     "title": "Constructor de Tortilla",
@@ -41,6 +41,39 @@
     "betanzos": {
       "title": "Tortilla de Betanzos",
       "description": "Famosa por su interior muy jugoso y poco cuajado."
+  "error": {
+    "title": "Esta tortilla se ha dado la vuelta...",
+    "description": "Parece que esta página no existe. Quizás alguien intentó darle la vuelta demasiado pronto.",
+    "button": "Volver a la cocina"
+  },
+  "features": {
+    "title": "Todo sobre la tortilla de patatas",
+    "subtitle": "Mucho más que recetas. Una base de conocimiento completa dedicada al plato más famoso de España.",
+    "cards": {
+      "ingredients": {
+        "title": "Ingredientes",
+        "description": "Descubre las patatas, huevos, cebolla, aceite y los ingredientes que definen una tortilla."
+      },
+      "recipes": {
+        "title": "Recetas",
+        "description": "Recetas clásicas, variantes regionales y tus propias creaciones."
+      },
+      "techniques": {
+        "title": "Técnicas",
+        "description": "Domina la fritura, la mezcla, el reposo y el famoso giro de la tortilla."
+      },
+      "science": {
+        "title": "Ciencia",
+        "description": "Entiende el calor, la textura, la química y por qué funcionan las recetas."
+      },
+      "history": {
+        "title": "Historia",
+        "description": "Explora el origen y la importancia cultural del plato más icónico de España."
+      },
+      "builder": {
+        "title": "Constructor interactivo",
+        "description": "Crea, simula y guarda tu tortilla perfecta paso a paso."
+      }
     }
   }
 }
