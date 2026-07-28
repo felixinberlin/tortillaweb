@@ -24,9 +24,9 @@
     "subtitle": "Wähle Zutaten, steuere die Hitze und entdecke, wie jede Entscheidung das Endergebnis verändert.",
     "button": "Baukasten starten",
     "openApp": "Tortilla Creator öffnen",
-    "appDesc": "Rufen Sie die interaktive Tortilla Creator Anwendung unter http://creator.tortilladepatatas.org/ auf, um Ihr Rezept anzupassen.",
+    "appDesc": "Rufe die interaktive Tortilla Creator Anwendung unter http://creator.tortilladepatatas.org/ auf, um dein Rezept anzupassen.",
     "dinersQuestion": "Für wie viele Personen?",
-    "dinersDesc": "Wir berechnen Pfannengröße und Zutatenmengen entsprechend der Personenanzahl.",
+    "dinersDesc": "Wir berechnen die Pfannengröße und die Zutatenmengen je nach Anzahl der Personen.",
     "servings": "Pers.",
     "onionDebate": "Die große Debatte: Mit oder ohne Zwiebeln?",
     "withOnion": "Mit Zwiebeln",
@@ -121,10 +121,10 @@
     "title": "Die Wissenschaft hinter der Tortilla",
     "subtitle": "Verstehe molekulare Transformationen, thermische Erregerinaktivierung und mikrobiologische Sicherheitsstandards.",
     "chefNoteHeader": "Aus dem Notizbuch der Chefköchin & des Labors:",
-    "chefNoteText": "Die Tortilla ist ein Meisterwerk der Dualität: die rustikale Wärme der Kartoffel und die wissenschaftliche Volatilität des Eis. Um bakterizide Sicherheit zu garantieren, fordert der Goldstandard stets **70°C for 2 minutes** für eine ≥ 5 Log-Reduktion von *S. Enteritidis*.",
+    "chefNoteText": "Die Tortilla ist ein Meisterwerk der Dualität: die rustikale Wärme der Kartoffel und die wissenschaftliche Volatilität des Eis. Um bakterizide Sicherheit zu garantieren, fordert der Goldstandard stets **70°C für 2 Minuten** für eine ≥ 5 Log-Reduktion von *S. Enteritidis*.",
     "card1": {
       "title": "Proteinkoagulation",
-      "desc": "Eiproteine beginnen ab 62°C zu gerinnen. Um bakterizide Sicherheit zu gewährleisten, fordert der Standard **70°C for 2 minutes** (Reduktion $\\ge 5 \\text{ log}$ von *S. Enteritidis*)."
+      "desc": "Eiproteine beginnen ab 62°C zu gerinnen. Um bakterizide Sicherheit zu gewährleisten, fordert der Standard **70°C für 2 Minuten** (Reduktion $\\ge 5 \\text{ log}$ von *S. Enteritidis*)."
     },
     "card2": {
       "title": "Stärkeverkleisterung",
@@ -132,29 +132,29 @@
     },
     "card3": {
       "title": "Thermische Inaktivierung & Hitze",
-      "desc": "Die mittlere Sicherheitsstufe erreicht **63°C for 20 seconds** (mittlere *Salmonella*-Reduktion für saftige Tortillas zum sofortigen Verzehr). Der bakterizide Goldstandard ist **70°C for 2 minutes**."
+      "desc": "Die mittlere Sicherheitsstufe erreicht **63°C für 20 Sekunden** (mittlere *Salmonella*-Reduktion für saftige Tortillas zum sofortigen Verzehr). Der bakterizide Goldstandard ist **70°C für 2 Minuten**."
     },
     "card4": {
       "title": "Mikrobiologisches Risikomanagement",
-      "desc": "Saftige 'poco cuajada' Tortillas weisen einen pH-Wert von 3,8–4,5 und hohe Wasseraktivität ($a_w > 0,99$) auf. Ungekühlte Zubereitungen über **8°C** dürfen nicht länger als **4 hours** bei Raumtemperatur stehen."
+      "desc": "Saftige 'poco cuajada' Tortillas weisen einen pH-Wert von 3,8–4,5 und hohe Wasseraktivität ($a_w > 0,99$) auf. Ungekühlte Zubereitungen über **8°C** dürfen nicht länger als **4 Stunden** bei Raumtemperatur stehen."
     },
     "safetySectionTitle": "Garantie für Lebensmittel- & Thermosicherheit",
     "safetySectionSub": "Die drei thermischen Verarbeitungsstufen nach der Risk-Ranger-Methodik.",
     "levelPilotTitle": "Raumtemperatur-Gefahrenzone",
-    "levelPilotDesc": "Raumtemperatur ohne thermische Kontrolle. Bakterienvermehrungsrisiko, wenn die Stehzeit **4 hours** überschreitet.",
+    "levelPilotDesc": "Raumtemperatur ohne thermische Kontrolle. Bakterienvermehrungsrisiko, wenn die Stehzeit **4 Stunden** überschreitet.",
     "levelMediumTitle": "Mittlere Sicherheitsstufe",
-    "levelMediumDesc": "Thermische Behandlung bei **63°C for 20 seconds**. Empfohlen für saftige Tortillas zum sofortigen Verzehr.",
+    "levelMediumDesc": "Thermische Behandlung bei **63°C für 20 Sekunden**. Empfohlen für saftige Tortillas zum sofortigen Verzehr.",
     "levelSafeTitle": "Bakterizider Goldstandard",
-    "levelSafeDesc": "Thermische Behandlung von **70°C for 2 minutes**. Garantiert eine Reduktion von $\\ge 5 \\text{ log}$ von *S. Enteritidis*."
+    "levelSafeDesc": "Thermische Behandlung von **70°C für 2 Minuten**. Garantiert eine Reduktion von $\\ge 5 \\text{ log}$ von *S. Enteritidis*."
   },
   "personasPage": {
     "notebookLabel": "Gastronomisches Labornotizbuch",
     "summaryTitle": "Tradition, Wissenschaft & Innovation vereint",
     "summaryDesc": "Jede dieser Persönlichkeiten trägt einen einzigartigen Baustein zum Kulturgut der Tortilla de Patatas bei. Erkunden Sie unsere interaktiven Bereiche, um deren Erkenntnisse und Rezepte in die Praxis umzusetzen.",
     "reference": "Referenz",
-    "pasteurization": "Pasteurisierung: **70°C for 2 minutes**",
-    "mediumThreshold": "Mittlere Stufe: **63°C for 20 seconds**",
-    "ambientLimit": "Raumtemperatur-Limit: **4 hours**"
+    "pasteurization": "Pasteurisierung: **70°C für 2 Minuten**",
+    "mediumThreshold": "Mittlere Stufe: **63°C für 20 Sekunden**",
+    "ambientLimit": "Raumtemperatur-Limit: **4 Stunden**"
   },
   "historyPage": {
     "notebookLabel": "Notizbuch für Gastronomie & Historiographie",
@@ -212,11 +212,11 @@
     "subtitle": "Gastronomie, Tradition & Kulinarische Wissenschaft",
     "exploreTitle": "Notizbuch erkunden",
     "thermalThresholds": "Thermische Sicherheitsgrenzen:",
-    "safeThreshold": "Sicher: **70°C for 2 minutes**",
-    "cautionThreshold": "Achtung: **63°C for 20 seconds**",
-    "riskThreshold": "Risiko: **4 hours** Raumtemp.",
+    "safeThreshold": "Sicher: **70°C für 2 Minuten**",
+    "cautionThreshold": "Achtung: **63°C für 20 Sekunden**",
+    "riskThreshold": "Risiko: **4 Stunden** bei Raumtemp.",
     "safetyTitle": "Bakterizider Sicherheitsstandard",
-    "safetyText": "Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C for 2 minutes** (oder **63°C for 20 seconds** als mittlere Stufe). Saftige Tortillas sollten nicht länger als **4 hours** bei Raumtemperatur stehen.",
+    "safetyText": "Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C für 2 Minuten** (oder **63°C für 20 Sekunden** als mittlere Stufe). Saftige Tortillas sollten nicht länger als **4 Stunden** bei Raumtemperatur stehen.",
     "safetyNorm": "Gemeinschaftsverpflegung Verordnung Königliches Dekret 1021/2022",
     "viewReport": "Bericht anzeigen",
     "rights": "Alle Rechte vorbehalten.",
