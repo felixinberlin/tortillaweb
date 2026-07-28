@@ -29,6 +29,18 @@
     "title": "Recetas de tortilla de patatas",
     "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
   },
+  "recipeItems": {
+    "clasica": {
+      "title": "Tortilla clásica",
+      "description": "La tortilla de patatas tradicional con patata, huevo y aceite de oliva."
+    },
+    "con-cebolla": {
+      "title": "Tortilla con cebolla",
+      "description": "La versión más debatida: patata, huevo y cebolla caramelizada."
+    },
+    "betanzos": {
+      "title": "Tortilla de Betanzos",
+      "description": "Famosa por su interior muy jugoso y poco cuajado."
   "error": {
     "title": "Esta tortilla se ha dado la vuelta...",
     "description": "Parece que esta página no existe. Quizás alguien intentó darle la vuelta demasiado pronto.",

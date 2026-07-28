@@ -26,6 +26,21 @@
     "description": "Kommt bald."
   },
   "recipes": {
+    "title": "Tortilla de patatas Rezepte",
+    "subtitle": "Entdecken Sie die verschiedenen Möglichkeiten, das berühmteste Gericht der spanischen Küche zuzubereiten."
+  },
+  "recipeItems": {
+    "clasica": {
+      "title": "Klassische Tortilla",
+      "description": "Das traditionelle spanische Omelett mit Kartoffeln, Ei und Olivenöl."
+    },
+    "con-cebolla": {
+      "title": "Tortilla mit Zwiebeln",
+      "description": "Die am meisten diskutierte Version: Kartoffeln, Ei und karamellisierte Zwiebeln."
+    },
+    "betanzos": {
+      "title": "Betanzos Tortilla",
+      "description": "Berühmt für ihr sehr saftiges und leicht flüssiges Inneres."
     "title": "Recetas de tortilla de patatas",
     "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
   },
