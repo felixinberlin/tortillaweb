@@ -33,5 +33,35 @@
     "title": "Diese Tortilla hat sich gewendet...",
     "description": "Es sieht so aus, als ob diese Seite nicht existiert. Vielleicht hat jemand versucht, sie zu früh zu wenden.",
     "button": "Zurück in die Küche"
+  },
+  "features": {
+    "title": "Alles über die Tortilla de Patatas",
+    "subtitle": "Mehr als nur Rezepte. Eine komplette Wissensplattform über Spaniens berühmtestes Gericht.",
+    "cards": {
+      "ingredients": {
+        "title": "Zutaten",
+        "description": "Entdecke Kartoffeln, Eier, Zwiebeln, Öl und die Zutaten, die eine Tortilla ausmachen."
+      },
+      "recipes": {
+        "title": "Rezepte",
+        "description": "Klassische Rezepte, regionale Varianten und deine eigenen Kreationen."
+      },
+      "techniques": {
+        "title": "Techniken",
+        "description": "Lerne Braten, Mischen, Ruhenlassen und den berühmten Tortilla-Wendegriff."
+      },
+      "science": {
+        "title": "Wissenschaft",
+        "description": "Verstehe Hitze, Textur, Chemie und warum Rezepte funktionieren."
+      },
+      "history": {
+        "title": "Geschichte",
+        "description": "Entdecke den Ursprung und die kulturelle Bedeutung dieses ikonischen spanischen Gerichts."
+      },
+      "builder": {
+        "title": "Interaktiver Baukasten",
+        "description": "Erstelle, simuliere und speichere deine perfekte Tortilla Schritt für Schritt."
+      }
+    }
   }
 }
