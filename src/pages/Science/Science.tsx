@@ -89,10 +89,10 @@ export default function Science() {
       {/* Chef Notebook Handwritten Annotation */}
       <div className="chef-note mb-10 shadow-2xs rounded-lg">
         <p className="font-bold text-base font-sans uppercase tracking-wider text-amber-900 mb-1">
-          Del Cuaderno de la Chef &amp; Laboratorio:
+          {t("sciencePage.chefNoteHeader", "Del Cuaderno de la Chef & Laboratorio:")}
         </p>
         <p className="italic font-script text-xl text-amber-950">
-          "La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre <strong>70°C for 2 minutes</strong> para lograr una reducción &ge; 5 log de <em>S. Enteritidis</em>."
+          "{renderFormattedText(t("sciencePage.chefNoteText", "La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C for 2 minutes** para lograr una reducción ≥ 5 log de S. Enteritidis."))}"
         </p>
       </div>
 

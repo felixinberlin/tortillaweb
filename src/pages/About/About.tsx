@@ -66,7 +66,7 @@ export default function About() {
                 tortilladepatatas.org
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Un sitio web rápido, bilingüe y accesible para todos los amantes de la cocina casera tradicional.
+                {t("aboutPage.websiteDesc", "Un sitio web rápido, bilingüe y accesible para todos los amantes de la cocina casera tradicional.")}
               </p>
             </CardContent>
           </Card>

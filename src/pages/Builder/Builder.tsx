@@ -40,7 +40,16 @@ export default function Builder() {
   const panSizeCm = diners <= 2 ? 20 : diners <= 5 ? 24 : 28;
 
   const handleCopyRecipe = () => {
-    const text = lang === "es" ?
+    const text = lang.startsWith("de") ?
+      `🍳 Tortilla-Rezept (${diners} Personen)
+- ${eggCount} große Eier
+- ${potatoGrams}g Kartoffeln (Monalisa oder Kennebec)
+${hasOnion ? `- ${onionGrams}g süße Zwiebeln` : "- Ohne Zwiebeln"}
+- ${oilMl}ml Olivenöl Nativ Extra
+- ${saltGrams}g Salz
+- Empfohlene Pfannengröße: ${panSizeCm}cm
+- Garstufe: ${doneness === "betanzos" ? "Sehr saftig (Betanzos-Stil)" : doneness === "jugosa" ? "Cremige Mitte" : "Fest durchgegart"}`
+      : lang.startsWith("es") ?
       `🍳 Receta Tortilla de Patatas (${diners} personas)
 - ${eggCount} huevos grandes
 - ${potatoGrams}g de patatas (variedad Monalisa o Kennebec)
@@ -87,17 +96,13 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
           </div>
           <div>
             <h3 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2 flex-wrap">
-              <span>{lang === "es" ? "Tortilla Creator Web App" : lang === "de" ? "Tortilla Creator Web-App" : "Tortilla Creator Web App"}</span>
+              <span>Tortilla Creator Web App</span>
               <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300">
                 creator.tortilladepatatas.org
               </Badge>
             </h3>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              {lang === "es"
-                ? "Accede a la aplicación interactiva Tortilla Creator en http://creator.tortilladepatatas.org/ para personalizar y calcular tu receta."
-                : lang === "de"
-                ? "Rufen Sie die interaktive Tortilla Creator Anwendung unter http://creator.tortilladepatatas.org/ auf."
-                : "Access the interactive Tortilla Creator application at http://creator.tortilladepatatas.org/ to customize your recipe."}
+              {t("builder.appDesc", "Accede a la aplicación interactiva Tortilla Creator en http://creator.tortilladepatatas.org/ para personalizar y calcular tu receta.")}
             </p>
           </div>
         </div>
@@ -108,7 +113,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
           className="shrink-0 w-full sm:w-auto"
         >
           <Button className="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-xs gap-2">
-            <span>{lang === "es" ? "Abrir Tortilla Creator" : lang === "de" ? "Tortilla Creator öffnen" : "Open Tortilla Creator"}</span>
+            <span>{t("builder.openApp", "Abrir Tortilla Creator")}</span>
             <ExternalLink className="w-4 h-4" />
           </Button>
         </a>
@@ -122,10 +127,10 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <CardHeader className="pb-4">
               <CardTitle className="text-xl flex items-center gap-2">
                 <Users className="w-5 h-5 text-amber-600" />
-                {lang === "es" ? "¿Para cuántas personas?" : "How many servings?"}
+                {t("builder.dinersQuestion", "¿Para cuántas personas?")}
               </CardTitle>
               <CardDescription>
-                {lang === "es" ? "Calcularemos la sartén y las cantidades según el número de comensales." : "We'll adjust ingredient quantities and pan size automatically."}
+                {t("builder.dinersDesc", "Calcularemos la sartén y las cantidades según el número de comensales.")}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -139,7 +144,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                     }`}
                     onClick={() => setDiners(num)}
                   >
-                    {num} {lang === "es" ? "pers." : "servings"}
+                    {num} {t("builder.servings", "pers.")}
                   </Button>
                 ))}
               </div>
@@ -152,10 +157,10 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <CardTitle className="text-xl flex items-center justify-between">
                 <span className="flex items-center gap-2">
                   <ChefHat className="w-5 h-5 text-amber-600" />
-                  {lang === "es" ? "El debate del siglo: ¿Con o sin cebolla?" : "The Great Debate: Onion or No Onion?"}
+                  {t("builder.onionDebate", "El debate del siglo: ¿Con o sin cebolla?")}
                 </span>
                 <Badge variant={hasOnion ? "default" : "secondary"} className={hasOnion ? "bg-amber-600" : ""}>
-                  {hasOnion ? (lang === "es" ? "Con cebolla" : "With Onion") : (lang === "es" ? "Sin cebolla" : "No Onion")}
+                  {hasOnion ? t("builder.withOnion", "Con cebolla") : t("builder.noOnion", "Sin cebolla")}
                 </Badge>
               </CardTitle>
             </CardHeader>
@@ -171,10 +176,10 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   }`}
                 >
                   <div className="font-semibold text-foreground text-base mb-1">
-                    🧅 {lang === "es" ? "Con Cebolla (Concebollista)" : "With Onion"}
+                    🧅 {t("builder.concebollista", "Con Cebolla (Concebollista)")}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {lang === "es" ? "Aporta dulzor, jugosidad y un toque caramelizado irresistible." : "Adds natural sweetness, moisture, and caramelized depth."}
+                    {t("builder.concebollistaDesc", "Aporta dulzor, jugosidad y un toque caramelizado irresistible.")}
                   </p>
                 </button>
 
@@ -188,10 +193,10 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   }`}
                 >
                   <div className="font-semibold text-foreground text-base mb-1">
-                    🥔 {lang === "es" ? "Sin Cebolla (Sincebollista)" : "Without Onion"}
+                    🥔 {t("builder.sincebollista", "Sin Cebolla (Sincebollista)")}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {lang === "es" ? "Sabor puro a huevo fresco y patata dorada en aceite de oliva." : "Pure egg and potato flavor without sweet onion interference."}
+                    {t("builder.sincebollistaDesc", "Sabor puro a huevo fresco y patata dorada en aceite de oliva.")}
                   </p>
                 </button>
               </div>
@@ -203,7 +208,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <CardHeader className="pb-4">
               <CardTitle className="text-xl flex items-center gap-2">
                 <Flame className="w-5 h-5 text-amber-600" />
-                {lang === "es" ? "Punto de cuajado" : "Doneness & Consistency"}
+                {t("builder.donenessTitle", "Punto de cuajado")}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -211,20 +216,20 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 {[
                   {
                     id: "betanzos",
-                    title: lang === "es" ? "Estilo Betanzos" : "Betanzos Style",
-                    desc: lang === "es" ? "Muy jugosa, el huevo corre al cortar." : "Very runny & juicy center.",
+                    title: t("builder.betanzosTitle", "Estilo Betanzos"),
+                    desc: t("builder.betanzosDesc", "Muy jugosa, el huevo corre al cortar."),
                     icon: "💧"
                   },
                   {
                     id: "jugosa",
-                    title: lang === "es" ? "En su punto" : "Medium Creamy",
-                    desc: lang === "es" ? "Interior cremoso y bordes sellados." : "Soft creamy interior, golden crust.",
+                    title: t("builder.jugosaTitle", "En su punto"),
+                    desc: t("builder.jugosaDesc", "Interior cremoso y bordes sellados."),
                     icon: "✨"
                   },
                   {
                     id: "cuajada",
-                    title: lang === "es" ? "Cuajada firme" : "Well Done",
-                    desc: lang === "es" ? "Ideal para llevar a excursiones o bocadillos." : "Firm throughout, perfect for sandwiches.",
+                    title: t("builder.cuajadaTitle", "Cuajada firme"),
+                    desc: t("builder.cuajadaDesc", "Ideal para llevar a excursiones o bocadillos."),
                     icon: "🥪"
                   }
                 ].map((item) => (
@@ -253,7 +258,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <CardHeader className="pb-4">
               <CardTitle className="text-xl flex items-center gap-2">
                 <Scale className="w-5 h-5 text-amber-600" />
-                {lang === "es" ? "Corte de la patata" : "Potato Cut & Texture"}
+                {t("builder.potatoCutTitle", "Corte de la patata")}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -268,10 +273,10 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   }`}
                 >
                   <div className="font-semibold text-sm mb-1">
-                    🍳 {lang === "es" ? "Pochada tradicional" : "Slowly Confited / Soft"}
+                    🍳 {t("builder.pochadaTitle", "Pochada tradicional")}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {lang === "es" ? "Fuego lento a 140°C para que quede blanda y melosa." : "Slow confit in olive oil for maximum tenderness."}
+                    {t("builder.pochadaDesc", "Fuego lento a 140°C para que quede blanda y melosa.")}
                   </p>
                 </button>
 
@@ -285,10 +290,10 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   }`}
                 >
                   <div className="font-semibold text-sm mb-1">
-                    🔥 {lang === "es" ? "Toque crujiente" : "Crispy Edges"}
+                    🔥 {t("builder.crujienteTitle", "Toque crujiente")}
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    {lang === "es" ? "Un toque final de fuego fuerte para dorar las esquinas." : "Higher heat at the end for golden crispy bits."}
+                    {t("builder.crujienteDesc", "Un toque final de fuego fuerte para dorar las esquinas.")}
                   </p>
                 </button>
               </div>
@@ -308,7 +313,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <CardHeader className="bg-amber-500/10 border-b border-amber-500/20 pb-4">
                 <div className="flex items-center justify-between">
                   <Badge className="bg-amber-600 hover:bg-amber-700 text-white font-medium">
-                    {diners} {lang === "es" ? "Comensales" : "Servings"} • {panSizeCm} cm
+                    {diners} {t("builder.dinersTag", "Comensales")} • {panSizeCm} cm
                   </Badge>
                   <Button
                     size="sm"
@@ -317,11 +322,11 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                     className="h-8 gap-1.5 text-xs bg-background/80 hover:bg-background"
                   >
                     {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    {copied ? (lang === "es" ? "¡Copiada!" : "Copied!") : (lang === "es" ? "Copiar receta" : "Copy recipe")}
+                    {copied ? t("builder.copied", "¡Copiada!") : t("builder.copyRecipe", "Copiar receta")}
                   </Button>
                 </div>
                 <CardTitle className="text-2xl pt-2 text-foreground font-extrabold">
-                  {lang === "es" ? "Tu Ficha de Ingredientes" : "Your Recipe Ratios"}
+                  {t("builder.recipeCardTitle", "Tu Ficha de Ingredientes")}
                 </CardTitle>
               </CardHeader>
 
@@ -331,14 +336,14 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
                     <span className="text-2xl font-bold text-amber-600 block">{eggCount}</span>
                     <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                      🥚 {lang === "es" ? "Huevos L / XL" : "Eggs (Large)"}
+                      🥚 {t("builder.eggsLabel", "Huevos L / XL")}
                     </span>
                   </div>
 
                   <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
                     <span className="text-2xl font-bold text-amber-600 block">{potatoGrams} g</span>
                     <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                      🥔 {lang === "es" ? "Patatas Monalisa" : "Potatoes (g)"}
+                      🥔 {t("builder.potatoesLabel", "Patatas Monalisa")}
                     </span>
                   </div>
 
@@ -346,7 +351,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                     <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
                       <span className="text-2xl font-bold text-amber-600 block">{onionGrams} g</span>
                       <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                        🧅 {lang === "es" ? "Cebolla dulce" : "Sweet Onion (g)"}
+                        🧅 {t("builder.onionLabel", "Cebolla dulce")}
                       </span>
                     </div>
                   )}
@@ -354,7 +359,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
                     <span className="text-2xl font-bold text-amber-600 block">{oilMl} ml</span>
                     <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                      🫒 {lang === "es" ? "AOVE (Aceite)" : "EV Olive Oil (ml)"}
+                      🫒 {t("builder.oilLabel", "AOVE (Aceite)")}
                     </span>
                   </div>
                 </div>
@@ -364,18 +369,19 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-900 dark:text-amber-200 text-xs font-medium">
                     <Timer className="w-4 h-4 shrink-0 text-amber-600" />
                     <span>
-                      {lang === "es" 
-                        ? `Tiempo estimado: ~25-30 min | Fuego en sartén: ${doneness === "betanzos" ? "Fuerte 30 seg/lado" : doneness === "jugosa" ? "Medio-Alto 1.5 min/lado" : "Medio-Bajo 3 min/lado"}`
-                        : `Estimated time: ~25-30 min | Heat per side: ${doneness === "betanzos" ? "High heat 30 sec/side" : doneness === "jugosa" ? "Medium-High 1.5 min/side" : "Medium-Low 3 min/side"}`}
+                      {t("builder.estimatedTime", "Tiempo estimado: ~25-30 min")} | {t("builder.heatPerSide", "Fuego en sartén:")}{" "}
+                      {doneness === "betanzos"
+                        ? t("builder.heatBetanzos", "Fuerte 30 seg/lado")
+                        : doneness === "jugosa"
+                        ? t("builder.heatJugosa", "Medio-Alto 1.5 min/lado")
+                        : t("builder.heatCuajada", "Medio-Bajo 3 min/lado")}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-900 dark:text-blue-200 text-xs font-medium">
                     <Info className="w-4 h-4 shrink-0 text-blue-600" />
                     <span>
-                      {lang === "es"
-                        ? "Truco Pro: Tras freír la patata, meztclala caliente con el huevo batido y déjala reposar 5 minutos antes de cuajar."
-                        : "Pro Tip: Mix warm cooked potatoes into beaten eggs and let rest for 5 minutes before cooking in the pan."}
+                      {t("builder.proTip", "Truco Pro: Tras freír la patata, mézclala caliente con el huevo batido y déjala reposar 5 minutos antes de cuajar.")}
                     </span>
                   </div>
                 </div>
@@ -384,30 +390,22 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 <div className="space-y-2 border-t border-border pt-4">
                   <h4 className="text-sm font-bold text-foreground flex items-center gap-1.5">
                     <CircleDot className="w-4 h-4 text-amber-600" />
-                    {lang === "es" ? "Pasos clave de elaboración" : "Key Cooking Steps"}
+                    {t("builder.keyStepsTitle", "Pasos clave de elaboración")}
                   </h4>
                   <ol className="text-xs text-muted-foreground space-y-2 pl-4 list-decimal">
                     <li>
-                      {lang === "es" 
-                        ? "Pela y corta las patatas en láminas finas e desiguales (chascar)."
-                        : "Peel and thinly slice potatoes into uneven thin bites."}
+                      {t("builder.step1", "Pela y corta las patatas en láminas finas e desiguales (chascar).")}
                     </li>
                     {hasOnion && (
                       <li>
-                        {lang === "es"
-                          ? "Pica la cebolla y póchala junto a la patata en abundante aceite de oliva virgen extra."
-                          : "Slowly confit onion and potatoes in plenty of extra virgin olive oil until tender."}
+                        {t("builder.step2Onion", "Pica la cebolla y póchala junto a la patata en abundante aceite de oliva virgen extra.")}
                       </li>
                     )}
                     <li>
-                      {lang === "es"
-                        ? "Bate los huevos sin espumar demasiado y añade una pizca generosa de sal."
-                        : "Whisk eggs gently (avoid too much foam) and add a generous pinch of salt."}
+                      {t("builder.step3", "Bate los huevos sin espumar demasiado y añade una pizca generosa de sal.")}
                     </li>
                     <li>
-                      {lang === "es"
-                        ? `Cuaja en sartén de ${panSizeCm}cm antiadherente bien caliente con unas gotas de aceite.`
-                        : `Cook in a non-stick ${panSizeCm}cm hot pan with a drop of olive oil.`}
+                      {t("builder.step4", `Cuaja en sartén de ${panSizeCm}cm antiadherente bien caliente con unas gotas de aceite.`)}
                     </li>
                   </ol>
                 </div>

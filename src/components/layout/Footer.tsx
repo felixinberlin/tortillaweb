@@ -3,6 +3,20 @@ import { useTranslation } from "react-i18next";
 import { ChefHat, ShieldCheck, Heart, Sparkles, BookOpen, ShieldAlert, ArrowUpRight } from "lucide-react";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 
+function renderFormattedText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 export default function Footer() {
   const { t } = useTranslation();
 
@@ -23,7 +37,7 @@ export default function Footer() {
                 tortilladepatatas.org
               </h3>
               <p className="font-script text-sm text-[#F5E6BE]/80 -mt-0.5">
-                Gastronomía, Tradición & Ciencia Culinaria
+                {t("footer.subtitle", "Gastronomía, Tradición & Ciencia Culinaria")}
               </p>
             </div>
           </div>
@@ -39,19 +53,19 @@ export default function Footer() {
           <div className="pt-2 flex flex-col gap-2">
             <div className="text-[11px] font-bold uppercase tracking-wider text-[#FFB800]/90 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-[#FFB800]" />
-              <span>Umbrales Térmicos de Seguridad:</span>
+              <span>{t("footer.thermalThresholds", "Umbrales Térmicos de Seguridad:")}</span>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-[#2E7D32]/20 text-[#81C784] border border-[#2E7D32]/40 flex items-center gap-1">
                 <ShieldCheck className="w-3 h-3" />
-                <span>Seguro: **70°C for 2 minutes**</span>
+                <span>{renderFormattedText(t("footer.safeThreshold", "Seguro: **70°C for 2 minutes**"))}</span>
               </span>
               <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-[#FF8A00]/20 text-[#FFB74D] border border-[#FF8A00]/40 flex items-center gap-1">
-                <span>Caution: **63°C for 20 seconds**</span>
+                <span>{renderFormattedText(t("footer.cautionThreshold", "Precaución: **63°C for 20 seconds**"))}</span>
               </span>
               <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-[#B00020]/20 text-[#EF5350] border border-[#B00020]/40 flex items-center gap-1">
                 <ShieldAlert className="w-3 h-3" />
-                <span>Riesgo: **4 hours** amb.</span>
+                <span>{renderFormattedText(t("footer.riskThreshold", "Riesgo: **4 hours** amb."))}</span>
               </span>
             </div>
           </div>
@@ -136,13 +150,18 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-[#F5E6BE]/90 leading-relaxed mb-3">
-              Para garantizar la inocuidad microbiológica y la destrucción de <em>Salmonella spp.</em>, el estándar de cocinado bactericida exige alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 hours** a temperatura ambiente.
+              {renderFormattedText(
+                t(
+                  "footer.safetyText",
+                  "Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 hours** a temperatura ambiente."
+                )
+              )}
             </p>
 
             <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/70">
-              <span className="font-mono">Normativa Colectividades Real Decreto 1021/2022</span>
+              <span className="font-mono">{t("footer.safetyNorm", "Normativa Colectividades Real Decreto 1021/2022")}</span>
               <LocalizedLink to="/science" className="font-bold text-[#FFB800] hover:underline flex items-center gap-1">
-                <span>Ver Informe</span>
+                <span>{t("footer.viewReport", "Ver Informe")}</span>
                 <BookOpen className="w-3 h-3" />
               </LocalizedLink>
             </div>

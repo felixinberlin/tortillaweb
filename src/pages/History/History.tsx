@@ -28,7 +28,7 @@ function renderFormattedText(text: string) {
 }
 
 export default function History() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentLang = (i18n.language || "es").substring(0, 2);
   const data = historyData[currentLang] || historyData.es;
 
@@ -61,7 +61,7 @@ export default function History() {
       <div className="chef-note mb-12 shadow-stacked-parchment rounded-xl p-6 border-l-8 border-amber-500 bg-[#FFFDF7]">
         <div className="flex items-center gap-2 mb-2 text-amber-900 font-sans font-bold text-xs uppercase tracking-widest">
           <Sparkles className="w-4 h-4 text-amber-600" />
-          <span>Cuaderno de Gastronomía & Historiografía</span>
+          <span>{t("historyPage.notebookLabel", "Cuaderno de Gastronomía & Historiografía")}</span>
         </div>
         <p className="font-script text-lg sm:text-xl md:text-2xl text-amber-950 leading-relaxed">
           "{renderFormattedText(data.chefNote)}"
@@ -272,20 +272,20 @@ export default function History() {
           <Award className="w-6 h-6" />
         </div>
         <h3 className="text-2xl font-serif-heading font-bold text-foreground mb-2">
-          El Legado de la Tortilla de Patatas
+          {t("historyPage.summaryTitle", "El Legado de la Tortilla de Patatas")}
         </h3>
         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-          Un viaje gastronómico único que une la historia viva de España con el rigor de la ciencia culinaria. Para más detalles sobre bacteriología y seguridad alimentaria, visita nuestra sección de Ciencia.
+          {t("historyPage.summaryDesc", "Un viaje gastronómico único que une la historia viva de España con el rigor de la ciencia culinaria. Para más detalles sobre bacteriología y seguridad alimentaria, visita nuestra sección de Ciencia.")}
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#2E7D32]/10 text-[#2E7D32] border border-[#2E7D32]/30">
-            Pasteurización: **70°C for 2 minutes**
+            {renderFormattedText(t("personasPage.pasteurization", "Pasteurización: **70°C for 2 minutes**"))}
           </span>
           <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#FF8A00]/10 text-[#FF8A00] border border-[#FF8A00]/30">
-            Umbral Medio: **63°C for 20 seconds**
+            {renderFormattedText(t("personasPage.mediumThreshold", "Umbral Medio: **63°C for 20 seconds**"))}
           </span>
           <span className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#B00020]/10 text-[#B00020] border border-[#B00020]/30">
-            Límite Ambiental: **4 hours**
+            {renderFormattedText(t("personasPage.ambientLimit", "Límite Ambiental: **4 hours**"))}
           </span>
         </div>
       </section>

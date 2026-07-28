@@ -22,7 +22,26 @@
     "badge": "Interactive tortilla builder",
     "title": "Create your own tortilla",
     "subtitle": "Choose ingredients, control the heat and discover how every decision changes the final result.",
-    "button": "Start building"
+    "button": "Start building",
+    "openApp": "Open Tortilla Creator",
+    "appDesc": "Access the interactive Tortilla Creator application at http://creator.tortilladepatatas.org/ to customize your recipe.",
+    "dinersQuestion": "How many servings?",
+    "dinersDesc": "We'll adjust ingredient quantities and pan size automatically.",
+    "servings": "servings",
+    "onionDebate": "The Great Debate: Onion or No Onion?",
+    "withOnion": "With Onion",
+    "noOnion": "No Onion",
+    "concebollista": "With Onion (Concebollista)",
+    "concebollistaDesc": "Adds natural sweetness, moisture, and caramelized depth.",
+    "sincebollista": "Without Onion (Sincebollista)",
+    "sincebollistaDesc": "Pure egg and potato flavor without sweet onion interference.",
+    "donenessTitle": "Doneness & Consistency",
+    "betanzosTitle": "Betanzos Style",
+    "betanzosDesc": "Very runny & juicy center.",
+    "jugosaTitle": "Medium Creamy",
+    "jugosaDesc": "Soft creamy interior, golden crust.",
+    "cuajadaTitle": "Well Done",
+    "cuajadaDesc": "Firm throughout, perfect for sandwiches."
   },
   "recipes": {
     "title": "Spanish Tortilla Recipes",
@@ -101,6 +120,8 @@
     "badge": "Culinary Physics, Chemistry & Food Safety",
     "title": "The Science Behind Tortilla",
     "subtitle": "Understand molecular transformations, thermal pathogen inactivation, and microbiological safety standards.",
+    "chefNoteHeader": "From the Chef's & Laboratory Notebook:",
+    "chefNoteText": "The tortilla is a masterpiece of duality: the rustic warmth of potato and the scientific volatility of egg. To guarantee bactericidal safety, the gold standard always demands **70°C for 2 minutes** to achieve a ≥ 5 log reduction of *S. Enteritidis*.",
     "card1": {
       "title": "Protein Coagulation",
       "desc": "Egg proteins begin coagulating at 62°C. To ensure bactericidal safety, the core standard requires **70°C for 2 minutes** (achieving a $\\ge 5 \\text{ log}$ reduction of *S. Enteritidis*)."
@@ -126,6 +147,20 @@
     "levelSafeTitle": "Gold Bactericidal Standard",
     "levelSafeDesc": "Thermal processing at **70°C for 2 minutes**. Ensures $\\ge 5 \\text{ log}$ reduction of *S. Enteritidis*."
   },
+  "personasPage": {
+    "notebookLabel": "Gastronomic Laboratory Notebook",
+    "summaryTitle": "Tradition, Science & Innovation United",
+    "summaryDesc": "Each of these individuals provides a unique link to the heritage of the Spanish tortilla. Explore our interactive sections to put their findings and recipes into practice.",
+    "reference": "Reference",
+    "pasteurization": "Pasteurization: **70°C for 2 minutes**",
+    "mediumThreshold": "Medium Threshold: **63°C for 20 seconds**",
+    "ambientLimit": "Ambient Limit: **4 hours**"
+  },
+  "historyPage": {
+    "notebookLabel": "Notebook of Gastronomy & Historiography",
+    "summaryTitle": "The Legacy of Spanish Tortilla",
+    "summaryDesc": "A unique culinary journey uniting Spain's living history with the rigor of culinary science. For more details on bacteriology and food safety, visit our Science section."
+  },
   "aboutPage": {
     "badge": "History & Culture",
     "title": "About Tortilla de Patatas",
@@ -134,7 +169,8 @@
     "storyP1": "While popular legend attributes the invention of tortilla to General Tomás de Zumalacárregui in Navarra around 1817 as a cheap, nourishing food for his troops, historical documents trace its origins to Villanueva de la Serena (Extremadura) in 1798.",
     "storyP2": "Today, Spanish tortilla transcends borders: it is the staple dish across tapas bars in Spain, enjoyed from morning till night.",
     "missionTitle": "Our Mission",
-    "missionDesc": "tortilladepatatas.org was created to connect food enthusiasts worldwide, document traditional cooking techniques, and offer interactive tools like our ratio builder."
+    "missionDesc": "tortilladepatatas.org was created to connect food enthusiasts worldwide, document traditional cooking techniques, and offer interactive tools like our ratio builder.",
+    "websiteDesc": "A fast, multilingual, and accessible website for all lovers of traditional home cooking."
   },
   "error": {
     "title": "This tortilla has flipped...",
@@ -173,9 +209,16 @@
   },
   "footer": {
     "brandDesc": "The gastronomy encyclopedia and laboratory notebook dedicated to authentic Spanish tortilla de patatas.",
+    "subtitle": "Gastronomy, Tradition & Culinary Science",
     "exploreTitle": "Explore Notebook",
+    "thermalThresholds": "Thermal Safety Thresholds:",
+    "safeThreshold": "Safe: **70°C for 2 minutes**",
+    "cautionThreshold": "Caution: **63°C for 20 seconds**",
+    "riskThreshold": "Risk: **4 hours** amb.",
     "safetyTitle": "Bactericidal Safety Standard",
-    "safetyText": "For maximum food safety and bactericidal pasteurization, the cooking standard requires reaching **70°C for 2 minutes** (≥ 5-log reduction of Salmonella spp.). For domestic consumption, keep a maximum of **4 hours** at room temperature or refrigerate under <8°C.",
+    "safetyText": "To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as a medium threshold). Runny tortillas should not remain for more than **4 hours** at ambient temperature.",
+    "safetyNorm": "Public Catering Regulation Royal Decree 1021/2022",
+    "viewReport": "View Report",
     "rights": "All rights reserved.",
     "craftedWith": "Crafted with",
     "forGastronomy": "for lovers of gastronomy and culinary science."

@@ -5,7 +5,7 @@
     "techniques": "Techniken",
     "science": "Wissenschaft",
     "history": "Geschichte",
-    "personas": "Personas",
+    "personas": "Persönlichkeiten",
     "builder": "Baukasten",
     "about": "Über uns"
   },
@@ -21,110 +21,145 @@
   "builder": {
     "badge": "Interaktiver Tortilla-Baukasten",
     "title": "Erstelle deine eigene Tortilla",
-    "subtitle": "Wähle Zutaten, kontrolliere die Hitze und entdecke, wie jede Entscheidung das Ergebnis verändert.",
-    "button": "Starten"
+    "subtitle": "Wähle Zutaten, steuere die Hitze und entdecke, wie jede Entscheidung das Endergebnis verändert.",
+    "button": "Baukasten starten",
+    "openApp": "Tortilla Creator öffnen",
+    "appDesc": "Rufen Sie die interaktive Tortilla Creator Anwendung unter http://creator.tortilladepatatas.org/ auf, um Ihr Rezept anzupassen.",
+    "dinersQuestion": "Für wie viele Personen?",
+    "dinersDesc": "Wir berechnen Pfannengröße und Zutatenmengen entsprechend der Personenanzahl.",
+    "servings": "Pers.",
+    "onionDebate": "Die große Debatte: Mit oder ohne Zwiebeln?",
+    "withOnion": "Mit Zwiebeln",
+    "noOnion": "Ohne Zwiebeln",
+    "concebollista": "Mit Zwiebeln (Concebollista)",
+    "concebollistaDesc": "Bringt natürliche Süße, Saftigkeit und ein unwiderstehliches karamellisiertes Aroma.",
+    "sincebollista": "Ohne Zwiebeln (Sincebollista)",
+    "sincebollistaDesc": "Reiner Geschmack von frischem Ei und in Olivenöl goldbraun gebratenen Kartoffeln.",
+    "donenessTitle": "Garstufe & Konsistenz",
+    "betanzosTitle": "Betanzos-Stil",
+    "betanzosDesc": "Sehr saftig, das Ei läuft beim Schneiden heraus.",
+    "jugosaTitle": "En su punto (Cremige Mitte)",
+    "jugosaDesc": "Cremiges Inneres und leicht gebräunte Kruste.",
+    "cuajadaTitle": "Durchgegart & Fest",
+    "cuajadaDesc": "Fest durchgegart, ideal für unterwegs oder Sandwiches."
   },
   "recipes": {
     "title": "Tortilla de Patatas Rezepte",
-    "subtitle": "Entdecken Sie die verschiedenen authentischen Zubereitungsarten des berühmtesten spanischen Gerichts."
+    "subtitle": "Entdecke die verschiedenen authentischen Zubereitungsarten von Spaniens berühmtestem Gericht."
   },
   "recipeItems": {
     "clasica": {
       "title": "Klassische Tortilla",
-      "description": "Das traditionelle spanische Omelett mit Kartoffeln, Eiern und Olivenöl."
+      "description": "Das traditionelle spanische Kartoffel-Omelett mit Kartoffeln, Eiern und Olivenöl."
     },
     "con-cebolla": {
       "title": "Tortilla mit Zwiebeln",
-      "description": "Die am meisten diskutierte Version: Kartoffeln, Eier und karamellisierte Zwiebeln."
+      "description": "Die am heißesten debattierte Variante: Kartoffeln, Eier und karamellisierte Zwiebeln."
     },
     "betanzos": {
       "title": "Betanzos Tortilla",
-      "description": "Berühmt für ihr sehr saftiges und leicht flüssiges Inneres."
+      "description": "Berühmt für ihr sehr saftiges und flüssig-cremiges Inneres."
     }
   },
   "ingredientsPage": {
     "badge": "Die Grundlagen",
-    "title": "Die 4 Heiligen Zutaten",
-    "subtitle": "Eine großartige Tortilla braucht keine Schnörkel. Das Geheimnis liegt in der Qualität der Rohstoffe und den richtigen Proportionen.",
+    "title": "Die 4 heiligen Zutaten",
+    "subtitle": "Eine großartige Tortilla braucht keine künstlichen Zusätze. Das Geheimnis liegt in der Qualität der Zutaten und den exakten Proportionalverhältnissen.",
     "potatoes": {
       "title": "Die Kartoffel",
       "subtitle": "Monalisa, Kennebec oder vorwiegend festkochende Sorten",
-      "desc": "Wir suchen Kartoffeln mit einem ausgewogenen Verhältnis von Stärke und Wasser. Sie werden sanft in Olivenöl confiert, bis sie butterweich sind."
+      "desc": "Wir suchen Kartoffeln mit einer ausgewogenen Balance aus Stärke und Wasser. Monalisa oder Kennebec sind ideal, da sie beim langsamen Garen cremig werden, ohne zu zerfallen."
     },
     "eggs": {
       "title": "Das Ei",
-      "subtitle": "Frische Eier aus Freilandhaltung",
-      "desc": "Das Eigelb sorgt für Cremigkeit und eine schöne goldene Farbe. Zimmerwarme frische Eier garantieren eine perfekte Emulsion."
+      "subtitle": "Eier aus Freiland- oder Ökohaltung",
+      "desc": "Das Eigelb sorgt für Cremigkeit und eine natürliche goldene Farbe. Frische Eier bei Raumtemperatur garantieren eine perfekte Emulsion ohne übermäßiges Verquirlen."
     },
     "oil": {
-      "title": "Olivenöl",
-      "subtitle": "Natives Olivenöl Extra (AOVE)",
-      "desc": "Kein bloßes Schmiermittel: Es ist das Kochmedium, in dem die Kartoffeln confiert werden. Gutes Olivenöl verleiht Geschmack, ohne die Kartoffel zu überdecken."
+      "title": "Das Olivenöl",
+      "subtitle": "Mildes Nativ Extra Olivenöl (Sorte Arbequina)",
+      "desc": "Nicht nur ein Bratfett: Es ist das Garmedium, in dem die Kartoffeln konfiert werden. Hochwertiges Olivenöl verleiht Geschmack, ohne das Kartoffelaroma zu überdecken."
     },
     "onion": {
       "title": "Die Zwiebel",
-      "subtitle": "Süße Zwiebel (Die große Debatte)",
-      "desc": "Für Zwiebelliebhaber bringt feingehackte Zwiebel natürliche Feuchtigkeit und karamellisierte Süße ein, die das Ei perfekt ergänzt."
+      "subtitle": "Milde Zwiebel (Die ewige Debatte)",
+      "desc": "Für Zwiebelliebhaber verleiht fein geschnittene Zwiebel natürliche Feuchtigkeit und karamellisierten Zucker, der das herzhafte Ei perfekt ergänzt."
     },
     "salt": {
       "title": "Das Salz",
       "subtitle": "Feines Meersalz",
-      "desc": "Salz sollte direkt zu den verquirlten Eiern gegeben werden. Es löst Proteine auf und sorgt für ein sanftes Stocken."
+      "desc": "Salz sollte den verquirlten Eiern zugegeben werden und nicht nur den Kartoffeln. Salz löst Eiproteine auf und sorgt für ein gleichmäßiges, samtiges Stocken."
     }
   },
   "techniquesPage": {
-    "badge": "Kulinarische Meisterschaft",
+    "badge": "Meisterschaft in der Küche",
     "title": "Kritische Küchentechniken",
-    "subtitle": "Vom ersten Schneiden der Kartoffeln bis zum entschlossenen Wenden in der Pfanne.",
+    "subtitle": "Vom ersten Einkerben der Kartoffel bis zum beherzten Wenden in der Pfanne.",
     "step1": {
-      "title": "1. Schneiden & Anbrechen",
-      "desc": "Schneide die Kartoffeln in dünne, unregelmäßige Scheiben ('chascar'). Durch das Anbrechen wird Stärke freigesetzt, die die Masse bindet."
+      "title": "1. Schneiden & Einkerben",
+      "desc": "Schneide die Kartoffeln in dünne, unregelmäßige Stücke ('chascar'). Durch das Brechen wird Stärke freigesetzt, die die Masse bindet."
     },
     "step2": {
-      "title": "2. Langsames Confieren (Pochado)",
-      "desc": "Gare die Kartoffeln bei mittlerer bis niedriger Hitze (130°C - 140°C) im Olivenöl. Sie sollen weich garen, nicht knusprig frittieren."
+      "title": "2. Langsames Konfieren (Pochado)",
+      "desc": "Gare die Kartoffeln in Olivenöl bei mittlerer bis niedriger Hitze (130°C - 140°C). Sie müssen langsam weich werden, nicht knusprig frittiert."
     },
     "step3": {
-      "title": "3. Die Heiligen 5 Minuten Ruhezeit",
-      "desc": "Gieße die heißen Kartoffeln ab und mische sie sofort mit den Eiern. 5 Minuten ruhen lassen – die Kartoffeln saugen das Ei auf."
+      "title": "3. Die heiligen 5 Minuten Ruhezeit",
+      "desc": "Gieße die warmen Kartoffeln ab und mische sie sofort mit den verquirlten Eiern. 5 Minuten ruhen lassen, damit die Kartoffeln das Ei wie ein Schwamm aufsaugen."
     },
     "step4": {
-      "title": "4. Der Mutige Wendewurf",
-      "desc": "Verwende einen flachen Teller, der größer als die Pfanne ist. Hand fest auf die Mitte legen und mit einer zügigen Bewegung wenden."
+      "title": "4. Das beherzte Wenden",
+      "desc": "Nutze einen flachen Teller, der größer als die Pfanne ist. Drücke die Hand fest auf die Mitte des Tellers und wende mit einer schnellen, entschlossenen Bewegung."
     },
     "step5": {
-      "title": "5. Das Finale Anbraten",
-      "desc": "Gleite die Tortilla für nur 30 bis 60 Sekunden zurück in die heiße Pfanne, um eine dünne Goldkruste zu erzeugen."
+      "title": "5. Das finale Anbraten",
+      "desc": "Lass die Tortilla für nur 30 bis 60 Sekunden zurück in die heiße Pfanne gleiten, um eine feine goldene Kruste zu erzeugen, während das Innere saftig bleibt."
     }
   },
   "sciencePage": {
     "badge": "Kulinarische Physik, Chemie & Lebensmittelsicherheit",
     "title": "Die Wissenschaft hinter der Tortilla",
-    "subtitle": "Molekulare Veränderungen, thermische Keiminaktivierung und mikrobiologische Sicherheitsstandards.",
+    "subtitle": "Verstehe molekulare Transformationen, thermische Erregerinaktivierung und mikrobiologische Sicherheitsstandards.",
+    "chefNoteHeader": "Aus dem Notizbuch der Chefköchin & des Labors:",
+    "chefNoteText": "Die Tortilla ist ein Meisterwerk der Dualität: die rustikale Wärme der Kartoffel und die wissenschaftliche Volatilität des Eis. Um bakterizide Sicherheit zu garantieren, fordert der Goldstandard stets **70°C for 2 minutes** für eine ≥ 5 Log-Reduktion von *S. Enteritidis*.",
     "card1": {
       "title": "Proteinkoagulation",
-      "desc": "Eiproteine gerinnen ab 62°C. Für vollständige bakterizide Sicherheit fordert der Standard **70°C for 2 minutes** ($\\ge 5 \\text{ log}$ Reduktion von *S. Enteritidis*)."
+      "desc": "Eiproteine beginnen ab 62°C zu gerinnen. Um bakterizide Sicherheit zu gewährleisten, fordert der Standard **70°C for 2 minutes** (Reduktion $\\ge 5 \\text{ log}$ von *S. Enteritidis*)."
     },
     "card2": {
       "title": "Stärkeverkleisterung",
-      "desc": "Bei 60°C - 65°C nehmen Kartoffelstärkekörner Wasser und Olivenöl auf und quellen zu einer sanften Bindematrix."
+      "desc": "Bei 60°C - 65°C absorbieren die Stärkekörner der Kartoffel Wasser und Fett vom Konfieren und quellen zu einer weichen Matrix auf."
     },
     "card3": {
       "title": "Thermische Inaktivierung & Hitze",
-      "desc": "Mittlere Sicherheitsstufe erreicht **63°C for 20 seconds** (für saftige Tortillas zum sofortigen Verzehr). Der bakterizide Goldstandard ist **70°C for 2 minutes**."
+      "desc": "Die mittlere Sicherheitsstufe erreicht **63°C for 20 seconds** (mittlere *Salmonella*-Reduktion für saftige Tortillas zum sofortigen Verzehr). Der bakterizide Goldstandard ist **70°C for 2 minutes**."
     },
     "card4": {
       "title": "Mikrobiologisches Risikomanagement",
-      "desc": "Cremige 'Poco cuajada' Tortillas besitzen einen pH-Wert von 3.8–4.5 und hohe Wasseraktivität ($a_w > 0.99$). Ungekühlte Zubereitungen über **8°C** dürfen maximal **4 hours** bei Raumtemperatur stehen."
+      "desc": "Saftige 'poco cuajada' Tortillas weisen einen pH-Wert von 3,8–4,5 und hohe Wasseraktivität ($a_w > 0,99$) auf. Ungekühlte Zubereitungen über **8°C** dürfen nicht länger als **4 hours** bei Raumtemperatur stehen."
     },
-    "safetySectionTitle": "Lebensmittelsicherheit & Thermische Garstufen",
+    "safetySectionTitle": "Garantie für Lebensmittel- & Thermosicherheit",
     "safetySectionSub": "Die drei thermischen Verarbeitungsstufen nach der Risk-Ranger-Methodik.",
-    "levelPilotTitle": "Umgebungs-Gefahrenzone",
-    "levelPilotDesc": "Raumtemperatur ohne Wärmekontrolle. Bakterienwachstum bei Stehzeiten über **4 hours**.",
+    "levelPilotTitle": "Raumtemperatur-Gefahrenzone",
+    "levelPilotDesc": "Raumtemperatur ohne thermische Kontrolle. Bakterienvermehrungsrisiko, wenn die Stehzeit **4 hours** überschreitet.",
     "levelMediumTitle": "Mittlere Sicherheitsstufe",
-    "levelMediumDesc": "Thermische Erhitzung auf **63°C for 20 seconds**. Für cremige Tortillas zum Sofortverzehr.",
+    "levelMediumDesc": "Thermische Behandlung bei **63°C for 20 seconds**. Empfohlen für saftige Tortillas zum sofortigen Verzehr.",
     "levelSafeTitle": "Bakterizider Goldstandard",
-    "levelSafeDesc": "Garstufe **70°C for 2 minutes**. Garantiert $\\ge 5 \\text{ log}$ Reduktion von *S. Enteritidis*."
+    "levelSafeDesc": "Thermische Behandlung von **70°C for 2 minutes**. Garantiert eine Reduktion von $\\ge 5 \\text{ log}$ von *S. Enteritidis*."
+  },
+  "personasPage": {
+    "notebookLabel": "Gastronomisches Labornotizbuch",
+    "summaryTitle": "Tradition, Wissenschaft & Innovation vereint",
+    "summaryDesc": "Jede dieser Persönlichkeiten trägt einen einzigartigen Baustein zum Kulturgut der Tortilla de Patatas bei. Erkunden Sie unsere interaktiven Bereiche, um deren Erkenntnisse und Rezepte in die Praxis umzusetzen.",
+    "reference": "Referenz",
+    "pasteurization": "Pasteurisierung: **70°C for 2 minutes**",
+    "mediumThreshold": "Mittlere Stufe: **63°C for 20 seconds**",
+    "ambientLimit": "Raumtemperatur-Limit: **4 hours**"
+  },
+  "historyPage": {
+    "notebookLabel": "Notizbuch für Gastronomie & Historiographie",
+    "summaryTitle": "Das Vermächtnis der Tortilla de Patatas",
+    "summaryDesc": "Eine einzigartige kulinarische Reise, die Spaniens lebendige Geschichte mit wissenschaftlicher Präzision verbindet. Für Details zur Bakteriologie und Lebensmittelsicherheit besuchen Sie unseren Bereich Wissenschaft."
   },
   "aboutPage": {
     "badge": "Geschichte & Kultur",
@@ -134,16 +169,17 @@
     "storyP1": "Während Legenden die Erfindung General Tomás de Zumalacárregui in Navarra um 1817 zuschreiben, belegen historische Dokumente den Ursprung in Villanueva de la Serena bereits im Jahr 1798.",
     "storyP2": "Heute ist die Tortilla de Patatas überall beliebt: Sie prägt die spanische Tapas-Kultur vom Frühstück bis zum Abendessen.",
     "missionTitle": "Unsere Mission",
-    "missionDesc": "tortilladepatatas.org verbindet Liebhaber der spanischen Küche, dokumentiert traditionelle Techniken und bietet interaktive Baukasten-Tools."
+    "missionDesc": "tortilladepatatas.org verbindet Liebhaber der spanischen Küche, dokumentiert traditionelle Techniken und bietet interaktive Baukasten-Tools.",
+    "websiteDesc": "Eine schnelle, mehrsprachige und zugängliche Website für alle Liebhaber der traditionellen Hausmannskost."
   },
   "error": {
     "title": "Diese Tortilla hat sich gewendet...",
     "description": "Es sieht so aus, als ob diese Seite nicht existiert. Vielleicht hat jemand versucht, sie zu früh zu wenden.",
-    "button": "Zurück in die Küche"
+    "button": "Zurück zur Küche"
   },
   "features": {
-    "title": "Alles über die Tortilla de Patatas",
-    "subtitle": "Mehr als nur Rezepte. Eine komplette Wissensplattform über Spaniens berühmtestes Gericht.",
+    "title": "Alles über Tortilla de Patatas",
+    "subtitle": "Mehr als nur Rezepte. Eine vollständige Wissensdatenbank für Spaniens berühmtestes Gericht.",
     "cards": {
       "ingredients": {
         "title": "Zutaten",
@@ -151,19 +187,19 @@
       },
       "recipes": {
         "title": "Rezepte",
-        "description": "Klassische Rezepte, regionale Varianten und deine eigenen Kreationen."
+        "description": "Klassische Rezepte, regionale Varianten und eigene Kreationen."
       },
       "techniques": {
         "title": "Techniken",
-        "description": "Lerne Braten, Mischen, Ruhenlassen und den berühmten Tortilla-Wendegriff."
+        "description": "Meistere Anbraten, Mischen, Ruhen lassen und das berühmte Wenden der Tortilla."
       },
       "science": {
         "title": "Wissenschaft",
-        "description": "Verstehe Hitze, Textur, Chemie und warum Rezepte funktionieren."
+        "description": "Verstehe Hitze, Textur, Chemie und warum die Rezepte funktionieren."
       },
       "history": {
         "title": "Geschichte",
-        "description": "Entdecke den Ursprung und die kulturelle Bedeutung dieses ikonischen spanischen Gerichts."
+        "description": "Erkunde die Ursprünge und die kulturelle Bedeutung von Spaniens Kultgericht."
       },
       "builder": {
         "title": "Interaktiver Baukasten",
@@ -172,12 +208,19 @@
     }
   },
   "footer": {
-    "brandDesc": "Die Enzyklopädie und das Labor-Notizbuch für die authentische spanische Tortilla de Patatas.",
+    "brandDesc": "Die Gastronomie-Enzyklopädie und das Labornotizbuch für die authentische spanische Tortilla de Patatas.",
+    "subtitle": "Gastronomie, Tradition & Kulinarische Wissenschaft",
     "exploreTitle": "Notizbuch erkunden",
+    "thermalThresholds": "Thermische Sicherheitsgrenzen:",
+    "safeThreshold": "Sicher: **70°C for 2 minutes**",
+    "cautionThreshold": "Achtung: **63°C for 20 seconds**",
+    "riskThreshold": "Risiko: **4 hours** Raumtemp.",
     "safetyTitle": "Bakterizider Sicherheitsstandard",
-    "safetyText": "Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C for 2 minutes** (≥ 5-Log-Reduktion von Salmonella spp.). Im Haushalt maximal **4 hours** bei Raumtemperatur aufbewahren oder unter <8°C kühlen.",
+    "safetyText": "Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C for 2 minutes** (oder **63°C for 20 seconds** als mittlere Stufe). Saftige Tortillas sollten nicht länger als **4 hours** bei Raumtemperatur stehen.",
+    "safetyNorm": "Gemeinschaftsverpflegung Verordnung Königliches Dekret 1021/2022",
+    "viewReport": "Bericht anzeigen",
     "rights": "Alle Rechte vorbehalten.",
-    "craftedWith": "Gestaltet mit",
-    "forGastronomy": "für Liebhaber der Gastronomie und Kulinarik-Wissenschaft."
+    "craftedWith": "Erstellt mit",
+    "forGastronomy": "für Liebhaber der Gastronomie und kulinarischen Wissenschaft."
   }
 }

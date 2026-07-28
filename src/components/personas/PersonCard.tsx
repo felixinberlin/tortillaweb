@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { User, BookOpen, ExternalLink, Sparkles, Image as ImageIcon, Flame, ShieldAlert, Award, Tv, Globe } from "lucide-react";
 import { Persona } from "@/data/personasData";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
@@ -23,6 +24,7 @@ function renderFormattedText(text: string) {
 }
 
 export default function PersonCard({ persona }: PersonCardProps) {
+  const { t } = useTranslation();
   const getBadgeStyle = (badge: string) => {
     switch (badge) {
       case "Historia":
@@ -130,7 +132,7 @@ export default function PersonCard({ persona }: PersonCardProps) {
       {/* Footer / Related Page Button */}
       <div className="pt-4 border-t border-border/60 flex items-center justify-between mt-auto">
         <span className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-          Referencia
+          {t("personasPage.reference", "Referencia")}
         </span>
         <LocalizedLink
           to={persona.relatedPage.href}
