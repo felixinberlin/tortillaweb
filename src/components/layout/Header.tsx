@@ -92,7 +92,7 @@ export default function Header() {
             <ChefHat className="h-5 w-5 sm:h-6 sm:w-6" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif-heading font-black text-lg sm:text-xl text-foreground tracking-tight leading-tight group-hover:text-amber-900 transition-colors">
+            <span className="font-serif-heading font-black text-sm xs:text-base sm:text-xl text-foreground tracking-tight leading-tight group-hover:text-amber-900 transition-colors">
               tortilladepatatas.org
             </span>
             <span className="font-script text-xs sm:text-sm text-amber-800/90 -mt-0.5 hidden xs:block">
@@ -181,11 +181,33 @@ export default function Header() {
         </div>
 
         {/* Mobile Controls */}
-        <div className="lg:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-1.5 sm:gap-2">
+          {/* Mobile Language Switcher */}
+          <div className="language-switcher flex items-center gap-0.5 bg-[#F3EFE6] p-0.5 rounded-lg border border-[#E8E2D5]" role="region" aria-label="Language Selector">
+            {languages.map((language) => {
+              const active = location.pathname.startsWith(`/${language.code}`);
+              return (
+                <button
+                  key={language.code}
+                  onClick={() => changeLanguage(language.code)}
+                  className={`lang-btn text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded transition-all ${
+                    active
+                      ? "bg-white text-[#8D6E63] shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  aria-pressed={active}
+                >
+                  {language.label}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Mobile Constructor Quick Link */}
           <LocalizedLink to="/builder">
-            <Button size="sm" className="bg-[#8D6E63] hover:bg-[#73564B] text-white text-xs px-2.5 py-1 font-bold shadow-2xs">
-              {t("nav.builder", "Constructor")}
+            <Button size="sm" className="bg-[#8D6E63] hover:bg-[#73564B] text-white text-xs px-2 py-1 font-bold shadow-2xs">
+              <Sparkles className="w-3 h-3 text-[#FFB800] sm:hidden" />
+              <span className="hidden xs:inline">{t("nav.builder", "Constructor")}</span>
             </Button>
           </LocalizedLink>
 

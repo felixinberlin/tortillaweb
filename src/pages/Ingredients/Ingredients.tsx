@@ -10,6 +10,7 @@ export default function Ingredients() {
     {
       key: "potatoes",
       icon: CookingPot,
+      image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80",
       accent: "from-amber-500/10 to-amber-500/5 border-amber-500/20",
       badgeColor: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200",
       iconColor: "text-amber-600",
@@ -17,6 +18,7 @@ export default function Ingredients() {
     {
       key: "eggs",
       icon: Egg,
+      image: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=600&q=80",
       accent: "from-yellow-500/10 to-yellow-500/5 border-yellow-500/20",
       badgeColor: "bg-yellow-100 text-yellow-900 dark:bg-yellow-950 dark:text-yellow-200",
       iconColor: "text-yellow-600",
@@ -24,6 +26,7 @@ export default function Ingredients() {
     {
       key: "oil",
       icon: Droplet,
+      image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80",
       accent: "from-emerald-500/10 to-emerald-500/5 border-emerald-500/20",
       badgeColor: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200",
       iconColor: "text-emerald-600",
@@ -31,6 +34,7 @@ export default function Ingredients() {
     {
       key: "onion",
       icon: Flame,
+      image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cf?auto=format&fit=crop&w=600&q=80",
       accent: "from-orange-500/10 to-orange-500/5 border-orange-500/20",
       badgeColor: "bg-orange-100 text-orange-900 dark:bg-orange-950 dark:text-orange-200",
       iconColor: "text-orange-600",
@@ -38,6 +42,7 @@ export default function Ingredients() {
     {
       key: "salt",
       icon: Scale,
+      image: "https://images.unsplash.com/photo-1518110168401-f2877ee2e88d?auto=format&fit=crop&w=600&q=80",
       accent: "from-blue-500/10 to-blue-500/5 border-blue-500/20",
       badgeColor: "bg-blue-100 text-blue-900 dark:bg-blue-950 dark:text-blue-200",
       iconColor: "text-blue-600",
@@ -67,28 +72,39 @@ export default function Ingredients() {
           return (
             <Card 
               key={item.key} 
-              className={`border bg-gradient-to-br ${item.accent} shadow-sm transition hover:shadow-md`}
+              className={`border bg-gradient-to-br ${item.accent} shadow-sm transition hover:shadow-md overflow-hidden flex flex-col justify-between`}
             >
-              <CardHeader className="pb-3">
-                <div className="flex items-center gap-3">
-                  <div className={`p-2.5 rounded-xl bg-background border shadow-2xs ${item.iconColor}`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl font-bold">
-                      {t(`ingredientsPage.${item.key}.title`)}
-                    </CardTitle>
-                    <span className={`inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-semibold ${item.badgeColor}`}>
-                      {t(`ingredientsPage.${item.key}.subtitle`)}
-                    </span>
-                  </div>
+              <div>
+                <div className="h-40 w-full overflow-hidden relative">
+                  <img
+                    src={item.image}
+                    alt={t(`ingredientsPage.${item.key}.title`)}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {t(`ingredientsPage.${item.key}.desc`)}
-                </p>
-              </CardContent>
+                <CardHeader className="pb-3 pt-4">
+                  <div className="flex items-center gap-3">
+                    <div className={`p-2.5 rounded-xl bg-background border shadow-2xs ${item.iconColor}`}>
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl font-bold">
+                        {t(`ingredientsPage.${item.key}.title`)}
+                      </CardTitle>
+                      <span className={`inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-semibold ${item.badgeColor}`}>
+                        {t(`ingredientsPage.${item.key}.subtitle`)}
+                      </span>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {t(`ingredientsPage.${item.key}.desc`)}
+                  </p>
+                </CardContent>
+              </div>
             </Card>
           );
         })}

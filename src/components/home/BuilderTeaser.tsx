@@ -1,4 +1,4 @@
-import { ArrowRight, ChefHat, Flame } from "lucide-react";
+import { ArrowRight, ChefHat, Flame, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import LocalizedLink from "@/components/navigation/LocalizedLink";
@@ -53,17 +53,25 @@ export default function BuilderTeaser() {
 
 
 
-            <LocalizedLink to="/builder">
+            <div className="flex flex-wrap items-center gap-3">
+              <LocalizedLink to="/builder">
+                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white font-bold">
+                  {t("builder.button")}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </LocalizedLink>
 
-              <Button size="lg">
-
-                {t("builder.button")}
-
-                <ArrowRight className="ml-2 h-5 w-5" />
-
-              </Button>
-
-            </LocalizedLink>
+              <a
+                href="http://creator.tortilladepatatas.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" variant="outline" className="border-amber-600 text-amber-900 hover:bg-amber-50 font-bold gap-2">
+                  <span>creator.tortilladepatatas.org</span>
+                  <ExternalLink className="h-4 w-4" />
+                </Button>
+              </a>
+            </div>
 
 
           </div>

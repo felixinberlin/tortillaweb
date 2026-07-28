@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 import LocalizedLink from "@/components/navigation/LocalizedLink";
+import clasicaImg from "@/assets/images/clasica.jpg";
 
 import { Button } from "@/components/ui/button";
 
@@ -74,7 +75,7 @@ export default function Hero() {
         >
           <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-amber-100 shadow-xl border border-border">
             <img
-              src="/images/clasica.jpg"
+              src={clasicaImg}
               alt={t("hero.title")}
               className="h-full w-full object-cover"
             />

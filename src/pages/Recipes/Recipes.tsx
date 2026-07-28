@@ -8,20 +8,22 @@ import {
 } from "@/components/ui/card";
 
 import LocalizedLink from "@/components/navigation/LocalizedLink";
-
+import clasicaImg from "@/assets/images/clasica.jpg";
+import concebollaImg from "@/assets/images/concebolla.jpg";
+import betanzosImg from "@/assets/images/betanzos.jpg";
 
 const recipes = [
   {
     id: "clasica",
-    image: "/images/clasica.jpg",
+    image: clasicaImg,
   },
   {
     id: "con-cebolla",
-    image: "/images/concebolla.jpg",
+    image: concebollaImg,
   },
   {
     id: "betanzos",
-    image: "/images/betanzos.jpg",
+    image: betanzosImg,
   },
 ];
 

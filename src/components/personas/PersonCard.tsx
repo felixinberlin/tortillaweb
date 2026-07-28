@@ -94,6 +94,25 @@ export default function PersonCard({ persona }: PersonCardProps) {
           </Badge>
         </div>
 
+        {/* Portrait Image if present */}
+        {persona.imageUrl && (
+          <div className="relative w-full h-48 overflow-hidden rounded-xl mb-4 border border-amber-200/80 shadow-2xs group-hover:shadow-md transition-all">
+            <img
+              src={persona.imageUrl}
+              alt={persona.name}
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80";
+              }}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-2 left-3 right-3 text-white text-xs font-medium italic drop-shadow-xs line-clamp-1">
+              {persona.name}
+            </div>
+          </div>
+        )}
+
         {/* Portrait Illustration Description Box if present */}
         {persona.portraitDesc && (
           <div className="mb-4 p-3 rounded-lg bg-[#FAF6EE] border border-amber-200/70 text-xs text-amber-950/90 flex items-start gap-2 italic">

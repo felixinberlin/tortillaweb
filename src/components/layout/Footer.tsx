@@ -76,6 +76,17 @@ export default function Footer() {
               </LocalizedLink>
             </li>
             <li>
+              <a
+                href="http://creator.tortilladepatatas.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FFB800] hover:underline transition-colors flex items-center justify-between group py-0.5 font-bold"
+              >
+                <span>Tortilla Creator App (creator.tortilladepatatas.org)</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800]" />
+              </a>
+            </li>
+            <li>
               <LocalizedLink to="/ingredients" className="text-[#E8E2D5] hover:text-[#FFB800] transition-colors flex items-center justify-between group py-0.5">
                 <span>{t("nav.ingredients", "Ingredientes & Proporciones")}</span>
                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#FFB800]" />

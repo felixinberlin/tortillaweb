@@ -11,7 +11,9 @@ import {
   Timer, 
   Scale, 
   Info,
-  CircleDot
+  CircleDot,
+  Globe,
+  ExternalLink
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -64,7 +66,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
   return (
     <main className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
       {/* Header */}
-      <div className="text-center mb-12 max-w-3xl mx-auto">
+      <div className="text-center mb-8 max-w-3xl mx-auto">
         <Badge variant="secondary" className="mb-4 px-3 py-1 text-sm font-medium bg-amber-100 text-amber-900 border-amber-200">
           <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" />
           {t("builder.badge", "Constructor Interactivo de Tortilla")}
@@ -75,6 +77,41 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
         <p className="text-lg text-muted-foreground leading-relaxed">
           {t("builder.subtitle", "Ajusta comensales, elige tu técnica favorita y obtén las proporciones exactas para una tortilla perfecta.")}
         </p>
+      </div>
+
+      {/* External Creator Link Banner */}
+      <div className="bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/15 border-2 border-amber-500/40 rounded-2xl p-5 mb-10 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="p-3 rounded-xl bg-amber-500 text-white font-bold shrink-0 shadow-2xs">
+            <Globe className="w-6 h-6" />
+          </div>
+          <div>
+            <h3 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2 flex-wrap">
+              <span>{lang === "es" ? "Tortilla Creator Web App" : lang === "de" ? "Tortilla Creator Web-App" : "Tortilla Creator Web App"}</span>
+              <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300">
+                creator.tortilladepatatas.org
+              </Badge>
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+              {lang === "es"
+                ? "Accede a la aplicación interactiva Tortilla Creator en http://creator.tortilladepatatas.org/ para personalizar y calcular tu receta."
+                : lang === "de"
+                ? "Rufen Sie die interaktive Tortilla Creator Anwendung unter http://creator.tortilladepatatas.org/ auf."
+                : "Access the interactive Tortilla Creator application at http://creator.tortilladepatatas.org/ to customize your recipe."}
+            </p>
+          </div>
+        </div>
+        <a
+          href="http://creator.tortilladepatatas.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 w-full sm:w-auto"
+        >
+          <Button className="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-xs gap-2">
+            <span>{lang === "es" ? "Abrir Tortilla Creator" : lang === "de" ? "Tortilla Creator öffnen" : "Open Tortilla Creator"}</span>
+            <ExternalLink className="w-4 h-4" />
+          </Button>
+        </a>
       </div>
 
       <div className="grid lg:grid-cols-12 gap-8 items-start">

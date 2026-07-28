@@ -4,6 +4,7 @@ export interface Persona {
   badge: 'Historia' | 'Tradición' | 'Innovación' | 'Ciencia' | 'Divulgación' | 'Cultura' | 'Cultura Pop' | string;
   era?: string;
   portraitDesc?: string;
+  imageUrl?: string;
   contribution: string;
   relatedPage: {
     label: string;
@@ -44,6 +45,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "José Manuel Barat Baviera",
             badge: "Historia",
             era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80",
             contribution: "Como tutor académico en la Universitat Politècnica de València, ha liderado la formalización científica del plato a través de la tutela de investigaciones críticas. Su labor es fundamental para elevar la tortilla de un saber empírico a un objeto de estudio técnico bajo estándares de ingeniería agronómica.",
             relatedPage: {
               label: "Ver Ciencia & Seguridad",
@@ -56,6 +58,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "Cocineras de pueblo anónimas",
             badge: "Tradición",
             era: "Transversal (Siglos XVIII - XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1514944288352-fffac99f0bdf?auto=format&fit=crop&w=600&q=80",
             contribution: "Custodias del equilibrio alquímico entre el huevo y la patata. El contexto histórico y los estudios de hábitos culinarios reconocen en su figura la estandarización de la proporción áurea que define la identidad del plato, manteniendo viva la técnica doméstica frente a la industrialización.",
             relatedPage: {
               label: "Ver Historia & Cronología",
@@ -74,6 +77,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "pepa-miranda",
             name: "Pepa Miranda (Casa Dani)",
             badge: "Tradición",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80",
             portraitDesc: "Retrato de una cocinera de gesto experto en una cocina de gran actividad, manejando con precisión una sartén de hierro donde el huevo apenas cuajado brilla bajo la luz cálida de los fogones.",
             contribution: "Referente absoluto de la tortilla de estilo tradicional en Madrid. Su técnica busca el punto de jugosidad extrema, situando su establecimiento como el epicentro del debate entre el placer gastronómico y el rigor térmico necesario para la seguridad alimentaria.",
             relatedPage: {
@@ -86,6 +91,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "cris-delantal",
             name: "Cris (Delantal de Alces)",
             badge: "Innovación",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80",
             portraitDesc: "Retrato en una cocina luminosa y contemporánea; sobre la encimera destacan cuencos con harina de garbanzo y fécula de tapioca, mientras Cris presenta una tortilla de aspecto dorado y jugoso, indistinguible de la clásica.",
             contribution: "Pionera en la reinterpretación inclusiva de la tortilla. Ha perfeccionado una fórmula vegana y sin gluten utilizando harina de garbanzo y tapioca para emular la textura del huevo, permitiendo que personas con alergias o dietas éticas accedan a este baluarte culinario sin perder la esencia del sabor tradicional.",
             relatedPage: {
@@ -98,6 +105,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "colectivo-excelencia",
             name: "Colectivo de la Excelencia (Azurmendi, Mugaritz, Noor, Casa Marcial)",
             badge: "Innovación",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?auto=format&fit=crop&w=600&q=80",
             portraitDesc: "Composición de fachadas y entornos de alta cocina, desde los paisajes de Vizcaya hasta los salones de Córdoba, representando la cumbre de la imagen corporativa y digital en la restauración de lujo.",
             contribution: "Estos establecimientos representan el estándar de oro en la presentación y digitalización de la gastronomía española. Su apuesta por la calidad visual y la transparencia informativa en sus plataformas define cómo se percibe la tortilla y otros platos icónicos en el escenario de la alta cocina internacional.",
             relatedPage: {
@@ -117,6 +126,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "alejandro-ortega",
             name: "Alejandro José Ortega Vargas",
             badge: "Ciencia",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=600&q=80",
             contribution: "Investigador especializado en el perfil de riesgo de Salmonella spp. en la tortilla poco cuajada. Mediante el uso de la herramienta Risk Ranger, ha documentado que el consumo tradicional (huevo líquido) es un escenario crítico de exposición. Su trabajo analiza brotes recientes de gran impacto, como el del Trasan Fest en Galicia (2025), donde la falta de tratamiento térmico adecuado resultó en más de 150 afectados, subrayando la urgencia de alcanzar los **70°C** en el centro del producto por **2 minutes**.",
             relatedPage: {
               label: "Ver Ciencia & Microbiología",
@@ -128,6 +139,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "elena-sandri",
             name: "Elena Sandri",
             badge: "Ciencia",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
             contribution: "Investigadora sociológica cuyo estudio en The International Journal of Gastronomy and Food Science revela la actual transformación del hogar español: mientras el 59,1% aún cocina a diario, un significativo 40,9% ha abandonado esta práctica, impulsando el auge de las tortillas preparadas y el sector de platos listos para el consumo.",
             relatedPage: {
               label: "Ver Historia & Hábitos",
@@ -139,6 +152,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "natzir-turrado",
             name: "Natzir Turrado",
             badge: "Innovación",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
             contribution: "Consultor experto en Foodtech y SEO internacional. Su análisis destaca que la supervivencia de los negocios de tortilla en la era digital depende de la integración del canal orgánico con la experiencia móvil. Subraya que en el sector de suscripciones de comida saludable, el éxito reside en capturar el tráfico informativo para derivarlo a aplicaciones propias que fidelicen al usuario fuera del vaivén de los algoritmos.",
             relatedPage: {
               label: "Ver Constructor & Personalización",
@@ -157,6 +172,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "bree-recker",
             name: "Bree Recker",
             badge: "Divulgación",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
             contribution: "Periodista gastronómica y creadora de contenidos ('brieelikethecheese'). Defiende que la 'elección de comida se guía por el sistema visual', por lo que la divulgación de la tortilla debe apoyarse en imágenes de alta fidelidad. Su labor educativa se centra en mejorar la presencia digital de los restaurantes para atraer a un comensal que, en el siglo XXI, 'come primero con los ojos'.",
             relatedPage: {
               label: "Ver Ingredientes & Texturas",
@@ -168,6 +185,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "jose-luis-nueno",
             name: "José Luis Nueno",
             badge: "Divulgación",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
             contribution: "Profesor, investigador y especialista en comportamiento del consumidor. Sus estudios sobre conveniencia, digitalización del retail y nuevos modelos de consumo ayudan a comprender cómo la tortilla de patatas se adapta al mercado contemporáneo: supermercados online, platos preparados, delivery y soluciones listas para consumir dentro de una industria guiada por la rapidez y comodidad.",
             relatedPage: {
               label: "Ver Historia & Tendencias",
@@ -180,6 +199,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "Taz Skylar (Sanji en One Piece) e Iñaki Godoy",
             badge: "Cultura Pop",
             era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80",
             portraitDesc: "Retrato moderno y divertido de un joven actor con actitud de chef de barco, debatiendo animadamente en una cocina sobre comida española.",
             contribution: "Durante la promoción de la serie live-action de One Piece en Netflix, Taz Skylar (quien interpreta al chef de la tripulación, Sanji, y creció familiarizado con la gastronomía española) protagonizó un debate con su compañero Iñaki Godoy. Su intercambio humorístico cuestionando los ingredientes exactos de la tortilla demostró cómo la pasión, la simplicidad y la confusión que rodean a esta receta tradicional española logran captar la atención de estrellas globales y de las nuevas generaciones.",
             relatedPage: {
@@ -193,6 +213,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "Rosalía",
             badge: "Cultura Pop",
             era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
             portraitDesc: "Retrato moderno de Rosalía disfrutando de un pincho de tortilla con pan.",
             contribution: "La artista internacional catalana demostró el inmenso poder social de este plato al revolucionar Twitter con una simple declaración. Al proclamar públicamente su amor por la tortilla de patatas 'con pan' y especificar rápidamente que la prefiere 'con cebollita', reabrió el eterno debate nacional, logrando miles de retuits y arrastrando a otras celebridades a posicionarse en el bando concebollista o sincebollista.",
             relatedPage: {
@@ -206,6 +227,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "José Andrés",
             badge: "Divulgación Internacional",
             era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80",
             portraitDesc: "Retrato moderno, cálido y enérgico del chef José Andrés, presentando una perfecta y jugosa tortilla española en un ambiente de restaurante internacional.",
             contribution: "Chef español reconocido mundialmente por su incansable labor de difusión de la gastronomía de nuestro país. A través de sus restaurantes (como Jaleo), libros y apariciones públicas, ha defendido este plato como una expresión cultural capaz de viajar más allá de sus fronteras, refiriéndose a la tortilla como 'el plato más importante de la cocina española'. Su visión representa la transición exacta de la tortilla desde la cocina familiar hacia un icono gastronómico internacional. Además de la receta tradicional, ha popularizado versiones de vanguardia, como la famosa 'tortilla exprés' con patatas chips de bolsa, y variantes de autor incorporando ingredientes como atún blanco, queso Idiazábal y pimientos del piquillo asados.",
             relatedPage: {
@@ -225,6 +247,8 @@ export const personasData: Record<string, PersonasPageContent> = {
             id: "juan-roig",
             name: "Juan Roig (Mercadona)",
             badge: "Innovación",
+            era: "Contemporánea (Siglo XXI)",
+            imageUrl: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80",
             contribution: "Líder empresarial con la visión disruptiva de que 'a mitad del siglo XXI no habrá cocinas en los hogares'. Bajo esta premisa, ha impulsado un crecimiento del 48% en el sector de platos listos para comer en solo dos años, posicionando la tortilla envasada como el pilar fundamental de una nueva economía de consumo donde la eficiencia y la inmediatez sustituyen a la preparación tradicional.",
             relatedPage: {
               label: "Ver Historia & Cronología",
