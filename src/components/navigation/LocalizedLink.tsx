@@ -1,33 +1,26 @@
-import { Link, type LinkProps, useParams } from "react-router-dom";
-
+import { Link, type LinkProps, useParams, useLocation } from "react-router-dom";
 
 type LocalizedLinkProps = Omit<LinkProps, "to"> & {
   to: string;
 };
-
 
 export default function LocalizedLink({
   to,
   children,
   ...props
 }: LocalizedLinkProps) {
-
   const { lang } = useParams();
+  const location = useLocation();
 
+  const pathLang = location.pathname.split("/").filter(Boolean)[0];
+  const activeLang = lang || pathLang;
+  const language = ["es", "en", "de"].includes(activeLang) ? activeLang : "es";
 
-  const language = lang || "es";
-
-
-  const path = to.startsWith("/")
-    ? `/${language}${to}`
-    : `/${language}/${to}`;
-
+  const cleanTo = to.startsWith("/") ? to : `/${to}`;
+  const path = cleanTo === "/" ? `/${language}` : `/${language}${cleanTo}`;
 
   return (
-    <Link
-      to={path}
-      {...props}
-    >
+    <Link to={path} {...props}>
       {children}
     </Link>
   );

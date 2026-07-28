@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, ChefHat, Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -93,81 +93,59 @@ export default function Header() {
 
 
         {/* Logo */}
-        <Link
-          to="/es"
-          className="flex items-center gap-2 text-xl font-bold"
+        <LocalizedLink
+          to="/"
+          className="flex items-center gap-2 text-xl font-extrabold tracking-tight text-amber-900 dark:text-amber-100"
         >
-          <ChefHat className="h-6 w-6" />
-
-          <span>
-            Tortilla de Patatas
-          </span>
-        </Link>
-
-
+          <div className="p-1.5 rounded-lg bg-amber-500/10 text-amber-600">
+            <ChefHat className="h-6 w-6" />
+          </div>
+          <span>Tortilla de Patatas</span>
+        </LocalizedLink>
 
         {/* Desktop navigation */}
         <NavigationMenu className="hidden md:flex">
-
-          <NavigationMenuList>
-
+          <NavigationMenuList className="gap-1">
             {navigation.map((item) => (
-
               <NavigationMenuItem key={item.href}>
-
                 <LocalizedLink
                   to={item.href}
-                  className="px-3 py-2 text-sm font-medium transition-colors hover:text-orange-600"
+                  className="px-3.5 py-2 text-sm font-medium transition-colors hover:text-amber-600 rounded-md hover:bg-amber-50 dark:hover:bg-amber-950/30"
                 >
                   {t(`nav.${item.key}`)}
                 </LocalizedLink>
-
               </NavigationMenuItem>
-
             ))}
-
           </NavigationMenuList>
-
         </NavigationMenu>
 
-
-
-
-
-        {/* Language selector */}
-        <div className="hidden md:flex items-center gap-2">
-
-          <Languages className="h-4 w-4" />
-
-          {languages.map((language) => (
-
-            <button
-              key={language.code}
-              onClick={() => changeLanguage(language.code)}
-              className="text-sm hover:text-orange-600"
-            >
-              {language.label}
-            </button>
-
-          ))}
-
-        </div>
-
-
-
-
-
-        {/* CTA */}
-        <div className="hidden md:block">
+        {/* Desktop Right Side */}
+        <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center gap-1 bg-muted/60 p-1 rounded-lg border text-xs font-semibold">
+            <Languages className="h-3.5 w-3.5 text-muted-foreground ml-1.5 mr-0.5" />
+            {languages.map((language) => {
+              const active = location.pathname.startsWith(`/${language.code}`);
+              return (
+                <button
+                  key={language.code}
+                  onClick={() => changeLanguage(language.code)}
+                  className={`px-2 py-1 rounded transition-all ${
+                    active
+                      ? "bg-background text-amber-600 shadow-2xs font-bold"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {language.label}
+                </button>
+              );
+            })}
+          </div>
 
           <LocalizedLink to="/builder">
-
-            <Button>
+            <Button className="bg-amber-600 hover:bg-amber-700 text-white font-medium">
               {t("hero.buildButton")}
             </Button>
-
           </LocalizedLink>
-
         </div>
 
 
@@ -176,73 +154,55 @@ export default function Header() {
 
         {/* Mobile menu */}
         <div className="md:hidden">
-
           <Sheet>
+            <SheetTrigger
+              render={
+                <Button variant="ghost" size="icon" aria-label="Open navigation menu">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              }
+            />
 
-            <SheetTrigger>
-
-              <Button
-                variant="ghost"
-                size="icon"
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
-
-            </SheetTrigger>
-
-
-            <SheetContent side="right">
-
-              <nav className="mt-8 flex flex-col gap-4">
-
-
+            <SheetContent side="right" className="p-6">
+              <nav className="mt-8 flex flex-col gap-5">
                 {navigation.map((item) => (
-
                   <LocalizedLink
                     key={item.href}
                     to={item.href}
-                    className="text-lg font-medium hover:text-orange-600"
+                    className="text-lg font-semibold transition-colors hover:text-amber-600"
                   >
                     {t(`nav.${item.key}`)}
                   </LocalizedLink>
-
                 ))}
 
-
-
-                <div className="mt-4 flex gap-3">
-
-                  {languages.map((language) => (
-
-                    <button
-                      key={language.code}
-                      onClick={() => changeLanguage(language.code)}
-                    >
-                      {language.label}
-                    </button>
-
-                  ))}
-
+                <div className="mt-6 border-t pt-6">
+                  <div className="flex items-center gap-2 mb-3 text-sm font-medium text-muted-foreground">
+                    <Languages className="h-4 w-4" />
+                    <span>Idioma / Language</span>
+                  </div>
+                  <div className="flex gap-2">
+                    {languages.map((language) => (
+                      <Button
+                        key={language.code}
+                        variant={location.pathname.startsWith(`/${language.code}`) ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => changeLanguage(language.code)}
+                        className="flex-1"
+                      >
+                        {language.label}
+                      </Button>
+                    ))}
+                  </div>
                 </div>
 
-
-
-
-                <LocalizedLink to="/builder">
-
-                  <Button className="mt-4 w-full">
+                <LocalizedLink to="/builder" className="mt-4">
+                  <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium">
                     {t("hero.buildButton")}
                   </Button>
-
                 </LocalizedLink>
-
-
               </nav>
-
             </SheetContent>
-
           </Sheet>
-
         </div>
 
 

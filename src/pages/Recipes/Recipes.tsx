@@ -13,15 +13,15 @@ import LocalizedLink from "@/components/navigation/LocalizedLink";
 const recipes = [
   {
     id: "clasica",
-    image: "/images/tortillaenbar.jpg",
+    image: "/images/clasica.jpg",
   },
   {
     id: "con-cebolla",
-    image: "/images/tortillaenbar.jpg",
+    image: "/images/concebolla.jpg",
   },
   {
     id: "betanzos",
-    image: "/images/tortillaenbar.jpg",
+    image: "/images/betanzos.jpg",
   },
 ];
 
