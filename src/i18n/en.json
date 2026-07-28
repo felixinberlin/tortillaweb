@@ -24,5 +24,9 @@
   "builderPage": {
     "title": "Tortilla Builder",
     "description": "Coming soon."
+  },
+  "recipes": {
+    "title": "Recetas de tortilla de patatas",
+    "subtitle": "Descubre las diferentes formas de preparar el plato más famoso de la cocina española."
   }
 }
