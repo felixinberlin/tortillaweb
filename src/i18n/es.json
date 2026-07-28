@@ -16,10 +16,10 @@
     "knowledge": "Conocimiento"
   },
   "builder": {
-  "badge": "Constructor interactivo de tortilla",
-  "title": "Crea tu propia tortilla",
-  "subtitle": "Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.",
-  "button": "Empezar a crear"
+    "badge": "Constructor interactivo de tortilla",
+    "title": "Crea tu propia tortilla",
+    "subtitle": "Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.",
+    "button": "Empezar a crear"
   },
   "builderPage": {
     "title": "Constructor de Tortilla",
