@@ -4,6 +4,9 @@
     "ingredients": "Zutaten",
     "techniques": "Techniken",
     "science": "Wissenschaft",
+    "history": "Geschichte",
+    "personas": "Personas",
+    "builder": "Baukasten",
     "about": "Über uns"
   },
   "hero": {
@@ -167,5 +170,14 @@
         "description": "Erstelle, simuliere und speichere deine perfekte Tortilla Schritt für Schritt."
       }
     }
+  },
+  "footer": {
+    "brandDesc": "Die Enzyklopädie und das Labor-Notizbuch für die authentische spanische Tortilla de Patatas.",
+    "exploreTitle": "Notizbuch erkunden",
+    "safetyTitle": "Bakterizider Sicherheitsstandard",
+    "safetyText": "Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C for 2 minutes** (≥ 5-Log-Reduktion von Salmonella spp.). Im Haushalt maximal **4 hours** bei Raumtemperatur aufbewahren oder unter <8°C kühlen.",
+    "rights": "Alle Rechte vorbehalten.",
+    "craftedWith": "Gestaltet mit",
+    "forGastronomy": "für Liebhaber der Gastronomie und Kulinarik-Wissenschaft."
   }
 }

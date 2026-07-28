@@ -9,6 +9,8 @@ import Ingredients from "@/pages/Ingredients/Ingredients";
 import Techniques from "@/pages/Techniques/Techniques";
 import Science from "@/pages/Science/Science";
 import About from "@/pages/About/About";
+import History from "@/pages/History/History";
+import Personas from "@/pages/Personas/Personas";
 import Error from "@/pages/Error/Error";
 
 export const router = createBrowserRouter([
@@ -52,7 +54,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "history",
-        element: <About />,
+        element: <History />,
+      },
+      {
+        path: "personas",
+        element: <Personas />,
       },
     ],
   },

@@ -4,6 +4,9 @@
     "ingredients": "Ingredientes",
     "techniques": "Técnicas",
     "science": "Ciencia",
+    "history": "Historia",
+    "personas": "Personas",
+    "builder": "Constructor",
     "about": "Sobre nosotros"
   },
   "hero": {
@@ -167,5 +170,14 @@
         "description": "Crea, simula y guarda tu tortilla perfecta paso a paso."
       }
     }
+  },
+  "footer": {
+    "brandDesc": "La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.",
+    "exploreTitle": "Explorar Cuaderno",
+    "safetyTitle": "Estándar de Seguridad Bactericida",
+    "safetyText": "Para la máxima inocuidad alimentaria y pasteurización bactericida, el estándar de cocinado exige alcanzar **70°C for 2 minutes** (reducción ≥ 5 log de Salmonella spp.). En consumo doméstico, mantener un máximo de **4 hours** a temperatura ambiente o refrigerar a <8°C.",
+    "rights": "Todos los derechos reservados.",
+    "craftedWith": "Hecho con",
+    "forGastronomy": "para los amantes de la gastronomía y la ciencia culinaria."
   }
 }

@@ -4,6 +4,9 @@
     "ingredients": "Ingredients",
     "techniques": "Techniques",
     "science": "Science",
+    "history": "History",
+    "personas": "Personas",
+    "builder": "Builder",
     "about": "About"
   },
   "hero": {
@@ -167,5 +170,14 @@
         "description": "Create, simulate and save your perfect tortilla step by step."
       }
     }
+  },
+  "footer": {
+    "brandDesc": "The gastronomy encyclopedia and laboratory notebook dedicated to authentic Spanish tortilla de patatas.",
+    "exploreTitle": "Explore Notebook",
+    "safetyTitle": "Bactericidal Safety Standard",
+    "safetyText": "For maximum food safety and bactericidal pasteurization, the cooking standard requires reaching **70°C for 2 minutes** (≥ 5-log reduction of Salmonella spp.). For domestic consumption, keep a maximum of **4 hours** at room temperature or refrigerate under <8°C.",
+    "rights": "All rights reserved.",
+    "craftedWith": "Crafted with",
+    "forGastronomy": "for lovers of gastronomy and culinary science."
   }
 }
