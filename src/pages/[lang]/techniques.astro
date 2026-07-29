@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sparkles, Utensils, Flame, Timer, RefreshCw, CheckCircle2, ChefHat, Droplets } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -11,7 +12,7 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
+const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
 
 const steps = [
@@ -49,9 +50,22 @@ const steps = [
 
 const title = `${t('techniquesPage.title')} - tortilladepatatas.org`;
 const description = t('techniquesPage.subtitle');
+
+const articleSchema = generateArticleSchema({
+  headline: t("techniquesPage.title", "Técnicas y Pasos Críticos de Elaboración"),
+  description: t("techniquesPage.subtitle", "Desde el chasquido inicial de la patata hasta el movimiento decidido del volteo en la sartén."),
+  url: `/${lang}/techniques`,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t("techniquesPage.title", "Técnicas"), url: `/${lang}/techniques` }
+]);
+
+const schemas = [articleSchema, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto space-y-3">

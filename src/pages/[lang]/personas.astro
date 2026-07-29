@@ -6,6 +6,7 @@ import PersonCard from '@/components/personas/PersonCard';
 import { Users, Quote, Sparkles } from 'lucide-react';
 import { personasData } from '@/data/personasData';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generatePersonSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -27,9 +28,27 @@ function formatSafetyText(text: string) {
 
 const title = `${content.title} - tortilladepatatas.org`;
 const description = content.subtitle;
+
+const personSchemas = content.categories.flatMap((cat) =>
+  cat.personas.map((p) =>
+    generatePersonSchema({
+      name: p.name,
+      jobTitle: p.title,
+      description: p.bio,
+      image: p.image,
+    })
+  )
+);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: content.title, url: `/${lang}/personas` }
+]);
+
+const schemas = [...personSchemas, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto space-y-3">

@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import BuilderApp from '@/components/builder/BuilderApp';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -9,13 +10,40 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
+const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
 
 const title = `${t('builder.title')} - tortilladepatatas.org`;
 const description = t('builder.subtitle');
+
+const recipeSchema = generateRecipeSchema({
+  name: t('builder.title'),
+  description: t('builder.subtitle'),
+  prepTimeMinutes: 15,
+  cookTimeMinutes: 20,
+  yieldServings: 4,
+  ingredients: [
+    'Patatas Monalisa / Agria',
+    'Huevos camperos frescos',
+    'Aceite de Oliva Virgen Extra',
+    'Sal fina'
+  ],
+  instructions: [
+    { step: 'Ajustar Comensales', text: 'Seleccionar el número de raciones e insumos deseados en la calculadora.' },
+    { step: 'Confitar Patatas', text: 'Freír patatas cortadas finas a temperatura media en abundante AOVE.' },
+    { step: 'Mezclar con Huevo', text: 'Integrar patatas con huevo batido y sal.' },
+    { step: 'Cuajar con Seguridad', text: 'Cuajar manteniendo centro cremoso respetando el estándar 70°C por 2 minutos.' }
+  ]
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t('builder.title'), url: `/${lang}/builder` }
+]);
+
+const schemas = [recipeSchema, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <BuilderApp client:load lang={lang} />
 </Layout>

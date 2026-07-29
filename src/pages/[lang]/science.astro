@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShieldCheck, Flame, FlaskConical, AlertTriangle, Egg, ThermometerSnowflake, Sparkles } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -11,7 +12,7 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
+const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
 
 function formatSafetyText(text: string) {
@@ -23,9 +24,33 @@ function formatSafetyText(text: string) {
 
 const title = `${t('sciencePage.title')} - tortilladepatatas.org`;
 const description = t('sciencePage.subtitle');
+
+const articleSchema = generateArticleSchema({
+  headline: t("sciencePage.title", "La Físico-Química de la Tortilla de Patatas"),
+  description: t("sciencePage.subtitle", "Coagulación proteica, gelatinización de almidones y parámetros bactericidas estricto para garantizar seguridad y cremosidad."),
+  url: `/${lang}/science`,
+});
+
+const faqSchema = generateFAQSchema([
+  {
+    question: "¿Cuál es la temperatura de seguridad para cocinar tortilla de patatas?",
+    answer: "El estándar bactericida de oro exige alcanzar 70°C durante 2 minutos en el centro de la masa para la eliminación completa de Salmonella spp., o 63°C durante 20 segundos como umbral equivalente."
+  },
+  {
+    question: "¿Cuánto tiempo se puede mantener una tortilla cuajada blanda a temperatura ambiente?",
+    answer: "Las tortillas de centro jugoso servidas a temperatura ambiente no deben exceder las 4 horas de exposición temporal para evitar la proliferación microbiológica."
+  }
+]);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t("sciencePage.title", "Ciencia"), url: `/${lang}/science` }
+]);
+
+const schemas = [articleSchema, faqSchema, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto space-y-3">

@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sparkles, Egg, CookingPot, Droplet, Flame, Scale } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -11,7 +12,7 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
+const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
 
 const ingredientsList = [
@@ -59,9 +60,22 @@ const ingredientsList = [
 
 const title = `${t('ingredientsPage.title')} - tortilladepatatas.org`;
 const description = t('ingredientsPage.subtitle');
+
+const articleSchema = generateArticleSchema({
+  headline: t("ingredientsPage.title", "Los Ingredientes de la Tortilla de Patatas"),
+  description: t("ingredientsPage.subtitle", "Una gran tortilla no necesita artificios. La clave reside en la calidad de la materia prima y la proporción justa."),
+  url: `/${lang}/ingredients`,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t("ingredientsPage.title", "Ingredientes"), url: `/${lang}/ingredients` }
+]);
+
+const schemas = [articleSchema, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-10">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto space-y-3">
@@ -79,7 +93,7 @@ const description = t('ingredientsPage.subtitle');
 
     <!-- Ingredients Grid -->
     <div class="grid md:grid-cols-2 gap-6">
-      {ingredientsList.map((item) => {
+      {ingredientsList.map((item, index) => {
         const Icon = item.icon;
         return (
           <Card key={item.key} class="card-notebook overflow-hidden flex flex-col justify-between">
@@ -88,6 +102,10 @@ const description = t('ingredientsPage.subtitle');
                 <img
                   src={item.image}
                   alt={t(`ingredientsPage.${item.key}.title`, item.key)}
+                  width="600"
+                  height="400"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   class="w-full h-full object-cover"
                 />

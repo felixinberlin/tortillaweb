@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { ChefHat, Globe, Heart, ShieldCheck, Sparkles, BookOpen } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -16,9 +17,17 @@ const t = getTranslations(lang);
 
 const title = `${t('nav.about')} - tortilladepatatas.org`;
 const description = t('footer.brandDesc');
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t('nav.about'), url: `/${lang}/about` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto space-y-3">

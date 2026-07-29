@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import LocalizedLink from '@/components/navigation/LocalizedLink';
 import { BookOpen, ChefHat, Sparkles } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import clasicaImg from '@/assets/images/clasica.jpg';
 import concebollaImg from '@/assets/images/concebolla.jpg';
 import betanzosImg from '@/assets/images/betanzos.jpg';
@@ -15,7 +16,7 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
+const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
 
 const recipes = [
@@ -38,9 +39,37 @@ const recipes = [
 
 const title = `${t('recipes.title')} - tortilladepatatas.org`;
 const description = t('recipes.subtitle');
+
+const recipeSchemas = recipes.map((r) => generateRecipeSchema({
+  name: t(`recipeItems.${r.id}.title`, r.id),
+  description: t(`recipeItems.${r.id}.description`, ''),
+  image: r.image,
+  prepTimeMinutes: 20,
+  cookTimeMinutes: 25,
+  yieldServings: 4,
+  ingredients: [
+    '600g Patatas Agria o Monalisa',
+    '6 Huevos camperos frescos (Tamaño L)',
+    '150ml Aceite de oliva virgen extra',
+    '6g Sal fina'
+  ],
+  instructions: [
+    { step: 'Cortar patatas', text: 'Pelar y cortar las patatas en láminas finas e irregulares de 2-3 mm.' },
+    { step: 'Confitar patatas', text: 'Confitar en aceite de oliva a fuego medio-bajo (130-140°C) hasta que estén muy tiernas.' },
+    { step: 'Mezclar con huevo', text: 'Batir ligeramente los huevos con la sal y agregar las patatas confitadas calientes. Reposar 5 minutos.' },
+    { step: 'Cuajar y voltear', text: 'Cuajar a fuego fuerte 1 minuto por cada lado manteniendo el centro cremoso (estándar bactericida: 70°C for 2 minutes).' }
+  ]
+}));
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t('recipes.title'), url: `/${lang}/recipes` }
+]);
+
+const schemas = [...recipeSchemas, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-10">
     <section class="text-center max-w-3xl mx-auto space-y-3">
       <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
@@ -56,7 +85,7 @@ const description = t('recipes.subtitle');
     </section>
 
     <section class="grid gap-8 md:grid-cols-3">
-      {recipes.map((recipe) => (
+      {recipes.map((recipe, index) => (
         <LocalizedLink key={recipe.id} to={`/builder`} lang={lang} class="block group">
           <Card class="card-notebook overflow-hidden h-full flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300">
             <div>
@@ -64,6 +93,10 @@ const description = t('recipes.subtitle');
                 <img
                   src={recipe.image}
                   alt={t(`recipeItems.${recipe.id}.title`, recipe.id)}
+                  width="600"
+                  height="400"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
