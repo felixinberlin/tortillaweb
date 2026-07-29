@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { User, BookOpen, ExternalLink, Sparkles, Image as ImageIcon, Flame, ShieldAlert, Award, Tv, Globe } from "lucide-react";
+import { User, BookOpen, ExternalLink, Sparkles, Flame, ShieldAlert, Award, Tv, Globe } from "lucide-react";
 import { Persona } from "@/data/personasData";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import { Badge } from "@/components/ui/badge";
@@ -112,14 +112,6 @@ export default function PersonCard({ persona }: PersonCardProps) {
             <div className="absolute bottom-2 left-3 right-3 text-white text-xs font-medium italic drop-shadow-xs line-clamp-1">
               {persona.name}
             </div>
-          </div>
-        )}
-
-        {/* Portrait Illustration Description Box if present */}
-        {persona.portraitDesc && (
-          <div className="mb-4 p-3 rounded-lg bg-[#FAF6EE] border border-amber-200/70 text-xs text-amber-950/90 flex items-start gap-2 italic">
-            <ImageIcon className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-            <span>{persona.portraitDesc}</span>
           </div>
         )}
 

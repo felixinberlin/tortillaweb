@@ -15,15 +15,18 @@ import betanzosImg from "@/assets/images/betanzos.jpg";
 const recipes = [
   {
     id: "clasica",
-    image: clasicaImg,
+    image: "/images/clasica.jpg",
+    asset: clasicaImg,
   },
   {
     id: "con-cebolla",
-    image: concebollaImg,
+    image: "/images/concebolla.jpg",
+    asset: concebollaImg,
   },
   {
     id: "betanzos",
-    image: betanzosImg,
+    image: "/images/betanzos.jpg",
+    asset: betanzosImg,
   },
 ];
 
@@ -65,6 +68,14 @@ export default function Recipes() {
               <img
                 src={recipe.image}
                 alt={t(`recipeItems.${recipe.id}.title`)}
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedAsset) {
+                    target.dataset.triedAsset = "true";
+                    target.src = recipe.asset;
+                  }
+                }}
                 className="h-56 w-full object-cover"
               />
 

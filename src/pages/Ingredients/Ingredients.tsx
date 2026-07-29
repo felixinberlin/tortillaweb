@@ -34,7 +34,7 @@ export default function Ingredients() {
     {
       key: "onion",
       icon: Flame,
-      image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cf?auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=600&q=80",
       accent: "from-orange-500/10 to-orange-500/5 border-orange-500/20",
       badgeColor: "bg-orange-100 text-orange-900 dark:bg-orange-950 dark:text-orange-200",
       iconColor: "text-orange-600",
@@ -42,7 +42,7 @@ export default function Ingredients() {
     {
       key: "salt",
       icon: Scale,
-      image: "https://images.unsplash.com/photo-1518110168401-f2877ee2e88d?auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80",
       accent: "from-blue-500/10 to-blue-500/5 border-blue-500/20",
       badgeColor: "bg-blue-100 text-blue-900 dark:bg-blue-950 dark:text-blue-200",
       iconColor: "text-blue-600",
@@ -80,6 +80,9 @@ export default function Ingredients() {
                     src={item.image}
                     alt={t(`ingredientsPage.${item.key}.title`)}
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80";
+                    }}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />

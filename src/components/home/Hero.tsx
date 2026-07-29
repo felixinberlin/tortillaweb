@@ -75,8 +75,16 @@ export default function Hero() {
         >
           <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-amber-100 shadow-xl border border-border">
             <img
-              src={clasicaImg}
+              src="/images/clasica.jpg"
               alt={t("hero.title")}
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.triedAsset) {
+                  target.dataset.triedAsset = "true";
+                  target.src = clasicaImg;
+                }
+              }}
               className="h-full w-full object-cover"
             />
           </div>
