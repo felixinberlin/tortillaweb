@@ -2,18 +2,18 @@
 @use '../mixins' as *;
 
 .site-footer {
-  background-color: #2A2421;
-  color: $color-potato-cream;
+  background-color: $bg-notebook;
+  color: $text-primary;
   border-top: 3px solid $color-yolk-gold;
-  padding: 3rem 1rem 2rem;
-  margin-top: 4rem;
+  padding: 1.5rem 1rem 1rem;
+  margin-top: 2rem;
 
   .footer-container {
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
 
     @include tablet-up {
       grid-template-columns: 2fr 1fr 1fr;
@@ -23,16 +23,16 @@
   .footer-brand {
     h3 {
       font-family: $font-serif-heading;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      color: $color-yolk-gold;
-      margin-bottom: 0.75rem;
+      color: $text-primary;
+      margin-bottom: 0.5rem;
     }
 
     p {
       font-size: 0.875rem;
-      line-height: 1.6;
-      color: #E8E2D5;
+      line-height: 1.5;
+      color: $text-secondary;
       max-width: 32rem;
     }
   }
@@ -44,8 +44,8 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: $color-yolk-gold;
-      margin-bottom: 1rem;
+      color: $text-primary;
+      margin-bottom: 0.75rem;
     }
 
     ul {
@@ -53,45 +53,45 @@
       padding: 0;
       margin: 0;
       display: flex;
-      flex-col: column;
-      gap: 0.5rem;
+      flex-direction: column;
+      gap: 0.25rem;
 
       a {
-        color: #E8E2D5;
+        color: $text-secondary;
         text-decoration: none;
         font-size: 0.875rem;
         transition: color 0.2s;
 
         &:hover {
-          color: $color-yolk-gold;
+          color: $text-primary;
         }
       }
     }
   }
 
   .footer-safety-notice {
-    background-color: rgba(255, 184, 0, 0.1);
-    border: 1px solid rgba(255, 184, 0, 0.25);
-    border-radius: 8px;
-    padding: 1rem;
+    background-color: rgba(255, 184, 0, 0.05);
+    border: 1px solid rgba(255, 184, 0, 0.2);
+    border-radius: 6px;
+    padding: 0.75rem;
 
     h4 {
       font-size: 0.875rem;
       font-weight: 700;
-      color: $color-yolk-gold;
-      margin-bottom: 0.5rem;
+      color: $text-primary;
+      margin-bottom: 0.25rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.25rem;
     }
 
     p {
       font-size: 0.8125rem;
-      line-height: 1.5;
-      color: #F5E6BE;
+      line-height: 1.4;
+      color: $text-secondary;
 
       strong {
-        color: #FFFFFF;
+        color: $text-primary;
         font-weight: 700;
       }
     }
@@ -99,15 +99,15 @@
 
   .footer-bottom {
     max-width: 1280px;
-    margin: 2rem auto 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(232, 226, 213, 0.15);
+    margin: 1rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid $border-notebook;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     font-size: 0.75rem;
-    color: #A89C90;
+    color: $text-muted;
 
     @include tablet-up {
       flex-direction: row;
