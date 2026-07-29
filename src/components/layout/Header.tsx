@@ -13,7 +13,8 @@ import {
   Users,
   Info,
   History,
-  Home
+  Home,
+  Shield
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -24,6 +25,7 @@ interface HeaderProps {
 
 const navigation = [
   { key: "recipes", href: "/recipes", icon: BookOpen, fallback: "Recetas" },
+  { key: "factions", href: "/facciones", icon: Shield, fallback: "Facciones" },
   { key: "ingredients", href: "/ingredients", icon: Egg, fallback: "Ingredientes" },
   { key: "techniques", href: "/techniques", icon: Flame, fallback: "Técnicas" },
   { key: "science", href: "/science", icon: ShieldCheck, fallback: "Ciencia" },

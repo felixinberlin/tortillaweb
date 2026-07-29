@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FactionsPage from '@/components/factions/FactionsPage';
+import factionsData from '@/data/factions.json';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateFAQSchema, SITE_URL } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const content = factionsData.content[currentLang] || factionsData.content.es;
+
+const title = `${content.hero.title} - Facciones | tortilladepatatas.org`;
+const description = content.hero.subtitle;
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: 'Facciones', url: `/${lang}/facciones` },
+]);
+
+const faqSchema = generateFAQSchema(
+  content.factions.map((f) => ({
+    question: `¿Qué caracteriza a la facción ${f.name}?`,
+    answer: `${f.dogma} ${f.description} Figuras clave: ${f.prominentFigures.join(', ')}.`,
+  }))
+);
+
+const itemPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemPage',
+  '@id': `${SITE_URL}/${lang}/facciones#webpage`,
+  url: `${SITE_URL}/${lang}/facciones`,
+  name: title,
+  description: description,
+  inLanguage: lang,
+  about: {
+    '@type': 'Thing',
+    name: 'Facciones de la Tortilla de Patatas',
+    description: 'Doctrinas culinarias de la tortilla española: Puristas, Concebollistas, Pimientistas, Ajistas y Con Cosas.',
+  },
+};
+
+const schemas = [breadcrumbSchema, faqSchema, itemPageSchema];
+---
+
+<Layout title={title} description={description} lang={lang} schema={schemas}>
+  <FactionsPage lang={lang} client:load />
+</Layout>

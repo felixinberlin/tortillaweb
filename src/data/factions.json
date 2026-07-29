@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "route": "/facciones",
+    "updatedAt": "2026-07-29"
+  },
+  "content": {
+    "es": {
+      "badge": "Facciones Culinarias",
+      "hero": {
+        "title": "¿Purista de la Doctrina o Rebelde Culinario?",
+        "subtitle": "Del dogma de la patata y el huevo a las variaciones regionales con personalidad. Descubre a qué facción perteneces.",
+        "adriaDoctrine": "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica y dar voz a cada tradición."
+      },
+      "introduction": {
+        "title": "La evolución de una receta universal",
+        "body1": "Nacida a finales del siglo XVIII en Villanueva de la Serena (Badajoz) como una solución contra la escasez de alimentos, la tortilla de patatas ha evolucionado de alimento humilde de supervivencia a icono gastronómico global.",
+        "body2": "Hoy la mesa española es un campo de batalla dialéctico entre el ascetismo de la patata desnuda y la audacia del plebiscito popular. Desde la Santísima Trinidad Betanceira hasta las vanguardias de alta cocina, coexisten cinco grandes doctrinas culinarias."
+      },
+      "factions": [
+        {
+          "id": "puristas",
+          "name": "Los Puristas",
+          "badge": "Ortodoxos (Betanzos)",
+          "badgeColor": "terracotta",
+          "icon": "Shield",
+          "dogma": "Solo patata, huevo, aceite de oliva y sal.",
+          "keyIngredient": "Sin añadidos (0% Cebolla)",
+          "prominentFigures": ["Señora Angelita (Betanzos)", "Pepa Miranda", "Dabiz Muñoz", "Dani García", "La Falda de Chamberí"],
+          "description": "Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.",
+          "relatedPages": [
+            { "title": "Receta Betanzos", "url": "/es/recipes" },
+            { "title": "Técnica de Fritura", "url": "/es/techniques" }
+          ]
+        },
+        {
+          "id": "concebollistas",
+          "name": "Los Concebollistas",
+          "badge": "Tradicionalistas Populares",
+          "badgeColor": "tortillaGold",
+          "icon": "Heart",
+          "dogma": "La cebolla pochada aporta la jugosidad y el dulzor esenciales.",
+          "keyIngredient": "Cebolla Caramelizada",
+          "prominentFigures": ["Karlos Arguiñano", "José Andrés", "Rosalía"],
+          "description": "Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.",
+          "relatedPages": [
+            { "title": "Encuesta CIS", "url": "/es/history" },
+            { "title": "Receta Clásica", "url": "/es/recipes" }
+          ]
+        },
+        {
+          "id": "pimientistas",
+          "name": "Los Pimientistas",
+          "badge": "Rurales y Regionales",
+          "badgeColor": "olive",
+          "icon": "Sprout",
+          "dogma": "El toque fresco y ahumado de la huerta campera.",
+          "keyIngredient": "Pimiento verde o rojo & Verduras",
+          "prominentFigures": ["Bar Néstor (San Sebastián)", "Recetario Campero"],
+          "description": "Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.",
+          "relatedPages": [
+            { "title": "Tortilla Paisana", "url": "/es/recipes" },
+            { "title": "Rutas del Norte", "url": "/es/history" }
+          ]
+        },
+        {
+          "id": "ajistas",
+          "name": "Los Ajistas",
+          "badge": "Técnicos y Secretos",
+          "badgeColor": "charcoal",
+          "icon": "Sparkles",
+          "dogma": "Aromatizar el aceite sin sobrecargar de azúcar la mezcla.",
+          "keyIngredient": "Ajo frito aromatizante",
+          "prominentFigures": ["Ángel León (Aponiente)", "Óscar Vidal (O'Pazo)"],
+          "description": "El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.",
+          "relatedPages": [
+            { "title": "Ciencia del Aceite", "url": "/es/science" },
+            { "title": "Trucos de Chef", "url": "/es/techniques" }
+          ]
+        },
+        {
+          "id": "con-cosas",
+          "name": "Los 'Con Cosas'",
+          "badge": "Innovadores & Vanguardia",
+          "badgeColor": "cream",
+          "icon": "Flame",
+          "dogma": "La tortilla como un lienzo abierto a la creatividad y expresión regional.",
+          "keyIngredient": "Queso, trufa, chistorra, chips de bolsa",
+          "prominentFigures": ["Ferran Adrià", "Pez Tortilla", "José Antonio Labordeta"],
+          "description": "Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.",
+          "relatedPages": [
+            { "title": "Tortilla Exprés", "url": "/es/builder" },
+            { "title": "Deconstrucción", "url": "/es/techniques" }
+          ]
+        }
+      ],
+      "poll": {
+        "title": "Test de Ortodoxia: Elige tu Lealtad",
+        "subtitle": "¡Declara tu facción! Vota y descubre los porcentajes en tiempo real de la comunidad tortillera.",
+        "votedMessage": "¡Voto registrado! Tu lealtad a la causa ha quedado anotada en el cuaderno culinario.",
+        "voteButton": "Votar esta facción",
+        "changeVote": "Cambiar mi voto",
+        "totalVotesLabel": "Votos totales registrados",
+        "initialStats": {
+          "puristas": 28,
+          "concebollistas": 54,
+          "pimientistas": 8,
+          "ajistas": 5,
+          "con-cosas": 5
+        }
+      },
+      "safetyNote": "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**."
+    },
+    "en": {
+      "badge": "Culinary Factions",
+      "hero": {
+        "title": "Doctrinal Purist or Culinary Rebel?",
+        "subtitle": "From the egg-and-potato dogma to regional variations with personality. Find out which faction you belong to.",
+        "adriaDoctrine": "We formally distinguish between the 'Traditional Spanish Omelette' and 'Omelettes with...' to ensure gastronomic peace and give voice to every tradition."
+      },
+      "introduction": {
+        "title": "The Evolution of a Universal Recipe",
+        "body1": "Born in the late 18th century in Villanueva de la Serena (Extremadura) as a solution to food scarcity, the Spanish tortilla has transformed from a humble survival dish into a global gastronomic icon.",
+        "body2": "Today, the Spanish table is a debate battlefield between strict minimalist purism and popular preference. From the Betanzos Holy Trinity to modernist high cuisine, five core culinary doctrines coexist."
+      },
+      "factions": [
+        {
+          "id": "puristas",
+          "name": "The Purists",
+          "badge": "Orthodox (Betanzos)",
+          "badgeColor": "terracotta",
+          "icon": "Shield",
+          "dogma": "Only potato, egg, olive oil, and salt.",
+          "keyIngredient": "No additives (0% Onion)",
+          "prominentFigures": ["Señora Angelita (Betanzos)", "Pepa Miranda", "Dabiz Muñoz", "Dani García", "La Falda de Chamberí"],
+          "description": "They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.",
+          "relatedPages": [
+            { "title": "Betanzos Recipe", "url": "/en/recipes" },
+            { "title": "Frying Technique", "url": "/en/techniques" }
+          ]
+        },
+        {
+          "id": "concebollistas",
+          "name": "The Concebollistas",
+          "badge": "Popular Traditionalists",
+          "badgeColor": "tortillaGold",
+          "icon": "Heart",
+          "dogma": "Slow-poached onions provide essential juiciness and sweetness.",
+          "keyIngredient": "Caramelized Onion",
+          "prominentFigures": ["Karlos Arguiñano", "José Andrés", "Rosalía"],
+          "description": "Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.",
+          "relatedPages": [
+            { "title": "CIS Survey", "url": "/en/history" },
+            { "title": "Classic Recipe", "url": "/en/recipes" }
+          ]
+        },
+        {
+          "id": "pimientistas",
+          "name": "The Pimientistas",
+          "badge": "Rural & Regional",
+          "badgeColor": "olive",
+          "icon": "Sprout",
+          "dogma": "A fresh and smoky touch straight from the countryside.",
+          "keyIngredient": "Green or Red Pepper & Veggies",
+          "prominentFigures": ["Bar Néstor (San Sebastián)", "Rustic Recipe Book"],
+          "description": "Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.",
+          "relatedPages": [
+            { "title": "Paisana Recipe", "url": "/en/recipes" },
+            { "title": "Northern Routes", "url": "/en/history" }
+          ]
+        },
+        {
+          "id": "ajistas",
+          "name": "The Ajistas",
+          "badge": "Technical & Secret",
+          "badgeColor": "charcoal",
+          "icon": "Sparkles",
+          "dogma": "Infuse the frying oil with garlic without overloading sweetness.",
+          "keyIngredient": "Aromatic Garlic",
+          "prominentFigures": ["Ángel León (Aponiente)", "Óscar Vidal (O'Pazo)"],
+          "description": "The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.",
+          "relatedPages": [
+            { "title": "Oil Science", "url": "/en/science" },
+            { "title": "Chef Tricks", "url": "/en/techniques" }
+          ]
+        },
+        {
+          "id": "con-cosas",
+          "name": "The 'Con Cosas'",
+          "badge": "Innovators & Modernists",
+          "badgeColor": "cream",
+          "icon": "Flame",
+          "dogma": "The omelette as an open canvas for regional creativity and modernist innovation.",
+          "keyIngredient": "Cheese, truffle, chistorra, potato chips",
+          "prominentFigures": ["Ferran Adrià", "Pez Tortilla", "José Antonio Labordeta"],
+          "description": "From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.",
+          "relatedPages": [
+            { "title": "Express Omelette", "url": "/en/builder" },
+            { "title": "Deconstruction", "url": "/en/techniques" }
+          ]
+        }
+      ],
+      "poll": {
+        "title": "Orthodoxy Test: Declare Your Allegiance",
+        "subtitle": "Cast your vote and view real-time community percentages across all factions.",
+        "votedMessage": "Vote recorded! Your allegiance has been immortalized in the kitchen notebook.",
+        "voteButton": "Vote for this Faction",
+        "changeVote": "Change My Vote",
+        "totalVotesLabel": "Total community votes",
+        "initialStats": {
+          "puristas": 28,
+          "concebollistas": 54,
+          "pimientistas": 8,
+          "ajistas": 5,
+          "con-cosas": 5
+        }
+      },
+      "safetyNote": "Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**."
+    },
+    "de": {
+      "badge": "Kulinarische Faktionen",
+      "hero": {
+        "title": "Doktrinärer Purist oder kulinarischer Rebell?",
+        "subtitle": "Vom Ei-Kartoffel-Dogma bis zu regionalen Variationen mit Persönlichkeit. Finde deine Faktion.",
+        "adriaDoctrine": "Wir unterscheiden formal zwischen der 'Traditionellen Kartoffeltortilla' und 'Tortillas mit...', um den kulinarischen Frieden zu wahren."
+      },
+      "introduction": {
+        "title": "Die Evolution eines universalen Rezepts",
+        "body1": "Entstanden Ende des 18. Jahrhunderts in Villanueva de la Serena als günstige Speise in Notzeiten, hat sich die Tortilla von der einfachen Arme-Leute-Mahlzeit zum weltweiten Kultgericht gewandelt.",
+        "body2": "Heute stehen sich fünf große kulinarische Strömungen gegenüber – von der puristischen Heiligen Dreifaltigkeit aus Betanzos bis hin zu modernen Kreationen der Spitzengastronomie."
+      },
+      "factions": [
+        {
+          "id": "puristas",
+          "name": "Die Puristen",
+          "badge": "Orthodox (Betanzos)",
+          "badgeColor": "terracotta",
+          "icon": "Shield",
+          "dogma": "Nur Kartoffel, Ei, Olivenöl und Salz.",
+          "keyIngredient": "Ohne Zusätze (0% Zwiebel)",
+          "prominentFigures": ["Señora Angelita (Betanzos)", "Pepa Miranda", "Dabiz Muñoz", "Dani García", "La Falda de Chamberí"],
+          "description": "Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern.",
+          "relatedPages": [
+            { "title": "Betanzos Rezept", "url": "/de/recipes" },
+            { "title": "Frittier-Technik", "url": "/de/techniques" }
+          ]
+        },
+        {
+          "id": "concebollistas",
+          "name": "Die Zwiebel-Liebhaber",
+          "badge": "Beliebte Traditionalisten",
+          "badgeColor": "tortillaGold",
+          "icon": "Heart",
+          "dogma": "Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht.",
+          "keyIngredient": "Karamellisierte Zwiebel",
+          "prominentFigures": ["Karlos Arguiñano", "José Andrés", "Rosalía"],
+          "description": "Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie.",
+          "relatedPages": [
+            { "title": "CIS-Umfrage", "url": "/de/history" },
+            { "title": "Klassisches Rezept", "url": "/de/recipes" }
+          ]
+        },
+        {
+          "id": "pimientistas",
+          "name": "Die Paprika-Fraktion",
+          "badge": "Ländlich & Regional",
+          "badgeColor": "olive",
+          "icon": "Sprout",
+          "dogma": "Das rustikale Power-Omelett mit der Frische des Gemüsegartens.",
+          "keyIngredient": "Paprika & Gemüse",
+          "prominentFigures": ["Bar Néstor (San Sebastián)", "Campero Rezeptbuch"],
+          "description": "Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens.",
+          "relatedPages": [
+            { "title": "Paisana Rezept", "url": "/de/recipes" },
+            { "title": "Routen des Nordens", "url": "/de/history" }
+          ]
+        },
+        {
+          "id": "ajistas",
+          "name": "Der Knoblauch-Kult",
+          "badge": "Technisch & Geheim",
+          "badgeColor": "charcoal",
+          "icon": "Sparkles",
+          "dogma": "Knoblauch als unsichtbare aromatische Basis im Olivenöl.",
+          "keyIngredient": "Aromatischer Knoblauch",
+          "prominentFigures": ["Ángel León (Aponiente)", "Óscar Vidal (O'Pazo)"],
+          "description": "Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe.",
+          "relatedPages": [
+            { "title": "Öl-Wissenschaft", "url": "/de/science" },
+            { "title": "Chef-Tricks", "url": "/de/techniques" }
+          ]
+        },
+        {
+          "id": "con-cosas",
+          "name": "Die 'Con Cosas' Experimente",
+          "badge": "Innovatoren & Avantgarde",
+          "badgeColor": "cream",
+          "icon": "Flame",
+          "dogma": "Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze.",
+          "keyIngredient": "Käse, Trüffel, Chorizo, Kartoffelchips",
+          "prominentFigures": ["Ferran Adrià", "Pez Tortilla", "Sacromonte Tradition"],
+          "description": "Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten.",
+          "relatedPages": [
+            { "title": "Express Tortilla", "url": "/de/builder" },
+            { "title": "Dekonstruktion", "url": "/de/techniques" }
+          ]
+        }
+      ],
+      "poll": {
+        "title": "Orthodoxie-Test: Wähle deine Faktion",
+        "subtitle": "Stimme ab und sieh die Echtzeit-Prozente der Community.",
+        "votedMessage": "Stimme gezählt! Deine Faktion wurde im Küchenbuch verewigt.",
+        "voteButton": "Für diese Faktion stimmen",
+        "changeVote": "Stimme ändern",
+        "totalVotesLabel": "Stimmen insgesamt",
+        "initialStats": {
+          "puristas": 28,
+          "concebollistas": 54,
+          "pimientistas": 8,
+          "ajistas": 5,
+          "con-cosas": 5
+        }
+      },
+      "safetyNote": "Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**."
+    }
+  }
+}
