@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight} from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight } from "lucide-react";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 
 function renderFormattedText(text: string) {
@@ -19,6 +20,13 @@ function renderFormattedText(text: string) {
 
 export default function Footer() {
   const { t } = useTranslation();
+  const location = useLocation();
+
+  const isLinkActive = (path: string) => {
+    const normalized = location.pathname.replace(/^\/(es|en|de)(\/|$)/, "/");
+    if (path === "/") return normalized === "/";
+    return normalized.startsWith(path);
+  };
 
   return (
     <footer className="site-footer relative overflow-hidden">
@@ -57,13 +65,31 @@ export default function Footer() {
           </h4>
           <ul>
             <li>
-              <LocalizedLink to="/recipes">
-                {t("nav.recipes", "Recetas de la Gastronomía")}
+              <LocalizedLink
+                to="/recipes"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/recipes") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/recipes") ? "page" : undefined}
+              >
+                <span>{t("nav.recipes", "Recetas de la Gastronomía")}</span>
+                {isLinkActive("/recipes") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/builder" className="font-semibold text-amber-700">
-                {t("nav.builder", "Constructor Interactivo")}
+              <LocalizedLink
+                to="/builder"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/builder") ? "font-bold text-amber-800 active" : "font-semibold text-amber-700"
+                }`}
+                aria-current={isLinkActive("/builder") ? "page" : undefined}
+              >
+                <span>{t("nav.builder", "Constructor Interactivo")}</span>
+                {isLinkActive("/builder") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
@@ -71,40 +97,93 @@ export default function Footer() {
                 href="https://tortilladepatatas.de/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-amber-700"
+                className="font-semibold text-amber-700 flex items-center justify-between group py-0.5 hover:underline"
               >
                 <span>Tortilla Creator App (tortilladepatatas.de)</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800]" />
               </a>
             </li>
             <li>
-              <LocalizedLink to="/ingredients">
-                {t("nav.ingredients", "Ingredientes & Proporciones")}
+              <LocalizedLink
+                to="/ingredients"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/ingredients") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/ingredients") ? "page" : undefined}
+              >
+                <span>{t("nav.ingredients", "Ingredientes & Proporciones")}</span>
+                {isLinkActive("/ingredients") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/techniques">
-                {t("nav.techniques", "Técnicas & Volteado")}
+              <LocalizedLink
+                to="/techniques"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/techniques") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/techniques") ? "page" : undefined}
+              >
+                <span>{t("nav.techniques", "Técnicas & Volteado")}</span>
+                {isLinkActive("/techniques") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/science">
-                {t("nav.science", "Ciencia & Seguridad Alimentaria")}
+              <LocalizedLink
+                to="/science"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/science") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/science") ? "page" : undefined}
+              >
+                <span>{t("nav.science", "Ciencia & Seguridad Alimentaria")}</span>
+                {isLinkActive("/science") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/history">
-                {t("nav.history", "Historia & Cronología 1767-2025")}
+              <LocalizedLink
+                to="/history"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/history") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/history") ? "page" : undefined}
+              >
+                <span>{t("nav.history", "Historia & Cronología 1767-2025")}</span>
+                {isLinkActive("/history") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/personas">
-                {t("nav.personas", "Personas & Creadores")}
+              <LocalizedLink
+                to="/personas"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/personas") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/personas") ? "page" : undefined}
+              >
+                <span>{t("nav.personas", "Personas & Creadores")}</span>
+                {isLinkActive("/personas") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
             <li>
-              <LocalizedLink to="/about">
-                {t("nav.about", "Sobre Nosotros")}
+              <LocalizedLink
+                to="/about"
+                className={`flex items-center justify-between group py-0.5 ${
+                  isLinkActive("/about") ? "font-bold text-amber-800 active" : ""
+                }`}
+                aria-current={isLinkActive("/about") ? "page" : undefined}
+              >
+                <span>{t("nav.about", "Sobre Nosotros")}</span>
+                {isLinkActive("/about") && (
+                  <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                )}
               </LocalizedLink>
             </li>
           </ul>
