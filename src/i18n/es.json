@@ -24,7 +24,7 @@
     "subtitle": "Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.",
     "button": "Empezar a crear",
     "openApp": "Abrir Tortilla Creator",
-    "appDesc": "Accede a la aplicación interactiva Tortilla Creator en http://creator.tortilladepatatas.org/ para personalizar y calcular tu receta.",
+    "appDesc": "Accede a la aplicación interactiva Tortilla Creator en https://tortilladepatatas.de/ para personalizar y calcular tu receta.",
     "dinersQuestion": "¿Para cuántas personas?",
     "dinersDesc": "Calcularemos la sartén y las cantidades según el número de comensales.",
     "servings": "pers.",
@@ -121,10 +121,10 @@
     "title": "La Ciencia Detrás de la Tortilla",
     "subtitle": "Entiende las transformaciones moleculares, la inactivación térmica de patógenos y los umbrales microbiológicos.",
     "chefNoteHeader": "Del Cuaderno de la Chef & Laboratorio:",
-    "chefNoteText": "La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C durante 2 minutos** para lograr una reducción de bacterias del 99.999% (*S. Enteritidis*).",
+    "chefNoteText": "La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C for 2 minutes** para lograr una reducción ≥ 5 log de *S. Enteritidis*.",
     "card1": {
       "title": "Coagulación de Proteínas",
-      "desc": "Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C durante 2 minutos** (reducción de bacterias del 99.999% de *S. Enteritidis*)."
+      "desc": "Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C for 2 minutes** (reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*)."
     },
     "card2": {
       "title": "Gelatinización del Almidón",
@@ -132,29 +132,29 @@
     },
     "card3": {
       "title": "Inactivación Térmica & Fuego",
-      "desc": "El nivel de seguridad medio alcanza los **63°C durante 20 segundos** (reducción intermedia de *Salmonella* para tortillas jugosas de consumo inmediato). El estándar máximo de pasteurización bactericida se logra alcanzando **70°C durante 2 minutos**."
+      "desc": "El nivel de seguridad medio alcanza los **63°C for 20 seconds** (reducción intermedia de *Salmonella* para tortillas jugosas de consumo inmediato). El estándar máximo de pasteurización bactericida se logra alcanzando **70°C for 2 minutes**."
     },
     "card4": {
       "title": "Gestión Microbiológica de Riesgos",
-      "desc": "Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta humedad. Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 horas**."
+      "desc": "Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta actividad de agua ($a_w > 0.99$). Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 hours**."
     },
     "safetySectionTitle": "Garantía de Seguridad Alimentaria & Térmica",
     "safetySectionSub": "Los tres umbrales de procesamiento térmico según la metodología Risk Ranger.",
     "levelPilotTitle": "Zona de Peligro Ambiental",
-    "levelPilotDesc": "Temperatura ambiente sin control térmico. Proliferación bacteriana si el consumo supera las **4 horas**.",
+    "levelPilotDesc": "Temperatura ambiente sin control térmico. Proliferación bacteriana si el consumo supera las **4 hours**.",
     "levelMediumTitle": "Umbral de Seguridad Medio",
-    "levelMediumDesc": "Procesamiento a **63°C durante 20 segundos**. Indicado para tortillas jugosas de consumo inmediato.",
+    "levelMediumDesc": "Procesamiento a **63°C for 20 seconds**. Indicado para tortillas jugosas de consumo inmediato.",
     "levelSafeTitle": "Estándar Bactericida Oro",
-    "levelSafeDesc": "Procesamiento térmico de **70°C durante 2 minutos**. Garantiza una reducción de bacterias del 99.999% de *S. Enteritidis*."
+    "levelSafeDesc": "Procesamiento térmico de **70°C for 2 minutes**. Garantiza una reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*."
   },
   "personasPage": {
     "notebookLabel": "Cuaderno de Laboratorio Gastronómico",
     "summaryTitle": "Tradición, Ciencia e Innovación Unidas",
     "summaryDesc": "Cada una de estas personas aporta un eslabón único al patrimonio de la tortilla de patatas. Explora nuestras secciones interactivas para poner en práctica sus hallazgos y recetas.",
     "reference": "Referencia",
-    "pasteurization": "Pasteurización: **70°C durante 2 minutos**",
-    "mediumThreshold": "Umbral Medio: **63°C durante 20 segundos**",
-    "ambientLimit": "Límite Ambiental: **4 horas**"
+    "pasteurization": "Pasteurización: **70°C for 2 minutes**",
+    "mediumThreshold": "Umbral Medio: **63°C for 20 seconds**",
+    "ambientLimit": "Límite Ambiental: **4 hours**"
   },
   "historyPage": {
     "notebookLabel": "Cuaderno de Gastronomía & Historiografía",
@@ -212,11 +212,11 @@
     "subtitle": "Gastronomía, Tradición & Ciencia Culinaria",
     "exploreTitle": "Explorar Cuaderno",
     "thermalThresholds": "Umbrales Térmicos de Seguridad:",
-    "safeThreshold": "Seguro: **70°C durante 2 minutos**",
-    "cautionThreshold": "Precaución: **63°C durante 20 segundos**",
-    "riskThreshold": "Riesgo: **4 horas** a temp. ambiente.",
+    "safeThreshold": "Seguro: **70°C for 2 minutes**",
+    "cautionThreshold": "Precaución: **63°C for 20 seconds**",
+    "riskThreshold": "Riesgo: **4 hours** amb.",
     "safetyTitle": "Estándar de Seguridad Bactericida",
-    "safetyText": "Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C durante 2 minutos** (o **63°C durante 20 segundos** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 horas** a temperatura ambiente.",
+    "safetyText": "Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 hours** a temperatura ambiente.",
     "safetyNorm": "Normativa Colectividades Real Decreto 1021/2022",
     "viewReport": "Ver Informe",
     "rights": "Todos los derechos reservados.",

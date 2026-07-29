@@ -91,12 +91,12 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="http://creator.tortilladepatatas.org/"
+                href="https://tortilladepatatas.de/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#FFB800] hover:underline transition-colors flex items-center justify-between group py-0.5 font-bold"
               >
-                <span>Tortilla Creator App (creator.tortilladepatatas.org)</span>
+                <span>Tortilla Creator App (tortilladepatatas.de)</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800]" />
               </a>
             </li>

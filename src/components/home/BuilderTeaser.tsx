@@ -62,12 +62,12 @@ export default function BuilderTeaser() {
               </LocalizedLink>
 
               <a
-                href="http://creator.tortilladepatatas.org/"
+                href="https://tortilladepatatas.de/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button size="lg" variant="outline" className="border-amber-600 text-amber-900 hover:bg-amber-50 font-bold gap-2">
-                  <span>creator.tortilladepatatas.org</span>
+                  <span>tortilladepatatas.de</span>
                   <ExternalLink className="h-4 w-4" />
                 </Button>
               </a>

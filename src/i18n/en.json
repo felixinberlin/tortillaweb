@@ -24,7 +24,7 @@
     "subtitle": "Choose ingredients, control the heat and discover how every decision changes the final result.",
     "button": "Start building",
     "openApp": "Open Tortilla Creator",
-    "appDesc": "Access the interactive Tortilla Creator application at http://creator.tortilladepatatas.org/ to customize your recipe.",
+    "appDesc": "Access the interactive Tortilla Creator application at https://tortilladepatatas.de/ to customize your recipe.",
     "dinersQuestion": "How many servings?",
     "dinersDesc": "We'll adjust ingredient quantities and pan size automatically.",
     "servings": "servings",
@@ -97,7 +97,7 @@
     "subtitle": "From the initial slicing of potatoes to the confident flip in the pan.",
     "step1": {
       "title": "1. Slicing & Chipping",
-      "desc": "Slice potatoes into thin, irregular pieces ('chascar'). Breaking the potato releases natural starches that thicken the mixture."
+      "desc": "Slice potatoes into thin, irregular bites ('chascar'). Breaking the potato releases natural starches that thicken the mixture."
     },
     "step2": {
       "title": "2. Slow Confit (Pochado)",
