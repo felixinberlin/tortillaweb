@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ChefHat, ShieldCheck, Heart, BookOpen } from "lucide-react";
+import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight} from "lucide-react";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 
 function renderFormattedText(text: string) {
