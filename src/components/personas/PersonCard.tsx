@@ -25,8 +25,6 @@ function renderFormattedText(text: string) {
 
 export default function PersonCard({ persona }: PersonCardProps) {
   const { t } = useTranslation();
-  console.log('persona');
-  console.log(persona.imageUrl);
   const getBadgeStyle = (badge: string) => {
     switch (badge) {
       case "Historia":
