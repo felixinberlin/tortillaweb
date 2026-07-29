@@ -1,0 +1,182 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BookOpen, Calendar, MapPin, ShieldCheck, Quote, Sparkles } from 'lucide-react';
+import { historyData } from '@/data/historyData';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const content = historyData[lang] || historyData.es;
+const t = getTranslations(lang);
+
+function formatText(text: string) {
+  if (!text) return '';
+  return text.replace(/(\*\*.*?\*\*)/g, (match) => {
+    return `<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE]/80 px-1 py-0.5 rounded">${match.slice(2, -2)}</strong>`;
+  });
+}
+
+const title = `${content.title} - tortilladepatatas.org`;
+const description = content.subtitle;
+
+const articleSchema = generateArticleSchema({
+  headline: content.title,
+  description: content.subtitle,
+  url: `/${lang}/history`,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: content.title, url: `/${lang}/history` }
+]);
+
+const schemas = [articleSchema, breadcrumbSchema];
+---
+
+<Layout title={title} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <BookOpen class="w-3.5 h-3.5" />
+        {content.badge}
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {content.title}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {content.subtitle}
+      </p>
+    </div>
+
+    <!-- Chef Note Callout -->
+    <Card class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800]">
+      <div class="flex items-start gap-4">
+        <Quote class="w-8 h-8 text-[#8D6E63] shrink-0 mt-1 opacity-80" />
+        <div class="text-sm md:text-base text-foreground leading-relaxed font-medium">
+          <p set:html={formatText(content.chefNote)} />
+        </div>
+      </div>
+    </Card>
+
+    <!-- Timeline Section -->
+    <div class="space-y-8">
+      <div class="border-b border-[#E8E2D5] pb-4">
+        <h2 class="text-2xl md:text-3xl font-serif-heading font-bold flex items-center gap-2">
+          <Calendar class="w-6 h-6 text-[#FFB800]" />
+          {content.timelineTitle}
+        </h2>
+        <p class="text-muted-foreground text-xs sm:text-sm mt-1">{content.timelineSubtitle}</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {content.timelineEvents.map((event, idx) => (
+          <Card key={idx} class="card-notebook p-2">
+            <CardHeader class="pb-2">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300">
+                  {event.year}
+                </span>
+                {event.badge && (
+                  <Badge variant="outline" class="text-[11px] border-amber-300 bg-[#FCF9F2]">
+                    {event.badge}
+                  </Badge>
+                )}
+              </div>
+              <CardTitle class="text-lg font-serif-heading font-bold text-foreground pt-1">
+                {event.title}
+              </CardTitle>
+              {event.location && (
+                <div class="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
+                  <MapPin class="w-3 h-3 text-[#FFB800]" />
+                  <span>{event.location}</span>
+                </div>
+              )}
+            </CardHeader>
+            <CardContent>
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed" set:html={formatText(event.description)} />
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+
+    <!-- Chapters Detail Section -->
+    <div class="space-y-10 pt-6">
+      <div class="border-b border-[#E8E2D5] pb-4">
+        <h2 class="text-2xl md:text-3xl font-serif-heading font-bold flex items-center gap-2">
+          <Sparkles class="w-6 h-6 text-[#FFB800]" />
+          {content.chaptersTitle}
+        </h2>
+        <p class="text-muted-foreground text-xs sm:text-sm mt-1">{content.chaptersSubtitle}</p>
+      </div>
+
+      <div class="space-y-8">
+        {content.chapters.map((chapter) => (
+          <Card key={chapter.id} class="card-notebook p-6 md:p-8 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="text-xl md:text-2xl font-black text-[#8D6E63] font-mono bg-[#F5E6BE] px-3.5 py-1 rounded-xl border border-amber-300">
+                {chapter.number}
+              </span>
+              <h3 class="text-xl md:text-2xl font-serif-heading font-bold text-foreground">
+                {chapter.title}
+              </h3>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
+              {chapter.content.map((p, i) => (
+                <p key={i} set:html={formatText(p)} />
+              ))}
+            </div>
+
+            {chapter.bulletPoints && (
+              <ul class="list-disc pl-6 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+                {chapter.bulletPoints.map((bp, i) => (
+                  <li key={i}>{bp}</li>
+                ))}
+              </ul>
+            )}
+
+            {chapter.tableData && (
+              <div class="overflow-x-auto my-4 rounded-xl border border-[#E8E2D5] shadow-2xs">
+                <table class="w-full text-xs md:text-sm text-left">
+                  <thead class="bg-[#F5E6BE] text-[#8D6E63] font-bold border-b border-[#E8E2D5]">
+                    <tr>
+                      {chapter.tableData.headers.map((h, i) => (
+                        <th key={i} class="p-3">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-[#E8E2D5]">
+                    {chapter.tableData.rows.map((row, i) => (
+                      <tr key={i} class="hover:bg-[#F5E6BE]/40">
+                        {row.map((cell, j) => (
+                          <td key={j} class="p-3" set:html={formatText(cell)} />
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+
+            {chapter.callout && (
+              <div class="p-4 rounded-xl bg-[#F5E6BE]/60 border border-amber-300 text-xs sm:text-sm font-medium flex items-start gap-3">
+                <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+                <span set:html={formatText(chapter.callout.text)} />
+              </div>
+            )}
+          </Card>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

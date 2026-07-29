@@ -5,28 +5,28 @@ import en from "./en.json";
 import es from "./es.json";
 import de from "./de.json";
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: en,
+if (!i18n.isInitialized) {
+  i18n
+    .use(initReactI18next)
+    .init({
+      resources: {
+        en: {
+          translation: en,
+        },
+        es: {
+          translation: es,
+        },
+        de: {
+          translation: de,
+        },
       },
-      es: {
-        translation: es,
+      lng: "es",
+      fallbackLng: "en",
+      initImmediate: false,
+      interpolation: {
+        escapeValue: false,
       },
-      de: {
-        translation: de,
-      },
-    },
-
-    lng: "es",
-
-    fallbackLng: "en",
-
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+    });
+}
 
 export default i18n;

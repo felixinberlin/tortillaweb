@@ -1,0 +1,73 @@
+Directorio Maestro: Persona Cards de la Tortilla de Patatas
+
+El presente directorio constituye un compendio analítico de las figuras y mentes que, desde la investigación académica, la innovación culinaria y la visión empresarial, definen el presente y el futuro de la tortilla de patatas. Este documento integra la salvaguarda de la tradición con los más recientes hallazgos en seguridad alimentaria y tendencias de consumo del siglo XXI.
+
+1. Bloque: Pioneros y Raíces de la Documentación
+
+Nombre: José Manuel Barat Baviera
+Badge: Historia
+Época: Contemporánea (Siglo XXI)
+Su aportación a la tortilla: Como tutor académico en la Universitat Politècnica de València, ha liderado la formalización científica del plato a través de la tutela de investigaciones críticas. Su labor es fundamental para elevar la tortilla de un saber empírico a un objeto de estudio técnico bajo estándares de ingeniería agronómica.
+Related pages: [#ciencia-y-seguridad]
+
+Nombre: Cocineras de pueblo anónimas
+Badge: Tradición
+Época: Transversal
+Su aportación a la tortilla: Custodias del equilibrio alquímico entre el huevo y la patata. El contexto histórico y los estudios de hábitos culinarios reconocen en su figura la estandarización de la proporción áurea que define la identidad del plato, manteniendo viva la técnica doméstica frente a la industrialización.
+Related pages: [#historia-y-tradicion]
+
+2. Bloque: Maestros de la Restauración y el Sabor
+
+Nombre: Pepa Miranda (Casa Dani)
+Badge: Tradición
+🖼️ [Ilustración/Retrato descriptivo]: Retrato de una cocinera de gesto experto en una cocina de gran actividad, manejando con precisión una sartén de hierro donde el huevo apenas cuajado brilla bajo la luz cálida de los fogones.
+Su aportación: Referente absoluto de la tortilla de estilo tradicional en Madrid. Su técnica busca el punto de jugosidad extrema, situando su establecimiento como el epicentro del debate entre el placer gastronómico y el rigor térmico necesario para la seguridad alimentaria.
+Related pages: [#maestros-del-sabor]
+
+Nombre: Cris (Delantal de Alces)
+Badge: Innovación
+🖼️ [Ilustración/Retrato descriptivo]: Retrato en una cocina luminosa y contemporánea; sobre la encimera destacan cuencos con harina de garbanzo y fécula de tapioca, mientras Cris presenta una tortilla de aspecto dorado y jugoso, indistinguible de la clásica.
+Su aportación: Pionera en la reinterpretación inclusiva de la tortilla. Ha perfeccionado una fórmula vegana y sin gluten utilizando harina de garbanzo y tapioca para emular la textura del huevo, permitiendo que personas con alergias o dietas éticas accedan a este baluarte culinario sin perder la esencia del sabor tradicional.
+Related pages: [#innovacion-gastronomica]
+
+Nombre: Colectivo de la Excelencia (Azurmendi, Mugaritz, Noor, Casa Marcial)
+Badge: Innovación
+🖼️ [Ilustración/Retrato descriptivo]: Composición de fachadas y entornos de alta cocina, desde los paisajes de Vizcaya hasta los salones de Córdoba, representando la cumbre de la imagen corporativa y digital en la restauración de lujo.
+Su aportación: Estos establecimientos representan el estándar de oro en la presentación y digitalización de la gastronomía española. Su apuesta por la calidad visual y la transparencia informativa en sus plataformas define cómo se percibe la tortilla y otros platos icónicos en el escenario de la alta cocina internacional.
+Related pages: [#tendencias-digitales]
+
+3. Bloque: Ciencia, Seguridad e Investigación
+
+Nombre: Alejandro José Ortega Vargas
+Badge: Ciencia
+Su aportación: Investigador especializado en el perfil de riesgo de Salmonella spp. en la tortilla poco cuajada. Mediante el uso de la herramienta Risk Ranger, ha documentado que el consumo tradicional (huevo líquido) es un escenario crítico de exposición. Su trabajo analiza brotes recientes de gran impacto, como el del Trasan Fest en Galicia (2025), donde la falta de tratamiento térmico adecuado resultó en más de 150 afectados, subrayando la urgencia de alcanzar los 70°C en el centro del producto.
+Related pages: [#seguridad-alimentaria]
+
+Nombre: Elena Sandri
+Badge: Ciencia
+Su aportación: Investigadora sociológica cuyo estudio en The International Journal of Gastronomy and Food Science revela la actual transformación del hogar español: mientras el 59,1% aún cocina a diario, un significativo 40,9% ha abandonado esta práctica, impulsando el auge de las tortillas preparadas y el sector de platos listos para el consumo.
+Related pages: [#tendencias-de-consumo]
+
+Nombre: Natzir Turrado
+Badge: Innovación
+Su aportación: Consultor experto en Foodtech y SEO internacional. Su análisis destaca que la supervivencia de los negocios de tortilla en la era digital depende de la integración del canal orgánico con la experiencia móvil. Subraya que en el sector de suscripciones de comida saludable, el éxito reside en capturar el tráfico informativo para derivarlo a aplicaciones propias que fidelicen al usuario fuera del vaivén de los algoritmos.
+Related pages: [#foodtech]
+
+4. Bloque: Divulgación y Cultura Digital
+
+Nombre: Bree Recker
+Badge: Divulgación
+Su aportación: Periodista gastronómica y creadora de contenidos ("brieelikethecheese"). Defiende que la "elección de comida se guía por el sistema visual", por lo que la divulgación de la tortilla debe apoyarse en imágenes de alta fidelidad. Su labor educativa se centra en mejorar la presencia digital de los restaurantes para atraer a un comensal que, en el siglo XXI, "come primero con los ojos".
+Related pages: [#cultura-digital]
+
+Nombre: David Carrasco
+Badge: Divulgación
+Su aportación: Analista de tendencias en el sector de comida preparada y delivery. Ha documentado el crecimiento imparable de los meal-kits (14,3%) y el auge de los servicios de táper a domicilio. Su trabajo permite identificar cómo la tortilla ha pasado de ser un plato doméstico a un producto de conveniencia que lidera el crecimiento de la cesta de la compra online.
+Related pages: [#delivery-y-tendencias]
+
+5. Bloque: Visión Empresarial y Futuro Alimentario
+
+Nombre: Juan Roig (Mercadona)
+Badge: Innovación
+Su aportación: Líder empresarial con la visión disruptiva de que "a mitad del siglo XXI no habrá cocinas en los hogares". Bajo esta premisa, ha impulsado un crecimiento del 48% en el sector de platos listos para comer en solo dos años, posicionando la tortilla envasada como el pilar fundamental de una nueva economía de consumo donde la eficiencia y la inmediatez sustituyen a la preparación tradicional.
+Related pages: [#futuro-de-la-alimentacion]

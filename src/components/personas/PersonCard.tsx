@@ -1,12 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import "@/i18n/config";
 import { User, BookOpen, ExternalLink, Sparkles, Flame, ShieldAlert, Award, Tv, Globe } from "lucide-react";
-import { Persona } from "@/data/personasData";
+import type { Persona } from "@/data/personasData";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import { Badge } from "@/components/ui/badge";
 
 interface PersonCardProps {
   persona: Persona;
+  lang?: string;
 }
 
 function renderFormattedText(text: string) {
@@ -23,8 +25,8 @@ function renderFormattedText(text: string) {
   });
 }
 
-export default function PersonCard({ persona }: PersonCardProps) {
-  const { t } = useTranslation();
+export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
+  const { t } = useTranslation(undefined, { lng: lang });
   const getBadgeStyle = (badge: string) => {
     switch (badge) {
       case "Historia":
@@ -128,6 +130,7 @@ export default function PersonCard({ persona }: PersonCardProps) {
         </span>
         <LocalizedLink
           to={persona.relatedPage.href}
+          lang={lang}
           className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 hover:text-amber-700 bg-amber-100/80 hover:bg-amber-200/80 px-3 py-1.5 rounded-lg border border-amber-300/80 transition-colors shadow-2xs"
         >
           <span>{persona.relatedPage.label}</span>
