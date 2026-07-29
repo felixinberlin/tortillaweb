@@ -1,3 +1,4 @@
+import "@/i18n/config";
 import { ArrowRight, Flame, Egg, BookOpen } from "lucide-react";
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
@@ -7,9 +8,12 @@ import clasicaImg from "@/assets/images/clasica.jpg";
 
 import { Button } from "@/components/ui/button";
 
+interface HeroProps {
+  lang?: string;
+}
 
-export default function Hero() {
-  const { t } = useTranslation();
+export default function Hero({ lang = "es" }: HeroProps) {
+  const { t } = useTranslation(undefined, { lng: lang });
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-amber-50 to-background dark:from-amber-950/20 dark:to-background">
@@ -35,14 +39,14 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <LocalizedLink to="/recipes" className="w-full sm:w-auto">
+            <LocalizedLink to="/recipes" lang={lang} className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto h-12 bg-amber-600 hover:bg-amber-700 text-white font-semibold">
                 {t("hero.recipesButton")}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </LocalizedLink>
 
-            <LocalizedLink to="/builder" className="w-full sm:w-auto">
+            <LocalizedLink to="/builder" lang={lang} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"

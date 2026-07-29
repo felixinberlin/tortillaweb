@@ -114,6 +114,14 @@
     "step5": {
       "title": "5. Das finale Anbraten",
       "desc": "Lass die Tortilla für nur 30 bis 60 Sekunden zurück in die heiße Pfanne gleiten, um eine feine goldene Kruste zu erzeugen, während das Innere saftig bleibt."
+    },
+    "garlic": {
+      "title": "Aromatisierung mit Knoblauch (Geheimtipp)",
+      "desc": "Eine ganze, leicht zerdrückte Knoblauchzehe bei niedriger Temperatur im Olivenöl ziehen lassen, bevor die Kartoffeln dazugegeben werden. Vor dem Bräunen entfernen für eine feine Aromanote."
+    },
+    "pepper": {
+      "title": "Die Prise frisch gemahlener schwarzer Pfeffer",
+      "desc": "Eine Prise frisch gemahlener schwarzer Pfeffer in den verquirlten Eiern balanciert das Fett des Öls, hebt die Süße der Kartoffel/Zwiebel hervor und sorgt für ein volles Aroma."
     }
   },
   "sciencePage": {

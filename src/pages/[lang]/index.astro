@@ -1,0 +1,25 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/home/Hero';
+import FeatureGrid from '@/components/home/FeatureGrid';
+import BuilderTeaser from '@/components/home/BuilderTeaser';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+
+const title = `${t('hero.title')} - tortilladepatatas.org`;
+const description = t('hero.subtitle');
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <Hero lang={lang} client:load />
+  <FeatureGrid lang={lang} client:load />
+  <BuilderTeaser lang={lang} client:load />
+</Layout>

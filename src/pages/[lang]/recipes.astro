@@ -1,0 +1,99 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import LocalizedLink from '@/components/navigation/LocalizedLink';
+import { BookOpen, ChefHat, Sparkles } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import clasicaImg from '@/assets/images/clasica.jpg';
+import concebollaImg from '@/assets/images/concebolla.jpg';
+import betanzosImg from '@/assets/images/betanzos.jpg';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+
+const recipes = [
+  { 
+    id: 'clasica', 
+    image: clasicaImg.src,
+    badge: 'Tradicional'
+  },
+  { 
+    id: 'con-cebolla', 
+    image: concebollaImg.src,
+    badge: 'Concebollista'
+  },
+  { 
+    id: 'betanzos', 
+    image: betanzosImg.src,
+    badge: 'Gallega Jugosa'
+  },
+];
+
+const title = `${t('recipes.title')} - tortilladepatatas.org`;
+const description = t('recipes.subtitle');
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-10">
+    <section class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <BookOpen class="w-3.5 h-3.5" />
+        {t("nav.recipes", "Recetas de la Gastronomía")}
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t('recipes.title')}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t('recipes.subtitle')}
+      </p>
+    </section>
+
+    <section class="grid gap-8 md:grid-cols-3">
+      {recipes.map((recipe) => (
+        <LocalizedLink key={recipe.id} to={`/builder`} lang={lang} class="block group">
+          <Card class="card-notebook overflow-hidden h-full flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300">
+            <div>
+              <div class="h-52 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
+                <img
+                  src={recipe.image}
+                  alt={t(`recipeItems.${recipe.id}.title`, recipe.id)}
+                  referrerPolicy="no-referrer"
+                  class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div class="absolute top-3 right-3">
+                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] shadow-2xs">
+                    {recipe.badge}
+                  </span>
+                </div>
+              </div>
+
+              <CardHeader class="pt-5 pb-2">
+                <CardTitle class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors">
+                  {t(`recipeItems.${recipe.id}.title`, recipe.id)}
+                </CardTitle>
+              </CardHeader>
+
+              <CardContent>
+                <p class="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                  {t(`recipeItems.${recipe.id}.description`, '')}
+                </p>
+              </CardContent>
+            </div>
+
+            <div class="p-4 pt-0 mt-auto flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] group-hover:translate-x-1 transition-transform">
+              <Sparkles class="w-3.5 h-3.5 text-[#FFB800]" />
+              <span>Ver Proporciones & Preparar</span>
+            </div>
+          </Card>
+        </LocalizedLink>
+      ))}
+    </section>
+  </div>
+</Layout>

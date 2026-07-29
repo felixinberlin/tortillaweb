@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import BuilderApp from '@/components/builder/BuilderApp';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+
+const title = `${t('builder.title')} - tortilladepatatas.org`;
+const description = t('builder.subtitle');
+---
+
+<Layout title={title} description={description} lang={lang}>
+  <BuilderApp client:load lang={lang} />
+</Layout>

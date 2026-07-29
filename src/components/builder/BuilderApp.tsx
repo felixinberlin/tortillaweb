@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "@/i18n/config";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { 
@@ -19,9 +20,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-export default function Builder() {
-  const { t, i18n } = useTranslation();
-  const lang = i18n.language || "es";
+interface BuilderAppProps {
+  lang?: string;
+}
+
+export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
+  const { t } = useTranslation(undefined, { lng: lang });
 
   // State options
   const [diners, setDiners] = useState<number>(4);
@@ -73,7 +77,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
   };
 
   return (
-    <main className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
+    <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
       {/* Header */}
       <div className="text-center mb-8 max-w-3xl mx-auto">
         <Badge variant="secondary" className="mb-4 px-3 py-1 text-sm font-medium bg-amber-100 text-amber-900 border-amber-200">
@@ -414,6 +418,6 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
           </motion.div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

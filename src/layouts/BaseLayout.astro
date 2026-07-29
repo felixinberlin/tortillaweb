@@ -1,0 +1,61 @@
+---
+import '@/index.css';
+import Header from '@/components/layout/Header.tsx';
+import Footer from '@/components/layout/Footer.tsx';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
+
+const {
+  title = "Tortilla de Patatas - The Recipe Notebook & Culinary Science",
+  description = "Spanish potato omelette web application, custom tortilla builder, and culinary science guide.",
+  lang = "es",
+  showHeader = true,
+  showFooter = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph & Canonical -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Design System Typography Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    
+    <slot name="head" />
+  </head>
+  <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
+    {showHeader && (
+      <Header lang={lang} currentPath={Astro.url.pathname} client:load />
+    )}
+
+    <main id="main-content" class="flex-1 w-full">
+      <slot />
+    </main>
+
+    {showFooter && (
+      <Footer lang={lang} currentPath={Astro.url.pathname} client:load />
+    )}
+  </body>
+</html>

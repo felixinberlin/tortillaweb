@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import LocalizedLink from '@/components/navigation/LocalizedLink';
+import { Button } from '@/components/ui/button';
+import { ChefHat, Home } from 'lucide-react';
+---
+
+<Layout title="404 - Página no encontrada | tortilladepatatas.org" lang="es">
+  <div class="container mx-auto px-4 py-24 text-center max-w-lg">
+    <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
+      <ChefHat class="w-10 h-10" />
+    </div>
+    <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
+    <p class="text-base sm:text-lg text-muted-foreground mb-8">
+      ¡Vaya! Esta tortilla se nos ha dado la vuelta mal. La página que buscas no existe o ha sido movida.
+    </p>
+    <LocalizedLink to="/">
+      <Button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold gap-2 shadow-sm">
+        <Home class="w-4 h-4" />
+        <span>Volver al inicio</span>
+      </Button>
+    </LocalizedLink>
+  </div>
+</Layout>
