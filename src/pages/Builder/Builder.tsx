@@ -98,16 +98,16 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <h3 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2 flex-wrap">
               <span>Tortilla Creator Web App</span>
               <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300">
-                creator.tortilladepatatas.org
+                tortilladepatatas.de
               </Badge>
             </h3>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              {t("builder.appDesc", "Accede a la aplicación interactiva Tortilla Creator en http://creator.tortilladepatatas.org/ para personalizar y calcular tu receta.")}
+              {t("builder.appDesc", "Accede a la aplicación interactiva Tortilla Creator en https://tortilladepatatas.de/ para personalizar y calcular tu receta.")}
             </p>
           </div>
         </div>
         <a
-          href="http://creator.tortilladepatatas.org/"
+          href="https://tortilladepatatas.de/"
           target="_blank"
           rel="noopener noreferrer"
           className="shrink-0 w-full sm:w-auto"

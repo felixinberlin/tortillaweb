@@ -68,12 +68,13 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="http://creator.tortilladepatatas.org/"
+                href="https://tortilladepatatas.de/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-amber-700"
               >
-                Tortilla Creator App
+                <span>Tortilla Creator App (tortilladepatatas.de)</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800]" />
               </a>
             </li>
             <li>
