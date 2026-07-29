@@ -1,3 +1,4 @@
+import "@/i18n/config";
 import { useTranslation } from "react-i18next";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import {
@@ -44,8 +45,12 @@ const features = [
   },
 ];
 
-export default function FeatureGrid() {
-  const { t } = useTranslation();
+interface FeatureGridProps {
+  lang?: string;
+}
+
+export default function FeatureGrid({ lang = "es" }: FeatureGridProps) {
+  const { t } = useTranslation(undefined, { lng: lang });
 
   return (
     <section className="container mx-auto px-4 py-20">
@@ -64,7 +69,7 @@ export default function FeatureGrid() {
           const Icon = feature.icon;
 
           return (
-            <LocalizedLink key={feature.key} to={feature.href} className="block group">
+            <LocalizedLink key={feature.key} to={feature.href} lang={lang} className="block group">
               <Card className="h-full transition duration-200 group-hover:-translate-y-1 group-hover:shadow-lg border border-border">
                 <CardContent className="space-y-4 p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-700 dark:bg-orange-950 dark:text-orange-300 transition group-hover:bg-orange-600 group-hover:text-white">

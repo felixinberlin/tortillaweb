@@ -1,72 +1,105 @@
-# React + TypeScript + Vite + Tailwind CSS Project
+# tortilladepatatas.org — Cuaderno & Ciencia Culinaria
 
-This project is a modern web application built with **React**, **TypeScript**, and **Vite**, configured for optimal development experience and high performance.
+An open culinary notebook and food safety guide for the authentic Spanish Omelette (*Tortilla de Patatas*). Built with **Astro**, **React**, **TypeScript**, and **Tailwind CSS**.
 
-## Tech Stack
+---
 
-The project utilizes the following key technologies and libraries:
+## 🚀 How Build & Publishing Works (Static HTML vs. Vite Bundles)
 
-- **Framework**: [React](https://react.dev/) (v19)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (v4)
-- **UI Components**:
-  - [shadcn/ui](https://ui.shadcn.com/)
-  - [Base UI](https://mui.com/base-ui/)
-- **Animations**: [Motion](https://motion.dev/) & [tw-animate-css](https://github.com/tonik/tw-animate-css)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Routing**: [React Router DOM](https://reactrouter.com/)
-- **Internationalization**: [i18next](https://www.i18next.com/) & [react-i18next](https://react.i18next.com/)
-- **Linting**: [Oxlint](https://oxc.rs/docs/guide/usage/linter.html)
+When you run `npm run build`, Astro performs **Static Site Generation (SSG)**:
 
-## Getting Started
+1. **Static HTML Pages**: Astro pre-renders every route and language variant (`/es/`, `/en/`, `/de/`, `/es/builder`, `/es/science`, `/es/recipes`, etc.) into static `.html` files inside the `dist/` directory. This delivers ultra-fast page loads, zero-JS initial renders, and maximum SEO performance.
+2. **Optimized Client JS Bundles**: For interactive React components marked with `client:load` (such as the interactive **Tortilla Builder**, **Header/Language Drawer**, and **Interactive Cards**), Vite bundles minimal JavaScript required for client hydration.
+3. **Zero-Server Requirement**: The resulting `dist/` directory is completely standalone and static. You do **not** need a Node.js server to run the live application.
 
-### Prerequisites
+---
 
-Make sure you have Node.js and npm installed on your machine.
+## 📥 How to Download & Publish This Project
 
-### Installation
+### 1. Export / Download Code
+- **Via AI Studio**: Click **Settings** in the top right, then choose **Export to GitHub** or **Download ZIP**.
+- Unzip the project folder on your machine (or clone your exported GitHub repository).
 
-Clone the repository and install dependencies:
+---
+
+### 2. Local Installation & Development
+
+Make sure you have **Node.js** (v18+ recommended) installed.
 
 ```bash
+# Install dependencies
 npm install
+
+# Start local development server (runs on http://localhost:3000)
+npm run dev
 ```
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### 3. Build for Production
 
-### `npm run dev`
+Generate the static production build:
 
-Runs the app in the development mode using Vite.
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
-The page will reload if you make edits.
+```bash
+npm run build
+```
 
-### `npm run build`
+This creates the output folder `dist/` containing all static HTML files, CSS, images, and optimized Vite JavaScript bundles.
 
-Builds the app for production to the `dist` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To preview the production build locally:
 
-### `npm run lint`
+```bash
+npm run preview
+```
 
-Lints the codebase using **Oxlint** for ultra-fast performance.
+---
 
-### `npm run preview`
+### 4. Publishing to Web Hosting
 
-Boot up a local static web server that serves the files from `dist` to preview the production build locally.
+You can publish the generated `dist/` folder to any static hosting provider for free:
 
-## Project Structure
+#### Option A: Vercel / Netlify / Cloudflare Pages
+1. Connect your GitHub repository to **Vercel**, **Netlify**, or **Cloudflare Pages**.
+2. Set the configuration settings:
+   - **Framework Preset**: `Astro`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. Click **Deploy**.
 
-- `src/` - Contains the main application source code.
-  - `app/` - App-wide configurations and providers.
-  - `assets/` - Static assets like images and fonts.
-  - `components/` - Reusable React components.
-  - `i18n/` - Internationalization configuration and translation files.
-  - `lib/` - Utility functions and libraries.
-  - `pages/` - Page components for routing.
+#### Option B: GitHub Pages
+1. In your GitHub repository, go to **Settings** > **Pages**.
+2. Choose **GitHub Actions** as the source and select the default Astro workflow.
 
-## Development Setup
+#### Option C: Standard Web Server (Apache / Nginx / Shared Hosting)
+1. Run `npm run build` locally.
+2. Upload the contents of the `dist/` directory directly to your web server's `public_html` or root directory via FTP / SFTP.
 
-This template provides a minimal setup to get React working in Vite with HMR and Oxlint rules.
-The project uses standard configuration files such as `vite.config.ts`, `tailwind.config.js` (or inline Tailwind config), and `tsconfig.json`.
+---
+
+## 🛠️ Project Scripts
+
+| Script | Command | Description |
+| :--- | :--- | :--- |
+| **Development** | `npm run dev` | Runs the Astro development server on `http://localhost:3000` |
+| **Production Build** | `npm run build` | Builds static HTML pages & Vite assets into `/dist` |
+| **Preview** | `npm run preview` | Serves the production `/dist` build locally |
+| **Linter** | `npm run lint` | Runs Oxlint for fast TypeScript/JSX code analysis |
+
+---
+
+## 📁 Project Structure
+
+```
+├── astro.config.mjs     # Astro configuration & React integration
+├── package.json         # Dependencies and scripts
+├── public/              # Static assets (images, icons)
+└── src/
+    ├── components/      # React & Astro components
+    │   ├── home/        # Hero, Feature Grid, Builder Teaser
+    │   ├── layout/      # Header, Footer, Sub-nav
+    │   └── ui/          # Radix & Tailwind UI primitives
+    ├── layouts/         # Base & Page Astro layouts
+    ├── lib/             # i18n translations & culinary math engine
+    ├── pages/           # Astro routes with i18n static paths ([lang]/)
+    └── index.css        # Global Tailwind CSS styles
+```

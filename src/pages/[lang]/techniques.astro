@@ -1,0 +1,166 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Sparkles, Utensils, Flame, Timer, RefreshCw, CheckCircle2, ChefHat, Droplets } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const t = getTranslations(lang);
+
+const steps = [
+  {
+    num: 1,
+    key: "step1",
+    icon: Utensils,
+    color: "text-amber-800 bg-[#F5E6BE] border-amber-300",
+  },
+  {
+    num: 2,
+    key: "step2",
+    icon: Flame,
+    color: "text-orange-800 bg-orange-100 border-orange-300",
+  },
+  {
+    num: 3,
+    key: "step3",
+    icon: Timer,
+    color: "text-blue-800 bg-blue-100 border-blue-300",
+  },
+  {
+    num: 4,
+    key: "step4",
+    icon: RefreshCw,
+    color: "text-emerald-800 bg-emerald-100 border-emerald-300",
+  },
+  {
+    num: 5,
+    key: "step5",
+    icon: CheckCircle2,
+    color: "text-[#8D6E63] bg-[#F5E6BE] border-amber-300",
+  },
+];
+
+const title = `${t('techniquesPage.title')} - tortilladepatatas.org`;
+const description = t('techniquesPage.subtitle');
+
+const articleSchema = generateArticleSchema({
+  headline: t("techniquesPage.title", "Técnicas y Pasos Críticos de Elaboración"),
+  description: t("techniquesPage.subtitle", "Desde el chasquido inicial de la patata hasta el movimiento decidido del volteo en la sartén."),
+  url: `/${lang}/techniques`,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t("techniquesPage.title", "Técnicas"), url: `/${lang}/techniques` }
+]);
+
+const schemas = [articleSchema, breadcrumbSchema];
+---
+
+<Layout title={title} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Sparkles class="w-3.5 h-3.5" />
+        {t("techniquesPage.badge", "Maestría en la Cocina")}
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t("techniquesPage.title", "Técnicas y Pasos Críticos")}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("techniquesPage.subtitle", "Desde el chasquido inicial de la patata hasta el movimiento decidido del volteo en la sartén.")}
+      </p>
+    </div>
+
+    <!-- Steps Timeline -->
+    <div class="space-y-6">
+      {steps.map((step) => {
+        const Icon = step.icon;
+        return (
+          <Card key={step.key} class="card-notebook p-2 sm:p-4">
+            <CardHeader class="pb-2">
+              <div class="flex items-center gap-4">
+                <div class={`p-3 rounded-xl border flex items-center justify-center shrink-0 shadow-2xs ${step.color}`}>
+                  <Icon class="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-[#8D6E63] uppercase tracking-wider block">
+                    Paso {step.num}
+                  </span>
+                  <CardTitle class="text-lg sm:text-xl md:text-2xl font-serif-heading font-bold text-foreground">
+                    {t(`techniquesPage.${step.key}.title`, '')}
+                  </CardTitle>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent class="sm:pl-16 pt-2">
+              <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base">
+                {t(`techniquesPage.${step.key}.desc`, '')}
+              </p>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
+
+    <!-- Nuances: Garlic & Black Pepper Secret Techniques -->
+    <div class="pt-6 space-y-6">
+      <div class="border-b border-[#E8E2D5] pb-3">
+        <h2 class="text-2xl font-serif-heading font-bold text-foreground flex items-center gap-2">
+          <ChefHat class="w-6 h-6 text-[#FFB800]" />
+          <span>Secretos de Sazón: Ajo y Pimienta Negra</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">
+          Detalles opcionales de alta cocina que marcan la diferencia entre una buena tortilla y una inolvidable.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <Card class="card-notebook p-2 sm:p-4 border-l-4 border-l-[#FFB800]">
+          <CardHeader class="pb-2">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-xl bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 shadow-2xs">
+                <Droplets class="w-5 h-5" />
+              </div>
+              <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
+                {t('techniquesPage.garlic.title', 'Aromatización con Ajo')}
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm">
+              {t('techniquesPage.garlic.desc', '')}
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card class="card-notebook p-2 sm:p-4 border-l-4 border-l-[#8D6E63]">
+          <CardHeader class="pb-2">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 rounded-xl bg-stone-100 text-stone-800 border border-stone-300 shadow-2xs">
+                <Sparkles class="w-5 h-5 text-[#8D6E63]" />
+              </div>
+              <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
+                {t('techniquesPage.pepper.title', 'Pimienta Negra Recién Molida')}
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm">
+              {t('techniquesPage.pepper.desc', '')}
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </div>
+</Layout>

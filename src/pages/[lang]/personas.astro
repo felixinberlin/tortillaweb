@@ -1,0 +1,100 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import PersonCard from '@/components/personas/PersonCard';
+import { Users, Quote, Sparkles } from 'lucide-react';
+import { personasData } from '@/data/personasData';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generatePersonSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const content = personasData[lang] || personasData.es;
+const t = getTranslations(lang);
+
+function formatSafetyText(text: string) {
+  if (!text) return '';
+  return text
+    .replace(/(\*\*.*?\*\*)/g, (match) => {
+      return `<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE]/60 px-1 py-0.5 rounded">${match.slice(2, -2)}</strong>`;
+    });
+}
+
+const title = `${content.title} - tortilladepatatas.org`;
+const description = content.subtitle;
+
+const personSchemas = content.categories.flatMap((cat) =>
+  cat.personas.map((p) =>
+    generatePersonSchema({
+      name: p.name,
+      jobTitle: p.title,
+      description: p.bio,
+      image: p.image,
+    })
+  )
+);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: content.title, url: `/${lang}/personas` }
+]);
+
+const schemas = [...personSchemas, breadcrumbSchema];
+---
+
+<Layout title={title} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Users class="w-3.5 h-3.5" />
+        {content.badge}
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {content.title}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {content.subtitle}
+      </p>
+    </div>
+
+    <!-- Chef Note Callout -->
+    <Card class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800]">
+      <div class="flex items-start gap-4">
+        <Quote class="w-8 h-8 text-[#8D6E63] shrink-0 mt-1 opacity-80" />
+        <div class="text-sm md:text-base text-foreground leading-relaxed font-medium">
+          <p set:html={formatSafetyText(content.chefNote)} />
+        </div>
+      </div>
+    </Card>
+
+    <!-- Categories & Person Cards -->
+    <div class="space-y-12">
+      {content.categories.map((cat) => (
+        <section key={cat.id} class="space-y-6">
+          <div class="border-b border-[#E8E2D5] pb-3 flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-serif-heading font-bold text-foreground flex items-center gap-2">
+                <Sparkles class="w-5 h-5 text-[#FFB800]" />
+                {cat.title}
+              </h2>
+              <p class="text-sm text-muted-foreground mt-0.5">{cat.description}</p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cat.personas.map((persona) => (
+              <PersonCard persona={persona} lang={lang} client:load />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</Layout>

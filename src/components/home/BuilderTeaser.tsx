@@ -1,3 +1,4 @@
+import "@/i18n/config";
 import { ArrowRight, ChefHat, Flame, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -5,9 +6,12 @@ import LocalizedLink from "@/components/navigation/LocalizedLink";
 
 import { Button } from "@/components/ui/button";
 
+interface BuilderTeaserProps {
+  lang?: string;
+}
 
-export default function BuilderTeaser() {
-  const { t } = useTranslation();
+export default function BuilderTeaser({ lang = "es" }: BuilderTeaserProps) {
+  const { t } = useTranslation(undefined, { lng: lang });
 
 
   return (
@@ -54,7 +58,7 @@ export default function BuilderTeaser() {
 
 
             <div className="flex flex-wrap items-center gap-3">
-              <LocalizedLink to="/builder">
+              <LocalizedLink to="/builder" lang={lang}>
                 <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white font-bold">
                   {t("builder.button")}
                   <ArrowRight className="ml-2 h-5 w-5" />

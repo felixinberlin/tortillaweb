@@ -114,6 +114,14 @@
     "step5": {
       "title": "5. El Sellado Final",
       "desc": "Vuelve a deslizar la tortilla en la sartén a fuego medio-alto durante solo 30 a 60 segundos para crear la fina corteza dorada exterior manteniendo el interior jugoso."
+    },
+    "garlic": {
+      "title": "Aromatización con Ajo (Secreto de Autor)",
+      "desc": "Infusionar un diente de ajo entero y ligeramente chafado en el aceite de oliva a baja temperatura antes de incorporar las patatas. Se retira antes de que tome color para aportar un perfume sutil y elegante sin amargar."
+    },
+    "pepper": {
+      "title": "El Toque de Pimienta Negra Recién Molida",
+      "desc": "Un leve golpe de pimienta negra molida al momento en el huevo batido equilibra la riqueza grasa del aceite, resalta la dulzura de la patata/cebolla y aporta un contraste aromático muy apreciado en la alta cocina."
     }
   },
   "sciencePage": {

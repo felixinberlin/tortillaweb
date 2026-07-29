@@ -1,0 +1,147 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Sparkles, Egg, CookingPot, Droplet, Flame, Scale } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const t = getTranslations(lang);
+
+const ingredientsList = [
+  {
+    key: "potatoes",
+    icon: CookingPot,
+    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80",
+    badge: "Monalisa / Kennebec",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
+  },
+  {
+    key: "eggs",
+    icon: Egg,
+    image: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=600&q=80",
+    badge: "Frescos Categoría L/XL",
+    badgeColor: "bg-yellow-100 text-yellow-900 border-yellow-300",
+    iconColor: "text-yellow-700 bg-yellow-100/80 border-yellow-200",
+  },
+  {
+    key: "oil",
+    icon: Droplet,
+    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80",
+    badge: "Aceite de Oliva Virgen Extra (AOVE)",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    iconColor: "text-emerald-700 bg-emerald-100/80 border-emerald-200",
+  },
+  {
+    key: "onion",
+    icon: Flame,
+    image: "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=600&q=80",
+    badge: "Cebolla Dulce (Opcional)",
+    badgeColor: "bg-orange-100 text-orange-900 border-orange-300",
+    iconColor: "text-orange-700 bg-orange-100/80 border-orange-200",
+  },
+  {
+    key: "salt",
+    icon: Scale,
+    image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80",
+    badge: "Sal Marina Fina",
+    badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
+    iconColor: "text-blue-700 bg-blue-100/80 border-blue-200",
+  },
+];
+
+const title = `${t('ingredientsPage.title')} - tortilladepatatas.org`;
+const description = t('ingredientsPage.subtitle');
+
+const articleSchema = generateArticleSchema({
+  headline: t("ingredientsPage.title", "Los Ingredientes de la Tortilla de Patatas"),
+  description: t("ingredientsPage.subtitle", "Una gran tortilla no necesita artificios. La clave reside en la calidad de la materia prima y la proporción justa."),
+  url: `/${lang}/ingredients`,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: t("ingredientsPage.title", "Ingredientes"), url: `/${lang}/ingredients` }
+]);
+
+const schemas = [articleSchema, breadcrumbSchema];
+---
+
+<Layout title={title} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Sparkles class="w-3.5 h-3.5" />
+        {t("ingredientsPage.badge", "Los Fundamentos")}
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t("ingredientsPage.title", "Los 4 Ingredientes Sagrados")}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("ingredientsPage.subtitle", "Una gran tortilla no necesita artificios. La clave reside en la calidad de la materia prima y la proporción justa.")}
+      </p>
+    </div>
+
+    <!-- Ingredients Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {ingredientsList.map((item, index) => {
+        const Icon = item.icon;
+        return (
+          <Card key={item.key} class="card-notebook overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                <img
+                  src={item.image}
+                  alt={t(`ingredientsPage.${item.key}.title`, item.key)}
+                  width="600"
+                  height="400"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                  <span class={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${item.badgeColor}`}>
+                    {item.badge}
+                  </span>
+                </div>
+              </div>
+
+              <CardHeader class="pb-3 pt-4">
+                <div class="flex items-center gap-3">
+                  <div class={`p-2.5 rounded-xl border shadow-2xs ${item.iconColor}`}>
+                    <Icon class="w-5 h-5" />
+                  </div>
+                  <div>
+                    <CardTitle class="text-xl font-serif-heading font-bold text-foreground">
+                      {t(`ingredientsPage.${item.key}.title`, item.key)}
+                    </CardTitle>
+                    <span class="text-xs font-semibold text-[#8D6E63] block mt-0.5">
+                      {t(`ingredientsPage.${item.key}.subtitle`, '')}
+                    </span>
+                  </div>
+                </div>
+              </CardHeader>
+
+              <CardContent>
+                <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm">
+                  {t(`ingredientsPage.${item.key}.desc`, '')}
+                </p>
+              </CardContent>
+            </div>
+          </Card>
+        );
+      })}
+    </div>
+  </div>
+</Layout>
