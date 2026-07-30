@@ -1,0 +1,22 @@
+{
+  "badge": {
+    "es": "Físico-Química Culinaria & Microbiología",
+    "en": "Culinary Physics, Chemistry & Microbiology",
+    "de": "Kulinarische Physik, Chemie & Mikrobiologie"
+  },
+  "title": {
+    "es": "La Ciencia Detrás de la Tortilla de Patatas",
+    "en": "The Science Behind the Spanish Potato Omelette",
+    "de": "Die Wissenschaft hinter der Tortilla de Patatas"
+  },
+  "subtitle": {
+    "es": "Análisis moleculares, cinética de coagulación de las proteínas del huevo, gelatinización de almidones, reacción de Maillard y protocolo microbiológico de seguridad.",
+    "en": "Molecular analysis, egg protein coagulation kinetics, starch gelatinization, Maillard reaction, and microbiological safety protocols.",
+    "de": "Molekulare Analysen, Kinetik der Eiprotein-Koagulation, Stärkegelatinierung, Maillard-Reaktion und mikrobiologisches Sicherheitsprotokoll."
+  },
+  "safetyNote": {
+    "es": "Garantía de Pasteurización y Seguridad Alimentaria: La Salmonella Enteritidis se destruye térmicamente cuando la mezcla alcanza **70°C for 2 minutes** o **63°C for 20 seconds**. Las tortillas jugosas consumidas de inmediato o preparadas con huevo pasteurizado son seguras si no superan las **4 hours** a temperatura ambiente.",
+    "en": "Pasteurization & Food Safety Guarantee: Salmonella Enteritidis is thermally destroyed when the mixture reaches **70°C for 2 minutes** or **63°C for 20 seconds**. Runny omelettes made with pasteurized eggs remain safe if consumed within **4 hours** at room temperature.",
+    "de": "Sicherheitsgarantie: Salmonella Enteritidis wird abgetötet, wenn die Mischung **70°C for 2 minutes** oder **63°C for 20 seconds** erreicht. Saftige Tortillas mit Flüssigei sind sicher bei maximal **4 hours** Stehzeit."
+  }
+}

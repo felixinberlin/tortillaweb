@@ -1,0 +1,116 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { 
+  FlaskConical, 
+  Sparkles, 
+  Scale, 
+  Vote, 
+  HelpCircle, 
+  ArrowRight,
+  ShieldCheck
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+// Load content from JSON collection
+const pagesCollection = await getCollection('pages');
+const laboratorioEntry = pagesCollection.find((p) => p.id === 'laboratorio-index' || p.id.includes('laboratorio-index'));
+const content = laboratorioEntry ? laboratorioEntry.data : null;
+
+const badge = content?.badge?.[currentLang] || 'Experiencias Interactivas & Herramientas';
+const title = content?.title?.[currentLang] || 'Laboratorio Gastronómico';
+const subtitle = content?.subtitle?.[currentLang] || 'Herramientas interactivas para diseñar, comparar y evaluar tu tortilla ideal.';
+
+const iconComponents: Record<string, any> = {
+  Sparkles,
+  Scale,
+  Vote,
+  HelpCircle
+};
+
+const sections = (content?.sections || []).map((sec: any) => ({
+  id: sec.id,
+  href: `/${currentLang}${sec.href.startsWith('/') ? sec.href : '/' + sec.href}`,
+  title: sec.title?.[currentLang] || sec.title,
+  description: sec.description?.[currentLang] || sec.description,
+  Icon: iconComponents[sec.icon] || FlaskConical
+}));
+
+const pageTitle = `${title} | tortilladepatatas.org`;
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: title, url: `/${currentLang}/laboratorio` },
+]);
+---
+
+<Layout title={pageTitle} description={subtitle} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
+    <!-- HERO HEADER -->
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <FlaskConical class="w-3.5 h-3.5" />
+        <span>{badge}</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
+        {title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+        {subtitle}
+      </p>
+    </header>
+
+    <!-- SECTION GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {sections.map(({ href, title: secTitle, description: secDesc, Icon }) => (
+        <a
+          href={href}
+          class="card-notebook p-6 md:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] hover:shadow-md transition-all duration-200 group flex flex-col justify-between"
+        >
+          <div class="space-y-4">
+            <div class="p-3 rounded-2xl bg-[#FFB800]/20 text-[#8D6E63] w-fit border border-amber-300/50 group-hover:scale-110 transition-transform">
+              <Icon class="w-7 h-7 text-[#8D6E63]" />
+            </div>
+
+            <div class="space-y-2">
+              <h2 class="text-2xl font-serif-heading font-bold text-[#292521] group-hover:text-[#8D6E63] transition-colors">
+                {secTitle}
+              </h2>
+
+              <p class="text-sm text-foreground/80 leading-relaxed">
+                {secDesc}
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-6 flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] group-hover:text-[#292521] transition-colors">
+            <span>Abrir Herramienta</span>
+            <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- SAFETY NOTE FOOTER -->
+    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p class="font-sans">
+          Estándar Bactericida: Todos los cálculos e interpolaciones en el Laboratorio incorporan la comprobación del estándar higiénico sanitariamente aprobado: <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>, con un máximo de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

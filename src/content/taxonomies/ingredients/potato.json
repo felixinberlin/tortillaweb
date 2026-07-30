@@ -1,0 +1,20 @@
+{
+  "id": "potato",
+  "type": "ingredient",
+  "slug": {
+    "es": "patata",
+    "en": "potato",
+    "de": "kartoffel"
+  },
+  "title": {
+    "es": "Patata",
+    "en": "Potato",
+    "de": "Kartoffel"
+  },
+  "description": {
+    "es": "La base fundamental de la tortilla. Variedades como Monalisa, Kennebec o Agria ofrecen el equilibrio perfecto de almidón y textura.",
+    "en": "The structural base of the Spanish omelette. Varieties like Monalisa or Kennebec yield the best confit texture.",
+    "de": "Die Grundlage der Tortilla. Sorten wie Monalisa oder Kennebec eignen sich am besten zum Confitieren."
+  },
+  "icon": "CookingPot"
+}

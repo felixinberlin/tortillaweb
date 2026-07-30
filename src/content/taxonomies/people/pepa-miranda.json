@@ -1,0 +1,24 @@
+{
+  "id": "pepa-miranda",
+  "type": "person",
+  "slug": {
+    "es": "pepa-miranda",
+    "en": "pepa-miranda",
+    "de": "pepa-miranda"
+  },
+  "title": {
+    "es": "Pepa Miranda (Casa Dani)",
+    "en": "Pepa Miranda (Casa Dani)",
+    "de": "Pepa Miranda (Casa Dani)"
+  },
+  "description": {
+    "es": "Referente de la tortilla de estilo tradicional en Madrid con jugosidad extrema.",
+    "en": "Reference for traditional style Spanish omelette in Madrid with extreme juiciness.",
+    "de": "Referenz für die traditionelle spanische Tortilla in Madrid mit extremer Saftigkeit."
+  },
+  "badge": {
+    "es": "Tradición",
+    "en": "Tradition",
+    "de": "Tradition"
+  }
+}

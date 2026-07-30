@@ -1,0 +1,20 @@
+{
+  "id": "pepper",
+  "type": "ingredient",
+  "slug": {
+    "es": "pimiento",
+    "en": "pepper",
+    "de": "paprika"
+  },
+  "title": {
+    "es": "Pimiento Verde",
+    "en": "Green Pepper",
+    "de": "Grüne Paprika"
+  },
+  "description": {
+    "es": "Aporte aromático campero característico de la tortilla paisana y vasca.",
+    "en": "Aromatic pepper addition characteristic of northern country-style omelettes.",
+    "de": "Aromatischer Paprika-Anteil, charakteristisch für nordspanische Land-Tortillas."
+  },
+  "icon": "Sprout"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "frying",
+  "type": "technique",
+  "slug": {
+    "es": "fritura-crujiente",
+    "en": "crispy-frying",
+    "de": "knusprig-frittieren"
+  },
+  "title": {
+    "es": "Fritura Crujiente",
+    "en": "Crispy Frying",
+    "de": "Knusprige Fritüre"
+  },
+  "description": {
+    "es": "Fritura rápida de láminas muy finas de patata para lograr bordes dorados y crujientes típicos de Betanzos.",
+    "en": "Rapid frying of wafer-thin potato slices to create crispy golden edges typical of Betanzos.",
+    "de": "Schnelles Frittieren hauchdünner Kartoffelscheiben für knusprige Ränder nach Betanzos-Art."
+  },
+  "icon": "Flame"
+}

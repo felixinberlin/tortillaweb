@@ -1,0 +1,20 @@
+{
+  "id": "easy",
+  "type": "difficulty",
+  "slug": {
+    "es": "facil",
+    "en": "easy",
+    "de": "einfach"
+  },
+  "title": {
+    "es": "Fácil",
+    "en": "Easy",
+    "de": "Einfach"
+  },
+  "description": {
+    "es": "Dificultad accesible para principiantes en cocina casera.",
+    "en": "Accessible difficulty for home cooking beginners.",
+    "de": "Einfache Schwierigkeitsstufe für Anfänger."
+  },
+  "icon": "Sparkles"
+}

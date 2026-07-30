@@ -1,0 +1,22 @@
+{
+  "badge": {
+    "es": "Manual de Ejecución & Métodos",
+    "en": "Execution Manual & Methods",
+    "de": "Ausführungshandbuch & Methoden"
+  },
+  "title": {
+    "es": "Técnicas Culinarias de la Tortilla",
+    "en": "Culinary Techniques for Spanish Omelette",
+    "de": "Kulinarische Techniken der Tortilla"
+  },
+  "subtitle": {
+    "es": "Desde el confitado/pochado a baja temperatura y la frita crujiente estilo Betanzos, hasta la física del volteo con plato y el control térmico del cuajado.",
+    "en": "From low-temperature poaching and Betanzos crisp frying to the physics of plate flipping and thermal coagulation control.",
+    "de": "Vom Sanftgaren bei niedriger Temperatur über das krosse Frittieren bis hin zur Physik des Wendens und der Temperaturkontrolle beim Stocken."
+  },
+  "safetyNote": {
+    "es": "Toda técnica debe controlar el tiempo y la temperatura. El punto óptimo de inactivación bactericida es de **70°C for 2 minutes** o **63°C for 20 seconds**. No superar **4 hours** a temperatura ambiente.",
+    "en": "Every technique must monitor time and temperature. Optimal bactericidal threshold is **70°C for 2 minutes** or **63°C for 20 seconds**. Never exceed **4 hours** at room temperature.",
+    "de": "Jede Technik muss Zeit und Temperatur kontrollieren. Der optimale bakterizide Wert liegt bei **70°C for 2 minutes** oder **63°C for 20 seconds** (max. **4 hours** bei Raumtemperatur)."
+  }
+}

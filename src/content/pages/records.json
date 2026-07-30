@@ -1,0 +1,33 @@
+{
+  "badge": {
+    "es": "Hitos & Récords Culinarios",
+    "en": "Gastronomic Records & Feats",
+    "de": "Gastronomische Rekorde"
+  },
+  "title": {
+    "es": "Récords Culinarios de la Tortilla",
+    "en": "Culinary Records of the Omelette",
+    "de": "Kulinarische Tortilla-Rekorde"
+  },
+  "subtitle": {
+    "es": "Las hazañas monumentales: la tortilla más grande del mundo, miles de kilos de patatas y sarténes gigantescas.",
+    "en": "Monumental feats: the world's largest tortilla, thousands of kilos of potatoes, and giant frying pans.",
+    "de": "Monumentale Rekorde: Die größte Tortilla der Welt mit tausenden Kilo Kartoffeln."
+  },
+  "records": [
+    {
+      "year": "2014",
+      "location": "Vitoria-Gasteiz",
+      "feat": {
+        "es": "La Tortilla Gigante de Vitoria",
+        "en": "Vitoria's Giant Tortilla",
+        "de": "Die Riesen-Tortilla von Vitoria"
+      },
+      "stats": {
+        "es": "1.600 kg de patatas, 16.000 huevos, 150 litros de aceite y sartén de 5 metros de diámetro.",
+        "en": "1,600 kg of potatoes, 16,000 eggs, 150 liters of oil, and a 5-meter diameter frying pan.",
+        "de": "1.600 kg Kartoffeln, 16.000 Eier, 150 Liter Öl, 5 Meter Pfannendurchmesser."
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "medium",
+  "type": "difficulty",
+  "slug": {
+    "es": "media",
+    "en": "medium",
+    "de": "mittel"
+  },
+  "title": {
+    "es": "Intermedia",
+    "en": "Medium",
+    "de": "Mittel"
+  },
+  "description": {
+    "es": "Requiere destreza controlando la temperatura del aceite y la técnica de volteo con plato.",
+    "en": "Requires skill controlling oil temperature and plate-flipping technique.",
+    "de": "Erfordert Geschick bei der Öl-Temperatur und beim Wenden mit dem Teller."
+  },
+  "icon": "Flame"
+}

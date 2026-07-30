@@ -1,0 +1,20 @@
+{
+  "id": "slow-cooking",
+  "type": "technique",
+  "slug": {
+    "es": "confitado",
+    "en": "slow-poaching",
+    "de": "langsam-pochieren"
+  },
+  "title": {
+    "es": "Confitado a Fuego Lento",
+    "en": "Slow Poaching (Confit)",
+    "de": "Sanftes Poachieren"
+  },
+  "description": {
+    "es": "Cocinado de la patata a baja/media temperatura (130-140°C) para lograr una textura mantequillosa sin quemar los azúcares.",
+    "en": "Poaching potatoes at low-to-medium heat (130-140°C) to achieve buttery texture.",
+    "de": "Garen der Kartoffeln bei niedriger bis mittlerer Temperatur für eine butterweiche Textur."
+  },
+  "icon": "Flame"
+}

@@ -10,30 +10,57 @@ import {
   BookOpen,
   Egg,
   Flame,
-  Users,
   Info,
-  History,
   Home,
-  Shield
+  Shield,
+  Library,
+  FlaskConical,
+  History,
+  Palette,
+  Users,
+  Utensils,
+  MapPin,
+  Microscope,
+  Trophy,
+  ChevronDown
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import headerNavData from "@/content/navigation/header.json";
 
 interface HeaderProps {
   lang?: string;
   currentPath?: string;
 }
 
-const navigation = [
-  { key: "recipes", href: "/recipes", icon: BookOpen, fallback: "Recetas" },
-  { key: "factions", href: "/facciones", icon: Shield, fallback: "Facciones" },
-  { key: "ingredients", href: "/ingredients", icon: Egg, fallback: "Ingredientes" },
-  { key: "techniques", href: "/techniques", icon: Flame, fallback: "Técnicas" },
-  { key: "science", href: "/science", icon: ShieldCheck, fallback: "Ciencia" },
-  { key: "history", href: "/history", icon: History, fallback: "Historia" },
-  { key: "personas", href: "/personas", icon: Users, fallback: "Personas" },
-  { key: "builder", href: "/builder", icon: Sparkles, fallback: "Constructor" },
-  { key: "about", href: "/about", icon: Info, fallback: "Sobre nosotros" },
-];
+const iconMap: Record<string, any> = {
+  recipes: BookOpen,
+  factions: Shield,
+  universo: Library,
+  history: History,
+  estilos: Palette,
+  personas: Users,
+  restaurantes: Utensils,
+  regiones: MapPin,
+  ingredients: Egg,
+  techniques: Flame,
+  science: Microscope,
+  records: Trophy,
+  laboratory: FlaskConical,
+  about: Info,
+};
+
+const navigation = headerNavData.items.map((item: any) => ({
+  key: item.key,
+  href: item.href,
+  icon: iconMap[item.key] || BookOpen,
+  label: item.label,
+  children: item.children ? item.children.map((child: any) => ({
+    key: child.key,
+    href: child.href,
+    icon: iconMap[child.key] || BookOpen,
+    label: child.label,
+  })) : undefined,
+}));
 
 const languages = [
   { code: "es", label: "ES" },
@@ -44,6 +71,7 @@ const languages = [
 export default function Header({ lang = "es", currentPath: propPath }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [clientPath, setClientPath] = useState("");
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>("universo");
 
   const { t } = useTranslation(undefined, { lng: lang });
 
@@ -69,6 +97,13 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
       return "/" + parts.join("/");
     }
     return `/${targetLang}${activePath}`;
+  }
+
+  function getItemLabel(item: { key: string; label: Record<string, string> }) {
+    if (item.label && item.label[lang]) {
+      return item.label[lang];
+    }
+    return t(`nav.${item.key}`, item.label?.es || item.key);
   }
 
   function isLinkActive(targetPath: string) {
@@ -112,12 +147,61 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
             }`}
           >
             <Home className="w-3.5 h-3.5" />
-            <span>Inicio</span>
+            <span>{lang === "en" ? "Home" : lang === "de" ? "Startseite" : "Inicio"}</span>
           </a>
-          {navigation.map((item) => {
+          {navigation.map((item: any) => {
             const active = isLinkActive(item.href);
             const IconComponent = item.icon;
-            const labelText = t(`nav.${item.key}`, item.fallback);
+            const labelText = getItemLabel(item);
+
+            if (item.children && item.children.length > 0) {
+              const hasActiveChild = item.children.some((c: any) => isLinkActive(c.href));
+              return (
+                <div key={item.key} className="relative group">
+                  <a
+                    href={getLocalizedHref(item.href)}
+                    className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
+                      active || hasActiveChild
+                        ? "bg-[#8D6E63] text-white shadow-2xs"
+                        : "text-foreground/80 hover:text-foreground hover:bg-[#F5E6BE]/60"
+                    }`}
+                  >
+                    <IconComponent className="w-3.5 h-3.5" />
+                    <span>{labelText}</span>
+                    <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+                  </a>
+
+                  {/* Dropdown Menu */}
+                  <div className="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[220px]">
+                    <div className="bg-[#FCF9F2] border border-[#E8E2D5] rounded-xl shadow-xl p-2 space-y-0.5">
+                      <div className="px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase tracking-wider border-b border-[#E8E2D5]/60 mb-1">
+                        {labelText}
+                      </div>
+                      {item.children.map((child: any) => {
+                        const ChildIcon = child.icon;
+                        const childLabel = getItemLabel(child);
+                        const childActive = isLinkActive(child.href);
+                        return (
+                          <a
+                            key={child.key}
+                            href={getLocalizedHref(child.href)}
+                            className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-2 ${
+                              childActive
+                                ? "bg-[#8D6E63] text-white"
+                                : "text-foreground/80 hover:text-foreground hover:bg-[#F5E6BE]"
+                            }`}
+                          >
+                            <ChildIcon className="w-3.5 h-3.5 shrink-0 opacity-80" />
+                            <span>{childLabel}</span>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <a
                 key={item.key}
@@ -197,12 +281,12 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
           }`}
         >
           <Home className="w-3 h-3" />
-          <span>Inicio</span>
+          <span>{lang === "en" ? "Home" : lang === "de" ? "Startseite" : "Inicio"}</span>
         </a>
-        {navigation.map((item) => {
+        {navigation.map((item: any) => {
           const active = isLinkActive(item.href);
           const IconComponent = item.icon;
-          const labelText = t(`nav.${item.key}`, item.fallback);
+          const labelText = getItemLabel(item);
           return (
             <a
               key={item.key}
@@ -265,14 +349,73 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
                 >
                   <div className="flex items-center gap-2.5">
                     <Home className="w-4 h-4" />
-                    <span>Inicio</span>
+                    <span>{lang === "en" ? "Home" : lang === "de" ? "Startseite" : "Inicio"}</span>
                   </div>
                   {isLinkActive("/") && <span className="w-2 h-2 rounded-full bg-[#FFB800]"></span>}
                 </a>
-                {navigation.map((item) => {
+                {navigation.map((item: any) => {
                   const active = isLinkActive(item.href);
                   const IconComponent = item.icon;
-                  const labelText = t(`nav.${item.key}`, item.fallback);
+                  const labelText = getItemLabel(item);
+
+                  if (item.children && item.children.length > 0) {
+                    const isSubOpen = openSubmenu === item.key;
+                    return (
+                      <div key={item.key} className="space-y-1">
+                        <div
+                          className={`flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
+                            active
+                              ? "bg-[#8D6E63] text-white shadow-2xs"
+                              : "bg-[#F5E6BE]/40 text-foreground hover:bg-[#F5E6BE]/70"
+                          }`}
+                        >
+                          <a
+                            href={getLocalizedHref(item.href)}
+                            className="flex items-center gap-2.5 text-sm font-bold flex-1"
+                          >
+                            <IconComponent className="w-4 h-4" />
+                            <span>{labelText}</span>
+                          </a>
+                          <button
+                            type="button"
+                            onClick={() => setOpenSubmenu(isSubOpen ? null : item.key)}
+                            className="p-1 text-xs text-amber-900 cursor-pointer"
+                            aria-label="Toggle submenu"
+                          >
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isSubOpen ? "rotate-180" : ""}`} />
+                          </button>
+                        </div>
+
+                        {isSubOpen && (
+                          <div className="pl-3 space-y-1 border-l-2 border-[#FFB800] ml-3 mt-1">
+                            {item.children.map((child: any) => {
+                              const ChildIcon = child.icon;
+                              const childLabel = getItemLabel(child);
+                              const childActive = isLinkActive(child.href);
+                              return (
+                                <a
+                                  key={child.key}
+                                  href={getLocalizedHref(child.href)}
+                                  className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-all flex items-center justify-between ${
+                                    childActive
+                                      ? "bg-[#8D6E63] text-white shadow-2xs"
+                                      : "text-foreground hover:bg-[#F5E6BE]/60"
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-2">
+                                    <ChildIcon className="w-3.5 h-3.5 shrink-0" />
+                                    <span>{childLabel}</span>
+                                  </div>
+                                  {childActive && <span className="w-1.5 h-1.5 rounded-full bg-[#FFB800]"></span>}
+                                </a>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+
                   return (
                     <a
                       key={item.key}

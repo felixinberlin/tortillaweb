@@ -1,0 +1,63 @@
+{
+  "badge": {
+    "es": "Cuaderno & Enciclopedia Culinaria",
+    "en": "Culinary Encyclopedia & Notebook",
+    "de": "Kulinarische Enzyklopädie & Laborbuch"
+  },
+  "hero": {
+    "title": {
+      "es": "La Enciclopedia Definitiva de la Tortilla de Patatas",
+      "en": "The Definitive Encyclopedia of the Spanish Omelette",
+      "de": "Die ultimative Enzyklopädie der Tortilla de Patatas"
+    },
+    "subtitle": {
+      "es": "De la tradición centenaria al análisis científico, las facciones culinarias y el estándar bactericida de conservación.",
+      "en": "From century-old traditions to scientific analysis, culinary factions, and bactericidal food safety standards.",
+      "de": "Von hundertjähriger Tradition bis zu wissenschaftlicher Analyse, Faktionen und mikrobiologischer Sicherheit."
+    },
+    "ctaRecipes": {
+      "es": "Explorar Recetas",
+      "en": "Explore Recipes",
+      "de": "Rezepte entdecken"
+    },
+    "ctaBuilder": {
+      "es": "Laboratorio & Constructor",
+      "en": "Lab & Builder",
+      "de": "Labor & Baukasten"
+    }
+  },
+  "sections": {
+    "recipesTitle": {
+      "es": "Recetas Destacadas",
+      "en": "Featured Recipes",
+      "de": "Empfohlene Rezepte"
+    },
+    "recipesSubtitle": {
+      "es": "Descubre las fórmulas canónicas y variaciones regionales con sus fichas técnicas completas.",
+      "en": "Discover canonical formulas and regional variations with full technical datasheets.",
+      "de": "Entdecke kanonische Formeln und regionale Variationen mit vollständigen Datenblättern."
+    },
+    "factionsTitle": {
+      "es": "Facciones Culinarias",
+      "en": "Culinary Factions",
+      "de": "Kulinarische Faktionen"
+    },
+    "factionsSubtitle": {
+      "es": "¿Cebolla o sin cebolla? ¿Poco cuajada o firme? Elige tu lealtad en la comunidad.",
+      "en": "Onion or no onion? Runny or firm? Choose your allegiance in the community.",
+      "de": "Mit oder ohne Zwiebel? Saftig oder fest? Wähle deine Faktion."
+    }
+  },
+  "safetyBanner": {
+    "title": {
+      "es": "Estándar Bactericida de Inocuidad Alimentaria",
+      "en": "Bactericidal Food Safety Standard",
+      "de": "Bakterizider Lebensmittelsicherheits-Standard"
+    },
+    "body": {
+      "es": "Garantiza la inactivación de Salmonella spp. alcanzando **70°C for 2 minutes** o **63°C for 20 seconds**. No mantener tortillas poco cuajadas más de **4 hours** a temperatura ambiente.",
+      "en": "Ensures inactivation of Salmonella spp. reaching **70°C for 2 minutes** or **63°C for 20 seconds**. Do not keep runny omelettes over **4 hours** at room temperature.",
+      "de": "Garantiert die Inaktivierung von Salmonella spp. bei **70°C for 2 minutes** oder **63°C for 20 seconds**. Maximal **4 hours** Stehzeit bei Raumtemperatur."
+    }
+  }
+}

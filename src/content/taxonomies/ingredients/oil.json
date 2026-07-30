@@ -1,0 +1,20 @@
+{
+  "id": "oil",
+  "type": "ingredient",
+  "slug": {
+    "es": "aceite-de-oliva",
+    "en": "olive-oil",
+    "de": "olivenoel"
+  },
+  "title": {
+    "es": "Aceite de Oliva Virgen Extra",
+    "en": "Extra Virgin Olive Oil",
+    "de": "Natives Olivenöl Extra"
+  },
+  "description": {
+    "es": "Medio de transmisión térmica y sabor. El AOVE infunde aromas frutales y garantiza una fritura limpia y saludable.",
+    "en": "Thermal transmission medium. EVOO infuses fruity aromas and clean frying properties.",
+    "de": "Natives Olivenöl Extra verleiht fruchtige Aromen und sorgt für sauberes Frittieren."
+  },
+  "icon": "Droplet"
+}

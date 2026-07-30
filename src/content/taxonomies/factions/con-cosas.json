@@ -1,0 +1,43 @@
+{
+  "id": "con-cosas",
+  "type": "faction",
+  "slug": {
+    "es": "con-cosas",
+    "en": "modernists",
+    "de": "experimente"
+  },
+  "title": {
+    "es": "Los 'Con Cosas'",
+    "en": "The 'Con Cosas'",
+    "de": "Die 'Con Cosas' Experimente"
+  },
+  "description": {
+    "es": "Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.",
+    "en": "From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.",
+    "de": "Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten."
+  },
+  "icon": "Flame",
+  "theme": {
+    "color": "cream"
+  },
+  "dogma": {
+    "es": "La tortilla como un lienzo abierto a la creatividad y expresión regional.",
+    "en": "The omelette as an open canvas for regional creativity and modernist innovation.",
+    "de": "Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze."
+  },
+  "badge": {
+    "es": "Innovadores & Vanguardia",
+    "en": "Innovators & Modernists",
+    "de": "Innovatoren & Avantgarde"
+  },
+  "keyIngredient": {
+    "es": "Queso, trufa, chistorra, chips de bolsa",
+    "en": "Cheese, truffle, chistorra, potato chips",
+    "de": "Käse, Trüffel, Chorizo, Kartoffelchips"
+  },
+  "prominentFigures": [
+    "Ferran Adrià",
+    "Pez Tortilla",
+    "José Antonio Labordeta"
+  ]
+}

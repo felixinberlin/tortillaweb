@@ -1,9 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import FactionsPage from '@/components/factions/FactionsPage';
-import factionsData from '@/data/factions.json';
+import { getAllTaxonomies } from '@/lib/taxonomy';
 import { supportedLanguages } from '@/lib/i18n';
 import { generateBreadcrumbSchema, generateFAQSchema, SITE_URL } from '@/lib/seo';
+import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -13,31 +14,39 @@ export function getStaticPaths() {
 
 const { lang = 'es' } = Astro.params;
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
-const content = factionsData.content[currentLang] || factionsData.content.es;
 
-const title = `${content.hero.title} - Facciones | tortilladepatatas.org`;
-const description = content.hero.subtitle;
+// Get page metadata from content collections
+const pagesCollection = await getCollection('pages');
+const indexPageEntry = pagesCollection.find((p) => p.id === 'factions-index' || p.id.includes('factions-index'));
+const pageData = indexPageEntry ? indexPageEntry.data : {};
+
+// Get all faction taxonomies dynamically
+const allTaxonomies = await getAllTaxonomies();
+const factionTaxonomies = allTaxonomies.filter((t) => t.type === 'faction');
+
+const title = pageData.hero?.title?.[currentLang] || 'Facciones Culinarias de la Tortilla';
+const description = pageData.hero?.subtitle?.[currentLang] || 'Descubre las doctrinas y dogmas de la tortilla de patatas';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${lang}` },
-  { name: 'Facciones', url: `/${lang}/facciones` },
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Facciones', url: `/${currentLang}/facciones` },
 ]);
 
 const faqSchema = generateFAQSchema(
-  content.factions.map((f) => ({
-    question: `¿Qué caracteriza a la facción ${f.name}?`,
-    answer: `${f.dogma} ${f.description} Figuras clave: ${f.prominentFigures.join(', ')}.`,
+  factionTaxonomies.map((f) => ({
+    question: `¿Qué caracteriza a la facción ${f.title[currentLang as keyof typeof f.title] || f.title.es}?`,
+    answer: `${f.dogma?.[currentLang as keyof typeof f.dogma] || ''} ${f.description[currentLang as keyof typeof f.description] || ''} Figuras clave: ${(f.prominentFigures || []).join(', ')}.`,
   }))
 );
 
 const itemPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemPage',
-  '@id': `${SITE_URL}/${lang}/facciones#webpage`,
-  url: `${SITE_URL}/${lang}/facciones`,
-  name: title,
+  '@id': `${SITE_URL}/${currentLang}/facciones#webpage`,
+  url: `${SITE_URL}/${currentLang}/facciones`,
+  name: `${title} | tortilladepatatas.org`,
   description: description,
-  inLanguage: lang,
+  inLanguage: currentLang,
   about: {
     '@type': 'Thing',
     name: 'Facciones de la Tortilla de Patatas',
@@ -48,6 +57,6 @@ const itemPageSchema = {
 const schemas = [breadcrumbSchema, faqSchema, itemPageSchema];
 ---
 
-<Layout title={title} description={description} lang={lang} schema={schemas}>
-  <FactionsPage lang={lang} client:load />
+<Layout title={`${title} | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas}>
+  <FactionsPage lang={currentLang} factions={factionTaxonomies} pageData={pageData} client:load />
 </Layout>

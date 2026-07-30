@@ -1,0 +1,24 @@
+{
+  "id": "barat",
+  "type": "person",
+  "slug": {
+    "es": "jose-manuel-barat",
+    "en": "jose-manuel-barat",
+    "de": "jose-manuel-barat"
+  },
+  "title": {
+    "es": "José Manuel Barat Baviera",
+    "en": "José Manuel Barat Baviera",
+    "de": "José Manuel Barat Baviera"
+  },
+  "description": {
+    "es": "Catedrático de la Universitat Politècnica de València especializado en la formalización científica de procesos culinarios.",
+    "en": "Professor at Universitat Politècnica de València specializing in scientific formalization of culinary processes.",
+    "de": "Professor an der Universitat Politècnica de València mit Spezialisierung auf die wissenschaftliche Erfassung kulinarischer Prozesse."
+  },
+  "badge": {
+    "es": "Historia",
+    "en": "History",
+    "de": "Geschichte"
+  }
+}

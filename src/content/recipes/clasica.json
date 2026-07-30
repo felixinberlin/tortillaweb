@@ -1,0 +1,103 @@
+{
+  "id": "clasica",
+  "slug": {
+    "es": "clasica",
+    "en": "classic",
+    "de": "klassisch"
+  },
+  "title": {
+    "es": "Tortilla Clásica Tradicional",
+    "en": "Traditional Classic Spanish Omelette",
+    "de": "Traditionelle Klassische Tortilla"
+  },
+  "description": {
+    "es": "La receta minimalista de patatas y huevo cuajada al punto exacto sin aditivos.",
+    "en": "The minimalist recipe of potatoes and eggs cooked to perfection with zero additives.",
+    "de": "Das minimalistische Rezept aus Kartoffeln und Eiern auf den Punkt zubereitet."
+  },
+  "taxonomyIds": [
+    "faction:puristas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "technique:slow-cooking",
+    "difficulty:easy"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/clasica.jpg",
+  "ingredients": [
+    {
+      "es": "600g Patatas Monalisa o Kennebec",
+      "en": "600g Monalisa or Kennebec Potatoes",
+      "de": "600g Monalisa oder Kennebec Kartoffeln"
+    },
+    {
+      "es": "6 Huevos frescos de gallinas camperas (L/XL)",
+      "en": "6 Fresh free-range eggs (L/XL)",
+      "de": "6 Frische Eier aus Freilandhaltung (L/XL)"
+    },
+    {
+      "es": "150ml Aceite de oliva virgen extra (AOVE)",
+      "en": "150ml Extra virgin olive oil",
+      "de": "150ml Natives Olivenöl Extra"
+    },
+    {
+      "es": "6g Sal marina fina",
+      "en": "6g Fine sea salt",
+      "de": "6g Feines Meersalz"
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Cortar patatas",
+        "en": "Slice potatoes",
+        "de": "Kartoffeln schneiden"
+      },
+      "text": {
+        "es": "Pelar y cortar las patatas en láminas finas e irregulares de 2-3 mm.",
+        "en": "Peel and cut potatoes into thin 2-3mm irregular slices.",
+        "de": "Kartoffeln schälen und in 2-3mm dünne Scheiben schneiden."
+      }
+    },
+    {
+      "step": {
+        "es": "Confitar en AOVE",
+        "en": "Poach in EVOO",
+        "de": "In Olivenöl garen"
+      },
+      "text": {
+        "es": "Confitar las patatas a fuego medio-bajo (130-140°C) hasta que estén muy tiernas y jugosas.",
+        "en": "Poach potatoes in olive oil at medium-low heat (130-140°C) until tender.",
+        "de": "Kartoffeln bei mittlerer Hitze in Olivenöl garen, bis sie zart sind."
+      }
+    },
+    {
+      "step": {
+        "es": "Emulsión con huevo",
+        "en": "Mix with eggs",
+        "de": "Mit Eiern verquirlen"
+      },
+      "text": {
+        "es": "Batir ligeramente los huevos con la sal y añadir la patata templada. Reposar 5 minutos.",
+        "en": "Lightly beat eggs with salt and add warm potatoes. Rest for 5 minutes.",
+        "de": "Eier mit Salz verquirlen und warme Kartoffeln dazugeben. 5 Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar y voltear",
+        "en": "Set and flip",
+        "de": "Stocken und wenden"
+      },
+      "text": {
+        "es": "Cuajar en sartén antiadherente a fuego fuerte 1 minuto por cada lado manteniendo el centro jugoso.",
+        "en": "Cook in non-stick skillet on high heat for 1 minute per side keeping the core juicy.",
+        "de": "In der Pfanne bei hoher Hitze 1 Minute pro Seite anbraten."
+      }
+    }
+  ]
+}

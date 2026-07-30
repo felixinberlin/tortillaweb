@@ -1,0 +1,20 @@
+{
+  "id": "garlic",
+  "type": "ingredient",
+  "slug": {
+    "es": "ajo",
+    "en": "garlic",
+    "de": "knoblauch"
+  },
+  "title": {
+    "es": "Ajo Aromatizante",
+    "en": "Garlic Infusion",
+    "de": "Aromatischer Knoblauch"
+  },
+  "description": {
+    "es": "Diente de ajo frito brevemente en el aceite para infundir un perfume sutil sin amargar.",
+    "en": "Garlic clove briefly fried in oil to infuse a subtle background perfume.",
+    "de": "Kurz im Öl angebratene Knoblauchzehe für ein feines Aroma im Hintergrund."
+  },
+  "icon": "Sparkles"
+}

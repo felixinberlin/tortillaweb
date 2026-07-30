@@ -1,0 +1,43 @@
+{
+  "badge": {
+    "es": "Geografía Gastronómica",
+    "en": "Gastronomic Geography",
+    "de": "Gastronomische Geografie"
+  },
+  "title": {
+    "es": "Regiones & Variaciones de España",
+    "en": "Regions & Variations of Spain",
+    "de": "Regionen & Variationen Spaniens"
+  },
+  "subtitle": {
+    "es": "Descubre las expresiones culturales y regionales de la tortilla de patatas a lo largo de la península ibérica e islas.",
+    "en": "Discover the cultural and regional expressions of the potato omelette across the Iberian Peninsula and islands.",
+    "de": "Entdecke die kulturellen und regionalen Varianten der Tortilla auf der iberischen Halbinsel."
+  },
+  "regions": [
+    {
+      "name": "Galicia (Betanzos)",
+      "description": {
+        "es": "Caracterizada por no llevar jamás cebolla, utilizar patata de la variedad Kenebec cortada muy fina y frita a alta temperatura, logrando un interior líquido con abundante yema.",
+        "en": "Famous for never containing onion, using finely sliced Kennebec potatoes fried at high heat, yielding a liquid interior.",
+        "de": "Ohne Zwiebel, hauchdünne Kennebec-Kartoffeln, kross frittiert und innen flüssig."
+      }
+    },
+    {
+      "name": "País Vasco & Navarra",
+      "description": {
+        "es": "Tradición de tortillas jugosas, a menudo servidas como pintxo sobre pan, con versiones que incorporan pimientos verdes fritos o bacalao (tortilla de bacalao de sidrería).",
+        "en": "Juicy pintxo tradition served on crusty bread, featuring versions with fried green peppers or salt cod.",
+        "de": "Saftige Pintxo-Tradition mit Varianten mit grünem Paprika oder Klippfisch."
+      }
+    },
+    {
+      "name": "Madrid & Centro",
+      "description": {
+        "es": "Predominio de la tortilla con cebolla bien caramelizada, jugosidad media-alta y patata monalisa pocha en abundante aceite de oliva.",
+        "en": "Prevalence of well-caramelized onions, medium-high runniness, and poached Monalisa potatoes.",
+        "de": "Überwiegend mit karamellisierter Zwiebel und mittel-saftigem Kern."
+      }
+    }
+  ]
+}

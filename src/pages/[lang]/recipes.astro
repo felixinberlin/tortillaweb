@@ -3,9 +3,10 @@ import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import LocalizedLink from '@/components/navigation/LocalizedLink';
-import { BookOpen, ChefHat, Sparkles } from 'lucide-react';
+import { BookOpen, Sparkles, Clock, ExternalLink } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -14,59 +15,57 @@ export function getStaticPaths() {
 }
 
 const { lang = 'es' } = Astro.params;
-const t = getTranslations(lang);
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
 
-const recipes = [
-  { 
-    id: 'clasica', 
-    image: '/images/clasica.jpg',
-    badge: 'Tradicional'
-  },
-  { 
-    id: 'con-cebolla', 
-    image: '/images/concebolla.jpg',
-    badge: 'Concebollista'
-  },
-  { 
-    id: 'betanzos', 
-    image: '/images/betanzos.jpg',
-    badge: 'Gallega Jugosa'
-  },
-];
+// Get all recipes from Content Collections
+const recipes = await getAllRecipes();
+
+// Resolve badges for each recipe
+const recipesWithBadges = await Promise.all(
+  recipes.map(async (r) => ({
+    ...r,
+    badges: await resolveRecipeBadges(r.taxonomyIds, currentLang),
+  }))
+);
 
 const title = `${t('recipes.title')} - tortilladepatatas.org`;
 const description = t('recipes.subtitle');
 
-const recipeSchemas = recipes.map((r) => generateRecipeSchema({
-  name: t(`recipeItems.${r.id}.title`, r.id),
-  description: t(`recipeItems.${r.id}.description`, ''),
-  image: r.image,
-  prepTimeMinutes: 20,
-  cookTimeMinutes: 25,
-  yieldServings: 4,
-  ingredients: [
-    '600g Patatas Agria o Monalisa',
-    '6 Huevos camperos frescos (Tamaño L)',
-    '150ml Aceite de oliva virgen extra',
-    '6g Sal fina'
-  ],
-  instructions: [
-    { step: 'Cortar patatas', text: 'Pelar y cortar las patatas en láminas finas e irregulares de 2-3 mm.' },
-    { step: 'Confitar patatas', text: 'Confitar en aceite de oliva a fuego medio-bajo (130-140°C) hasta que estén muy tiernas.' },
-    { step: 'Mezclar con huevo', text: 'Batir ligeramente los huevos con la sal y agregar las patatas confitadas calientes. Reposar 5 minutos.' },
-    { step: 'Cuajar y voltear', text: 'Cuajar a fuego fuerte 1 minuto por cada lado manteniendo el centro cremoso (estándar bactericida: 70°C for 2 minutes).' }
-  ]
-}));
+const recipeSchemas = recipes.map((r) => {
+  const rTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
+  const rDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
+  return generateRecipeSchema({
+    name: rTitle,
+    description: rDesc,
+    image: r.image || '/images/clasica.jpg',
+    prepTimeMinutes: r.prepTimeMinutes || 15,
+    cookTimeMinutes: r.cookTimeMinutes || 20,
+    yieldServings: r.yieldServings || 4,
+    ingredients: [
+      '600g Patatas Agria o Monalisa',
+      '6 Huevos camperos frescos (Tamaño L)',
+      '150ml Aceite de oliva virgen extra',
+      '6g Sal fina'
+    ],
+    instructions: [
+      { step: 'Cortar patatas', text: 'Pelar y cortar las patatas en láminas finas.' },
+      { step: 'Confitar patatas', text: 'Confitar en aceite de oliva a fuego medio-bajo (130-140°C).' },
+      { step: 'Mezclar con huevo', text: 'Batir los huevos con la sal y agregar las patatas.' },
+      { step: 'Cuajar y voltear', text: 'Cuajar a fuego fuerte 1 minuto por cada lado (70°C for 2 minutes).' }
+    ]
+  });
+});
 
 const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${lang}` },
-  { name: t('recipes.title'), url: `/${lang}/recipes` }
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: t('recipes.title'), url: `/${currentLang}/recipes` }
 ]);
 
 const schemas = [...recipeSchemas, breadcrumbSchema];
 ---
 
-<Layout title={title} description={description} lang={lang} schema={schemas}>
+<Layout title={title} description={description} lang={currentLang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-10">
     <section class="text-center max-w-3xl mx-auto space-y-3">
       <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
@@ -81,15 +80,19 @@ const schemas = [...recipeSchemas, breadcrumbSchema];
       </p>
     </section>
 
-    <section class="grid gap-8 md:grid-cols-3">
-      {recipes.map((recipe, index) => (
-        <LocalizedLink key={recipe.id} to={`/builder`} lang={lang} class="block group">
-          <Card class="card-notebook overflow-hidden h-full flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300">
+    <section class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {recipesWithBadges.map((r, index) => {
+        const rTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
+        const rDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
+        const rSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
+
+        return (
+          <article key={r.id} class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="h-52 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
                 <img
-                  src={recipe.image}
-                  alt={t(`recipeItems.${recipe.id}.title`, recipe.id)}
+                  src={r.image || '/images/clasica.jpg'}
+                  alt={rTitle}
                   width="600"
                   height="400"
                   loading={index === 0 ? "eager" : "lazy"}
@@ -97,33 +100,50 @@ const schemas = [...recipeSchemas, breadcrumbSchema];
                   referrerPolicy="no-referrer"
                   class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div class="absolute top-3 right-3">
-                  <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] shadow-2xs">
-                    {recipe.badge}
-                  </span>
+                <div class="absolute top-3 right-3 bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] text-[11px] font-bold px-2.5 py-1 rounded-full shadow-2xs flex items-center gap-1">
+                  <Clock class="w-3 h-3 text-[#FFB800]" />
+                  <span>{r.time} min</span>
                 </div>
               </div>
 
-              <CardHeader class="pt-5 pb-2">
-                <CardTitle class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors">
-                  {t(`recipeItems.${recipe.id}.title`, recipe.id)}
-                </CardTitle>
-              </CardHeader>
+              <div class="p-5 space-y-3">
+                <h2 class="text-xl font-serif-heading font-bold text-[#292521] group-hover:text-[#8D6E63] transition-colors">
+                  <a href={`/${currentLang}/recipes/${rSlug}`}>
+                    {rTitle}
+                  </a>
+                </h2>
 
-              <CardContent>
-                <p class="text-muted-foreground text-xs sm:text-sm leading-relaxed">
-                  {t(`recipeItems.${recipe.id}.description`, '')}
+                <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed line-clamp-3">
+                  {rDesc}
                 </p>
-              </CardContent>
+
+                <!-- TAXONOMY BADGES -->
+                <div class="flex flex-wrap gap-1.5 pt-2">
+                  {r.badges.map((b) => (
+                    <a
+                      href={b.url}
+                      class="inline-flex items-center gap-1 text-[11px] font-bold bg-[#F5E6BE]/70 hover:bg-[#F5E6BE] text-[#8D6E63] px-2 py-0.5 rounded-md border border-amber-200 transition-colors"
+                    >
+                      <span>{b.title}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div class="p-4 pt-0 mt-auto flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] group-hover:translate-x-1 transition-transform">
-              <Sparkles class="w-3.5 h-3.5 text-[#FFB800]" />
-              <span>Ver Proporciones & Preparar</span>
+            <div class="p-5 pt-0 mt-auto">
+              <a
+                href={`/${currentLang}/recipes/${rSlug}`}
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] hover:text-[#292521] transition-colors"
+              >
+                <Sparkles class="w-3.5 h-3.5 text-[#FFB800]" />
+                <span>Ver Receta Detallada</span>
+                <ExternalLink class="w-3 h-3" />
+              </a>
             </div>
-          </Card>
-        </LocalizedLink>
-      ))}
+          </article>
+        );
+      })}
     </section>
   </div>
 </Layout>

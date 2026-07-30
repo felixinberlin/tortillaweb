@@ -1,0 +1,20 @@
+{
+  "id": "onion",
+  "type": "ingredient",
+  "slug": {
+    "es": "cebolla",
+    "en": "onion",
+    "de": "zwiebel"
+  },
+  "title": {
+    "es": "Cebolla",
+    "en": "Onion",
+    "de": "Zwiebel"
+  },
+  "description": {
+    "es": "Eje del gran debate nacional. Pochada a fuego lento, aporta dulzor natural y melosidad incomparable.",
+    "en": "Center of Spain's culinary debate. Poached slowly, it adds natural sweetness and rich texture.",
+    "de": "Hauptthema des kulinarischen Debatte. Langsam gedünstet verleiht sie natürliche Süße und Saftigkeit."
+  },
+  "icon": "Flame"
+}

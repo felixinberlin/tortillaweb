@@ -1,0 +1,20 @@
+{
+  "id": "egg",
+  "type": "ingredient",
+  "slug": {
+    "es": "huevo",
+    "en": "egg",
+    "de": "ei"
+  },
+  "title": {
+    "es": "Huevo Fresco",
+    "en": "Fresh Egg",
+    "de": "Frisches Ei"
+  },
+  "description": {
+    "es": "El nexo de unión. Huevos camperos de gallina criada en libertad garantizan un color dorado intenso y máxima untuosidad.",
+    "en": "The emulsifying nexus. Free-range eggs ensure rich golden color and creamy emulsion.",
+    "de": "Eier aus Freilandhaltung garantieren eine goldene Farbe und maximale Sämigkeit."
+  },
+  "icon": "Egg"
+}

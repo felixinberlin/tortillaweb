@@ -1,0 +1,24 @@
+{
+  "id": "betanzos",
+  "type": "style",
+  "slug": {
+    "es": "estilo-betanzos",
+    "en": "betanzos-style",
+    "de": "betanzos-stil"
+  },
+  "title": {
+    "es": "Estilo Betanzos",
+    "en": "Betanzos Style",
+    "de": "Betanzos-Stil"
+  },
+  "description": {
+    "es": "Famosa por su interior muy líquido, huevo casi sin cuajar y patatas muy crujientes fritas a alta temperatura.",
+    "en": "Famous for its very liquid center, barely cooked egg, and high-temperature crispy potatoes.",
+    "de": "Berühmt für ihren sehr flüssigen Kern, kaum stockendes Ei und krosse Kartoffeln."
+  },
+  "badge": {
+    "es": "Jugosa",
+    "en": "Runny",
+    "de": "Saftig"
+  }
+}

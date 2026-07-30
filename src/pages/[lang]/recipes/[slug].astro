@@ -1,0 +1,184 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateRecipeSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { Clock, Users, BookOpen, ExternalLink, Shield } from 'lucide-react';
+
+export async function getStaticPaths() {
+  const recipes = await getAllRecipes();
+  const languages = supportedLanguages;
+  const paths = [];
+
+  for (const lang of languages) {
+    for (const r of recipes) {
+      const localizedSlug = r.slug[lang as keyof typeof r.slug] || r.slug.es;
+      if (localizedSlug) {
+        paths.push({
+          params: {
+            lang,
+            slug: localizedSlug,
+          },
+          props: {
+            recipe: r,
+            lang,
+          },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { recipe, lang } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+const title = recipe.title[currentLang as keyof typeof recipe.title] || recipe.title.es;
+const description = recipe.description[currentLang as keyof typeof recipe.description] || recipe.description.es;
+const badges = await resolveRecipeBadges(recipe.taxonomyIds, currentLang);
+
+const currentUrl = `${SITE_URL}/${currentLang}/recipes/${Astro.params.slug}`;
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Recetas', url: `/${currentLang}/recipes` },
+  { name: title, url: currentUrl },
+]);
+
+const ingredientsList = recipe.ingredients 
+  ? recipe.ingredients.map((i) => i[currentLang as keyof typeof i] || i.es)
+  : ['600g Patatas Monalisa', '6 Huevos camperos', '150ml Aceite de oliva virgen extra', '6g Sal fina'];
+
+const instructionsList = recipe.instructions
+  ? recipe.instructions.map((inst) => ({
+      step: inst.step[currentLang as keyof typeof inst.step] || inst.step.es,
+      text: inst.text[currentLang as keyof typeof inst.text] || inst.text.es,
+    }))
+  : [
+      { step: 'Cortar', text: 'Pelar y cortar las patatas en láminas finas.' },
+      { step: 'Confitar', text: 'Confitar en abundante AOVE a fuego medio-bajo.' },
+      { step: 'Mezclar', text: 'Batir los huevos con la sal y agregar las patatas.' },
+      { step: 'Cuajar', text: 'Cuajar a fuego vivo 1 minuto por cada lado.' },
+    ];
+
+const recipeSchema = generateRecipeSchema({
+  name: title,
+  description: description,
+  image: recipe.image || '/images/clasica.jpg',
+  prepTimeMinutes: recipe.prepTimeMinutes || 15,
+  cookTimeMinutes: recipe.cookTimeMinutes || 20,
+  yieldServings: recipe.yieldServings || 4,
+  ingredients: ingredientsList,
+  instructions: instructionsList,
+});
+
+const schemas = [breadcrumbSchema, recipeSchema];
+---
+
+<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
+    <!-- HEADER -->
+    <header class="space-y-4 text-center">
+      <div class="flex flex-wrap justify-center gap-2">
+        {badges.map((b) => (
+          <a
+            href={b.url}
+            class="inline-flex items-center gap-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] hover:bg-amber-300 px-3 py-1 rounded-full border border-amber-300 transition-colors shadow-2xs"
+          >
+            <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
+            <span>{b.title}</span>
+          </a>
+        ))}
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight">
+        {title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto">
+        {description}
+      </p>
+
+      <div class="flex items-center justify-center gap-6 text-xs font-bold text-[#8D6E63] pt-2">
+        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
+          <Clock class="w-4 h-4 text-[#FFB800]" />
+          <span>{recipe.time} min tiempo total</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
+          <Users class="w-4 h-4 text-[#FFB800]" />
+          <span>4 raciones</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- RECIPE HERO IMAGE -->
+    <div class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE] h-72 sm:h-96 relative shadow-xs">
+      <img
+        src={recipe.image || '/images/clasica.jpg'}
+        alt={title}
+        width="1200"
+        height="800"
+        loading="eager"
+        decoding="async"
+        referrerPolicy="no-referrer"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- INGREDIENTS & INSTRUCTIONS GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- INGREDIENTS SIDEBAR -->
+      <aside class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4 h-fit">
+        <h2 class="text-xl font-serif-heading font-bold text-[#292521] flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
+          <BookOpen class="w-5 h-5 text-[#FFB800]" />
+          Ingredientes
+        </h2>
+        <ul class="space-y-2 text-xs sm:text-sm text-foreground/90 font-sans">
+          {ingredientsList.map((ing) => (
+            <li class="flex items-start gap-2">
+              <span class="text-[#FFB800] font-bold">•</span>
+              <span>{ing}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <!-- STEP BY STEP INSTRUCTIONS -->
+      <main class="md:col-span-2 space-y-6">
+        <h2 class="text-2xl font-serif-heading font-bold text-[#292521] border-b border-[#E8E2D5] pb-2">
+          Pasos de Elaboración
+        </h2>
+
+        <div class="space-y-4">
+          {instructionsList.map((inst, idx) => (
+            <div class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#FFB800] text-[#292521] text-xs font-bold flex items-center justify-center shrink-0">
+                  {idx + 1}
+                </span>
+                <h3 class="font-serif-heading font-bold text-base text-[#292521]">
+                  {inst.step}
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed pl-8">
+                {inst.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
+
+    <!-- BACTERICIDAL SAFETY WARNING -->
+    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p class="font-sans">
+          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

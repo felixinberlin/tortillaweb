@@ -1,0 +1,20 @@
+{
+  "id": "betanzos",
+  "type": "region",
+  "slug": {
+    "es": "betanzos",
+    "en": "betanzos",
+    "de": "betanzos"
+  },
+  "title": {
+    "es": "Betanzos (A Coruña)",
+    "en": "Betanzos (Galicia)",
+    "de": "Betanzos (Galicien)"
+  },
+  "description": {
+    "es": "Meca gallega del cuajado ultra-líquido y dorado, célebre en toda España por sus mesones históricos.",
+    "en": "Galician capital of runny, golden omelettes made famous by historical taverns.",
+    "de": "Galicische Hauptstadt der flüssigen goldenen Tortilla, berühmt für ihre historischen Tavernen."
+  },
+  "icon": "Shield"
+}

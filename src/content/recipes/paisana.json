@@ -1,0 +1,32 @@
+{
+  "id": "paisana",
+  "slug": {
+    "es": "paisana",
+    "en": "country-style",
+    "de": "landfrauen-art"
+  },
+  "title": {
+    "es": "Tortilla Paisana Donostiarra",
+    "en": "Basque Country Omelette (Paisana)",
+    "de": "Baskische Land-Tortilla (Paisana)"
+  },
+  "description": {
+    "es": "Con pimiento verde, verduras de huerta y el toque característico del norte de España.",
+    "en": "With green pepper, garden veggies, and northern Spanish countryside character.",
+    "de": "Mit grüner Paprika, frischem Gemüse und dem Geschmack Nordspaniens."
+  },
+  "taxonomyIds": [
+    "faction:pimientistas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:pepper",
+    "ingredient:oil",
+    "region:donostia",
+    "difficulty:medium"
+  ],
+  "time": 45,
+  "prepTimeMinutes": 20,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/concebolla.jpg"
+}

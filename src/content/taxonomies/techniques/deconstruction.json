@@ -1,0 +1,20 @@
+{
+  "id": "deconstruction",
+  "type": "technique",
+  "slug": {
+    "es": "deconstruccion",
+    "en": "deconstruction",
+    "de": "dekonstruktion"
+  },
+  "title": {
+    "es": "Deconstrucción y Vanguardia",
+    "en": "Modernist Deconstruction",
+    "de": "Dekonstruktion & Avantgarde"
+  },
+  "description": {
+    "es": "Técnica iniciada por Ferran Adrià utilizando sifones, emulsiones o ingredientes precocinados de alta calidad.",
+    "en": "Pioneered by Ferran Adrià using siphons, emulsions, or pre-cooked ingredients.",
+    "de": "Von Ferran Adrià entwickelte Technik mit Siphons, Emulsionen oder Spezialzutaten."
+  },
+  "icon": "Sparkles"
+}

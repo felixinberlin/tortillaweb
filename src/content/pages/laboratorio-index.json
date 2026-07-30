@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "es": "Experiencias Interactivas & Herramientas",
+    "en": "Interactive Experiences & Tools",
+    "de": "Interaktive Werkzeuge & Experimente"
+  },
+  "title": {
+    "es": "Laboratorio Gastronómico de la Tortilla",
+    "en": "Gastronomic Tortilla Laboratory",
+    "de": "Gastronomisches Tortilla-Laboratorium"
+  },
+  "subtitle": {
+    "es": "Herramientas interactivas para diseñar tu fórmula ideal, comparar perfiles nutricionales, evaluar la orto-doxia de recetas y participar en encuestas de la comunidad.",
+    "en": "Interactive tools to design your ideal recipe, compare nutritional profiles, evaluate recipe orthodoxy, and participate in community polls.",
+    "de": "Interaktive Tools zur Entwicklung deiner idealen Tortilla, zum Nährwertvergleich und für Community-Umfragen."
+  },
+  "sections": [
+    {
+      "id": "builder",
+      "href": "/builder",
+      "title": {
+        "es": "Constructor de Tortilla",
+        "en": "Omelette Builder",
+        "de": "Tortilla-Baukasten"
+      },
+      "description": {
+        "es": "Calculadora interactiva de proporciones, huevos por patata, nivel de cuajado, sal y calorietas con estimador de seguridad.",
+        "en": "Interactive ratio calculator for eggs per potato, runniness level, salt, calories, and safety estimation.",
+        "de": "Interaktiver Rechner für Ei-Kartoffel-Verhältnis, Garstufe und Nährwerte."
+      },
+      "icon": "Sparkles"
+    },
+    {
+      "id": "comparador",
+      "href": "/comparador",
+      "title": {
+        "es": "Comparador de Estilos",
+        "en": "Style Comparator",
+        "de": "Stil-Vergleicher"
+      },
+      "description": {
+        "es": "Compara lado a lado dos estilos de tortilla (Betanzos vs Clásica vs Vasca) en términos de viscosidad, temperatura y macronutrientes.",
+        "en": "Side-by-side comparison of tortilla styles (Betanzos vs Classic vs Basque) across viscosity, temperature, and macros.",
+        "de": "Vergleiche zwei Stile nebeneinander in Viskosität, Temperatur und Nährwerten."
+      },
+      "icon": "Scale"
+    },
+    {
+      "id": "encuestas",
+      "href": "/encuestas",
+      "title": {
+        "es": "Encuestas & Plebiscitos",
+        "en": "Polls & Debates",
+        "de": "Umfragen & Debatten"
+      },
+      "description": {
+        "es": "Participa en los grandes plebiscitos: cebolla sí/no, grosor de corte de patata, tipo de aceite y punto de cuajado.",
+        "en": "Participate in major debates: onion vs no onion, potato cut thickness, oil choice, and runniness.",
+        "de": "Nimm an den großen Debatten teil: Zwiebel-Frage, Schnittdicke und Öl-Wahl."
+      },
+      "icon": "Vote"
+    },
+    {
+      "id": "tests",
+      "href": "/tests",
+      "title": {
+        "es": "Test de Ortodoxia & Cuestionarios",
+        "en": "Orthodoxy Test & Quizzes",
+        "de": "Orthodoxie-Test & Quiz"
+      },
+      "description": {
+        "es": "Descubre a qué facción perteneces respondiendo al cuestionario de lealtad culinaria.",
+        "en": "Discover which faction you belong to by answering our culinary allegiance quiz.",
+        "de": "Finde heraus, welcher Faktion du angehörst."
+      },
+      "icon": "HelpCircle"
+    }
+  ]
+}

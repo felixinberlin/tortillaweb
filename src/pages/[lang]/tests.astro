@@ -1,0 +1,86 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { HelpCircle, ShieldCheck, CheckCircle2 } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = `Test de Ortodoxia & Cuestionarios | tortilladepatatas.org`;
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  { name: 'Tests', url: `/${currentLang}/tests` },
+]);
+---
+
+<Layout title={pageTitle} description="Cuestionarios y test de lealtad a facciones" lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-12">
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <HelpCircle class="w-3.5 h-3.5" />
+        <span>Cuestionario de Ortodoxia</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-[#292521]">
+        Test de Afinidad y Lealtad a Facciones
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed">
+        Responde a las preguntas clave para determinar matemáticamente a qué facción perteneces.
+      </p>
+    </header>
+
+    <div class="card-notebook p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] space-y-6">
+      <div class="space-y-4 text-sm sm:text-base">
+        <h2 class="text-xl font-serif-heading font-bold text-[#292521]">¿Cómo funciona la asignación de facción?</h2>
+        <p class="text-foreground/80 leading-relaxed">
+          Evaluamos tus preferencias sobre 4 ejes fundamentales:
+        </p>
+        <ul class="space-y-2">
+          <li class="flex items-center gap-2 text-foreground/90 font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+            <span>Presencia o ausencia estricta de cebolla (Concebollista vs Purista)</span>
+          </li>
+          <li class="flex items-center gap-2 text-foreground/90 font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+            <span>Ajo o pimiento verde en el sofrito (Ajista / Pimientista)</span>
+          </li>
+          <li class="flex items-center gap-2 text-foreground/90 font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+            <span>Incorporación de ingredientes no canónicos como chorizo o queso (Con Cosas)</span>
+          </li>
+          <li class="flex items-center gap-2 text-foreground/90 font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+            <span>Respeto al estándar higiénico de <strong>70°C for 2 minutes</strong></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="pt-4 border-t border-[#E8E2D5] text-center">
+        <a
+          href={`/${currentLang}/facciones`}
+          class="inline-flex items-center gap-2 bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-6 py-3 rounded-xl shadow-2xs transition-colors"
+        >
+          <span>Ir al Hub de Facciones & Votar</span>
+        </a>
+      </div>
+    </div>
+
+    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p>
+          Cualquiera que sea tu facción, el protocolo sanitario exige mantener la seguridad alimentaria alcanzando **70°C for 2 minutes** o **63°C for 20 seconds**, consumiendo antes de **4 hours** a temperatura ambiente.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

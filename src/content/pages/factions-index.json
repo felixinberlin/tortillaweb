@@ -1,0 +1,75 @@
+{
+  "badge": {
+    "es": "Facciones Culinarias",
+    "en": "Culinary Factions",
+    "de": "Kulinarische Faktionen"
+  },
+  "hero": {
+    "title": {
+      "es": "¿Purista de la Doctrina o Rebelde Culinario?",
+      "en": "Doctrinal Purist or Culinary Rebel?",
+      "de": "Doktrinärer Purist oder kulinarischer Rebell?"
+    },
+    "subtitle": {
+      "es": "Del dogma de la patata y el huevo a las variaciones regionales con personalidad. Descubre a qué facción perteneces.",
+      "en": "From the egg-and-potato dogma to regional variations with personality. Find out which faction you belong to.",
+      "de": "Vom Ei-Kartoffel-Dogma bis zu regionalen Variationen mit Persönlichkeit. Finde deine Faktion."
+    },
+    "adriaDoctrine": {
+      "es": "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica y dar voz a cada tradición.",
+      "en": "We formally distinguish between the 'Traditional Spanish Omelette' and 'Omelettes with...' to ensure gastronomic peace and give voice to every tradition.",
+      "de": "Wir unterscheiden formal zwischen der 'Traditionellen Kartoffeltortilla' und 'Tortillas mit...', um den kulinarischen Frieden zu wahren."
+    }
+  },
+  "introduction": {
+    "title": {
+      "es": "La evolución de una receta universal",
+      "en": "The Evolution of a Universal Recipe",
+      "de": "Die Evolution eines universalen Rezepts"
+    },
+    "body1": {
+      "es": "Nacida a finales del siglo XVIII en Villanueva de la Serena (Badajoz) como una solución contra la escasez de alimentos, la tortilla de patatas ha evolucionado de alimento humilde de supervivencia a icono gastronómico global.",
+      "en": "Born in the late 18th century in Villanueva de la Serena (Extremadura) as a solution to food scarcity, the Spanish tortilla has transformed from a humble survival dish into a global gastronomic icon.",
+      "de": "Entstanden Ende des 18. Jahrhunderts in Villanueva de la Serena als günstige Speise in Notzeiten, hat sich die Tortilla von der einfachen Arme-Leute-Mahlzeit zum weltweiten Kultgericht gewandelt."
+    },
+    "body2": {
+      "es": "Hoy la mesa española es un campo de batalla dialéctico entre el ascetismo de la patata desnuda y la audacia del plebiscito popular. Desde la Santísima Trinidad Betanceira hasta las vanguardias de alta cocina, coexisten grandes doctrinas culinarias.",
+      "en": "Today, the Spanish table is a debate battlefield between strict minimalist purism and popular preference. From the Betanzos Holy Trinity to modernist high cuisine, core culinary doctrines coexist.",
+      "de": "Heute stehen sich große kulinarische Strömungen gegenüber – von der puristischen Heiligen Dreifaltigkeit aus Betanzos bis hin zu modernen Kreationen der Spitzengastronomie."
+    }
+  },
+  "poll": {
+    "title": {
+      "es": "Test de Ortodoxia: Elige tu Lealtad",
+      "en": "Orthodoxy Test: Declare Your Allegiance",
+      "de": "Orthodoxie-Test: Wähle deine Faktion"
+    },
+    "subtitle": {
+      "es": "¡Declara tu facción! Vota y descubre los porcentajes en tiempo real de la comunidad tortillera.",
+      "en": "Cast your vote and view real-time community percentages across all factions.",
+      "de": "Stimme ab und sieh die Echtzeit-Prozente der Community."
+    },
+    "votedMessage": {
+      "es": "¡Voto registrado! Tu lealtad a la causa ha quedado anotada en el cuaderno culinario.",
+      "en": "Vote recorded! Your allegiance has been immortalized in the kitchen notebook.",
+      "de": "Stimme gezählt! Deine Faktion wurde im Küchenbuch verewigt."
+    },
+    "totalVotesLabel": {
+      "es": "Votos totales registrados",
+      "en": "Total community votes",
+      "de": "Stimmen insgesamt"
+    },
+    "initialStats": {
+      "puristas": 28,
+      "concebollistas": 54,
+      "pimientistas": 8,
+      "ajistas": 5,
+      "con-cosas": 5
+    }
+  },
+  "safetyNote": {
+    "es": "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.",
+    "en": "Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**.",
+    "de": "Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**."
+  }
+}

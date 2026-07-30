@@ -1,0 +1,132 @@
+{
+  "items": [
+    {
+      "key": "recipes",
+      "href": "/recipes",
+      "label": {
+        "es": "Recetas",
+        "en": "Recipes",
+        "de": "Rezepte"
+      }
+    },
+    {
+      "key": "factions",
+      "href": "/facciones",
+      "label": {
+        "es": "Facciones",
+        "en": "Factions",
+        "de": "Faktionen"
+      }
+    },
+    {
+      "key": "universo",
+      "href": "/enciclopedia",
+      "label": {
+        "es": "Universo Tortilla",
+        "en": "Tortilla Universe",
+        "de": "Tortilla-Universum"
+      },
+      "children": [
+        {
+          "key": "history",
+          "href": "/history",
+          "label": {
+            "es": "Historia",
+            "en": "History",
+            "de": "Geschichte"
+          }
+        },
+        {
+          "key": "estilos",
+          "href": "/estilos",
+          "label": {
+            "es": "Estilos",
+            "en": "Styles",
+            "de": "Stile"
+          }
+        },
+        {
+          "key": "personas",
+          "href": "/personas",
+          "label": {
+            "es": "Personas",
+            "en": "People",
+            "de": "Personen"
+          }
+        },
+        {
+          "key": "restaurantes",
+          "href": "/restaurantes",
+          "label": {
+            "es": "Restaurantes",
+            "en": "Restaurants",
+            "de": "Restaurants"
+          }
+        },
+        {
+          "key": "regiones",
+          "href": "/regiones",
+          "label": {
+            "es": "Regiones",
+            "en": "Regions",
+            "de": "Regionen"
+          }
+        },
+        {
+          "key": "ingredients",
+          "href": "/ingredients",
+          "label": {
+            "es": "Ingredientes",
+            "en": "Ingredients",
+            "de": "Zutaten"
+          }
+        },
+        {
+          "key": "techniques",
+          "href": "/techniques",
+          "label": {
+            "es": "Técnicas",
+            "en": "Techniques",
+            "de": "Techniken"
+          }
+        },
+        {
+          "key": "science",
+          "href": "/science",
+          "label": {
+            "es": "Ciencia",
+            "en": "Science",
+            "de": "Wissenschaft"
+          }
+        },
+        {
+          "key": "records",
+          "href": "/records",
+          "label": {
+            "es": "Récords",
+            "en": "Records",
+            "de": "Rekorde"
+          }
+        }
+      ]
+    },
+    {
+      "key": "laboratory",
+      "href": "/laboratorio",
+      "label": {
+        "es": "Laboratorio",
+        "en": "Laboratory",
+        "de": "Labor"
+      }
+    },
+    {
+      "key": "about",
+      "href": "/about",
+      "label": {
+        "es": "Sobre nosotros",
+        "en": "About us",
+        "de": "Über uns"
+      }
+    }
+  ]
+}

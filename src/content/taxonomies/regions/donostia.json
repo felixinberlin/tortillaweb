@@ -1,0 +1,20 @@
+{
+  "id": "donostia",
+  "type": "region",
+  "slug": {
+    "es": "donostia",
+    "en": "donostia",
+    "de": "donostia"
+  },
+  "title": {
+    "es": "Donostia - San Sebastián",
+    "en": "San Sebastián (Basque Country)",
+    "de": "San Sebastián (Baskenland)"
+  },
+  "description": {
+    "es": "Cuna del Bar Néstor y las famosas tortillas camperas y paisanas de la Parte Vieja.",
+    "en": "Home of Bar Néstor and famous rustic pintxos omelettes in the Old Town.",
+    "de": "Heimat der Bar Néstor und berühmter rustikaler Pintxo-Tortillas."
+  },
+  "icon": "Sprout"
+}

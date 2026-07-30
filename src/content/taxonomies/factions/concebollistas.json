@@ -1,0 +1,43 @@
+{
+  "id": "concebollistas",
+  "type": "faction",
+  "slug": {
+    "es": "concebollistas",
+    "en": "onion-lovers",
+    "de": "zwiebelliebhaber"
+  },
+  "title": {
+    "es": "Los Concebollistas",
+    "en": "The Onion Lovers",
+    "de": "Die Zwiebel-Liebhaber"
+  },
+  "description": {
+    "es": "Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.",
+    "en": "Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.",
+    "de": "Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie."
+  },
+  "icon": "Heart",
+  "theme": {
+    "color": "tortillaGold"
+  },
+  "dogma": {
+    "es": "La cebolla pochada aporta la jugosidad y el dulzor esenciales.",
+    "en": "Slow-poached onions provide essential juiciness and sweetness.",
+    "de": "Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht."
+  },
+  "badge": {
+    "es": "Tradicionalistas Populares",
+    "en": "Popular Traditionalists",
+    "de": "Beliebte Traditionalisten"
+  },
+  "keyIngredient": {
+    "es": "Cebolla Caramelizada",
+    "en": "Caramelized Onion",
+    "de": "Karamellisierte Zwiebel"
+  },
+  "prominentFigures": [
+    "Karlos Arguiñano",
+    "José Andrés",
+    "Rosalía"
+  ]
+}

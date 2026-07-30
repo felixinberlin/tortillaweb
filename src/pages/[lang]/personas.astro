@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import PersonCard from '@/components/personas/PersonCard';
 import { Users, Quote, Sparkles } from 'lucide-react';
+import { getCollection } from 'astro:content';
 import { personasData } from '@/data/personasData';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generatePersonSchema, generateBreadcrumbSchema } from '@/lib/seo';
@@ -15,7 +16,28 @@ export function getStaticPaths() {
 }
 
 const { lang = 'es' } = Astro.params;
-const content = personasData[lang] || personasData.es;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+// Get JSON content from content collection
+const pagesCollection = await getCollection('pages');
+const personasEntry = pagesCollection.find((p) => p.id === 'personas' || p.id.includes('personas'));
+const jsonContent = personasEntry ? personasEntry.data : null;
+
+// Fallback to personasData
+const fallbackContent = personasData[currentLang] || personasData.es;
+
+const badge = jsonContent?.badge?.[currentLang] || fallbackContent.badge;
+const titleText = jsonContent?.title?.[currentLang] || fallbackContent.title;
+const subtitle = jsonContent?.subtitle?.[currentLang] || fallbackContent.subtitle;
+const chefNote = jsonContent?.chefNote?.[currentLang] || fallbackContent.chefNote;
+
+const content = {
+  badge,
+  title: titleText,
+  subtitle,
+  chefNote,
+  categories: fallbackContent.categories,
+};
 const t = getTranslations(lang);
 
 function formatSafetyText(text: string) {

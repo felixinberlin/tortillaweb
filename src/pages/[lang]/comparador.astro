@@ -1,0 +1,113 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { Scale, ShieldCheck, Check } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = `Comparador de Estilos | tortilladepatatas.org`;
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  { name: 'Comparador', url: `/${currentLang}/comparador` },
+]);
+
+const styles = [
+  {
+    name: 'Estilo Betanzos',
+    eggState: 'Muy líquido (yema fluida)',
+    onion: 'Nunca lleva cebolla',
+    potatoCut: 'Hojuela frita a fuego vivo (muy crujiente)',
+    tempTarget: '60°C - 63°C en centro',
+    safetyNote: 'Requiere consumo inmediato o huevo pasteurizado.'
+  },
+  {
+    name: 'Estilo Clásico Tradicional',
+    eggState: 'Cremoso / Meloso',
+    onion: 'Opcional (cebolla pochada)',
+    potatoCut: 'Láminas pochadas en aceite de oliva',
+    tempTarget: '68°C - 70°C en centro',
+    safetyNote: 'Cumple fácilmente los 70°C for 2 minutes.'
+  },
+  {
+    name: 'Estilo Vasco / Bar',
+    eggState: 'Cuajado firme con exterior dorado',
+    onion: 'Frecuente con pimiento verde',
+    potatoCut: 'Dado pequeño o corte grueso',
+    tempTarget: '72°C - 75°C en centro',
+    safetyNote: 'Inactivación bactericida completa.'
+  }
+];
+---
+
+<Layout title={pageTitle} description="Comparador técnico de estilos de tortilla de patatas" lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <Scale class="w-3.5 h-3.5" />
+        <span>Comparador Técnico de Estilos</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-[#292521]">
+        Betanzos vs Clásica vs Vasco
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed">
+        Análisis comparativo de viscosidad, corte de patata, cebolla y parámetros de seguridad alimentaria.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {styles.map((s) => (
+        <div class="card-notebook p-6 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] space-y-4 shadow-xs">
+          <h2 class="text-2xl font-serif-heading font-bold text-[#292521] pb-2 border-b border-[#E8E2D5]">
+            {s.name}
+          </h2>
+
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div>
+              <span class="font-bold text-[#8D6E63] block">Estado del Huevo:</span>
+              <span class="text-foreground/90">{s.eggState}</span>
+            </div>
+
+            <div>
+              <span class="font-bold text-[#8D6E63] block">Uso de Cebolla:</span>
+              <span class="text-foreground/90">{s.onion}</span>
+            </div>
+
+            <div>
+              <span class="font-bold text-[#8D6E63] block">Corte de Patata:</span>
+              <span class="text-foreground/90">{s.potatoCut}</span>
+            </div>
+
+            <div>
+              <span class="font-bold text-[#8D6E63] block">Temperatura en Centro:</span>
+              <span class="font-mono bg-[#F5E6BE] px-1.5 py-0.5 rounded text-xs font-bold text-[#8D6E63] inline-block">{s.tempTarget}</span>
+            </div>
+
+            <div class="pt-2 border-t border-[#E8E2D5] text-xs text-muted-foreground">
+              {s.safetyNote}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p>
+          En todos los estilos, la norma bactericida de oro exige **70°C for 2 minutes** o **63°C for 20 seconds** para garantizar la eliminación de Salmonella spp., limitando la permanencia a temperatura ambiente a **4 hours**.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

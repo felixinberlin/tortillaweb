@@ -1,0 +1,42 @@
+{
+  "id": "pimientistas",
+  "type": "faction",
+  "slug": {
+    "es": "pimientistas",
+    "en": "pepper-lovers",
+    "de": "paprika-fraktion"
+  },
+  "title": {
+    "es": "Los Pimientistas",
+    "en": "The Pimientistas",
+    "de": "Die Paprika-Fraktion"
+  },
+  "description": {
+    "es": "Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.",
+    "en": "Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.",
+    "de": "Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens."
+  },
+  "icon": "Sprout",
+  "theme": {
+    "color": "olive"
+  },
+  "dogma": {
+    "es": "El toque fresco y ahumado de la huerta campera.",
+    "en": "A fresh and smoky touch straight from the countryside.",
+    "de": "Das rustikale Power-Omelett mit der Frische des Gemüsegartens."
+  },
+  "badge": {
+    "es": "Rurales y Regionales",
+    "en": "Rural & Regional",
+    "de": "Ländlich & Regional"
+  },
+  "keyIngredient": {
+    "es": "Pimiento verde o rojo & Verduras",
+    "en": "Green or Red Pepper & Veggies",
+    "de": "Paprika & Gemüse"
+  },
+  "prominentFigures": [
+    "Bar Néstor (San Sebastián)",
+    "Recetario Campero"
+  ]
+}

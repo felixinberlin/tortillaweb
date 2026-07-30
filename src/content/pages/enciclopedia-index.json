@@ -1,0 +1,154 @@
+{
+  "badge": {
+    "es": "Área de Conocimiento Editorial",
+    "en": "Editorial Knowledge Base",
+    "de": "Redaktionelles Wissenszentrum"
+  },
+  "title": {
+    "es": "Universo Tortilla",
+    "en": "Tortilla Universe",
+    "de": "Tortilla-Universum"
+  },
+  "subtitle": {
+    "es": "Compendio enciclopédico sobre la historia, estilos, personalidades, restaurantes, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.",
+    "en": "Encyclopedic compendium covering history, styles, key personalities, culinary temples, regional geography, ingredients, techniques, science, and records.",
+    "de": "Enzyklopädisches Kompendium zu Geschichte, Stilen, Persönlichkeiten, Restaurants, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden."
+  },
+  "sections": [
+    {
+      "id": "historia",
+      "href": "/history",
+      "title": {
+        "es": "Historia & Cronología",
+        "en": "History & Timeline",
+        "de": "Geschichte & Zeitleiste"
+      },
+      "description": {
+        "es": "De las primeras menciones del siglo XVIII en Villanueva de la Serena a las crisis de subsistencia y la era digital.",
+        "en": "From 18th-century records in Extremadura to wartime survival recipes and the digital delivery era.",
+        "de": "Von den ersten Aufzeichnungen im 18. Jahrhundert bis zur digitalen Delivery-Ära."
+      },
+      "icon": "History"
+    },
+    {
+      "id": "estilos",
+      "href": "/estilos",
+      "title": {
+        "es": "Estilos de Tortilla",
+        "en": "Tortilla Styles",
+        "de": "Tortilla-Stile"
+      },
+      "description": {
+        "es": "Estilo Betanzos, tortilla clásica cuajada, tortilla paisana y variantes tradicionales.",
+        "en": "Betanzos style, classic set omelette, paisana style, and traditional variations.",
+        "de": "Betanzos-Stil, klassische durchgebratene Tortilla, Landfrauen-Stil und traditionelle Varianten."
+      },
+      "icon": "Palette"
+    },
+    {
+      "id": "personas",
+      "href": "/personas",
+      "title": {
+        "es": "Personas & Referentes",
+        "en": "People & References",
+        "de": "Personen & Referenzen"
+      },
+      "description": {
+        "es": "Mentes y manos maestras: científicos como José Manuel Barat, pioneras populares como Pepa Miranda y chefs como José Andrés.",
+        "en": "Masterminds and hands: scientists like José Manuel Barat, traditional pioneers like Pepa Miranda, and chefs like José Andrés.",
+        "de": "Köpfe und Meisterhände: Wissenschaftler, Traditionsträger und Spitzenköche."
+      },
+      "icon": "Users"
+    },
+    {
+      "id": "restaurantes",
+      "href": "/restaurantes",
+      "title": {
+        "es": "Restaurantes & Templos",
+        "en": "Restaurants & Temples",
+        "de": "Restaurants & Tempel"
+      },
+      "description": {
+        "es": "Guía de los establecimientos icónicos: Casa Dani, La Penela, O Pote, Kasino de Lesaka y barras de culto.",
+        "en": "Guide to iconic establishments: Casa Dani, La Penela, O Pote, Kasino de Lesaka, and cult bars.",
+        "de": "Führer zu den ikonischsten Lokalen und Kult-Bars."
+      },
+      "icon": "Utensils"
+    },
+    {
+      "id": "regiones",
+      "href": "/regiones",
+      "title": {
+        "es": "Geografía & Regiones",
+        "en": "Geography & Regions",
+        "de": "Geografie & Regionen"
+      },
+      "description": {
+        "es": "Recorrido por las identidades regionales: Galicia (Betanzos), País Vasco, Madrid, Navarra y Andalucía.",
+        "en": "A journey through regional identities: Galicia (Betanzos), Basque Country, Madrid, Navarra, and Andalusia.",
+        "de": "Eine Reise durch die regionalen Identitäten Spaniens."
+      },
+      "icon": "MapPin"
+    },
+    {
+      "id": "ingredientes",
+      "href": "/ingredients",
+      "title": {
+        "es": "Ingredientes Sagrados",
+        "en": "Sacred Ingredients",
+        "de": "Heilige Zutaten"
+      },
+      "description": {
+        "es": "Patatas ideales (Monalisa, Kennebec), huevos camperos, AOVE de acidez suave y cebolla dulce.",
+        "en": "Ideal potatoes (Monalisa, Kennebec), free-range eggs, mild extra virgin olive oil, and sweet onions.",
+        "de": "Ideale Kartoffeln (Monalisa, Kennebec), Freilandeier, mildes Olivenöl extra vergine und süße Zwiebeln."
+      },
+      "icon": "Egg"
+    },
+    {
+      "id": "tecnicas",
+      "href": "/techniques",
+      "title": {
+        "es": "Técnicas & Pasos",
+        "en": "Techniques & Steps",
+        "de": "Techniken & Schritte"
+      },
+      "description": {
+        "es": "Corte y chasquido, confitado lento, reposo sagrado, volteo perfecto y sellado exterior.",
+        "en": "Cutting and snapping, slow poaching, sacred rest, perfect flip, and exterior searing.",
+        "de": "Schneiden, langsames Sanftgaren, heilige Ruhezeit, perfektes Wenden und äußeres Anbraten."
+      },
+      "icon": "Flame"
+    },
+    {
+      "id": "ciencia",
+      "href": "/science",
+      "title": {
+        "es": "Ciencia & Microbiología",
+        "en": "Science & Microbiology",
+        "de": "Wissenschaft & Mikrobiologie"
+      },
+      "description": {
+        "es": "Físico-química del huevo, gelatinización de la patata, reacción de Maillard y protocolo bactericida.",
+        "en": "Egg chemistry, potato gelatinization, Maillard reaction, and pasteurization protocols.",
+        "de": "Chemie des Eies, Stärkewandlung, Maillard-Reaktion und Pasteurisierung."
+      },
+      "icon": "Microscope"
+    },
+    {
+      "id": "records",
+      "href": "/records",
+      "title": {
+        "es": "Récords & Hitos",
+        "en": "Records & Milestones",
+        "de": "Rekorde & Meilensteine"
+      },
+      "description": {
+        "es": "Las tortillas más grandes del mundo, récords Guinness, velocidad de volteo y concursos de culto.",
+        "en": "World's largest tortillas, Guinness records, flipping speed, and legendary competitions.",
+        "de": "Die größten Tortillas der Welt, Guinness-Rekorde und legendäre Wettbewerbe."
+      },
+      "icon": "Trophy"
+    }
+  ]
+}

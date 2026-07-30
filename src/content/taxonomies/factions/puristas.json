@@ -1,0 +1,45 @@
+{
+  "id": "puristas",
+  "type": "faction",
+  "slug": {
+    "es": "puristas",
+    "en": "purists",
+    "de": "puristen"
+  },
+  "title": {
+    "es": "Los Puristas",
+    "en": "The Purists",
+    "de": "Die Puristen"
+  },
+  "description": {
+    "es": "Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.",
+    "en": "They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.",
+    "de": "Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern."
+  },
+  "icon": "Shield",
+  "theme": {
+    "color": "terracotta"
+  },
+  "dogma": {
+    "es": "Solo patata, huevo, aceite de oliva y sal.",
+    "en": "Only potato, egg, olive oil, and salt.",
+    "de": "Nur Kartoffel, Ei, Olivenöl und Salz."
+  },
+  "badge": {
+    "es": "Ortodoxos (Betanzos)",
+    "en": "Orthodox (Betanzos)",
+    "de": "Orthodox (Betanzos)"
+  },
+  "keyIngredient": {
+    "es": "Sin añadidos (0% Cebolla)",
+    "en": "No additives (0% Onion)",
+    "de": "Ohne Zusätze (0% Zwiebel)"
+  },
+  "prominentFigures": [
+    "Señora Angelita (Betanzos)",
+    "Pepa Miranda",
+    "Dabiz Muñoz",
+    "Dani García",
+    "La Falda de Chamberí"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "brandDesc": {
+    "es": "La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.",
+    "en": "The gastronomic encyclopedia and laboratory notebook dedicated to the authentic Spanish potato omelette.",
+    "de": "Die gastronomische Enzyklopädie und das Laborbuch zur echten spanischen Kartoffeltortilla."
+  },
+  "subtitle": {
+    "es": "Gastronomía, Tradición & Ciencia Culinaria",
+    "en": "Gastronomy, Tradition & Culinary Science",
+    "de": "Gastronomie, Tradition & Kulinarische Wissenschaft"
+  },
+  "safetyTitle": {
+    "es": "Estándar de Seguridad Bactericida",
+    "en": "Bactericidal Safety Standard",
+    "de": "Bakterizider Sicherheitsstandard"
+  },
+  "safetyText": {
+    "es": "Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 hours** a temperatura ambiente.",
+    "en": "To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as intermediate threshold). Runny omelettes must not exceed **4 hours** at room temperature.",
+    "de": "Zur mikrobiologischen Sicherheit verlangt der bakterizide Standard **70°C for 2 minutes** (oder **63°C for 20 seconds**). Leicht gebratene Tortillas dürfen nicht länger als **4 hours** bei Raumtemperatur stehen."
+  },
+  "rights": {
+    "es": "Todos los derechos reservados.",
+    "en": "All rights reserved.",
+    "de": "Alle Rechte vorbehalten."
+  }
+}

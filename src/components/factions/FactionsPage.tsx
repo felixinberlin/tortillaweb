@@ -15,20 +15,45 @@ import {
   ShieldAlert,
   Award
 } from "lucide-react";
-import factionsData from "@/data/factions.json";
+import type { Taxonomy } from "@/types/taxonomy";
 
 interface FactionsPageProps {
   lang?: string;
+  factions?: Taxonomy[];
+  pageData?: any;
 }
 
-export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
+export default function FactionsPage({ lang = "es", factions = [], pageData = {} }: FactionsPageProps) {
   const currentLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
-  const content = factionsData.content[currentLang] || factionsData.content.es;
+
+  // Fallbacks if pageData fields are localized objects
+  const badge = pageData.badge?.[currentLang] || (currentLang === "en" ? "Culinary Factions" : currentLang === "de" ? "Kulinarische Faktionen" : "Facciones Culinarias");
+  const heroTitle = pageData.hero?.title?.[currentLang] || "¿Purista de la Doctrina o Rebelde Culinario?";
+  const heroSubtitle = pageData.hero?.subtitle?.[currentLang] || "Del dogma de la patata y el huevo a las variaciones regionales con personalidad.";
+  const adriaDoctrine = pageData.hero?.adriaDoctrine?.[currentLang] || "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica.";
+  
+  const introTitle = pageData.introduction?.title?.[currentLang] || "La evolución de una receta universal";
+  const introBody1 = pageData.introduction?.body1?.[currentLang] || "";
+  const introBody2 = pageData.introduction?.body2?.[currentLang] || "";
+
+  const pollTitle = pageData.poll?.title?.[currentLang] || "Test de Ortodoxia: Elige tu Lealtad";
+  const pollSub = pageData.poll?.subtitle?.[currentLang] || "¡Declara tu facción! Vota y descubre los porcentajes en tiempo real.";
+  const votedMsg = pageData.poll?.votedMessage?.[currentLang] || "¡Voto registrado!";
+  const totalVotesLabel = pageData.poll?.totalVotesLabel?.[currentLang] || "Votos totales registrados";
+  const initialStats = pageData.poll?.initialStats || {
+    puristas: 28,
+    concebollistas: 54,
+    pimientistas: 8,
+    ajistas: 5,
+    "con-cosas": 5
+  };
+
+  const safetyNoteText = pageData.safetyNote?.[currentLang] || "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.";
 
   // Local state for interactive poll with localStorage persistence
   const [selectedFaction, setSelectedFaction] = useState<string | null>(null);
   const [hasVoted, setHasVoted] = useState<boolean>(false);
-  const [stats, setStats] = useState<Record<string, number>>(content.poll.initialStats);
+  const [stats, setStats] = useState<Record<string, number>>(initialStats);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -36,7 +61,6 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
       if (savedVote) {
         setSelectedFaction(savedVote);
         setHasVoted(true);
-        // Increment initial stats slightly if saved vote exists
         setStats((prev) => {
           const updated = { ...prev };
           if (updated[savedVote] !== undefined) {
@@ -60,7 +84,6 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
         [factionId]: (prev[factionId] || 0) + 1,
       }));
     } else if (selectedFaction && selectedFaction !== factionId) {
-      // Transfer vote if changed
       setStats((prev) => ({
         ...prev,
         [selectedFaction]: Math.max(0, (prev[selectedFaction] || 1) - 1),
@@ -71,7 +94,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
     setHasVoted(true);
   };
 
-  const getFactionIcon = (iconName: string) => {
+  const getFactionIcon = (iconName?: string) => {
     switch (iconName) {
       case "Shield":
         return <Shield className="w-5 h-5" />;
@@ -88,7 +111,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
     }
   };
 
-  const getBadgeStyle = (colorName: string) => {
+  const getBadgeStyle = (colorName?: string) => {
     switch (colorName) {
       case "terracotta":
         return "bg-[#B65D3A]/10 text-[#B65D3A] border-[#B65D3A]/30";
@@ -122,21 +145,28 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
     });
   };
 
+  const routePrefixes: Record<string, string> = {
+    es: "facciones",
+    en: "factions",
+    de: "faktionen",
+  };
+  const routePrefix = routePrefixes[currentLang] || "facciones";
+
   return (
     <div className="container mx-auto px-4 py-8 md:py-14 max-w-6xl space-y-12">
       {/* HEADER & HERO SECTION */}
       <header className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
           <Users className="w-3.5 h-3.5" />
-          <span>{content.badge}</span>
+          <span>{badge}</span>
         </div>
         
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
-          {content.hero.title}
+          {heroTitle}
         </h1>
         
         <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
-          {content.hero.subtitle}
+          {heroSubtitle}
         </p>
       </header>
 
@@ -150,11 +180,11 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-0.5 rounded-full border border-amber-300/60 inline-flex items-center gap-1">
                 <ChefHat className="w-3 h-3 text-[#FFB800]" />
-                {content.ui?.adriaTitle || "Doctrina de Ferran Adrià (El Bulli)"}
+                Doctrina de Ferran Adrià (El Bulli)
               </span>
             </div>
             <blockquote className="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
-              &ldquo;{content.hero.adriaDoctrine}&rdquo;
+              &ldquo;{adriaDoctrine}&rdquo;
             </blockquote>
           </div>
         </div>
@@ -164,127 +194,140 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
       <section className="max-w-4xl mx-auto space-y-4 text-foreground/90 leading-relaxed text-sm sm:text-base border-b border-[#E8E2D5] pb-8">
         <h2 className="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521] flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-[#FFB800]" />
-          {content.introduction.title}
+          {introTitle}
         </h2>
-        <p className="font-sans">{content.introduction.body1}</p>
-        <p className="font-sans">{content.introduction.body2}</p>
+        {introBody1 && <p className="font-sans">{introBody1}</p>}
+        {introBody2 && <p className="font-sans">{introBody2}</p>}
       </section>
 
-      {/* THE 5 FACTIONS GRID */}
+      {/* FACTIONS GRID FROM TAXONOMY DATA */}
       <section className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E8E2D5] pb-3">
           <div>
             <h2 className="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
-              {content.ui?.factionsSectionTitle || "Las 5 Facciones Culinarias"}
+              Las Facciones Culinarias
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              {content.ui?.factionsSectionSub || "Haz clic en cualquier facción para conocer su dogma, figuras clave y recetas vinculadas."}
+              Haz clic en cualquier facción para ver su ficha completa y recetas asociadas.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {content.factions.map((faction) => (
-            <article
-              key={faction.id}
-              className={`card-notebook p-6 flex flex-col justify-between rounded-2xl border transition-all duration-200 hover:shadow-md hover:border-[#FFB800] bg-[#FCF9F2] relative ${
-                selectedFaction === faction.id ? "ring-2 ring-[#FFB800] bg-[#FFF7EA]" : "border-[#E8E2D5]"
-              }`}
-            >
-              <div className="space-y-4">
-                {/* Badge & Icon Header */}
-                <div className="flex items-start justify-between gap-3">
-                  <div className="p-2.5 rounded-xl bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 shadow-2xs shrink-0">
-                    {getFactionIcon(faction.icon)}
-                  </div>
-                  <span
-                    className={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${getBadgeStyle(
-                      faction.badgeColor
-                    )}`}
-                  >
-                    {faction.badge}
-                  </span>
-                </div>
+          {factions.map((faction) => {
+            const factionTitle = faction.title[currentLang as keyof typeof faction.title] || faction.title.es;
+            const factionDesc = faction.description[currentLang as keyof typeof faction.description] || faction.description.es;
+            const factionDogma = faction.dogma ? (faction.dogma[currentLang as keyof typeof faction.dogma] || faction.dogma.es) : undefined;
+            const factionBadge = faction.badge ? (faction.badge[currentLang as keyof typeof faction.badge] || faction.badge.es) : undefined;
+            const keyIngredient = faction.keyIngredient ? (faction.keyIngredient[currentLang as keyof typeof faction.keyIngredient] || faction.keyIngredient.es) : undefined;
+            const slug = faction.slug[currentLang as keyof typeof faction.slug] || faction.slug.es;
+            const factionUrl = `/${currentLang}/${routePrefix}/${slug}`;
 
-                {/* Name & Key Ingredient */}
-                <div>
-                  <h3 className="text-xl font-serif-heading font-bold text-[#292521] leading-tight">
-                    {faction.name}
-                  </h3>
-                  <div className="mt-1.5 inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/70 px-2.5 py-0.5 rounded-md border border-amber-200">
-                    {content.ui?.keyIngredientLabel || "Ingrediente Clave:"} <strong>{faction.keyIngredient}</strong>
-                  </div>
-                </div>
-
-                {/* Dogma Quote */}
-                <div className="p-3 rounded-xl bg-[#FAF6EE] border border-[#E8E2D5] text-xs font-serif-heading italic text-[#292521]/90">
-                  &ldquo;{faction.dogma}&rdquo;
-                </div>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed">
-                  {faction.description}
-                </p>
-
-                {/* Prominent Figures */}
-                <div className="pt-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-1.5">
-                    {content.ui?.prominentFiguresLabel || "Figuras Prominentes:"}
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {faction.prominentFigures.map((figure, idx) => (
+            return (
+              <article
+                key={faction.id}
+                className={`card-notebook p-6 flex flex-col justify-between rounded-2xl border transition-all duration-200 hover:shadow-md hover:border-[#FFB800] bg-[#FCF9F2] relative ${
+                  selectedFaction === faction.id ? "ring-2 ring-[#FFB800] bg-[#FFF7EA]" : "border-[#E8E2D5]"
+                }`}
+              >
+                <div className="space-y-4">
+                  {/* Badge & Icon Header */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="p-2.5 rounded-xl bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 shadow-2xs shrink-0">
+                      {getFactionIcon(faction.icon)}
+                    </div>
+                    {factionBadge && (
                       <span
-                        key={idx}
-                        className="text-[11px] font-medium bg-white text-[#292521] px-2 py-0.5 rounded-md border border-[#E8E2D5] shadow-2xs"
+                        className={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${getBadgeStyle(
+                          faction.theme?.color
+                        )}`}
                       >
-                        {figure}
+                        {factionBadge}
                       </span>
-                    ))}
+                    )}
                   </div>
-                </div>
-              </div>
 
-              {/* Related Pages Footer */}
-              <div className="mt-6 pt-4 border-t border-[#E8E2D5] flex flex-col gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                  {content.ui?.relatedPagesLabel || "Recetas y Páginas Relacionadas:"}
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {faction.relatedPages.map((page, pIdx) => (
-                    <a
-                      key={pIdx}
-                      href={page.url}
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] bg-[#F5E6BE]/60 hover:bg-[#F5E6BE] px-2.5 py-1 rounded-lg border border-amber-300/80 transition-colors shadow-2xs"
-                    >
-                      <span>{page.title}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  ))}
+                  {/* Name & Key Ingredient */}
+                  <div>
+                    <h3 className="text-xl font-serif-heading font-bold text-[#292521] leading-tight">
+                      <a href={factionUrl} className="hover:text-[#8D6E63] transition-colors">
+                        {factionTitle}
+                      </a>
+                    </h3>
+                    {keyIngredient && (
+                      <div className="mt-1.5 inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/70 px-2.5 py-0.5 rounded-md border border-amber-200">
+                        Ingrediente Clave: <strong>{keyIngredient}</strong>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Dogma Quote */}
+                  {factionDogma && (
+                    <div className="p-3 rounded-xl bg-[#FAF6EE] border border-[#E8E2D5] text-xs font-serif-heading italic text-[#292521]/90">
+                      &ldquo;{factionDogma}&rdquo;
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                    {factionDesc}
+                  </p>
+
+                  {/* Prominent Figures */}
+                  {faction.prominentFigures && faction.prominentFigures.length > 0 && (
+                    <div className="pt-2">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-1.5">
+                        Figuras Prominentes:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {faction.prominentFigures.map((figure, idx) => (
+                          <span
+                            key={idx}
+                            className="text-[11px] font-medium bg-white text-[#292521] px-2 py-0.5 rounded-md border border-[#E8E2D5] shadow-2xs"
+                          >
+                            {figure}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            </article>
-          ))}
+
+                {/* View Details Link */}
+                <div className="mt-6 pt-4 border-t border-[#E8E2D5] flex items-center justify-between">
+                  <a
+                    href={factionUrl}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] bg-[#F5E6BE]/60 hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-amber-300/80 transition-colors shadow-2xs"
+                  >
+                    <span>Ver Ficha & Recetas</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      {/* INTERACTIVE POLL MODULE ("Test de Ortodoxia") */}
+      {/* INTERACTIVE POLL MODULE */}
       <section className="card-notebook p-6 sm:p-8 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] shadow-xs space-y-6 max-w-4xl mx-auto">
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB800]/20 text-[#8D6E63] border border-amber-300 text-xs font-bold">
             <Vote className="w-3.5 h-3.5 text-[#FFB800]" />
-            <span>{content.ui?.communityPollBadge || "Encuesta de la Comunidad"}</span>
+            <span>Encuesta de la Comunidad</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
-            {content.poll.title}
+            {pollTitle}
           </h2>
           <p className="text-xs sm:text-sm text-foreground/80">
-            {content.poll.subtitle}
+            {pollSub}
           </p>
         </div>
 
         {/* Faction Radio Selector Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-          {content.factions.map((fac) => {
+          {factions.map((fac) => {
+            const facTitle = fac.title[currentLang as keyof typeof fac.title] || fac.title.es;
             const count = stats[fac.id] || 0;
             const percentage = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
             const isSelected = selectedFaction === fac.id;
@@ -306,7 +349,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
                       {getFactionIcon(fac.icon)}
                     </div>
                     <span className="font-serif-heading font-bold text-sm text-[#292521]">
-                      {fac.name}
+                      {facTitle}
                     </span>
                   </div>
                   {isSelected && (
@@ -318,7 +361,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
                   <div className="space-y-1 mt-2">
                     <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8D6E63]">
                       <span>{percentage}%</span>
-                      <span className="text-[10px] text-muted-foreground">{count} {content.ui?.votesSuffix || "votos"}</span>
+                      <span className="text-[10px] text-muted-foreground">{count} votos</span>
                     </div>
                     <div className="w-full h-2 bg-[#E8E2D5] rounded-full overflow-hidden">
                       <div
@@ -337,24 +380,24 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
         <div className="pt-4 border-t border-[#E8E2D5] flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-xs font-medium text-foreground/80">
             <BarChart3 className="w-4 h-4 text-[#8D6E63]" />
-            <span>{content.poll.totalVotesLabel}: <strong className="font-mono text-[#292521] text-sm">{totalVotes}</strong></span>
+            <span>{totalVotesLabel}: <strong className="font-mono text-[#292521] text-sm">{totalVotes}</strong></span>
           </div>
 
           {hasVoted && (
             <div className="text-xs font-bold text-[#2E7D32] bg-[#2E7D32]/10 border border-[#2E7D32]/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 shrink-0" />
-              <span>{content.poll.votedMessage}</span>
+              <span>{votedMsg}</span>
             </div>
           )}
         </div>
       </section>
 
-      {/* MANDATORY SAFETY & HYGIENE NOTE */}
+      {/* SAFETY NOTE */}
       <section className="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs max-w-4xl mx-auto">
         <div className="flex items-start gap-3">
           <ShieldAlert className="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-            <p className="font-sans">{renderFormattedSafety(content.safetyNote)}</p>
+            <p className="font-sans">{renderFormattedSafety(safetyNoteText)}</p>
           </div>
         </div>
       </section>

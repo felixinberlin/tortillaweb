@@ -1,0 +1,30 @@
+{
+  "id": "express",
+  "slug": {
+    "es": "express-chips",
+    "en": "express-chips",
+    "de": "express-chips"
+  },
+  "title": {
+    "es": "Tortilla Exprés de Chips (Ferran Adrià)",
+    "en": "Ferran Adrià Potato Chip Express Omelette",
+    "de": "Ferran Adrià Express-Chip-Tortilla"
+  },
+  "description": {
+    "es": "Técnica de vanguardia lista en 10 minutos usando patatas de bolsa gourmet.",
+    "en": "Modernist technique ready in 10 minutes using gourmet potato chips.",
+    "de": "Avantgarde-Technik in 10 Minuten zubereitet mit Kartoffelchips."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "technique:deconstruction",
+    "difficulty:easy"
+  ],
+  "time": 10,
+  "prepTimeMinutes": 5,
+  "cookTimeMinutes": 5,
+  "yieldServings": 2,
+  "image": "/images/clasica.jpg"
+}

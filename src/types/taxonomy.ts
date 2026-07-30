@@ -1,0 +1,47 @@
+export type LocalizedString = {
+  es: string;
+  en: string;
+  de: string;
+};
+
+export interface Recipe {
+  id: string;
+  slug: LocalizedString;
+  title: LocalizedString;
+  description: LocalizedString;
+  taxonomyIds: string[];
+  image?: string;
+  time: number;
+  prepTimeMinutes?: number;
+  cookTimeMinutes?: number;
+  yieldServings?: number;
+  ingredients?: LocalizedString[];
+  instructions?: {
+    step: LocalizedString;
+    text: LocalizedString;
+  }[];
+}
+
+export interface Taxonomy {
+  id: string;
+  type: string; // e.g. 'faction', 'ingredient', 'technique', 'style', 'region', 'person', 'restaurant', 'utensil', 'cooking-method', 'texture', 'event', 'glossary', 'difficulty'
+  slug: LocalizedString;
+  title: LocalizedString;
+  description: LocalizedString;
+  icon?: string;
+  theme?: {
+    color?: string;
+  };
+  dogma?: LocalizedString;
+  badge?: LocalizedString;
+  keyIngredient?: LocalizedString;
+  prominentFigures?: string[];
+}
+
+export interface ResolvedTaxonomyBadge {
+  id: string;
+  type: string;
+  title: string;
+  icon?: string;
+  url: string;
+}

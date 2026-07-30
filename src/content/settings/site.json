@@ -1,0 +1,14 @@
+{
+  "id": "site-settings",
+  "name": "tortilladepatatas.org",
+  "domain": "tortilladepatatas.org",
+  "appUrl": "https://tortilladepatatas.de",
+  "supportedLanguages": ["es", "en", "de"],
+  "defaultLanguage": "es",
+  "safetyStandard": {
+    "bactericidalTemp": "70°C for 2 minutes",
+    "mediumTemp": "63°C for 20 seconds",
+    "ambientLimit": "4 hours",
+    "refrigerationTemp": "8°C"
+  }
+}

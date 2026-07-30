@@ -1,0 +1,24 @@
+{
+  "id": "jose-andres",
+  "type": "person",
+  "slug": {
+    "es": "jose-andres",
+    "en": "jose-andres",
+    "de": "jose-andres"
+  },
+  "title": {
+    "es": "José Andrés",
+    "en": "José Andrés",
+    "de": "José Andrés"
+  },
+  "description": {
+    "es": "Chef español reconocido internacionalmente que ha popularizado la tortilla en todo el mundo.",
+    "en": "Internationally renowned Spanish chef who popularized the Spanish omelette worldwide.",
+    "de": "Weltberühmter spanischer Koch, der die Tortilla weltweit bekannt machte."
+  },
+  "badge": {
+    "es": "Divulgación",
+    "en": "Outreach",
+    "de": "Kommunikation"
+  }
+}

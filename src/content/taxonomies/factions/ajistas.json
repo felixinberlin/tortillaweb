@@ -1,0 +1,42 @@
+{
+  "id": "ajistas",
+  "type": "faction",
+  "slug": {
+    "es": "ajistas",
+    "en": "garlic-cult",
+    "de": "knoblauch-kult"
+  },
+  "title": {
+    "es": "Los Ajistas",
+    "en": "The Ajistas",
+    "de": "Der Knoblauch-Kult"
+  },
+  "description": {
+    "es": "El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.",
+    "en": "The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.",
+    "de": "Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe."
+  },
+  "icon": "Sparkles",
+  "theme": {
+    "color": "charcoal"
+  },
+  "dogma": {
+    "es": "Aromatizar el aceite sin sobrecargar de azúcar la mezcla.",
+    "en": "Infuse the frying oil with garlic without overloading sweetness.",
+    "de": "Knoblauch als unsichtbare aromatische Basis im Olivenöl."
+  },
+  "badge": {
+    "es": "Técnicos y Secretos",
+    "en": "Technical & Secret",
+    "de": "Technisch & Geheim"
+  },
+  "keyIngredient": {
+    "es": "Ajo frito aromatizante",
+    "en": "Aromatic Garlic",
+    "de": "Aromatischer Knoblauch"
+  },
+  "prominentFigures": [
+    "Ángel León (Aponiente)",
+    "Óscar Vidal (O'Pazo)"
+  ]
+}

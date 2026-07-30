@@ -1,0 +1,41 @@
+{
+  "badge": {
+    "es": "Manifiesto & Misión Editorial",
+    "en": "Manifesto & Editorial Mission",
+    "de": "Manifest & Redaktioneller Auftrag"
+  },
+  "title": {
+    "es": "Sobre tortilladepatatas.org",
+    "en": "About tortilladepatatas.org",
+    "de": "Über tortilladepatatas.org"
+  },
+  "subtitle": {
+    "es": "La enciclopedia independiente, cuaderno de laboratorio y espacio de encuentro riguroso dedicado al plato más emblemático de España.",
+    "en": "The independent encyclopedia, laboratory notebook, and rigorous meeting space dedicated to Spain's most iconic dish.",
+    "de": "Die unabhängige Enzyklopädie, das Laborbuch und der Begegnungsraum für das kultigste Gericht Spaniens."
+  },
+  "mission": {
+    "title": {
+      "es": "Nuestra Misión Culinaria",
+      "en": "Our Culinary Mission",
+      "de": "Unsere Kulinarische Mission"
+    },
+    "body": {
+      "es": "Documentar con precisión científica, rigor histórico y amor por la gastronomía todas las vertientes, técnicas, variantes e innovaciones de la tortilla de patatas, promoviendo siempre los más altos estándares de inocuidad alimentaria.",
+      "en": "To document with scientific precision, historical rigor, and passion for gastronomy every technique, variation, and innovation of the Spanish tortilla while upholding the highest food safety standards.",
+      "de": "Mit wissenschaftlicher Präzision, historischer Strenge und Leidenschaft alle Varianten und Techniken der Tortilla de Patatas zu dokumentieren."
+    }
+  },
+  "safetyStandard": {
+    "title": {
+      "es": "El Compromiso de Inocuidad Bactericida",
+      "en": "Bactericidal Safety Commitment",
+      "de": "Verpflichtung zur Lebensmittelsicherheit"
+    },
+    "body": {
+      "es": "Divulgamos activamente las recomendaciones del Instituto de Estudios del Huevo y las autoridades sanitarias: alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** con huevo pasteurizado) y limitar a **4 hours** la exposición a temperatura ambiente.",
+      "en": "We actively disseminate public health recommendations: reach **70°C for 2 minutes** (or **63°C for 20 seconds** with pasteurized eggs) and limit room temperature exposure to **4 hours**.",
+      "de": "Wir vermitteln aktiv die Hygiene-Empfehlungen: **70°C for 2 minutes** (oder **63°C for 20 seconds**) sowie maximal **4 hours** bei Raumtemperatur."
+    }
+  }
+}

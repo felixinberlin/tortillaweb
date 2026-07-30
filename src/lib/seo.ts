@@ -193,3 +193,29 @@ export function generateFAQSchema(faqs: { question: string; answer: string }[]) 
     })),
   };
 }
+
+export function generateCollectionPageSchema(data: {
+  name: string;
+  description: string;
+  url: string;
+  items: { name: string; url: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${data.url}#collection`,
+    url: data.url,
+    name: data.name,
+    description: data.description,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: data.items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        url: item.url,
+      })),
+    },
+  };
+}
+

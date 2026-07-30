@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { MapPin, ShieldCheck } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pagesCollection = await getCollection('pages');
+const regEntry = pagesCollection.find((p) => p.id === 'regions' || p.id.includes('regions'));
+const content = regEntry ? regEntry.data : null;
+
+const badge = content?.badge?.[currentLang] || 'Geografía Gastronómica';
+const title = content?.title?.[currentLang] || 'Regiones & Variaciones de España';
+const subtitle = content?.subtitle?.[currentLang] || 'Expresiones regionales de la tortilla de patatas.';
+const regions = content?.regions || [];
+
+const pageTitle = `${title} | tortilladepatatas.org`;
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Enciclopedia', url: `/${currentLang}/enciclopedia` },
+  { name: title, url: `/${currentLang}/regiones` },
+]);
+---
+
+<Layout title={pageTitle} description={subtitle} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <MapPin class="w-3.5 h-3.5" />
+        <span>{badge}</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-[#292521]">
+        {title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed">
+        {subtitle}
+      </p>
+    </header>
+
+    <div class="space-y-6">
+      {regions.map((reg: any) => (
+        <div class="card-notebook p-6 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] space-y-3 shadow-xs">
+          <h2 class="text-2xl font-serif-heading font-bold text-[#292521] flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#FFB800]"></span>
+            <span>{reg.name}</span>
+          </h2>
+          <p class="text-sm text-foreground/80 leading-relaxed">
+            {reg.description?.[currentLang] || reg.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p>
+          En todas las variaciones regionales, la inocuidad se garantiza cumpliendo el protocolo bactericida de **70°C for 2 minutes** o **63°C for 20 seconds**, limitando la conservación fuera de frío a **4 hours**.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

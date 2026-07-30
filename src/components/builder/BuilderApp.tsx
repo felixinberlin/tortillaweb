@@ -19,6 +19,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { calculateIngredients } from "@/lib/builderMath";
 
 interface BuilderAppProps {
   lang?: string;
@@ -35,13 +36,12 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
   const [copied, setCopied] = useState<boolean>(false);
 
   // Math calculations based on traditional Spanish chef ratios
-  // Standard ratio per diner: ~1.5 eggs, ~150g potatoes, ~40g onion
-  const eggCount = Math.max(2, Math.round(diners * 1.5));
-  const potatoGrams = diners * 150;
-  const onionGrams = hasOnion ? Math.round(diners * 45) : 0;
-  const oilMl = Math.round(potatoGrams * 0.8); // Enough to submerge
-  const saltGrams = Math.round(eggCount * 0.8); // ~0.8g per egg
-  const panSizeCm = diners <= 2 ? 20 : diners <= 5 ? 24 : 28;
+  const { eggCount, potatoGrams, onionGrams, oilMl, saltGrams, panSizeCm } = calculateIngredients({
+    diners,
+    hasOnion,
+    doneness,
+    potatoCut
+  });
 
   const handleCopyRecipe = () => {
     const text = lang.startsWith("de") ?

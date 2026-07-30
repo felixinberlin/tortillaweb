@@ -1,0 +1,277 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { 
+  TAXONOMY_ROUTING_MAP, 
+  getAllTaxonomies, 
+  getRecipesForTaxonomy, 
+  resolveRecipeBadges
+} from '@/lib/taxonomy';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
+import { 
+  Shield, 
+  ChefHat, 
+  ExternalLink,
+  Users
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  const taxonomies = await getAllTaxonomies();
+  const languages = supportedLanguages;
+  const paths = [];
+
+  for (const lang of languages) {
+    const routeMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
+    
+    for (const tax of taxonomies) {
+      const routeSegment = routeMap[tax.type];
+      const localizedSlug = tax.slug[lang as keyof typeof tax.slug] || tax.slug.es;
+      
+      if (routeSegment && localizedSlug) {
+        paths.push({
+          params: {
+            lang,
+            taxonomyType: routeSegment,
+            slug: localizedSlug,
+          },
+          props: {
+            taxonomy: tax,
+            lang,
+          },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { taxonomy, lang } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+const title = taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es;
+const description = taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es;
+const dogma = taxonomy.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
+const badgeText = taxonomy.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
+const keyIngredient = taxonomy.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
+
+// Load related recipes dynamically
+const relatedRecipes = await getRecipesForTaxonomy(taxonomy.type, taxonomy.id);
+
+// Pre-resolve badges for each related recipe
+const recipesWithBadges = await Promise.all(
+  relatedRecipes.map(async (r) => ({
+    ...r,
+    badges: await resolveRecipeBadges(r.taxonomyIds, currentLang),
+  }))
+);
+
+// Collect all other taxonomy IDs referenced in these recipes for "Related Concepts"
+const relatedTaxonomyIds = new Set<string>();
+relatedRecipes.forEach((r) => {
+  r.taxonomyIds.forEach((tag) => {
+    if (tag !== `${taxonomy.type}:${taxonomy.id}`) {
+      relatedTaxonomyIds.add(tag);
+    }
+  });
+});
+const relatedTaxonomyBadges = await resolveRecipeBadges(Array.from(relatedTaxonomyIds), currentLang);
+
+const pageTitle = `${title} - ${taxonomy.type.toUpperCase()} | tortilladepatatas.org`;
+
+// SEO Schemas
+const currentUrl = `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: taxonomy.type, url: `/${currentLang}/${Astro.params.taxonomyType}` },
+  { name: title, url: currentUrl },
+]);
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description: description,
+  url: currentUrl,
+  items: relatedRecipes.map((r) => ({
+    name: r.title[currentLang as keyof typeof r.title] || r.title.es,
+    url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
+  })),
+});
+
+const schemas = [breadcrumbSchema, collectionSchema];
+---
+
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
+    <!-- HERO TAXONOMY HEADER -->
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <Users class="w-3.5 h-3.5" />
+        <span class="capitalize">{taxonomy.type}: {badgeText || title}</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
+        {title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+        {description}
+      </p>
+
+      {keyIngredient && (
+        <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/80 px-3 py-1 rounded-full border border-amber-300">
+          <span>Ingrediente/Elemento Clave:</span> <strong>{keyIngredient}</strong>
+        </div>
+      )}
+    </header>
+
+    <!-- DOGMA CALLOUT IF APPLICABLE -->
+    {dogma && (
+      <section class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800] bg-[#FCF9F2] shadow-xs rounded-2xl border border-[#E8E2D5] relative overflow-hidden">
+        <div class="flex items-start gap-4 relative z-10">
+          <div class="p-3 rounded-2xl bg-[#FFB800]/20 text-[#8D6E63] shrink-0 hidden sm:flex items-center justify-center border border-amber-300/50">
+            <ChefHat class="w-6 h-6 text-[#FFB800]" />
+          </div>
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-0.5 rounded-full border border-amber-300/60 inline-flex items-center gap-1">
+              Dogma & Filosofía
+            </span>
+            <blockquote class="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
+              &ldquo;{dogma}&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- PROMINENT FIGURES IF ANY -->
+    {taxonomy.prominentFigures && taxonomy.prominentFigures.length > 0 && (
+      <section class="max-w-4xl mx-auto p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2 text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
+          Figuras Prominentes
+        </span>
+        <div class="flex flex-wrap justify-center gap-2">
+          {taxonomy.prominentFigures.map((fig) => (
+            <span class="text-xs font-medium bg-white text-[#292521] px-3 py-1 rounded-lg border border-[#E8E2D5] shadow-2xs">
+              {fig}
+            </span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- RELATED RECIPES GRID -->
+    <section class="space-y-6">
+      <div class="border-b border-[#E8E2D5] pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
+            Recetas Relacionadas
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">
+            Recetas que incorporan o representan esta categoría ({relatedRecipes.length})
+          </p>
+        </div>
+      </div>
+
+      {relatedRecipes.length === 0 ? (
+        <div class="card-notebook p-8 text-center text-muted-foreground rounded-2xl border border-[#E8E2D5]">
+          No hay recetas registradas actualmente para este concepto en el catálogo.
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recipesWithBadges.map((r) => {
+            const recipeTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
+            const recipeDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
+            const recipeSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
+
+            return (
+              <article class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-200 flex flex-col justify-between">
+                <div>
+                  <div class="h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
+                    <img
+                      src={r.image || '/images/clasica.jpg'}
+                      alt={recipeTitle}
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div class="absolute top-3 right-3 bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] text-[11px] font-bold px-2.5 py-1 rounded-full shadow-2xs">
+                      ⏱ {r.time} min
+                    </div>
+                  </div>
+
+                  <div class="p-5 space-y-3">
+                    <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
+                      <a href={`/${currentLang}/recipes/${recipeSlug}`} class="hover:text-[#8D6E63] transition-colors">
+                        {recipeTitle}
+                      </a>
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed line-clamp-3">
+                      {recipeDesc}
+                    </p>
+
+                    <!-- BADGES -->
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                      {r.badges.map((b) => (
+                        <a
+                          href={b.url}
+                          class="inline-flex items-center gap-1 text-[11px] font-bold bg-[#F5E6BE]/70 hover:bg-[#F5E6BE] text-[#8D6E63] px-2 py-0.5 rounded-md border border-amber-200 transition-colors"
+                        >
+                          <span>{b.title}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 pt-0">
+                  <a
+                    href={`/${currentLang}/recipes/${recipeSlug}`}
+                    class="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] transition-colors"
+                  >
+                    <span>Ver Receta Completa</span>
+                    <ExternalLink class="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </section>
+
+    <!-- RELATED TAXONOMY CONCEPTS -->
+    {relatedTaxonomyBadges.length > 0 && (
+      <section class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4">
+        <h3 class="text-lg font-serif-heading font-bold text-[#292521]">
+          Conceptos y Taxonomías Vinculadas
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {relatedTaxonomyBadges.map((b) => (
+            <a
+              href={b.url}
+              class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-[#8D6E63] hover:text-[#292521] hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-[#E8E2D5] shadow-2xs transition-colors"
+            >
+              <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
+              <span>{b.title}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- SAFETY NOTE -->
+    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p class="font-sans">
+          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

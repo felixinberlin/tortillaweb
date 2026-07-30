@@ -1,0 +1,22 @@
+{
+  "badge": {
+    "es": "Análisis Culinario & Materia Prima",
+    "en": "Culinary Analysis & Raw Materials",
+    "de": "Kulinarische Analyse & Rohstoffe"
+  },
+  "title": {
+    "es": "Ingredientes: La Química del Sabor",
+    "en": "Ingredients: The Chemistry of Flavor",
+    "de": "Zutaten: Die Chemie des Geschmacks"
+  },
+  "subtitle": {
+    "es": "Estudio detallado de la patata, el huevo, la cebolla, el aceite de oliva y los añadidos opcionales. Descubre cómo cada ingrediente transforma la textura y la estructura de la tortilla.",
+    "en": "Detailed study of potatoes, eggs, onions, olive oil, and optional additions. Discover how each ingredient shapes the texture and structure of the tortilla.",
+    "de": "Detaillierte Untersuchung von Kartoffeln, Eiern, Zwiebeln, Olivenöl und optionalen Zutaten."
+  },
+  "safetyNote": {
+    "es": "La elección y manipulación del huevo es crucial para prevenir la contaminación por Salmonella. Recomendamos usar huevos frescos o pasteurizados y respetar los **70°C for 2 minutes** de cocinado bactericida.",
+    "en": "Egg selection and handling is critical to prevent Salmonella. We recommend fresh or pasteurized eggs and maintaining **70°C for 2 minutes** bactericidal cooking.",
+    "de": "Die Ausfallwahl und Behandlung des Eies ist entscheidend gegen Salmonellen. Wir empfehlen frische oder pasteurisierte Eier und **70°C for 2 minutes**."
+  }
+}

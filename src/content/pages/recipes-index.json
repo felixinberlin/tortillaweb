@@ -1,0 +1,39 @@
+{
+  "badge": {
+    "es": "Catálogo de Recetas",
+    "en": "Recipe Catalog",
+    "de": "Rezeptkatalog"
+  },
+  "title": {
+    "es": "Recetas de Tortilla de Patatas",
+    "en": "Spanish Omelette Recipes",
+    "de": "Tortilla-Rezepte"
+  },
+  "subtitle": {
+    "es": "Colección técnica de recetas tradicionales, regionales e innovadoras con ratios precisos, tiempos de pochado y pautas de temperatura.",
+    "en": "Technical collection of traditional, regional, and innovative recipes with precise ratios, poaching times, and temperature guidelines.",
+    "de": "Technische Sammlung von traditionellen, regionalen und innovativen Rezepten mit genauen Mengenverhältnissen und Garzeiten."
+  },
+  "filters": {
+    "all": {
+      "es": "Todas",
+      "en": "All",
+      "de": "Alle"
+    },
+    "traditional": {
+      "es": "Tradicionales",
+      "en": "Traditional",
+      "de": "Traditionell"
+    },
+    "regional": {
+      "es": "Regionales",
+      "en": "Regional",
+      "de": "Regional"
+    },
+    "innovative": {
+      "es": "Innovadoras",
+      "en": "Innovative",
+      "de": "Innovativ"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import PollComponent from '@/components/factions/PollComponent';
+import { Vote, ShieldCheck } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = `Encuestas & Plebiscitos Culinarios | tortilladepatatas.org`;
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  { name: 'Encuestas', url: `/${currentLang}/encuestas` },
+]);
+---
+
+<Layout title={pageTitle} description="Plebiscitos y encuestas de la comunidad tortillera" lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-12">
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <Vote class="w-3.5 h-3.5" />
+        <span>Plebiscito Culinario Nacional</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-[#292521]">
+        Encuestas & Lealtad Culinaria
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed">
+        Participa en las grandes consultas populares sobre cebolla, nivel de cuajado y corte de patata.
+      </p>
+    </header>
+
+    <div class="card-notebook p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2]">
+      <PollComponent client:load lang={currentLang} />
+    </div>
+
+    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p>
+          Ninguna discrepancia doctrinal en las encuestas compromete nuestro consenso sobre higiene y seguridad: alcanzar **70°C for 2 minutes** o **63°C for 20 seconds**, manteniendo la tortilla un máximo de **4 hours** a temperatura ambiente.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

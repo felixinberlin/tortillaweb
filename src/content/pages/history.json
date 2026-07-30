@@ -1,0 +1,244 @@
+{
+  "badge": {
+    "es": "Crónica Histórica & Cronología Gastronómica",
+    "en": "Historical Chronicle & Gastronomic Timeline",
+    "de": "Historische Chronik & Gastronomische Zeitleiste"
+  },
+  "title": {
+    "es": "La Tortilla de Patatas: Crónica del Ingenio y la Identidad",
+    "en": "Chronicle of the Spanish Potato Omelette",
+    "de": "Die Geschichte der Tortilla de Patatas"
+  },
+  "subtitle": {
+    "es": "Investigación histórica integral: desde los orígenes del Siglo de las Luces y la cocina de subsistencia hasta los retos de la seguridad alimentaria y la era digital.",
+    "en": "A comprehensive investigation: from Enlightenment origins and survival cuisine to modern food safety protocols and the 21st-century digital era.",
+    "de": "Umfassende historische Untersuchung: Von den Aufklärungs-Wurzeln im 18. Jahrhundert über Überlebensrezepte bis zur modernen Lebensmittelsicherheit."
+  },
+  "chefNote": {
+    "es": "La historia de la tortilla es la crónica del ingenio popular español. Desde 'estirar' huevos con patatas en 1817 hasta usar corteza de naranja en la posguerra, este plato personifica la supervivencia. Para disfrutarlo con total seguridad, la pasteurización exige alcanzar **70°C for 2 minutes** o **63°C for 20 seconds**, evitando mantener la tortilla más de **4 hours** a temperatura ambiente.",
+    "en": "The history of the tortilla is a testament to popular Spanish resourcefulness. From expanding egg volumes with potatoes in 1817 to using orange peel during post-war scarcity, it embodies survival. For maximum food safety, pasteurization standards mandate reaching **70°C for 2 minutes** or **63°C for 20 seconds**, and never leaving room temperature preparations for over **4 hours**.",
+    "de": "Die Geschichte der Tortilla ist ein Denkmal des spanischen Volksgeistes. Vom Gestrecken spärlicher Eier mit Kartoffeln 1817 bis zur Verwendung von Orangenschalen in der Nachkriegszeit verkörpert sie Überlebenswillen. Für absolute Sicherheit verlangt die Pasteurisierung **70°C for 2 minutes** oder **63°C for 20 seconds** sowie maximal **4 hours** Stehzeit bei Raumtemperatur."
+  },
+  "timelineTitle": {
+    "es": "Línea del Tiempo & Hitos Históricos",
+    "en": "Timeline & Historical Milestones",
+    "de": "Zeitleiste & Historische Meilensteine"
+  },
+  "timelineSubtitle": {
+    "es": "Los momentos clave que transformaron un plato de supervivencia en el icono de España.",
+    "en": "The key moments that shaped a survival recipe into Spain's national icon.",
+    "de": "Schlüsselmomente der Transformation vom Notgericht zum Nationalsymbol."
+  },
+  "timelineEvents": [
+    {
+      "year": "1767 - 1772",
+      "title": {
+        "es": "Primeras Menciones Ilustradas",
+        "en": "First Enlightenment Citations",
+        "de": "Erste Dokumentierte Erwähnungen"
+      },
+      "location": "España",
+      "description": {
+        "es": "Joseph Valcárcel (1767) y Roig (1772) registran las primigenias menciones que vinculan la patata americana con preparaciones de huevo batido en la cocina popular.",
+        "en": "Joseph Valcárcel (1767) and Roig (1772) record the earliest documentary references linking potatoes with beaten egg preparations.",
+        "de": "Joseph Valcárcel (1767) und Roig (1772) hielten die ersten schriftlichen Nachweise über Kartoffeln mit verquirlten Eiern fest."
+      },
+      "badge": {
+        "es": "Siglo de las Luces",
+        "en": "Enlightenment Era",
+        "de": "Zeitalter der Aufklärung"
+      }
+    },
+    {
+      "year": "1798",
+      "title": {
+        "es": "Origen Geográfico Documentado",
+        "en": "Documented Birthplace",
+        "de": "Dokumentierte Geburtsstätte"
+      },
+      "location": "Villanueva de la Serena (Badajoz)",
+      "description": {
+        "es": "Documentos de Extremadura detallan cómo el ingenio local creó la fórmula de patata y huevo como respuesta nutritiva a la escasez agrícola.",
+        "en": "Extremaduran historical archives detail how local ingenuity created the potato and egg formula as a nutritious answer to agricultural scarcity.",
+        "de": "Archive aus Extremadura belegen die genaue Kombination aus Kartoffel und Ei als nährstoffreiche Antwort auf Hungersnöte."
+      },
+      "badge": {
+        "es": "Hito Fundacional",
+        "en": "Foundational Milestone",
+        "de": "Gründungs-Meilenstein"
+      }
+    },
+    {
+      "year": "1810 - 1812",
+      "title": {
+        "es": "El Sitio de Cádiz y la 'Tortilla Francesa'",
+        "en": "Siege of Cádiz & 'French Omelette'",
+        "de": "Belagerung von Cádiz & 'Tortilla Francesa'"
+      },
+      "location": "Cádiz",
+      "description": {
+        "es": "Durante el bloqueo napoleónico, la falta de patatas obligó a cocinar el huevo solo. Con humor gaditano, la bautizaron 'tortilla francesa' para diferenciarla de la 'española'.",
+        "en": "During the Napoleonic blockade, potato depletion forced citizens to cook plain egg omelettes, ironically naming them 'French omelettes'.",
+        "de": "Mangel an Kartoffeln zwang die Bürger zum Omelett rein aus Eiern – spöttisch 'französisches Omelett' genannt."
+      },
+      "badge": {
+        "es": "Conflicto & Lenguaje",
+        "en": "Conflict & Nomenclature",
+        "de": "Konflikt & Name"
+      }
+    },
+    {
+      "year": "1817",
+      "title": {
+        "es": "El Memorial de Navarra",
+        "en": "Navarra Memorial",
+        "de": "Das Navarra-Denkmal"
+      },
+      "location": "Navarra",
+      "description": {
+        "es": "Documento oficial presentado a las Cortes que describe cómo los campesinos 'estiraban' los escasos huevos mezclándolos con patatas para alimentar a familias numerosas.",
+        "en": "Official submission to the Cortes advocating potato omelettes to stretch scarce eggs and feed impoverished rural families.",
+        "de": "Offizielles Dokument an die Cortes über die Streckung weniger Eier mit reichlich Kartoffeln für arme Landfamilien."
+      },
+      "badge": {
+        "es": "Respuesta a la Penuria",
+        "en": "Survival Solution",
+        "de": "Überlebensmittel"
+      }
+    },
+    {
+      "year": "1835",
+      "title": {
+        "es": "Leyenda del General Zumalacárregui",
+        "en": "General Zumalacárregui Legend",
+        "de": "Legende von General Zumalacárregui"
+      },
+      "location": "Guerras Carlistas",
+      "description": {
+        "es": "La tradición narra que una campesina anónima improvisó el plato para el general Carlista para nutrir a sus tropas de forma rápida, económica y calórica.",
+        "en": "Tradition holds that an anonymous farmwoman created the dish for Carlist troops to provide a dense, affordable military ration.",
+        "de": "Eine Bäuerin soll das nahrhafte, günstige Gericht improvisiert haben, um Karlistentruppen schnell zu verpflegen."
+      },
+      "badge": {
+        "es": "Mito Gastronómico",
+        "en": "Gastronomic Legend",
+        "de": "Mythen & Legenden"
+      }
+    },
+    {
+      "year": "1940s",
+      "title": {
+        "es": "La Tortilla de Naranja de la Posguerra",
+        "en": "Post-War Orange Peel Omelette",
+        "de": "Die Orangenschalen-Not-Tortilla"
+      },
+      "location": "España",
+      "description": {
+        "es": "En tiempos de racionamiento extremo, la parte blanca de la corteza de naranja (albedo) macerada sustituía a la patata, y harina con agua al huevo.",
+        "en": "In times of severe rationing, soaked orange peel albedo replaced potatoes, and flour water replaced eggs.",
+        "de": "In Zeiten extremer Not ersetzte eingeweichte Orangenschale (Albedo) die Kartoffel und Mehl-Wasser das Ei."
+      },
+      "badge": {
+        "es": "Ingenio Extremo",
+        "en": "Peak Ingenuity",
+        "de": "Höchster Einfallsreichtum"
+      }
+    },
+    {
+      "year": "1991 - 2025",
+      "title": {
+        "es": "Alertas Sanitarias y Control Epidemiológico",
+        "en": "Public Health Outbreaks & Pasteurization",
+        "de": "Ausbrüche & Inaktivierungs-Standards"
+      },
+      "location": "España",
+      "description": {
+        "es": "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C for 2 minutes** y ovoproductos.",
+        "en": "Outbreaks such as Casa Dani (2023) and Trasan Fest (2025) drive safety regulations: **70°C for 2 minutes** and liquid egg products.",
+        "de": "Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C for 2 minutes** und Flüssigei."
+      },
+      "badge": {
+        "es": "Seguridad Alimentaria",
+        "en": "Food Safety",
+        "de": "Lebensmittelsicherheit"
+      }
+    },
+    {
+      "year": "2024 - 2025+",
+      "title": {
+        "es": "Revolución Digital y Versiones Veganas",
+        "en": "Digital Delivery & Vegan Innovations",
+        "de": "Digitales Delivery & Vegane Alternativen"
+      },
+      "location": "España Digital",
+      "description": {
+        "es": "El delivery alcanza 8.000M€. Surgen versiones veganas con harina de garbanzo y almidón de tapioca para alérgicos e intolerantes.",
+        "en": "Online food delivery reaches €8 billion. Chickpea flour and tapioca starch enable egg-free, allergen-safe tortillas.",
+        "de": "Online-Delivery erreicht 8 Mrd. Euro. Kichererbsenmehl und Tapiokastärke ermöglichen allergiefreie, vegane Tortillas."
+      },
+      "badge": {
+        "es": "Era Contemporánea",
+        "en": "Digital Era",
+        "de": "Digitales Zeitalter"
+      }
+    }
+  ],
+  "chaptersTitle": {
+    "es": "Investigación Histórica y Cronológica Completa",
+    "en": "Full Historical & Chronological Investigation",
+    "de": "Vollständige Historische Untersuchung"
+  },
+  "chaptersSubtitle": {
+    "es": "Un análisis detallado estructurado en 8 capítulos de investigación.",
+    "en": "A detailed 8-chapter research breakdown.",
+    "de": "Detaillierte Analyse in 8 Kapiteln."
+  },
+  "chapters": [
+    {
+      "id": "intro",
+      "number": "01",
+      "title": {
+        "es": "Introducción: El Icono de la Gastronomía Popular",
+        "en": "Introduction: The Icon of Spanish Gastronomic Identity",
+        "de": "Einleitung: Ein kulturelles und gastronomisches Wahrzeichen"
+      },
+      "content": {
+        "es": [
+          "La tortilla de patatas no es simplemente un plato en el recetario español; es un pilar de identidad, un fenómeno social y el máximo exponente del ingenio ante la escasez. Su importancia trasciende el ámbito doméstico para erigirse como un motor fundamental del sector de la restauración profesional en España.",
+          "Desde las barras más humildes hasta las propuestas de alta cocina, este plato personifica la capacidad de síntesis cultural de la península. La presente crónica se propone como una investigación histórica y técnica rigurosa que reconcilia los hallazgos documentales del Siglo de las Luces con los desafíos de la seguridad alimentaria y la revolución digital contemporánea."
+        ],
+        "en": [
+          "The Spanish potato omelette (tortilla de patatas) is not merely a food product; it represents a fundamental pillar of culinary identity and social cohesion. Its presence is omnipresent, from humble neighborhood bars to haute-cuisine showcases.",
+          "This chronicle presents a rigorous historical and technical investigation, reconciling 18th-century Enlightenment records with 21st-century food safety guidelines and digital convenience trends."
+        ],
+        "de": [
+          "Die Tortilla de Patatas ist weit mehr als ein bloßes Rezept; sie ist ein identitätsstiftendes Artefakt der spanischen Kulturwissenschaft. Ihre Bedeutung gründet sich auf einer beispiellosen sozioökonomischen Resilienz.",
+          "Diese wissenschaftliche Chronik verbindet historische Dokumente des 18. Jahrhunderts mit modernen Sicherheitsstandards und dem digitalen Wandel."
+        ]
+      }
+    },
+    {
+      "id": "siglo-18",
+      "number": "02",
+      "title": {
+        "es": "Los Primeros Rastros: El Siglo XVIII y las Luces",
+        "en": "The 18th Century: Earliest Documentary Evidence",
+        "de": "Die Wurzeln im 18. Jahrhundert"
+      },
+      "content": {
+        "es": [
+          "La historiografía gastronómica ha evolucionado significativamente, desplazando las teorías que situaban el origen de la tortilla de patatas a mediados del siglo XIX. La evidencia documental nos obliga a retroceder al Siglo de las Luces, donde la patata comenzó a integrarse en la dieta popular no solo por su valor nutritivo, sino como una respuesta ilustrada al hambre.",
+          "En 1767, Joseph Valcárcel registra las menciones primigenias que vinculan la patata americana con preparaciones de huevo batido. En 1772, las referencias de Roig confirman la consolidación de esta unión de ingredientes. Finalmente, en 1798 en Villanueva de la Serena (Badajoz), los registros extremeños detallan cómo el ingenio local dio con la fórmula exacta de huevo y patata que hoy es patrimonio nacional."
+        ],
+        "en": [
+          "Gastronomic historiography has debunked 19th-century origin myths. Documentary evidence points back to the Enlightenment, where potatoes were integrated into popular diets to fight hunger.",
+          "In 1767, Joseph Valcárcel recorded initial mentions of potato and beaten egg mixtures. By 1798 in Villanueva de la Serena (Extremadura), official archives confirmed the precise recipe used today."
+        ],
+        "de": [
+          "Frühe Schriften von Valcárcel (1767) und Roig (1772) belegen die Nutzung der Kartoffel mit verquirlten Eiern.",
+          "Das Dokument aus Villanueva de la Serena (1798) markiert den exakten historischen Ursprung des Gerichts."
+        ]
+      }
+    }
+  ]
+}

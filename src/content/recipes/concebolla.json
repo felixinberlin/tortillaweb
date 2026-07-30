@@ -1,0 +1,92 @@
+{
+  "id": "concebolla",
+  "slug": {
+    "es": "con-cebolla",
+    "en": "with-onion",
+    "de": "mit-zwiebel"
+  },
+  "title": {
+    "es": "Tortilla Concebollista Clásica",
+    "en": "Classic Onion Spanish Omelette",
+    "de": "Klassische Zwiebel-Tortilla"
+  },
+  "description": {
+    "es": "La favorita popular del 70,4% de la población, con cebolla suavemente pochada y dulce.",
+    "en": "The popular favorite of 70.4% of Spain, featuring slowly caramelized sweet onions.",
+    "de": "Der Favorit von 70% der Bevölkerung mit langsam karamellisierten Zwiebeln."
+  },
+  "taxonomyIds": [
+    "faction:concebollistas",
+    "ingredient:potato",
+    "ingredient:onion",
+    "ingredient:egg",
+    "ingredient:oil",
+    "technique:slow-cooking",
+    "difficulty:easy"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/concebolla.jpg",
+  "ingredients": [
+    {
+      "es": "600g Patatas Monalisa",
+      "en": "600g Monalisa Potatoes",
+      "de": "600g Monalisa Kartoffeln"
+    },
+    {
+      "es": "2 Cebollas dulces medianas",
+      "en": "2 Medium sweet onions",
+      "de": "2 Mittelgroße süße Zwiebeln"
+    },
+    {
+      "es": "6 Huevos frescos camperos",
+      "en": "6 Fresh free-range eggs",
+      "de": "6 Frische Eier aus Freilandhaltung"
+    },
+    {
+      "es": "150ml Aceite de oliva virgen extra",
+      "en": "150ml Extra virgin olive oil",
+      "de": "150ml Natives Olivenöl Extra"
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Pochar cebolla",
+        "en": "Poach onion",
+        "de": "Zwiebeln dünsten"
+      },
+      "text": {
+        "es": "Pochar la cebolla juliana a fuego muy suave hasta que adquiera un color dorado miel.",
+        "en": "Slowly poach sliced onions on low heat until honey golden.",
+        "de": "Zwiebeln bei niedriger Hitze goldbraun dünsten."
+      }
+    },
+    {
+      "step": {
+        "es": "Confitar patata",
+        "en": "Confit potato",
+        "de": "Kartoffeln garen"
+      },
+      "text": {
+        "es": "Añadir las patatas al aceite y confitar junto a la cebolla hasta que estén blandas.",
+        "en": "Add potatoes to oil and confit alongside onions until soft.",
+        "de": "Kartoffeln dazugeben und zusammen weich garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Reposo y cuajado",
+        "en": "Rest and cook",
+        "de": "Ruhen und stocken"
+      },
+      "text": {
+        "es": "Mezclar con los huevos batidos, reposar 5 minutos y cuajar en sartén bien caliente.",
+        "en": "Mix with beaten eggs, rest 5 minutes and cook in a hot pan.",
+        "de": "Mit verquirlten Eiern mischen, 5 Min. ruhen lassen und anbraten."
+      }
+    }
+  ]
+}

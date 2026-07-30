@@ -1,0 +1,24 @@
+{
+  "id": "clasica",
+  "type": "style",
+  "slug": {
+    "es": "clasica",
+    "en": "classic",
+    "de": "klassisch"
+  },
+  "title": {
+    "es": "Estilo Clásico",
+    "en": "Classic Style",
+    "de": "Klassischer Stil"
+  },
+  "description": {
+    "es": "La fórmula tradicional equilibrada de patata pochada, huevo cremoso y exterior sellado.",
+    "en": "The traditional balanced formula of poached potato, creamy egg, and sealed crust.",
+    "de": "Die klassisch ausgewogene Formel aus confitierter Kartoffel und cremigem Ei."
+  },
+  "badge": {
+    "es": "Tradicional",
+    "en": "Traditional",
+    "de": "Traditionell"
+  }
+}

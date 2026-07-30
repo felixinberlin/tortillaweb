@@ -1,0 +1,32 @@
+{
+  "id": "betanzos",
+  "slug": {
+    "es": "betanzos",
+    "en": "betanzos-style",
+    "de": "betanzos-stil"
+  },
+  "title": {
+    "es": "Tortilla de Betanzos Jugosa",
+    "en": "Runny Betanzos-Style Omelette",
+    "de": "Saftige Betanzos Tortilla"
+  },
+  "description": {
+    "es": "Estilo gallego icónico con interior cremoso y líquido, patata muy crujiente y cero cebolla.",
+    "en": "Iconic Galician style with a runny egg core, crispy potato chips, and zero onion.",
+    "de": "Ikonischer galicischer Stil mit flüssigem Kern, knusprigen Kartoffeln und ohne Zwiebeln."
+  },
+  "taxonomyIds": [
+    "faction:puristas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "region:betanzos",
+    "technique:frying",
+    "difficulty:medium"
+  ],
+  "time": 25,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 15,
+  "yieldServings": 4,
+  "image": "/images/betanzos.jpg"
+}
