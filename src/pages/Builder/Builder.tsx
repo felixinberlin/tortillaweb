@@ -143,6 +143,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                       diners === num ? "bg-amber-600 hover:bg-amber-700 text-white shadow" : ""
                     }`}
                     onClick={() => setDiners(num)}
+                    aria-pressed={diners === num}
                   >
                     {num} {t("builder.servings", "pers.")}
                   </Button>
@@ -174,6 +175,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
                   }`}
+                  aria-pressed={hasOnion}
                 >
                   <div className="font-semibold text-foreground text-base mb-1">
                     🧅 {t("builder.concebollista", "Con Cebolla (Concebollista)")}
@@ -191,6 +193,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
                   }`}
+                  aria-pressed={!hasOnion}
                 >
                   <div className="font-semibold text-foreground text-base mb-1">
                     🥔 {t("builder.sincebollista", "Sin Cebolla (Sincebollista)")}
@@ -242,6 +245,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                         ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                         : "border-border hover:border-muted-foreground/30"
                     }`}
+                    aria-pressed={doneness === item.id}
                   >
                     <div className="font-semibold text-foreground text-sm flex items-center gap-1.5 mb-1">
                       <span>{item.icon}</span> {item.title}
@@ -271,6 +275,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
                   }`}
+                  aria-pressed={potatoCut === "pochada"}
                 >
                   <div className="font-semibold text-sm mb-1">
                     🍳 {t("builder.pochadaTitle", "Pochada tradicional")}
@@ -288,6 +293,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
                   }`}
+                  aria-pressed={potatoCut === "crujiente"}
                 >
                   <div className="font-semibold text-sm mb-1">
                     🔥 {t("builder.crujienteTitle", "Toque crujiente")}

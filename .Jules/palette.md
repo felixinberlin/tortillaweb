@@ -1,0 +1,3 @@
+## 2025-07-30 - Added ARIA pressed attributes to Builder toggle buttons
+**Learning:** Found a pattern in this app where custom styled buttons are used as mutually exclusive toggles (like radio buttons) without native radio inputs. This makes their selected state invisible to screen readers unless `aria-pressed` or `aria-selected` (if using role=tab) is explicitly added.
+**Action:** When implementing or reviewing custom toggle button patterns (like the recipe builder), always ensure the active state is communicated semantically, typically with `aria-pressed={isActive}`.
