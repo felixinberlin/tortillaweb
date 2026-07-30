@@ -1,35 +1,35 @@
 {
   "id": "con-cebolla",
   "slug": {
-    "es": "tortilla-con-cebolla",
-    "en": "spanish-omelette-with-onion",
-    "de": "spanische-tortilla-mit-zwiebel"
+    "es": "tortilla-clasica-con-cebolla",
+    "en": "classic-spanish-omelette-with-onion",
+    "de": "klassische-spanische-tortilla-mit-zwiebel"
   },
   "title": {
-    "es": "Tortilla con Cebolla",
-    "en": "Spanish Omelette with Onion",
-    "de": "Spanische Tortilla mit Zwiebeln"
+    "es": "Tortilla Clásica con Cebolla",
+    "en": "Classic Spanish Omelette with Onion",
+    "de": "Klassische Spanische Tortilla mit Zwiebel"
   },
   "description": {
-    "es": "La versión más popular de España: patata, huevo y cebolla pochada que aporta dulzor y una textura más cremosa.",
-    "en": "Spain's most popular version: potatoes, eggs, and slowly cooked onion adding sweetness and a creamier texture.",
-    "de": "Spaniens beliebteste Version: Kartoffeln, Eier und langsam geschmorte Zwiebeln für mehr Süße und Cremigkeit."
+    "es": "La versión más popular de la tortilla española: patata, huevo, aceite y cebolla pochada lentamente para aportar dulzor y jugosidad.",
+    "en": "The most popular version of Spanish tortilla: potatoes, eggs, olive oil and slowly cooked onion for sweetness and extra moisture.",
+    "de": "Die beliebteste Version der spanischen Tortilla: Kartoffeln, Eier, Olivenöl und langsam geschmorte Zwiebeln."
   },
   "taxonomyIds": [
-    "faction:concebollistas",
+    "faction:cebollistas",
     "ingredient:potato",
     "ingredient:egg",
     "ingredient:onion",
     "ingredient:oil",
     "technique:confit",
-    "technique:caramelization",
+    "technique:slow_onion",
     "difficulty:easy"
   ],
   "time": 45,
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 30,
   "yieldServings": 4,
-  "image": "/images/concebolla.jpg",
+  "image": "/images/con-cebolla.jpg",
   "ingredients": [
     {
       "id": "potato",
@@ -42,25 +42,9 @@
       "amount": 600,
       "unit": "g",
       "notes": {
-        "es": "5 patatas medianas",
-        "en": "5 medium potatoes",
-        "de": "5 mittelgroße Kartoffeln"
-      }
-    },
-    {
-      "id": "onion",
-      "ingredientId": "onion",
-      "name": {
-        "es": "Cebolla",
-        "en": "Onion",
-        "de": "Zwiebel"
-      },
-      "amount": 200,
-      "unit": "g",
-      "notes": {
-        "es": "1 cebolla grande",
-        "en": "1 large onion",
-        "de": "1 große Zwiebel"
+        "es": "Patata cortada en láminas finas",
+        "en": "Thinly sliced potatoes",
+        "de": "Dünn geschnittene Kartoffeln"
       }
     },
     {
@@ -80,6 +64,22 @@
       }
     },
     {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 200,
+      "unit": "g",
+      "notes": {
+        "es": "Cebolla pochada lentamente hasta caramelizar ligeramente",
+        "en": "Slowly cooked onion until soft and sweet",
+        "de": "Langsam geschmorte Zwiebeln"
+      }
+    },
+    {
       "id": "oil",
       "ingredientId": "oil",
       "name": {
@@ -87,7 +87,7 @@
         "en": "Extra Virgin Olive Oil",
         "de": "Natives Olivenöl Extra"
       },
-      "amount": 150,
+      "amount": 160,
       "unit": "ml",
       "notes": {
         "es": "Aceite de oliva virgen extra",
@@ -106,12 +106,12 @@
       "amount": 6,
       "unit": "g",
       "notes": {
-        "es": "Sal",
-        "en": "Salt",
-        "de": "Salz"
+        "es": "Sal al gusto",
+        "en": "Salt to taste",
+        "de": "Salz nach Geschmack"
       }
     }
-  ],
+  ],  
   "instructions": [
     {
       "step": {

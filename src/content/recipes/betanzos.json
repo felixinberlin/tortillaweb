@@ -1,26 +1,29 @@
 {
   "id": "betanzos",
   "slug": {
-    "es": "betanzos",
-    "en": "betanzos-style",
-    "de": "betanzos-stil"
+    "es": "tortilla-betanzos",
+    "en": "betanzos-style-spanish-omelette",
+    "de": "betanzos-tortilla"
   },
   "title": {
     "es": "Tortilla de Betanzos Jugosa",
-    "en": "Runny Betanzos-Style Omelette",
-    "de": "Saftige Betanzos Tortilla"
+    "en": "Runny Betanzos-Style Spanish Omelette",
+    "de": "Saftige Betanzos-Tortilla"
   },
   "description": {
-    "es": "Estilo gallego icónico con interior cremoso y líquido, patata muy tierna y cero cebolla.",
-    "en": "Iconic Galician style with a creamy runny center, tender potatoes, and zero onion.",
-    "de": "Ikonischer galicischer Stil mit cremigem flüssigem Kern, zarten Kartoffeln und ohne Zwiebeln."
+    "es": "La icónica tortilla gallega de Betanzos: muy jugosa, con abundante huevo, patata tierna y un interior casi líquido.",
+    "en": "The iconic Galician Betanzos tortilla: egg-forward, with tender potatoes and an almost liquid creamy center.",
+    "de": "Die ikonische galicische Betanzos-Tortilla: ei-betont, mit zarten Kartoffeln und fast flüssigem cremigem Kern."
   },
   "taxonomyIds": [
     "faction:puristas",
     "ingredient:potato",
     "ingredient:egg",
+    "ingredient:egg_yolk",
     "ingredient:oil",
     "region:betanzos",
+    "style:juicy",
+    "technique:short_cook",
     "technique:frying",
     "difficulty:medium"
   ],
@@ -38,12 +41,12 @@
         "en": "Potato",
         "de": "Kartoffel"
       },
-      "amount": 600,
+      "amount": 500,
       "unit": "g",
       "notes": {
-        "es": "4 patatas medianas",
-        "en": "4 medium potatoes",
-        "de": "4 mittelgroße Kartoffeln"
+        "es": "Patata cortada fina y cocinada hasta quedar muy tierna",
+        "en": "Thinly sliced potatoes cooked until very tender",
+        "de": "Dünn geschnittene Kartoffeln, sehr weich gegart"
       }
     },
     {
@@ -57,9 +60,25 @@
       "amount": 8,
       "unit": "unit",
       "notes": {
-        "es": "6 huevos",
-        "en": "6 eggs",
-        "de": "6 Eier"
+        "es": "8 huevos camperos",
+        "en": "8 free-range eggs",
+        "de": "8 Freilandeier"
+      }
+    },
+    {
+      "id": "egg_yolk",
+      "ingredientId": "egg_yolk",
+      "name": {
+        "es": "Yema extra",
+        "en": "Extra egg yolks",
+        "de": "Zusätzliche Eigelb"
+      },
+      "amount": 2,
+      "unit": "unit",
+      "notes": {
+        "es": "Yemas añadidas para aumentar cremosidad y untuosidad",
+        "en": "Extra yolks added for richness and creaminess",
+        "de": "Zusätzliche Eigelb für mehr Cremigkeit"
       }
     },
     {
@@ -73,9 +92,9 @@
       "amount": 150,
       "unit": "ml",
       "notes": {
-        "es": "Aceite de oliva virgen extra",
-        "en": "Extra virgin olive oil",
-        "de": "Natives Olivenöl extra"
+        "es": "Aceite abundante para freír la patata",
+        "en": "Generous olive oil for frying potatoes",
+        "de": "Reichlich Olivenöl zum Braten der Kartoffeln"
       }
     },
     {
@@ -86,12 +105,12 @@
         "en": "Salt",
         "de": "Salz"
       },
-      "amount": 5,
+      "amount": 7,
       "unit": "g",
       "notes": {
-        "es": "Sal",
-        "en": "Salt",
-        "de": "Salz"
+        "es": "Sal al gusto",
+        "en": "Salt to taste",
+        "de": "Salz nach Geschmack"
       }
     }
   ],

@@ -1,34 +1,35 @@
 {
-  "id": "chips",
+  "id": "express-chips",
   "slug": {
-    "es": "tortilla-patatas-chips",
-    "en": "potato-chip-spanish-omelette",
-    "de": "chips-kartoffel-tortilla"
+    "es": "tortilla-express-patatas-chips",
+    "en": "express-potato-chip-omelette",
+    "de": "express-kartoffelchips-tortilla"
   },
   "title": {
-    "es": "Tortilla de Patatas Chips",
-    "en": "Potato Chip Spanish Omelette",
-    "de": "Kartoffelchip-Tortilla"
+    "es": "Tortilla Express de Patatas Chips",
+    "en": "Express Potato Chip Spanish Omelette",
+    "de": "Express-Kartoffelchips-Tortilla"
   },
   "description": {
-    "es": "La versión rápida y experimental que sustituye la fritura tradicional por patatas chips manteniendo la esencia de la tortilla.",
-    "en": "A fast and experimental version replacing traditional frying with potato chips while keeping the essence of the omelette.",
-    "de": "Eine schnelle experimentelle Version, bei der traditionelle Kartoffeln durch Chips ersetzt werden."
+    "es": "Una versión revolucionaria y rápida de la tortilla española utilizando patatas chips como sustituto de la patata tradicional.",
+    "en": "A revolutionary quick version of Spanish tortilla using potato chips instead of fresh potatoes.",
+    "de": "Eine schnelle moderne Variante der spanischen Tortilla mit Kartoffelchips statt frischer Kartoffeln."
   },
   "taxonomyIds": [
-    "faction:experimental",
+    "faction:modernistas",
     "ingredient:potato-chips",
     "ingredient:egg",
+    "ingredient:oil",
     "technique:hydration",
-    "technique:quick-cooking",
+    "technique:no_frying",
     "difficulty:easy"
   ],
-  "time": 15,
+  "time": 10,
   "prepTimeMinutes": 5,
-  "cookTimeMinutes": 10,
+  "cookTimeMinutes": 5,
   "yieldServings": 4,
   "image": "/images/chips.jpg",
-  "ingredients": [
+"ingredients": [
     {
       "id": "potato-chips",
       "ingredientId": "potato-chips",
@@ -40,9 +41,9 @@
       "amount": 150,
       "unit": "g",
       "notes": {
-        "es": "150 g de patatas chips",
-        "en": "150 g potato chips",
-        "de": "150 g Kartoffelchips"
+        "es": "Patatas chips como sustituto de la patata tradicional",
+        "en": "Potato chips replacing fresh potatoes",
+        "de": "Kartoffelchips als Ersatz für frische Kartoffeln"
       }
     },
     {
@@ -72,9 +73,9 @@
       "amount": 20,
       "unit": "ml",
       "notes": {
-        "es": "Aceite de oliva",
-        "en": "Olive oil",
-        "de": "Olivenöl"
+        "es": "Solo para cuajar la tortilla",
+        "en": "Only for cooking the tortilla",
+        "de": "Nur zum Ausbacken"
       }
     },
     {
@@ -88,9 +89,9 @@
       "amount": 2,
       "unit": "g",
       "notes": {
-        "es": "Sal opcional",
-        "en": "Optional salt",
-        "de": "Optional Salz"
+        "es": "Normalmente las chips ya aportan sal",
+        "en": "Chips usually already contain salt",
+        "de": "Chips enthalten normalerweise bereits Salz"
       }
     }
   ],

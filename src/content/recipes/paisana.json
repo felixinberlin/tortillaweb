@@ -3,27 +3,28 @@
   "slug": {
     "es": "tortilla-paisana",
     "en": "paisana-spanish-omelette",
-    "de": "tortilla-paisana"
+    "de": "paisana-tortilla"
   },
   "title": {
-    "es": "Tortilla Paisana de Verduras",
-    "en": "Paisana Vegetable Spanish Omelette",
-    "de": "Bunte Gemüse-Tortilla"
+    "es": "Tortilla Paisana",
+    "en": "Paisana Spanish Omelette",
+    "de": "Paisana Tortilla"
   },
   "description": {
-    "es": "Una versión de huerta con patata, huevo, cebolla y verduras. Más color, más aromas y una textura llena de matices.",
-    "en": "A countryside-style omelette with potatoes, eggs, onion, and vegetables. More color, aromas, and varied textures.",
-    "de": "Eine ländliche Tortilla mit Kartoffeln, Eiern, Zwiebeln und Gemüse. Mehr Farbe, Aroma und unterschiedliche Texturen."
+    "es": "Una variante tradicional de la tortilla española con patata, cebolla y verduras como pimiento, con un perfil más campesino y sabroso.",
+    "en": "A traditional variation of Spanish tortilla with potatoes, onion and vegetables, with a rustic and flavorful profile.",
+    "de": "Eine traditionelle Variante der spanischen Tortilla mit Kartoffeln, Zwiebeln und Gemüse."
   },
   "taxonomyIds": [
-    "faction:hortelana",
+    "faction:vegetarianos",
     "ingredient:potato",
     "ingredient:egg",
     "ingredient:onion",
     "ingredient:pepper",
-    "ingredient:vegetables",
-    "technique:frying",
-    "region:northern-spain",
+    "style:rustic",
+    "style:vegetable_rich",
+    "technique:confit",
+    "technique:sofrito",
     "difficulty:medium"
   ],
   "time": 50,
