@@ -7,6 +7,15 @@ const localizedStringSchema = z.object({
   de: z.string(),
 });
 
+const recipeIngredientSchema = z.object({
+  id: z.string(),
+  ingredientId: z.string(),
+  name: localizedStringSchema,
+  amount: z.number(),
+  unit: z.enum(['g', 'ml', 'unit']),
+  notes: localizedStringSchema.optional(),
+});
+
 const recipeCollection = defineCollection({
   loader: glob({ 
     pattern: '**/*.json', 
@@ -24,7 +33,7 @@ const recipeCollection = defineCollection({
     prepTimeMinutes: z.number().optional(),
     cookTimeMinutes: z.number().optional(),
     yieldServings: z.number().optional(),
-    ingredients: z.array(localizedStringSchema).optional(),
+    ingredients: z.array(recipeIngredientSchema).optional(),
     instructions: z.array(z.object({
       step: localizedStringSchema,
       text: localizedStringSchema,

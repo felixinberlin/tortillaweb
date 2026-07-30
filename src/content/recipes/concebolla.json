@@ -1,91 +1,164 @@
 {
-  "id": "concebolla",
+  "id": "con-cebolla",
   "slug": {
-    "es": "con-cebolla",
-    "en": "with-onion",
-    "de": "mit-zwiebel"
+    "es": "tortilla-con-cebolla",
+    "en": "spanish-omelette-with-onion",
+    "de": "spanische-tortilla-mit-zwiebel"
   },
   "title": {
-    "es": "Tortilla Concebollista Clásica",
-    "en": "Classic Onion Spanish Omelette",
-    "de": "Klassische Zwiebel-Tortilla"
+    "es": "Tortilla con Cebolla",
+    "en": "Spanish Omelette with Onion",
+    "de": "Spanische Tortilla mit Zwiebeln"
   },
   "description": {
-    "es": "La favorita popular del 70,4% de la población, con cebolla suavemente pochada y dulce.",
-    "en": "The popular favorite of 70.4% of Spain, featuring slowly caramelized sweet onions.",
-    "de": "Der Favorit von 70% der Bevölkerung mit langsam karamellisierten Zwiebeln."
+    "es": "La versión más popular de España: patata, huevo y cebolla pochada que aporta dulzor y una textura más cremosa.",
+    "en": "Spain's most popular version: potatoes, eggs, and slowly cooked onion adding sweetness and a creamier texture.",
+    "de": "Spaniens beliebteste Version: Kartoffeln, Eier und langsam geschmorte Zwiebeln für mehr Süße und Cremigkeit."
   },
   "taxonomyIds": [
     "faction:concebollistas",
     "ingredient:potato",
-    "ingredient:onion",
     "ingredient:egg",
+    "ingredient:onion",
     "ingredient:oil",
-    "technique:slow-cooking",
+    "technique:confit",
+    "technique:caramelization",
     "difficulty:easy"
   ],
-  "time": 40,
+  "time": 45,
   "prepTimeMinutes": 15,
-  "cookTimeMinutes": 25,
+  "cookTimeMinutes": 30,
   "yieldServings": 4,
   "image": "/images/concebolla.jpg",
   "ingredients": [
     {
-      "es": "600g Patatas Monalisa",
-      "en": "600g Monalisa Potatoes",
-      "de": "600g Monalisa Kartoffeln"
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
     },
     {
-      "es": "2 Cebollas dulces medianas",
-      "en": "2 Medium sweet onions",
-      "de": "2 Mittelgroße süße Zwiebeln"
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 200,
+      "unit": "g",
+      "notes": {
+        "es": "1 cebolla grande",
+        "en": "1 large onion",
+        "de": "1 große Zwiebel"
+      }
     },
     {
-      "es": "6 Huevos frescos camperos",
-      "en": "6 Fresh free-range eggs",
-      "de": "6 Frische Eier aus Freilandhaltung"
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
     },
     {
-      "es": "150ml Aceite de oliva virgen extra",
-      "en": "150ml Extra virgin olive oil",
-      "de": "150ml Natives Olivenöl Extra"
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      }
     }
   ],
   "instructions": [
     {
       "step": {
-        "es": "Pochar cebolla",
-        "en": "Poach onion",
-        "de": "Zwiebeln dünsten"
+        "es": "Preparar patata y cebolla",
+        "en": "Prepare potatoes and onion",
+        "de": "Kartoffeln und Zwiebeln vorbereiten"
       },
       "text": {
-        "es": "Pochar la cebolla juliana a fuego muy suave hasta que adquiera un color dorado miel.",
-        "en": "Slowly poach sliced onions on low heat until honey golden.",
-        "de": "Zwiebeln bei niedriger Hitze goldbraun dünsten."
+        "es": "Cortar las patatas en láminas finas y la cebolla en juliana.",
+        "en": "Slice the potatoes thinly and cut the onion into strips.",
+        "de": "Kartoffeln in dünne Scheiben und Zwiebeln in Streifen schneiden."
       }
     },
     {
       "step": {
-        "es": "Confitar patata",
-        "en": "Confit potato",
-        "de": "Kartoffeln garen"
+        "es": "Pochar la mezcla",
+        "en": "Slow-cook the mixture",
+        "de": "Mischung langsam garen"
       },
       "text": {
-        "es": "Añadir las patatas al aceite y confitar junto a la cebolla hasta que estén blandas.",
-        "en": "Add potatoes to oil and confit alongside onions until soft.",
-        "de": "Kartoffeln dazugeben und zusammen weich garen."
+        "es": "Cocinar patata y cebolla juntas en aceite de oliva hasta que estén tiernas y melosas.",
+        "en": "Cook potatoes and onion together in olive oil until tender and soft.",
+        "de": "Kartoffeln und Zwiebeln zusammen in Olivenöl weich und cremig garen."
       }
     },
     {
       "step": {
-        "es": "Reposo y cuajado",
-        "en": "Rest and cook",
-        "de": "Ruhen und stocken"
+        "es": "Mezclar con huevo",
+        "en": "Combine with eggs",
+        "de": "Mit Ei vermischen"
       },
       "text": {
-        "es": "Mezclar con los huevos batidos, reposar 5 minutos y cuajar en sartén bien caliente.",
-        "en": "Mix with beaten eggs, rest 5 minutes and cook in a hot pan.",
-        "de": "Mit verquirlten Eiern mischen, 5 Min. ruhen lassen und anbraten."
+        "es": "Escurrir la mezcla y unirla con los huevos batidos con sal.",
+        "en": "Drain the mixture and combine with beaten salted eggs.",
+        "de": "Die Mischung abtropfen lassen und mit gesalzenen geschlagenen Eiern vermengen."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar",
+        "en": "Cook",
+        "de": "Braten"
+      },
+      "text": {
+        "es": "Cuajar en sartén a fuego medio, buscando un interior jugoso.",
+        "en": "Cook over medium heat while keeping the center moist.",
+        "de": "Bei mittlerer Hitze braten und die Mitte saftig halten."
       }
     }
   ]

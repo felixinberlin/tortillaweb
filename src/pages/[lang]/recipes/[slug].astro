@@ -48,7 +48,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const ingredientsList = recipe.ingredients 
-  ? recipe.ingredients.map((i) => i[currentLang as keyof typeof i] || i.es)
+  ? recipe.ingredients.map((i) => {
+      if (typeof i === 'string') return i;
+      const note = i.notes ? (i.notes[currentLang as keyof typeof i.notes] || i.notes.es) : undefined;
+      if (note) return note;
+      const name = i.name[currentLang as keyof typeof i.name] || i.name.es;
+      return `${i.amount}${i.unit === 'unit' ? '' : i.unit} ${name}`;
+    })
   : ['600g Patatas Monalisa', '6 Huevos camperos', '150ml Aceite de oliva virgen extra', '6g Sal fina'];
 
 const instructionsList = recipe.instructions

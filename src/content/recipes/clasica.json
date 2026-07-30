@@ -1,102 +1,158 @@
 {
   "id": "clasica",
   "slug": {
-    "es": "clasica",
-    "en": "classic",
-    "de": "klassisch"
+    "es": "tortilla-clasica",
+    "en": "classic-spanish-omelette",
+    "de": "klassische-spanische-tortilla"
   },
   "title": {
-    "es": "Tortilla Clásica Tradicional",
-    "en": "Traditional Classic Spanish Omelette",
-    "de": "Traditionelle Klassische Tortilla"
+    "es": "Tortilla Clásica sin Cebolla",
+    "en": "Classic Spanish Omelette Without Onion",
+    "de": "Klassische Spanische Tortilla ohne Zwiebel"
   },
   "description": {
-    "es": "La receta minimalista de patatas y huevo cuajada al punto exacto sin aditivos.",
-    "en": "The minimalist recipe of potatoes and eggs cooked to perfection with zero additives.",
-    "de": "Das minimalistische Rezept aus Kartoffeln und Eiern auf den Punkt zubereitet."
+    "es": "La receta fundamental de la tortilla española: patata, huevo, aceite y sal. El equilibrio perfecto entre tradición y técnica.",
+    "en": "The fundamental Spanish omelette recipe: potato, egg, olive oil, and salt. The perfect balance between tradition and technique.",
+    "de": "Das Grundrezept der spanischen Tortilla: Kartoffeln, Ei, Olivenöl und Salz. Perfekte Balance zwischen Tradition und Technik."
   },
   "taxonomyIds": [
     "faction:puristas",
     "ingredient:potato",
     "ingredient:egg",
     "ingredient:oil",
-    "technique:slow-cooking",
+    "technique:confit",
     "difficulty:easy"
   ],
-  "time": 35,
+  "time": 40,
   "prepTimeMinutes": 15,
-  "cookTimeMinutes": 20,
+  "cookTimeMinutes": 25,
   "yieldServings": 4,
   "image": "/images/clasica.jpg",
   "ingredients": [
     {
-      "es": "600g Patatas Monalisa o Kennebec",
-      "en": "600g Monalisa or Kennebec Potatoes",
-      "de": "600g Monalisa oder Kennebec Kartoffeln"
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
     },
     {
-      "es": "6 Huevos frescos de gallinas camperas (L/XL)",
-      "en": "6 Fresh free-range eggs (L/XL)",
-      "de": "6 Frische Eier aus Freilandhaltung (L/XL)"
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
     },
     {
-      "es": "150ml Aceite de oliva virgen extra (AOVE)",
-      "en": "150ml Extra virgin olive oil",
-      "de": "150ml Natives Olivenöl Extra"
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      }
     },
     {
-      "es": "6g Sal marina fina",
-      "en": "6g Fine sea salt",
-      "de": "6g Feines Meersalz"
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      }
     }
   ],
   "instructions": [
     {
       "step": {
-        "es": "Cortar patatas",
-        "en": "Slice potatoes",
+        "es": "Cortar las patatas",
+        "en": "Slice the potatoes",
         "de": "Kartoffeln schneiden"
       },
       "text": {
-        "es": "Pelar y cortar las patatas en láminas finas e irregulares de 2-3 mm.",
-        "en": "Peel and cut potatoes into thin 2-3mm irregular slices.",
-        "de": "Kartoffeln schälen und in 2-3mm dünne Scheiben schneiden."
+        "es": "Pelar las patatas y cortarlas en láminas finas.",
+        "en": "Peel the potatoes and cut them into thin slices.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden."
       }
     },
     {
       "step": {
-        "es": "Confitar en AOVE",
-        "en": "Poach in EVOO",
-        "de": "In Olivenöl garen"
+        "es": "Pochar las patatas",
+        "en": "Slow-cook the potatoes",
+        "de": "Kartoffeln langsam garen"
       },
       "text": {
-        "es": "Confitar las patatas a fuego medio-bajo (130-140°C) hasta que estén muy tiernas y jugosas.",
-        "en": "Poach potatoes in olive oil at medium-low heat (130-140°C) until tender.",
-        "de": "Kartoffeln bei mittlerer Hitze in Olivenöl garen, bis sie zart sind."
+        "es": "Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.",
+        "en": "Cook the potatoes in plenty of olive oil over medium-low heat until tender.",
+        "de": "Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
       }
     },
     {
       "step": {
-        "es": "Emulsión con huevo",
+        "es": "Mezclar con huevo",
         "en": "Mix with eggs",
-        "de": "Mit Eiern verquirlen"
+        "de": "Mit Ei vermischen"
       },
       "text": {
-        "es": "Batir ligeramente los huevos con la sal y añadir la patata templada. Reposar 5 minutos.",
-        "en": "Lightly beat eggs with salt and add warm potatoes. Rest for 5 minutes.",
-        "de": "Eier mit Salz verquirlen und warme Kartoffeln dazugeben. 5 Minuten ruhen lassen."
+        "es": "Batir los huevos con sal y mezclar con las patatas escurridas.",
+        "en": "Beat eggs with salt and combine with the drained potatoes.",
+        "de": "Eier mit Salz schlagen und mit den abgetropften Kartoffeln vermischen."
       }
     },
     {
       "step": {
-        "es": "Cuajar y voltear",
-        "en": "Set and flip",
-        "de": "Stocken und wenden"
+        "es": "Reposar la mezcla",
+        "en": "Rest the mixture",
+        "de": "Mischung ruhen lassen"
       },
       "text": {
-        "es": "Cuajar en sartén antiadherente a fuego fuerte 1 minuto por cada lado manteniendo el centro jugoso.",
-        "en": "Cook in non-stick skillet on high heat for 1 minute per side keeping the core juicy.",
-        "de": "In der Pfanne bei hoher Hitze 1 Minute pro Seite anbraten."
+        "es": "Dejar reposar unos minutos para integrar sabores.",
+        "en": "Rest for a few minutes to combine flavors.",
+        "de": "Einige Minuten ruhen lassen, damit sich die Aromen verbinden."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
+      },
+      "text": {
+        "es": "Cocinar en sartén caliente hasta conseguir el punto deseado, girando la tortilla para dorar ambos lados.",
+        "en": "Cook in a hot pan until reaching the desired doneness, turning once to brown both sides.",
+        "de": "In einer heißen Pfanne bis zum gewünschten Gargrad braten und einmal wenden."
       }
     }
   ]

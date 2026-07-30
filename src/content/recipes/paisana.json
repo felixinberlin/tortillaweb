@@ -1,32 +1,210 @@
 {
   "id": "paisana",
   "slug": {
-    "es": "paisana",
-    "en": "country-style",
-    "de": "landfrauen-art"
+    "es": "tortilla-paisana",
+    "en": "paisana-spanish-omelette",
+    "de": "tortilla-paisana"
   },
   "title": {
-    "es": "Tortilla Paisana Donostiarra",
-    "en": "Basque Country Omelette (Paisana)",
-    "de": "Baskische Land-Tortilla (Paisana)"
+    "es": "Tortilla Paisana de Verduras",
+    "en": "Paisana Vegetable Spanish Omelette",
+    "de": "Bunte Gemüse-Tortilla"
   },
   "description": {
-    "es": "Con pimiento verde, verduras de huerta y el toque característico del norte de España.",
-    "en": "With green pepper, garden veggies, and northern Spanish countryside character.",
-    "de": "Mit grüner Paprika, frischem Gemüse und dem Geschmack Nordspaniens."
+    "es": "Una versión de huerta con patata, huevo, cebolla y verduras. Más color, más aromas y una textura llena de matices.",
+    "en": "A countryside-style omelette with potatoes, eggs, onion, and vegetables. More color, aromas, and varied textures.",
+    "de": "Eine ländliche Tortilla mit Kartoffeln, Eiern, Zwiebeln und Gemüse. Mehr Farbe, Aroma und unterschiedliche Texturen."
   },
   "taxonomyIds": [
-    "faction:pimientistas",
+    "faction:hortelana",
     "ingredient:potato",
     "ingredient:egg",
+    "ingredient:onion",
     "ingredient:pepper",
-    "ingredient:oil",
-    "region:donostia",
+    "ingredient:vegetables",
+    "technique:frying",
+    "region:northern-spain",
     "difficulty:medium"
   ],
-  "time": 45,
+  "time": 50,
   "prepTimeMinutes": 20,
-  "cookTimeMinutes": 25,
+  "cookTimeMinutes": 30,
   "yieldServings": 4,
-  "image": "/images/concebolla.jpg"
+  "image": "/images/paisana.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "4 patatas medianas",
+        "en": "4 medium potatoes",
+        "de": "4 mittelgroße Kartoffeln"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "1 cebolla",
+        "en": "1 onion",
+        "de": "1 Zwiebel"
+      }
+    },
+    {
+      "id": "green-pepper",
+      "ingredientId": "pepper",
+      "name": {
+        "es": "Pimiento Verde",
+        "en": "Green Pepper",
+        "de": "Grüne Paprika"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "1 pimiento verde",
+        "en": "1 green pepper",
+        "de": "1 grüne Paprika"
+      }
+    },
+    {
+      "id": "red-pepper",
+      "ingredientId": "pepper",
+      "name": {
+        "es": "Pimiento Rojo",
+        "en": "Red Pepper",
+        "de": "Rote Paprika"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "1 pimiento rojo",
+        "en": "1 red pepper",
+        "de": "1 rote Paprika"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Preparar las verduras",
+        "en": "Prepare the vegetables",
+        "de": "Gemüse vorbereiten"
+      },
+      "text": {
+        "es": "Pelar las patatas y cortarlas en láminas. Cortar cebolla y pimientos en trozos pequeños.",
+        "en": "Peel and slice the potatoes. Cut onion and peppers into small pieces.",
+        "de": "Kartoffeln schälen und schneiden. Zwiebeln und Paprika klein schneiden."
+      }
+    },
+    {
+      "step": {
+        "es": "Pochar la huerta",
+        "en": "Cook the vegetables",
+        "de": "Gemüse langsam garen"
+      },
+      "text": {
+        "es": "Cocinar cebolla y pimientos en aceite de oliva hasta que estén tiernos. Añadir la patata y cocinar lentamente.",
+        "en": "Cook onion and peppers in olive oil until soft. Add potatoes and continue cooking slowly.",
+        "de": "Zwiebeln und Paprika in Olivenöl weich garen. Kartoffeln hinzufügen und langsam weiterkochen."
+      }
+    },
+    {
+      "step": {
+        "es": "Escurrir y mezclar",
+        "en": "Drain and combine",
+        "de": "Abtropfen und vermischen"
+      },
+      "text": {
+        "es": "Escurrir las verduras y mezclarlas con los huevos batidos y sal.",
+        "en": "Drain the vegetables and combine with beaten eggs and salt.",
+        "de": "Gemüse abtropfen lassen und mit geschlagenen Eiern und Salz vermischen."
+      }
+    },
+    {
+      "step": {
+        "es": "Reposar",
+        "en": "Rest the mixture",
+        "de": "Mischung ruhen lassen"
+      },
+      "text": {
+        "es": "Dejar reposar unos minutos para integrar sabores.",
+        "en": "Rest for a few minutes to combine flavors.",
+        "de": "Einige Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
+      },
+      "text": {
+        "es": "Cocinar en sartén a fuego medio hasta conseguir una tortilla jugosa pero más compacta que la clásica.",
+        "en": "Cook over medium heat until obtaining a moist but firmer omelette than the classic version.",
+        "de": "Bei mittlerer Hitze braten, bis eine saftige aber festere Tortilla entsteht."
+      }
+    }
+  ]
 }

@@ -4,6 +4,17 @@ export type LocalizedString = {
   de: string;
 };
 
+export interface RecipeIngredient {
+  id: string;
+  ingredientId: string;
+  name: LocalizedString;
+
+  amount: number;
+  unit: "g" | "ml" | "unit";
+
+  notes?: LocalizedString;
+}
+
 export interface Recipe {
   id: string;
   slug: LocalizedString;
@@ -11,11 +22,14 @@ export interface Recipe {
   description: LocalizedString;
   taxonomyIds: string[];
   image?: string;
+
   time: number;
   prepTimeMinutes?: number;
   cookTimeMinutes?: number;
   yieldServings?: number;
-  ingredients?: LocalizedString[];
+
+  ingredients?: RecipeIngredient[];
+
   instructions?: {
     step: LocalizedString;
     text: LocalizedString;

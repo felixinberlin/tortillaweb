@@ -1,30 +1,159 @@
 {
-  "id": "express",
+  "id": "chips",
   "slug": {
-    "es": "express-chips",
-    "en": "express-chips",
-    "de": "express-chips"
+    "es": "tortilla-patatas-chips",
+    "en": "potato-chip-spanish-omelette",
+    "de": "chips-kartoffel-tortilla"
   },
   "title": {
-    "es": "Tortilla Exprés de Chips (Ferran Adrià)",
-    "en": "Ferran Adrià Potato Chip Express Omelette",
-    "de": "Ferran Adrià Express-Chip-Tortilla"
+    "es": "Tortilla de Patatas Chips",
+    "en": "Potato Chip Spanish Omelette",
+    "de": "Kartoffelchip-Tortilla"
   },
   "description": {
-    "es": "Técnica de vanguardia lista en 10 minutos usando patatas de bolsa gourmet.",
-    "en": "Modernist technique ready in 10 minutes using gourmet potato chips.",
-    "de": "Avantgarde-Technik in 10 Minuten zubereitet mit Kartoffelchips."
+    "es": "La versión rápida y experimental que sustituye la fritura tradicional por patatas chips manteniendo la esencia de la tortilla.",
+    "en": "A fast and experimental version replacing traditional frying with potato chips while keeping the essence of the omelette.",
+    "de": "Eine schnelle experimentelle Version, bei der traditionelle Kartoffeln durch Chips ersetzt werden."
   },
   "taxonomyIds": [
-    "faction:con-cosas",
-    "ingredient:potato",
+    "faction:experimental",
+    "ingredient:potato-chips",
     "ingredient:egg",
-    "technique:deconstruction",
+    "technique:hydration",
+    "technique:quick-cooking",
     "difficulty:easy"
   ],
-  "time": 10,
+  "time": 15,
   "prepTimeMinutes": 5,
-  "cookTimeMinutes": 5,
-  "yieldServings": 2,
-  "image": "/images/clasica.jpg"
+  "cookTimeMinutes": 10,
+  "yieldServings": 4,
+  "image": "/images/chips.jpg",
+  "ingredients": [
+    {
+      "id": "potato-chips",
+      "ingredientId": "potato-chips",
+      "name": {
+        "es": "Patatas Chips",
+        "en": "Potato Chips",
+        "de": "Kartoffelchips"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "150 g de patatas chips",
+        "en": "150 g potato chips",
+        "de": "150 g Kartoffelchips"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva",
+        "en": "Olive Oil",
+        "de": "Olivenöl"
+      },
+      "amount": 20,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva",
+        "en": "Olive oil",
+        "de": "Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 2,
+      "unit": "g",
+      "notes": {
+        "es": "Sal opcional",
+        "en": "Optional salt",
+        "de": "Optional Salz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Preparar las chips",
+        "en": "Prepare the chips",
+        "de": "Chips vorbereiten"
+      },
+      "text": {
+        "es": "Romper ligeramente las patatas chips con las manos, manteniendo algunos trozos grandes.",
+        "en": "Break the potato chips slightly by hand, keeping some larger pieces.",
+        "de": "Kartoffelchips leicht zerbrechen und einige größere Stücke erhalten."
+      }
+    },
+    {
+      "step": {
+        "es": "Batir los huevos",
+        "en": "Beat the eggs",
+        "de": "Eier schlagen"
+      },
+      "text": {
+        "es": "Batir los huevos. Añadir poca sal o ninguna, dependiendo del punto de sal de las chips.",
+        "en": "Beat the eggs. Add little or no salt depending on the chips seasoning.",
+        "de": "Eier schlagen. Wenig oder kein Salz hinzufügen."
+      }
+    },
+    {
+      "step": {
+        "es": "Hidratar las patatas",
+        "en": "Hydrate the chips",
+        "de": "Chips einweichen"
+      },
+      "text": {
+        "es": "Mezclar las chips con el huevo y dejar reposar unos minutos para que recuperen humedad.",
+        "en": "Mix chips with eggs and rest for a few minutes to absorb moisture.",
+        "de": "Chips mit Ei vermischen und einige Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar rápidamente",
+        "en": "Cook quickly",
+        "de": "Schnell braten"
+      },
+      "text": {
+        "es": "Cocinar en sartén antiadherente con unas gotas de aceite hasta que ambos lados estén dorados.",
+        "en": "Cook in a non-stick pan with a few drops of oil until both sides are golden.",
+        "de": "In einer beschichteten Pfanne mit etwas Öl goldbraun braten."
+      }
+    },
+    {
+      "step": {
+        "es": "Servir",
+        "en": "Serve",
+        "de": "Servieren"
+      },
+      "text": {
+        "es": "Dejar reposar un minuto antes de cortar para que la textura se estabilice.",
+        "en": "Rest for one minute before cutting to stabilize the texture.",
+        "de": "Eine Minute ruhen lassen."
+      }
+    }
+  ]
 }
