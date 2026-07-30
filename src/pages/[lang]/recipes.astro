@@ -6,9 +6,6 @@ import LocalizedLink from '@/components/navigation/LocalizedLink';
 import { BookOpen, ChefHat, Sparkles } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
-import clasicaImg from '@/assets/images/clasica.jpg';
-import concebollaImg from '@/assets/images/concebolla.jpg';
-import betanzosImg from '@/assets/images/betanzos.jpg';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -22,17 +19,17 @@ const t = getTranslations(lang);
 const recipes = [
   { 
     id: 'clasica', 
-    image: clasicaImg.src,
+    image: '/images/clasica.jpg',
     badge: 'Tradicional'
   },
   { 
     id: 'con-cebolla', 
-    image: concebollaImg.src,
+    image: '/images/concebolla.jpg',
     badge: 'Concebollista'
   },
   { 
     id: 'betanzos', 
-    image: betanzosImg.src,
+    image: '/images/betanzos.jpg',
     badge: 'Gallega Jugosa'
   },
 ];

@@ -109,7 +109,17 @@
           "con-cosas": 5
         }
       },
-      "safetyNote": "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**."
+      "safetyNote": "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.",
+      "ui": {
+        "adriaTitle": "Doctrina de Ferran Adrià (El Bulli)",
+        "factionsSectionTitle": "Las 5 Facciones Culinarias",
+        "factionsSectionSub": "Haz clic en cualquier facción para conocer su dogma, figuras clave y recetas vinculadas.",
+        "keyIngredientLabel": "Ingrediente Clave:",
+        "prominentFiguresLabel": "Figuras Prominentes:",
+        "relatedPagesLabel": "Recetas y Páginas Relacionadas:",
+        "communityPollBadge": "Encuesta de la Comunidad",
+        "votesSuffix": "votos"
+      }
     },
     "en": {
       "badge": "Culinary Factions",
@@ -215,7 +225,17 @@
           "con-cosas": 5
         }
       },
-      "safetyNote": "Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**."
+      "safetyNote": "Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**.",
+      "ui": {
+        "adriaTitle": "Ferran Adrià's Doctrine (El Bulli)",
+        "factionsSectionTitle": "The 5 Culinary Factions",
+        "factionsSectionSub": "Click on any faction to discover its dogma, key figures, and linked recipes.",
+        "keyIngredientLabel": "Key Ingredient:",
+        "prominentFiguresLabel": "Key Figures:",
+        "relatedPagesLabel": "Related Recipes & Pages:",
+        "communityPollBadge": "Community Poll",
+        "votesSuffix": "votes"
+      }
     },
     "de": {
       "badge": "Kulinarische Faktionen",
@@ -321,7 +341,17 @@
           "con-cosas": 5
         }
       },
-      "safetyNote": "Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**."
+      "safetyNote": "Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**.",
+      "ui": {
+        "adriaTitle": "Ferran Adriàs Doktrin (El Bulli)",
+        "factionsSectionTitle": "Die 5 Kulinarischen Faktionen",
+        "factionsSectionSub": "Klicke auf eine Faktion, um deren Dogma, Schlüsselfiguren und Rezepte zu entdecken.",
+        "keyIngredientLabel": "Hauptzutat:",
+        "prominentFiguresLabel": "Schlüsselfiguren:",
+        "relatedPagesLabel": "Verwandte Rezepte & Seiten:",
+        "communityPollBadge": "Community-Umfrage",
+        "votesSuffix": "Stimmen"
+      }
     }
   }
 }

@@ -150,7 +150,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-0.5 rounded-full border border-amber-300/60 inline-flex items-center gap-1">
                 <ChefHat className="w-3 h-3 text-[#FFB800]" />
-                Doctrina de Ferran Adrià (El Bulli)
+                {content.ui?.adriaTitle || "Doctrina de Ferran Adrià (El Bulli)"}
               </span>
             </div>
             <blockquote className="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
@@ -175,10 +175,10 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E8E2D5] pb-3">
           <div>
             <h2 className="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
-              Las 5 Facciones Culinarias
+              {content.ui?.factionsSectionTitle || "Las 5 Facciones Culinarias"}
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              Haz clic en cualquier facción para conocer su dogma, figuras clave y recetas vinculadas.
+              {content.ui?.factionsSectionSub || "Haz clic en cualquier facción para conocer su dogma, figuras clave y recetas vinculadas."}
             </p>
           </div>
         </div>
@@ -212,7 +212,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
                     {faction.name}
                   </h3>
                   <div className="mt-1.5 inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/70 px-2.5 py-0.5 rounded-md border border-amber-200">
-                    Ingrediente Clave: <strong>{faction.keyIngredient}</strong>
+                    {content.ui?.keyIngredientLabel || "Ingrediente Clave:"} <strong>{faction.keyIngredient}</strong>
                   </div>
                 </div>
 
@@ -229,7 +229,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
                 {/* Prominent Figures */}
                 <div className="pt-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-1.5">
-                    Figuras Prominentes:
+                    {content.ui?.prominentFiguresLabel || "Figuras Prominentes:"}
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {faction.prominentFigures.map((figure, idx) => (
@@ -247,7 +247,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
               {/* Related Pages Footer */}
               <div className="mt-6 pt-4 border-t border-[#E8E2D5] flex flex-col gap-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                  Recetas y Páginas Relacionadas:
+                  {content.ui?.relatedPagesLabel || "Recetas y Páginas Relacionadas:"}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {faction.relatedPages.map((page, pIdx) => (
@@ -272,7 +272,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB800]/20 text-[#8D6E63] border border-amber-300 text-xs font-bold">
             <Vote className="w-3.5 h-3.5 text-[#FFB800]" />
-            <span>Encuesta de la Comunidad</span>
+            <span>{content.ui?.communityPollBadge || "Encuesta de la Comunidad"}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
             {content.poll.title}
@@ -318,7 +318,7 @@ export default function FactionsPage({ lang = "es" }: FactionsPageProps) {
                   <div className="space-y-1 mt-2">
                     <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8D6E63]">
                       <span>{percentage}%</span>
-                      <span className="text-[10px] text-muted-foreground">{count} votos</span>
+                      <span className="text-[10px] text-muted-foreground">{count} {content.ui?.votesSuffix || "votos"}</span>
                     </div>
                     <div className="w-full h-2 bg-[#E8E2D5] rounded-full overflow-hidden">
                       <div

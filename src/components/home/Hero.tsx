@@ -4,8 +4,6 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 import LocalizedLink from "@/components/navigation/LocalizedLink";
-import clasicaImg from "@/assets/images/clasica.jpg";
-
 import { Button } from "@/components/ui/button";
 
 interface HeroProps {
@@ -82,13 +80,6 @@ export default function Hero({ lang = "es" }: HeroProps) {
               src="/images/clasica.jpg"
               alt={t("hero.title")}
               referrerPolicy="no-referrer"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (!target.dataset.triedAsset) {
-                  target.dataset.triedAsset = "true";
-                  target.src = clasicaImg;
-                }
-              }}
               className="h-full w-full object-cover"
             />
           </div>
