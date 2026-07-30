@@ -155,5 +155,20 @@
         "de": "In einer heißen Pfanne bis zum gewünschten Gargrad braten und einmal wenden."
       }
     }
-  ]
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Receta Tradicional de Tortilla Española",
+      "description": {
+        "es": "El estándar tradicional purista sin cebolla, perfeccionado en los hogares españoles.",
+        "en": "The traditional purist standard without onion, refined in Spanish homes.",
+        "de": "Der traditionelle puristische Standard ohne Zwiebeln, verfeinert in spanischen Haushalten."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
 }

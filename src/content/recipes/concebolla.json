@@ -161,5 +161,20 @@
         "de": "Bei mittlerer Hitze braten und die Mitte saftig halten."
       }
     }
-  ]
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Tradición Concebollista Española",
+      "description": {
+        "es": "La fórmula popular más extendida en la gastronomía española con cebolla caramelizada.",
+        "en": "The most widespread popular formula in Spanish gastronomy with caramelized onions.",
+        "de": "Die am weitesten verbreitete populäre Formel in der gastronomischen Tradition mit karamellisierten Zwiebeln."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
 }

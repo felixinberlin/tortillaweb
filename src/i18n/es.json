@@ -65,7 +65,11 @@
   "ingredientsPage": {
     "badge": "Los Fundamentos",
     "title": "Los 4 Ingredientes Sagrados",
-    "subtitle": "Una gran tortilla no necesita artificios. La clave reside en la calidad de la materia prima y la proporción justa.",
+    "subtitle": "La patata, el huevo, el aceite de oliva y la sal forman la columna vertebral inviolable de la auténtica tortilla española.",
+    "sacredSectionTitle": "Los 4 Sagrados e Imprescindibles",
+    "sacredSectionSubtitle": "Sin estos cuatro elementos no existe la tortilla. La proporción justa y la máxima calidad de la materia prima son la clave.",
+    "optionalSectionTitle": "Ingredientes Opcionales y Variaciones",
+    "optionalSectionSubtitle": "Acompañantes tradicionales y toques personales que enriquecen o transforman la receta según la región o el gusto del cocinero.",
     "potatoes": {
       "title": "La Patata",
       "subtitle": "Monalisa, Kennebec o Agria",
@@ -81,15 +85,25 @@
       "subtitle": "AOVE de acidez suave (Variedad Arbequina o Picual suave)",
       "desc": "No es un mero lubricante: es el medio de cocción que confita la patata. Un buen aceite de oliva virgen extra transmite sabor sin enmascarar la patata."
     },
-    "onion": {
-      "title": "La Cebolla",
-      "subtitle": "Cebolla dulce o recia (El gran debate)",
-      "desc": "Para los concebollistas, la cebolla cortada en brunoise fina o pluma aporta humedad natural y azúcares caramelizados que potencian el sabor salado del huevo."
-    },
     "salt": {
       "title": "La Sal",
       "subtitle": "Sal marina fina",
       "desc": "Se debe salar el huevo batido y no solo la patata. La sal solubiliza las proteínas del huevo permitiendo un cuajado suave y uniforme."
+    },
+    "onion": {
+      "title": "La Cebolla",
+      "subtitle": "Cebolla dulce o recia (Opcional - El Gran Debate)",
+      "desc": "Para los concebollistas, la cebolla cortada en brunoise fina o pluma aporta humedad natural y azúcares caramelizados que potencian el sabor salado del huevo."
+    },
+    "peppers": {
+      "title": "Los Pimientos",
+      "subtitle": "Pimiento verde o rojo (Opcional - Variedad Paisana)",
+      "desc": "Aportan frescura, aromas de huerta y un toque de color en variantes tradicionales como la tortilla paisana o donostiarra."
+    },
+    "blackPepper": {
+      "title": "La Pimienta Negra",
+      "subtitle": "Pimienta negra recién molida (Toque aromático opcional)",
+      "desc": "Un toque sutil de pimienta negra recién molida en el huevo batido aporta calidez y resalta las notas aromáticas del aceite de oliva virgen extra sin restar protagonismo a la patata."
     }
   },
   "techniquesPage": {

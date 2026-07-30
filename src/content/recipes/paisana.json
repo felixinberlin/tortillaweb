@@ -206,5 +206,20 @@
         "de": "Bei mittlerer Hitze braten, bis eine saftige aber festere Tortilla entsteht."
       }
     }
-  ]
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Tradición Paisana del Norte",
+      "description": {
+        "es": "Receta campestre norteña enriquecida con pimientos de la huerta.",
+        "en": "Northern countryside recipe enriched with garden peppers.",
+        "de": "Ländliches Rezept aus dem Norden, angereichert mit Paprika aus dem Garten."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
 }

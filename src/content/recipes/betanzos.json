@@ -54,7 +54,7 @@
         "en": "Egg",
         "de": "Ei"
       },
-      "amount": 6,
+      "amount": 8,
       "unit": "unit",
       "notes": {
         "es": "6 huevos",
@@ -156,5 +156,20 @@
         "de": "In einer sehr heißen Pfanne wenige Sekunden pro Seite braten. Die Mitte bleibt flüssig und cremig."
       }
     }
-  ]
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Betanzos tortilla tradition",
+      "description": {
+        "es": "Estilo gallego caracterizado por un interior muy poco cuajado.",
+        "en": "Galician style known for a very runny centre.",
+        "de": "Galicischer Stil mit sehr flüssigem Kern."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
 }

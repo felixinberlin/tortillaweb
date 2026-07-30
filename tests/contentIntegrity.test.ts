@@ -32,6 +32,39 @@ describe('Content Integrity & Data Collection Tests', () => {
       // Verify taxonomyIds array
       expect(Array.isArray(data.taxonomyIds)).toBe(true);
       expect(data.taxonomyIds.length).toBeGreaterThan(0);
+
+      // Verify structured ingredients
+      if (data.ingredients) {
+        expect(Array.isArray(data.ingredients)).toBe(true);
+        for (const ing of data.ingredients) {
+          expect(ing).toHaveProperty('id');
+          expect(ing).toHaveProperty('ingredientId');
+          expect(ing).toHaveProperty('name');
+          expect(ing).toHaveProperty('amount');
+          expect(ing).toHaveProperty('unit');
+          expect(['g', 'ml', 'unit']).toContain(ing.unit);
+          expect(typeof ing.amount).toBe('number');
+          expect(ing.name.es || ing.name.en || ing.name.de).toBeTruthy();
+        }
+      }
+
+      // Verify sources and author metadata
+      if (data.sources) {
+        expect(Array.isArray(data.sources)).toBe(true);
+        for (const src of data.sources) {
+          expect(src).toHaveProperty('type');
+          expect(['chef', 'restaurant', 'book', 'website', 'traditional', 'community', 'user']).toContain(src.type);
+          expect(src).toHaveProperty('name');
+          expect(typeof src.name).toBe('string');
+        }
+      }
+
+      if (data.author) {
+        expect(data.author).toHaveProperty('type');
+        expect(['platform', 'user']).toContain(data.author.type);
+        expect(data.author).toHaveProperty('name');
+        expect(typeof data.author.name).toBe('string');
+      }
     }
   });
 

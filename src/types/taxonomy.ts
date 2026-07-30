@@ -15,6 +15,27 @@ export interface RecipeIngredient {
   notes?: LocalizedString;
 }
 
+export interface RecipeSource {
+  type:
+    | "chef"
+    | "restaurant"
+    | "book"
+    | "website"
+    | "traditional"
+    | "community"
+    | "user";
+  name: string;
+  author?: string;
+  url?: string;
+  description?: LocalizedString;
+}
+
+export interface RecipeAuthor {
+  type: "platform" | "user";
+  userId?: string;
+  name: string;
+}
+
 export interface Recipe {
   id: string;
   slug: LocalizedString;
@@ -34,6 +55,9 @@ export interface Recipe {
     step: LocalizedString;
     text: LocalizedString;
   }[];
+
+  sources?: RecipeSource[];
+  author?: RecipeAuthor;
 }
 
 export interface Taxonomy {

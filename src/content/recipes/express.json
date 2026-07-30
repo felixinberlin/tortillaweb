@@ -155,5 +155,21 @@
         "de": "Eine Minute ruhen lassen."
       }
     }
-  ]
+  ],
+  "sources": [
+    {
+      "type": "chef",
+      "name": "Ferran Adrià",
+      "author": "Ferran Adrià",
+      "description": {
+        "es": "Interpretación moderna de la tortilla española con patatas chips.",
+        "en": "Modern interpretation of Spanish tortilla using potato chips.",
+        "de": "Moderne Interpretation der spanischen Tortilla mit Kartoffelchips."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
 }

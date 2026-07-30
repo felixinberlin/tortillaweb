@@ -16,6 +16,20 @@ const recipeIngredientSchema = z.object({
   notes: localizedStringSchema.optional(),
 });
 
+const recipeSourceSchema = z.object({
+  type: z.enum(['chef', 'restaurant', 'book', 'website', 'traditional', 'community', 'user']),
+  name: z.string(),
+  author: z.string().optional(),
+  url: z.string().optional(),
+  description: localizedStringSchema.optional(),
+});
+
+const recipeAuthorSchema = z.object({
+  type: z.enum(['platform', 'user']),
+  userId: z.string().optional(),
+  name: z.string(),
+});
+
 const recipeCollection = defineCollection({
   loader: glob({ 
     pattern: '**/*.json', 
@@ -38,6 +52,8 @@ const recipeCollection = defineCollection({
       step: localizedStringSchema,
       text: localizedStringSchema,
     })).optional(),
+    sources: z.array(recipeSourceSchema).optional(),
+    author: recipeAuthorSchema.optional(),
   }),
 });
 

@@ -65,7 +65,11 @@
   "ingredientsPage": {
     "badge": "The Fundamentals",
     "title": "The 4 Sacred Ingredients",
-    "subtitle": "A great tortilla needs no artificial additives. The secret lies in ingredient quality and precise ratios.",
+    "subtitle": "Potato, egg, olive oil, and salt form the sacred, unshakeable foundation of authentic Spanish tortilla.",
+    "sacredSectionTitle": "The 4 Sacred Essentials",
+    "sacredSectionSubtitle": "Without these four core elements, there is no tortilla. Quality raw ingredients and balance are everything.",
+    "optionalSectionTitle": "Optional Ingredients & Regional Additions",
+    "optionalSectionSubtitle": "Traditional additions and personal touches that enrich or vary the recipe across different regions or personal preference.",
     "potatoes": {
       "title": "The Potato",
       "subtitle": "Monalisa, Kennebec, or Yukon Gold",
@@ -81,15 +85,25 @@
       "subtitle": "Mild Extra Virgin Olive Oil (Arbequina)",
       "desc": "Not merely a lubricant: it is the cooking medium that confits the potatoes. High quality EVOO adds fruity notes without overpowering the natural potato flavor."
     },
-    "onion": {
-      "title": "The Onion",
-      "subtitle": "Sweet yellow onion (The Eternal Debate)",
-      "desc": "For onion enthusiasts, thinly sliced onion adds natural moisture and caramelized sugars that complement the savory egg."
-    },
     "salt": {
       "title": "Salt",
       "subtitle": "Fine sea salt",
       "desc": "Salt should be added to the beaten eggs, not just the potatoes. Salt solubilizes egg proteins, allowing for a silky smooth setting."
+    },
+    "onion": {
+      "title": "The Onion",
+      "subtitle": "Sweet yellow onion (Optional - The Eternal Debate)",
+      "desc": "For onion enthusiasts, thinly sliced onion adds natural moisture and caramelized sugars that complement the savory egg."
+    },
+    "peppers": {
+      "title": "Peppers",
+      "subtitle": "Green or red peppers (Optional - Country / Paisana Style)",
+      "desc": "They bring garden aromas, subtle sweetness, and color in regional varieties like the Basque country-style tortilla paisana."
+    },
+    "blackPepper": {
+      "title": "Black Pepper",
+      "subtitle": "Freshly cracked black pepper (Optional aromatic touch)",
+      "desc": "A subtle pinch of freshly cracked black pepper in the beaten eggs adds warmth and enhances the aromatic notes of the olive oil without overwhelming the potato."
     }
   },
   "techniquesPage": {

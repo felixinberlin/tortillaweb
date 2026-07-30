@@ -65,7 +65,11 @@
   "ingredientsPage": {
     "badge": "Die Grundlagen",
     "title": "Die 4 heiligen Zutaten",
-    "subtitle": "Eine großartige Tortilla braucht keine künstlichen Zusätze. Das Geheimnis liegt in der Qualität der Zutaten und den exakten Proportionalverhältnissen.",
+    "subtitle": "Kartoffeln, Eier, Olivenöl und Salz bilden das unantastbare Fundament der echten spanischen Tortilla.",
+    "sacredSectionTitle": "Die 4 heiligen Grundzutaten",
+    "sacredSectionSubtitle": "Ohne diese vier Hauptkomponenten gibt es keine Tortilla. Höchste Qualität der Rohstoffe und das richtige Verhältnis entscheiden.",
+    "optionalSectionTitle": "Optionale Zutaten & Regionale Varianten",
+    "optionalSectionSubtitle": "Traditionelle Ergänzungen und persönliche Akzente, die das Rezept je nach Region verfeinern.",
     "potatoes": {
       "title": "Die Kartoffel",
       "subtitle": "Monalisa, Kennebec oder vorwiegend festkochende Sorten",
@@ -81,15 +85,25 @@
       "subtitle": "Mildes Nativ Extra Olivenöl (Sorte Arbequina)",
       "desc": "Nicht nur ein Bratfett: Es ist das Garmedium, in dem die Kartoffeln konfiert werden. Hochwertiges Olivenöl verleiht Geschmack, ohne das Kartoffelaroma zu überdecken."
     },
-    "onion": {
-      "title": "Die Zwiebel",
-      "subtitle": "Milde Zwiebel (Die ewige Debatte)",
-      "desc": "Für Zwiebelliebhaber verleiht fein geschnittene Zwiebel natürliche Feuchtigkeit und karamellisierten Zucker, der das herzhafte Ei perfekt ergänzt."
-    },
     "salt": {
       "title": "Das Salz",
       "subtitle": "Feines Meersalz",
       "desc": "Salz sollte den verquirlten Eiern zugegeben werden und nicht nur den Kartoffeln. Salz löst Eiproteine auf und sorgt für ein gleichmäßiges, samtiges Stocken."
+    },
+    "onion": {
+      "title": "Die Zwiebel",
+      "subtitle": "Milde Zwiebel (Optional - Die ewige Debatte)",
+      "desc": "Für Zwiebelliebhaber verleiht fein geschnittene Zwiebel natürliche Feuchtigkeit und karamellisierten Zucker, der das herzhafte Ei perfekt ergänzt."
+    },
+    "peppers": {
+      "title": "Paprika",
+      "subtitle": "Grüne oder rote Paprika (Optional - Ländliche Tortilla Paisana)",
+      "desc": "Bringen Frische, Gartenaromen und Farbe in regionalen Varianten wie der nordspanischen Tortilla Paisana."
+    },
+    "blackPepper": {
+      "title": "Schwarzer Pfeffer",
+      "subtitle": "Frisch gemahlener schwarzer Pfeffer (Optionale Würznote)",
+      "desc": "Ein subtiler Hauch frisch gemahlenen schwarzen Pfeffers im verquirlten Ei verleiht Wärme und hebt die aromatischen Noten des Olivenöls hervor, ohne die Kartoffel zu überdecken."
     }
   },
   "techniquesPage": {
