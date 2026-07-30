@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { 
-  Shield, 
-  Heart, 
-  Sprout, 
-  Sparkles, 
-  Flame, 
-  CheckCircle2, 
-  Vote, 
-  Users, 
-  Quote, 
-  ChefHat, 
-  ExternalLink, 
-  BarChart3, 
+import {
+  Shield,
+  Heart,
+  Sprout,
+  Sparkles,
+  Flame,
+  CheckCircle2,
+  Vote,
+  Users,
+  Quote,
+  ChefHat,
+  ExternalLink,
+  BarChart3,
   ShieldAlert,
   Award
 } from "lucide-react";
@@ -31,7 +31,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
   const heroTitle = pageData.hero?.title?.[currentLang] || "¿Purista de la Doctrina o Rebelde Culinario?";
   const heroSubtitle = pageData.hero?.subtitle?.[currentLang] || "Del dogma de la patata y el huevo a las variaciones regionales con personalidad.";
   const adriaDoctrine = pageData.hero?.adriaDoctrine?.[currentLang] || "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica.";
-  
+
   const introTitle = pageData.introduction?.title?.[currentLang] || "La evolución de una receta universal";
   const introBody1 = pageData.introduction?.body1?.[currentLang] || "";
   const introBody2 = pageData.introduction?.body2?.[currentLang] || "";
@@ -160,11 +160,11 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
           <Users className="w-3.5 h-3.5" />
           <span>{badge}</span>
         </div>
-        
+
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
           {heroTitle}
         </h1>
-        
+
         <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
           {heroSubtitle}
         </p>
@@ -226,10 +226,16 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
             return (
               <article
                 key={faction.id}
-                className={`card-notebook p-6 flex flex-col justify-between rounded-2xl border transition-all duration-200 hover:shadow-md hover:border-[#FFB800] bg-[#FCF9F2] relative ${
-                  selectedFaction === faction.id ? "ring-2 ring-[#FFB800] bg-[#FFF7EA]" : "border-[#E8E2D5]"
-                }`}
+                className={`card-notebook p-6 flex flex-col justify-between rounded-2xl border transition-all duration-200 hover:shadow-md hover:border-[#FFB800] bg-[#FCF9F2] relative ${selectedFaction === faction.id ? "ring-2 ring-[#FFB800] bg-[#FFF7EA]" : "border-[#E8E2D5]"
+                  }`}
               >
+                <div className="mb-5 overflow-hidden rounded-xl border border-[#E8E2D5] shadow-sm">
+                  <img
+                    src={faction.image}
+                    alt={factionTitle}
+                    className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
                 <div className="space-y-4">
                   {/* Badge & Icon Header */}
                   <div className="flex items-start justify-between gap-3">
@@ -337,11 +343,10 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                 key={fac.id}
                 type="button"
                 onClick={() => handleVote(fac.id)}
-                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                  isSelected
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${isSelected
                     ? "bg-[#FFF7EA] border-[#FFB800] ring-2 ring-[#FFB800]/50 shadow-xs"
                     : "bg-white border-[#E8E2D5] hover:border-amber-300 hover:bg-[#FAF6EE]"
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">

@@ -74,6 +74,7 @@ const taxonomyCollection = defineCollection({
       color: z.string().optional(),
     }).optional(),
     dogma: localizedStringSchema.optional(),
+    image: z.string().optional(),
     badge: localizedStringSchema.optional(),
     keyIngredient: localizedStringSchema.optional(),
     prominentFigures: z.array(z.string()).optional(),
