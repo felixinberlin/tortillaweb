@@ -8,7 +8,8 @@
     "history": "History",
     "personas": "Personas",
     "builder": "Builder",
-    "about": "About"
+    "about": "About",
+    "home": "Home"
   },
   "hero": {
     "badge": "The encyclopedia of Spanish tortilla",
@@ -42,7 +43,27 @@
     "jugosaTitle": "Medium Creamy",
     "jugosaDesc": "Soft creamy interior, golden crust.",
     "cuajadaTitle": "Well Done",
-    "cuajadaDesc": "Firm throughout, perfect for sandwiches."
+    "cuajadaDesc": "Firm throughout, perfect for sandwiches.",
+    "creatorAppLabel": "Tortilla Creator Web App",
+    "potatoPerEgg": "Potato per egg",
+    "oilAbsorbed": "Oil absorbed",
+    "yourRecipe": "Your Recipe",
+    "pers": "pers.",
+    "tableIngredient": "Ingredient",
+    "tableYourRecipe": "Your recipe (/egg)",
+    "tableRefRecipe": "Reference (/egg)",
+    "tableDifference": "Difference",
+    "tableEqual": "Equal (0%)",
+    "potatoIntensity": "Potato Intensity:",
+    "oilIntensity": "Oil Contribution:",
+    "onionPresence": "Onion Presence:",
+    "eggDominance": "Egg Dominance:",
+    "compareTitle": "Compare your custom tortilla with iconic references",
+    "compareSubtitle": "Mathematically compare the normalized per-egg proportions of your recipe against famous tortillas.",
+    "compareWith": "Compare with:",
+    "proportionPerEgg": "Proportion per 1 Egg",
+    "classificationComparison": "Classification Comparison",
+    "inPan": "in pan"
   },
   "recipes": {
     "title": "Spanish Tortilla Recipes",
@@ -249,6 +270,22 @@
     "viewReport": "View Report",
     "rights": "All rights reserved.",
     "craftedWith": "Crafted with",
-    "forGastronomy": "for lovers of gastronomy and culinary science."
+    "forGastronomy": "for lovers of gastronomy and culinary science.",
+    "creatorApp": "Tortilla Creator App (tortilladepatatas.de)",
+    "safetyTextHtml": "To guarantee microbiological safety and destruction of <i>Salmonella spp.</i>, the bactericidal cooking standard requires reaching <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">70°C for 2 minutes</strong> (or <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">63°C for 20 seconds</strong> as a medium threshold). Runny tortillas should not remain for more than <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">4 hours</strong> at ambient temperature."
+  },
+  "header": {
+    "safetyStandard": "Bactericidal standard: ",
+    "languageSelector": "Language"
+  },
+  "factions": {
+    "viewCard": "View Card & Recipes",
+    "communityPoll": "Community Poll",
+    "votes": "votes"
+  },
+  "comparator": {
+    "eggs": "eggs",
+    "normalizedRatio": "Normalized Ratio / 1 Egg",
+    "eggSingle": "egg"
   }
 }

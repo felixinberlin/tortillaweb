@@ -8,7 +8,8 @@
     "history": "Geschichte",
     "personas": "Persönlichkeiten",
     "builder": "Baukasten",
-    "about": "Über uns"
+    "about": "Über uns",
+    "home": "Startseite"
   },
   "hero": {
     "badge": "Die Enzyklopädie der spanischen Tortilla",
@@ -42,7 +43,27 @@
     "jugosaTitle": "En su punto (Cremige Mitte)",
     "jugosaDesc": "Cremiges Inneres und leicht gebräunte Kruste.",
     "cuajadaTitle": "Durchgegart & Fest",
-    "cuajadaDesc": "Fest durchgegart, ideal für unterwegs oder Sandwiches."
+    "cuajadaDesc": "Fest durchgegart, ideal für unterwegs oder Sandwiches.",
+    "creatorAppLabel": "Tortilla Creator Web App",
+    "potatoPerEgg": "Kartoffel pro Ei",
+    "oilAbsorbed": "Absorbiertes Öl",
+    "yourRecipe": "Dein Rezept",
+    "pers": "Pers.",
+    "tableIngredient": "Zutat",
+    "tableYourRecipe": "Dein Rezept (/Ei)",
+    "tableRefRecipe": "Referenz (/Ei)",
+    "tableDifference": "Unterschied",
+    "tableEqual": "Gleich (0%)",
+    "potatoIntensity": "Kartoffelintensität:",
+    "oilIntensity": "Ölbeitrag:",
+    "onionPresence": "Zwiebelpräsenz:",
+    "eggDominance": "Eigeruch:",
+    "compareTitle": "Vergleiche deine personalisierte Tortilla mit ikonischen Referenzen",
+    "compareSubtitle": "Vergleiche die auf ein Ei normierten Proportionen deines Rezepts mathematisch mit berühmten Tortillas.",
+    "compareWith": "Vergleichen mit:",
+    "proportionPerEgg": "Proportion für 1 Ei",
+    "classificationComparison": "Klassifizierungsvergleich",
+    "inPan": "in der Pfanne"
   },
   "recipes": {
     "title": "Tortilla de Patatas Rezepte",
@@ -249,6 +270,22 @@
     "viewReport": "Bericht anzeigen",
     "rights": "Alle Rechte vorbehalten.",
     "craftedWith": "Erstellt mit",
-    "forGastronomy": "für Liebhaber der Gastronomie und kulinarischen Wissenschaft."
+    "forGastronomy": "für Liebhaber der Gastronomie und kulinarischen Wissenschaft.",
+    "creatorApp": "Tortilla Creator App (tortilladepatatas.de)",
+    "safetyTextHtml": "Zur Gewährleistung der mikrobiologischen Sicherheit und der Vernichtung von <i>Salmonella spp.</i>, erfordert der bakterizide Kochstandard das Erreichen von <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">70°C for 2 minutes</strong> (oder <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">63°C for 20 seconds</strong> als mittlerer Schwellenwert). Saftige Tortillas sollten nicht länger als <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">4 hours</strong> bei Raumtemperatur stehen."
+  },
+  "header": {
+    "safetyStandard": "Bakterizider Standard: ",
+    "languageSelector": "Sprache / Language"
+  },
+  "factions": {
+    "viewCard": "Details & Rezepte",
+    "communityPoll": "Community-Umfrage",
+    "votes": "Stimmen"
+  },
+  "comparator": {
+    "eggs": "Eier",
+    "normalizedRatio": "Normalisiertes Verhältnis / 1 Ei",
+    "eggSingle": "Ei"
   }
 }

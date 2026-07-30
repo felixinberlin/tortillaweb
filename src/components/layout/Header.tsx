@@ -147,7 +147,7 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
             }`}
           >
             <Home className="w-3.5 h-3.5" />
-            <span>{lang === "en" ? "Home" : lang === "de" ? "Startseite" : "Inicio"}</span>
+            <span>{t("nav.home", "Inicio")}</span>
           </a>
           {navigation.map((item: any) => {
             const active = isLinkActive(item.href);
@@ -281,7 +281,7 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
           }`}
         >
           <Home className="w-3 h-3" />
-          <span>{lang === "en" ? "Home" : lang === "de" ? "Startseite" : "Inicio"}</span>
+          <span>{t("nav.home", "Inicio")}</span>
         </a>
         {navigation.map((item: any) => {
           const active = isLinkActive(item.href);
@@ -349,7 +349,7 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
                 >
                   <div className="flex items-center gap-2.5">
                     <Home className="w-4 h-4" />
-                    <span>{lang === "en" ? "Home" : lang === "de" ? "Startseite" : "Inicio"}</span>
+                    <span>{t("nav.home", "Inicio")}</span>
                   </div>
                   {isLinkActive("/") && <span className="w-2 h-2 rounded-full bg-[#FFB800]"></span>}
                 </a>
@@ -441,14 +441,14 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
               {/* Safety Seal in Mobile Drawer */}
               <div className="p-2.5 rounded-xl bg-[#2E7D32]/10 border border-[#2E7D32]/25 text-[#2E7D32] text-xs font-bold flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
-                <span>Estándar bactericida: <strong>70°C for 2 minutes</strong></span>
+                <span>{t("header.safetyStandard", "Estándar bactericida: ")}<strong>70°C for 2 minutes</strong></span>
               </div>
 
               {/* Language Selector in Drawer */}
               <div>
                 <div className="flex items-center gap-1.5 mb-1.5 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                   <Languages className="h-3.5 w-3.5 text-amber-700" />
-                  <span>Idioma / Language</span>
+                  <span>{t("header.languageSelector", "Idioma / Language")}</span>
                 </div>
                 <div className="flex gap-1.5">
                   {languages.map((language) => {

@@ -8,7 +8,8 @@
     "history": "Historia",
     "personas": "Personas",
     "builder": "Constructor",
-    "about": "Sobre nosotros"
+    "about": "Sobre nosotros",
+    "home": "Inicio"
   },
   "hero": {
     "badge": "La enciclopedia de la tortilla española",
@@ -42,7 +43,27 @@
     "jugosaTitle": "En su punto",
     "jugosaDesc": "Interior cremoso y bordes sellados.",
     "cuajadaTitle": "Cuajada firme",
-    "cuajadaDesc": "Ideal para llevar a excursiones o bocadillos."
+    "cuajadaDesc": "Ideal para llevar a excursiones o bocadillos.",
+    "creatorAppLabel": "Tortilla Creator Web App",
+    "potatoPerEgg": "Patata por huevo",
+    "oilAbsorbed": "Aceite absorbido",
+    "yourRecipe": "Tu Receta",
+    "pers": "pers.",
+    "tableIngredient": "Ingrediente",
+    "tableYourRecipe": "Tu receta (/huevo)",
+    "tableRefRecipe": "Referencia (/huevo)",
+    "tableDifference": "Diferencia",
+    "tableEqual": "Igual (0%)",
+    "potatoIntensity": "Intensidad de Patata:",
+    "oilIntensity": "Aporte de Aceite:",
+    "onionPresence": "Presencia de Cebolla:",
+    "eggDominance": "Dominancia del Huevo:",
+    "compareTitle": "Compara tu tortilla personalizada con referencias icónicas",
+    "compareSubtitle": "Compara matemáticamente las proporciones normalizadas por huevo de tu receta contra tortillas famosas.",
+    "compareWith": "Comparar con:",
+    "proportionPerEgg": "Proporción por 1 Huevo",
+    "classificationComparison": "Comparativa de Clasificación",
+    "inPan": "en sartén"
   },
   "recipes": {
     "title": "Recetas de tortilla de patatas",
@@ -249,6 +270,22 @@
     "viewReport": "Ver Informe",
     "rights": "Todos los derechos reservados.",
     "craftedWith": "Hecho con",
-    "forGastronomy": "para los amantes de la gastronomía y la ciencia culinaria."
+    "forGastronomy": "para los amantes de la gastronomía y la ciencia culinaria.",
+    "creatorApp": "Tortilla Creator App (tortilladepatatas.de)",
+    "safetyTextHtml": "Para garantizar la inocuidad microbiológica y la destrucción de <i>Salmonella spp.</i>, el estándar de cocinado bactericida exige alcanzar <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">70°C for 2 minutes</strong> (o <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">4 hours</strong> a temperatura ambiente."
+  },
+  "header": {
+    "safetyStandard": "Estándar bactericida: ",
+    "languageSelector": "Idioma / Language"
+  },
+  "factions": {
+    "viewCard": "Ver Ficha & Recetas",
+    "communityPoll": "Encuesta de la Comunidad",
+    "votes": "votos"
+  },
+  "comparator": {
+    "eggs": "huevos",
+    "normalizedRatio": "Ratio Normalizado / 1 Huevo",
+    "eggSingle": "huevo"
   }
 }

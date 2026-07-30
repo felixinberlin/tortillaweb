@@ -143,7 +143,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
           </div>
           <div>
             <h3 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2 flex-wrap">
-              <span>Tortilla Creator Web App</span>
+              <span>{t("builder.creatorAppLabel", "Tortilla Creator Web App")}</span>
               <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300">
                 tortilladepatatas.de
               </Badge>
@@ -407,7 +407,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <div className="p-3 rounded-lg bg-card border border-border shadow-2xs col-span-2 sm:col-span-1">
                     <div className="flex items-baseline justify-between">
                       <span className="text-2xl font-bold text-amber-600 block">{oilAbsorbed} ml</span>
-                      <span className="text-[11px] text-muted-foreground font-semibold">({oilUsed} ml en sartén)</span>
+                      <span className="text-[11px] text-muted-foreground font-semibold">({oilUsed} ml {t("builder.inPan", "en sartén")})</span>
                     </div>
                     <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider block mt-1">
                       🫒 {t("builder.oilLabel", "AOVE (Absorbido)")}
@@ -429,16 +429,16 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
 
                   <div className="grid grid-cols-2 gap-2 text-xs pt-1">
                     <div className="bg-white/80 dark:bg-background/80 p-2 rounded-md border border-amber-200/40">
-                      <span className="text-muted-foreground text-[10px] block">Patata por huevo</span>
-                      <span className="font-bold text-foreground">{userDna.ratios.potato?.quantity}g / huevo</span>
+                      <span className="text-muted-foreground text-[10px] block">{t("builder.potatoPerEgg", "Patata por huevo")}</span>
+                      <span className="font-bold text-foreground">{userDna.ratios.potato?.quantity}g / {t("comparator.eggSingle", "huevo")}</span>
                       <span className="text-[10px] text-amber-700 dark:text-amber-400 block font-medium">
                         ({userDna.classification.potatoIntensityLabel})
                       </span>
                     </div>
 
                     <div className="bg-white/80 dark:bg-background/80 p-2 rounded-md border border-amber-200/40">
-                      <span className="text-muted-foreground text-[10px] block">Aceite absorbido</span>
-                      <span className="font-bold text-foreground">{userDna.ratios.oil?.quantity}ml / huevo</span>
+                      <span className="text-muted-foreground text-[10px] block">{t("builder.oilAbsorbed", "Aceite absorbido")}</span>
+                      <span className="font-bold text-foreground">{userDna.ratios.oil?.quantity}ml / {t("comparator.eggSingle", "huevo")}</span>
                       <span className="text-[10px] text-amber-700 dark:text-amber-400 block font-medium">
                         ({userDna.classification.oilIntensityLabel})
                       </span>
@@ -504,18 +504,14 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <div className="flex items-center gap-2">
               <GitCompare className="w-5 h-5 text-amber-600" />
               <h2 className="text-2xl font-extrabold text-foreground">
-                Compara tu tortilla personalizada con referencias icónicas
+                {t("builder.compareTitle", "Compara tu tortilla personalizada con referencias icónicas")}
               </h2>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Compara matemáticamente las proporciones normalizadas por huevo de tu receta contra tortillas famosas.
-            </p>
+            <p className="text-sm text-muted-foreground">{t("builder.compareSubtitle", "Compara matemáticamente las proporciones normalizadas por huevo de tu receta contra tortillas famosas.")}</p>
           </div>
 
           <div className="flex items-center gap-2">
-            <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider shrink-0">
-              Comparar con:
-            </label>
+            <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider shrink-0">{t("builder.compareWith", "Comparar con:")}</label>
             <select
               value={selectedRefId}
               onChange={(e) => setSelectedRefId(e.target.value)}
@@ -537,25 +533,23 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <div className="md:col-span-8 bg-card rounded-2xl border border-border overflow-hidden shadow-xs">
               <div className="p-4 bg-amber-500/10 border-b border-amber-500/20 flex items-center justify-between">
                 <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
-                  <span>Tu Receta ({userRecipe.servings} pers.)</span>
+                  <span>{t("builder.yourRecipe", "Tu Receta")} ({userRecipe.servings} {t("builder.pers", "pers.")})</span>
                   <ArrowRight className="w-4 h-4 text-muted-foreground" />
                   <span className="text-amber-700 dark:text-amber-400">
                     {getLocalizedText(selectedRefRecipe.title || selectedRefRecipe.recipeName)}
                   </span>
                 </h3>
-                <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300 font-bold">
-                  Proporción por 1 Huevo
-                </Badge>
+                <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300 font-bold">{t("builder.proportionPerEgg", "Proporción por 1 Huevo")}</Badge>
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs sm:text-sm">
                   <thead>
                     <tr className="border-b border-border bg-muted/40 text-muted-foreground">
-                      <th className="p-3 font-bold uppercase text-[11px]">Ingrediente</th>
-                      <th className="p-3 font-bold uppercase text-[11px]">Tu receta (/huevo)</th>
-                      <th className="p-3 font-bold uppercase text-[11px]">Referencia (/huevo)</th>
-                      <th className="p-3 font-bold uppercase text-[11px]">Diferencia</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">{t("builder.tableIngredient", "Ingrediente")}</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">{t("builder.tableYourRecipe", "Tu receta (/huevo)")}</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">{t("builder.tableRefRecipe", "Referencia (/huevo)")}</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">{t("builder.tableDifference", "Diferencia")}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
@@ -574,7 +568,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                           </td>
                           <td className="p-3 font-mono">
                             {item.difference === 0 ? (
-                              <span className="text-muted-foreground text-xs font-normal">Igual (0%)</span>
+                              <span className="text-muted-foreground text-xs font-normal">{t("builder.tableEqual", "Igual (0%)")}</span>
                             ) : (
                               <span
                                 className={`inline-flex items-center gap-1 font-bold px-2 py-0.5 rounded-full text-xs ${
@@ -600,12 +594,12 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             <div className="md:col-span-4 bg-amber-50/50 dark:bg-amber-950/20 p-5 rounded-2xl border border-amber-200/60 space-y-4">
               <h4 className="font-bold text-sm text-foreground flex items-center gap-2 border-b border-amber-200/60 pb-2">
                 <Sparkles className="w-4 h-4 text-amber-600" />
-                Comparativa de Clasificación
+                {t("builder.classificationComparison", "Comparativa de Clasificación")}
               </h4>
 
               <div className="space-y-3 text-xs">
                 <div>
-                  <span className="text-muted-foreground font-medium block">Intensidad de Patata:</span>
+                  <span className="text-muted-foreground font-medium block">{t("builder.potatoIntensity", "Intensidad de Patata:")}</span>
                   <div className="flex items-center gap-2 mt-0.5 font-bold">
                     <span className="text-amber-800 dark:text-amber-300">{comparison.profile.potatoIntensity.a}</span>
                     <span className="text-muted-foreground">vs</span>
@@ -614,7 +608,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 </div>
 
                 <div>
-                  <span className="text-muted-foreground font-medium block">Aporte de Aceite:</span>
+                  <span className="text-muted-foreground font-medium block">{t("builder.oilIntensity", "Aporte de Aceite:")}</span>
                   <div className="flex items-center gap-2 mt-0.5 font-bold">
                     <span className="text-amber-800 dark:text-amber-300">{comparison.profile.oilIntensity.a}</span>
                     <span className="text-muted-foreground">vs</span>
@@ -623,7 +617,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 </div>
 
                 <div>
-                  <span className="text-muted-foreground font-medium block">Presencia de Cebolla:</span>
+                  <span className="text-muted-foreground font-medium block">{t("builder.onionPresence", "Presencia de Cebolla:")}</span>
                   <div className="flex items-center gap-2 mt-0.5 font-bold">
                     <span className="text-amber-800 dark:text-amber-300">{comparison.profile.onionPresence.a}</span>
                     <span className="text-muted-foreground">vs</span>
@@ -632,7 +626,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 </div>
 
                 <div>
-                  <span className="text-muted-foreground font-medium block">Dominancia del Huevo:</span>
+                  <span className="text-muted-foreground font-medium block">{t("builder.eggDominance", "Dominancia del Huevo:")}</span>
                   <div className="flex items-center gap-2 mt-0.5 font-bold">
                     <span className="text-amber-800 dark:text-amber-300">{comparison.profile.eggDominance.a}</span>
                     <span className="text-muted-foreground">vs</span>

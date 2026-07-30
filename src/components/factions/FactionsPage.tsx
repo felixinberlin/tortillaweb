@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import React, { useState, useEffect } from "react";
 import {
   Shield,
@@ -24,6 +25,7 @@ interface FactionsPageProps {
 }
 
 export default function FactionsPage({ lang = "es", factions = [], pageData = {} }: FactionsPageProps) {
+  const { t } = useTranslation(undefined, { lng: lang });
   const currentLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
 
   // Fallbacks if pageData fields are localized objects
@@ -305,7 +307,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                     href={factionUrl}
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] bg-[#F5E6BE]/60 hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-amber-300/80 transition-colors shadow-2xs"
                   >
-                    <span>Ver Ficha & Recetas</span>
+                    <span>{t("factions.viewCard", "Ver Ficha & Recetas")}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -320,7 +322,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB800]/20 text-[#8D6E63] border border-amber-300 text-xs font-bold">
             <Vote className="w-3.5 h-3.5 text-[#FFB800]" />
-            <span>Encuesta de la Comunidad</span>
+            <span>{t("factions.communityPoll", "Encuesta de la Comunidad")}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
             {pollTitle}
@@ -366,7 +368,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                   <div className="space-y-1 mt-2">
                     <div className="flex items-center justify-between text-xs font-mono font-bold text-[#8D6E63]">
                       <span>{percentage}%</span>
-                      <span className="text-[10px] text-muted-foreground">{count} votos</span>
+                      <span className="text-[10px] text-muted-foreground">{count} {t("factions.votes", "votos")}</span>
                     </div>
                     <div className="w-full h-2 bg-[#E8E2D5] rounded-full overflow-hidden">
                       <div
