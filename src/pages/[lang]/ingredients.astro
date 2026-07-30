@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Egg, CookingPot, Droplet, Flame, Scale, Utensils, ShieldCheck, PlusCircle } from 'lucide-react';
+import { Sparkles, Egg, Sprout, Droplet, Circle, Cherry, ShieldCheck, PlusCircle } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
@@ -18,8 +18,8 @@ const t = getTranslations(lang);
 const sacredIngredients = [
   {
     key: "potatoes",
-    icon: CookingPot,
-    image: "/images/ingredients/potato_ingredient_card.jpg",
+    icon: Sprout,
+    image: "/images/ingredients/potato_editorial_card.jpg",
     badge: "Monalisa / Kennebec / Agria",
     badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
     iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
@@ -27,7 +27,7 @@ const sacredIngredients = [
   {
     key: "eggs",
     icon: Egg,
-    image: "/images/ingredients/egg_ingredient_card.jpg",
+    image: "/images/ingredients/egg_editorial_card.jpg",
     badge: "Frescos Categoría 0 / 1",
     badgeColor: "bg-yellow-100 text-yellow-900 border-yellow-300",
     iconColor: "text-yellow-700 bg-yellow-100/80 border-yellow-200",
@@ -35,15 +35,15 @@ const sacredIngredients = [
   {
     key: "oil",
     icon: Droplet,
-    image: "/images/ingredients/olive_oil_aromatics_card.jpg",
+    image: "/images/ingredients/olive_oil_editorial_card.jpg",
     badge: "AOVE (Arbequina / Picual)",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
     iconColor: "text-emerald-700 bg-emerald-100/80 border-emerald-200",
   },
   {
     key: "salt",
-    icon: Scale,
-    image: "/images/ingredients/salt_ingredient_card.jpg",
+    icon: Sparkles,
+    image: "/images/ingredients/salt_editorial_card.jpg",
     badge: "Sal Marina Fina",
     badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
     iconColor: "text-blue-700 bg-blue-100/80 border-blue-200",
@@ -53,16 +53,24 @@ const sacredIngredients = [
 const optionalIngredients = [
   {
     key: "onion",
-    icon: Flame,
-    image: "/images/ingredients/onion_ingredient_card.jpg",
+    icon: Circle,
+    image: "/images/ingredients/onion_editorial_card.jpg",
     badge: "Opcional - Cebolla Dulce",
     badgeColor: "bg-orange-100 text-orange-900 border-orange-300",
     iconColor: "text-orange-700 bg-orange-100/80 border-orange-200",
   },
   {
+    key: "garlic",
+    icon: Sparkles,
+    image: "/images/ingredients/garlic_editorial_card.jpg",
+    badge: "Opcional - Ajo Aromatizante",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
+  },
+  {
     key: "peppers",
-    icon: Utensils,
-    image: "/images/ingredients/pepper_ingredient_card.jpg",
+    icon: Cherry,
+    image: "/images/ingredients/pepper_editorial_card.jpg",
     badge: "Opcional - Pimiento Verde / Rojo",
     badgeColor: "bg-red-100 text-red-900 border-red-300",
     iconColor: "text-red-700 bg-red-100/80 border-red-200",
@@ -70,8 +78,8 @@ const optionalIngredients = [
   {
     key: "blackPepper",
     icon: Sparkles,
-    image: "/images/ingredients/olive_oil_aromatics_card.jpg",
-    badge: "Opcional - Pimienta Negra",
+    image: "/images/ingredients/black_pepper_editorial_card.jpg",
+    badge: "Opcional - Pimienta Negra (Especia)",
     badgeColor: "bg-zinc-200 text-zinc-900 border-zinc-300",
     iconColor: "text-zinc-800 bg-zinc-200/80 border-zinc-300",
   },
@@ -217,7 +225,7 @@ const schemas = [articleSchema, breadcrumbSchema];
         </div>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {optionalIngredients.map((item) => {
           const Icon = item.icon;
           return (

@@ -112,7 +112,7 @@ const schemas = [...personSchemas, breadcrumbSchema];
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cat.personas.map((persona) => (
-              <PersonCard persona={persona} lang={lang} client:load />
+              <PersonCard persona={persona} lang={lang} />
             ))}
           </div>
         </section>

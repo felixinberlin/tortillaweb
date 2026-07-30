@@ -96,9 +96,14 @@
       "desc": "For onion enthusiasts, thinly sliced onion adds natural moisture and caramelized sugars that complement the savory egg."
     },
     "peppers": {
-      "title": "Peppers",
+      "title": "Bell & Frying Peppers",
       "subtitle": "Green or red peppers (Optional - Country / Paisana Style)",
-      "desc": "They bring garden aromas, subtle sweetness, and color in regional varieties like the Basque country-style tortilla paisana."
+      "desc": "Fresh sweet or frying peppers that bring garden aromas and color to regional varieties like Basque tortilla paisana. Note: distinct from black pepper."
+    },
+    "garlic": {
+      "title": "Garlic",
+      "subtitle": "Garlic clove (Optional - Aromatic Infusion)",
+      "desc": "A garlic clove gently sizzled in the olive oil before poaching potatoes infuses a subtle savory aroma and countryside depth without overpowering."
     },
     "blackPepper": {
       "title": "Black Pepper",

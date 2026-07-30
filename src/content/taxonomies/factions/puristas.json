@@ -17,6 +17,7 @@
     "de": "Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern."
   },
   "icon": "Shield",
+  "image": "/images/factions/faction-purist.jpg",
   "theme": {
     "color": "terracotta"
   },

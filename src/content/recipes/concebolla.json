@@ -29,7 +29,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 30,
   "yieldServings": 4,
-  "image": "/images/con-cebolla.jpg",
+  "image": "/images/concebolla.jpg",
   "ingredients": [
     {
       "id": "potato",

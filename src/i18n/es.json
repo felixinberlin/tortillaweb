@@ -98,7 +98,12 @@
     "peppers": {
       "title": "Los Pimientos",
       "subtitle": "Pimiento verde o rojo (Opcional - Variedad Paisana)",
-      "desc": "Aportan frescura, aromas de huerta y un toque de color en variantes tradicionales como la tortilla paisana o donostiarra."
+      "desc": "Aportan frescura, aromas de huerta y un toque de color en variantes tradicionales como la tortilla paisana o donostiarra. No confundir con la pimienta negra."
+    },
+    "garlic": {
+      "title": "El Ajo",
+      "subtitle": "Diente de ajo (Opcional - Aromatización)",
+      "desc": "Un diente de ajo frito brevemente en el aceite de oliva antes de pochar la patata infunde un aroma sutil y un trasfondo campestre irresistible sin amargar."
     },
     "blackPepper": {
       "title": "La Pimienta Negra",

@@ -98,7 +98,12 @@
     "peppers": {
       "title": "Paprika",
       "subtitle": "Grüne oder rote Paprika (Optional - Ländliche Tortilla Paisana)",
-      "desc": "Bringen Frische, Gartenaromen und Farbe in regionalen Varianten wie der nordspanischen Tortilla Paisana."
+      "desc": "Bringen Frische, Gartenaromen und Farbe in regionalen Varianten wie der nordspanischen Tortilla Paisana (nicht mit schwarzem Pfeffer zu verwechseln)."
+    },
+    "garlic": {
+      "title": "Knoblauch",
+      "subtitle": "Knoblauchzehe (Optional - Aromatische Infusion)",
+      "desc": "Eine kurz im Olivenöl angebratene Knoblauchzehe verleiht dem Öl ein feines, herzhaftes Hintergrundaroma, das der Kartoffel zusätzliche Tiefe verleiht."
     },
     "blackPepper": {
       "title": "Schwarzer Pfeffer",

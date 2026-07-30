@@ -66,6 +66,7 @@ export interface Taxonomy {
   slug: LocalizedString;
   title: LocalizedString;
   description: LocalizedString;
+  image?: string;
   icon?: string;
   theme?: {
     color?: string;
