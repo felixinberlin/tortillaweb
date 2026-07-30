@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "icon": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        }
+      }
+    },
+    "dogma": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "badge": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "keyIngredient": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "prominentFigures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "slug",
+    "title",
+    "description"
+  ]
+}

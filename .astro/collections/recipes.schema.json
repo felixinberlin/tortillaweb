@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "taxonomyIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "time": {
+      "type": "number"
+    },
+    "image": {
+      "type": "string"
+    },
+    "prepTimeMinutes": {
+      "type": "number"
+    },
+    "cookTimeMinutes": {
+      "type": "number"
+    },
+    "yieldServings": {
+      "type": "number"
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "es": {
+            "type": "string"
+          },
+          "en": {
+            "type": "string"
+          },
+          "de": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "es",
+          "en",
+          "de"
+        ]
+      }
+    },
+    "instructions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "step": {
+            "type": "object",
+            "properties": {
+              "es": {
+                "type": "string"
+              },
+              "en": {
+                "type": "string"
+              },
+              "de": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "es",
+              "en",
+              "de"
+            ]
+          },
+          "text": {
+            "type": "object",
+            "properties": {
+              "es": {
+                "type": "string"
+              },
+              "en": {
+                "type": "string"
+              },
+              "de": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "es",
+              "en",
+              "de"
+            ]
+          }
+        },
+        "required": [
+          "step",
+          "text"
+        ]
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "description",
+    "taxonomyIds",
+    "time"
+  ]
+}
