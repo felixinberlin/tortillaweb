@@ -158,7 +158,7 @@ export default function Header() {
                 <button
                   key={language.code}
                   onClick={() => changeLanguage(language.code)}
-                  className={`lang-btn text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
+                  className={`lang-btn text-[11px] font-bold px-2 py-0.5 rounded transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 ${
                     active
                       ? "bg-white text-[#8D6E63] shadow-2xs"
                       : "text-muted-foreground hover:text-foreground"
@@ -190,7 +190,7 @@ export default function Header() {
                 <button
                   key={language.code}
                   onClick={() => changeLanguage(language.code)}
-                  className={`lang-btn text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded transition-all ${
+                  className={`lang-btn text-[10px] sm:text-[11px] font-bold px-1.5 py-0.5 rounded transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 ${
                     active
                       ? "bg-white text-[#8D6E63] shadow-2xs"
                       : "text-muted-foreground hover:text-foreground"

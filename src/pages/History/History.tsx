@@ -150,7 +150,8 @@ export default function History() {
           <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
             <button
               onClick={() => setActiveChapter("all")}
-              className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-all whitespace-nowrap ${
+              aria-pressed={activeChapter === "all"}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg border transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                 activeChapter === "all"
                   ? "bg-[#8D6E63] text-white border-[#8D6E63] shadow-2xs"
                   : "bg-background text-muted-foreground border-border hover:bg-muted"
@@ -162,7 +163,8 @@ export default function History() {
               <button
                 key={ch.id}
                 onClick={() => setActiveChapter(ch.id)}
-                className={`px-2.5 py-1.5 text-xs font-bold rounded-lg border transition-all whitespace-nowrap ${
+                aria-pressed={activeChapter === ch.id}
+                className={`px-2.5 py-1.5 text-xs font-bold rounded-lg border transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                   activeChapter === ch.id
                     ? "bg-[#FFB800] text-amber-950 border-[#FFB800] shadow-2xs"
                     : "bg-background text-muted-foreground border-border hover:bg-muted"

@@ -84,7 +84,8 @@ export default function Personas() {
         <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-end">
           <button
             onClick={() => setSelectedCategory("all")}
-            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg border transition-all ${
+            aria-pressed={selectedCategory === "all"}
+            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
               selectedCategory === "all"
                 ? "bg-[#8D6E63] text-white border-[#8D6E63] shadow-2xs"
                 : "bg-background text-muted-foreground border-border hover:bg-muted"
@@ -96,7 +97,8 @@ export default function Personas() {
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`px-3.5 py-1.5 text-xs font-bold rounded-lg border transition-all ${
+              aria-pressed={selectedCategory === cat.id}
+              className={`px-3.5 py-1.5 text-xs font-bold rounded-lg border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                 selectedCategory === cat.id
                   ? "bg-[#FFB800] text-amber-950 border-[#FFB800] shadow-2xs"
                   : "bg-background text-muted-foreground border-border hover:bg-muted"
