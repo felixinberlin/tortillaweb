@@ -99,7 +99,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
                 rel="noopener noreferrer"
                 className="text-[#FFB800] flex items-center justify-between group py-0.5 hover:underline"
               >
-                <span>Tortilla Creator App (tortilladepatatas.de)</span>
+                <span>{t("footer.creatorApp", "Tortilla Creator App (tortilladepatatas.de)")}</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
               </a>
             </li>
@@ -114,9 +114,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
               <span>{t("footer.safetyTitle", "Estándar de Seguridad Bactericida")}</span>
             </h4>
 
-            <p className="text-[#E8E2D5]/80 leading-relaxed">
-              Para garantizar la inocuidad microbiológica y la destrucción de <i>Salmonella spp.</i>, el estándar de cocinado bactericida exige alcanzar <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">70°C for 2 minutes</strong> (o <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">4 hours</strong> a temperatura ambiente.
-            </p>
+            <p className="text-[#E8E2D5]/80 leading-relaxed" dangerouslySetInnerHTML={{ __html: t("footer.safetyTextHtml", "Para garantizar la inocuidad microbiológica y la destrucción de <i>Salmonella spp.</i>, el estándar de cocinado bactericida exige alcanzar <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">70°C for 2 minutes</strong> (o <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong class=\"font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded\">4 hours</strong> a temperatura ambiente.") }}></p>
 
             <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/60">
               <span className="font-mono">{t("footer.safetyNorm", "Normativa Colectividades Real Decreto 1021/2022")}</span>

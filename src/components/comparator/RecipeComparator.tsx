@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import React, { useState, useMemo } from "react";
 import type { RawRecipeInput, LocalizedString } from "@/domain/comparator/types";
 import { compareRecipes } from "@/domain/comparator/compareRecipes";
@@ -16,6 +17,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
   initialRecipeBId = "betanzos",
   lang = "es",
 }) => {
+  const { t } = useTranslation(undefined, { lng: lang });
   const [selectedIdA, setSelectedIdA] = useState<string>(initialRecipeAId);
   const [selectedIdB, setSelectedIdB] = useState<string>(initialRecipeBId);
 
@@ -147,7 +149,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
               })}
             </select>
             <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
-              <span>{translations.eggCount}: <strong>{profileA.eggCount} huevos</strong></span>
+              <span>{translations.eggCount}: <strong>{profileA.eggCount} {t("comparator.eggs", "huevos")}</strong></span>
               <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px]">
                 {profileA.classification.potatoIntensityLabel}
               </span>
@@ -174,7 +176,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
               })}
             </select>
             <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
-              <span>{translations.eggCount}: <strong>{profileB.eggCount} huevos</strong></span>
+              <span>{translations.eggCount}: <strong>{profileB.eggCount} {t("comparator.eggs", "huevos")}</strong></span>
               <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-300 font-bold text-[10px]">
                 {profileB.classification.potatoIntensityLabel}
               </span>
@@ -193,7 +195,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
             </h4>
           </div>
           <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FFB800]/20 text-[#8D6E63] border border-[#FFB800]/40">
-            Ratio Normalizado / 1 Huevo
+            {t("comparator.normalizedRatio", "Ratio Normalizado / 1 Huevo")}
           </span>
         </div>
 
@@ -218,10 +220,10 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
                       {getLocalizedText(item.name)}
                     </td>
                     <td className="p-3.5 font-mono font-semibold text-foreground">
-                      {item.recipeAValue} {item.unit} / huevo
+                      {item.recipeAValue} {item.unit} / {t("comparator.eggSingle", "huevo")}
                     </td>
                     <td className="p-3.5 font-mono font-semibold text-foreground">
-                      {item.recipeBValue} {item.unit} / huevo
+                      {item.recipeBValue} {item.unit} / {t("comparator.eggSingle", "huevo")}
                     </td>
                     <td className="p-3.5 font-mono">
                       {item.difference === 0 ? (
@@ -298,7 +300,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
             <div className="flex justify-between text-xs font-bold text-foreground">
               <span>{translations.potatoIntensity}</span>
               <span className="text-[#8D6E63] font-mono">
-                {profileA.ratios.potato?.quantity || 0}g/huevo vs {profileB.ratios.potato?.quantity || 0}g/huevo
+                {profileA.ratios.potato?.quantity || 0}g/{t("comparator.eggSingle", "huevo")} vs {profileB.ratios.potato?.quantity || 0}g/{t("comparator.eggSingle", "huevo")}
               </span>
             </div>
             <div className="space-y-1">
@@ -322,7 +324,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
             <div className="flex justify-between text-xs font-bold text-foreground">
               <span>{translations.oilRichness}</span>
               <span className="text-[#8D6E63] font-mono">
-                {profileA.ratios.oil?.quantity || 0}ml/huevo vs {profileB.ratios.oil?.quantity || 0}ml/huevo
+                {profileA.ratios.oil?.quantity || 0}ml/{t("comparator.eggSingle", "huevo")} vs {profileB.ratios.oil?.quantity || 0}ml/{t("comparator.eggSingle", "huevo")}
               </span>
             </div>
             <div className="space-y-1">
