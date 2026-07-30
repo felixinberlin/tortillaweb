@@ -52,8 +52,18 @@ export interface RawIngredientInput {
   name?: string | LocalizedString;
   amount?: number;
   quantity?: number;
+  cookingAmount?: number;
+  estimatedAbsorbedAmount?: number;
+  absorbedAmount?: number;
   unit?: string;
   notes?: string | LocalizedString;
+}
+
+export interface OilUsageInput {
+  cookingAmount?: number;
+  estimatedAbsorbedAmount?: number;
+  amount?: number;
+  unit?: string;
 }
 
 export interface RawRecipeInput {
@@ -65,6 +75,13 @@ export interface RawRecipeInput {
   name?: string | LocalizedString;
   source?: RecipeSource;
   ingredients?: RawIngredientInput[];
+  oilUsage?: OilUsageInput;
+  technique?: {
+    hasOnion?: boolean;
+    finalTexture?: "runny" | "creamy" | "firm";
+    potatoCooking?: "confit" | "double_stage_fry" | "boil_fry" | "chips";
+    [key: string]: any;
+  };
   [key: string]: any;
 }
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import "@/i18n/config";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
@@ -14,12 +14,18 @@ import {
   Info,
   CircleDot,
   Globe,
-  ExternalLink
+  ExternalLink,
+  ArrowRight,
+  GitCompare
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { calculateIngredients } from "@/lib/builderMath";
+import { generateRecipe } from "@/domain/builder/generateRecipe";
+import { normalizeRecipe } from "@/domain/tortilla-dna/normalizeRecipe";
+import { compareRecipes } from "@/domain/tortilla-dna/compareRecipes";
+import { getReferenceRecipes } from "@/domain/recipes/referenceRecipes";
+import type { LocalizedString } from "@/domain/tortilla-dna/types";
 
 interface BuilderAppProps {
   lang?: string;
@@ -34,42 +40,79 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
   const [doneness, setDoneness] = useState<"betanzos" | "jugosa" | "cuajada">("jugosa");
   const [potatoCut, setPotatoCut] = useState<"pochada" | "crujiente">("pochada");
   const [copied, setCopied] = useState<boolean>(false);
+  
+  // Reference recipe for comparator
+  const referenceRecipes = useMemo(() => getReferenceRecipes(), []);
+  const [selectedRefId, setSelectedRefId] = useState<string>("betanzos");
 
-  // Math calculations based on traditional Spanish chef ratios
-  const { eggCount, potatoGrams, onionGrams, oilMl, saltGrams, panSizeCm } = calculateIngredients({
-    diners,
-    hasOnion,
-    doneness,
-    potatoCut
-  });
+  // 1. Generate full domain Recipe object from builder choices
+  const userRecipe = useMemo(() => {
+    return generateRecipe({
+      diners,
+      hasOnion,
+      doneness,
+      potatoCut,
+    });
+  }, [diners, hasOnion, doneness, potatoCut]);
+
+  // 2. Normalize generated recipe into Tortilla DNA profile
+  const userDna = useMemo(() => {
+    return normalizeRecipe(userRecipe);
+  }, [userRecipe]);
+
+  // 3. Find selected reference recipe
+  const selectedRefRecipe = useMemo(() => {
+    return referenceRecipes.find((r) => r.id === selectedRefId) || referenceRecipes[0];
+  }, [referenceRecipes, selectedRefId]);
+
+  // 4. Compare user custom recipe against reference recipe
+  const comparison = useMemo(() => {
+    if (!userRecipe || !selectedRefRecipe) return null;
+    return compareRecipes(userRecipe, selectedRefRecipe);
+  }, [userRecipe, selectedRefRecipe]);
+
+  const { eggCount, panSizeCm } = userRecipe;
+  const potatoGrams = userRecipe.ingredients.find((i) => i.ingredientId === "potato")?.amount || 0;
+  const onionGrams = userRecipe.ingredients.find((i) => i.ingredientId === "onion")?.amount || 0;
+  const saltGrams = userRecipe.ingredients.find((i) => i.ingredientId === "salt")?.amount || 0;
+  const oilUsed = userRecipe.oilUsage?.cookingAmount || 0;
+  const oilAbsorbed = userRecipe.oilUsage?.estimatedAbsorbedAmount || 0;
+
+  function getLocalizedText(str: string | LocalizedString | undefined): string {
+    if (!str) return "";
+    if (typeof str === "object") {
+      return str[lang as "es" | "en" | "de"] || str.es || str.en || "";
+    }
+    return str;
+  }
 
   const handleCopyRecipe = () => {
     const text = lang.startsWith("de") ?
-      `🍳 Tortilla-Rezept (${diners} Personen)
+      `🍳 Meine Tortilla (${diners} Personen)
 - ${eggCount} große Eier
-- ${potatoGrams}g Kartoffeln (Monalisa oder Kennebec)
+- ${potatoGrams}g Kartoffeln
 ${hasOnion ? `- ${onionGrams}g süße Zwiebeln` : "- Ohne Zwiebeln"}
-- ${oilMl}ml Olivenöl Nativ Extra
+- ${oilUsed}ml Olivenöl zum Frittieren (${oilAbsorbed}ml aufgenommen)
 - ${saltGrams}g Salz
 - Empfohlene Pfannengröße: ${panSizeCm}cm
-- Garstufe: ${doneness === "betanzos" ? "Sehr saftig (Betanzos-Stil)" : doneness === "jugosa" ? "Cremige Mitte" : "Fest durchgegart"}`
+- Garstufe: ${doneness === "betanzos" ? "Betanzos-Stil" : doneness === "jugosa" ? "Cremige Mitte" : "Fest durchgegart"}`
       : lang.startsWith("es") ?
-      `🍳 Receta Tortilla de Patatas (${diners} personas)
+      `🍳 Mi Receta de Tortilla de Patatas (${diners} personas)
 - ${eggCount} huevos grandes
-- ${potatoGrams}g de patatas (variedad Monalisa o Kennebec)
+- ${potatoGrams}g de patatas Monalisa
 ${hasOnion ? `- ${onionGrams}g de cebolla dulce` : "- Sin cebolla"}
-- ${oilMl}ml de Aceite de Oliva Virgen Extra (AOVE)
+- ${oilUsed}ml de AOVE para pochar (${oilAbsorbed}ml absorbidos)
 - ${saltGrams}g de sal
 - Sartén recomendada: ${panSizeCm}cm
-- Punto: ${doneness === "betanzos" ? "Muy jugosa (Estilo Betanzos)" : doneness === "jugosa" ? "En su punto / Cremosa" : "Cuajada firme"}`
-      : `🍳 Spanish Tortilla Recipe (${diners} servings)
+- Punto: ${doneness === "betanzos" ? "Estilo Betanzos" : doneness === "jugosa" ? "Cremosa / En su punto" : "Cuajada firme"}`
+      : `🍳 My Spanish Tortilla Recipe (${diners} servings)
 - ${eggCount} large eggs
-- ${potatoGrams}g potatoes (Monalisa or Yukon Gold)
+- ${potatoGrams}g Monalisa potatoes
 ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
-- ${oilMl}ml Extra Virgin Olive Oil
+- ${oilUsed}ml EVOO for frying (${oilAbsorbed}ml absorbed)
 - ${saltGrams}g salt
 - Recommended pan size: ${panSizeCm}cm
-- Doneness: ${doneness === "betanzos" ? "Very runny (Betanzos style)" : doneness === "jugosa" ? "Medium / Creamy center" : "Well done / Firm"}`;
+- Doneness: ${doneness === "betanzos" ? "Betanzos style" : doneness === "jugosa" ? "Medium creamy center" : "Well done / Firm"}`;
 
     navigator.clipboard.writeText(text);
     setCopied(true);
@@ -82,7 +125,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
       <div className="text-center mb-8 max-w-3xl mx-auto">
         <Badge variant="secondary" className="mb-4 px-3 py-1 text-sm font-medium bg-amber-100 text-amber-900 border-amber-200">
           <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" />
-          {t("builder.badge", "Constructor Interactivo de Tortilla")}
+          {t("builder.badge", "Constructor Interactivo & Tortilla DNA")}
         </Badge>
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
           {t("builder.title", "Crea tu propia tortilla")}
@@ -360,11 +403,46 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                     </div>
                   )}
 
-                  <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
-                    <span className="text-2xl font-bold text-amber-600 block">{oilMl} ml</span>
-                    <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                      🫒 {t("builder.oilLabel", "AOVE (Aceite)")}
+                  {/* Oil usage display with separated cooking oil vs absorbed oil */}
+                  <div className="p-3 rounded-lg bg-card border border-border shadow-2xs col-span-2 sm:col-span-1">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-2xl font-bold text-amber-600 block">{oilAbsorbed} ml</span>
+                      <span className="text-[11px] text-muted-foreground font-semibold">({oilUsed} ml en sartén)</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider block mt-1">
+                      🫒 {t("builder.oilLabel", "AOVE (Absorbido)")}
                     </span>
+                  </div>
+                </div>
+
+                {/* Tortilla DNA Profile Summary */}
+                <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-amber-900 dark:text-amber-200 uppercase tracking-wider flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                      Perfil ADN de tu receta
+                    </span>
+                    <Badge variant="outline" className="text-[10px] bg-amber-100 text-amber-900 border-amber-300">
+                      Normalizado / 1 huevo
+                    </Badge>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs pt-1">
+                    <div className="bg-white/80 dark:bg-background/80 p-2 rounded-md border border-amber-200/40">
+                      <span className="text-muted-foreground text-[10px] block">Patata por huevo</span>
+                      <span className="font-bold text-foreground">{userDna.ratios.potato?.quantity}g / huevo</span>
+                      <span className="text-[10px] text-amber-700 dark:text-amber-400 block font-medium">
+                        ({userDna.classification.potatoIntensityLabel})
+                      </span>
+                    </div>
+
+                    <div className="bg-white/80 dark:bg-background/80 p-2 rounded-md border border-amber-200/40">
+                      <span className="text-muted-foreground text-[10px] block">Aceite absorbido</span>
+                      <span className="font-bold text-foreground">{userDna.ratios.oil?.quantity}ml / huevo</span>
+                      <span className="text-[10px] text-amber-700 dark:text-amber-400 block font-medium">
+                        ({userDna.classification.oilIntensityLabel})
+                      </span>
+                    </div>
                   </div>
                 </div>
 
@@ -417,6 +495,154 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
             </Card>
           </motion.div>
         </div>
+      </div>
+
+      {/* Interactive DNA Comparator Section */}
+      <div className="mt-16 pt-10 border-t border-border space-y-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-amber-500/10 p-6 rounded-2xl border border-amber-500/20">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <GitCompare className="w-5 h-5 text-amber-600" />
+              <h2 className="text-2xl font-extrabold text-foreground">
+                Compara tu tortilla personalizada con referencias icónicas
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Compara matemáticamente las proporciones normalizadas por huevo de tu receta contra tortillas famosas.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider shrink-0">
+              Comparar con:
+            </label>
+            <select
+              value={selectedRefId}
+              onChange={(e) => setSelectedRefId(e.target.value)}
+              className="px-3 py-2 rounded-xl bg-background border border-border text-sm font-bold text-foreground focus:outline-hidden focus:ring-2 focus:ring-amber-500"
+            >
+              {referenceRecipes.map((r) => (
+                <option key={r.id} value={r.id}>
+                  {getLocalizedText(r.title || r.recipeName || r.name)}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Comparison Result Table */}
+        {comparison && (
+          <div className="grid md:grid-cols-12 gap-6 items-start">
+            {/* Comparison Details */}
+            <div className="md:col-span-8 bg-card rounded-2xl border border-border overflow-hidden shadow-xs">
+              <div className="p-4 bg-amber-500/10 border-b border-amber-500/20 flex items-center justify-between">
+                <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
+                  <span>Tu Receta ({userRecipe.servings} pers.)</span>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-amber-700 dark:text-amber-400">
+                    {getLocalizedText(selectedRefRecipe.title || selectedRefRecipe.recipeName)}
+                  </span>
+                </h3>
+                <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300 font-bold">
+                  Proporción por 1 Huevo
+                </Badge>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead>
+                    <tr className="border-b border-border bg-muted/40 text-muted-foreground">
+                      <th className="p-3 font-bold uppercase text-[11px]">Ingrediente</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">Tu receta (/huevo)</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">Referencia (/huevo)</th>
+                      <th className="p-3 font-bold uppercase text-[11px]">Diferencia</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {comparison.ingredients.map((item) => {
+                      const isDiffPositive = item.difference > 0;
+                      return (
+                        <tr key={item.ingredientId} className="hover:bg-muted/20 transition-colors">
+                          <td className="p-3 font-semibold text-foreground capitalize">
+                            {getLocalizedText(item.name)}
+                          </td>
+                          <td className="p-3 font-mono font-bold text-foreground">
+                            {item.recipeAValue} {item.unit}
+                          </td>
+                          <td className="p-3 font-mono font-bold text-foreground">
+                            {item.recipeBValue} {item.unit}
+                          </td>
+                          <td className="p-3 font-mono">
+                            {item.difference === 0 ? (
+                              <span className="text-muted-foreground text-xs font-normal">Igual (0%)</span>
+                            ) : (
+                              <span
+                                className={`inline-flex items-center gap-1 font-bold px-2 py-0.5 rounded-full text-xs ${
+                                  isDiffPositive
+                                    ? "bg-amber-100 text-amber-900 border border-amber-300"
+                                    : "bg-emerald-100 text-emerald-900 border border-emerald-300"
+                                }`}
+                              >
+                                {isDiffPositive ? `+${item.difference}` : item.difference} {item.unit}{" "}
+                                ({isDiffPositive ? `+${item.percentageDifference}%` : `${item.percentageDifference}%`})
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Side-by-side DNA Profile Tags */}
+            <div className="md:col-span-4 bg-amber-50/50 dark:bg-amber-950/20 p-5 rounded-2xl border border-amber-200/60 space-y-4">
+              <h4 className="font-bold text-sm text-foreground flex items-center gap-2 border-b border-amber-200/60 pb-2">
+                <Sparkles className="w-4 h-4 text-amber-600" />
+                Comparativa de Clasificación
+              </h4>
+
+              <div className="space-y-3 text-xs">
+                <div>
+                  <span className="text-muted-foreground font-medium block">Intensidad de Patata:</span>
+                  <div className="flex items-center gap-2 mt-0.5 font-bold">
+                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.potatoIntensity.a}</span>
+                    <span className="text-muted-foreground">vs</span>
+                    <span className="text-foreground">{comparison.profile.potatoIntensity.b}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-muted-foreground font-medium block">Aporte de Aceite:</span>
+                  <div className="flex items-center gap-2 mt-0.5 font-bold">
+                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.oilIntensity.a}</span>
+                    <span className="text-muted-foreground">vs</span>
+                    <span className="text-foreground">{comparison.profile.oilIntensity.b}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-muted-foreground font-medium block">Presencia de Cebolla:</span>
+                  <div className="flex items-center gap-2 mt-0.5 font-bold">
+                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.onionPresence.a}</span>
+                    <span className="text-muted-foreground">vs</span>
+                    <span className="text-foreground">{comparison.profile.onionPresence.b}</span>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-muted-foreground font-medium block">Dominancia del Huevo:</span>
+                  <div className="flex items-center gap-2 mt-0.5 font-bold">
+                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.eggDominance.a}</span>
+                    <span className="text-muted-foreground">vs</span>
+                    <span className="text-foreground">{comparison.profile.eggDominance.b}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

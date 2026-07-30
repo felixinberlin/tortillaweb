@@ -78,7 +78,19 @@ export function normalizeRecipe(recipe: RawRecipeInput): RecipeDNA {
   for (const ing of ingredients) {
     const ingId = getIngredientId(ing);
     const ingName = getIngredientName(ing);
-    const rawAmount = ing.quantity ?? ing.amount ?? 0;
+    let rawAmount = ing.quantity ?? ing.amount ?? 0;
+
+    // Use absorbed oil when available for accurate comparison
+    if (ingId === "oil") {
+      if (recipe.oilUsage?.estimatedAbsorbedAmount !== undefined) {
+        rawAmount = recipe.oilUsage.estimatedAbsorbedAmount;
+      } else if (ing.estimatedAbsorbedAmount !== undefined) {
+        rawAmount = ing.estimatedAbsorbedAmount;
+      } else if (ing.absorbedAmount !== undefined) {
+        rawAmount = ing.absorbedAmount;
+      }
+    }
+
     const rawUnit = ing.unit || "g";
 
     const std = convertToStandardUnit(rawAmount, rawUnit, ingId);
