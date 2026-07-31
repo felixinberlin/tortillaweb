@@ -65,6 +65,9 @@
         "de"
       ]
     },
+    "image": {
+      "type": "string"
+    },
     "icon": {
       "type": "string"
     },
@@ -94,9 +97,6 @@
         "en",
         "de"
       ]
-    },
-    "image": {
-      "type": "string"
     },
     "badge": {
       "type": "object",
