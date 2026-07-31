@@ -42,7 +42,7 @@ export const historyData: Record<string, HistoryPageContent> = {
     badge: "Crónica Histórica & Cronología Gastronómica",
     title: "La Tortilla de Patatas: Crónica del Ingenio y la Identidad",
     subtitle: "Investigación histórica integral: desde los orígenes del Siglo de las Luces y la cocina de subsistencia hasta los retos de la seguridad alimentaria y la era digital.",
-    chefNote: "La historia de la tortilla es la crónica del ingenio popular español. Desde 'estirar' huevos con patatas en 1817 hasta usar corteza de naranja en la posguerra, este plato personifica la supervivencia. Para disfrutarlo con total seguridad, la pasteurización exige alcanzar **70°C for 2 minutes** o **63°C for 20 seconds**, evitando mantener la tortilla más de **4 hours** a temperatura ambiente.",
+    chefNote: "La historia de la tortilla es la crónica del ingenio popular español. Desde 'estirar' huevos con patatas en 1817 hasta usar corteza de naranja en la posguerra, este plato personifica la supervivencia. Para disfrutarlo con total seguridad, la pasteurización exige alcanzar **70°C durante 2 minutos** o **63°C durante 20 segundos**, evitando mantener la tortilla más de **4 horas** a temperatura ambiente.",
     timelineTitle: "Línea del Tiempo & Hitos Históricos",
     timelineSubtitle: "Los momentos clave que transformaron un plato de supervivencia en el icono de España.",
     timelineEvents: [
@@ -98,7 +98,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1991 - 2025",
         title: "Alertas Sanitarias y Control Epidemiológico",
         location: "Valencia, Madrid, Galia",
-        description: "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C for 2 minutes** y ovoproductos.",
+        description: "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C durante 2 minutos** y ovoproductos.",
         badge: "Seguridad Alimentaria",
         tagType: "safety"
       },
@@ -172,7 +172,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         title: "El Desafío Contemporáneo: Seguridad Alimentaria y Brotes",
         content: [
           "Hoy, la tortilla de patatas habita una dualidad entre el placer del 'poco cuajado' (preferido por el 53.9% de los españoles según datos del CIS) y la vigilancia epidemiológica de Salmonella Enteritidis.",
-          "Para garantizar la inocuidad bactericida, las recomendaciones de salud pública exigen que el centro térmico alcance **70°C for 2 minutes** (para una reducción $\\ge 5 \\text{ log}$) o **63°C for 20 seconds**. Asimismo, no debe mantenerse la preparación a temperatura ambiente por más de **4 hours**."
+          "Para garantizar la inocuidad bactericida, las recomendaciones de salud pública exigen que el centro térmico alcance **70°C durante 2 minutos** (para una reducción $\\ge 5 \\text{ log}$) o **63°C durante 20 segundos**. Asimismo, no debe mantenerse la preparación a temperatura ambiente por más de **4 horas**."
         ],
         tableData: {
           headers: ["Año", "Ubicación / Evento", "Contexto e Impacto", "Agente Principal"],
@@ -186,7 +186,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         },
         callout: {
           type: "safety",
-          text: "Estándar Inocuo: Todo huevo fresco no pasteurizado que no alcance **70°C for 2 minutes** o **63°C for 20 seconds** entra en riesgo microbiológico si se mantiene entre 7°C y 48°C por más de **4 hours**."
+          text: "Estándar Inocuo: Todo huevo fresco no pasteurizado que no alcance **70°C durante 2 minutos** o **63°C durante 20 segundos** entra en riesgo microbiológico si se mantiene entre 7°C y 48°C por más de **4 horas**."
         }
       },
       {
@@ -397,7 +397,7 @@ export const historyData: Record<string, HistoryPageContent> = {
     badge: "Historische Chronik & Gastronomische Zeitleiste",
     title: "Die Geschichte der Tortilla de Patatas",
     subtitle: "Umfassende historische Untersuchung: Von den Aufklärungs-Wurzeln im 18. Jahrhundert über Überlebensrezepte bis zur modernen Lebensmittelsicherheit.",
-    chefNote: "Die Geschichte der Tortilla ist ein Denkmal des spanischen Volksgeistes. Vom Gestrecken spärlicher Eier mit Kartoffeln 1817 bis zur Verwendung von Orangenschalen in der Nachkriegszeit verkörpert sie Überlebenswillen. Für absolute Sicherheit verlangt die Pasteurisierung **70°C for 2 minutes** oder **63°C for 20 seconds** sowie maximal **4 hours** Stehzeit bei Raumtemperatur.",
+    chefNote: "Die Geschichte der Tortilla ist ein Denkmal des spanischen Volksgeistes. Vom Gestrecken spärlicher Eier mit Kartoffeln 1817 bis zur Verwendung von Orangenschalen in der Nachkriegszeit verkörpert sie Überlebenswillen. Für absolute Sicherheit verlangt die Pasteurisierung **70°C für 2 Minuten** oder **63°C für 20 Sekunden** sowie maximal **4 Stunden** Stehzeit bei Raumtemperatur.",
     timelineTitle: "Zeitleiste & Historische Meilensteine",
     timelineSubtitle: "Schlüsselmomente der Transformation vom Notgericht zum Nationalsymbol.",
     timelineEvents: [
@@ -453,7 +453,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1991 - 2025",
         title: "Ausbrüche & Inaktivierungs-Standards",
         location: "Spanien",
-        description: "Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C for 2 minutes** und Flüssigei.",
+        description: "Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C für 2 Minuten** und Flüssigei.",
         badge: "Lebensmittelsicherheit",
         tagType: "safety"
       },
@@ -526,7 +526,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         title: "Moderne Herausforderungen: Tradition vs. Lebensmittelsicherheit",
         content: [
           "Obwohl 53,9% flüssige Kern-Tortillas bevorzugen, birgt rohes Ei das Risiko von Salmonella Enteritidis.",
-          "Sicherheitsstandards verlangen **70°C for 2 minutes** oder **63°C for 20 seconds** sowie maximal **4 hours** bei Raumtemperatur."
+          "Sicherheitsstandards verlangen **70°C für 2 Minuten** oder **63°C für 20 Sekunden** sowie maximal **4 Stunden** bei Raumtemperatur."
         ],
         tableData: {
           headers: ["Jahr", "Ort / Ereignis", "Kontext & Auswirkung", "Erreger"],
@@ -540,7 +540,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         },
         callout: {
           type: "safety",
-          text: "Goldstandard: Nicht pasteurisierte Zubereitungen, die **70°C for 2 minutes** nicht erreichen, dürfen nie länger als **4 hours** ungekühlt stehen."
+          text: "Goldstandard: Nicht pasteurisierte Zubereitungen, die **70°C für 2 Minuten** nicht erreichen, dürfen nie länger als **4 Stunden** ungekühlt stehen."
         }
       },
       {

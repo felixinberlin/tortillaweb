@@ -69,12 +69,12 @@ const taxonomyCollection = defineCollection({
     slug: localizedStringSchema,
     title: localizedStringSchema,
     description: localizedStringSchema,
+    image: z.string().optional(),
     icon: z.string().optional(),
     theme: z.object({
       color: z.string().optional(),
     }).optional(),
     dogma: localizedStringSchema.optional(),
-    image: z.string().optional(),
     badge: localizedStringSchema.optional(),
     keyIngredient: localizedStringSchema.optional(),
     prominentFigures: z.array(z.string()).optional(),

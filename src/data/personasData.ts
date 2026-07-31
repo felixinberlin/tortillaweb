@@ -133,7 +133,7 @@ export const personasData: Record<string, PersonasPageContent> = {
     badge: "Directorio Maestro & Figura Clave",
     title: "Personas: Mentes & Manos de la Tortilla",
     subtitle: "Compendio analítico de las figuras y mentes que, desde la investigación académica, la innovación culinaria, la tradición popular y la visión empresarial, definen el presente y futuro de la tortilla de patatas.",
-    chefNote: "Este directorio rinde homenaje tanto a las pioneras anónimas como a los científicos y chefs de vanguardia. La tradición culinaria y la seguridad bactericida (**70°C for 2 minutes**) caminan de la mano en nuestro cuaderno de laboratorio.",
+    chefNote: "Este directorio rinde homenaje tanto a las pioneras anónimas como a los científicos y chefs de vanguardia. La tradición culinaria y la seguridad bactericida (**70°C durante 2 minutos**) caminan de la mano en nuestro cuaderno de laboratorio.",
     categories: [
       {
         id: "pioneros",
@@ -199,7 +199,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "Alejandro José Ortega Vargas",
             badge: "Ciencia",
             era: "Contemporánea (Siglo XXI)",
-            contribution: "Investigador especializado en el perfil de riesgo de Salmonella spp. en la tortilla poco cuajada. Mediante el uso de la herramienta Risk Ranger, ha documentado que el consumo tradicional (huevo líquido) es un escenario crítico de exposición. Su trabajo analiza brotes recientes de gran impacto, como el del Trasan Fest en Galicia (2025), donde la falta de tratamiento térmico adecuado resultó en más de 150 afectados, subrayando la urgencia de alcanzar los **70°C** en el centro del producto por **2 minutes**.",
+            contribution: "Investigador especializado en el perfil de riesgo de Salmonella spp. en la tortilla poco cuajada. Mediante el uso de la herramienta Risk Ranger, ha documentado que el consumo tradicional (huevo líquido) es un escenario crítico de exposición. Su trabajo analiza brotes recientes de gran impacto, como el del Trasan Fest en Galicia (2025), donde la falta de tratamiento térmico adecuado resultó en más de 150 afectados, subrayando la urgencia de alcanzar los **70°C** en el centro del producto por **2 minutos**.",
             relatedLabel: "Ver Ciencia & Microbiología"
           }),
           createPersona({
@@ -443,7 +443,7 @@ export const personasData: Record<string, PersonasPageContent> = {
     badge: "Meister-Verzeichnis & Schlüsselpersönlichkeiten",
     title: "Personas: Köpfe & Hände der Tortilla",
     subtitle: "Analytisches Verzeichnis der Personen, die durch akademische Forschung, kulinarische Innovation, Tradition und Wirtschaftsvision die Gegenwart und Zukunft der Kartoffeltortilla prägen.",
-    chefNote: "Dieses Verzeichnis ehrt anonyme Landköchinnen ebenso wie Spitzenköche und Wissenschaftler. Tradition und mikrobiologische Sicherheit (**70°C for 2 minutes**) gehen in unserem Laborbuch Hand in Hand.",
+    chefNote: "Dieses Verzeichnis ehrt anonyme Landköchinnen ebenso wie Spitzenköche und Wissenschaftler. Tradition und mikrobiologische Sicherheit (**70°C für 2 Minuten**) gehen in unserem Laborbuch Hand in Hand.",
     categories: [
       {
         id: "pioneros",
@@ -509,7 +509,7 @@ export const personasData: Record<string, PersonasPageContent> = {
             name: "Alejandro José Ortega Vargas",
             badge: "Wissenschaft",
             era: "Gegenwart (21. Jahrhundert)",
-            contribution: "Forscher mit Spezialisierung auf das Risikoprofil von Salmonella spp. in flüssig gebratener Tortilla. Mithilfe von Risk Ranger dokumentierte er, dass der Verzehr mit flüssigem Ei ein kritisches Expositionsrisiko darstellt. Seine Analysen zu Ausbrüchen wie dem Trasan Fest (2025) unterstreichen die Notwendigkeit einer Kerntemperatur von **70°C for 2 minutes**.",
+            contribution: "Forscher mit Spezialisierung auf das Risikoprofil von Salmonella spp. in flüssig gebratener Tortilla. Mithilfe von Risk Ranger dokumentierte er, dass der Verzehr mit flüssigem Ei ein kritisches Expositionsrisiko darstellt. Seine Analysen zu Ausbrüchen wie dem Trasan Fest (2025) unterstreichen die Notwendigkeit einer Kerntemperatur von **70°C für 2 Minuten**.",
             relatedLabel: "Wissenschaft & Mikrobiologie"
           }),
           createPersona({

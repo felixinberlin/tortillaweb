@@ -16,6 +16,8 @@
     "de": "Eine traditionelle Variante der spanischen Tortilla mit Kartoffeln, Zwiebeln und Gemüse."
   },
   "taxonomyIds": [
+    "faction:pimientistas",
+    "faction:con-cosas",
     "faction:vegetarianos",
     "ingredient:potato",
     "ingredient:egg",

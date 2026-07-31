@@ -26,12 +26,25 @@
           "icon": "Shield",
           "dogma": "Solo patata, huevo, aceite de oliva y sal.",
           "keyIngredient": "Sin añadidos (0% Cebolla)",
-          "prominentFigures": ["Señora Angelita (Betanzos)", "Pepa Miranda", "Dabiz Muñoz", "Dani García", "La Falda de Chamberí"],
+          "prominentFigures": [
+            "Señora Angelita (Betanzos)",
+            "Pepa Miranda",
+            "Dabiz Muñoz",
+            "Dani García",
+            "La Falda de Chamberí"
+          ],
           "description": "Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.",
           "relatedPages": [
-            { "title": "Receta Betanzos", "url": "/es/recipes" },
-            { "title": "Técnica de Fritura", "url": "/es/techniques" }
-          ]
+            {
+              "title": "Receta Betanzos",
+              "url": "/es/recipes"
+            },
+            {
+              "title": "Técnica de Fritura",
+              "url": "/es/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-purist.jpg"
         },
         {
           "id": "concebollistas",
@@ -41,12 +54,23 @@
           "icon": "Heart",
           "dogma": "La cebolla pochada aporta la jugosidad y el dulzor esenciales.",
           "keyIngredient": "Cebolla Caramelizada",
-          "prominentFigures": ["Karlos Arguiñano", "José Andrés", "Rosalía"],
+          "prominentFigures": [
+            "Karlos Arguiñano",
+            "José Andrés",
+            "Rosalía"
+          ],
           "description": "Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.",
           "relatedPages": [
-            { "title": "Encuesta CIS", "url": "/es/history" },
-            { "title": "Receta Clásica", "url": "/es/recipes" }
-          ]
+            {
+              "title": "Encuesta CIS",
+              "url": "/es/history"
+            },
+            {
+              "title": "Receta Clásica",
+              "url": "/es/recipes"
+            }
+          ],
+          "image": "/images/factions/faction-onion.jpg"
         },
         {
           "id": "pimientistas",
@@ -56,12 +80,22 @@
           "icon": "Sprout",
           "dogma": "El toque fresco y ahumado de la huerta campera.",
           "keyIngredient": "Pimiento verde o rojo & Verduras",
-          "prominentFigures": ["Bar Néstor (San Sebastián)", "Recetario Campero"],
+          "prominentFigures": [
+            "Bar Néstor (San Sebastián)",
+            "Recetario Campero"
+          ],
           "description": "Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.",
           "relatedPages": [
-            { "title": "Tortilla Paisana", "url": "/es/recipes" },
-            { "title": "Rutas del Norte", "url": "/es/history" }
-          ]
+            {
+              "title": "Tortilla Paisana",
+              "url": "/es/recipes"
+            },
+            {
+              "title": "Rutas del Norte",
+              "url": "/es/history"
+            }
+          ],
+          "image": "/images/factions/faction-pimientos.jpg"
         },
         {
           "id": "ajistas",
@@ -71,12 +105,22 @@
           "icon": "Sparkles",
           "dogma": "Aromatizar el aceite sin sobrecargar de azúcar la mezcla.",
           "keyIngredient": "Ajo frito aromatizante",
-          "prominentFigures": ["Ángel León (Aponiente)", "Óscar Vidal (O'Pazo)"],
+          "prominentFigures": [
+            "Ángel León (Aponiente)",
+            "Óscar Vidal (O'Pazo)"
+          ],
           "description": "El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.",
           "relatedPages": [
-            { "title": "Ciencia del Aceite", "url": "/es/science" },
-            { "title": "Trucos de Chef", "url": "/es/techniques" }
-          ]
+            {
+              "title": "Ciencia del Aceite",
+              "url": "/es/science"
+            },
+            {
+              "title": "Trucos de Chef",
+              "url": "/es/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-garlic.jpg"
         },
         {
           "id": "con-cosas",
@@ -86,12 +130,23 @@
           "icon": "Flame",
           "dogma": "La tortilla como un lienzo abierto a la creatividad y expresión regional.",
           "keyIngredient": "Queso, trufa, chistorra, chips de bolsa",
-          "prominentFigures": ["Ferran Adrià", "Pez Tortilla", "José Antonio Labordeta"],
+          "prominentFigures": [
+            "Ferran Adrià",
+            "Pez Tortilla",
+            "José Antonio Labordeta"
+          ],
           "description": "Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.",
           "relatedPages": [
-            { "title": "Tortilla Exprés", "url": "/es/builder" },
-            { "title": "Deconstrucción", "url": "/es/techniques" }
-          ]
+            {
+              "title": "Tortilla Exprés",
+              "url": "/es/builder"
+            },
+            {
+              "title": "Deconstrucción",
+              "url": "/es/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-cosas.jpg"
         }
       ],
       "poll": {
@@ -142,12 +197,25 @@
           "icon": "Shield",
           "dogma": "Only potato, egg, olive oil, and salt.",
           "keyIngredient": "No additives (0% Onion)",
-          "prominentFigures": ["Señora Angelita (Betanzos)", "Pepa Miranda", "Dabiz Muñoz", "Dani García", "La Falda de Chamberí"],
+          "prominentFigures": [
+            "Señora Angelita (Betanzos)",
+            "Pepa Miranda",
+            "Dabiz Muñoz",
+            "Dani García",
+            "La Falda de Chamberí"
+          ],
           "description": "They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.",
           "relatedPages": [
-            { "title": "Betanzos Recipe", "url": "/en/recipes" },
-            { "title": "Frying Technique", "url": "/en/techniques" }
-          ]
+            {
+              "title": "Betanzos Recipe",
+              "url": "/en/recipes"
+            },
+            {
+              "title": "Frying Technique",
+              "url": "/en/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-purist.jpg"
         },
         {
           "id": "concebollistas",
@@ -157,12 +225,23 @@
           "icon": "Heart",
           "dogma": "Slow-poached onions provide essential juiciness and sweetness.",
           "keyIngredient": "Caramelized Onion",
-          "prominentFigures": ["Karlos Arguiñano", "José Andrés", "Rosalía"],
+          "prominentFigures": [
+            "Karlos Arguiñano",
+            "José Andrés",
+            "Rosalía"
+          ],
           "description": "Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.",
           "relatedPages": [
-            { "title": "CIS Survey", "url": "/en/history" },
-            { "title": "Classic Recipe", "url": "/en/recipes" }
-          ]
+            {
+              "title": "CIS Survey",
+              "url": "/en/history"
+            },
+            {
+              "title": "Classic Recipe",
+              "url": "/en/recipes"
+            }
+          ],
+          "image": "/images/factions/faction-onion.jpg"
         },
         {
           "id": "pimientistas",
@@ -172,12 +251,22 @@
           "icon": "Sprout",
           "dogma": "A fresh and smoky touch straight from the countryside.",
           "keyIngredient": "Green or Red Pepper & Veggies",
-          "prominentFigures": ["Bar Néstor (San Sebastián)", "Rustic Recipe Book"],
+          "prominentFigures": [
+            "Bar Néstor (San Sebastián)",
+            "Rustic Recipe Book"
+          ],
           "description": "Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.",
           "relatedPages": [
-            { "title": "Paisana Recipe", "url": "/en/recipes" },
-            { "title": "Northern Routes", "url": "/en/history" }
-          ]
+            {
+              "title": "Paisana Recipe",
+              "url": "/en/recipes"
+            },
+            {
+              "title": "Northern Routes",
+              "url": "/en/history"
+            }
+          ],
+          "image": "/images/factions/faction-pimientos.jpg"
         },
         {
           "id": "ajistas",
@@ -187,12 +276,22 @@
           "icon": "Sparkles",
           "dogma": "Infuse the frying oil with garlic without overloading sweetness.",
           "keyIngredient": "Aromatic Garlic",
-          "prominentFigures": ["Ángel León (Aponiente)", "Óscar Vidal (O'Pazo)"],
+          "prominentFigures": [
+            "Ángel León (Aponiente)",
+            "Óscar Vidal (O'Pazo)"
+          ],
           "description": "The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.",
           "relatedPages": [
-            { "title": "Oil Science", "url": "/en/science" },
-            { "title": "Chef Tricks", "url": "/en/techniques" }
-          ]
+            {
+              "title": "Oil Science",
+              "url": "/en/science"
+            },
+            {
+              "title": "Chef Tricks",
+              "url": "/en/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-garlic.jpg"
         },
         {
           "id": "con-cosas",
@@ -202,12 +301,23 @@
           "icon": "Flame",
           "dogma": "The omelette as an open canvas for regional creativity and modernist innovation.",
           "keyIngredient": "Cheese, truffle, chistorra, potato chips",
-          "prominentFigures": ["Ferran Adrià", "Pez Tortilla", "José Antonio Labordeta"],
+          "prominentFigures": [
+            "Ferran Adrià",
+            "Pez Tortilla",
+            "José Antonio Labordeta"
+          ],
           "description": "From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.",
           "relatedPages": [
-            { "title": "Express Omelette", "url": "/en/builder" },
-            { "title": "Deconstruction", "url": "/en/techniques" }
-          ]
+            {
+              "title": "Express Omelette",
+              "url": "/en/builder"
+            },
+            {
+              "title": "Deconstruction",
+              "url": "/en/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-cosas.jpg"
         }
       ],
       "poll": {
@@ -258,12 +368,25 @@
           "icon": "Shield",
           "dogma": "Nur Kartoffel, Ei, Olivenöl und Salz.",
           "keyIngredient": "Ohne Zusätze (0% Zwiebel)",
-          "prominentFigures": ["Señora Angelita (Betanzos)", "Pepa Miranda", "Dabiz Muñoz", "Dani García", "La Falda de Chamberí"],
+          "prominentFigures": [
+            "Señora Angelita (Betanzos)",
+            "Pepa Miranda",
+            "Dabiz Muñoz",
+            "Dani García",
+            "La Falda de Chamberí"
+          ],
           "description": "Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern.",
           "relatedPages": [
-            { "title": "Betanzos Rezept", "url": "/de/recipes" },
-            { "title": "Frittier-Technik", "url": "/de/techniques" }
-          ]
+            {
+              "title": "Betanzos Rezept",
+              "url": "/de/recipes"
+            },
+            {
+              "title": "Frittier-Technik",
+              "url": "/de/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-purist.jpg"
         },
         {
           "id": "concebollistas",
@@ -273,12 +396,23 @@
           "icon": "Heart",
           "dogma": "Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht.",
           "keyIngredient": "Karamellisierte Zwiebel",
-          "prominentFigures": ["Karlos Arguiñano", "José Andrés", "Rosalía"],
+          "prominentFigures": [
+            "Karlos Arguiñano",
+            "José Andrés",
+            "Rosalía"
+          ],
           "description": "Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie.",
           "relatedPages": [
-            { "title": "CIS-Umfrage", "url": "/de/history" },
-            { "title": "Klassisches Rezept", "url": "/de/recipes" }
-          ]
+            {
+              "title": "CIS-Umfrage",
+              "url": "/de/history"
+            },
+            {
+              "title": "Klassisches Rezept",
+              "url": "/de/recipes"
+            }
+          ],
+          "image": "/images/factions/faction-onion.jpg"
         },
         {
           "id": "pimientistas",
@@ -288,12 +422,22 @@
           "icon": "Sprout",
           "dogma": "Das rustikale Power-Omelett mit der Frische des Gemüsegartens.",
           "keyIngredient": "Paprika & Gemüse",
-          "prominentFigures": ["Bar Néstor (San Sebastián)", "Campero Rezeptbuch"],
+          "prominentFigures": [
+            "Bar Néstor (San Sebastián)",
+            "Campero Rezeptbuch"
+          ],
           "description": "Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens.",
           "relatedPages": [
-            { "title": "Paisana Rezept", "url": "/de/recipes" },
-            { "title": "Routen des Nordens", "url": "/de/history" }
-          ]
+            {
+              "title": "Paisana Rezept",
+              "url": "/de/recipes"
+            },
+            {
+              "title": "Routen des Nordens",
+              "url": "/de/history"
+            }
+          ],
+          "image": "/images/factions/faction-pimientos.jpg"
         },
         {
           "id": "ajistas",
@@ -303,12 +447,22 @@
           "icon": "Sparkles",
           "dogma": "Knoblauch als unsichtbare aromatische Basis im Olivenöl.",
           "keyIngredient": "Aromatischer Knoblauch",
-          "prominentFigures": ["Ángel León (Aponiente)", "Óscar Vidal (O'Pazo)"],
+          "prominentFigures": [
+            "Ángel León (Aponiente)",
+            "Óscar Vidal (O'Pazo)"
+          ],
           "description": "Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe.",
           "relatedPages": [
-            { "title": "Öl-Wissenschaft", "url": "/de/science" },
-            { "title": "Chef-Tricks", "url": "/de/techniques" }
-          ]
+            {
+              "title": "Öl-Wissenschaft",
+              "url": "/de/science"
+            },
+            {
+              "title": "Chef-Tricks",
+              "url": "/de/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-garlic.jpg"
         },
         {
           "id": "con-cosas",
@@ -318,12 +472,23 @@
           "icon": "Flame",
           "dogma": "Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze.",
           "keyIngredient": "Käse, Trüffel, Chorizo, Kartoffelchips",
-          "prominentFigures": ["Ferran Adrià", "Pez Tortilla", "Sacromonte Tradition"],
+          "prominentFigures": [
+            "Ferran Adrià",
+            "Pez Tortilla",
+            "Sacromonte Tradition"
+          ],
           "description": "Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten.",
           "relatedPages": [
-            { "title": "Express Tortilla", "url": "/de/builder" },
-            { "title": "Dekonstruktion", "url": "/de/techniques" }
-          ]
+            {
+              "title": "Express Tortilla",
+              "url": "/de/builder"
+            },
+            {
+              "title": "Dekonstruktion",
+              "url": "/de/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-cosas.jpg"
         }
       ],
       "poll": {

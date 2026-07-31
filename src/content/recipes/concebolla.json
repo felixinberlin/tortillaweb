@@ -16,6 +16,7 @@
     "de": "Die beliebteste Version der spanischen Tortilla: Kartoffeln, Eier, Olivenöl und langsam geschmorte Zwiebeln."
   },
   "taxonomyIds": [
+    "faction:concebollistas",
     "faction:cebollistas",
     "ingredient:potato",
     "ingredient:egg",

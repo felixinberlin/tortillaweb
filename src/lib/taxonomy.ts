@@ -116,7 +116,17 @@ export async function getTaxonomyById(type: string, id: string): Promise<Taxonom
 export async function getRecipesForTaxonomy(type: string, id: string): Promise<Recipe[]> {
   const recipes = await getAllRecipes();
   const targetTag = `${type}:${id}`;
-  return recipes.filter((r) => r.taxonomyIds.includes(targetTag));
+  
+  const aliasTags: Record<string, string[]> = {
+    'faction:concebollistas': ['faction:cebollistas', 'faction:concebollistas'],
+    'faction:cebollistas': ['faction:cebollistas', 'faction:concebollistas'],
+    'faction:con-cosas': ['faction:modernistas', 'faction:con-cosas'],
+    'faction:modernistas': ['faction:modernistas', 'faction:con-cosas'],
+  };
+
+  const matches = aliasTags[targetTag] || [targetTag];
+
+  return recipes.filter((r) => matches.some((tag) => r.taxonomyIds.includes(tag)));
 }
 
 /**

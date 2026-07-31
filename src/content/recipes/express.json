@@ -16,6 +16,7 @@
     "de": "Eine schnelle moderne Variante der spanischen Tortilla mit Kartoffelchips statt frischer Kartoffeln."
   },
   "taxonomyIds": [
+    "faction:con-cosas",
     "faction:modernistas",
     "ingredient:potato-chips",
     "ingredient:egg",

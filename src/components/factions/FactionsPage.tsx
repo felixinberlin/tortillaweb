@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import {
-  Shield,
-  Heart,
-  Sprout,
-  Sparkles,
-  Flame,
-  CheckCircle2,
-  Vote,
-  Users,
-  Quote,
-  ChefHat,
-  ExternalLink,
-  BarChart3,
+import { 
+  Shield, 
+  Heart, 
+  Sprout, 
+  Sparkles, 
+  Flame, 
+  CheckCircle2, 
+  Vote, 
+  Users, 
+  Quote, 
+  ChefHat, 
+  ExternalLink, 
+  BarChart3, 
   ShieldAlert,
   Award
 } from "lucide-react";
@@ -31,7 +31,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
   const heroTitle = pageData.hero?.title?.[currentLang] || "¿Purista de la Doctrina o Rebelde Culinario?";
   const heroSubtitle = pageData.hero?.subtitle?.[currentLang] || "Del dogma de la patata y el huevo a las variaciones regionales con personalidad.";
   const adriaDoctrine = pageData.hero?.adriaDoctrine?.[currentLang] || "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica.";
-
+  
   const introTitle = pageData.introduction?.title?.[currentLang] || "La evolución de una receta universal";
   const introBody1 = pageData.introduction?.body1?.[currentLang] || "";
   const introBody2 = pageData.introduction?.body2?.[currentLang] || "";
@@ -160,11 +160,11 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
           <Users className="w-3.5 h-3.5" />
           <span>{badge}</span>
         </div>
-
+        
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
           {heroTitle}
         </h1>
-
+        
         <p className="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
           {heroSubtitle}
         </p>
@@ -226,18 +226,23 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
             return (
               <article
                 key={faction.id}
-                className={`card-notebook p-6 flex flex-col justify-between rounded-2xl border transition-all duration-200 hover:shadow-md hover:border-[#FFB800] bg-[#FCF9F2] relative ${selectedFaction === faction.id ? "ring-2 ring-[#FFB800] bg-[#FFF7EA]" : "border-[#E8E2D5]"
-                  }`}
+                className={`card-notebook flex flex-col justify-between rounded-2xl border overflow-hidden transition-all duration-200 hover:shadow-md hover:border-[#FFB800] bg-[#FCF9F2] relative ${
+                  selectedFaction === faction.id ? "ring-2 ring-[#FFB800] bg-[#FFF7EA]" : "border-[#E8E2D5]"
+                }`}
               >
-                <div className="mb-5 overflow-hidden rounded-xl border border-[#E8E2D5] shadow-sm">
-                  <img
-                    src={faction.image}
-                    alt={factionTitle}
-                    className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                </div>
-                <div className="space-y-4">
-                  {/* Badge & Icon Header */}
+                {faction.image && (
+                  <div className="h-44 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
+                    <img
+                      src={faction.image}
+                      alt={factionTitle}
+                      className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                )}
+                <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    {/* Badge & Icon Header */}
                   <div className="flex items-start justify-between gap-3">
                     <div className="p-2.5 rounded-xl bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 shadow-2xs shrink-0">
                       {getFactionIcon(faction.icon)}
@@ -262,7 +267,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                     </h3>
                     {keyIngredient && (
                       <div className="mt-1.5 inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/70 px-2.5 py-0.5 rounded-md border border-amber-200">
-                        Ingrediente Clave: <strong>{keyIngredient}</strong>
+                        {currentLang === 'en' ? 'Key Ingredient:' : currentLang === 'de' ? 'Schlüsselzutat:' : 'Ingrediente Clave:'} <strong>{keyIngredient}</strong>
                       </div>
                     )}
                   </div>
@@ -283,7 +288,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                   {faction.prominentFigures && faction.prominentFigures.length > 0 && (
                     <div className="pt-2">
                       <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-1.5">
-                        Figuras Prominentes:
+                        {currentLang === 'en' ? 'Prominent Figures:' : currentLang === 'de' ? 'Prominente Figuren:' : 'Figuras Prominentes:'}
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {faction.prominentFigures.map((figure, idx) => (
@@ -305,9 +310,10 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                     href={factionUrl}
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] bg-[#F5E6BE]/60 hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-amber-300/80 transition-colors shadow-2xs"
                   >
-                    <span>Ver Ficha & Recetas</span>
+                    <span>{currentLang === 'en' ? 'View Profile & Recipes' : currentLang === 'de' ? 'Profil & Rezepte ansehen' : 'Ver Ficha & Recetas'}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
+                </div>
                 </div>
               </article>
             );
@@ -343,10 +349,11 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                 key={fac.id}
                 type="button"
                 onClick={() => handleVote(fac.id)}
-                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${isSelected
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                  isSelected
                     ? "bg-[#FFF7EA] border-[#FFB800] ring-2 ring-[#FFB800]/50 shadow-xs"
                     : "bg-white border-[#E8E2D5] hover:border-amber-300 hover:bg-[#FAF6EE]"
-                  }`}
+                }`}
               >
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <div className="flex items-center gap-2">
