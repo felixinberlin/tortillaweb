@@ -107,7 +107,7 @@ const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.o
     
     <slot name="head" />
   </head>
-  <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
+  <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col bg-[#FFF7EA] text-[#292521]">
     {showHeader && (
       <Header lang={lang} currentPath={Astro.url.pathname} client:load />
     )}
