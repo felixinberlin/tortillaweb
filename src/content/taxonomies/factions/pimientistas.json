@@ -1,6 +1,7 @@
 {
   "id": "pimientistas",
   "type": "faction",
+  "contentId": "faction.pimientistas",
   "slug": {
     "es": "pimientistas",
     "en": "pepper-lovers",

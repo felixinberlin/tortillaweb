@@ -12,6 +12,8 @@ interface Props {
   showHeader?: boolean;
   showFooter?: boolean;
   breadcrumbs?: BreadcrumbItem[];
+  canonical?: string;
+  customHreflangs?: Array<{ lang: string; href: string }>;
 }
 
 const props = Astro.props;

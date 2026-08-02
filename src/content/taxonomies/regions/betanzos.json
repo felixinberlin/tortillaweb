@@ -1,6 +1,7 @@
 {
   "id": "betanzos",
   "type": "region",
+  "contentId": "region.betanzos",
   "slug": {
     "es": "betanzos",
     "en": "betanzos",

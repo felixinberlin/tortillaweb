@@ -1,5 +1,7 @@
 {
   "id": "clasica",
+  "contentId": "recipe.classic",
+  "translationKey": "recipe-clasica",
   "slug": {
     "es": "tortilla-clasica",
     "en": "classic-spanish-omelette",

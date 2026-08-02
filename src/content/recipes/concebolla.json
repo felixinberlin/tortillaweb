@@ -1,5 +1,7 @@
 {
   "id": "con-cebolla",
+  "contentId": "recipe.con-cebolla",
+  "translationKey": "recipe-con-cebolla",
   "slug": {
     "es": "tortilla-clasica-con-cebolla",
     "en": "classic-spanish-omelette-with-onion",

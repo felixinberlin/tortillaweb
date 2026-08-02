@@ -1,6 +1,7 @@
 {
   "id": "ajistas",
   "type": "faction",
+  "contentId": "faction.ajistas",
   "slug": {
     "es": "ajistas",
     "en": "garlic-cult",

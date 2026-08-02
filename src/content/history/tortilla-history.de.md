@@ -1,7 +1,11 @@
 ---
 title: "Die Geschichte der Tortilla de Patatas"
 description: "Eine Reise durch die Geschichte der spanischen Kartoffel-Tortilla: von der Ankunft der Kartoffel in Europa bis zu ihrer Bedeutung als eines der bekanntesten Gerichte Spaniens."
+contentId: "history.tortilla"
 lang: "de"
+locale: "de"
+translationKey: "history"
+slug: "history"
 ---
 
 # Die Geschichte der Tortilla de Patatas

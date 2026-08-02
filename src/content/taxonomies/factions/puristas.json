@@ -1,6 +1,7 @@
 {
   "id": "puristas",
   "type": "faction",
+  "contentId": "faction.puristas",
   "slug": {
     "es": "puristas",
     "en": "purists",

@@ -1,6 +1,7 @@
 {
   "id": "potato",
   "type": "ingredient",
+  "contentId": "ingredient.potato",
   "slug": {
     "es": "patata",
     "en": "potato",

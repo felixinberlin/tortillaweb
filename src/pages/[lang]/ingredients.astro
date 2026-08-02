@@ -2,9 +2,10 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sparkles, Egg, Sprout, Droplet, Circle, Cherry, ShieldCheck, PlusCircle } from 'lucide-react';
+import { Sparkles, Egg, Sprout, Droplet, Circle, Cherry, ShieldCheck, PlusCircle, ArrowRight } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { getAllTaxonomies, getTaxonomyRoutePrefix } from '@/lib/taxonomy';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -14,10 +15,19 @@ export function getStaticPaths() {
 
 const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
+const taxonomies = await getAllTaxonomies();
+
+const getIngredientUrl = (taxonomyId: string) => {
+  const item = taxonomies.find(t => t.type === 'ingredient' && t.id === taxonomyId);
+  const slug = item ? (item.slug[lang as keyof typeof item.slug] || item.slug.es) : taxonomyId;
+  const prefix = getTaxonomyRoutePrefix('ingredient', lang);
+  return `/${lang}/${prefix}/${slug}`;
+};
 
 const sacredIngredients = [
   {
     key: "potatoes",
+    taxonomyId: "potato",
     icon: Sprout,
     image: "/images/ingredients/potato_editorial_card.jpg",
     badge: "Monalisa / Kennebec / Agria",
@@ -26,6 +36,7 @@ const sacredIngredients = [
   },
   {
     key: "eggs",
+    taxonomyId: "egg",
     icon: Egg,
     image: "/images/ingredients/egg_editorial_card.jpg",
     badge: "Frescos Categoría 0 / 1",
@@ -34,6 +45,7 @@ const sacredIngredients = [
   },
   {
     key: "oil",
+    taxonomyId: "oil",
     icon: Droplet,
     image: "/images/ingredients/olive_oil_editorial_card.jpg",
     badge: "AOVE (Arbequina / Picual)",
@@ -42,6 +54,7 @@ const sacredIngredients = [
   },
   {
     key: "salt",
+    taxonomyId: "salt",
     icon: Sparkles,
     image: "/images/ingredients/salt_editorial_card.jpg",
     badge: "Sal Marina Fina",
@@ -53,6 +66,7 @@ const sacredIngredients = [
 const optionalIngredients = [
   {
     key: "onion",
+    taxonomyId: "onion",
     icon: Circle,
     image: "/images/ingredients/onion_editorial_card.jpg",
     badge: "Opcional - Cebolla Dulce",
@@ -61,6 +75,7 @@ const optionalIngredients = [
   },
   {
     key: "garlic",
+    taxonomyId: "garlic",
     icon: Sparkles,
     image: "/images/ingredients/garlic_editorial_card.jpg",
     badge: "Opcional - Ajo Aromatizante",
@@ -69,6 +84,7 @@ const optionalIngredients = [
   },
   {
     key: "peppers",
+    taxonomyId: "pepper",
     icon: Cherry,
     image: "/images/ingredients/pepper_editorial_card.jpg",
     badge: "Opcional - Pimiento Verde / Rojo",
@@ -77,6 +93,7 @@ const optionalIngredients = [
   },
   {
     key: "blackPepper",
+    taxonomyId: "pepper",
     icon: Sparkles,
     image: "/images/ingredients/black_pepper_editorial_card.jpg",
     badge: "Opcional - Pimienta Negra (Especia)",
@@ -159,51 +176,60 @@ const schemas = [articleSchema, breadcrumbSchema];
       <div class="grid md:grid-cols-2 gap-6">
         {sacredIngredients.map((item, index) => {
           const Icon = item.icon;
+          const url = getIngredientUrl(item.taxonomyId);
           return (
-            <Card key={item.key} class="card-notebook overflow-hidden flex flex-col justify-between">
-              <div>
-                <div class="h-48 w-full overflow-hidden relative border-b border-[#E8E2D5]">
-                  <img
-                    src={item.image}
-                    alt={t(`ingredientsPage.${item.key}.title`, item.key)}
-                    width="600"
-                    height="400"
-                    loading={index < 2 ? "eager" : "lazy"}
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                    <span class={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${item.badgeColor}`}>
-                      {item.badge}
-                    </span>
-                  </div>
-                </div>
-
-                <CardHeader class="pb-3 pt-4">
-                  <div class="flex items-center gap-3">
-                    <div class={`p-2.5 rounded-xl border shadow-2xs ${item.iconColor}`}>
-                      <Icon class="w-5 h-5" />
-                    </div>
-                    <div>
-                      <CardTitle class="text-xl font-serif-heading font-bold text-foreground">
-                        {t(`ingredientsPage.${item.key}.title`, item.key)}
-                      </CardTitle>
-                      <span class="text-xs font-semibold text-[#8D6E63] block mt-0.5">
-                        {t(`ingredientsPage.${item.key}.subtitle`, '')}
+            <a href={url} key={item.key} class="group block hover:no-underline">
+              <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
+                <div>
+                  <div class="h-48 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                    <img
+                      src={item.image}
+                      alt={t(`ingredientsPage.${item.key}.title`, item.key)}
+                      width="600"
+                      height="400"
+                      loading={index < 2 ? "eager" : "lazy"}
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                      <span class={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${item.badgeColor}`}>
+                        {item.badge}
                       </span>
                     </div>
                   </div>
-                </CardHeader>
 
-                <CardContent>
-                  <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm">
-                    {t(`ingredientsPage.${item.key}.desc`, '')}
-                  </p>
-                </CardContent>
-              </div>
-            </Card>
+                  <CardHeader class="pb-3 pt-4">
+                    <div class="flex items-center gap-3">
+                      <div class={`p-2.5 rounded-xl border shadow-2xs ${item.iconColor}`}>
+                        <Icon class="w-5 h-5" />
+                      </div>
+                      <div>
+                        <CardTitle class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors flex items-center gap-2">
+                          <span>{t(`ingredientsPage.${item.key}.title`, item.key)}</span>
+                          <ArrowRight class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#FFB800]" />
+                        </CardTitle>
+                        <span class="text-xs font-semibold text-[#8D6E63] block mt-0.5">
+                          {t(`ingredientsPage.${item.key}.subtitle`, '')}
+                        </span>
+                      </div>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent class="pb-4">
+                    <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm">
+                      {t(`ingredientsPage.${item.key}.desc`, '')}
+                    </p>
+                  </CardContent>
+                </div>
+                
+                <div class="p-4 pt-0 border-t border-[#E8E2D5]/50 bg-[#F5E6BE]/20 mt-2 flex items-center justify-between text-xs font-bold text-[#8D6E63] group-hover:text-[#292521] transition-colors">
+                  <span>{lang === 'en' ? 'View Complete Monograph' : lang === 'de' ? 'Vollständige Monographie ansehen' : 'Ver Monografía Completa'}</span>
+                  <ArrowRight class="w-3.5 h-3.5 text-[#FFB800]" />
+                </div>
+              </Card>
+            </a>
           );
         })}
       </div>
@@ -228,51 +254,54 @@ const schemas = [articleSchema, breadcrumbSchema];
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {optionalIngredients.map((item) => {
           const Icon = item.icon;
+          const url = getIngredientUrl(item.taxonomyId);
           return (
-            <Card key={item.key} class="card-notebook overflow-hidden flex flex-col justify-between">
-              <div>
-                <div class="h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
-                  <img
-                    src={item.image}
-                    alt={t(`ingredientsPage.${item.key}.title`, item.key)}
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
-                    class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <span class={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${item.badgeColor}`}>
-                      {item.badge}
-                    </span>
-                  </div>
-                </div>
-
-                <CardHeader class="pb-2 pt-4">
-                  <div class="flex items-center gap-2.5">
-                    <div class={`p-2 rounded-xl border shadow-2xs ${item.iconColor}`}>
-                      <Icon class="w-4 h-4" />
-                    </div>
-                    <div>
-                      <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
-                        {t(`ingredientsPage.${item.key}.title`, item.key)}
-                      </CardTitle>
-                      <span class="text-[11px] font-semibold text-[#8D6E63] block mt-0.5">
-                        {t(`ingredientsPage.${item.key}.subtitle`, '')}
+            <a href={url} key={item.key} class="group block hover:no-underline">
+              <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
+                <div>
+                  <div class="h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                    <img
+                      src={item.image}
+                      alt={t(`ingredientsPage.${item.key}.title`, item.key)}
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                      <span class={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${item.badgeColor}`}>
+                        {item.badge}
                       </span>
                     </div>
                   </div>
-                </CardHeader>
 
-                <CardContent>
-                  <p class="text-muted-foreground leading-relaxed text-xs">
-                    {t(`ingredientsPage.${item.key}.desc`, '')}
-                  </p>
-                </CardContent>
-              </div>
-            </Card>
+                  <CardHeader class="pb-2 pt-4">
+                    <div class="flex items-center gap-2.5">
+                      <div class={`p-2 rounded-xl border shadow-2xs ${item.iconColor}`}>
+                        <Icon class="w-4 h-4" />
+                      </div>
+                      <div>
+                        <CardTitle class="text-lg font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors">
+                          {t(`ingredientsPage.${item.key}.title`, item.key)}
+                        </CardTitle>
+                        <span class="text-[11px] font-semibold text-[#8D6E63] block mt-0.5">
+                          {t(`ingredientsPage.${item.key}.subtitle`, '')}
+                        </span>
+                      </div>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent>
+                    <p class="text-muted-foreground leading-relaxed text-xs">
+                      {t(`ingredientsPage.${item.key}.desc`, '')}
+                    </p>
+                  </CardContent>
+                </div>
+              </Card>
+            </a>
           );
         })}
       </div>

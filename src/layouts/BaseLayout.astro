@@ -3,7 +3,8 @@ import '@/index.css';
 import Header from '@/components/layout/Header.tsx';
 import Footer from '@/components/layout/Footer.tsx';
 import Breadcrumbs, { type BreadcrumbItem } from '@/components/navigation/Breadcrumbs.tsx';
-import { getCanonicalUrl, getHreflangs } from '@/lib/seo';
+import { getCanonicalUrl, SITE_URL } from '@/lib/seo';
+import { getTranslationLookup, findTranslationURL } from '@/lib/translationLookup';
 
 interface Props {
   title?: string;
@@ -15,6 +16,8 @@ interface Props {
   showHeader?: boolean;
   showFooter?: boolean;
   breadcrumbs?: BreadcrumbItem[];
+  canonical?: string;
+  customHreflangs?: Array<{ lang: string; href: string }>;
 }
 
 const {
@@ -27,10 +30,21 @@ const {
   showHeader = true,
   showFooter = true,
   breadcrumbs,
+  canonical,
+  customHreflangs,
 } = Astro.props;
 
-const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
-const hreflangs = getHreflangs(Astro.url.pathname);
+const lookup = await getTranslationLookup();
+
+const defaultHreflangs = [
+  { lang: 'es', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'es', lookupData: lookup })}` },
+  { lang: 'en', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'en', lookupData: lookup })}` },
+  { lang: 'de', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'de', lookupData: lookup })}` },
+  { lang: 'x-default', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'es', lookupData: lookup })}` },
+];
+
+const canonicalUrl = canonical || getCanonicalUrl(Astro.url.pathname);
+const hreflangs = customHreflangs || defaultHreflangs;
 const siteName = "tortilladepatatas.org";
 const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.org${image}`;
 ---
@@ -113,7 +127,14 @@ const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.o
   <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
     {showHeader && (
       <>
-        <Header lang={lang} currentPath={Astro.url.pathname} client:load />
+        <Header
+          lang={lang}
+          currentPath={Astro.url.pathname}
+          customHreflangs={hreflangs}
+          translationMap={lookup.translationMap}
+          urlToKey={lookup.urlToKey}
+          client:load
+        />
         <Breadcrumbs lang={lang} currentPath={Astro.url.pathname} items={breadcrumbs} client:load />
       </>
     )}

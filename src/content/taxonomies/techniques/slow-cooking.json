@@ -1,6 +1,7 @@
 {
   "id": "slow-cooking",
   "type": "technique",
+  "contentId": "technique.slow-cooking",
   "slug": {
     "es": "confitado",
     "en": "slow-poaching",

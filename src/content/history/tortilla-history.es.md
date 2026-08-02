@@ -1,7 +1,11 @@
 ---
 title: "La historia de la tortilla de patatas"
 description: "Un recorrido por la historia de la tortilla de patatas, desde la llegada de la patata a Europa hasta convertirse en uno de los platos más emblemáticos de España."
+contentId: "history.tortilla"
 lang: "es"
+locale: "es"
+translationKey: "history"
+slug: "history"
 ---
 
 # La historia de la tortilla de patatas

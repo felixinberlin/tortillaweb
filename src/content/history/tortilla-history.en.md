@@ -1,7 +1,11 @@
 ---
 title: "The History of the Tortilla de Patatas"
 description: "A journey through the history of the Spanish potato omelette, from the arrival of the potato in Europe to its place as one of Spain's most iconic dishes."
+contentId: "history.tortilla"
 lang: "en"
+locale: "en"
+translationKey: "history"
+slug: "history"
 ---
 
 # The History of the Tortilla de Patatas

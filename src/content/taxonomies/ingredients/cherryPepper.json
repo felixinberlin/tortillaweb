@@ -1,20 +1,21 @@
 {
-  "id": "pepper",
+  "id": "cherryPepper",
   "type": "ingredient",
+  "contentId": "ingredient.cherryPepper",
   "slug": {
-    "es": "pimiento",
-    "en": "pepper",
-    "de": "paprika"
+    "es": "cherryPepper",
+    "en": "cherryPepper",
+    "de": "cherryPepper"
   },
   "title": {
-    "es": "Pimiento Verde",
-    "en": "Green Pepper",
-    "de": "Grüne Paprika"
+    "es": "Pimiento Verde / Rojo",
+    "en": "Green / Red Pepper",
+    "de": "Grüne / Rote Paprika"
   },
   "description": {
     "es": "Aporte aromático campero característico de la tortilla paisana y vasca.",
     "en": "Aromatic pepper addition characteristic of northern country-style omelettes.",
     "de": "Aromatischer Paprika-Anteil, charakteristisch für nordspanische Land-Tortillas."
   },
-  "icon": "Sprout"
+  "icon": "Cherry"
 }

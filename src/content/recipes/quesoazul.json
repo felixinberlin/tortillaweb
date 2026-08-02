@@ -1,5 +1,7 @@
 {
   "id": "quesoazul",
+  "contentId": "recipe.quesoazul",
+  "translationKey": "recipe-quesoazul",
   "slug": {
     "es": "tortilla-de-patatas-con-queso-azul",
     "en": "spanish-omelette-with-blue-cheese",

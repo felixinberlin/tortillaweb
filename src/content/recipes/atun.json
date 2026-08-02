@@ -1,5 +1,7 @@
 {
   "id": "con-atun",
+  "contentId": "recipe.quesoazul",
+  "translationKey": "recipe-quesoazul",
   "slug": {
     "es": "tortilla-de-patatas-con-atun",
     "en": "spanish-omelette-with-tuna",

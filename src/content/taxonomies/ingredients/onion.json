@@ -1,6 +1,7 @@
 {
   "id": "onion",
   "type": "ingredient",
+  "contentId": "ingredient.onion",
   "slug": {
     "es": "cebolla",
     "en": "onion",

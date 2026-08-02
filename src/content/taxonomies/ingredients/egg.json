@@ -1,6 +1,7 @@
 {
   "id": "egg",
   "type": "ingredient",
+  "contentId": "ingredient.egg",
   "slug": {
     "es": "huevo",
     "en": "egg",

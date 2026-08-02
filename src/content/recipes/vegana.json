@@ -1,5 +1,7 @@
 {
   "id": "vegana",
+  "contentId": "recipe.vegana",
+  "translationKey": "recipe-vegana",
   "slug": {
     "es": "tortilla-de-patatas-vegana-sin-gluten",
     "en": "vegan-gluten-free-spanish-omelette",
@@ -24,7 +26,7 @@
     "ingredient:water",
     "ingredient:oil",
     "ingredient:salt",
-    "ingredient:pepper",
+    "ingredient:blackPepper",
     "technique:vegan_emulsion",
     "style:vegana",
     "difficulty:easy"

@@ -1,6 +1,7 @@
 {
   "id": "deconstruction",
   "type": "technique",
+  "contentId": "technique.deconstruction",
   "slug": {
     "es": "deconstruccion",
     "en": "deconstruction",

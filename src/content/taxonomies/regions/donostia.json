@@ -1,6 +1,7 @@
 {
   "id": "donostia",
   "type": "region",
+  "contentId": "region.donostia",
   "slug": {
     "es": "donostia",
     "en": "donostia",

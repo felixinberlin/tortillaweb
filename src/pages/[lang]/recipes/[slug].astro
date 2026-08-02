@@ -83,9 +83,18 @@ const recipeSchema = generateRecipeSchema({
 });
 
 const schemas = [breadcrumbSchema, recipeSchema];
+
+const recipeHreflangs = supportedLanguages.map((l) => ({
+  lang: l,
+  href: `${SITE_URL}/${l}/recipes/${recipe.slug[l as keyof typeof recipe.slug] || recipe.slug.es}`,
+}));
+recipeHreflangs.push({
+  lang: 'x-default',
+  href: `${SITE_URL}/es/recipes/${recipe.slug.es}`,
+});
 ---
 
-<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList}>
+<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} customHreflangs={recipeHreflangs}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
     <!-- HEADER -->
     <header class="space-y-4 text-center">

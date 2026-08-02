@@ -1,5 +1,7 @@
 {
   "id": "express-chips",
+  "contentId": "recipe.express-chips",
+  "translationKey": "recipe-express-chips",
   "slug": {
     "es": "tortilla-express-patatas-chips",
     "en": "express-potato-chip-omelette",

@@ -1,6 +1,7 @@
 {
   "id": "con-cosas",
   "type": "faction",
+  "contentId": "faction.con-cosas",
   "slug": {
     "es": "con-cosas",
     "en": "modernists",

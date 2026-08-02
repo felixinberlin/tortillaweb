@@ -1,6 +1,7 @@
 {
   "id": "oil",
   "type": "ingredient",
+  "contentId": "ingredient.oil",
   "slug": {
     "es": "aceite-de-oliva",
     "en": "olive-oil",

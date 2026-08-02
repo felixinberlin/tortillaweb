@@ -38,6 +38,8 @@ const recipeCollection = defineCollection({
   }),
   schema: z.object({
     id: z.string(),
+    contentId: z.string().optional(),
+    translationKey: z.string().optional(),
     slug: localizedStringSchema,
     title: localizedStringSchema,
     description: localizedStringSchema,
@@ -66,6 +68,8 @@ const taxonomyCollection = defineCollection({
   schema: z.object({
     id: z.string(),
     type: z.string(),
+    contentId: z.string().optional(),
+    translationKey: z.string().optional(),
     slug: localizedStringSchema,
     title: localizedStringSchema,
     description: localizedStringSchema,
@@ -117,7 +121,35 @@ const historyCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    lang: z.string(),
+    contentId: z.string().optional(),
+    lang: z.string().optional(),
+    locale: z.enum(['es', 'en', 'de']).optional(),
+    translationKey: z.string().optional(),
+    slug: z.string().optional(),
+  }),
+});
+
+const ingredientsCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.md', 
+    base: './src/content/ingredients',
+    generateId: ({ entry }) => entry.replace(/\.md$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    contentId: z.string().optional(),
+    slug: z.string().optional(),
+    translationKey: z.string().optional(),
+    locale: z.enum(['es', 'en', 'de']).optional(),
+    category: z.string().optional(),
+    ingredient: z.string().optional(),
+    scientificName: z.string().optional(),
+    image: z.string().optional(),
+    seo: z.object({
+      canonical: z.string().optional(),
+      keywords: z.array(z.string()).optional(),
+    }).optional(),
   }),
 });
 
@@ -128,4 +160,5 @@ export const collections = {
   navigation: navigationCollection,
   settings: settingsCollection,
   history: historyCollection,
+  ingredients: ingredientsCollection,
 };

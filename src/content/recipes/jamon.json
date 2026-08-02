@@ -1,5 +1,7 @@
 {
   "id": "jamon",
+  "contentId": "recipe.jamon",
+  "translationKey": "recipe-jamon",
   "slug": {
     "es": "tortilla-jamon",
     "en": "jamon-spanish-omelette",

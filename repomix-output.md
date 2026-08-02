@@ -37,6 +37,7 @@ The content is organized as follows:
 ````
 .astro/
   collections/
+    history.schema.json
     navigation.schema.json
     pages.schema.json
     recipes.schema.json
@@ -117,9 +118,13 @@ public/
       taz.jpg
     betanzos.jpg
     chips.jpg
+    chorizo.jpg
     clasica.jpg
     concebolla.jpg
+    jamon.jpg
     paisana.jpg
+    quesoazul.jpg
+    vegana.png
   _headers
   .htaccess
   favicon.svg
@@ -155,6 +160,8 @@ src/
       BuilderApp.tsx
     comparator/
       RecipeComparator.tsx
+    contact/
+      ContactForm.tsx
     factions/
       FactionsPage.tsx
       PollComponent.tsx
@@ -167,6 +174,7 @@ src/
       Header.tsx
       LanguageSync.tsx
     navigation/
+      Breadcrumbs.tsx
       LocalizedLink.tsx
     personas/
       PersonCard.tsx
@@ -177,6 +185,10 @@ src/
       navigation-menu.tsx
       sheet.tsx
   content/
+    history/
+      tortilla-history.de.md
+      tortilla-history.en.md
+      tortilla-history.es.md
     navigation/
       footer.json
       header.json
@@ -185,6 +197,7 @@ src/
       enciclopedia-index.json
       factions-index.json
       history.json
+      history.txt
       index.json
       ingredients-index.json
       laboratorio-index.json
@@ -196,11 +209,15 @@ src/
       science.json
       techniques-index.json
     recipes/
+      atun.json
       betanzos.json
       clasica.json
       concebolla.json
       express.json
+      jamon.json
       paisana.json
+      quesoazul.json
+      vegana.json
     settings/
       site.json
     taxonomies/
@@ -296,6 +313,8 @@ src/
       about.astro
       builder.astro
       comparador.astro
+      contact.astro
+      contacto.astro
       enciclopedia.astro
       encuestas.astro
       estilos.astro
@@ -303,6 +322,7 @@ src/
       history.astro
       index.astro
       ingredients.astro
+      kontakt.astro
       laboratorio.astro
       personas.astro
       recipes.astro
@@ -373,12 +393,40 @@ translation_suggestions_report.md
 tsconfig.app.json
 tsconfig.json
 tsconfig.node.json
+tsconfig.tsbuildinfo
 vercel.json
 vite-env.d.ts
 vite.config.ts
 ````
 
 # Files
+
+## File: .astro/collections/history.schema.json
+````json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "lang": {
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "lang"
+  ]
+}
+````
 
 ## File: .astro/collections/navigation.schema.json
 ````json
@@ -2292,357 +2340,603 @@ The German translation is generally of high quality and captures the nuances of 
 <svg xmlns="http://www.w3.org/2000/svg" width="77" height="47" fill="none" aria-labelledby="vite-logo-title" viewBox="0 0 77 47"><title id="vite-logo-title">Vite</title><style>.parenthesis{fill:#000}@media (prefers-color-scheme:dark){.parenthesis{fill:#fff}}</style><path fill="#9135ff" d="M40.151 45.71c-.663.844-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.493c-.92 0-1.457-1.04-.92-1.788l7.479-10.471c1.07-1.498 0-3.578-1.842-3.578H15.443c-.92 0-1.456-1.04-.92-1.788l9.696-13.576c.213-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.472c-1.07 1.497 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.087.89 1.83L40.153 45.712z"/><mask id="a" width="48" height="47" x="14" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#000" d="M40.047 45.71c-.663.843-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.389c-.92 0-1.457-1.04-.92-1.788l7.479-10.472c1.07-1.497 0-3.578-1.842-3.578H15.34c-.92 0-1.456-1.04-.92-1.788l9.696-13.575c.213-.297.556-.474.92-.474H53.93c.92 0 1.456 1.04.92 1.788L47.37 13.03c-1.07 1.498 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.088.89 1.831L40.049 45.712z"/></mask><g mask="url(#a)"><g filter="url(#b)"><ellipse cx="5.508" cy="14.704" fill="#eee6ff" rx="5.508" ry="14.704" transform="rotate(269.814 20.96 11.29)scale(-1 1)"/></g><g filter="url(#c)"><ellipse cx="10.399" cy="29.851" fill="#eee6ff" rx="10.399" ry="29.851" transform="rotate(89.814 -16.902 -8.275)scale(1 -1)"/></g><g filter="url(#d)"><ellipse cx="5.508" cy="30.487" fill="#8900ff" rx="5.508" ry="30.487" transform="rotate(89.814 -19.197 -7.127)scale(1 -1)"/></g><g filter="url(#e)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.928 4.177)scale(1 -1)"/></g><g filter="url(#f)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.738 5.52)scale(1 -1)"/></g><g filter="url(#g)"><ellipse cx="14.072" cy="22.078" fill="#eee6ff" rx="14.072" ry="22.078" transform="rotate(93.35 31.245 55.578)scale(-1 1)"/></g><g filter="url(#h)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#i)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#j)"><ellipse cx="14.592" cy="9.743" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(39.51 14.592 9.743)"/></g><g filter="url(#k)"><ellipse cx="61.728" cy="-5.321" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 61.728 -5.32)"/></g><g filter="url(#l)"><ellipse cx="55.618" cy="7.104" fill="#00c2ff" rx="5.971" ry="9.665" transform="rotate(37.892 55.618 7.104)"/></g><g filter="url(#m)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#n)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#o)"><ellipse cx="49.857" cy="30.678" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 49.857 30.678)"/></g><g filter="url(#p)"><ellipse cx="52.623" cy="33.171" fill="#00c2ff" rx="5.971" ry="15.297" transform="rotate(37.892 52.623 33.17)"/></g></g><path d="M6.919 0c-9.198 13.166-9.252 33.575 0 46.789h6.215c-9.25-13.214-9.196-33.623 0-46.789zm62.424 0h-6.215c9.198 13.166 9.252 33.575 0 46.789h6.215c9.25-13.214 9.196-33.623 0-46.789" class="parenthesis"/><defs><filter id="b" width="60.045" height="41.654" x="-5.564" y="16.92" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="c" width="90.34" height="51.437" x="-40.407" y="-6.762" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="d" width="79.355" height="29.4" x="-35.435" y="2.801" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="e" width="79.579" height="29.4" x="-30.84" y="20.8" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="f" width="79.579" height="29.4" x="-29.307" y="21.949" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="g" width="74.749" height="58.852" x="29.961" y="-17.13" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="h" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="i" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="j" width="56.045" height="63.649" x="-13.43" y="-22.082" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="k" width="54.814" height="64.646" x="34.321" y="-37.644" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="l" width="33.541" height="35.313" x="38.847" y="-10.552" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="m" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="n" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="o" width="54.814" height="64.646" x="22.45" y="-1.645" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="p" width="39.409" height="43.623" x="32.919" y="11.36" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter></defs></svg>
 ````
 
-## File: src/components/comparator/RecipeComparator.tsx
+## File: src/components/contact/ContactForm.tsx
 ````typescript
-import React, { useState, useMemo } from "react";
-import type { RawRecipeInput, LocalizedString } from "@/domain/comparator/types";
-import { compareRecipes } from "@/domain/comparator/compareRecipes";
-import { Scale, Sparkles, ChefHat } from "lucide-react";
+import React, { useState, useEffect, useId } from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+  Send,
+  CheckCircle2,
+  AlertTriangle,
+  Loader2,
+  HelpCircle,
+  MessageSquare,
+  Heart,
+  Tag,
+  Mail,
+  User,
+  FileText,
+  RotateCcw
+} from 'lucide-react';
+import '@/i18n/config';
 
-interface RecipeComparatorProps {
-  recipes: RawRecipeInput[];
-  initialRecipeAId?: string;
-  initialRecipeBId?: string;
+export interface ContactFormProps {
   lang?: string;
+  currentPath?: string;
+  className?: string;
 }
 
-export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
-  recipes,
-  initialRecipeAId = "clasica",
-  initialRecipeBId = "betanzos",
-  lang = "es",
-}) => {
-  const [selectedIdA, setSelectedIdA] = useState<string>(initialRecipeAId);
-  const [selectedIdB, setSelectedIdB] = useState<string>(initialRecipeBId);
+export type ContactMessageType = 'help' | 'question' | 'thanks' | 'other';
 
-  const recipeMap = useMemo(() => {
-    const map = new Map<string, RawRecipeInput>();
-    for (const r of recipes) {
-      const id = r.id || r.recipeId || "";
-      if (id) map.set(id, r);
+interface FormState {
+  name: string;
+  email: string;
+  type: ContactMessageType;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  type?: string;
+  message?: string;
+}
+
+const fallbackTranslations = {
+  es: {
+    title: 'Contacto & Consultas',
+    subtitle: '¿Tienes dudas sobre la enciclopedia, sugerencias de recetas o quieres colaborar?',
+    badge: 'Atención al Tortillero',
+    nameLabel: 'Nombre completo',
+    namePlaceholder: 'Ej. Juan Pérez',
+    emailLabel: 'Correo electrónico',
+    emailPlaceholder: 'tu@email.com',
+    typeLabel: 'Motivo del mensaje',
+    typeOptions: {
+      help: 'Necesito ayuda',
+      question: 'Tengo una pregunta',
+      thanks: '¡Sois los mejores!',
+      other: 'Otro asunto'
+    },
+    messageLabel: 'Mensaje',
+    messagePlaceholder: 'Escribe aquí tu consulta o comentario...',
+    submitButton: 'Enviar mensaje',
+    sending: 'Enviando...',
+    successTitle: '¡Mensaje enviado con éxito!',
+    successMessage: 'Gracias por contactar con tortilladepatatas.org. Nos pondremos en contacto contigo lo antes posible.',
+    sendAnother: 'Enviar otro mensaje',
+    errorMessage: 'No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.',
+    errors: {
+      nameRequired: 'Por favor, introduce tu nombre.',
+      emailRequired: 'Por favor, introduce tu correo electrónico.',
+      emailInvalid: 'Por favor, introduce un correo electrónico válido.',
+      typeRequired: 'Por favor, selecciona el motivo de tu mensaje.',
+      messageRequired: 'Por favor, escribe un mensaje.'
     }
-    return map;
-  }, [recipes]);
-
-  const recipeA = useMemo(() => recipeMap.get(selectedIdA) || recipes[0], [recipeMap, selectedIdA, recipes]);
-  const recipeB = useMemo(() => recipeMap.get(selectedIdB) || recipes[1] || recipes[0], [recipeMap, selectedIdB, recipes]);
-
-  const comparison = useMemo(() => {
-    if (!recipeA || !recipeB) return null;
-    return compareRecipes(recipeA, recipeB);
-  }, [recipeA, recipeB]);
-
-  function getLocalizedText(str: string | LocalizedString | undefined): string {
-    if (!str) return "";
-    if (typeof str === "object") {
-      return str[lang as "es" | "en" | "de"] || str.es || str.en || "";
+  },
+  en: {
+    title: 'Contact & Inquiries',
+    subtitle: 'Have questions about the encyclopedia, recipe suggestions, or want to collaborate?',
+    badge: 'Get in Touch',
+    nameLabel: 'Full name',
+    namePlaceholder: 'e.g. Jane Doe',
+    emailLabel: 'Email address',
+    emailPlaceholder: 'you@example.com',
+    typeLabel: 'Message reason',
+    typeOptions: {
+      help: 'I need help',
+      question: 'I have a question',
+      thanks: 'You are the best!',
+      other: 'Other'
+    },
+    messageLabel: 'Message',
+    messagePlaceholder: 'Write your message or inquiry here...',
+    submitButton: 'Send message',
+    sending: 'Sending...',
+    successTitle: 'Message sent successfully!',
+    successMessage: 'Thank you for contacting tortilladepatatas.org. We will get back to you as soon as possible.',
+    sendAnother: 'Send another message',
+    errorMessage: 'Failed to send your message. Please try again.',
+    errors: {
+      nameRequired: 'Please enter your name.',
+      emailRequired: 'Please enter your email address.',
+      emailInvalid: 'Please enter a valid email address.',
+      typeRequired: 'Please select a message type.',
+      messageRequired: 'Please enter a message.'
     }
-    return str;
+  },
+  de: {
+    title: 'Kontakt & Anfragen',
+    subtitle: 'Haben Sie Fragen zur Enzyklopädie, Rezeptvorschläge oder möchten Sie zusammenarbeiten?',
+    badge: 'Kontakt',
+    nameLabel: 'Vollständiger Name',
+    namePlaceholder: 'z.B. Max Mustermann',
+    emailLabel: 'E-Mail-Adresse',
+    emailPlaceholder: 'ihre@email.de',
+    typeLabel: 'Grund der Anfrage',
+    typeOptions: {
+      help: 'Ich brauche Hilfe',
+      question: 'Ich habe eine Frage',
+      thanks: 'Ihr seid die Besten!',
+      other: 'Sonstiges'
+    },
+    messageLabel: 'Nachricht',
+    messagePlaceholder: 'Schreiben Sie hier Ihre Nachricht...',
+    submitButton: 'Nachricht senden',
+    sending: 'Wird gesendet...',
+    successTitle: 'Nachricht erfolgreich gesendet!',
+    successMessage: 'Vielen Dank für Ihre Anfrage an tortilladepatatas.org. Wir melden uns schnellstmöglich bei Ihnen.',
+    sendAnother: 'Weitere Nachricht senden',
+    errorMessage: 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.',
+    errors: {
+      nameRequired: 'Bitte geben Sie Ihren Namen ein.',
+      emailRequired: 'Bitte geben Sie Ihre E-Mail-Adresse ein.',
+      emailInvalid: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+      typeRequired: 'Bitte wählen Sie den Grund Ihrer Anfrage aus.',
+      messageRequired: 'Bitte geben Sie eine Nachricht ein.'
+    }
   }
-
-  const translations = {
-    es: {
-      title: "Comparador Nutricional y DNA de Tortilla",
-      subtitle: "Conversión matemática estandarizada por cada huevo (1 Huevo = Unidad Fundamental)",
-      selectA: "Receta A (Base)",
-      selectB: "Receta B (Comparación)",
-      eggCount: "Huevos totales en receta",
-      dnaTitle: "ADN Térmico y Proporciones Culinarias",
-      eggDominance: "Dominancia de Huevo",
-      potatoIntensity: "Carga de Patata",
-      oilRichness: "Oleosidad y Confitado",
-      onionPresence: "Presencia de Cebolla",
-      tableHeaderIng: "Ingrediente",
-      tableHeaderA: "Receta A (por huevo)",
-      tableHeaderB: "Receta B (por huevo)",
-      tableHeaderDiff: "Diferencia",
-      equal: "Igual (0%)",
-      classificationTitle: "Perfil Culinario Normalizado",
-    },
-    en: {
-      title: "Nutritional & Tortilla DNA Comparator",
-      subtitle: "Standardized mathematical ratio per 1 egg (1 Egg = Fundamental Unit)",
-      selectA: "Recipe A (Baseline)",
-      selectB: "Recipe B (Comparison)",
-      eggCount: "Total eggs in recipe",
-      dnaTitle: "Culinary DNA & Proportions",
-      eggDominance: "Egg Dominance",
-      potatoIntensity: "Potato Load",
-      oilRichness: "Oil & Confit Richness",
-      onionPresence: "Onion Presence",
-      tableHeaderIng: "Ingredient",
-      tableHeaderA: "Recipe A (per egg)",
-      tableHeaderB: "Recipe B (per egg)",
-      tableHeaderDiff: "Difference",
-      equal: "Equal (0%)",
-      classificationTitle: "Normalized Culinary Profile",
-    },
-    de: {
-      title: "Nährwert- & Tortilla-DNA-Vergleicher",
-      subtitle: "Standardisierte mathematische Verhältnisse pro 1 Ei (1 Ei = Grundeinheit)",
-      selectA: "Rezept A (Basis)",
-      selectB: "Rezept B (Vergleich)",
-      eggCount: "Eier gesamt im Rezept",
-      dnaTitle: "Kulinarische DNA & Proportionen",
-      eggDominance: "Ei-Dominanz",
-      potatoIntensity: "Kartoffelgehalt",
-      oilRichness: "Ölgehalt & Confit",
-      onionPresence: "Zwiebelanteil",
-      tableHeaderIng: "Zutat",
-      tableHeaderA: "Rezept A (pro Ei)",
-      tableHeaderB: "Rezept B (pro Ei)",
-      tableHeaderDiff: "Differenz",
-      equal: "Gleich (0%)",
-      classificationTitle: "Normalisiertes Kulinarisches Profil",
-    },
-  }[lang as "es" | "en" | "de"] || translations.es;
-
-  if (!comparison) return null;
-
-  const { profileA, profileB } = { profileA: comparison.recipeA, profileB: comparison.recipeB };
-
-  // Calculate DNA percentages for progress bars
-  const calcEggDominance = (potatoQty: number) => Math.min(100, Math.max(10, Math.round((1 - (potatoQty - 50) / 150) * 100)));
-  const calcPotatoIntensity = (potatoQty: number) => Math.min(100, Math.max(10, Math.round((potatoQty / 200) * 100)));
-  const calcOilRichness = (oilQty: number) => Math.min(100, Math.max(10, Math.round((oilQty / 45) * 100)));
-
-  return (
-    <div className="w-full max-w-5xl mx-auto space-y-8 my-6">
-      {/* Selector Section */}
-      <div className="bg-[#FAF6EE] p-5 sm:p-6 rounded-2xl border border-[#E8E2D5] shadow-xs space-y-4">
-        <div className="flex items-center gap-2.5 border-b border-[#E8E2D5] pb-3">
-          <div className="p-2 rounded-xl bg-[#FFB800] text-[#4A3B32] shadow-2xs">
-            <Scale className="w-5 h-5" />
-          </div>
-          <div>
-            <h3 className="font-serif-heading font-bold text-lg text-foreground">
-              {translations.title}
-            </h3>
-            <p className="text-xs text-muted-foreground">{translations.subtitle}</p>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 gap-4 pt-2">
-          {/* Selector Recipe A */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-[#8D6E63] uppercase tracking-wider block">
-              {translations.selectA}
-            </label>
-            <select
-              value={selectedIdA}
-              onChange={(e) => setSelectedIdA(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white border border-[#E8E2D5] text-sm font-semibold text-foreground focus:outline-hidden focus:ring-2 focus:ring-[#FFB800]"
-            >
-              {recipes.map((r) => {
-                const id = r.id || r.recipeId || "";
-                return (
-                  <option key={id} value={id}>
-                    {getLocalizedText(r.title || r.recipeName || r.name)}
-                  </option>
-                );
-              })}
-            </select>
-            <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
-              <span>{translations.eggCount}: <strong>{profileA.eggCount} huevos</strong></span>
-              <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px]">
-                {profileA.classification.potatoIntensityLabel}
-              </span>
-            </div>
-          </div>
-
-          {/* Selector Recipe B */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-[#8D6E63] uppercase tracking-wider block">
-              {translations.selectB}
-            </label>
-            <select
-              value={selectedIdB}
-              onChange={(e) => setSelectedIdB(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white border border-[#E8E2D5] text-sm font-semibold text-foreground focus:outline-hidden focus:ring-2 focus:ring-[#FFB800]"
-            >
-              {recipes.map((r) => {
-                const id = r.id || r.recipeId || "";
-                return (
-                  <option key={id} value={id}>
-                    {getLocalizedText(r.title || r.recipeName || r.name)}
-                  </option>
-                );
-              })}
-            </select>
-            <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
-              <span>{translations.eggCount}: <strong>{profileB.eggCount} huevos</strong></span>
-              <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-300 font-bold text-[10px]">
-                {profileB.classification.potatoIntensityLabel}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Comparison Table */}
-      <div className="card-notebook overflow-hidden border border-[#E8E2D5] rounded-2xl bg-[#FCF9F2] shadow-sm">
-        <div className="p-4 sm:p-5 border-b border-[#E8E2D5] bg-[#FAF6EE] flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <ChefHat className="w-5 h-5 text-[#8D6E63]" />
-            <h4 className="font-serif-heading font-bold text-base text-foreground">
-              {getLocalizedText(recipeA.title || recipeA.recipeName)} vs {getLocalizedText(recipeB.title || recipeB.recipeName)}
-            </h4>
-          </div>
-          <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FFB800]/20 text-[#8D6E63] border border-[#FFB800]/40">
-            Ratio Normalizado / 1 Huevo
-          </span>
-        </div>
-
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs sm:text-sm">
-            <thead>
-              <tr className="border-b border-[#E8E2D5] bg-[#F5E6BE]/30 text-[#8D6E63]">
-                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderIng}</th>
-                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderA}</th>
-                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderB}</th>
-                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderDiff}</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#E8E2D5]">
-              {comparison.ingredients.map((item) => {
-                const isDiffPositive = item.difference > 0;
-
-                return (
-                  <tr key={item.ingredientId} className="hover:bg-[#FAF6EE]/80 transition-colors">
-                    <td className="p-3.5 font-bold text-foreground capitalize flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-[#8D6E63]"></span>
-                      {getLocalizedText(item.name)}
-                    </td>
-                    <td className="p-3.5 font-mono font-semibold text-foreground">
-                      {item.recipeAValue} {item.unit} / huevo
-                    </td>
-                    <td className="p-3.5 font-mono font-semibold text-foreground">
-                      {item.recipeBValue} {item.unit} / huevo
-                    </td>
-                    <td className="p-3.5 font-mono">
-                      {item.difference === 0 ? (
-                        <span className="text-muted-foreground text-xs font-normal">{translations.equal}</span>
-                      ) : (
-                        <span
-                          className={`inline-flex items-center gap-1 font-bold px-2 py-0.5 rounded-full text-xs ${
-                            isDiffPositive
-                              ? "bg-amber-100 text-amber-900 border border-amber-300"
-                              : "bg-emerald-100 text-emerald-900 border border-emerald-300"
-                          }`}
-                        >
-                          {isDiffPositive ? `+${item.difference}` : item.difference} {item.unit}{" "}
-                          ({isDiffPositive ? `+${item.percentageDifference}%` : `${item.percentageDifference}%`})
-                        </span>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Tortilla DNA Visualizer */}
-      <div className="bg-[#FAF6EE] p-5 sm:p-6 rounded-2xl border border-[#E8E2D5] shadow-xs space-y-6">
-        <div className="flex items-center justify-between border-b border-[#E8E2D5] pb-3">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-[#FFB800]" />
-            <h4 className="font-serif-heading font-bold text-base text-foreground">
-              {translations.dnaTitle}
-            </h4>
-          </div>
-          <div className="flex items-center gap-4 text-xs font-bold">
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-[#FFB800] inline-block"></span>
-              {getLocalizedText(recipeA.title || recipeA.recipeName)}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-[#00A3FF] inline-block"></span>
-              {getLocalizedText(recipeB.title || recipeB.recipeName)}
-            </span>
-          </div>
-        </div>
-
-        <div className="space-y-5">
-          {/* Egg Dominance Bar */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs font-bold text-foreground">
-              <span>{translations.eggDominance}</span>
-              <span className="text-[#8D6E63] font-mono">
-                {profileA.classification.eggDominanceLabel} vs {profileB.classification.eggDominanceLabel}
-              </span>
-            </div>
-            <div className="space-y-1">
-              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-[#FFB800] transition-all duration-500 rounded-full"
-                  style={{ width: `${calcEggDominance(profileA.ratios.potato?.quantity || 100)}%` }}
-                ></div>
-              </div>
-              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-[#00A3FF] transition-all duration-500 rounded-full"
-                  style={{ width: `${calcEggDominance(profileB.ratios.potato?.quantity || 100)}%` }}
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Potato Intensity Bar */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs font-bold text-foreground">
-              <span>{translations.potatoIntensity}</span>
-              <span className="text-[#8D6E63] font-mono">
-                {profileA.ratios.potato?.quantity || 0}g/huevo vs {profileB.ratios.potato?.quantity || 0}g/huevo
-              </span>
-            </div>
-            <div className="space-y-1">
-              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-[#FFB800] transition-all duration-500 rounded-full"
-                  style={{ width: `${calcPotatoIntensity(profileA.ratios.potato?.quantity || 0)}%` }}
-                ></div>
-              </div>
-              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-[#00A3FF] transition-all duration-500 rounded-full"
-                  style={{ width: `${calcPotatoIntensity(profileB.ratios.potato?.quantity || 0)}%` }}
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          {/* Oil Richness Bar */}
-          <div className="space-y-1.5">
-            <div className="flex justify-between text-xs font-bold text-foreground">
-              <span>{translations.oilRichness}</span>
-              <span className="text-[#8D6E63] font-mono">
-                {profileA.ratios.oil?.quantity || 0}ml/huevo vs {profileB.ratios.oil?.quantity || 0}ml/huevo
-              </span>
-            </div>
-            <div className="space-y-1">
-              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-[#FFB800] transition-all duration-500 rounded-full"
-                  style={{ width: `${calcOilRichness(profileA.ratios.oil?.quantity || 0)}%` }}
-                ></div>
-              </div>
-              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-[#00A3FF] transition-all duration-500 rounded-full"
-                  style={{ width: `${calcOilRichness(profileB.ratios.oil?.quantity || 0)}%` }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 };
 
-export default RecipeComparator;
+export default function ContactForm({ lang = 'es', currentPath, className = '' }: ContactFormProps) {
+  const currentLang = (['es', 'en', 'de'].includes(lang) ? lang : 'es') as 'es' | 'en' | 'de';
+  const { t } = useTranslation(undefined, { lng: currentLang });
+
+  const getTx = (key: string, fallback: string): string => {
+    const translated = t(key);
+    if (translated && translated !== key) return translated;
+
+    const parts = key.split('.');
+    let cur: any = fallbackTranslations[currentLang];
+    for (const p of parts) {
+      if (cur && typeof cur === 'object' && p in cur) {
+        cur = cur[p];
+      } else {
+        cur = null;
+        break;
+      }
+    }
+    return typeof cur === 'string' ? cur : fallback;
+  };
+
+  const nameId = useId();
+  const emailId = useId();
+  const typeId = useId();
+  const messageId = useId();
+  const hpId = useId();
+
+  const [formData, setFormData] = useState<FormState>({
+    name: '',
+    email: '',
+    type: 'question',
+    message: ''
+  });
+
+  const [honeypot, setHoneypot] = useState('');
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [activePathname, setActivePathname] = useState('');
+
+  useEffect(() => {
+    if (currentPath) {
+      setActivePathname(currentPath);
+    } else if (typeof window !== 'undefined') {
+      setActivePathname(window.location.pathname);
+    }
+  }, [currentPath]);
+
+  const typeOptionsList: { value: ContactMessageType; label: string; icon: React.ComponentType<{ className?: string }> }[] = [
+    {
+      value: 'help',
+      label: getTx('contact.typeOptions.help', fallbackTranslations[currentLang].typeOptions.help),
+      icon: HelpCircle
+    },
+    {
+      value: 'question',
+      label: getTx('contact.typeOptions.question', fallbackTranslations[currentLang].typeOptions.question),
+      icon: MessageSquare
+    },
+    {
+      value: 'thanks',
+      label: getTx('contact.typeOptions.thanks', fallbackTranslations[currentLang].typeOptions.thanks),
+      icon: Heart
+    },
+    {
+      value: 'other',
+      label: getTx('contact.typeOptions.other', fallbackTranslations[currentLang].typeOptions.other),
+      icon: Tag
+    }
+  ];
+
+  const validateField = (name: keyof FormState, value: string): string | undefined => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (name === 'name' && !value.trim()) {
+      return getTx('contact.errors.nameRequired', fallbackTranslations[currentLang].errors.nameRequired);
+    }
+    if (name === 'email') {
+      if (!value.trim()) {
+        return getTx('contact.errors.emailRequired', fallbackTranslations[currentLang].errors.emailRequired);
+      }
+      if (!emailRegex.test(value.trim())) {
+        return getTx('contact.errors.emailInvalid', fallbackTranslations[currentLang].errors.emailInvalid);
+      }
+    }
+    if (name === 'type' && !value) {
+      return getTx('contact.errors.typeRequired', fallbackTranslations[currentLang].errors.typeRequired);
+    }
+    if (name === 'message' && !value.trim()) {
+      return getTx('contact.errors.messageRequired', fallbackTranslations[currentLang].errors.messageRequired);
+    }
+    return undefined;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (errors[name as keyof FormErrors]) {
+      const fieldError = validateField(name as keyof FormState, value);
+      setErrors((prev) => ({ ...prev, [name]: fieldError }));
+    }
+  };
+
+  const handleTypeSelect = (selectedType: ContactMessageType) => {
+    setFormData((prev) => ({ ...prev, type: selectedType }));
+    if (errors.type) {
+      setErrors((prev) => ({ ...prev, type: undefined }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setServerError(null);
+
+    // Honeypot check for spam bots
+    if (honeypot.trim() !== '') {
+      setIsSuccess(true);
+      return;
+    }
+
+    // Client-side validation
+    const newErrors: FormErrors = {};
+    const nameErr = validateField('name', formData.name);
+    const emailErr = validateField('email', formData.email);
+    const typeErr = validateField('type', formData.type);
+    const messageErr = validateField('message', formData.message);
+
+    if (nameErr) newErrors.name = nameErr;
+    if (emailErr) newErrors.email = emailErr;
+    if (typeErr) newErrors.type = typeErr;
+    if (messageErr) newErrors.message = messageErr;
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setIsSubmitting(true);
+
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      type: formData.type,
+      message: formData.message.trim(),
+      language: currentLang,
+      page: activePathname || `/${currentLang}/contacto`
+    };
+
+    try {
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        let data: any = null;
+        try {
+          data = await response.json();
+        } catch {
+          data = { success: true };
+        }
+
+        if (data && data.success === false) {
+          setServerError(data.message || getTx('contact.errorMessage', fallbackTranslations[currentLang].errorMessage));
+        } else {
+          setIsSuccess(true);
+        }
+      } else {
+        let errData: any = null;
+        try {
+          errData = await response.json();
+        } catch {
+          errData = null;
+        }
+        setServerError(
+          (errData && (errData.message || errData.error)) ||
+            getTx('contact.errorMessage', fallbackTranslations[currentLang].errorMessage)
+        );
+      }
+    } catch (err) {
+      console.error('Error sending contact message:', err);
+      setServerError(getTx('contact.errorMessage', fallbackTranslations[currentLang].errorMessage));
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleReset = () => {
+    setFormData({
+      name: '',
+      email: '',
+      type: 'question',
+      message: ''
+    });
+    setErrors({});
+    setIsSuccess(false);
+    setServerError(null);
+  };
+
+  return (
+    <div
+      className={`card-notebook relative bg-[#FAF6EE] border border-[#8D6E63]/20 rounded-2xl p-6 sm:p-10 shadow-md ${className}`}
+    >
+      {/* Decorative notebook elements */}
+      <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#FFB800] via-[#F5E6BE] to-[#8D6E63]/40 rounded-t-2xl" />
+
+      {isSuccess ? (
+        <div
+          role="alert"
+          aria-live="polite"
+          className="py-8 px-4 text-center space-y-6 animate-in fade-in zoom-in duration-300"
+        >
+          <div className="w-16 h-16 mx-auto bg-[#2E7D32]/10 border border-[#2E7D32]/30 rounded-full flex items-center justify-center text-[#2E7D32] shadow-sm">
+            <CheckCircle2 className="w-10 h-10" />
+          </div>
+
+          <div className="space-y-2 max-w-md mx-auto">
+            <h3 className="text-2xl font-serif-heading font-extrabold text-[#2A2421]">
+              {getTx('contact.successTitle', fallbackTranslations[currentLang].successTitle)}
+            </h3>
+            <p className="text-sm text-[#4A3B32] leading-relaxed">
+              {getTx('contact.successMessage', fallbackTranslations[currentLang].successMessage)}
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleReset}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#FFB800] hover:bg-[#E0A200] text-[#2A2421] font-bold text-sm rounded-xl border border-amber-400 shadow-sm transition-all focus:outline-hidden focus:ring-2 focus:ring-[#FFB800] focus:ring-offset-2 cursor-pointer"
+          >
+            <RotateCcw className="w-4 h-4" />
+            <span>{getTx('contact.sendAnother', fallbackTranslations[currentLang].sendAnother)}</span>
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} noValidate className="space-y-6">
+          {/* Honeypot field (hidden from screen & readers) */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor={hpId}>Leave this empty</label>
+            <input
+              type="text"
+              id={hpId}
+              name="website_hp"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
+          {/* Form Header */}
+          <div className="space-y-1.5 border-b border-[#E8E2D5] pb-4">
+            <h2 className="text-2xl sm:text-3xl font-serif-heading font-extrabold text-[#2A2421]">
+              {getTx('contact.title', fallbackTranslations[currentLang].title)}
+            </h2>
+            <p className="text-xs sm:text-sm text-[#8D6E63] font-medium leading-relaxed">
+              {getTx('contact.subtitle', fallbackTranslations[currentLang].subtitle)}
+            </p>
+          </div>
+
+          {/* Error Banner */}
+          {serverError && (
+            <div
+              role="alert"
+              aria-live="assertive"
+              className="p-4 rounded-xl bg-[#D32F2F]/10 border border-[#D32F2F]/30 text-[#D32F2F] text-xs sm:text-sm flex items-start gap-3 shadow-2xs"
+            >
+              <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <span className="font-bold block">Error</span>
+                <span>{serverError}</span>
+              </div>
+            </div>
+          )}
+
+          {/* Field 1: Name */}
+          <div className="space-y-1.5">
+            <label htmlFor={nameId} className="flex items-center gap-1.5 text-xs font-bold text-[#4A3B32] uppercase tracking-wider">
+              <User className="w-3.5 h-3.5 text-[#FFB800]" />
+              <span>{getTx('contact.nameLabel', fallbackTranslations[currentLang].nameLabel)}</span>
+              <span className="text-[#D32F2F]" title="Campo obligatorio">*</span>
+            </label>
+            <input
+              type="text"
+              id={nameId}
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? `${nameId}-error` : undefined}
+              placeholder={getTx('contact.namePlaceholder', fallbackTranslations[currentLang].namePlaceholder)}
+              className={`w-full px-4 py-3 rounded-xl border bg-white/90 text-[#2A2421] text-sm transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#FFB800] focus:border-[#8D6E63] ${
+                errors.name ? 'border-[#D32F2F] bg-red-50/30' : 'border-[#E8E2D5]'
+              }`}
+            />
+            {errors.name && (
+              <p id={`${nameId}-error`} role="alert" className="text-xs text-[#D32F2F] font-medium mt-1">
+                {errors.name}
+              </p>
+            )}
+          </div>
+
+          {/* Field 2: Email */}
+          <div className="space-y-1.5">
+            <label htmlFor={emailId} className="flex items-center gap-1.5 text-xs font-bold text-[#4A3B32] uppercase tracking-wider">
+              <Mail className="w-3.5 h-3.5 text-[#FFB800]" />
+              <span>{getTx('contact.emailLabel', fallbackTranslations[currentLang].emailLabel)}</span>
+              <span className="text-[#D32F2F]" title="Campo obligatorio">*</span>
+            </label>
+            <input
+              type="email"
+              id={emailId}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? `${emailId}-error` : undefined}
+              placeholder={getTx('contact.emailPlaceholder', fallbackTranslations[currentLang].emailPlaceholder)}
+              className={`w-full px-4 py-3 rounded-xl border bg-white/90 text-[#2A2421] text-sm transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#FFB800] focus:border-[#8D6E63] ${
+                errors.email ? 'border-[#D32F2F] bg-red-50/30' : 'border-[#E8E2D5]'
+              }`}
+            />
+            {errors.email && (
+              <p id={`${emailId}-error`} role="alert" className="text-xs text-[#D32F2F] font-medium mt-1">
+                {errors.email}
+              </p>
+            )}
+          </div>
+
+          {/* Field 3: Message Type Selection */}
+          <div className="space-y-2">
+            <label htmlFor={typeId} className="flex items-center gap-1.5 text-xs font-bold text-[#4A3B32] uppercase tracking-wider">
+              <Tag className="w-3.5 h-3.5 text-[#FFB800]" />
+              <span>{getTx('contact.typeLabel', fallbackTranslations[currentLang].typeLabel)}</span>
+              <span className="text-[#D32F2F]" title="Campo obligatorio">*</span>
+            </label>
+
+            {/* Select fallback for screen-readers & select accessibility */}
+            <select
+              id={typeId}
+              name="type"
+              value={formData.type}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              aria-invalid={!!errors.type}
+              aria-describedby={errors.type ? `${typeId}-error` : undefined}
+              className="sr-only"
+            >
+              {typeOptionsList.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+
+            {/* Visual Choice Cards */}
+            <div
+              role="radiogroup"
+              aria-label={getTx('contact.typeLabel', fallbackTranslations[currentLang].typeLabel)}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-2.5"
+            >
+              {typeOptionsList.map((opt) => {
+                const IconComponent = opt.icon;
+                const isSelected = formData.type === opt.value;
+                return (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    role="radio"
+                    aria-checked={isSelected}
+                    disabled={isSubmitting}
+                    onClick={() => handleTypeSelect(opt.value)}
+                    className={`flex items-center gap-3 p-3 rounded-xl border text-left text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#F5E6BE] border-[#FFB800] text-[#2A2421] shadow-2xs ring-2 ring-[#FFB800]/40'
+                        : 'bg-white/70 border-[#E8E2D5] text-[#8D6E63] hover:bg-white hover:border-[#8D6E63]/40'
+                    }`}
+                  >
+                    <div
+                      className={`p-2 rounded-lg shrink-0 ${
+                        isSelected ? 'bg-[#FFB800] text-[#2A2421]' : 'bg-[#FAF6EE] text-[#8D6E63]'
+                      }`}
+                    >
+                      <IconComponent className="w-4 h-4" />
+                    </div>
+                    <span className="flex-1">{opt.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {errors.type && (
+              <p id={`${typeId}-error`} role="alert" className="text-xs text-[#D32F2F] font-medium mt-1">
+                {errors.type}
+              </p>
+            )}
+          </div>
+
+          {/* Field 4: Message */}
+          <div className="space-y-1.5">
+            <label htmlFor={messageId} className="flex items-center gap-1.5 text-xs font-bold text-[#4A3B32] uppercase tracking-wider">
+              <FileText className="w-3.5 h-3.5 text-[#FFB800]" />
+              <span>{getTx('contact.messageLabel', fallbackTranslations[currentLang].messageLabel)}</span>
+              <span className="text-[#D32F2F]" title="Campo obligatorio">*</span>
+            </label>
+            <textarea
+              id={messageId}
+              name="message"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              aria-invalid={!!errors.message}
+              aria-describedby={errors.message ? `${messageId}-error` : undefined}
+              placeholder={getTx('contact.messagePlaceholder', fallbackTranslations[currentLang].messagePlaceholder)}
+              className={`w-full px-4 py-3 rounded-xl border bg-white/90 text-[#2A2421] text-sm transition-colors resize-y min-h-[120px] focus:outline-hidden focus:ring-2 focus:ring-[#FFB800] focus:border-[#8D6E63] ${
+                errors.message ? 'border-[#D32F2F] bg-red-50/30' : 'border-[#E8E2D5]'
+              }`}
+            />
+            {errors.message && (
+              <p id={`${messageId}-error`} role="alert" className="text-xs text-[#D32F2F] font-medium mt-1">
+                {errors.message}
+              </p>
+            )}
+          </div>
+
+          {/* Submit Button */}
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto px-8 py-3.5 bg-[#FFB800] hover:bg-[#E0A200] disabled:bg-[#E8E2D5] disabled:text-[#8D6E63]/60 text-[#2A2421] font-bold text-sm rounded-xl border border-amber-400 shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-[#FFB800] focus:ring-offset-2"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin text-[#2A2421]" />
+                  <span>{getTx('contact.sending', fallbackTranslations[currentLang].sending)}</span>
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4 text-[#2A2421]" />
+                  <span>{getTx('contact.submitButton', fallbackTranslations[currentLang].submitButton)}</span>
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+}
 ````
 
 ## File: src/components/factions/PollComponent.tsx
@@ -2785,6 +3079,149 @@ export default function LanguageSync() {
 
 
   return null;
+}
+````
+
+## File: src/components/navigation/Breadcrumbs.tsx
+````typescript
+import React from 'react';
+import { Home, ChevronRight } from 'lucide-react';
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface BreadcrumbsProps {
+  lang?: string;
+  currentPath?: string;
+  items?: BreadcrumbItem[];
+}
+
+const segmentLabels: Record<string, Record<string, string>> = {
+  recipes: { es: 'Recetas', en: 'Recipes', de: 'Rezepte' },
+  facciones: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
+  factions: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
+  builder: { es: 'Creador DNA', en: 'Recipe Builder', de: 'Rezept-Rechner' },
+  comparador: { es: 'Comparador Nutricional', en: 'Recipe Comparator', de: 'Rezept-Vergleicher' },
+  laboratorio: { es: 'Laboratorio', en: 'Laboratory', de: 'Labor' },
+  ingredients: { es: 'Ingredientes', en: 'Ingredients', de: 'Zutaten' },
+  techniques: { es: 'Técnicas', en: 'Techniques', de: 'Techniken' },
+  science: { es: 'Ciencia & Seguridad', en: 'Science & Safety', de: 'Wissenschaft & Sicherheit' },
+  history: { es: 'Historia', en: 'History', de: 'Geschichte' },
+  personas: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
+  estilos: { es: 'Estilos Culinarios', en: 'Culinary Styles', de: 'Kulinarische Stile' },
+  restaurantes: { es: 'Restaurantes', en: 'Restaurants', de: 'Restaurants' },
+  regiones: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
+  records: { es: 'Récords', en: 'Records', de: 'Rekorde' },
+  enciclopedia: { es: 'Enciclopedia', en: 'Encyclopedia', de: 'Enzyklopädie' },
+  about: { es: 'Sobre el Proyecto', en: 'About', de: 'Über uns' },
+  contacto: { es: 'Contacto', en: 'Contact', de: 'Kontakt' },
+  contact: { es: 'Contacto', en: 'Contact', de: 'Kontakt' },
+  kontakt: { es: 'Contacto', en: 'Contact', de: 'Kontakt' },
+  encuestas: { es: 'Encuestas', en: 'Community Polls', de: 'Umfragen' },
+  tests: { es: 'Test de Lealtad', en: 'Loyalty Quiz', de: 'Fraktionstest' },
+
+  // Recipe slugs
+  betanzos: { es: 'Tortilla de Betanzos', en: 'Betanzos Omelette', de: 'Betanzos-Tortilla' },
+  clasica: { es: 'Clásica Purista', en: 'Classic Purist', de: 'Klassische Puristische' },
+  concebolla: { es: 'Con Cebolla Caramelizada', en: 'With Caramelized Onion', de: 'Mit Karamelisierten Zwiebeln' },
+  express: { es: 'Express con Chips', en: 'Express Chips Omelette', de: 'Express-Chips-Tortilla' },
+  paisana: { es: 'Paisana Tradicional', en: 'Traditional Country Omelette', de: 'Traditionelle Bauern-Tortilla' },
+  jamon: { es: 'Con Jamón Ibérico', en: 'With Iberian Ham', de: 'Mit Iberischem Schinken' },
+  vegana: { es: 'Vegana (Sin Huevo)', en: 'Vegan (Egg-Free)', de: 'Vegan (Ohne Ei)' },
+
+  // Factions slugs
+  puristas: { es: 'Los Puristas', en: 'The Purists', de: 'Die Puristen' },
+  concebollistas: { es: 'Los Concebollistas', en: 'Onion Faction', de: 'Die Zwiebel-Fraktion' },
+  pimientistas: { es: 'Los Pimientistas', en: 'Pepper Faction', de: 'Die Paprika-Fraktion' },
+  ajistas: { es: 'Los Ajistas', en: 'Garlic Faction', de: 'Die Knoblauch-Fraktion' },
+  'con-cosas': { es: "Los 'Con Cosas'", en: 'Modernist Faction', de: 'Moderne Variationen' },
+};
+
+function formatSegment(segment: string, locale: string): string {
+  if (segmentLabels[segment] && segmentLabels[segment][locale]) {
+    return segmentLabels[segment][locale];
+  }
+  return segment
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+export default function Breadcrumbs({ lang = 'es', currentPath, items }: BreadcrumbsProps) {
+  const path = currentPath || (typeof window !== 'undefined' ? window.location.pathname : '');
+  const cleanPath = path.replace(/\/$/, '');
+
+  const homePaths = ['', `/${lang}`, '/es', '/en', '/de', '/'];
+  if (homePaths.includes(cleanPath) && (!items || items.length === 0)) {
+    return null;
+  }
+
+  let computedItems: BreadcrumbItem[] = [];
+
+  if (items && items.length > 0) {
+    computedItems = items;
+  } else {
+    const parts = cleanPath.split('/').filter(Boolean);
+    if (parts.length > 0 && ['es', 'en', 'de'].includes(parts[0])) {
+      parts.shift();
+    }
+
+    const homeName = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
+    computedItems.push({
+      name: homeName,
+      url: `/${lang}`,
+    });
+
+    let currentAccPath = `/${lang}`;
+    parts.forEach((part) => {
+      currentAccPath += `/${part}`;
+      computedItems.push({
+        name: formatSegment(part, lang),
+        url: currentAccPath,
+      });
+    });
+  }
+
+  return (
+    <nav
+      aria-label="Breadcrumb"
+      className="breadcrumbs-nav border-b border-[#E8E2D5] bg-[#FAF6EE]/95 backdrop-blur-xs py-2 px-4 sm:px-6 w-full shadow-2xs"
+    >
+      <div className="max-w-7xl mx-auto flex items-center gap-1.5 text-xs text-foreground/80 font-medium overflow-x-auto no-scrollbar py-0.5">
+        {computedItems.map((item, index) => {
+          const isLast = index === computedItems.length - 1;
+          const isHome = index === 0;
+
+          return (
+            <React.Fragment key={item.url + index}>
+              {index > 0 && (
+                <ChevronRight className="w-3.5 h-3.5 text-[#8D6E63]/40 shrink-0 select-none" aria-hidden="true" />
+              )}
+              {isLast ? (
+                <span
+                  aria-current="page"
+                  className="inline-flex items-center gap-1.5 bg-[#F5E6BE] text-[#4A3B32] font-bold px-2.5 py-0.5 rounded-md border border-[#8D6E63]/25 shadow-2xs shrink-0 whitespace-nowrap"
+                >
+                  {isHome && <Home className="w-3.5 h-3.5 text-[#8D6E63]" />}
+                  <span>{item.name}</span>
+                </span>
+              ) : (
+                <a
+                  href={item.url}
+                  className="inline-flex items-center gap-1 text-[#8D6E63] hover:text-[#4A3B32] hover:bg-[#F5E6BE]/60 px-1.5 py-0.5 rounded transition-colors shrink-0 whitespace-nowrap font-medium"
+                >
+                  {isHome && <Home className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />}
+                  <span>{item.name}</span>
+                </a>
+              )}
+            </React.Fragment>
+          );
+        })}
+      </div>
+    </nav>
+  );
 }
 ````
 
@@ -3325,6 +3762,648 @@ export {
 }
 ````
 
+## File: src/content/history/tortilla-history.de.md
+````markdown
+---
+title: "Die Geschichte der Tortilla de Patatas"
+description: "Eine Reise durch die Geschichte der spanischen Kartoffel-Tortilla: von der Ankunft der Kartoffel in Europa bis zu ihrer Bedeutung als eines der bekanntesten Gerichte Spaniens."
+lang: "de"
+---
+
+# Die Geschichte der Tortilla de Patatas
+
+Die Tortilla de Patatas ist eines der bekanntesten Gerichte der spanischen Küche. Hinter ihrer scheinbaren Einfachheit — Kartoffeln, Eier, Olivenöl und häufig Zwiebeln — verbirgt sich eine Geschichte, die eng mit Landwirtschaft, gesellschaftlichen Veränderungen, Zeiten der Knappheit und dem Alltag der Menschen verbunden ist.
+
+Sie wurde nicht von einer einzigen Person erfunden und entstand nicht zu einem einzigen Zeitpunkt. Die Tortilla de Patatas entwickelte sich über Jahrhunderte hinweg: durch die Ankunft der Kartoffel aus Amerika, den Wandel der europäischen Landwirtschaft und die ständige Suche nach günstigen und nahrhaften Lebensmitteln.
+
+---
+
+## Die Ankunft der Kartoffel: Ein neues Lebensmittel aus Amerika
+
+Die Geschichte der Tortilla beginnt mit der Kartoffel.
+
+Ursprünglich in den Anden angebaut, gelangte die Kartoffel im 16. Jahrhundert nach Europa, nachdem spanische Expeditionen den amerikanischen Kontinent erreicht hatten. Erste europäische Aufzeichnungen über die Pflanze entstanden in den Jahrzehnten nach ihrer Einführung, doch ihre Akzeptanz als Lebensmittel verlief langsam.
+
+Zunächst betrachteten viele Europäer die Kartoffel mit Misstrauen. Als Mitglied der Familie der Nachtschattengewächse, zu der auch als giftig geltende Pflanzen gehören, wurde sie lange eher als botanische Kuriosität denn als wichtiges Nahrungsmittel betrachtet.
+
+Über viele Generationen wurde die Kartoffel hauptsächlich in botanischen Gärten, Versuchsfeldern oder als Tierfutter angebaut. Mit der Zeit wurden jedoch ihre Vorteile erkannt:
+
+- Sie konnte unter unterschiedlichen klimatischen Bedingungen wachsen.
+- Sie brachte zuverlässige Ernten.
+- Sie lieferte einen hohen Nährwert.
+- Sie half, Zeiten von Lebensmittelknappheit zu überstehen.
+
+Spanien spielte eine entscheidende Rolle bei der Verbreitung der Kartoffel in Europa. Selbst das spanische Wort *patata* spiegelt diese komplexe Geschichte wider und verbindet sprachliche Einflüsse aus dem Quechua-Wort *papa* und dem Taíno-Wort *batata*.
+
+---
+
+## Frühe kulinarische Vorläufer
+
+Bevor die moderne Tortilla de Patatas entstand, experimentierten Köche bereits mit Kombinationen aus Eiern und Kartoffeln.
+
+Eine der frühesten europäischen kulinarischen Erwähnungen findet sich bei **Lancelot de Casteau** in seinem Werk *Ouverture de cuisine* (1604), das die Verwendung von Kartoffeln in europäischen Küchen dokumentiert.
+
+In Spanien veröffentlichte **Francisco Martínez Montiño**, Koch am spanischen Hof, sein Werk *Arte de Cocina*, in dem verschiedene Zubereitungen mit Ei beschrieben werden, darunter die bekannte *Tortilla de la Cartuja*.
+
+Diese Gerichte waren noch nicht identisch mit der heutigen Tortilla de Patatas, zeigen aber, wie Kartoffeln und Eier langsam Teil der europäischen Kochtraditionen wurden.
+
+Die Tortilla entstand nicht plötzlich. Sie entwickelte sich durch viele kleine Anpassungen über Generationen hinweg in verschiedenen spanischen Küchen.
+
+---
+
+## Die Kartoffel wird zum Lebensmittel des Volkes
+
+Im 18. Jahrhundert begannen Landwirtschaftsexperten und Regierungen zunehmend, die Kartoffel als Lösung gegen Versorgungsprobleme zu fördern.
+
+Autoren wie **Joseph Antonio Valcárcel** betonten die Bedeutung eines verbesserten Kartoffelanbaus in Spanien. Die Knolle gewann an Bedeutung, weil sie eine verlässliche Alternative darstellte, wenn Getreide teuer oder knapp war.
+
+Ende des 18. Jahrhunderts war die Kartoffel von einem experimentellen Anbauprodukt zu einem Bestandteil der ländlichen Alltagsküche geworden.
+
+Die Kombination aus Kartoffeln und Eiern war besonders praktisch:
+
+- Kartoffeln lieferten günstige Energie.
+- Eier lieferten Proteine.
+- Olivenöl ermöglichte das Kochen und Konservieren.
+- Mit wenigen Zutaten konnten mehrere Menschen ernährt werden.
+
+Diese Verbindung bildete die Grundlage für das, was später zur Tortilla de Patatas wurde.
+
+---
+
+## Villanueva de la Serena und die Aufzeichnung von 1798
+
+Eine der wichtigsten historischen Referenzen zur modernen Tortilla de Patatas stammt aus **Villanueva de la Serena in Extremadura aus dem Jahr 1798**.
+
+Nach den Forschungen des Historikers **Javier López Linage** entstand die dort dokumentierte Zubereitung im Zusammenhang mit der Suche nach einem günstigen und nahrhaften Lebensmittel in einer Zeit wirtschaftlicher Schwierigkeiten.
+
+Diese Initiative wird mit **Joseph de Tena Godoy** und dem **Markgrafen von Robledo** verbunden, die nach Alternativen zu teureren Produkten wie Weizen suchten.
+
+Das ursprüngliche Ziel war nicht die Erfindung eines berühmten Nationalgerichts, sondern eine praktische Lösung mit verfügbaren Zutaten.
+
+Obwohl Historiker weiterhin darüber diskutieren, ob dies der absolute Ursprung der Tortilla de Patatas war, stellt die Referenz von 1798 eine der frühesten dokumentierten Verbindungen zur modernen Form des Gerichts dar.
+
+---
+
+## Das 19. Jahrhundert: Von der ländlichen Mahlzeit zur Tradition
+
+Im 19. Jahrhundert verbreitete sich die Tortilla de Patatas in ganz Spanien.
+
+Wirtschaftliche Schwierigkeiten, Kriege und gesellschaftliche Veränderungen trugen zu ihrer Popularität bei. Ihre Eigenschaften machten sie ideal für den Alltag:
+
+- Günstige Zutaten.
+- Einfache Zubereitung.
+- Hoher Nährwert.
+- Leichter Transport und gute Haltbarkeit.
+
+Eine bekannte Quelle aus Navarra aus dem Jahr 1817 beschreibt eine Zubereitung aus Eiern und Kartoffeln und zeigt, dass diese Art von Gericht bereits in ländlichen Gemeinschaften verbreitet war.
+
+Eine weitere bekannte Erzählung schreibt die Erfindung der Tortilla dem **General Tomás de Zumalacárregui** während der Karlistenkriege zu. Historiker betrachten diese Geschichte jedoch meist als spätere Legende und nicht als tatsächlichen Ursprung des Gerichts.
+
+Die Tortilla war bereits Teil der Volksküche, bevor sie mit historischen Persönlichkeiten verbunden wurde.
+
+---
+
+## Die Zwiebel-Frage
+
+Im Laufe des 19. und 20. Jahrhunderts wurde die Zwiebel in vielen Haushalten zu einer üblichen Zutat.
+
+Daraus entstand eine der bekanntesten kulinarischen Diskussionen Spaniens:
+
+**Soll eine Tortilla de Patatas Zwiebeln enthalten?**
+
+Die Antwort hängt von Tradition, Familie und persönlichem Geschmack ab.
+
+Die Version mit Zwiebeln bietet mehr Süße, Feuchtigkeit und eine weichere Konsistenz. Die Version ohne Zwiebeln betont die direkten Aromen von Kartoffeln, Ei und Olivenöl.
+
+Beide Varianten existieren seit Generationen und gehören zur Vielfalt der spanischen Küche.
+
+---
+
+## Die Tortilla während der Hungerjahre
+
+Die 1940er Jahre, bekannt als die **Años del Hambre** („Jahre des Hungers“), waren in Spanien nach dem Bürgerkrieg von großer Lebensmittelknappheit geprägt.
+
+Viele Familien hatten Schwierigkeiten, grundlegende Zutaten zu erhalten. Da die Tortilla bereits tief mit dem spanischen Alltag verbunden war, entstanden Ersatzversionen, wenn Kartoffeln und Eier nicht verfügbar waren.
+
+Ein Beispiel war die sogenannte „falsche Tortilla“, bei der das weiße Innere der Orangenschale (*Albedo*) verarbeitet und mit Mehl und Wasser kombiniert wurde, um die Textur des ursprünglichen Gerichts nachzuahmen.
+
+Diese Überlebensrezepte zeigen die kulturelle Bedeutung der Tortilla: Selbst wenn ihre Zutaten fehlten, versuchten Menschen, die Idee und Identität dieses Gerichts zu bewahren.
+
+---
+
+## Regionale Vielfalt und moderne Entwicklung
+
+Im Laufe der Zeit entwickelten verschiedene Regionen Spaniens eigene Varianten der Tortilla de Patatas.
+
+### Tortilla de Betanzos
+
+Diese aus Galicien stammende Variante ist für ihr besonders weiches Inneres und den hohen Eieranteil bekannt. Sie gilt als eine der anspruchsvollsten und feinfühligsten Arten, eine Tortilla zuzubereiten.
+
+### Tortilla del Sacromonte
+
+Diese traditionelle Variante aus dem Stadtviertel Sacromonte in Granada enthält Zutaten wie Innereien und spiegelt lokale Geschichte und kulinarische Traditionen wider.
+
+In ganz Spanien wird weiterhin diskutiert über:
+
+- Das ideale Verhältnis von Kartoffeln und Ei.
+- Die perfekte Garzeit.
+- Die richtige Dicke.
+- Das Gleichgewicht zwischen Festigkeit und Cremigkeit.
+- Die Rolle der Zwiebel.
+
+Diese Diskussionen gehören zu einer lebendigen kulinarischen Tradition.
+
+---
+
+## Die Tortilla heute: Ein internationales Symbol der spanischen Küche
+
+Im 21. Jahrhundert hat sich die Tortilla de Patatas von einer einfachen ländlichen Mahlzeit zu einem internationalen Symbol der spanischen Gastronomie entwickelt.
+
+Man findet sie überall:
+
+- In Familienküchen.
+- In traditionellen Bars.
+- In Restaurants.
+- Bei gastronomischen Wettbewerben.
+- In modernen kulinarischen Interpretationen.
+
+Große Rekord-Tortillas zeigen ihre kulturelle Bedeutung, während Köche weiterhin mit Techniken, Texturen und Präsentationen experimentieren.
+
+Trotz dieser Entwicklungen bleibt das Wesentliche unverändert:
+
+**Kartoffeln, die in Olivenöl gegart, mit verquirltem Ei vermischt und sorgfältig bis zur gewünschten Konsistenz zubereitet werden.**
+
+---
+
+## Ein einfaches Gericht mit einer komplexen Geschichte
+
+Die Tortilla de Patatas erzählt eine Geschichte der Anpassung.
+
+Eine Pflanze aus den Anden wurde zu einem wichtigen europäischen Lebensmittel. Eine Speise aus der Not wurde zu einem kulturellen Symbol. Eine einfache Kombination aus Kartoffeln und Eiern wurde zu einem der bekanntesten Ausdrucksformen spanischer Identität.
+
+Ihre Bedeutung entsteht nicht durch Luxus oder Komplexität.
+
+Sie entsteht durch die Fähigkeit, einfache Zutaten in etwas Außergewöhnliches zu verwandeln.
+
+**Die Tortilla de Patatas ist die Geschichte Spaniens, erzählt durch Essen.**
+
+---
+
+## Zeitleiste
+
+### 16. Jahrhundert
+Die Kartoffel gelangt aus Amerika nach Europa.
+
+### 17. Jahrhundert
+Kartoffeln erscheinen in europäischen Kochaufzeichnungen und gelangen in höfische und religiöse Küchen.
+
+### 18. Jahrhundert
+Die Kartoffel wird zu einer wichtigen landwirtschaftlichen Ressource in Spanien.
+
+### 1798
+Villanueva de la Serena liefert eine der frühesten dokumentierten Verbindungen zur modernen Tortilla de Patatas.
+
+### 1817
+Aufzeichnungen aus Navarra zeigen Kartoffel-Omeletts in ländlichen Gemeinschaften.
+
+### 19. Jahrhundert
+Die Tortilla verbreitet sich in ganz Spanien und wird zu einem alltäglichen Gericht.
+
+### 1940er Jahre
+Während der Años del Hambre entstehen Überlebensvarianten.
+
+### 21. Jahrhundert
+Die Tortilla wird zu einem internationalen Symbol der spanischen Küche.
+````
+
+## File: src/content/history/tortilla-history.en.md
+````markdown
+---
+title: "The History of the Tortilla de Patatas"
+description: "A journey through the history of the Spanish potato omelette, from the arrival of the potato in Europe to its place as one of Spain's most iconic dishes."
+lang: "en"
+---
+
+# The History of the Tortilla de Patatas
+
+The tortilla de patatas is one of the most recognizable dishes in Spanish cuisine. Behind its apparent simplicity — potatoes, eggs, olive oil, and sometimes onion — lies a history connected to agriculture, social change, food scarcity, and everyday life.
+
+It is not the creation of a single person or a single moment. Instead, the tortilla de patatas emerged gradually through centuries of adaptation: the arrival of the potato from the Americas, the transformation of European agriculture, and the constant search for affordable and nutritious food.
+
+---
+
+## The Arrival of the Potato: A New Ingredient from the Americas
+
+The history of the tortilla begins with the potato.
+
+Originally cultivated in the Andes, the potato arrived in Europe during the 16th century following Spanish expeditions in the Americas. Early European references to the plant appeared in the decades after its introduction, but its acceptance as a food source was slow.
+
+At first, many Europeans viewed the potato with suspicion. As a member of the Solanaceae family, related to plants considered dangerous, it was often treated as an unusual botanical curiosity rather than an essential crop.
+
+For generations, potatoes were mainly grown in botanical gardens, experimental farms, or used as animal feed. Over time, however, their advantages became clear:
+
+- They grew well in different climates.
+- They produced reliable harvests.
+- They provided significant nutritional value.
+- They could help populations survive periods of scarcity.
+
+Spain played a fundamental role in the potato's journey into Europe. Even the Spanish word *patata* reflects this complex history, combining influences from the Quechua word *papa* and the Taíno word *batata*.
+
+---
+
+## Early Culinary Precursors
+
+Before the modern tortilla de patatas existed, cooks were already experimenting with combinations of eggs and potatoes.
+
+One of the earliest European culinary references appears in **Lancelot de Casteau's** *Ouverture de cuisine* (1604), which documents the presence of potatoes in European kitchens.
+
+In Spain, **Francisco Martínez Montiño**, chef to the Spanish royal court, published *Arte de Cocina*, describing sophisticated egg preparations, including the well-known *tortilla de la Cartuja*.
+
+These dishes were not identical to today's tortilla de patatas, but they show that potatoes and eggs were gradually becoming part of European culinary traditions.
+
+The tortilla was not created suddenly. It developed through many small adaptations made in kitchens across Spain.
+
+---
+
+## The Potato Becomes a Food of the People
+
+During the 18th century, agricultural thinkers and governments increasingly promoted the potato as a solution to food insecurity.
+
+Writers such as **Joseph Antonio Valcárcel** highlighted the importance of improving potato cultivation in Spain. The crop became increasingly valuable because it provided a dependable alternative during periods when cereals were expensive or unavailable.
+
+By the end of the century, potatoes had moved from experimental agriculture into everyday rural cooking.
+
+The combination of potatoes and eggs was especially practical:
+
+- Potatoes provided affordable energy.
+- Eggs provided protein.
+- Olive oil allowed cooking and preservation.
+- A small number of ingredients could feed several people.
+
+This combination created the foundation of what would become the tortilla de patatas.
+
+---
+
+## Villanueva de la Serena and the 1798 Record
+
+One of the most important historical references connected to the modern tortilla de patatas comes from **Villanueva de la Serena, Extremadura, in 1798**.
+
+According to research by historian **Javier López Linage**, the preparation developed in this area was linked to attempts to create an affordable and nutritious food during times of scarcity.
+
+Local figures including **Joseph de Tena Godoy** and the **Marquis of Robledo** are associated with this search for a potato-based alternative to expensive wheat products.
+
+The objective was not originally to create a famous national dish, but rather to find a practical solution using accessible ingredients.
+
+Although historians continue to discuss whether this was the absolute origin of the tortilla de patatas, the 1798 reference represents one of the earliest documented examples of a preparation close to the modern dish.
+
+---
+
+## The 19th Century: From Rural Meal to National Tradition
+
+During the 19th century, the tortilla de patatas spread throughout Spain.
+
+Economic difficulties, wars, and social changes contributed to its popularity. The dish had many qualities that made it ideal for everyday life:
+
+- Affordable ingredients.
+- Simple preparation.
+- High nutritional value.
+- Easy transport and storage.
+
+A famous reference from Navarra in 1817 describes a meal consisting of eggs mixed with potatoes, showing that this type of preparation was already established among rural communities.
+
+Another popular story attributes the invention of the tortilla to **General Tomás de Zumalacárregui** during the Carlist Wars. However, historians generally consider this a later legend rather than the true origin of the dish.
+
+The tortilla existed as a popular food before it became connected with historical figures.
+
+---
+
+## The Onion Debate
+
+During the 19th and 20th centuries, onions became a common addition in many households.
+
+This created one of Spain's most famous culinary debates:
+
+**Should a tortilla de patatas contain onion?**
+
+The answer depends on tradition, family, and personal preference.
+
+The onion version adds sweetness, moisture, and a softer texture. The onion-free version emphasizes the flavors of potato, egg, and olive oil.
+
+Both versions have existed for generations and represent the diversity of Spanish cooking.
+
+---
+
+## The Tortilla During the Years of Hunger
+
+The 1940s, known as the **Años del Hambre** ("Years of Hunger"), were a period of severe scarcity in Spain after the Civil War.
+
+During this time, many families struggled to obtain basic ingredients. Because the tortilla was already deeply connected with Spanish everyday life, people created substitute versions when potatoes and eggs were unavailable.
+
+One example was the so-called "false tortilla", where orange peel pith (*albedo*) was processed and combined with flour and water to imitate the texture of the original dish.
+
+These survival recipes demonstrate the cultural importance of the tortilla: even when its ingredients disappeared, people attempted to preserve the memory and identity of the dish.
+
+---
+
+## Regional Diversity and Modern Evolution
+
+Over time, different regions of Spain developed their own interpretations of the tortilla de patatas.
+
+### Tortilla de Betanzos
+
+Originating in Galicia, this style is known for its extremely soft interior and generous use of egg. It represents one of the most delicate and technically demanding approaches to the dish.
+
+### Tortilla del Sacromonte
+
+From Granada's Sacromonte neighborhood, this traditional variation incorporates ingredients such as offal, reflecting local history and culinary customs.
+
+Across Spain, cooks continue to discuss:
+
+- The ideal potato-to-egg ratio.
+- The perfect cooking time.
+- The thickness of the tortilla.
+- The balance between firmness and creaminess.
+- The role of onion.
+
+These discussions are part of the living tradition of the dish.
+
+---
+
+## The Tortilla Today: A Global Symbol of Spanish Cuisine
+
+In the 21st century, the tortilla de patatas has evolved from a humble rural meal into an internationally recognized symbol of Spanish gastronomy.
+
+It appears everywhere:
+
+- Family kitchens.
+- Traditional bars.
+- Restaurants.
+- Gastronomic competitions.
+- Contemporary culinary interpretations.
+
+Large-scale creations demonstrate its cultural importance, while chefs continue experimenting with technique, texture, and presentation.
+
+Despite these innovations, the essence remains unchanged:
+
+**Potatoes cooked in olive oil, combined with beaten eggs, and carefully cooked until the desired texture is achieved.**
+
+---
+
+## A Simple Dish with a Complex History
+
+The tortilla de patatas tells a story of adaptation.
+
+A crop from the Andes became a European staple. A food of necessity became a cultural symbol. A simple combination of potatoes and eggs became one of Spain's most recognizable expressions of identity.
+
+Its importance does not come from complexity or luxury.
+
+It comes from the ability to transform ordinary ingredients into something extraordinary.
+
+**The tortilla de patatas is a history of Spain told through food.**
+
+---
+
+## Timeline
+
+### 16th century
+The potato arrives in Europe from the Americas.
+
+### 17th century
+Potatoes appear in European culinary records and begin entering elite and monastic kitchens.
+
+### 18th century
+The potato becomes an important agricultural resource in Spain.
+
+### 1798
+Villanueva de la Serena provides one of the earliest documented references connected to the modern tortilla de patatas.
+
+### 1817
+References from Navarra show potato omelettes among rural communities.
+
+### 19th century
+The tortilla spreads throughout Spain and becomes an everyday dish.
+
+### 1940s
+Survival versions appear during the Años del Hambre.
+
+### 21st century
+The tortilla becomes an international symbol of Spanish cuisine.
+````
+
+## File: src/content/history/tortilla-history.es.md
+````markdown
+---
+title: "La historia de la tortilla de patatas"
+description: "Un recorrido por la historia de la tortilla de patatas, desde la llegada de la patata a Europa hasta convertirse en uno de los platos más emblemáticos de España."
+lang: "es"
+---
+
+# La historia de la tortilla de patatas
+
+La tortilla de patatas es uno de los platos más reconocibles de la gastronomía española. Detrás de su aparente sencillez —patatas, huevos, aceite de oliva y, en muchas ocasiones, cebolla— existe una historia relacionada con la agricultura, los cambios sociales, las épocas de escasez y la vida cotidiana.
+
+No fue creada por una única persona ni apareció en un momento concreto. La tortilla de patatas surgió gradualmente a través de siglos de adaptación: la llegada de la patata desde América, la transformación de la agricultura europea y la búsqueda constante de alimentos económicos y nutritivos.
+
+---
+
+## La llegada de la patata: un nuevo ingrediente procedente de América
+
+La historia de la tortilla comienza con la patata.
+
+Originaria de los Andes, la patata llegó a Europa durante el siglo XVI tras las expediciones españolas en América. Las primeras referencias europeas a esta planta aparecen en las décadas posteriores a su llegada, pero su aceptación como alimento fue lenta.
+
+Al principio, muchos europeos miraban la patata con desconfianza. Como miembro de la familia de las solanáceas, relacionada con plantas consideradas peligrosas, fue tratada durante mucho tiempo como una curiosidad botánica más que como un alimento esencial.
+
+Durante generaciones, las patatas se cultivaron principalmente en jardines botánicos, campos experimentales o incluso como alimento para animales. Con el tiempo, sus ventajas se hicieron evidentes:
+
+- Crecía bien en diferentes condiciones climáticas.
+- Producía cosechas abundantes y fiables.
+- Aportaba un importante valor nutricional.
+- Permitía superar periodos de escasez alimentaria.
+
+España tuvo un papel fundamental en la llegada de la patata a Europa. Incluso su nombre refleja esta historia compleja: la palabra española *patata* combina influencias del quechua *papa* y del taíno *batata*.
+
+---
+
+## Los primeros antecedentes culinarios
+
+Antes de existir la tortilla de patatas moderna, los cocineros ya experimentaban con combinaciones de huevos y patatas.
+
+Una de las primeras referencias culinarias europeas aparece en **Lancelot de Casteau** y su obra *Ouverture de cuisine* (1604), donde se documenta la presencia de la patata en las cocinas europeas.
+
+En España, **Francisco Martínez Montiño**, cocinero de la corte española, publicó *Arte de Cocina*, donde aparecen elaboraciones con huevo, incluyendo la conocida *tortilla de la Cartuja*.
+
+Estas preparaciones no eran todavía la tortilla de patatas actual, pero muestran cómo la patata y el huevo fueron entrando progresivamente en las tradiciones culinarias europeas.
+
+La tortilla no nació de forma repentina. Se desarrolló mediante pequeñas adaptaciones realizadas durante generaciones en distintas cocinas españolas.
+
+---
+
+## La patata se convierte en alimento popular
+
+Durante el siglo XVIII, pensadores agrícolas y gobiernos comenzaron a promocionar la patata como una solución frente a los problemas de abastecimiento alimentario.
+
+Autores como **Joseph Antonio Valcárcel** destacaron la importancia de mejorar el cultivo de la patata en España. El tubérculo ganó importancia porque ofrecía una alternativa fiable cuando los cereales eran caros o escaseaban.
+
+A finales del siglo XVIII, la patata había pasado de los campos experimentales a formar parte de la cocina cotidiana rural.
+
+La combinación de patatas y huevos era especialmente práctica:
+
+- Las patatas aportaban energía a bajo coste.
+- Los huevos proporcionaban proteínas.
+- El aceite de oliva permitía cocinar y conservar.
+- Con pocos ingredientes se podía alimentar a varias personas.
+
+Esta combinación creó la base de lo que posteriormente sería la tortilla de patatas.
+
+---
+
+## Villanueva de la Serena y la referencia de 1798
+
+Uno de los momentos históricos más importantes relacionados con la tortilla de patatas moderna se sitúa en **Villanueva de la Serena, Extremadura, en 1798**.
+
+Según las investigaciones del historiador **Javier López Linage**, la preparación desarrollada en esta zona estuvo relacionada con la búsqueda de un alimento económico y nutritivo durante una época de dificultades.
+
+Se vincula esta iniciativa con **Joseph de Tena Godoy** y el **Marqués de Robledo**, quienes buscaban alternativas a productos más costosos como el trigo.
+
+El objetivo inicial no era crear un plato famoso, sino encontrar una solución práctica utilizando ingredientes accesibles.
+
+Aunque los historiadores continúan debatiendo si este fue el origen absoluto de la tortilla de patatas, el episodio de 1798 representa una de las primeras referencias documentadas relacionadas con una preparación cercana al plato moderno.
+
+---
+
+## El siglo XIX: de comida rural a tradición nacional
+
+Durante el siglo XIX, la tortilla de patatas se extendió por toda España.
+
+Las dificultades económicas, los conflictos y los cambios sociales favorecieron su popularidad. Sus características la hacían ideal para la vida diaria:
+
+- Ingredientes económicos.
+- Preparación sencilla.
+- Alto valor nutritivo.
+- Fácil transporte y conservación.
+
+Una referencia conocida de Navarra en 1817 describe una preparación de huevos mezclados con patatas, demostrando que este tipo de plato ya estaba establecido entre las comunidades rurales.
+
+Otra historia popular atribuye la invención de la tortilla al **General Tomás de Zumalacárregui** durante las Guerras Carlistas. Sin embargo, los historiadores consideran generalmente esta versión como una leyenda posterior y no como el verdadero origen del plato.
+
+La tortilla ya formaba parte de la alimentación popular antes de asociarse a figuras históricas.
+
+---
+
+## El debate de la cebolla
+
+Durante los siglos XIX y XX, la cebolla se convirtió en un ingrediente habitual en muchos hogares.
+
+Esto dio origen a uno de los debates culinarios más famosos de España:
+
+**¿Debe llevar cebolla una tortilla de patatas?**
+
+La respuesta depende de la tradición, la familia y el gusto personal.
+
+La versión con cebolla aporta dulzor, humedad y una textura más suave. La versión sin cebolla destaca los sabores directos de la patata, el huevo y el aceite de oliva.
+
+Ambas variantes existen desde hace generaciones y forman parte de la diversidad de la cocina española.
+
+---
+
+## La tortilla durante los Años del Hambre
+
+La década de 1940, conocida como los **Años del Hambre**, fue un periodo de gran escasez en España tras la Guerra Civil.
+
+Durante esos años, muchas familias tuvieron dificultades para conseguir ingredientes básicos. Como la tortilla ya estaba profundamente ligada a la vida cotidiana española, surgieron versiones alternativas cuando las patatas y los huevos eran difíciles de encontrar.
+
+Un ejemplo fue la llamada "falsa tortilla", donde se utilizaba el albedo de la naranja (la parte blanca de la piel), procesado y mezclado con harina y agua para imitar la textura del plato original.
+
+Estas recetas de supervivencia muestran la importancia cultural de la tortilla: incluso cuando desaparecían sus ingredientes, la población intentaba conservar la idea y la identidad del plato.
+
+---
+
+## Diversidad regional y evolución moderna
+
+Con el paso del tiempo, diferentes regiones de España desarrollaron sus propias interpretaciones de la tortilla de patatas.
+
+### Tortilla de Betanzos
+
+Originaria de Galicia, esta versión es conocida por su interior extremadamente jugoso y por una mayor proporción de huevo. Representa una de las formas más delicadas y técnicamente exigentes de preparar la tortilla.
+
+### Tortilla del Sacromonte
+
+Procedente del barrio del Sacromonte en Granada, esta variante tradicional incorpora ingredientes como casquería, reflejando la historia local y sus costumbres culinarias.
+
+En toda España continúan los debates sobre:
+
+- La proporción ideal entre patata y huevo.
+- El tiempo perfecto de cocción.
+- El grosor adecuado.
+- El equilibrio entre firmeza y cremosidad.
+- El papel de la cebolla.
+
+Estas discusiones forman parte de una tradición gastronómica viva.
+
+---
+
+## La tortilla actual: un símbolo internacional de la cocina española
+
+En el siglo XXI, la tortilla de patatas ha pasado de ser una comida humilde a convertirse en uno de los símbolos internacionales de la gastronomía española.
+
+Está presente en todas partes:
+
+- Cocinas familiares.
+- Bares tradicionales.
+- Restaurantes.
+- Concursos gastronómicos.
+- Interpretaciones contemporáneas.
+
+Las grandes elaboraciones demuestran su importancia cultural, mientras que los cocineros siguen experimentando con técnicas, texturas y presentaciones.
+
+A pesar de estas innovaciones, la esencia permanece:
+
+**Patatas cocinadas en aceite de oliva, mezcladas con huevo batido y cocinadas cuidadosamente hasta alcanzar la textura deseada.**
+
+---
+
+## Un plato sencillo con una historia compleja
+
+La tortilla de patatas cuenta una historia de adaptación.
+
+Una planta procedente de los Andes se convirtió en un alimento fundamental de Europa. Una comida nacida de la necesidad se transformó en un símbolo cultural. Una sencilla combinación de patatas y huevos llegó a representar una de las expresiones más reconocibles de la identidad española.
+
+Su importancia no viene de la complejidad ni del lujo.
+
+Viene de la capacidad de transformar ingredientes humildes en algo extraordinario.
+
+**La tortilla de patatas es la historia de España contada a través de la comida.**
+
+---
+
+## Línea temporal
+
+### Siglo XVI
+La patata llega a Europa desde América.
+
+### Siglo XVII
+La patata aparece en documentos culinarios europeos y comienza a entrar en cocinas de élite y religiosas.
+
+### Siglo XVIII
+La patata se convierte en un recurso agrícola importante en España.
+
+### 1798
+Villanueva de la Serena aporta una de las primeras referencias documentadas relacionadas con la tortilla de patatas moderna.
+
+### 1817
+Referencias de Navarra muestran tortillas con patata entre comunidades rurales.
+
+### Siglo XIX
+La tortilla se extiende por España y se convierte en un plato cotidiano.
+
+### Década de 1940
+Aparecen versiones de supervivencia durante los Años del Hambre.
+
+### Siglo XXI
+La tortilla se consolida como símbolo internacional de la gastronomía española.
+````
+
 ## File: src/content/navigation/footer.json
 ````json
 {
@@ -3353,142 +4432,6 @@ export {
     "en": "All rights reserved.",
     "de": "Alle Rechte vorbehalten."
   }
-}
-````
-
-## File: src/content/navigation/header.json
-````json
-{
-  "items": [
-    {
-      "key": "recipes",
-      "href": "/recipes",
-      "label": {
-        "es": "Recetas",
-        "en": "Recipes",
-        "de": "Rezepte"
-      }
-    },
-    {
-      "key": "factions",
-      "href": "/facciones",
-      "label": {
-        "es": "Facciones",
-        "en": "Factions",
-        "de": "Faktionen"
-      }
-    },
-    {
-      "key": "universo",
-      "href": "/enciclopedia",
-      "label": {
-        "es": "Universo Tortilla",
-        "en": "Tortilla Universe",
-        "de": "Tortilla-Universum"
-      },
-      "children": [
-        {
-          "key": "history",
-          "href": "/history",
-          "label": {
-            "es": "Historia",
-            "en": "History",
-            "de": "Geschichte"
-          }
-        },
-        {
-          "key": "estilos",
-          "href": "/estilos",
-          "label": {
-            "es": "Estilos",
-            "en": "Styles",
-            "de": "Stile"
-          }
-        },
-        {
-          "key": "personas",
-          "href": "/personas",
-          "label": {
-            "es": "Personas",
-            "en": "People",
-            "de": "Personen"
-          }
-        },
-        {
-          "key": "restaurantes",
-          "href": "/restaurantes",
-          "label": {
-            "es": "Restaurantes",
-            "en": "Restaurants",
-            "de": "Restaurants"
-          }
-        },
-        {
-          "key": "regiones",
-          "href": "/regiones",
-          "label": {
-            "es": "Regiones",
-            "en": "Regions",
-            "de": "Regionen"
-          }
-        },
-        {
-          "key": "ingredients",
-          "href": "/ingredients",
-          "label": {
-            "es": "Ingredientes",
-            "en": "Ingredients",
-            "de": "Zutaten"
-          }
-        },
-        {
-          "key": "techniques",
-          "href": "/techniques",
-          "label": {
-            "es": "Técnicas",
-            "en": "Techniques",
-            "de": "Techniken"
-          }
-        },
-        {
-          "key": "science",
-          "href": "/science",
-          "label": {
-            "es": "Ciencia",
-            "en": "Science",
-            "de": "Wissenschaft"
-          }
-        },
-        {
-          "key": "records",
-          "href": "/records",
-          "label": {
-            "es": "Récords",
-            "en": "Records",
-            "de": "Rekorde"
-          }
-        }
-      ]
-    },
-    {
-      "key": "laboratory",
-      "href": "/laboratorio",
-      "label": {
-        "es": "Laboratorio",
-        "en": "Laboratory",
-        "de": "Labor"
-      }
-    },
-    {
-      "key": "about",
-      "href": "/about",
-      "label": {
-        "es": "Sobre nosotros",
-        "en": "About us",
-        "de": "Über uns"
-      }
-    }
-  ]
 }
 ````
 
@@ -3776,6 +4719,254 @@ export {
 
 ## File: src/content/pages/history.json
 ````json
+{
+  "badge": {
+    "es": "Crónica Histórica & Cronología Gastronómica",
+    "en": "Historical Chronicle & Gastronomic Timeline",
+    "de": "Historische Chronik & Gastronomische Zeitleiste"
+  },
+  "title": {
+    "es": "La Tortilla de Patatas: Crónica del Ingenio y la Identidad",
+    "en": "Chronicle of the Spanish Potato Omelette",
+    "de": "Die Geschichte der Tortilla de Patatas"
+  },
+  "subtitle": {
+    "es": "Investigación histórica integral: desde los orígenes del Siglo de las Luces y la cocina de subsistencia hasta los retos de la seguridad alimentaria y la era digital.",
+    "en": "A comprehensive investigation: from Enlightenment origins and survival cuisine to modern food safety protocols and the 21st-century digital era.",
+    "de": "Umfassende historische Untersuchung: Von den Aufklärungs-Wurzeln im 18. Jahrhundert über Überlebensrezepte bis zur modernen Lebensmittelsicherheit."
+  },
+  "chefNote": {
+    "es": "La historia de la tortilla es la crónica del ingenio popular español. Desde 'estirar' huevos con patatas en 1817 hasta usar corteza de naranja en la posguerra, este plato personifica la supervivencia. Para disfrutarlo con total seguridad, la pasteurización exige alcanzar **70°C for 2 minutes** o **63°C for 20 seconds**, evitando mantener la tortilla más de **4 hours** a temperatura ambiente.",
+    "en": "The history of the tortilla is a testament to popular Spanish resourcefulness. From expanding egg volumes with potatoes in 1817 to using orange peel during post-war scarcity, it embodies survival. For maximum food safety, pasteurization standards mandate reaching **70°C for 2 minutes** or **63°C for 20 seconds**, and never leaving room temperature preparations for over **4 hours**.",
+    "de": "Die Geschichte der Tortilla ist ein Denkmal des spanischen Volksgeistes. Vom Gestrecken spärlicher Eier mit Kartoffeln 1817 bis zur Verwendung von Orangenschalen in der Nachkriegszeit verkörpert sie Überlebenswillen. Für absolute Sicherheit verlangt die Pasteurisierung **70°C for 2 minutes** oder **63°C for 20 seconds** sowie maximal **4 hours** Stehzeit bei Raumtemperatur."
+  },
+  "timelineTitle": {
+    "es": "Línea del Tiempo & Hitos Históricos",
+    "en": "Timeline & Historical Milestones",
+    "de": "Zeitleiste & Historische Meilensteine"
+  },
+  "timelineSubtitle": {
+    "es": "Los momentos clave que transformaron un plato de supervivencia en el icono de España.",
+    "en": "The key moments that shaped a survival recipe into Spain's national icon.",
+    "de": "Schlüsselmomente der Transformation vom Notgericht zum Nationalsymbol."
+  },
+  "timelineEvents": [
+    {
+      "year": "1767 - 1772",
+      "title": {
+        "es": "Primeras Menciones Ilustradas",
+        "en": "First Enlightenment Citations",
+        "de": "Erste Dokumentierte Erwähnungen"
+      },
+      "location": "España",
+      "description": {
+        "es": "Joseph Valcárcel (1767) y Roig (1772) registran las primigenias menciones que vinculan la patata americana con preparaciones de huevo batido en la cocina popular.",
+        "en": "Joseph Valcárcel (1767) and Roig (1772) record the earliest documentary references linking potatoes with beaten egg preparations.",
+        "de": "Joseph Valcárcel (1767) und Roig (1772) hielten die ersten schriftlichen Nachweise über Kartoffeln mit verquirlten Eiern fest."
+      },
+      "badge": {
+        "es": "Siglo de las Luces",
+        "en": "Enlightenment Era",
+        "de": "Zeitalter der Aufklärung"
+      }
+    },
+    {
+      "year": "1798",
+      "title": {
+        "es": "Origen Geográfico Documentado",
+        "en": "Documented Birthplace",
+        "de": "Dokumentierte Geburtsstätte"
+      },
+      "location": "Villanueva de la Serena (Badajoz)",
+      "description": {
+        "es": "Documentos de Extremadura detallan cómo el ingenio local creó la fórmula de patata y huevo como respuesta nutritiva a la escasez agrícola.",
+        "en": "Extremaduran historical archives detail how local ingenuity created the potato and egg formula as a nutritious answer to agricultural scarcity.",
+        "de": "Archive aus Extremadura belegen die genaue Kombination aus Kartoffel und Ei als nährstoffreiche Antwort auf Hungersnöte."
+      },
+      "badge": {
+        "es": "Hito Fundacional",
+        "en": "Foundational Milestone",
+        "de": "Gründungs-Meilenstein"
+      }
+    },
+    {
+      "year": "1810 - 1812",
+      "title": {
+        "es": "El Sitio de Cádiz y la 'Tortilla Francesa'",
+        "en": "Siege of Cádiz & 'French Omelette'",
+        "de": "Belagerung von Cádiz & 'Tortilla Francesa'"
+      },
+      "location": "Cádiz",
+      "description": {
+        "es": "Durante el bloqueo napoleónico, la falta de patatas obligó a cocinar el huevo solo. Con humor gaditano, la bautizaron 'tortilla francesa' para diferenciarla de la 'española'.",
+        "en": "During the Napoleonic blockade, potato depletion forced citizens to cook plain egg omelettes, ironically naming them 'French omelettes'.",
+        "de": "Mangel an Kartoffeln zwang die Bürger zum Omelett rein aus Eiern – spöttisch 'französisches Omelett' genannt."
+      },
+      "badge": {
+        "es": "Conflicto & Lenguaje",
+        "en": "Conflict & Nomenclature",
+        "de": "Konflikt & Name"
+      }
+    },
+    {
+      "year": "1817",
+      "title": {
+        "es": "El Memorial de Navarra",
+        "en": "Navarra Memorial",
+        "de": "Das Navarra-Denkmal"
+      },
+      "location": "Navarra",
+      "description": {
+        "es": "Documento oficial presentado a las Cortes que describe cómo los campesinos 'estiraban' los escasos huevos mezclándolos con patatas para alimentar a familias numerosas.",
+        "en": "Official submission to the Cortes advocating potato omelettes to stretch scarce eggs and feed impoverished rural families.",
+        "de": "Offizielles Dokument an die Cortes über die Streckung weniger Eier mit reichlich Kartoffeln für arme Landfamilien."
+      },
+      "badge": {
+        "es": "Respuesta a la Penuria",
+        "en": "Survival Solution",
+        "de": "Überlebensmittel"
+      }
+    },
+    {
+      "year": "1835",
+      "title": {
+        "es": "Leyenda del General Zumalacárregui",
+        "en": "General Zumalacárregui Legend",
+        "de": "Legende von General Zumalacárregui"
+      },
+      "location": "Guerras Carlistas",
+      "description": {
+        "es": "La tradición narra que una campesina anónima improvisó el plato para el general Carlista para nutrir a sus tropas de forma rápida, económica y calórica.",
+        "en": "Tradition holds that an anonymous farmwoman created the dish for Carlist troops to provide a dense, affordable military ration.",
+        "de": "Eine Bäuerin soll das nahrhafte, günstige Gericht improvisiert haben, um Karlistentruppen schnell zu verpflegen."
+      },
+      "badge": {
+        "es": "Mito Gastronómico",
+        "en": "Gastronomic Legend",
+        "de": "Mythen & Legenden"
+      }
+    },
+    {
+      "year": "1940s",
+      "title": {
+        "es": "La Tortilla de Naranja de la Posguerra",
+        "en": "Post-War Orange Peel Omelette",
+        "de": "Die Orangenschalen-Not-Tortilla"
+      },
+      "location": "España",
+      "description": {
+        "es": "En tiempos de racionamiento extremo, la parte blanca de la corteza de naranja (albedo) macerada sustituía a la patata, y harina con agua al huevo.",
+        "en": "In times of severe rationing, soaked orange peel albedo replaced potatoes, and flour water replaced eggs.",
+        "de": "In Zeiten extremer Not ersetzte eingeweichte Orangenschale (Albedo) die Kartoffel und Mehl-Wasser das Ei."
+      },
+      "badge": {
+        "es": "Ingenio Extremo",
+        "en": "Peak Ingenuity",
+        "de": "Höchster Einfallsreichtum"
+      }
+    },
+    {
+      "year": "1991 - 2025",
+      "title": {
+        "es": "Alertas Sanitarias y Control Epidemiológico",
+        "en": "Public Health Outbreaks & Pasteurization",
+        "de": "Ausbrüche & Inaktivierungs-Standards"
+      },
+      "location": "España",
+      "description": {
+        "es": "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C for 2 minutes** y ovoproductos.",
+        "en": "Outbreaks such as Casa Dani (2023) and Trasan Fest (2025) drive safety regulations: **70°C for 2 minutes** and liquid egg products.",
+        "de": "Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C for 2 minutes** und Flüssigei."
+      },
+      "badge": {
+        "es": "Seguridad Alimentaria",
+        "en": "Food Safety",
+        "de": "Lebensmittelsicherheit"
+      }
+    },
+    {
+      "year": "2024 - 2025+",
+      "title": {
+        "es": "Revolución Digital y Versiones Veganas",
+        "en": "Digital Delivery & Vegan Innovations",
+        "de": "Digitales Delivery & Vegane Alternativen"
+      },
+      "location": "España Digital",
+      "description": {
+        "es": "El delivery alcanza 8.000M€. Surgen versiones veganas con harina de garbanzo y almidón de tapioca para alérgicos e intolerantes.",
+        "en": "Online food delivery reaches €8 billion. Chickpea flour and tapioca starch enable egg-free, allergen-safe tortillas.",
+        "de": "Online-Delivery erreicht 8 Mrd. Euro. Kichererbsenmehl und Tapiokastärke ermöglichen allergiefreie, vegane Tortillas."
+      },
+      "badge": {
+        "es": "Era Contemporánea",
+        "en": "Digital Era",
+        "de": "Digitales Zeitalter"
+      }
+    }
+  ],
+  "chaptersTitle": {
+    "es": "Investigación Histórica y Cronológica Completa",
+    "en": "Full Historical & Chronological Investigation",
+    "de": "Vollständige Historische Untersuchung"
+  },
+  "chaptersSubtitle": {
+    "es": "Un análisis detallado estructurado en 8 capítulos de investigación.",
+    "en": "A detailed 8-chapter research breakdown.",
+    "de": "Detaillierte Analyse in 8 Kapiteln."
+  },
+  "chapters": [
+    {
+      "id": "intro",
+      "number": "01",
+      "title": {
+        "es": "Introducción: El Icono de la Gastronomía Popular",
+        "en": "Introduction: The Icon of Spanish Gastronomic Identity",
+        "de": "Einleitung: Ein kulturelles und gastronomisches Wahrzeichen"
+      },
+      "content": {
+        "es": [
+          "La tortilla de patatas no es simplemente un plato en el recetario español; es un pilar de identidad, un fenómeno social y el máximo exponente del ingenio ante la escasez. Su importancia trasciende el ámbito doméstico para erigirse como un motor fundamental del sector de la restauración profesional en España.",
+          "Desde las barras más humildes hasta las propuestas de alta cocina, este plato personifica la capacidad de síntesis cultural de la península. La presente crónica se propone como una investigación histórica y técnica rigurosa que reconcilia los hallazgos documentales del Siglo de las Luces con los desafíos de la seguridad alimentaria y la revolución digital contemporánea."
+        ],
+        "en": [
+          "The Spanish potato omelette (tortilla de patatas) is not merely a food product; it represents a fundamental pillar of culinary identity and social cohesion. Its presence is omnipresent, from humble neighborhood bars to haute-cuisine showcases.",
+          "This chronicle presents a rigorous historical and technical investigation, reconciling 18th-century Enlightenment records with 21st-century food safety guidelines and digital convenience trends."
+        ],
+        "de": [
+          "Die Tortilla de Patatas ist weit mehr als ein bloßes Rezept; sie ist ein identitätsstiftendes Artefakt der spanischen Kulturwissenschaft. Ihre Bedeutung gründet sich auf einer beispiellosen sozioökonomischen Resilienz.",
+          "Diese wissenschaftliche Chronik verbindet historische Dokumente des 18. Jahrhunderts mit modernen Sicherheitsstandards und dem digitalen Wandel."
+        ]
+      }
+    },
+    {
+      "id": "siglo-18",
+      "number": "02",
+      "title": {
+        "es": "Los Primeros Rastros: El Siglo XVIII y las Luces",
+        "en": "The 18th Century: Earliest Documentary Evidence",
+        "de": "Die Wurzeln im 18. Jahrhundert"
+      },
+      "content": {
+        "es": [
+          "La historiografía gastronómica ha evolucionado significativamente, desplazando las teorías que situaban el origen de la tortilla de patatas a mediados del siglo XIX. La evidencia documental nos obliga a retroceder al Siglo de las Luces, donde la patata comenzó a integrarse en la dieta popular no solo por su valor nutritivo, sino como una respuesta ilustrada al hambre.",
+          "En 1767, Joseph Valcárcel registra las menciones primigenias que vinculan la patata americana con preparaciones de huevo batido. En 1772, las referencias de Roig confirman la consolidación de esta unión de ingredientes. Finalmente, en 1798 en Villanueva de la Serena (Badajoz), los registros extremeños detallan cómo el ingenio local dio con la fórmula exacta de huevo y patata que hoy es patrimonio nacional."
+        ],
+        "en": [
+          "Gastronomic historiography has debunked 19th-century origin myths. Documentary evidence points back to the Enlightenment, where potatoes were integrated into popular diets to fight hunger.",
+          "In 1767, Joseph Valcárcel recorded initial mentions of potato and beaten egg mixtures. By 1798 in Villanueva de la Serena (Extremadura), official archives confirmed the precise recipe used today."
+        ],
+        "de": [
+          "Frühe Schriften von Valcárcel (1767) und Roig (1772) belegen die Nutzung der Kartoffel mit verquirlten Eiern.",
+          "Das Dokument aus Villanueva de la Serena (1798) markiert den exakten historischen Ursprung des Gerichts."
+        ]
+      }
+    }
+  ]
+}
+````
+
+## File: src/content/pages/history.txt
+````
 {
   "badge": {
     "es": "Crónica Histórica & Cronología Gastronómica",
@@ -4455,6 +5646,667 @@ export {
     "es": "Toda técnica debe controlar el tiempo y la temperatura. El punto óptimo de inactivación bactericida es de **70°C for 2 minutes** o **63°C for 20 seconds**. No superar **4 hours** a temperatura ambiente.",
     "en": "Every technique must monitor time and temperature. Optimal bactericidal threshold is **70°C for 2 minutes** or **63°C for 20 seconds**. Never exceed **4 hours** at room temperature.",
     "de": "Jede Technik muss Zeit und Temperatur kontrollieren. Der optimale bakterizide Wert liegt bei **70°C for 2 minutes** oder **63°C for 20 seconds** (max. **4 hours** bei Raumtemperatur)."
+  }
+}
+````
+
+## File: src/content/recipes/atun.json
+````json
+{
+  "id": "con-atun",
+  "slug": {
+    "es": "tortilla-de-patatas-con-atun",
+    "en": "spanish-omelette-with-tuna",
+    "de": "spanische-tortilla-mit-thunfisch"
+  },
+  "title": {
+    "es": "Tortilla de Patatas con Atún y Pimientos del Piquillo",
+    "en": "Spanish Omelette with Tuna & Piquillo Peppers",
+    "de": "Spanische Tortilla mit Thunfisch und Piquillo-Paprika"
+  },
+  "description": {
+    "es": "Variante de la facción 'Con Cosas' popularizada por chefs como José Andrés: combina patata pocha, huevo campero y lomos de atún en conserva bien escurridos, pudiendo acompañarse de pimientos del piquillo asados.",
+    "en": "A popular 'Con Cosas' variant championed by chefs like José Andrés: combining poached potatoes, free-range eggs, and well-drained canned tuna in olive oil with roasted piquillo peppers.",
+    "de": "Eine beliebte Variante der 'Con Cosas'-Fraktion, bekannt durch Chefs wie José Andrés: Verbindet geschmorte Kartoffeln, Freilandeier und gut abgetropften Thunfisch in Olivenöl mit gegrillten Piquillo-Paprikas."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:tuna",
+    "ingredient:onion",
+    "ingredient:pepper",
+    "ingredient:oil",
+    "ingredient:salt",
+    "technique:confit",
+    "style:gourmet",
+    "difficulty:easy"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/con-atun.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata (Monalisa o Agria)",
+        "en": "Potato (Monalisa or Agria)",
+        "de": "Kartoffel (Monalisa oder Agria)"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "Patatas cortadas en láminas finas",
+        "en": "Thinly sliced potatoes",
+        "de": "Dünn geschnittene Kartoffeln"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo campero",
+        "en": "Free-range egg",
+        "de": "Ei aus Freilandhaltung"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos a temperatura ambiente",
+        "en": "6 eggs at room temperature",
+        "de": "6 Eier bei Raumtemperatur"
+      }
+    },
+    {
+      "id": "tuna",
+      "ingredientId": "tuna",
+      "name": {
+        "es": "Atún en conserva en aceite de oliva",
+        "en": "Canned tuna in olive oil",
+        "de": "Thunfisch in Olivenöl (Dose)"
+      },
+      "amount": 120,
+      "unit": "g",
+      "notes": {
+        "es": "Lomos de atún en conserva bien escurridos y desmigados",
+        "en": "Flaked tuna loins, thoroughly drained",
+        "de": "Gut abgetropfter Thunfisch, leicht zerpflückt"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "1 cebolla mediana pochada lentamente",
+        "en": "1 medium onion, slowly poached",
+        "de": "1 mittelgroße Zwiebel, langsam geschmort"
+      }
+    },
+    {
+      "id": "pepper",
+      "ingredientId": "pepper",
+      "name": {
+        "es": "Pimientos del piquillo asados",
+        "en": "Roasted piquillo peppers",
+        "de": "Gegrillte Piquillo-Paprika"
+      },
+      "amount": 60,
+      "unit": "g",
+      "notes": {
+        "es": "Pimientos del piquillo cortados en tiras (estilo Jaleo)",
+        "en": "Piquillo peppers sliced into strips (Jaleo style)",
+        "de": "In Streifen geschnittene Piquillo-Paprika"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Para confitar las patatas y cebolla",
+        "en": "For poaching potatoes and onions",
+        "de": "Zum Garen der Kartoffeln und Zwiebeln"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 3,
+      "unit": "g",
+      "notes": {
+        "es": "Sal moderada (el atún en conserva ya aporta salinidad)",
+        "en": "Moderate salt (canned tuna is naturally salty)",
+        "de": "Sparsames Salz (Thunfisch ist bereits salzig)"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Confitar patatas y cebolla",
+        "en": "Poach potatoes and onion",
+        "de": "Kartoffeln und Zwiebeln garen"
+      },
+      "text": {
+        "es": "Pelar y cortar las patatas en láminas finas y la cebolla en juliana. Pochar en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas y melosas. Escurrir bien el exceso de aceite.",
+        "en": "Peel and thinly slice potatoes and onion. Poach in olive oil over medium-low heat until tender. Drain excess oil thoroughly.",
+        "de": "Kartoffeln und Zwiebeln dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze weich garen. Gut abtropfen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "Preparar el atún y los huevos",
+        "en": "Prepare tuna and eggs",
+        "de": "Thunfisch und Eier vorbereiten"
+      },
+      "text": {
+        "es": "Escurrir completamente el atún en conserva y desmigarlo. Batir los huevos suavemente con una pizca de sal en un bol grande.",
+        "en": "Thoroughly drain the canned tuna and flake it. Whisk eggs gently with a pinch of salt in a large bowl.",
+        "de": "Den Thunfisch gut abtropfen lassen und zerpflücken. Eier mit einer Prise Salz leicht verquirlen."
+      }
+    },
+    {
+      "step": {
+        "es": "Mezclar e integrar ingredientes",
+        "en": "Combine ingredients",
+        "de": "Zutaten vermengen"
+      },
+      "text": {
+        "es": "Añadir la patata y cebolla calientes al bol de huevo. Dejar reposar 3-5 minutos para que la patata absorba el huevo e incorporar el atún desmigado y las tiras de pimiento del piquillo mezclando con delicadeza.",
+        "en": "Add warm potatoes and onion to the eggs. Rest for 3-5 minutes, then gently fold in the flaked tuna and piquillo pepper strips.",
+        "de": "Warme Kartoffeln und Zwiebeln zu den Eiern geben. 3-5 Minuten ruhen lassen, dann den Thunfisch und die Piquillo-Streifen vorsichtig unterheben."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajado y acabado jugoso",
+        "en": "Cook and finish",
+        "de": "Anbraten und fertigstellen"
+      },
+      "text": {
+        "es": "Verter la mezcla en una sartén antiadherente caliente con un hilo de aceite. Cuajar a fuego medio durante 1.5 - 2 minutos por lado dando la vuelta con un plato, manteniendo el interior meloso.",
+        "en": "Pour into a hot non-stick skillet with a drizzle of oil. Cook for 1.5 - 2 minutes per side over medium heat, flipping with a plate to keep the center juicy.",
+        "de": "In eine heiße beschichtete Pfanne geben. Bei mittlerer Hitze 1,5 - 2 Minuten pro Seite braten y mit einem Teller wenden, damit der Kern saftig bleibt."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "community",
+      "name": "Jaleo by José Andrés",
+      "url": "https://www.jaleo.com/tortilla-espanola/",
+      "description": {
+        "es": "Receta de autor del chef José Andrés que incorpora atún en conserva en aceite de oliva y pimientos del piquillo.",
+        "en": "Chef José Andrés signature recipe combining canned tuna in olive oil and piquillo peppers.",
+        "de": "Rezept von Chefkoch José Andrés mit Thunfisch in Olivenöl und Piquillo-Paprika."
+      }
+    },
+    {
+      "type": "community",
+      "name": "Patente ES2331168B1 (Procedimiento para elaboración de tortilla)",
+      "url": "https://patents.google.com/patent/ES2331168B1/es",
+      "description": {
+        "es": "Documentación técnica e industrial que registra las proporciones de tortilla de patata con atún.",
+        "en": "Technical documentation registering industrial proportions for potato omelette with tuna.",
+        "de": "Technische Dokumentation zur industriellen Herstellung von Kartoffeltortilla mit Thunfisch."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "José Andrés & Tradición Con Cosas"
+  }
+}
+````
+
+## File: src/content/recipes/jamon.json
+````json
+{
+  "id": "jamon",
+  "slug": {
+    "es": "tortilla-jamon",
+    "en": "jamon-spanish-omelette",
+    "de": "jamon-spanische-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Clásica jamon",
+    "en": "Classic Spanish Omelette jamon",
+    "de": "Klassische Spanische jamon"
+  },
+  "description": {
+    "es": "La esencia del jamón español: cerdo, sal, tiempo y paciencia. El equilibrio perfecto entre tradición y técnica.",
+    "en": "The essence of Spanish ham: pork, salt, time, and patience. The perfect balance between tradition and technique.",
+    "de": "Das Wesen des spanischen Jamón: Schweinefleisch, Salz, Zeit und Geduld. Perfekte Balance zwischen Tradition und Technik."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:jamon",
+    "ingredient:oil",
+    "technique:confit",
+    "difficulty:easy"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/jamon.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
+    },
+    {
+      "id": "jamon",
+      "ingredientId": "jamon",
+      "name": {
+        "es": "Jamón",
+        "en": "Jamón",
+        "de": "Jamón"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "Jamón",
+        "en": "Jamón",
+        "de": "Jamón"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Cortar las patatas",
+        "en": "Slice the potatoes",
+        "de": "Kartoffeln schneiden"
+      },
+      "text": {
+        "es": "Pelar las patatas y cortarlas en láminas finas.",
+        "en": "Peel the potatoes and cut them into thin slices.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden."
+      }
+    },
+    {
+      "step": {
+        "es": "Pochar las patatas",
+        "en": "Slow-cook the potatoes",
+        "de": "Kartoffeln langsam garen"
+      },
+      "text": {
+        "es": "Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.",
+        "en": "Cook the potatoes in plenty of olive oil over medium-low heat until tender.",
+        "de": "Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Pochar el jamón",
+        "en": "Slow-cook the ham",
+        "de": "Schinken langsam garen"
+      },
+      "text": {
+        "es": "Cocinar el jamón en abundante aceite de oliva a fuego medio-bajo hasta que esté tierno.",
+        "en": "Cook the ham in plenty of olive oil over medium-low heat until tender.",
+        "de": "Schinken in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Mezclar con huevo",
+        "en": "Mix with eggs",
+        "de": "Mit Ei vermischen"
+      },
+      "text": {
+        "es": "Batir los huevos con sal y mezclar con las patatas y el jamón escurridos.",
+        "en": "Beat eggs with salt and combine with the drained potatoes and ham.",
+        "de": "Eier mit Salz schlagen und mit den abgetropften Kartoffeln und dem Schinken vermischen."
+      }
+    },
+    {
+      "step": {
+        "es": "Reposar la mezcla",
+        "en": "Rest the mixture",
+        "de": "Mischung ruhen lassen"
+      },
+      "text": {
+        "es": "Dejar reposar unos minutos para integrar sabores.",
+        "en": "Rest for a few minutes to combine flavors.",
+        "de": "Einige Minuten ruhen lassen, damit sich die Aromen verbinden."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
+      },
+      "text": {
+        "es": "Cocinar en sartén caliente hasta conseguir el punto deseado, girando la tortilla para dorar ambos lados.",
+        "en": "Cook in a hot pan until reaching the desired doneness, turning once to brown both sides.",
+        "de": "In einer heißen Pfanne bis zum gewünschten Gargrad braten und einmal wenden."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Receta Tradicional de Jamón Serrano",
+      "description": {
+      "es": "El estándar tradicional de curación artesanal, perfeccionado en bodegas y secaderos españoles.",
+      "en": "The traditional artisanal curing standard, refined in Spanish cellars and drying sheds.",
+      "de": "Der traditionelle handwerkliche Reifungsstandard, verfeinert in spanischen Kellern und Trocknungsräumen."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}
+````
+
+## File: src/content/recipes/quesoazul.json
+````json
+{
+  "id": "quesoazul",
+  "slug": {
+    "es": "tortilla-de-patatas-con-queso-azul",
+    "en": "spanish-omelette-with-blue-cheese",
+    "de": "spanische-tortilla-mit-blauschimmelkaese"
+  },
+  "title": {
+    "es": "Tortilla de Patatas con Queso Azul y Cebolla Caramelizada",
+    "en": "Spanish Omelette with Blue Cheese & Caramelized Onion",
+    "de": "Spanische Tortilla mit Blauschimmelkäse & Karamellisierten Zwiebeln"
+  },
+  "description": {
+    "es": "Receta gourmet de la facción 'Con Cosas' inspirada en los afamados locales Pez Tortilla (Madrid) y las tabernas de Santander: queso azul fundido (Gorgonzola, Roquefort o Cabrales) sobre patata pocha y cebolla caramelizada.",
+    "en": "Gourmet 'Con Cosas' faction recipe inspired by Madrid's Pez Tortilla and Santander tapas bars: melted blue cheese (Gorgonzola, Roquefort, or Cabrales) layered over confit potatoes and caramelized onions.",
+    "de": "Gourmet-Rezept der 'Con Cosas'-Fraktion, inspiriert von Pez Tortilla (Madrid) und den Tapas-Bars in Santander: geschmolzener Blauschimmelkäse auf sanft gegarten Kartoffeln und karamellisierten Zwiebeln."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:blue_cheese",
+    "ingredient:onion",
+    "ingredient:oil",
+    "ingredient:salt",
+    "technique:confit",
+    "technique:slow_onion",
+    "style:gourmet",
+    "difficulty:medium"
+  ],
+  "time": 45,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 30,
+  "yieldServings": 4,
+  "image": "/images/quesoazul.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata (Monalisa o Agria)",
+        "en": "Potato (Monalisa or Agria)",
+        "de": "Kartoffel (Monalisa oder Agria)"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "Patatas cortadas en láminas finas de 2-3 mm",
+        "en": "Thinly sliced potatoes (2-3 mm)",
+        "de": "Dünn geschnittene Kartoffeln (2-3 mm)"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo campero",
+        "en": "Free-range egg",
+        "de": "Ei aus Freilandhaltung"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos a temperatura ambiente",
+        "en": "6 eggs at room temperature",
+        "de": "6 Eier bei Raumtemperatur"
+      }
+    },
+    {
+      "id": "blue_cheese",
+      "ingredientId": "blue_cheese",
+      "name": {
+        "es": "Queso Azul (Gorgonzola, Roquefort o Cabrales)",
+        "en": "Blue Cheese (Gorgonzola, Roquefort, or Cabrales)",
+        "de": "Blauschimmelkäse (Gorgonzola, Roquefort oder Cabrales)"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "Cortado en dados pequeños para distribuir en el centro",
+        "en": "Diced into small cubes to melt in the center",
+        "de": "In kleine Würfel geschnitten für die schmelzende Füllung"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla dulce",
+        "en": "Sweet onion",
+        "de": "Süße Zwiebel"
+      },
+      "amount": 200,
+      "unit": "g",
+      "notes": {
+        "es": "1 cebolla grande en juliana, pochada lentamente",
+        "en": "1 large onion julienned, slowly poached",
+        "de": "1 große Zwiebel in Streifen, langsam geschmort"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 160,
+      "unit": "ml",
+      "notes": {
+        "es": "Para confitar patatas y cebolla",
+        "en": "For poaching potatoes and onions",
+        "de": "Zum sanften Garen der Kartoffeln und Zwiebeln"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal marina",
+        "en": "Sea salt",
+        "de": "Meersalz"
+      },
+      "amount": 4,
+      "unit": "g",
+      "notes": {
+        "es": "Cantidad moderada (el queso azul aporta salinidad)",
+        "en": "Moderate amount (blue cheese provides natural saltiness)",
+        "de": "Sparsamt dosieren (der Käse ist bereits salzig)"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Confitar patatas y cebolla",
+        "en": "Poach potatoes and onions",
+        "de": "Kartoffeln und Zwiebeln garen"
+      },
+      "text": {
+        "es": "Cortar las patatas y la cebolla finamente. Pochar en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas y ligeramente caramelizadas.",
+        "en": "Slice potatoes and onions thinly. Poach in olive oil over medium-low heat until soft and gently caramelized.",
+        "de": "Kartoffeln und Zwiebeln dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze weich und leicht karamellisiert garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Integrar el huevo y reposar",
+        "en": "Mix with eggs and rest",
+        "de": "Mit Eiern mischen und ruhen lassen"
+      },
+      "text": {
+        "es": "Batir los huevos ligeramente con la sal. Escurrir las patatas y cebollas calientes, unirlas a los huevos y dejar reposar 5 minutos para trabar la mezcla.",
+        "en": "Whisk eggs gently with salt. Drain the hot potatoes and onions, add to the eggs, and let rest for 5 minutes so the starch absorbs the egg.",
+        "de": "Eier leicht mit Salz verquirlen. Heiße Kartoffeln und Zwiebeln abtropfen lassen, zu den Eiern geben und 5 Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "Incorporar dados de queso azul",
+        "en": "Fold in blue cheese",
+        "de": "Blauschimmelkäse unterheben"
+      },
+      "text": {
+        "es": "Añadir los dados de queso azul a la mezcla justo antes de pasar a la sartén, doblando suavemente para que no se deshagan por completo.",
+        "en": "Gently fold the blue cheese cubes into the egg-potato mixture right before pouring into the pan.",
+        "de": "Die Blauschimmelkäsewürfel kurz vor dem Anbraten vorsichtig unter die Masse heben."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajado y fundido interior",
+        "en": "Cook and melt",
+        "de": "Braten und schmelzen"
+      },
+      "text": {
+        "es": "Verter en sartén caliente con unas gotas de aceite. Cuajar a fuego medio 1.5 minutos por lado, manteniendo el centro jugoso con el queso azul fundido.",
+        "en": "Pour into a hot skillet with a drizzle of oil. Cook for 1.5 minutes per side over medium heat, keeping the center juicy with melted blue cheese.",
+        "de": "In eine heiße Pfanne geben. Bei mittlerer Hitze ca. 1.5 Minuten pro Seite braten, sodass der Kern saftig bleibt und der Käse schmilzt."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "restaurant",
+      "name": "Pez Tortilla (Madrid)",
+      "url": "https://www.reddit.com/r/tortilladepatatas/comments/11h152c/pez_tortilla_madrid/",
+      "description": {
+        "es": "Referente madrileño en tortillas de autor jugosas con quesos fundidos e ingredientes gourmet.",
+        "en": "Madrid benchmark for juicy gourmet tortillas featuring melted cheeses and artisan toppings.",
+        "de": "Madrider Referenz für saftige Gourmet-Tortillas mit geschmolzenem Käse."
+      }
+    },
+    {
+      "type": "restaurant",
+      "name": "Tabernas de Santander (Gorgonzola & Cebolla Caramelizada)",
+      "url": "https://www.reddit.com/r/tortilladepatatas/comments/12mvj4d/caramelised_onion_gorgonzola_and_a_classic/",
+      "description": {
+        "es": "Especialidad típica de desayunos y pinchos en las tabernas de Santander combinando Gorgonzola y cebolla dulce.",
+        "en": "Popular breakfast and tapas bar specialty in Santander combining Gorgonzola cheese with caramelized onion.",
+        "de": "Beliebte Tapas-Spezialität aus Santander mit Gorgonzola und karamellisierten Zwiebeln."
+      }
+    },
+    {
+      "type": "community",
+      "name": "r/tortilladepatatas - Roquefort & Bacon Variant",
+      "url": "https://www.reddit.com/r/tortilladepatatas/comments/1ppd8ha/roquefort_bacon_tortilla/",
+      "description": {
+        "es": "Variación comunitaria documentada utilizando queso Roquefort y crujiente de bacon.",
+        "en": "Community documented variation using Roquefort cheese and crispy bacon.",
+        "de": "Dokumentierte Variante aus der Community mit Roquefort-Käse und krosser Bacon-Einlage."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Pez Tortilla & r/tortilladepatatas"
   }
 }
 ````
@@ -5408,95 +7260,6 @@ export function normalizeRecipe(recipe: RawRecipeInput): RecipeProfile {
 }
 ````
 
-## File: src/domain/comparator/types.ts
-````typescript
-import type { LocalizedString } from "@/types/taxonomy";
-
-export type { LocalizedString };
-
-export interface RawIngredientInput {
-  id?: string;
-  ingredientId?: string;
-  name?: string | LocalizedString;
-  amount?: number;
-  quantity?: number;
-  unit?: string;
-  notes?: string | LocalizedString;
-}
-
-export interface RawRecipeInput {
-  id?: string;
-  recipeId?: string;
-  slug?: string | LocalizedString;
-  title?: string | LocalizedString;
-  recipeName?: string | LocalizedString;
-  name?: string | LocalizedString;
-  ingredients?: RawIngredientInput[];
-  [key: string]: any;
-}
-
-export interface NormalizedIngredientRatio {
-  ingredientId: string;
-  name: string | LocalizedString;
-  quantity: number;      // normalized quantity per 1 egg
-  totalQuantity: number; // total quantity in recipe
-  unit: string;          // normalized standard unit ("g", "ml", "unit", etc.)
-}
-
-export interface TortillaClassification {
-  potatoIntensity: "eggDominant" | "balanced" | "potatoHeavy";
-  potatoIntensityLabel: string;
-  oilIntensity: "light" | "medium" | "rich";
-  oilIntensityLabel: string;
-  onionPresence: "none" | "moderate" | "heavy";
-  onionPresenceLabel: string;
-  eggDominance: "high" | "medium" | "low";
-  eggDominanceLabel: string;
-}
-
-export interface RecipeProfile {
-  recipeId: string;
-  recipeName: string;
-  localizedName?: LocalizedString;
-  eggCount: number;
-  ratios: {
-    potato?: NormalizedIngredientRatio;
-    onion?: NormalizedIngredientRatio;
-    oil?: NormalizedIngredientRatio;
-    salt?: NormalizedIngredientRatio;
-    peppers?: NormalizedIngredientRatio;
-    blackPepper?: NormalizedIngredientRatio;
-    [ingredientId: string]: NormalizedIngredientRatio | undefined;
-  };
-  classification: TortillaClassification;
-}
-
-export interface IngredientComparison {
-  ingredientId: string;
-  name: string;
-  localizedName?: LocalizedString;
-  recipeAValue: number;
-  recipeBValue: number;
-  unit: string;
-  difference: number;
-  percentageDifference: number;
-}
-
-export interface ComparisonProfileSummary {
-  potatoIntensity: { a: string; b: string };
-  oilIntensity: { a: string; b: string };
-  onionPresence: { a: string; b: string };
-  eggDominance: { a: string; b: string };
-}
-
-export interface RecipeComparisonResult {
-  recipeA: RecipeProfile;
-  recipeB: RecipeProfile;
-  ingredients: IngredientComparison[];
-  profile: ComparisonProfileSummary;
-}
-````
-
 ## File: src/domain/comparator/units.ts
 ````typescript
 export interface UnitConversionRule {
@@ -5609,28 +7372,6 @@ export interface Recipe {
   ingredients: RawIngredientInput[];
   oilUsage?: OilUsage;
   source?: RecipeSource;
-}
-````
-
-## File: src/domain/recipes/referenceRecipes.ts
-````typescript
-import betanzos from "../../content/recipes/betanzos.json";
-import clasica from "../../content/recipes/clasica.json";
-import concebolla from "../../content/recipes/concebolla.json";
-import express from "../../content/recipes/express.json";
-import paisana from "../../content/recipes/paisana.json";
-import type { RawRecipeInput } from "../tortilla-dna/types";
-
-export const REFERENCE_RECIPES: RawRecipeInput[] = [
-  betanzos as RawRecipeInput,
-  clasica as RawRecipeInput,
-  concebolla as RawRecipeInput,
-  paisana as RawRecipeInput,
-  express as RawRecipeInput,
-];
-
-export function getReferenceRecipes(): RawRecipeInput[] {
-  return REFERENCE_RECIPES;
 }
 ````
 
@@ -6085,6 +7826,116 @@ export async function getStaticPaths() {
 <TestsPage />
 ````
 
+## File: src/pages/[lang]/contact.astro
+````astro
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactForm from '@/components/contact/ContactForm';
+import { Badge } from '@/components/ui/badge';
+import { Mail } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'en' } = Astro.params;
+const t = getTranslations(lang);
+
+const pageTitle = `${t('contact.title', 'Contact & Inquiries')} - tortilladepatatas.org`;
+const description = t('contact.subtitle', 'Contact form for questions, suggestions, and collaborations.');
+
+const homeLabel = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
+const contactLabel = t('nav.contact', 'Contact');
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: homeLabel, url: `/${lang}` },
+  { name: contactLabel, url: `/${lang}/contact` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
+---
+
+<Layout title={pageTitle} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-3xl space-y-8">
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Mail class="w-3.5 h-3.5 text-[#FFB800]" />
+        <span>{t("contact.badge", "Get in Touch")}</span>
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t("contact.title", "Contact & Inquiries")}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("contact.subtitle", "Have questions about the encyclopedia, recipe suggestions, or want to collaborate?")}
+      </p>
+    </div>
+
+    <ContactForm lang={lang} currentPath={Astro.url.pathname} client:load />
+  </div>
+</Layout>
+````
+
+## File: src/pages/[lang]/contacto.astro
+````astro
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactForm from '@/components/contact/ContactForm';
+import { Badge } from '@/components/ui/badge';
+import { Mail } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const t = getTranslations(lang);
+
+const pageTitle = `${t('contact.title', 'Contacto & Consultas')} - tortilladepatatas.org`;
+const description = t('contact.subtitle', 'Formulario de contacto para consultas, sugerencias y colaboraciones.');
+
+const homeLabel = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
+const contactLabel = t('nav.contact', 'Contacto');
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: homeLabel, url: `/${lang}` },
+  { name: contactLabel, url: `/${lang}/contacto` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
+---
+
+<Layout title={pageTitle} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-3xl space-y-8">
+    <!-- Header Badge & Title -->
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Mail class="w-3.5 h-3.5 text-[#FFB800]" />
+        <span>{t("contact.badge", "Atención al Tortillero")}</span>
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t("contact.title", "Contacto & Consultas")}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("contact.subtitle", "¿Tienes alguna duda sobre la enciclopedia, sugerencias de recetas o quieres colaborar?")}
+      </p>
+    </div>
+
+    <!-- Contact Form Component -->
+    <ContactForm lang={lang} currentPath={Astro.url.pathname} client:load />
+  </div>
+</Layout>
+````
+
 ## File: src/pages/[lang]/enciclopedia.astro
 ````astro
 ---
@@ -6370,6 +8221,60 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         </p>
       </div>
     </section>
+  </div>
+</Layout>
+````
+
+## File: src/pages/[lang]/kontakt.astro
+````astro
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactForm from '@/components/contact/ContactForm';
+import { Badge } from '@/components/ui/badge';
+import { Mail } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'de' } = Astro.params;
+const t = getTranslations(lang);
+
+const pageTitle = `${t('contact.title', 'Kontakt & Anfragen')} - tortilladepatatas.org`;
+const description = t('contact.subtitle', 'Kontaktformular für Fragen, Anregungen und Kooperationen.');
+
+const homeLabel = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
+const contactLabel = t('nav.contact', 'Kontakt');
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: homeLabel, url: `/${lang}` },
+  { name: contactLabel, url: `/${lang}/kontakt` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
+---
+
+<Layout title={pageTitle} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-3xl space-y-8">
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Mail class="w-3.5 h-3.5 text-[#FFB800]" />
+        <span>{t("contact.badge", "Kontakt")}</span>
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t("contact.title", "Kontakt & Anfragen")}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("contact.subtitle", "Haben Sie Fragen zur Enzyklopädie, Rezeptvorschläge oder möchten Sie zusammenarbeiten?")}
+      </p>
+    </div>
+
+    <ContactForm lang={lang} currentPath={Astro.url.pathname} client:load />
   </div>
 </Layout>
 ````
@@ -7459,46 +9364,6 @@ return Astro.redirect('/es');
     @content;
   }
 }
-````
-
-## File: src/styles/_variables.scss
-````scss
-/* Design System SCSS Variables - tortilladepatatas.org */
-
-// Brand Colors ("The Star Ingredients")
-$color-yolk-gold: #FFB800;
-$color-potato-cream: #F5E6BE;
-$color-onion-umber: #8D6E63;
-
-// Burner Animation Palette ("Heat & Cooking Levels")
-$color-pilot-blue: #00A3FF;
-$color-safety-orange: #FF8A00;
-$color-bactericidal-crimson: #D32F2F;
-
-// Semantic UI Safety & Risk Status Colors
-$color-risk-danger: #B00020;
-$color-risk-warning: #FFC107;
-$color-risk-safe: #2E7D32;
-
-// Paper & Notebook Neutrals
-$bg-notebook: #FCF9F2;
-$bg-parchment: #FDFBF7;
-$bg-card: #FFFFFF;
-$text-primary: #2A2421;
-$text-secondary: #73675F;
-$text-muted: #8D6E63;
-$border-notebook: #E8E2D5;
-
-// Typography Families
-$font-serif-heading: 'Playfair Display', Georgia, serif;
-$font-sans-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-$font-script-handwritten: 'Caveat', cursive;
-
-// Breakpoints
-$bp-mobile: 640px;
-$bp-tablet: 768px;
-$bp-desktop: 1024px;
-$bp-wide: 1280px;
 ````
 
 ## File: src/styles/main.scss
@@ -8701,194 +10566,6 @@ APP_URL="MY_APP_URL"
   "rules": {
     "react/rules-of-hooks": "error",
     "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-````
-
-## File: App.css
-````css
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
-}
-
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
   }
 }
 ````
@@ -10588,7 +12265,15 @@ declare module 'astro:content' {
 		: any;
 
 	type DataEntryMap = {
-		"navigation": Record<string, {
+		"history": Record<string, {
+  id: string;
+  body?: string;
+  collection: "history";
+  data: InferEntrySchema<"history">;
+  rendered?: RenderedContent;
+  filePath?: string;
+}>;
+"navigation": Record<string, {
   id: string;
   body?: string;
   collection: "navigation";
@@ -10682,6 +12367,740 @@ declare module 'astro:content' {
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+````
+
+## File: src/components/comparator/RecipeComparator.tsx
+````typescript
+import React, { useState, useMemo } from "react";
+import type { RawRecipeInput, LocalizedString } from "@/domain/comparator/types";
+import { compareRecipes } from "@/domain/comparator/compareRecipes";
+import { Scale, Sparkles, ChefHat } from "lucide-react";
+
+interface RecipeComparatorProps {
+  recipes: RawRecipeInput[];
+  initialRecipeAId?: string;
+  initialRecipeBId?: string;
+  lang?: string;
+}
+
+export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
+  recipes,
+  initialRecipeAId = "clasica",
+  initialRecipeBId = "betanzos",
+  lang = "es",
+}) => {
+  const [selectedIdA, setSelectedIdA] = useState<string>(initialRecipeAId);
+  const [selectedIdB, setSelectedIdB] = useState<string>(initialRecipeBId);
+
+  const recipeMap = useMemo(() => {
+    const map = new Map<string, RawRecipeInput>();
+    for (const r of recipes) {
+      const id = r.id || r.recipeId || "";
+      if (id) map.set(id, r);
+    }
+    return map;
+  }, [recipes]);
+
+  const recipeA = useMemo(() => recipeMap.get(selectedIdA) || recipes[0], [recipeMap, selectedIdA, recipes]);
+  const recipeB = useMemo(() => recipeMap.get(selectedIdB) || recipes[1] || recipes[0], [recipeMap, selectedIdB, recipes]);
+
+  const comparison = useMemo(() => {
+    if (!recipeA || !recipeB) return null;
+    return compareRecipes(recipeA, recipeB);
+  }, [recipeA, recipeB]);
+
+  function getLocalizedText(str: string | LocalizedString | undefined): string {
+    if (!str) return "";
+    if (typeof str === "object") {
+      return str[lang as "es" | "en" | "de"] || str.es || str.en || "";
+    }
+    return str;
+  }
+
+  const translationsMap = {
+    es: {
+      title: "Comparador Nutricional y DNA de Tortilla",
+      subtitle: "Conversión matemática estandarizada por cada huevo (1 Huevo = Unidad Fundamental)",
+      selectA: "Receta A (Base)",
+      selectB: "Receta B (Comparación)",
+      eggCount: "Huevos totales en receta",
+      dnaTitle: "ADN Térmico y Proporciones Culinarias",
+      eggDominance: "Dominancia de Huevo",
+      potatoIntensity: "Carga de Patata",
+      oilRichness: "Oleosidad y Confitado",
+      onionPresence: "Presencia de Cebolla",
+      tableHeaderIng: "Ingrediente",
+      tableHeaderA: "Receta A (por huevo)",
+      tableHeaderB: "Receta B (por huevo)",
+      tableHeaderDiff: "Diferencia",
+      equal: "Igual (0%)",
+      classificationTitle: "Perfil Culinario Normalizado",
+    },
+    en: {
+      title: "Nutritional & Tortilla DNA Comparator",
+      subtitle: "Standardized mathematical ratio per 1 egg (1 Egg = Fundamental Unit)",
+      selectA: "Recipe A (Baseline)",
+      selectB: "Recipe B (Comparison)",
+      eggCount: "Total eggs in recipe",
+      dnaTitle: "Culinary DNA & Proportions",
+      eggDominance: "Egg Dominance",
+      potatoIntensity: "Potato Load",
+      oilRichness: "Oil & Confit Richness",
+      onionPresence: "Onion Presence",
+      tableHeaderIng: "Ingredient",
+      tableHeaderA: "Recipe A (per egg)",
+      tableHeaderB: "Recipe B (per egg)",
+      tableHeaderDiff: "Difference",
+      equal: "Equal (0%)",
+      classificationTitle: "Normalized Culinary Profile",
+    },
+    de: {
+      title: "Nährwert- & Tortilla-DNA-Vergleicher",
+      subtitle: "Standardisierte mathematische Verhältnisse pro 1 Ei (1 Ei = Grundeinheit)",
+      selectA: "Rezept A (Basis)",
+      selectB: "Rezept B (Vergleich)",
+      eggCount: "Eier gesamt im Rezept",
+      dnaTitle: "Kulinarische DNA & Proportionen",
+      eggDominance: "Ei-Dominanz",
+      potatoIntensity: "Kartoffelgehalt",
+      oilRichness: "Ölgehalt & Confit",
+      onionPresence: "Zwiebelanteil",
+      tableHeaderIng: "Zutat",
+      tableHeaderA: "Rezept A (pro Ei)",
+      tableHeaderB: "Rezept B (pro Ei)",
+      tableHeaderDiff: "Differenz",
+      equal: "Gleich (0%)",
+      classificationTitle: "Normalisiertes Kulinarisches Profil",
+    },
+  };
+  const translations = translationsMap[lang as "es" | "en" | "de"] || translationsMap.es;
+
+  if (!comparison) return null;
+
+  const { profileA, profileB } = { profileA: comparison.recipeA, profileB: comparison.recipeB };
+
+  // Calculate DNA percentages for progress bars
+  const calcEggDominance = (potatoQty: number) => Math.min(100, Math.max(10, Math.round((1 - (potatoQty - 50) / 150) * 100)));
+  const calcPotatoIntensity = (potatoQty: number) => Math.min(100, Math.max(10, Math.round((potatoQty / 200) * 100)));
+  const calcOilRichness = (oilQty: number) => Math.min(100, Math.max(10, Math.round((oilQty / 45) * 100)));
+
+  return (
+    <div className="w-full max-w-5xl mx-auto space-y-8 my-6">
+      {/* Selector Section */}
+      <div className="bg-[#FAF6EE] p-5 sm:p-6 rounded-2xl border border-[#E8E2D5] shadow-xs space-y-4">
+        <div className="flex items-center gap-2.5 border-b border-[#E8E2D5] pb-3">
+          <div className="p-2 rounded-xl bg-[#FFB800] text-[#4A3B32] shadow-2xs">
+            <Scale className="w-5 h-5" />
+          </div>
+          <div>
+            <h3 className="font-serif-heading font-bold text-lg text-foreground">
+              {translations.title}
+            </h3>
+            <p className="text-xs text-muted-foreground">{translations.subtitle}</p>
+          </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4 pt-2">
+          {/* Selector Recipe A */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-[#8D6E63] uppercase tracking-wider block">
+              {translations.selectA}
+            </label>
+            <select
+              value={selectedIdA}
+              onChange={(e) => setSelectedIdA(e.target.value)}
+              className="w-full px-3 py-2 rounded-xl bg-white border border-[#E8E2D5] text-sm font-semibold text-foreground focus:outline-hidden focus:ring-2 focus:ring-[#FFB800]"
+            >
+              {recipes.map((r) => {
+                const id = r.id || r.recipeId || "";
+                return (
+                  <option key={id} value={id}>
+                    {getLocalizedText(r.title || r.recipeName || r.name)}
+                  </option>
+                );
+              })}
+            </select>
+            <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
+              <span>{translations.eggCount}: <strong>{profileA.eggCount} huevos</strong></span>
+              <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px]">
+                {profileA.classification.potatoIntensityLabel}
+              </span>
+            </div>
+          </div>
+
+          {/* Selector Recipe B */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-[#8D6E63] uppercase tracking-wider block">
+              {translations.selectB}
+            </label>
+            <select
+              value={selectedIdB}
+              onChange={(e) => setSelectedIdB(e.target.value)}
+              className="w-full px-3 py-2 rounded-xl bg-white border border-[#E8E2D5] text-sm font-semibold text-foreground focus:outline-hidden focus:ring-2 focus:ring-[#FFB800]"
+            >
+              {recipes.map((r) => {
+                const id = r.id || r.recipeId || "";
+                return (
+                  <option key={id} value={id}>
+                    {getLocalizedText(r.title || r.recipeName || r.name)}
+                  </option>
+                );
+              })}
+            </select>
+            <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
+              <span>{translations.eggCount}: <strong>{profileB.eggCount} huevos</strong></span>
+              <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-300 font-bold text-[10px]">
+                {profileB.classification.potatoIntensityLabel}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Comparison Table */}
+      <div className="card-notebook overflow-hidden border border-[#E8E2D5] rounded-2xl bg-[#FCF9F2] shadow-sm">
+        <div className="p-4 sm:p-5 border-b border-[#E8E2D5] bg-[#FAF6EE] flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <ChefHat className="w-5 h-5 text-[#8D6E63]" />
+            <h4 className="font-serif-heading font-bold text-base text-foreground">
+              {getLocalizedText(recipeA.title || recipeA.recipeName)} vs {getLocalizedText(recipeB.title || recipeB.recipeName)}
+            </h4>
+          </div>
+          <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-[#FFB800]/20 text-[#8D6E63] border border-[#FFB800]/40">
+            Ratio Normalizado / 1 Huevo
+          </span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-[#E8E2D5] bg-[#F5E6BE]/30 text-[#8D6E63]">
+                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderIng}</th>
+                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderA}</th>
+                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderB}</th>
+                <th className="p-3.5 font-bold uppercase text-[11px] tracking-wider">{translations.tableHeaderDiff}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#E8E2D5]">
+              {comparison.ingredients.map((item) => {
+                const isDiffPositive = item.difference > 0;
+
+                return (
+                  <tr key={item.ingredientId} className="hover:bg-[#FAF6EE]/80 transition-colors">
+                    <td className="p-3.5 font-bold text-foreground capitalize flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[#8D6E63]"></span>
+                      {getLocalizedText(item.name)}
+                    </td>
+                    <td className="p-3.5 font-mono font-semibold text-foreground">
+                      {item.recipeAValue} {item.unit} / huevo
+                    </td>
+                    <td className="p-3.5 font-mono font-semibold text-foreground">
+                      {item.recipeBValue} {item.unit} / huevo
+                    </td>
+                    <td className="p-3.5 font-mono">
+                      {item.difference === 0 ? (
+                        <span className="text-muted-foreground text-xs font-normal">{translations.equal}</span>
+                      ) : (
+                        <span
+                          className={`inline-flex items-center gap-1 font-bold px-2 py-0.5 rounded-full text-xs ${
+                            isDiffPositive
+                              ? "bg-amber-100 text-amber-900 border border-amber-300"
+                              : "bg-emerald-100 text-emerald-900 border border-emerald-300"
+                          }`}
+                        >
+                          {isDiffPositive ? `+${item.difference}` : item.difference} {item.unit}{" "}
+                          ({isDiffPositive ? `+${item.percentageDifference}%` : `${item.percentageDifference}%`})
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Tortilla DNA Visualizer */}
+      <div className="bg-[#FAF6EE] p-5 sm:p-6 rounded-2xl border border-[#E8E2D5] shadow-xs space-y-6">
+        <div className="flex items-center justify-between border-b border-[#E8E2D5] pb-3">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-[#FFB800]" />
+            <h4 className="font-serif-heading font-bold text-base text-foreground">
+              {translations.dnaTitle}
+            </h4>
+          </div>
+          <div className="flex items-center gap-4 text-xs font-bold">
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-[#FFB800] inline-block"></span>
+              {getLocalizedText(recipeA.title || recipeA.recipeName)}
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-3 h-3 rounded-full bg-[#00A3FF] inline-block"></span>
+              {getLocalizedText(recipeB.title || recipeB.recipeName)}
+            </span>
+          </div>
+        </div>
+
+        <div className="space-y-5">
+          {/* Egg Dominance Bar */}
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-bold text-foreground">
+              <span>{translations.eggDominance}</span>
+              <span className="text-[#8D6E63] font-mono">
+                {profileA.classification.eggDominanceLabel} vs {profileB.classification.eggDominanceLabel}
+              </span>
+            </div>
+            <div className="space-y-1">
+              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+                <div
+                  className="h-full bg-[#FFB800] transition-all duration-500 rounded-full"
+                  style={{ width: `${calcEggDominance(profileA.ratios.potato?.quantity || 100)}%` }}
+                ></div>
+              </div>
+              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+                <div
+                  className="h-full bg-[#00A3FF] transition-all duration-500 rounded-full"
+                  style={{ width: `${calcEggDominance(profileB.ratios.potato?.quantity || 100)}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Potato Intensity Bar */}
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-bold text-foreground">
+              <span>{translations.potatoIntensity}</span>
+              <span className="text-[#8D6E63] font-mono">
+                {profileA.ratios.potato?.quantity || 0}g/huevo vs {profileB.ratios.potato?.quantity || 0}g/huevo
+              </span>
+            </div>
+            <div className="space-y-1">
+              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+                <div
+                  className="h-full bg-[#FFB800] transition-all duration-500 rounded-full"
+                  style={{ width: `${calcPotatoIntensity(profileA.ratios.potato?.quantity || 0)}%` }}
+                ></div>
+              </div>
+              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+                <div
+                  className="h-full bg-[#00A3FF] transition-all duration-500 rounded-full"
+                  style={{ width: `${calcPotatoIntensity(profileB.ratios.potato?.quantity || 0)}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Oil Richness Bar */}
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-bold text-foreground">
+              <span>{translations.oilRichness}</span>
+              <span className="text-[#8D6E63] font-mono">
+                {profileA.ratios.oil?.quantity || 0}ml/huevo vs {profileB.ratios.oil?.quantity || 0}ml/huevo
+              </span>
+            </div>
+            <div className="space-y-1">
+              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+                <div
+                  className="h-full bg-[#FFB800] transition-all duration-500 rounded-full"
+                  style={{ width: `${calcOilRichness(profileA.ratios.oil?.quantity || 0)}%` }}
+                ></div>
+              </div>
+              <div className="w-full h-3 bg-stone-200 rounded-full overflow-hidden flex">
+                <div
+                  className="h-full bg-[#00A3FF] transition-all duration-500 rounded-full"
+                  style={{ width: `${calcOilRichness(profileB.ratios.oil?.quantity || 0)}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RecipeComparator;
+````
+
+## File: src/content/navigation/header.json
+````json
+{
+  "items": [
+    {
+      "key": "recipes",
+      "href": "/recipes",
+      "label": {
+        "es": "Recetas",
+        "en": "Recipes",
+        "de": "Rezepte"
+      }
+    },
+    {
+      "key": "factions",
+      "href": "/facciones",
+      "label": {
+        "es": "Facciones",
+        "en": "Factions",
+        "de": "Faktionen"
+      }
+    },
+    {
+      "key": "universo",
+      "href": "/enciclopedia",
+      "label": {
+        "es": "Universo Tortilla",
+        "en": "Tortilla Universe",
+        "de": "Tortilla-Universum"
+      },
+      "children": [
+        {
+          "key": "history",
+          "href": "/history",
+          "label": {
+            "es": "Historia",
+            "en": "History",
+            "de": "Geschichte"
+          }
+        },
+        {
+          "key": "estilos",
+          "href": "/estilos",
+          "label": {
+            "es": "Estilos",
+            "en": "Styles",
+            "de": "Stile"
+          }
+        },
+        {
+          "key": "personas",
+          "href": "/personas",
+          "label": {
+            "es": "Personas",
+            "en": "People",
+            "de": "Personen"
+          }
+        },
+        {
+          "key": "restaurantes",
+          "href": "/restaurantes",
+          "label": {
+            "es": "Restaurantes",
+            "en": "Restaurants",
+            "de": "Restaurants"
+          }
+        },
+        {
+          "key": "regiones",
+          "href": "/regiones",
+          "label": {
+            "es": "Regiones",
+            "en": "Regions",
+            "de": "Regionen"
+          }
+        },
+        {
+          "key": "ingredients",
+          "href": "/ingredients",
+          "label": {
+            "es": "Ingredientes",
+            "en": "Ingredients",
+            "de": "Zutaten"
+          }
+        },
+        {
+          "key": "techniques",
+          "href": "/techniques",
+          "label": {
+            "es": "Técnicas",
+            "en": "Techniques",
+            "de": "Techniken"
+          }
+        },
+        {
+          "key": "science",
+          "href": "/science",
+          "label": {
+            "es": "Ciencia",
+            "en": "Science",
+            "de": "Wissenschaft"
+          }
+        },
+        {
+          "key": "records",
+          "href": "/records",
+          "label": {
+            "es": "Récords",
+            "en": "Records",
+            "de": "Rekorde"
+          }
+        }
+      ]
+    },
+    {
+      "key": "laboratory",
+      "href": "/laboratorio",
+      "label": {
+        "es": "Laboratorio",
+        "en": "Laboratory",
+        "de": "Labor"
+      }
+    },
+    {
+      "key": "about",
+      "href": "/about",
+      "label": {
+        "es": "Sobre nosotros",
+        "en": "About us",
+        "de": "Über uns"
+      }
+    },
+    {
+      "key": "contact",
+      "href": "/contacto",
+      "label": {
+        "es": "Contacto",
+        "en": "Contact",
+        "de": "Kontakt"
+      }
+    }
+  ]
+}
+````
+
+## File: src/content/recipes/vegana.json
+````json
+{
+  "id": "vegana",
+  "slug": {
+    "es": "tortilla-de-patatas-vegana-sin-gluten",
+    "en": "vegan-gluten-free-spanish-omelette",
+    "de": "vegane-glutenfreie-spanische-tortilla"
+  },
+  "title": {
+    "es": "Tortilla de Patatas Vegana y Sin Gluten",
+    "en": "Vegan & Gluten-Free Spanish Omelette",
+    "de": "Vegane und Glutenfreie Spanische Tortilla"
+  },
+  "description": {
+    "es": "Receta vegana e inclusiva creada por Cris (Delantal de Alces): sustituye el huevo por harina de garbanzo, agua y almidón de tapioca para lograr jugosidad y dorado sin productos animales.",
+    "en": "Inclusive vegan recipe created by Cris (Delantal de Alces): replaces eggs with chickpea flour, water, and tapioca starch to achieve traditional juiciness and a golden crust without animal products.",
+    "de": "Inklusives veganes Rezept von Cris (Delantal de Alces): Ersetzt Eier durch Kichererbsenmehl, Wasser und Tapiokastärke für Saftigkeit und eine goldene Kruste ohne tierische Produkte."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:chickpea_flour",
+    "ingredient:tapioca_starch",
+    "ingredient:potato",
+    "ingredient:onion",
+    "ingredient:water",
+    "ingredient:oil",
+    "ingredient:salt",
+    "ingredient:pepper",
+    "technique:vegan_emulsion",
+    "style:vegana",
+    "difficulty:easy"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/vegana.png",
+  "ingredients": [    
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 4,
+      "unit": "unit",
+      "notes": {
+        "es": "4 patatas medianas cortadas en rodajas finas",
+        "en": "4 medium potatoes, thinly sliced",
+        "de": "4 mittlere Kartoffeln, in dünne Scheiben geschnitten"
+      }
+    },    {
+      "id": "chickpea_flour",
+      "ingredientId": "chickpea_flour",
+      "name": {
+        "es": "Harina de garbanzo",
+        "en": "Chickpea flour",
+        "de": "Kichererbsenmehl"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "Base proteica para sustituir el huevo batido",
+        "en": "Protein base substitute for beaten eggs",
+        "de": "Proteinbasis als Ersatz für geschlagene Eier"
+      }
+    },
+    {
+      "id": "tapioca_starch",
+      "ingredientId": "tapioca_starch",
+      "name": {
+        "es": "Harina o almidón de tapioca",
+        "en": "Tapioca starch / flour",
+        "de": "Tapiokamehl / Stärke"
+      },
+      "amount": 10,
+      "unit": "g",
+      "notes": {
+        "es": "½ cucharada de postre (aporta aglutinación y elasticidad)",
+        "en": "½ dessert spoon (adds binding and elasticity)",
+        "de": "½ Teelöffel (sorgt für Bindung und Elastizität)"
+      }
+    },
+        {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 1,
+      "unit": "unit",
+      "notes": {
+        "es": "1 cebolla grande en juliana (imprescindible para aportar jugosidad)",
+        "en": "1 large onion julienned (essential for moisture)",
+        "de": "1 große Zwiebel in Streifen (essenziell für die Saftigkeit)"
+      }
+    },
+    {
+      "id": "water",
+      "ingredientId": "water",
+      "name": {
+        "es": "Agua",
+        "en": "Water",
+        "de": "Wasser"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Para formar la mezcla líquida con las harinas",
+        "en": "To form the liquid mix with the flours",
+        "de": "Zum Anmischen mit den Mehlen"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Sal al gusto",
+        "en": "Salt to taste",
+        "de": "Salz nach Geschmack"
+      }
+    },
+    {
+      "id": "pepper",
+      "ingredientId": "pepper",
+      "name": {
+        "es": "Pimienta negra",
+        "en": "Black pepper",
+        "de": "Schwarzer Pfeffer"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Pimienta negra molida al gusto",
+        "en": "Ground black pepper to taste",
+        "de": "Gemahlener schwarzer Pfeffer nach Geschmack"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva",
+        "en": "Olive Oil",
+        "de": "Olivenöl"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Para freír las patatas y cebolla por separado",
+        "en": "To fry potatoes and onion separately",
+        "de": "Zum getrennten Anbraten von Kartoffeln und Zwiebeln"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Freír patatas y cebolla",
+        "en": "Fry potatoes and onion",
+        "de": "Kartoffeln und Zwiebeln anbraten"
+      },
+      "text": {
+        "es": "Pelar las patatas y cortarlas en rodajas finas. Cortar la cebolla en juliana no muy fina. Calentar el aceite y freír patatas y cebolla por separado.",
+        "en": "Peel and thinly slice the potatoes. Cut the onion into medium julienne strips. Heat oil and fry potatoes and onion separately.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden. Zwiebel in Streifen schneiden. Öl erhitzen und Kartoffeln sowie Zwiebeln getrennt anbraten."
+      }
+    },
+    {
+      "step": {
+        "es": "Preparar la mezcla líquida",
+        "en": "Prepare the liquid mixture",
+        "de": "Vegane Flüssigmischung anrühren"
+      },
+      "text": {
+        "es": "En un cuenco, batir la harina de garbanzo, el agua, la harina de tapioca, la sal y la pimienta hasta lograr una consistencia similar al huevo batido. Batir justo al final para evitar que espese.",
+        "en": "In a bowl, whisk chickpea flour, water, tapioca flour, salt, and pepper until reaching an egg-like consistency. Mix right before cooking so it does not thicken prematurely.",
+        "de": "In einer Schüssel Kichererbsenmehl, Wasser, Tapiokamehl, Salz und Pfeffer verquirlen, bis eine eiähnliche Konsistenz entsteht. Erst kurz vor dem Braten anrühren."
+      }
+    },
+    {
+      "step": {
+        "es": "Integrar y primer sellado",
+        "en": "Combine and initial sear",
+        "de": "Mischen und anbraten"
+      },
+      "text": {
+        "es": "Echar patatas y cebolla a la sartén caliente, verter la mezcla de garbanzo y agitar. Subir el fuego al máximo 5 segundos para hacer 'crostita', luego bajar el fuego, tapar y cocinar 3 minutos.",
+        "en": "Add potatoes and onion to the hot pan, pour the chickpea mixture, and shake to combine. Turn heat to high for 5 seconds to form a crust, then lower heat, cover, and cook for 3 minutes.",
+        "de": "Kartoffeln und Zwiebeln in die Pfanne geben, die Kichererbsenmischung darüber gießen und verteilen. 5 Sekunden bei hoher Hitze anbraten für eine Kruste, dann Hitze reduzieren, abdecken und 3 Minuten garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Volteo y cuajado final",
+        "en": "Flip and finish cooking",
+        "de": "Wenden und fertig garen"
+      },
+      "text": {
+        "es": "Dar la vuelta con un plato, subir el fuego al máximo 5 segundos para sellar la otra cara, y continuar a fuego lento con la sartén tapada dando una última vuelta antes de servir.",
+        "en": "Flip using a plate, turn heat to high for 5 seconds to sear the other side, then continue cooking covered on low heat until fully set inside.",
+        "de": "Die Tortilla wenden, 5 Sekunden bei hoher Hitze anbraten, dann abgedeckt bei niedriger Hitze zu Ende garen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "chef",
+      "name": "Delantal de Alces (Cris)",
+      "description": {
+        "es": "Receta original inclusiva de tortilla de patatas vegana y sin gluten.",
+        "en": "Original inclusive recipe for vegan and gluten-free Spanish omelette.",
+        "de": "Originales inklusives Rezept für vegane und glutenfreie spanische Tortilla."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Cris (Delantal de Alces)"
+  }
+}
 ````
 
 ## File: src/content/taxonomies/factions/ajistas.json
@@ -11497,6 +13916,95 @@ export const historyData: Record<string, HistoryPageContent> = {
 };
 ````
 
+## File: src/domain/comparator/types.ts
+````typescript
+import type { LocalizedString } from "@/types/taxonomy";
+
+export type { LocalizedString };
+
+export interface RawIngredientInput {
+  id?: string;
+  ingredientId?: string;
+  name?: string | LocalizedString;
+  amount?: number;
+  quantity?: number;
+  unit?: string;
+  notes?: string | LocalizedString;
+}
+
+export interface RawRecipeInput {
+  id?: string;
+  recipeId?: string;
+  slug?: string | LocalizedString;
+  title?: string | LocalizedString;
+  recipeName?: string | LocalizedString;
+  name?: string | LocalizedString;
+  ingredients?: RawIngredientInput[];
+  [key: string]: any;
+}
+
+export interface NormalizedIngredientRatio {
+  ingredientId: string;
+  name: string | LocalizedString;
+  quantity: number;      // normalized quantity per 1 egg
+  totalQuantity: number; // total quantity in recipe
+  unit: string;          // normalized standard unit ("g", "ml", "unit", etc.)
+}
+
+export interface TortillaClassification {
+  potatoIntensity: "eggDominant" | "balanced" | "potatoHeavy";
+  potatoIntensityLabel: string;
+  oilIntensity: "light" | "medium" | "rich";
+  oilIntensityLabel: string;
+  onionPresence: "none" | "moderate" | "heavy";
+  onionPresenceLabel: string;
+  eggDominance: "high" | "medium" | "low";
+  eggDominanceLabel: string;
+}
+
+export interface RecipeProfile {
+  recipeId: string;
+  recipeName: string;
+  localizedName?: LocalizedString;
+  eggCount: number;
+  ratios: {
+    potato?: NormalizedIngredientRatio;
+    onion?: NormalizedIngredientRatio;
+    oil?: NormalizedIngredientRatio;
+    salt?: NormalizedIngredientRatio;
+    peppers?: NormalizedIngredientRatio;
+    blackPepper?: NormalizedIngredientRatio;
+    [ingredientId: string]: NormalizedIngredientRatio | undefined;
+  };
+  classification: TortillaClassification;
+}
+
+export interface IngredientComparison {
+  ingredientId: string;
+  name: string | LocalizedString;
+  localizedName?: LocalizedString;
+  recipeAValue: number;
+  recipeBValue: number;
+  unit: string;
+  difference: number;
+  percentageDifference: number;
+}
+
+export interface ComparisonProfileSummary {
+  potatoIntensity: { a: string; b: string };
+  oilIntensity: { a: string; b: string };
+  onionPresence: { a: string; b: string };
+  eggDominance: { a: string; b: string };
+}
+
+export interface RecipeComparisonResult {
+  recipeA: RecipeProfile;
+  recipeB: RecipeProfile;
+  ingredients: IngredientComparison[];
+  profile: ComparisonProfileSummary;
+}
+````
+
 ## File: src/domain/tortilla-dna/normalizeRecipe.ts
 ````typescript
 import type {
@@ -11785,66 +14293,6 @@ export interface RecipeComparisonResult {
 }
 ````
 
-## File: src/i18n/config.ts
-````typescript
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-
-import en from "./en.json";
-import es from "./es.json";
-import de from "./de.json";
-
-if (!i18n.isInitialized) {
-  i18n
-    .use(initReactI18next)
-    .init({
-      resources: {
-        en: {
-          translation: en,
-        },
-        es: {
-          translation: es,
-        },
-        de: {
-          translation: de,
-        },
-      },
-      lng: "es",
-      fallbackLng: "en",
-      initImmediate: false,
-      interpolation: {
-        escapeValue: false,
-      },
-    });
-}
-
-export default i18n;
-````
-
-## File: src/layouts/Layout.astro
-````astro
----
-import BaseLayout from './BaseLayout.astro';
-
-interface Props {
-  title?: string;
-  description?: string;
-  lang?: string;
-  image?: string;
-  type?: string;
-  schema?: Record<string, any> | Array<Record<string, any>>;
-  showHeader?: boolean;
-  showFooter?: boolean;
-}
-
-const props = Astro.props;
----
-
-<BaseLayout {...props}>
-  <slot />
-</BaseLayout>
-````
-
 ## File: src/lib/builderMath.ts
 ````typescript
 import {
@@ -12082,520 +14530,6 @@ export function generateCollectionPageSchema(data: {
     },
   };
 }
-````
-
-## File: src/lib/taxonomy.ts
-````typescript
-import { getCollection } from 'astro:content';
-import type { Taxonomy, Recipe, ResolvedTaxonomyBadge } from '@/types/taxonomy';
-
-export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
-  es: {
-    faction: 'facciones',
-    ingredient: 'ingredientes',
-    technique: 'tecnicas',
-    style: 'estilos',
-    region: 'regiones',
-    person: 'personas',
-    restaurant: 'restaurantes',
-    utensil: 'utensilios',
-    'cooking-method': 'metodos-coccion',
-    texture: 'texturas',
-    event: 'eventos',
-    glossary: 'glosario',
-    difficulty: 'dificultad',
-  },
-  en: {
-    faction: 'factions',
-    ingredient: 'ingredients',
-    technique: 'techniques',
-    style: 'styles',
-    region: 'regions',
-    person: 'people',
-    restaurant: 'restaurants',
-    utensil: 'utensils',
-    'cooking-method': 'cooking-methods',
-    texture: 'textures',
-    event: 'events',
-    glossary: 'glossary',
-    difficulty: 'difficulty',
-  },
-  de: {
-    faction: 'faktionen',
-    ingredient: 'zutaten',
-    technique: 'techniken',
-    style: 'stile',
-    region: 'regionen',
-    person: 'personen',
-    restaurant: 'restaurants',
-    utensil: 'utensilien',
-    'cooking-method': 'kochmethoden',
-    texture: 'texturen',
-    event: 'events',
-    glossary: 'glossar',
-    difficulty: 'schwierigkeit',
-  },
-};
-
-/**
- * Resolves localized URL prefix for a taxonomy type.
- */
-export function getTaxonomyRoutePrefix(type: string, lang: string = 'es'): string {
-  const langMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
-  return langMap[type] || type;
-}
-
-/**
- * Builds localized URL for a taxonomy item.
- */
-export function getTaxonomyUrl(type: string, slug: string, lang: string = 'es'): string {
-  const prefix = getTaxonomyRoutePrefix(type, lang);
-  return `/${lang}/${prefix}/${slug}`;
-}
-
-/**
- * Reverses a localized taxonomy route segment back to the canonical taxonomy type.
- */
-export function getTaxonomyTypeFromRoute(routeSegment: string, lang: string = 'es'): string | undefined {
-  const langMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
-  for (const [canonicalType, mappedRoute] of Object.entries(langMap)) {
-    if (mappedRoute === routeSegment) {
-      return canonicalType;
-    }
-  }
-  // Fallback check across all languages
-  for (const lMap of Object.values(TAXONOMY_ROUTING_MAP)) {
-    for (const [canonicalType, mappedRoute] of Object.entries(lMap)) {
-      if (mappedRoute === routeSegment) {
-        return canonicalType;
-      }
-    }
-  }
-  return undefined;
-}
-
-/**
- * Retrieves all taxonomy records.
- */
-export async function getAllTaxonomies(): Promise<Taxonomy[]> {
-  const collection = await getCollection('taxonomies');
-  return collection.map((item) => item.data as Taxonomy);
-}
-
-/**
- * Retrieves all recipe records.
- */
-export async function getAllRecipes(): Promise<Recipe[]> {
-  const collection = await getCollection('recipes');
-  return collection.map((item) => item.data as Recipe);
-}
-
-/**
- * Finds a taxonomy by type and id.
- */
-export async function getTaxonomyById(type: string, id: string): Promise<Taxonomy | undefined> {
-  const taxonomies = await getAllTaxonomies();
-  return taxonomies.find((t) => t.type === type && t.id === id);
-}
-
-/**
- * Finds recipes associated with a taxonomy.
- */
-export async function getRecipesForTaxonomy(type: string, id: string): Promise<Recipe[]> {
-  const recipes = await getAllRecipes();
-  const targetTag = `${type}:${id}`;
-  
-  const aliasTags: Record<string, string[]> = {
-    'faction:concebollistas': ['faction:cebollistas', 'faction:concebollistas'],
-    'faction:cebollistas': ['faction:cebollistas', 'faction:concebollistas'],
-    'faction:con-cosas': ['faction:modernistas', 'faction:con-cosas'],
-    'faction:modernistas': ['faction:modernistas', 'faction:con-cosas'],
-  };
-
-  const matches = aliasTags[targetTag] || [targetTag];
-
-  return recipes.filter((r) => matches.some((tag) => r.taxonomyIds.includes(tag)));
-}
-
-/**
- * Resolves all taxonomy tags on a recipe into rich badge data.
- */
-export async function resolveRecipeBadges(taxonomyIds: string[], lang: string = 'es'): Promise<ResolvedTaxonomyBadge[]> {
-  const taxonomies = await getAllTaxonomies();
-  const badges: ResolvedTaxonomyBadge[] = [];
-
-  for (const tag of taxonomyIds) {
-    const [type, id] = tag.split(':');
-    if (!type || !id) continue;
-
-    const match = taxonomies.find((t) => t.type === type && t.id === id);
-    if (match) {
-      const slug = match.slug[lang as keyof typeof match.slug] || match.slug.es;
-      const title = match.title[lang as keyof typeof match.title] || match.title.es;
-      badges.push({
-        id: match.id,
-        type: match.type,
-        title,
-        icon: match.icon,
-        url: getTaxonomyUrl(match.type, slug, lang),
-      });
-    }
-  }
-
-  return badges;
-}
-
-/**
- * Validates that all taxonomy references in recipes exist.
- */
-export async function validateTaxonomyReferences(): Promise<{ valid: boolean; errors: string[] }> {
-  const recipes = await getAllRecipes();
-  const taxonomies = await getAllTaxonomies();
-  const validTags = new Set(taxonomies.map((t) => `${t.type}:${t.id}`));
-  const errors: string[] = [];
-
-  for (const recipe of recipes) {
-    for (const tag of recipe.taxonomyIds) {
-      if (!validTags.has(tag)) {
-        errors.push(`Recipe '${recipe.id}' references unknown taxonomy '${tag}'`);
-      }
-    }
-  }
-
-  if (errors.length > 0) {
-    console.error('❌ Taxonomy Reference Errors:', errors);
-  }
-
-  return {
-    valid: errors.length === 0,
-    errors,
-  };
-}
-````
-
-## File: src/pages/[lang]/[taxonomyType]/[slug].astro
-````astro
----
-import Layout from '@/layouts/Layout.astro';
-import { 
-  TAXONOMY_ROUTING_MAP, 
-  getAllTaxonomies, 
-  getRecipesForTaxonomy, 
-  resolveRecipeBadges
-} from '@/lib/taxonomy';
-import { supportedLanguages, getTranslations } from '@/lib/i18n';
-import { generateBreadcrumbSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
-import { 
-  Shield, 
-  ChefHat, 
-  ExternalLink,
-  Users
-} from 'lucide-react';
-
-export async function getStaticPaths() {
-  const taxonomies = await getAllTaxonomies();
-  const languages = supportedLanguages;
-  const paths = [];
-
-  for (const lang of languages) {
-    const routeMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
-    
-    for (const tax of taxonomies) {
-      const routeSegment = routeMap[tax.type];
-      const localizedSlug = tax.slug[lang as keyof typeof tax.slug] || tax.slug.es;
-      
-      if (routeSegment && localizedSlug) {
-        paths.push({
-          params: {
-            lang,
-            taxonomyType: routeSegment,
-            slug: localizedSlug,
-          },
-          props: {
-            taxonomy: tax,
-            lang,
-          },
-        });
-      }
-    }
-  }
-
-  return paths;
-}
-
-const { taxonomy, lang } = Astro.props;
-const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
-const t = getTranslations(currentLang);
-
-const title = taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es;
-const description = taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es;
-const dogma = taxonomy.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
-const badgeText = taxonomy.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
-const keyIngredient = taxonomy.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
-
-// Load related recipes dynamically
-const relatedRecipes = await getRecipesForTaxonomy(taxonomy.type, taxonomy.id);
-
-// Pre-resolve badges for each related recipe
-const recipesWithBadges = await Promise.all(
-  relatedRecipes.map(async (r) => ({
-    ...r,
-    badges: await resolveRecipeBadges(r.taxonomyIds, currentLang),
-  }))
-);
-
-// Collect all other taxonomy IDs referenced in these recipes for "Related Concepts"
-const relatedTaxonomyIds = new Set<string>();
-relatedRecipes.forEach((r) => {
-  r.taxonomyIds.forEach((tag) => {
-    if (tag !== `${taxonomy.type}:${taxonomy.id}`) {
-      relatedTaxonomyIds.add(tag);
-    }
-  });
-});
-const relatedTaxonomyBadges = await resolveRecipeBadges(Array.from(relatedTaxonomyIds), currentLang);
-
-const pageTitle = `${title} - ${taxonomy.type.toUpperCase()} | tortilladepatatas.org`;
-
-// SEO Schemas
-const currentUrl = `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${currentLang}` },
-  { name: taxonomy.type, url: `/${currentLang}/${Astro.params.taxonomyType}` },
-  { name: title, url: currentUrl },
-]);
-
-const collectionSchema = generateCollectionPageSchema({
-  name: title,
-  description: description,
-  url: currentUrl,
-  items: relatedRecipes.map((r) => ({
-    name: r.title[currentLang as keyof typeof r.title] || r.title.es,
-    url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
-  })),
-});
-
-const schemas = [breadcrumbSchema, collectionSchema];
----
-
-<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas}>
-  <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
-    <!-- HERO TAXONOMY HEADER -->
-    {taxonomy.image ? (
-      <div class="space-y-6">
-        <div class="w-full h-80 sm:h-96 md:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2D5] shadow-md bg-[#F5E6BE] relative group">
-          <img
-            src={taxonomy.image}
-            alt={title}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-            referrerPolicy="no-referrer"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 sm:p-10">
-            <div class="text-white space-y-3 max-w-3xl">
-              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800] text-[#292521] text-xs font-extrabold uppercase tracking-wider shadow-xs">
-                <Users class="w-3.5 h-3.5" />
-                <span>{taxonomy.type}: {badgeText || title}</span>
-              </div>
-              <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif-heading font-extrabold text-white drop-shadow-md tracking-tight leading-none">
-                {title}
-              </h1>
-            </div>
-          </div>
-        </div>
-
-        <header class="text-center max-w-3xl mx-auto space-y-3">
-          <p class="text-base sm:text-xl text-foreground/85 leading-relaxed font-sans">
-            {description}
-          </p>
-
-          {keyIngredient && (
-            <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE] px-3.5 py-1.5 rounded-full border border-amber-300 shadow-2xs">
-              <span>{currentLang === 'en' ? 'Key Ingredient/Element:' : currentLang === 'de' ? 'Schlüsselzutat/-element:' : 'Ingrediente/Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
-            </div>
-          )}
-        </header>
-      </div>
-    ) : (
-      <header class="text-center max-w-3xl mx-auto space-y-4">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
-          <Users class="w-3.5 h-3.5" />
-          <span class="capitalize">{taxonomy.type}: {badgeText || title}</span>
-        </div>
-
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
-          {title}
-        </h1>
-
-        <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
-          {description}
-        </p>
-
-        {keyIngredient && (
-          <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/80 px-3 py-1 rounded-full border border-amber-300">
-            <span>{currentLang === 'en' ? 'Key Ingredient/Element:' : currentLang === 'de' ? 'Schlüsselzutat/-element:' : 'Ingrediente/Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
-          </div>
-        )}
-      </header>
-    )}
-
-    <!-- DOGMA CALLOUT IF APPLICABLE -->
-    {dogma && (
-      <section class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800] bg-[#FCF9F2] shadow-xs rounded-2xl border border-[#E8E2D5] relative overflow-hidden">
-        <div class="flex items-start gap-4 relative z-10">
-          <div class="p-3 rounded-2xl bg-[#FFB800]/20 text-[#8D6E63] shrink-0 hidden sm:flex items-center justify-center border border-amber-300/50">
-            <ChefHat class="w-6 h-6 text-[#FFB800]" />
-          </div>
-          <div class="space-y-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-0.5 rounded-full border border-amber-300/60 inline-flex items-center gap-1">
-              {currentLang === 'en' ? 'Dogma & Philosophy' : currentLang === 'de' ? 'Dogma & Philosophie' : 'Dogma & Filosofía'}
-            </span>
-            <blockquote class="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
-              &ldquo;{dogma}&rdquo;
-            </blockquote>
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- PROMINENT FIGURES IF ANY -->
-    {taxonomy.prominentFigures && taxonomy.prominentFigures.length > 0 && (
-      <section class="max-w-4xl mx-auto p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2 text-center">
-        <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
-          {currentLang === 'en' ? 'Prominent Figures' : currentLang === 'de' ? 'Prominente Figuren' : 'Figuras Prominentes'}
-        </span>
-        <div class="flex flex-wrap justify-center gap-2">
-          {taxonomy.prominentFigures.map((fig) => (
-            <span class="text-xs font-medium bg-white text-[#292521] px-3 py-1 rounded-lg border border-[#E8E2D5] shadow-2xs">
-              {fig}
-            </span>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- RELATED RECIPES GRID -->
-    <section class="space-y-6">
-      <div class="border-b border-[#E8E2D5] pb-3 flex items-center justify-between">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
-            {currentLang === 'en' ? 'Related Recipes' : currentLang === 'de' ? 'Verknüpfte Rezepte' : 'Recetas Relacionadas'}
-          </h2>
-          <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">
-            {currentLang === 'en'
-              ? `Recipes featuring or representing this category (${relatedRecipes.length})`
-              : currentLang === 'de'
-              ? `Rezepte, die diese Kategorie beinhalten oder repräsentieren (${relatedRecipes.length})`
-              : `Recetas que incorporan o representan esta categoría (${relatedRecipes.length})`}
-          </p>
-        </div>
-      </div>
-
-      {relatedRecipes.length === 0 ? (
-        <div class="card-notebook p-8 text-center text-muted-foreground rounded-2xl border border-[#E8E2D5]">
-          {currentLang === 'en'
-            ? 'No recipes currently registered for this concept in the catalog.'
-            : currentLang === 'de'
-            ? 'Derzeit sind für dieses Konzept keine Rezepte im Katalog registriert.'
-            : 'No hay recetas registradas actualmente para este concepto en el catálogo.'}
-        </div>
-      ) : (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recipesWithBadges.map((r) => {
-            const recipeTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
-            const recipeDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
-            const recipeSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
-
-            return (
-              <article class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-200 flex flex-col justify-between">
-                <div>
-                  <div class="h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
-                    <img
-                      src={r.image || '/images/clasica.jpg'}
-                      alt={recipeTitle}
-                      width="600"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                      referrerPolicy="no-referrer"
-                      class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                    <div class="absolute top-3 right-3 bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] text-[11px] font-bold px-2.5 py-1 rounded-full shadow-2xs">
-                      ⏱ {r.time} min
-                    </div>
-                  </div>
-
-                  <div class="p-5 space-y-3">
-                    <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
-                      <a href={`/${currentLang}/recipes/${recipeSlug}`} class="hover:text-[#8D6E63] transition-colors">
-                        {recipeTitle}
-                      </a>
-                    </h3>
-
-                    <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed line-clamp-3">
-                      {recipeDesc}
-                    </p>
-
-                    <!-- BADGES -->
-                    <div class="flex flex-wrap gap-1.5 pt-2">
-                      {r.badges.map((b) => (
-                        <a
-                          href={b.url}
-                          class="inline-flex items-center gap-1 text-[11px] font-bold bg-[#F5E6BE]/70 hover:bg-[#F5E6BE] text-[#8D6E63] px-2 py-0.5 rounded-md border border-amber-200 transition-colors"
-                        >
-                          <span>{b.title}</span>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="p-4 pt-0">
-                  <a
-                    href={`/${currentLang}/recipes/${recipeSlug}`}
-                    class="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] transition-colors"
-                  >
-                    <span>{currentLang === 'en' ? 'View Full Recipe' : currentLang === 'de' ? 'Vollständiges Rezept ansehen' : 'Ver Receta Completa'}</span>
-                    <ExternalLink class="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      )}
-    </section>
-
-    <!-- RELATED TAXONOMY CONCEPTS -->
-    {relatedTaxonomyBadges.length > 0 && (
-      <section class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4">
-        <h3 class="text-lg font-serif-heading font-bold text-[#292521]">
-          {currentLang === 'en' ? 'Linked Concepts & Taxonomies' : currentLang === 'de' ? 'Verknüpfte Konzepte & Taxonomien' : 'Conceptos y Taxonomías Vinculadas'}
-        </h3>
-        <div class="flex flex-wrap gap-2">
-          {relatedTaxonomyBadges.map((b) => (
-            <a
-              href={b.url}
-              class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-[#8D6E63] hover:text-[#292521] hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-[#E8E2D5] shadow-2xs transition-colors"
-            >
-              <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
-              <span>{b.title}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- SAFETY NOTE -->
-    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p class="font-sans">
-          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
-        </p>
-      </div>
-    </section>
-  </div>
-</Layout>
 ````
 
 ## File: src/pages/[lang]/about.astro
@@ -13720,6 +15654,210 @@ All agentic contributions to `tortilladepatatas.org` must strictly adhere to the
 - **Google Drive Import Note**: Direct Google Drive links or auto-imports can produce corrupted/truncated files. Always verify file sizes or use uploaded ZIP archives unpacked directly into `public/images/`.
 ````
 
+## File: App.css
+````css
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+@layer utilities {
+  /* Fondo estilo cocina de leña */
+  .bg-hearth {
+    background: radial-gradient(circle at 50% 25%, rgba(216, 155, 50, 0.18) 0%, rgba(182, 93, 58, 0.07) 50%, #FFF7EA 100%);
+  }
+
+  /* Sombra de calor para componentes */
+  .shadow-warm-glow {
+    box-shadow: 0 12px 32px -6px rgba(182, 93, 58, 0.18), 0 4px 12px rgba(41, 37, 33, 0.05);
+  }
+
+  /* Borde estilo sartén de hierro / cobre */
+  .border-copper {
+    border-color: rgba(182, 93, 58, 0.3);
+  }
+}
+````
+
 ## File: astro.config.mjs
 ````javascript
 import { defineConfig } from 'astro/config';
@@ -13778,25 +15916,9 @@ export default defineConfig({
 </html>
 ````
 
-## File: tsconfig.json
-````json
-{
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "skipLibCheck": true,
-    "strict": true
-  },
-  "include": ["src/**/*", ".astro/types.d.ts"],
-  "exclude": ["node_modules", "dist"]
-}
+## File: tsconfig.tsbuildinfo
+````
+{"root":["./src/content.config.ts","./src/env.d.ts","./src/vite-env.d.ts","./src/components/builder/BuilderApp.tsx","./src/components/comparator/RecipeComparator.tsx","./src/components/factions/FactionsPage.tsx","./src/components/factions/PollComponent.tsx","./src/components/home/BuilderTeaser.tsx","./src/components/home/FeatureGrid.tsx","./src/components/home/Hero.tsx","./src/components/layout/Footer.tsx","./src/components/layout/Header.tsx","./src/components/layout/LanguageSync.tsx","./src/components/navigation/LocalizedLink.tsx","./src/components/personas/PersonCard.tsx","./src/components/ui/badge.tsx","./src/components/ui/button.tsx","./src/components/ui/card.tsx","./src/components/ui/navigation-menu.tsx","./src/components/ui/sheet.tsx","./src/data/historyData.ts","./src/data/personasData.ts","./src/domain/builder/generateRecipe.ts","./src/domain/builder/index.ts","./src/domain/builder/ingredientCalculator.ts","./src/domain/comparator/classifyTortilla.ts","./src/domain/comparator/compareRecipes.ts","./src/domain/comparator/index.ts","./src/domain/comparator/normalizeRecipe.ts","./src/domain/comparator/types.ts","./src/domain/comparator/units.ts","./src/domain/recipes/Recipe.ts","./src/domain/recipes/index.ts","./src/domain/recipes/referenceRecipes.ts","./src/domain/tortilla-dna/classifyRecipe.ts","./src/domain/tortilla-dna/compareRecipes.ts","./src/domain/tortilla-dna/index.ts","./src/domain/tortilla-dna/normalizeRecipe.ts","./src/domain/tortilla-dna/types.ts","./src/i18n/config.ts","./src/lib/builderMath.ts","./src/lib/i18n.ts","./src/lib/recipes.ts","./src/lib/seo.ts","./src/lib/taxonomy.ts","./src/lib/utils.ts","./src/types/taxonomy.ts","./.astro/types.d.ts"],"version":"6.0.3"}
 ````
 
 ## File: vercel.json
@@ -13996,6 +16118,1299 @@ export default defineConfig({
 }
 ````
 
+## File: src/components/navigation/LocalizedLink.tsx
+````typescript
+import React from "react";
+
+type LocalizedLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  to: string;
+  lang?: string;
+  children: React.ReactNode;
+};
+
+export default function LocalizedLink({
+  to,
+  lang,
+  children,
+  className,
+  ...props
+}: LocalizedLinkProps) {
+  let activeLang = lang;
+  if (!activeLang && typeof window !== "undefined") {
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    if (parts.length > 0 && ["es", "en", "de"].includes(parts[0])) {
+      activeLang = parts[0];
+    }
+  }
+  const language = activeLang && ["es", "en", "de"].includes(activeLang) ? activeLang : "es";
+
+  const cleanTo = to.startsWith("/") ? to : `/${to}`;
+  const path = cleanTo === "/" ? `/${language}` : `/${language}${cleanTo}`;
+
+  return (
+    <a href={path} className={className} {...props}>
+      {children}
+    </a>
+  );
+}
+````
+
+## File: src/data/factions.json
+````json
+{
+  "meta": {
+    "version": "1.0.0",
+    "route": "/facciones",
+    "updatedAt": "2026-07-29"
+  },
+  "content": {
+    "es": {
+      "badge": "Facciones Culinarias",
+      "hero": {
+        "title": "¿Purista de la Doctrina o Rebelde Culinario?",
+        "subtitle": "Del dogma de la patata y el huevo a las variaciones regionales con personalidad. Descubre a qué facción perteneces.",
+        "adriaDoctrine": "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica y dar voz a cada tradición."
+      },
+      "introduction": {
+        "title": "La evolución de una receta universal",
+        "body1": "Nacida a finales del siglo XVIII en Villanueva de la Serena (Badajoz) como una solución contra la escasez de alimentos, la tortilla de patatas ha evolucionado de alimento humilde de supervivencia a icono gastronómico global.",
+        "body2": "Hoy la mesa española es un campo de batalla dialéctico entre el ascetismo de la patata desnuda y la audacia del plebiscito popular. Desde la Santísima Trinidad Betanceira hasta las vanguardias de alta cocina, coexisten cinco grandes doctrinas culinarias."
+      },
+      "factions": [
+        {
+          "id": "puristas",
+          "name": "Los Puristas",
+          "badge": "Ortodoxos (Betanzos)",
+          "badgeColor": "terracotta",
+          "icon": "Shield",
+          "dogma": "Solo patata, huevo, aceite de oliva y sal.",
+          "keyIngredient": "Sin añadidos (0% Cebolla)",
+          "prominentFigures": [
+            "Señora Angelita (Betanzos)",
+            "Pepa Miranda",
+            "Dabiz Muñoz",
+            "Dani García",
+            "La Falda de Chamberí"
+          ],
+          "description": "Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.",
+          "relatedPages": [
+            {
+              "title": "Receta Betanzos",
+              "url": "/es/recipes"
+            },
+            {
+              "title": "Técnica de Fritura",
+              "url": "/es/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-purist.jpg"
+        },
+        {
+          "id": "concebollistas",
+          "name": "Los Concebollistas",
+          "badge": "Tradicionalistas Populares",
+          "badgeColor": "tortillaGold",
+          "icon": "Heart",
+          "dogma": "La cebolla pochada aporta la jugosidad y el dulzor esenciales.",
+          "keyIngredient": "Cebolla Caramelizada",
+          "prominentFigures": [
+            "Karlos Arguiñano",
+            "José Andrés",
+            "Rosalía"
+          ],
+          "description": "Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.",
+          "relatedPages": [
+            {
+              "title": "Encuesta CIS",
+              "url": "/es/history"
+            },
+            {
+              "title": "Receta Clásica",
+              "url": "/es/recipes"
+            }
+          ],
+          "image": "/images/factions/faction-onion.jpg"
+        },
+        {
+          "id": "pimientistas",
+          "name": "Los Pimientistas",
+          "badge": "Rurales y Regionales",
+          "badgeColor": "olive",
+          "icon": "Sprout",
+          "dogma": "El toque fresco y ahumado de la huerta campera.",
+          "keyIngredient": "Pimiento verde o rojo & Verduras",
+          "prominentFigures": [
+            "Bar Néstor (San Sebastián)",
+            "Recetario Campero"
+          ],
+          "description": "Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.",
+          "relatedPages": [
+            {
+              "title": "Tortilla Paisana",
+              "url": "/es/recipes"
+            },
+            {
+              "title": "Rutas del Norte",
+              "url": "/es/history"
+            }
+          ],
+          "image": "/images/factions/faction-pimientos.jpg"
+        },
+        {
+          "id": "ajistas",
+          "name": "Los Ajistas",
+          "badge": "Técnicos y Secretos",
+          "badgeColor": "charcoal",
+          "icon": "Sparkles",
+          "dogma": "Aromatizar el aceite sin sobrecargar de azúcar la mezcla.",
+          "keyIngredient": "Ajo frito aromatizante",
+          "prominentFigures": [
+            "Ángel León (Aponiente)",
+            "Óscar Vidal (O'Pazo)"
+          ],
+          "description": "El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.",
+          "relatedPages": [
+            {
+              "title": "Ciencia del Aceite",
+              "url": "/es/science"
+            },
+            {
+              "title": "Trucos de Chef",
+              "url": "/es/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-garlic.jpg"
+        },
+        {
+          "id": "con-cosas",
+          "name": "Los 'Con Cosas'",
+          "badge": "Innovadores & Vanguardia",
+          "badgeColor": "cream",
+          "icon": "Flame",
+          "dogma": "La tortilla como un lienzo abierto a la creatividad y expresión regional.",
+          "keyIngredient": "Queso, trufa, chistorra, chips de bolsa",
+          "prominentFigures": [
+            "Ferran Adrià",
+            "Pez Tortilla",
+            "José Antonio Labordeta"
+          ],
+          "description": "Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.",
+          "relatedPages": [
+            {
+              "title": "Tortilla Exprés",
+              "url": "/es/builder"
+            },
+            {
+              "title": "Deconstrucción",
+              "url": "/es/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-cosas.jpg"
+        }
+      ],
+      "poll": {
+        "title": "Test de Ortodoxia: Elige tu Lealtad",
+        "subtitle": "¡Declara tu facción! Vota y descubre los porcentajes en tiempo real de la comunidad tortillera.",
+        "votedMessage": "¡Voto registrado! Tu lealtad a la causa ha quedado anotada en el cuaderno culinario.",
+        "voteButton": "Votar esta facción",
+        "changeVote": "Cambiar mi voto",
+        "totalVotesLabel": "Votos totales registrados",
+        "initialStats": {
+          "puristas": 28,
+          "concebollistas": 54,
+          "pimientistas": 8,
+          "ajistas": 5,
+          "con-cosas": 5
+        }
+      },
+      "safetyNote": "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.",
+      "ui": {
+        "adriaTitle": "Doctrina de Ferran Adrià (El Bulli)",
+        "factionsSectionTitle": "Las 5 Facciones Culinarias",
+        "factionsSectionSub": "Haz clic en cualquier facción para conocer su dogma, figuras clave y recetas vinculadas.",
+        "keyIngredientLabel": "Ingrediente Clave:",
+        "prominentFiguresLabel": "Figuras Prominentes:",
+        "relatedPagesLabel": "Recetas y Páginas Relacionadas:",
+        "communityPollBadge": "Encuesta de la Comunidad",
+        "votesSuffix": "votos"
+      }
+    },
+    "en": {
+      "badge": "Culinary Factions",
+      "hero": {
+        "title": "Doctrinal Purist or Culinary Rebel?",
+        "subtitle": "From the egg-and-potato dogma to regional variations with personality. Find out which faction you belong to.",
+        "adriaDoctrine": "We formally distinguish between the 'Traditional Spanish Omelette' and 'Omelettes with...' to ensure gastronomic peace and give voice to every tradition."
+      },
+      "introduction": {
+        "title": "The Evolution of a Universal Recipe",
+        "body1": "Born in the late 18th century in Villanueva de la Serena (Extremadura) as a solution to food scarcity, the Spanish tortilla has transformed from a humble survival dish into a global gastronomic icon.",
+        "body2": "Today, the Spanish table is a debate battlefield between strict minimalist purism and popular preference. From the Betanzos Holy Trinity to modernist high cuisine, five core culinary doctrines coexist."
+      },
+      "factions": [
+        {
+          "id": "puristas",
+          "name": "The Purists",
+          "badge": "Orthodox (Betanzos)",
+          "badgeColor": "terracotta",
+          "icon": "Shield",
+          "dogma": "Only potato, egg, olive oil, and salt.",
+          "keyIngredient": "No additives (0% Onion)",
+          "prominentFigures": [
+            "Señora Angelita (Betanzos)",
+            "Pepa Miranda",
+            "Dabiz Muñoz",
+            "Dani García",
+            "La Falda de Chamberí"
+          ],
+          "description": "They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.",
+          "relatedPages": [
+            {
+              "title": "Betanzos Recipe",
+              "url": "/en/recipes"
+            },
+            {
+              "title": "Frying Technique",
+              "url": "/en/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-purist.jpg"
+        },
+        {
+          "id": "concebollistas",
+          "name": "The Concebollistas",
+          "badge": "Popular Traditionalists",
+          "badgeColor": "tortillaGold",
+          "icon": "Heart",
+          "dogma": "Slow-poached onions provide essential juiciness and sweetness.",
+          "keyIngredient": "Caramelized Onion",
+          "prominentFigures": [
+            "Karlos Arguiñano",
+            "José Andrés",
+            "Rosalía"
+          ],
+          "description": "Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.",
+          "relatedPages": [
+            {
+              "title": "CIS Survey",
+              "url": "/en/history"
+            },
+            {
+              "title": "Classic Recipe",
+              "url": "/en/recipes"
+            }
+          ],
+          "image": "/images/factions/faction-onion.jpg"
+        },
+        {
+          "id": "pimientistas",
+          "name": "The Pimientistas",
+          "badge": "Rural & Regional",
+          "badgeColor": "olive",
+          "icon": "Sprout",
+          "dogma": "A fresh and smoky touch straight from the countryside.",
+          "keyIngredient": "Green or Red Pepper & Veggies",
+          "prominentFigures": [
+            "Bar Néstor (San Sebastián)",
+            "Rustic Recipe Book"
+          ],
+          "description": "Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.",
+          "relatedPages": [
+            {
+              "title": "Paisana Recipe",
+              "url": "/en/recipes"
+            },
+            {
+              "title": "Northern Routes",
+              "url": "/en/history"
+            }
+          ],
+          "image": "/images/factions/faction-pimientos.jpg"
+        },
+        {
+          "id": "ajistas",
+          "name": "The Ajistas",
+          "badge": "Technical & Secret",
+          "badgeColor": "charcoal",
+          "icon": "Sparkles",
+          "dogma": "Infuse the frying oil with garlic without overloading sweetness.",
+          "keyIngredient": "Aromatic Garlic",
+          "prominentFigures": [
+            "Ángel León (Aponiente)",
+            "Óscar Vidal (O'Pazo)"
+          ],
+          "description": "The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.",
+          "relatedPages": [
+            {
+              "title": "Oil Science",
+              "url": "/en/science"
+            },
+            {
+              "title": "Chef Tricks",
+              "url": "/en/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-garlic.jpg"
+        },
+        {
+          "id": "con-cosas",
+          "name": "The 'Con Cosas'",
+          "badge": "Innovators & Modernists",
+          "badgeColor": "cream",
+          "icon": "Flame",
+          "dogma": "The omelette as an open canvas for regional creativity and modernist innovation.",
+          "keyIngredient": "Cheese, truffle, chistorra, potato chips",
+          "prominentFigures": [
+            "Ferran Adrià",
+            "Pez Tortilla",
+            "José Antonio Labordeta"
+          ],
+          "description": "From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.",
+          "relatedPages": [
+            {
+              "title": "Express Omelette",
+              "url": "/en/builder"
+            },
+            {
+              "title": "Deconstruction",
+              "url": "/en/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-cosas.jpg"
+        }
+      ],
+      "poll": {
+        "title": "Orthodoxy Test: Declare Your Allegiance",
+        "subtitle": "Cast your vote and view real-time community percentages across all factions.",
+        "votedMessage": "Vote recorded! Your allegiance has been immortalized in the kitchen notebook.",
+        "voteButton": "Vote for this Faction",
+        "changeVote": "Change My Vote",
+        "totalVotesLabel": "Total community votes",
+        "initialStats": {
+          "puristas": 28,
+          "concebollistas": 54,
+          "pimientistas": 8,
+          "ajistas": 5,
+          "con-cosas": 5
+        }
+      },
+      "safetyNote": "Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**.",
+      "ui": {
+        "adriaTitle": "Ferran Adrià's Doctrine (El Bulli)",
+        "factionsSectionTitle": "The 5 Culinary Factions",
+        "factionsSectionSub": "Click on any faction to discover its dogma, key figures, and linked recipes.",
+        "keyIngredientLabel": "Key Ingredient:",
+        "prominentFiguresLabel": "Key Figures:",
+        "relatedPagesLabel": "Related Recipes & Pages:",
+        "communityPollBadge": "Community Poll",
+        "votesSuffix": "votes"
+      }
+    },
+    "de": {
+      "badge": "Kulinarische Faktionen",
+      "hero": {
+        "title": "Doktrinärer Purist oder kulinarischer Rebell?",
+        "subtitle": "Vom Ei-Kartoffel-Dogma bis zu regionalen Variationen mit Persönlichkeit. Finde deine Faktion.",
+        "adriaDoctrine": "Wir unterscheiden formal zwischen der 'Traditionellen Kartoffeltortilla' und 'Tortillas mit...', um den kulinarischen Frieden zu wahren."
+      },
+      "introduction": {
+        "title": "Die Evolution eines universalen Rezepts",
+        "body1": "Entstanden Ende des 18. Jahrhunderts in Villanueva de la Serena als günstige Speise in Notzeiten, hat sich die Tortilla von der einfachen Arme-Leute-Mahlzeit zum weltweiten Kultgericht gewandelt.",
+        "body2": "Heute stehen sich fünf große kulinarische Strömungen gegenüber – von der puristischen Heiligen Dreifaltigkeit aus Betanzos bis hin zu modernen Kreationen der Spitzengastronomie."
+      },
+      "factions": [
+        {
+          "id": "puristas",
+          "name": "Die Puristen",
+          "badge": "Orthodox (Betanzos)",
+          "badgeColor": "terracotta",
+          "icon": "Shield",
+          "dogma": "Nur Kartoffel, Ei, Olivenöl und Salz.",
+          "keyIngredient": "Ohne Zusätze (0% Zwiebel)",
+          "prominentFigures": [
+            "Señora Angelita (Betanzos)",
+            "Pepa Miranda",
+            "Dabiz Muñoz",
+            "Dani García",
+            "La Falda de Chamberí"
+          ],
+          "description": "Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern.",
+          "relatedPages": [
+            {
+              "title": "Betanzos Rezept",
+              "url": "/de/recipes"
+            },
+            {
+              "title": "Frittier-Technik",
+              "url": "/de/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-purist.jpg"
+        },
+        {
+          "id": "concebollistas",
+          "name": "Die Zwiebel-Liebhaber",
+          "badge": "Beliebte Traditionalisten",
+          "badgeColor": "tortillaGold",
+          "icon": "Heart",
+          "dogma": "Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht.",
+          "keyIngredient": "Karamellisierte Zwiebel",
+          "prominentFigures": [
+            "Karlos Arguiñano",
+            "José Andrés",
+            "Rosalía"
+          ],
+          "description": "Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie.",
+          "relatedPages": [
+            {
+              "title": "CIS-Umfrage",
+              "url": "/de/history"
+            },
+            {
+              "title": "Klassisches Rezept",
+              "url": "/de/recipes"
+            }
+          ],
+          "image": "/images/factions/faction-onion.jpg"
+        },
+        {
+          "id": "pimientistas",
+          "name": "Die Paprika-Fraktion",
+          "badge": "Ländlich & Regional",
+          "badgeColor": "olive",
+          "icon": "Sprout",
+          "dogma": "Das rustikale Power-Omelett mit der Frische des Gemüsegartens.",
+          "keyIngredient": "Paprika & Gemüse",
+          "prominentFigures": [
+            "Bar Néstor (San Sebastián)",
+            "Campero Rezeptbuch"
+          ],
+          "description": "Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens.",
+          "relatedPages": [
+            {
+              "title": "Paisana Rezept",
+              "url": "/de/recipes"
+            },
+            {
+              "title": "Routen des Nordens",
+              "url": "/de/history"
+            }
+          ],
+          "image": "/images/factions/faction-pimientos.jpg"
+        },
+        {
+          "id": "ajistas",
+          "name": "Der Knoblauch-Kult",
+          "badge": "Technisch & Geheim",
+          "badgeColor": "charcoal",
+          "icon": "Sparkles",
+          "dogma": "Knoblauch als unsichtbare aromatische Basis im Olivenöl.",
+          "keyIngredient": "Aromatischer Knoblauch",
+          "prominentFigures": [
+            "Ángel León (Aponiente)",
+            "Óscar Vidal (O'Pazo)"
+          ],
+          "description": "Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe.",
+          "relatedPages": [
+            {
+              "title": "Öl-Wissenschaft",
+              "url": "/de/science"
+            },
+            {
+              "title": "Chef-Tricks",
+              "url": "/de/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-garlic.jpg"
+        },
+        {
+          "id": "con-cosas",
+          "name": "Die 'Con Cosas' Experimente",
+          "badge": "Innovatoren & Avantgarde",
+          "badgeColor": "cream",
+          "icon": "Flame",
+          "dogma": "Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze.",
+          "keyIngredient": "Käse, Trüffel, Chorizo, Kartoffelchips",
+          "prominentFigures": [
+            "Ferran Adrià",
+            "Pez Tortilla",
+            "Sacromonte Tradition"
+          ],
+          "description": "Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten.",
+          "relatedPages": [
+            {
+              "title": "Express Tortilla",
+              "url": "/de/builder"
+            },
+            {
+              "title": "Dekonstruktion",
+              "url": "/de/techniques"
+            }
+          ],
+          "image": "/images/factions/faction-cosas.jpg"
+        }
+      ],
+      "poll": {
+        "title": "Orthodoxie-Test: Wähle deine Faktion",
+        "subtitle": "Stimme ab und sieh die Echtzeit-Prozente der Community.",
+        "votedMessage": "Stimme gezählt! Deine Faktion wurde im Küchenbuch verewigt.",
+        "voteButton": "Für diese Faktion stimmen",
+        "changeVote": "Stimme ändern",
+        "totalVotesLabel": "Stimmen insgesamt",
+        "initialStats": {
+          "puristas": 28,
+          "concebollistas": 54,
+          "pimientistas": 8,
+          "ajistas": 5,
+          "con-cosas": 5
+        }
+      },
+      "safetyNote": "Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**.",
+      "ui": {
+        "adriaTitle": "Ferran Adriàs Doktrin (El Bulli)",
+        "factionsSectionTitle": "Die 5 Kulinarischen Faktionen",
+        "factionsSectionSub": "Klicke auf eine Faktion, um deren Dogma, Schlüsselfiguren und Rezepte zu entdecken.",
+        "keyIngredientLabel": "Hauptzutat:",
+        "prominentFiguresLabel": "Schlüsselfiguren:",
+        "relatedPagesLabel": "Verwandte Rezepte & Seiten:",
+        "communityPollBadge": "Community-Umfrage",
+        "votesSuffix": "Stimmen"
+      }
+    }
+  }
+}
+````
+
+## File: src/i18n/config.ts
+````typescript
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+import en from "./en.json";
+import es from "./es.json";
+import de from "./de.json";
+
+if (!i18n.isInitialized) {
+  i18n
+    .use(initReactI18next)
+    .init({
+      resources: {
+        en: {
+          translation: en,
+        },
+        es: {
+          translation: es,
+        },
+        de: {
+          translation: de,
+        },
+      },
+      lng: "es",
+      fallbackLng: "en",
+      interpolation: {
+        escapeValue: false,
+      },
+    });
+}
+
+export default i18n;
+````
+
+## File: src/layouts/Layout.astro
+````astro
+---
+import BaseLayout from './BaseLayout.astro';
+import type { BreadcrumbItem } from '@/components/navigation/Breadcrumbs';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  image?: string;
+  type?: string;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const props = Astro.props;
+---
+
+<BaseLayout {...props}>
+  <slot />
+</BaseLayout>
+````
+
+## File: src/lib/taxonomy.ts
+````typescript
+import { getCollection } from 'astro:content';
+import type { Taxonomy, Recipe, ResolvedTaxonomyBadge } from '@/types/taxonomy';
+
+export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
+  es: {
+    faction: 'facciones',
+    ingredient: 'ingredientes',
+    technique: 'tecnicas',
+    style: 'estilos',
+    region: 'regiones',
+    person: 'personas',
+    restaurant: 'restaurantes',
+    utensil: 'utensilios',
+    'cooking-method': 'metodos-coccion',
+    texture: 'texturas',
+    event: 'eventos',
+    glossary: 'glosario',
+    difficulty: 'dificultad',
+  },
+  en: {
+    faction: 'factions',
+    ingredient: 'ingredients',
+    technique: 'techniques',
+    style: 'styles',
+    region: 'regions',
+    person: 'people',
+    restaurant: 'restaurants',
+    utensil: 'utensils',
+    'cooking-method': 'cooking-methods',
+    texture: 'textures',
+    event: 'events',
+    glossary: 'glossary',
+    difficulty: 'difficulty',
+  },
+  de: {
+    faction: 'faktionen',
+    ingredient: 'zutaten',
+    technique: 'techniken',
+    style: 'stile',
+    region: 'regionen',
+    person: 'personen',
+    restaurant: 'restaurants',
+    utensil: 'utensilien',
+    'cooking-method': 'kochmethoden',
+    texture: 'texturen',
+    event: 'events',
+    glossary: 'glossar',
+    difficulty: 'schwierigkeit',
+  },
+};
+
+/**
+ * Resolves localized URL prefix for a taxonomy type.
+ */
+export function getTaxonomyRoutePrefix(type: string, lang: string = 'es'): string {
+  const langMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
+  return langMap[type] || type;
+}
+
+/**
+ * Builds localized URL for a taxonomy item.
+ */
+export function getTaxonomyUrl(type: string, slug: string, lang: string = 'es'): string {
+  const prefix = getTaxonomyRoutePrefix(type, lang);
+  return `/${lang}/${prefix}/${slug}`;
+}
+
+/**
+ * Reverses a localized taxonomy route segment back to the canonical taxonomy type.
+ */
+export function getTaxonomyTypeFromRoute(routeSegment: string, lang: string = 'es'): string | undefined {
+  const langMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
+  for (const [canonicalType, mappedRoute] of Object.entries(langMap)) {
+    if (mappedRoute === routeSegment) {
+      return canonicalType;
+    }
+  }
+  // Fallback check across all languages
+  for (const lMap of Object.values(TAXONOMY_ROUTING_MAP)) {
+    for (const [canonicalType, mappedRoute] of Object.entries(lMap)) {
+      if (mappedRoute === routeSegment) {
+        return canonicalType;
+      }
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Retrieves all taxonomy records.
+ */
+export async function getAllTaxonomies(): Promise<Taxonomy[]> {
+  const collection = await getCollection('taxonomies');
+  return collection.map((item: any) => item.data as Taxonomy);
+}
+
+/**
+ * Retrieves all recipe records.
+ */
+export async function getAllRecipes(): Promise<Recipe[]> {
+  const collection = await getCollection('recipes');
+  return collection.map((item: any) => item.data as Recipe);
+}
+
+/**
+ * Finds a taxonomy by type and id.
+ */
+export async function getTaxonomyById(type: string, id: string): Promise<Taxonomy | undefined> {
+  const taxonomies = await getAllTaxonomies();
+  return taxonomies.find((t) => t.type === type && t.id === id);
+}
+
+/**
+ * Finds recipes associated with a taxonomy.
+ */
+export async function getRecipesForTaxonomy(type: string, id: string): Promise<Recipe[]> {
+  const recipes = await getAllRecipes();
+  const targetTag = `${type}:${id}`;
+  
+  const aliasTags: Record<string, string[]> = {
+    'faction:concebollistas': ['faction:cebollistas', 'faction:concebollistas'],
+    'faction:cebollistas': ['faction:cebollistas', 'faction:concebollistas'],
+    'faction:con-cosas': ['faction:modernistas', 'faction:con-cosas'],
+    'faction:modernistas': ['faction:modernistas', 'faction:con-cosas'],
+  };
+
+  const matches = aliasTags[targetTag] || [targetTag];
+
+  return recipes.filter((r) => matches.some((tag) => r.taxonomyIds.includes(tag)));
+}
+
+/**
+ * Resolves all taxonomy tags on a recipe into rich badge data.
+ */
+export async function resolveRecipeBadges(taxonomyIds: string[], lang: string = 'es'): Promise<ResolvedTaxonomyBadge[]> {
+  const taxonomies = await getAllTaxonomies();
+  const badges: ResolvedTaxonomyBadge[] = [];
+
+  for (const tag of taxonomyIds) {
+    const [type, id] = tag.split(':');
+    if (!type || !id) continue;
+
+    const match = taxonomies.find((t) => t.type === type && t.id === id);
+    if (match) {
+      const slug = match.slug[lang as keyof typeof match.slug] || match.slug.es;
+      const title = match.title[lang as keyof typeof match.title] || match.title.es;
+      badges.push({
+        id: match.id,
+        type: match.type,
+        title,
+        icon: match.icon,
+        url: getTaxonomyUrl(match.type, slug, lang),
+      });
+    }
+  }
+
+  return badges;
+}
+
+/**
+ * Validates that all taxonomy references in recipes exist.
+ */
+export async function validateTaxonomyReferences(): Promise<{ valid: boolean; errors: string[] }> {
+  const recipes = await getAllRecipes();
+  const taxonomies = await getAllTaxonomies();
+  const validTags = new Set(taxonomies.map((t) => `${t.type}:${t.id}`));
+  const errors: string[] = [];
+
+  for (const recipe of recipes) {
+    for (const tag of recipe.taxonomyIds) {
+      if (!validTags.has(tag)) {
+        errors.push(`Recipe '${recipe.id}' references unknown taxonomy '${tag}'`);
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    console.error('❌ Taxonomy Reference Errors:', errors);
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+````
+
+## File: src/pages/[lang]/[taxonomyType]/[slug].astro
+````astro
+---
+import Layout from '@/layouts/Layout.astro';
+import { 
+  TAXONOMY_ROUTING_MAP, 
+  getAllTaxonomies, 
+  getRecipesForTaxonomy, 
+  resolveRecipeBadges
+} from '@/lib/taxonomy';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
+import { 
+  Shield, 
+  ChefHat, 
+  ExternalLink,
+  Users
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  const taxonomies = await getAllTaxonomies();
+  const languages = supportedLanguages;
+  const paths = [];
+
+  for (const lang of languages) {
+    const routeMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
+    
+    for (const tax of taxonomies) {
+      const routeSegment = routeMap[tax.type];
+      const localizedSlug = tax.slug[lang as keyof typeof tax.slug] || tax.slug.es;
+      
+      if (routeSegment && localizedSlug) {
+        paths.push({
+          params: {
+            lang,
+            taxonomyType: routeSegment,
+            slug: localizedSlug,
+          },
+          props: {
+            taxonomy: tax,
+            lang,
+          },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { taxonomy, lang } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+const title = taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es;
+const description = taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es;
+const dogma = taxonomy.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
+const badgeText = taxonomy.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
+const keyIngredient = taxonomy.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
+
+// Load related recipes dynamically
+const relatedRecipes = await getRecipesForTaxonomy(taxonomy.type, taxonomy.id);
+
+// Pre-resolve badges for each related recipe
+const recipesWithBadges = await Promise.all(
+  relatedRecipes.map(async (r) => ({
+    ...r,
+    badges: await resolveRecipeBadges(r.taxonomyIds, currentLang),
+  }))
+);
+
+// Collect all other taxonomy IDs referenced in these recipes for "Related Concepts"
+const relatedTaxonomyIds = new Set<string>();
+relatedRecipes.forEach((r) => {
+  r.taxonomyIds.forEach((tag) => {
+    if (tag !== `${taxonomy.type}:${taxonomy.id}`) {
+      relatedTaxonomyIds.add(tag);
+    }
+  });
+});
+const relatedTaxonomyBadges = await resolveRecipeBadges(Array.from(relatedTaxonomyIds), currentLang);
+
+const pageTitle = `${title} - ${taxonomy.type.toUpperCase()} | tortilladepatatas.org`;
+
+// SEO Schemas
+const currentUrl = `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
+const taxonomyTypeLabel = taxonomy.type === 'factions' 
+  ? (currentLang === 'de' ? 'Fraktionen' : currentLang === 'en' ? 'Factions' : 'Facciones')
+  : taxonomy.type;
+
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: taxonomyTypeLabel, url: `/${currentLang}/${Astro.params.taxonomyType}` },
+  { name: title, url: `/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description: description,
+  url: currentUrl,
+  items: relatedRecipes.map((r) => ({
+    name: r.title[currentLang as keyof typeof r.title] || r.title.es,
+    url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
+  })),
+});
+
+const schemas = [breadcrumbSchema, collectionSchema];
+---
+
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
+    <!-- HERO TAXONOMY HEADER -->
+    {taxonomy.image ? (
+      <div class="space-y-6">
+        <div class="w-full h-80 sm:h-96 md:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2D5] shadow-md bg-[#F5E6BE] relative group">
+          <img
+            src={taxonomy.image}
+            alt={title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            referrerPolicy="no-referrer"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6 sm:p-10">
+            <div class="text-white space-y-3 max-w-3xl">
+              <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800] text-[#292521] text-xs font-extrabold uppercase tracking-wider shadow-xs">
+                <Users class="w-3.5 h-3.5" />
+                <span>{taxonomy.type}: {badgeText || title}</span>
+              </div>
+              <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif-heading font-extrabold text-white drop-shadow-md tracking-tight leading-none">
+                {title}
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <header class="text-center max-w-3xl mx-auto space-y-3">
+          <p class="text-base sm:text-xl text-foreground/85 leading-relaxed font-sans">
+            {description}
+          </p>
+
+          {keyIngredient && (
+            <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE] px-3.5 py-1.5 rounded-full border border-amber-300 shadow-2xs">
+              <span>{currentLang === 'en' ? 'Key Ingredient/Element:' : currentLang === 'de' ? 'Schlüsselzutat/-element:' : 'Ingrediente/Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
+            </div>
+          )}
+        </header>
+      </div>
+    ) : (
+      <header class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+          <Users class="w-3.5 h-3.5" />
+          <span class="capitalize">{taxonomy.type}: {badgeText || title}</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
+          {title}
+        </h1>
+
+        <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+          {description}
+        </p>
+
+        {keyIngredient && (
+          <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE]/80 px-3 py-1 rounded-full border border-amber-300">
+            <span>{currentLang === 'en' ? 'Key Ingredient/Element:' : currentLang === 'de' ? 'Schlüsselzutat/-element:' : 'Ingrediente/Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
+          </div>
+        )}
+      </header>
+    )}
+
+    <!-- DOGMA CALLOUT IF APPLICABLE -->
+    {dogma && (
+      <section class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800] bg-[#FCF9F2] shadow-xs rounded-2xl border border-[#E8E2D5] relative overflow-hidden">
+        <div class="flex items-start gap-4 relative z-10">
+          <div class="p-3 rounded-2xl bg-[#FFB800]/20 text-[#8D6E63] shrink-0 hidden sm:flex items-center justify-center border border-amber-300/50">
+            <ChefHat class="w-6 h-6 text-[#FFB800]" />
+          </div>
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-0.5 rounded-full border border-amber-300/60 inline-flex items-center gap-1">
+              {currentLang === 'en' ? 'Dogma & Philosophy' : currentLang === 'de' ? 'Dogma & Philosophie' : 'Dogma & Filosofía'}
+            </span>
+            <blockquote class="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
+              &ldquo;{dogma}&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- PROMINENT FIGURES IF ANY -->
+    {taxonomy.prominentFigures && taxonomy.prominentFigures.length > 0 && (
+      <section class="max-w-4xl mx-auto p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2 text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground block">
+          {currentLang === 'en' ? 'Prominent Figures' : currentLang === 'de' ? 'Prominente Figuren' : 'Figuras Prominentes'}
+        </span>
+        <div class="flex flex-wrap justify-center gap-2">
+          {taxonomy.prominentFigures.map((fig) => (
+            <span class="text-xs font-medium bg-white text-[#292521] px-3 py-1 rounded-lg border border-[#E8E2D5] shadow-2xs">
+              {fig}
+            </span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- RELATED RECIPES GRID -->
+    <section class="space-y-6">
+      <div class="border-b border-[#E8E2D5] pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
+            {currentLang === 'en' ? 'Related Recipes' : currentLang === 'de' ? 'Verknüpfte Rezepte' : 'Recetas Relacionadas'}
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">
+            {currentLang === 'en'
+              ? `Recipes featuring or representing this category (${relatedRecipes.length})`
+              : currentLang === 'de'
+              ? `Rezepte, die diese Kategorie beinhalten oder repräsentieren (${relatedRecipes.length})`
+              : `Recetas que incorporan o representan esta categoría (${relatedRecipes.length})`}
+          </p>
+        </div>
+      </div>
+
+      {relatedRecipes.length === 0 ? (
+        <div class="card-notebook p-8 text-center text-muted-foreground rounded-2xl border border-[#E8E2D5]">
+          {currentLang === 'en'
+            ? 'No recipes currently registered for this concept in the catalog.'
+            : currentLang === 'de'
+            ? 'Derzeit sind für dieses Konzept keine Rezepte im Katalog registriert.'
+            : 'No hay recetas registradas actualmente para este concepto en el catálogo.'}
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recipesWithBadges.map((r) => {
+            const recipeTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
+            const recipeDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
+            const recipeSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
+
+            return (
+              <article class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-200 flex flex-col justify-between">
+                <div>
+                  <div class="h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
+                    <img
+                      src={r.image || '/images/clasica.jpg'}
+                      alt={recipeTitle}
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      class="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div class="absolute top-3 right-3 bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] text-[11px] font-bold px-2.5 py-1 rounded-full shadow-2xs">
+                      ⏱ {r.time} min
+                    </div>
+                  </div>
+
+                  <div class="p-5 space-y-3">
+                    <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
+                      <a href={`/${currentLang}/recipes/${recipeSlug}`} class="hover:text-[#8D6E63] transition-colors">
+                        {recipeTitle}
+                      </a>
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed line-clamp-3">
+                      {recipeDesc}
+                    </p>
+
+                    <!-- BADGES -->
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                      {r.badges.map((b) => (
+                        <a
+                          href={b.url}
+                          class="inline-flex items-center gap-1 text-[11px] font-bold bg-[#F5E6BE]/70 hover:bg-[#F5E6BE] text-[#8D6E63] px-2 py-0.5 rounded-md border border-amber-200 transition-colors"
+                        >
+                          <span>{b.title}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-4 pt-0">
+                  <a
+                    href={`/${currentLang}/recipes/${recipeSlug}`}
+                    class="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] transition-colors"
+                  >
+                    <span>{currentLang === 'en' ? 'View Full Recipe' : currentLang === 'de' ? 'Vollständiges Rezept ansehen' : 'Ver Receta Completa'}</span>
+                    <ExternalLink class="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </section>
+
+    <!-- RELATED TAXONOMY CONCEPTS -->
+    {relatedTaxonomyBadges.length > 0 && (
+      <section class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4">
+        <h3 class="text-lg font-serif-heading font-bold text-[#292521]">
+          {currentLang === 'en' ? 'Linked Concepts & Taxonomies' : currentLang === 'de' ? 'Verknüpfte Konzepte & Taxonomien' : 'Conceptos y Taxonomías Vinculadas'}
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {relatedTaxonomyBadges.map((b) => (
+            <a
+              href={b.url}
+              class="inline-flex items-center gap-1.5 text-xs font-bold bg-white text-[#8D6E63] hover:text-[#292521] hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-[#E8E2D5] shadow-2xs transition-colors"
+            >
+              <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
+              <span>{b.title}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- SAFETY NOTE -->
+    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p class="font-sans">
+          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
+````
+
+## File: src/styles/_variables.scss
+````scss
+/* Design System SCSS Variables - tortilladepatatas.org */
+
+// Brand Colors ("The Star Ingredients")
+$color-yolk-gold: #FFB800;
+$color-potato-cream: #F5E6BE;
+$color-onion-umber: #8D6E63;
+
+// Burner Animation Palette ("Heat & Cooking Levels")
+$color-pilot-blue: #00A3FF;
+$color-safety-orange: #FF8A00;
+$color-bactericidal-crimson: #D32F2F;
+
+// Semantic UI Safety & Risk Status Colors
+$color-risk-danger: #B00020;
+$color-risk-warning: #FFC107;
+$color-risk-safe: #2E7D32;
+
+// Paper & Notebook Neutrals
+$bg-notebook: #FCF9F2;
+$bg-parchment: #FDFBF7;
+$bg-card: #FFFFFF;
+$text-primary: #2A2421;
+$text-secondary: #73675F;
+$text-muted: #8D6E63;
+$border-notebook: #E8E2D5;
+
+// Typography Families
+$font-serif-heading: 'Playfair Display', Georgia, serif;
+$font-sans-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+$font-script-handwritten: 'Caveat', cursive;
+
+// Breakpoints
+$bp-mobile: 640px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
+````
+
+## File: README.md
+````markdown
+# tortilladepatatas.org — Cuaderno & Ciencia Culinaria
+
+An open culinary notebook and food safety guide for the authentic Spanish Omelette (*Tortilla de Patatas*). Built with **Astro**, **React**, **TypeScript**, and **Tailwind CSS**.
+
+---
+
+## 🚀 How Build & Publishing Works (Static HTML vs. Vite Bundles)
+
+When you run `npm run build`, Astro performs **Static Site Generation (SSG)**:
+
+1. **Static HTML Pages**: Astro pre-renders every route and language variant (`/es/`, `/en/`, `/de/`, `/es/builder`, `/es/science`, `/es/recipes`, etc.) into static `.html` files inside the `dist/` directory. This delivers ultra-fast page loads, zero-JS initial renders, and maximum SEO performance.
+2. **Optimized Client JS Bundles**: For interactive React components marked with `client:load` (such as the interactive **Tortilla Builder**, **Header/Language Drawer**, and **Interactive Cards**), Vite bundles minimal JavaScript required for client hydration.
+3. **Zero-Server Requirement**: The resulting `dist/` directory is completely standalone and static. You do **not** need a Node.js server to run the live application.
+
+---
+
+## 📥 How to Download & Publish This Project
+
+### 1. Export / Download Code
+- **Via AI Studio**: Click **Settings** in the top right, then choose **Export to GitHub** or **Download ZIP**.
+- Unzip the project folder on your machine (or clone your exported GitHub repository).
+
+---
+
+### 2. Local Installation & Development
+
+Make sure you have **Node.js** (v18+ recommended) installed.
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server (runs on http://localhost:3000)
+npm run dev
+```
+
+---
+
+### 3. Build for Production
+
+Generate the static production build:
+
+```bash
+npm run build
+```
+
+This creates the output folder `dist/` containing all static HTML files, CSS, images, and optimized Vite JavaScript bundles.
+
+To preview the production build locally:
+
+```bash
+npm run preview
+```
+
+---
+
+### 4. Publishing to Web Hosting
+
+You can publish the generated `dist/` folder to any static hosting provider for free:
+
+#### Option A: Vercel / Netlify / Cloudflare Pages
+1. Connect your GitHub repository to **Vercel**, **Netlify**, or **Cloudflare Pages**.
+2. Set the configuration settings:
+   - **Framework Preset**: `Astro`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+3. Click **Deploy**.
+
+#### Option B: GitHub Pages
+1. In your GitHub repository, go to **Settings** > **Pages**.
+2. Choose **GitHub Actions** as the source and select the default Astro workflow.
+
+#### Option C: Standard Web Server (Apache / Nginx / Shared Hosting)
+1. Run `npm run build` locally.
+2. Upload the contents of the `dist/` directory directly to your web server's `public_html` or root directory via FTP / SFTP.
+
+---
+
+## 🛠️ Project Scripts
+
+| Script | Command | Description |
+| :--- | :--- | :--- |
+| **Development** | `npm run dev` | Runs the Astro development server on `http://localhost:3000` |
+| **Production Build** | `npm run build` | Builds static HTML pages & Vite assets into `/dist` |
+| **Preview** | `npm run preview` | Serves the production `/dist` build locally |
+| **Linter** | `npm run lint` | Runs Oxlint for fast TypeScript/JSX code analysis |
+
+---
+
+## 📁 Project Structure
+
+```
+├── astro.config.mjs     # Astro configuration & React integration
+├── package.json         # Dependencies and scripts
+├── public/              # Static assets (images, icons)
+└── src/
+    ├── components/      # React & Astro components
+    │   ├── home/        # Hero, Feature Grid, Builder Teaser
+    │   ├── layout/      # Header, Footer, Sub-nav
+    │   └── ui/          # Radix & Tailwind UI primitives
+    ├── layouts/         # Base & Page Astro layouts
+    ├── lib/             # i18n translations & culinary math engine
+    ├── pages/           # Astro routes with i18n static paths ([lang]/)
+    └── index.css        # Global Tailwind CSS styles
+```
+````
+
 ## File: src/components/builder/BuilderApp.tsx
 ````typescript
 import { useState, useMemo } from "react";
@@ -14071,7 +17486,8 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
     return compareRecipes(userRecipe, selectedRefRecipe);
   }, [userRecipe, selectedRefRecipe]);
 
-  const { eggCount, panSizeCm } = userRecipe;
+  const { panSizeCm } = userRecipe;
+  const eggCount = userRecipe.ingredients.find((i) => i.ingredientId === "egg")?.amount || 0;
   const potatoGrams = userRecipe.ingredients.find((i) => i.ingredientId === "potato")?.amount || 0;
   const onionGrams = userRecipe.ingredients.find((i) => i.ingredientId === "onion")?.amount || 0;
   const saltGrams = userRecipe.ingredients.find((i) => i.ingredientId === "salt")?.amount || 0;
@@ -14647,1367 +18063,6 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
     </div>
   );
 }
-````
-
-## File: src/components/navigation/LocalizedLink.tsx
-````typescript
-import React from "react";
-
-type LocalizedLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  to: string;
-  lang?: string;
-  children: React.ReactNode;
-};
-
-export default function LocalizedLink({
-  to,
-  lang,
-  children,
-  className,
-  ...props
-}: LocalizedLinkProps) {
-  let activeLang = lang;
-  if (!activeLang && typeof window !== "undefined") {
-    const parts = window.location.pathname.split("/").filter(Boolean);
-    if (parts.length > 0 && ["es", "en", "de"].includes(parts[0])) {
-      activeLang = parts[0];
-    }
-  }
-  const language = activeLang && ["es", "en", "de"].includes(activeLang) ? activeLang : "es";
-
-  const cleanTo = to.startsWith("/") ? to : `/${to}`;
-  const path = cleanTo === "/" ? `/${language}` : `/${language}${cleanTo}`;
-
-  return (
-    <a href={path} className={className} {...props}>
-      {children}
-    </a>
-  );
-}
-````
-
-## File: src/data/factions.json
-````json
-{
-  "meta": {
-    "version": "1.0.0",
-    "route": "/facciones",
-    "updatedAt": "2026-07-29"
-  },
-  "content": {
-    "es": {
-      "badge": "Facciones Culinarias",
-      "hero": {
-        "title": "¿Purista de la Doctrina o Rebelde Culinario?",
-        "subtitle": "Del dogma de la patata y el huevo a las variaciones regionales con personalidad. Descubre a qué facción perteneces.",
-        "adriaDoctrine": "Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica y dar voz a cada tradición."
-      },
-      "introduction": {
-        "title": "La evolución de una receta universal",
-        "body1": "Nacida a finales del siglo XVIII en Villanueva de la Serena (Badajoz) como una solución contra la escasez de alimentos, la tortilla de patatas ha evolucionado de alimento humilde de supervivencia a icono gastronómico global.",
-        "body2": "Hoy la mesa española es un campo de batalla dialéctico entre el ascetismo de la patata desnuda y la audacia del plebiscito popular. Desde la Santísima Trinidad Betanceira hasta las vanguardias de alta cocina, coexisten cinco grandes doctrinas culinarias."
-      },
-      "factions": [
-        {
-          "id": "puristas",
-          "name": "Los Puristas",
-          "badge": "Ortodoxos (Betanzos)",
-          "badgeColor": "terracotta",
-          "icon": "Shield",
-          "dogma": "Solo patata, huevo, aceite de oliva y sal.",
-          "keyIngredient": "Sin añadidos (0% Cebolla)",
-          "prominentFigures": [
-            "Señora Angelita (Betanzos)",
-            "Pepa Miranda",
-            "Dabiz Muñoz",
-            "Dani García",
-            "La Falda de Chamberí"
-          ],
-          "description": "Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.",
-          "relatedPages": [
-            {
-              "title": "Receta Betanzos",
-              "url": "/es/recipes"
-            },
-            {
-              "title": "Técnica de Fritura",
-              "url": "/es/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-purist.jpg"
-        },
-        {
-          "id": "concebollistas",
-          "name": "Los Concebollistas",
-          "badge": "Tradicionalistas Populares",
-          "badgeColor": "tortillaGold",
-          "icon": "Heart",
-          "dogma": "La cebolla pochada aporta la jugosidad y el dulzor esenciales.",
-          "keyIngredient": "Cebolla Caramelizada",
-          "prominentFigures": [
-            "Karlos Arguiñano",
-            "José Andrés",
-            "Rosalía"
-          ],
-          "description": "Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.",
-          "relatedPages": [
-            {
-              "title": "Encuesta CIS",
-              "url": "/es/history"
-            },
-            {
-              "title": "Receta Clásica",
-              "url": "/es/recipes"
-            }
-          ],
-          "image": "/images/factions/faction-onion.jpg"
-        },
-        {
-          "id": "pimientistas",
-          "name": "Los Pimientistas",
-          "badge": "Rurales y Regionales",
-          "badgeColor": "olive",
-          "icon": "Sprout",
-          "dogma": "El toque fresco y ahumado de la huerta campera.",
-          "keyIngredient": "Pimiento verde o rojo & Verduras",
-          "prominentFigures": [
-            "Bar Néstor (San Sebastián)",
-            "Recetario Campero"
-          ],
-          "description": "Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.",
-          "relatedPages": [
-            {
-              "title": "Tortilla Paisana",
-              "url": "/es/recipes"
-            },
-            {
-              "title": "Rutas del Norte",
-              "url": "/es/history"
-            }
-          ],
-          "image": "/images/factions/faction-pimientos.jpg"
-        },
-        {
-          "id": "ajistas",
-          "name": "Los Ajistas",
-          "badge": "Técnicos y Secretos",
-          "badgeColor": "charcoal",
-          "icon": "Sparkles",
-          "dogma": "Aromatizar el aceite sin sobrecargar de azúcar la mezcla.",
-          "keyIngredient": "Ajo frito aromatizante",
-          "prominentFigures": [
-            "Ángel León (Aponiente)",
-            "Óscar Vidal (O'Pazo)"
-          ],
-          "description": "El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.",
-          "relatedPages": [
-            {
-              "title": "Ciencia del Aceite",
-              "url": "/es/science"
-            },
-            {
-              "title": "Trucos de Chef",
-              "url": "/es/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-garlic.jpg"
-        },
-        {
-          "id": "con-cosas",
-          "name": "Los 'Con Cosas'",
-          "badge": "Innovadores & Vanguardia",
-          "badgeColor": "cream",
-          "icon": "Flame",
-          "dogma": "La tortilla como un lienzo abierto a la creatividad y expresión regional.",
-          "keyIngredient": "Queso, trufa, chistorra, chips de bolsa",
-          "prominentFigures": [
-            "Ferran Adrià",
-            "Pez Tortilla",
-            "José Antonio Labordeta"
-          ],
-          "description": "Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.",
-          "relatedPages": [
-            {
-              "title": "Tortilla Exprés",
-              "url": "/es/builder"
-            },
-            {
-              "title": "Deconstrucción",
-              "url": "/es/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-cosas.jpg"
-        }
-      ],
-      "poll": {
-        "title": "Test de Ortodoxia: Elige tu Lealtad",
-        "subtitle": "¡Declara tu facción! Vota y descubre los porcentajes en tiempo real de la comunidad tortillera.",
-        "votedMessage": "¡Voto registrado! Tu lealtad a la causa ha quedado anotada en el cuaderno culinario.",
-        "voteButton": "Votar esta facción",
-        "changeVote": "Cambiar mi voto",
-        "totalVotesLabel": "Votos totales registrados",
-        "initialStats": {
-          "puristas": 28,
-          "concebollistas": 54,
-          "pimientistas": 8,
-          "ajistas": 5,
-          "con-cosas": 5
-        }
-      },
-      "safetyNote": "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.",
-      "ui": {
-        "adriaTitle": "Doctrina de Ferran Adrià (El Bulli)",
-        "factionsSectionTitle": "Las 5 Facciones Culinarias",
-        "factionsSectionSub": "Haz clic en cualquier facción para conocer su dogma, figuras clave y recetas vinculadas.",
-        "keyIngredientLabel": "Ingrediente Clave:",
-        "prominentFiguresLabel": "Figuras Prominentes:",
-        "relatedPagesLabel": "Recetas y Páginas Relacionadas:",
-        "communityPollBadge": "Encuesta de la Comunidad",
-        "votesSuffix": "votos"
-      }
-    },
-    "en": {
-      "badge": "Culinary Factions",
-      "hero": {
-        "title": "Doctrinal Purist or Culinary Rebel?",
-        "subtitle": "From the egg-and-potato dogma to regional variations with personality. Find out which faction you belong to.",
-        "adriaDoctrine": "We formally distinguish between the 'Traditional Spanish Omelette' and 'Omelettes with...' to ensure gastronomic peace and give voice to every tradition."
-      },
-      "introduction": {
-        "title": "The Evolution of a Universal Recipe",
-        "body1": "Born in the late 18th century in Villanueva de la Serena (Extremadura) as a solution to food scarcity, the Spanish tortilla has transformed from a humble survival dish into a global gastronomic icon.",
-        "body2": "Today, the Spanish table is a debate battlefield between strict minimalist purism and popular preference. From the Betanzos Holy Trinity to modernist high cuisine, five core culinary doctrines coexist."
-      },
-      "factions": [
-        {
-          "id": "puristas",
-          "name": "The Purists",
-          "badge": "Orthodox (Betanzos)",
-          "badgeColor": "terracotta",
-          "icon": "Shield",
-          "dogma": "Only potato, egg, olive oil, and salt.",
-          "keyIngredient": "No additives (0% Onion)",
-          "prominentFigures": [
-            "Señora Angelita (Betanzos)",
-            "Pepa Miranda",
-            "Dabiz Muñoz",
-            "Dani García",
-            "La Falda de Chamberí"
-          ],
-          "description": "They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.",
-          "relatedPages": [
-            {
-              "title": "Betanzos Recipe",
-              "url": "/en/recipes"
-            },
-            {
-              "title": "Frying Technique",
-              "url": "/en/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-purist.jpg"
-        },
-        {
-          "id": "concebollistas",
-          "name": "The Concebollistas",
-          "badge": "Popular Traditionalists",
-          "badgeColor": "tortillaGold",
-          "icon": "Heart",
-          "dogma": "Slow-poached onions provide essential juiciness and sweetness.",
-          "keyIngredient": "Caramelized Onion",
-          "prominentFigures": [
-            "Karlos Arguiñano",
-            "José Andrés",
-            "Rosalía"
-          ],
-          "description": "Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.",
-          "relatedPages": [
-            {
-              "title": "CIS Survey",
-              "url": "/en/history"
-            },
-            {
-              "title": "Classic Recipe",
-              "url": "/en/recipes"
-            }
-          ],
-          "image": "/images/factions/faction-onion.jpg"
-        },
-        {
-          "id": "pimientistas",
-          "name": "The Pimientistas",
-          "badge": "Rural & Regional",
-          "badgeColor": "olive",
-          "icon": "Sprout",
-          "dogma": "A fresh and smoky touch straight from the countryside.",
-          "keyIngredient": "Green or Red Pepper & Veggies",
-          "prominentFigures": [
-            "Bar Néstor (San Sebastián)",
-            "Rustic Recipe Book"
-          ],
-          "description": "Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.",
-          "relatedPages": [
-            {
-              "title": "Paisana Recipe",
-              "url": "/en/recipes"
-            },
-            {
-              "title": "Northern Routes",
-              "url": "/en/history"
-            }
-          ],
-          "image": "/images/factions/faction-pimientos.jpg"
-        },
-        {
-          "id": "ajistas",
-          "name": "The Ajistas",
-          "badge": "Technical & Secret",
-          "badgeColor": "charcoal",
-          "icon": "Sparkles",
-          "dogma": "Infuse the frying oil with garlic without overloading sweetness.",
-          "keyIngredient": "Aromatic Garlic",
-          "prominentFigures": [
-            "Ángel León (Aponiente)",
-            "Óscar Vidal (O'Pazo)"
-          ],
-          "description": "The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.",
-          "relatedPages": [
-            {
-              "title": "Oil Science",
-              "url": "/en/science"
-            },
-            {
-              "title": "Chef Tricks",
-              "url": "/en/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-garlic.jpg"
-        },
-        {
-          "id": "con-cosas",
-          "name": "The 'Con Cosas'",
-          "badge": "Innovators & Modernists",
-          "badgeColor": "cream",
-          "icon": "Flame",
-          "dogma": "The omelette as an open canvas for regional creativity and modernist innovation.",
-          "keyIngredient": "Cheese, truffle, chistorra, potato chips",
-          "prominentFigures": [
-            "Ferran Adrià",
-            "Pez Tortilla",
-            "José Antonio Labordeta"
-          ],
-          "description": "From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.",
-          "relatedPages": [
-            {
-              "title": "Express Omelette",
-              "url": "/en/builder"
-            },
-            {
-              "title": "Deconstruction",
-              "url": "/en/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-cosas.jpg"
-        }
-      ],
-      "poll": {
-        "title": "Orthodoxy Test: Declare Your Allegiance",
-        "subtitle": "Cast your vote and view real-time community percentages across all factions.",
-        "votedMessage": "Vote recorded! Your allegiance has been immortalized in the kitchen notebook.",
-        "voteButton": "Vote for this Faction",
-        "changeVote": "Change My Vote",
-        "totalVotesLabel": "Total community votes",
-        "initialStats": {
-          "puristas": 28,
-          "concebollistas": 54,
-          "pimientistas": 8,
-          "ajistas": 5,
-          "con-cosas": 5
-        }
-      },
-      "safetyNote": "Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**.",
-      "ui": {
-        "adriaTitle": "Ferran Adrià's Doctrine (El Bulli)",
-        "factionsSectionTitle": "The 5 Culinary Factions",
-        "factionsSectionSub": "Click on any faction to discover its dogma, key figures, and linked recipes.",
-        "keyIngredientLabel": "Key Ingredient:",
-        "prominentFiguresLabel": "Key Figures:",
-        "relatedPagesLabel": "Related Recipes & Pages:",
-        "communityPollBadge": "Community Poll",
-        "votesSuffix": "votes"
-      }
-    },
-    "de": {
-      "badge": "Kulinarische Faktionen",
-      "hero": {
-        "title": "Doktrinärer Purist oder kulinarischer Rebell?",
-        "subtitle": "Vom Ei-Kartoffel-Dogma bis zu regionalen Variationen mit Persönlichkeit. Finde deine Faktion.",
-        "adriaDoctrine": "Wir unterscheiden formal zwischen der 'Traditionellen Kartoffeltortilla' und 'Tortillas mit...', um den kulinarischen Frieden zu wahren."
-      },
-      "introduction": {
-        "title": "Die Evolution eines universalen Rezepts",
-        "body1": "Entstanden Ende des 18. Jahrhunderts in Villanueva de la Serena als günstige Speise in Notzeiten, hat sich die Tortilla von der einfachen Arme-Leute-Mahlzeit zum weltweiten Kultgericht gewandelt.",
-        "body2": "Heute stehen sich fünf große kulinarische Strömungen gegenüber – von der puristischen Heiligen Dreifaltigkeit aus Betanzos bis hin zu modernen Kreationen der Spitzengastronomie."
-      },
-      "factions": [
-        {
-          "id": "puristas",
-          "name": "Die Puristen",
-          "badge": "Orthodox (Betanzos)",
-          "badgeColor": "terracotta",
-          "icon": "Shield",
-          "dogma": "Nur Kartoffel, Ei, Olivenöl und Salz.",
-          "keyIngredient": "Ohne Zusätze (0% Zwiebel)",
-          "prominentFigures": [
-            "Señora Angelita (Betanzos)",
-            "Pepa Miranda",
-            "Dabiz Muñoz",
-            "Dani García",
-            "La Falda de Chamberí"
-          ],
-          "description": "Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern.",
-          "relatedPages": [
-            {
-              "title": "Betanzos Rezept",
-              "url": "/de/recipes"
-            },
-            {
-              "title": "Frittier-Technik",
-              "url": "/de/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-purist.jpg"
-        },
-        {
-          "id": "concebollistas",
-          "name": "Die Zwiebel-Liebhaber",
-          "badge": "Beliebte Traditionalisten",
-          "badgeColor": "tortillaGold",
-          "icon": "Heart",
-          "dogma": "Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht.",
-          "keyIngredient": "Karamellisierte Zwiebel",
-          "prominentFigures": [
-            "Karlos Arguiñano",
-            "José Andrés",
-            "Rosalía"
-          ],
-          "description": "Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie.",
-          "relatedPages": [
-            {
-              "title": "CIS-Umfrage",
-              "url": "/de/history"
-            },
-            {
-              "title": "Klassisches Rezept",
-              "url": "/de/recipes"
-            }
-          ],
-          "image": "/images/factions/faction-onion.jpg"
-        },
-        {
-          "id": "pimientistas",
-          "name": "Die Paprika-Fraktion",
-          "badge": "Ländlich & Regional",
-          "badgeColor": "olive",
-          "icon": "Sprout",
-          "dogma": "Das rustikale Power-Omelett mit der Frische des Gemüsegartens.",
-          "keyIngredient": "Paprika & Gemüse",
-          "prominentFigures": [
-            "Bar Néstor (San Sebastián)",
-            "Campero Rezeptbuch"
-          ],
-          "description": "Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens.",
-          "relatedPages": [
-            {
-              "title": "Paisana Rezept",
-              "url": "/de/recipes"
-            },
-            {
-              "title": "Routen des Nordens",
-              "url": "/de/history"
-            }
-          ],
-          "image": "/images/factions/faction-pimientos.jpg"
-        },
-        {
-          "id": "ajistas",
-          "name": "Der Knoblauch-Kult",
-          "badge": "Technisch & Geheim",
-          "badgeColor": "charcoal",
-          "icon": "Sparkles",
-          "dogma": "Knoblauch als unsichtbare aromatische Basis im Olivenöl.",
-          "keyIngredient": "Aromatischer Knoblauch",
-          "prominentFigures": [
-            "Ángel León (Aponiente)",
-            "Óscar Vidal (O'Pazo)"
-          ],
-          "description": "Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe.",
-          "relatedPages": [
-            {
-              "title": "Öl-Wissenschaft",
-              "url": "/de/science"
-            },
-            {
-              "title": "Chef-Tricks",
-              "url": "/de/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-garlic.jpg"
-        },
-        {
-          "id": "con-cosas",
-          "name": "Die 'Con Cosas' Experimente",
-          "badge": "Innovatoren & Avantgarde",
-          "badgeColor": "cream",
-          "icon": "Flame",
-          "dogma": "Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze.",
-          "keyIngredient": "Käse, Trüffel, Chorizo, Kartoffelchips",
-          "prominentFigures": [
-            "Ferran Adrià",
-            "Pez Tortilla",
-            "Sacromonte Tradition"
-          ],
-          "description": "Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten.",
-          "relatedPages": [
-            {
-              "title": "Express Tortilla",
-              "url": "/de/builder"
-            },
-            {
-              "title": "Dekonstruktion",
-              "url": "/de/techniques"
-            }
-          ],
-          "image": "/images/factions/faction-cosas.jpg"
-        }
-      ],
-      "poll": {
-        "title": "Orthodoxie-Test: Wähle deine Faktion",
-        "subtitle": "Stimme ab und sieh die Echtzeit-Prozente der Community.",
-        "votedMessage": "Stimme gezählt! Deine Faktion wurde im Küchenbuch verewigt.",
-        "voteButton": "Für diese Faktion stimmen",
-        "changeVote": "Stimme ändern",
-        "totalVotesLabel": "Stimmen insgesamt",
-        "initialStats": {
-          "puristas": 28,
-          "concebollistas": 54,
-          "pimientistas": 8,
-          "ajistas": 5,
-          "con-cosas": 5
-        }
-      },
-      "safetyNote": "Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**.",
-      "ui": {
-        "adriaTitle": "Ferran Adriàs Doktrin (El Bulli)",
-        "factionsSectionTitle": "Die 5 Kulinarischen Faktionen",
-        "factionsSectionSub": "Klicke auf eine Faktion, um deren Dogma, Schlüsselfiguren und Rezepte zu entdecken.",
-        "keyIngredientLabel": "Hauptzutat:",
-        "prominentFiguresLabel": "Schlüsselfiguren:",
-        "relatedPagesLabel": "Verwandte Rezepte & Seiten:",
-        "communityPollBadge": "Community-Umfrage",
-        "votesSuffix": "Stimmen"
-      }
-    }
-  }
-}
-````
-
-## File: src/pages/[lang]/recipes/[slug].astro
-````astro
----
-import Layout from '@/layouts/Layout.astro';
-import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
-import { supportedLanguages, getTranslations } from '@/lib/i18n';
-import { generateRecipeSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
-import { Clock, Users, BookOpen, ExternalLink, Shield } from 'lucide-react';
-
-export async function getStaticPaths() {
-  const recipes = await getAllRecipes();
-  const languages = supportedLanguages;
-  const paths = [];
-
-  for (const lang of languages) {
-    for (const r of recipes) {
-      const localizedSlug = r.slug[lang as keyof typeof r.slug] || r.slug.es;
-      if (localizedSlug) {
-        paths.push({
-          params: {
-            lang,
-            slug: localizedSlug,
-          },
-          props: {
-            recipe: r,
-            lang,
-          },
-        });
-      }
-    }
-  }
-
-  return paths;
-}
-
-const { recipe, lang } = Astro.props;
-const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
-const t = getTranslations(currentLang);
-
-const title = recipe.title[currentLang as keyof typeof recipe.title] || recipe.title.es;
-const description = recipe.description[currentLang as keyof typeof recipe.description] || recipe.description.es;
-const badges = await resolveRecipeBadges(recipe.taxonomyIds, currentLang);
-
-const currentUrl = `${SITE_URL}/${currentLang}/recipes/${Astro.params.slug}`;
-
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${currentLang}` },
-  { name: 'Recetas', url: `/${currentLang}/recipes` },
-  { name: title, url: currentUrl },
-]);
-
-const ingredientsList = recipe.ingredients 
-  ? recipe.ingredients.map((i) => {
-      if (typeof i === 'string') return i;
-      const note = i.notes ? (i.notes[currentLang as keyof typeof i.notes] || i.notes.es) : undefined;
-      if (note) return note;
-      const name = i.name[currentLang as keyof typeof i.name] || i.name.es;
-      return `${i.amount}${i.unit === 'unit' ? '' : i.unit} ${name}`;
-    })
-  : ['600g Patatas Monalisa', '6 Huevos camperos', '150ml Aceite de oliva virgen extra', '6g Sal fina'];
-
-const instructionsList = recipe.instructions
-  ? recipe.instructions.map((inst) => ({
-      step: inst.step[currentLang as keyof typeof inst.step] || inst.step.es,
-      text: inst.text[currentLang as keyof typeof inst.text] || inst.text.es,
-    }))
-  : [
-      { step: 'Cortar', text: 'Pelar y cortar las patatas en láminas finas.' },
-      { step: 'Confitar', text: 'Confitar en abundante AOVE a fuego medio-bajo.' },
-      { step: 'Mezclar', text: 'Batir los huevos con la sal y agregar las patatas.' },
-      { step: 'Cuajar', text: 'Cuajar a fuego vivo 1 minuto por cada lado.' },
-    ];
-
-const recipeSchema = generateRecipeSchema({
-  name: title,
-  description: description,
-  image: recipe.image || '/images/clasica.jpg',
-  prepTimeMinutes: recipe.prepTimeMinutes || 15,
-  cookTimeMinutes: recipe.cookTimeMinutes || 20,
-  yieldServings: recipe.yieldServings || 4,
-  ingredients: ingredientsList,
-  instructions: instructionsList,
-});
-
-const schemas = [breadcrumbSchema, recipeSchema];
----
-
-<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas}>
-  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
-    <!-- HEADER -->
-    <header class="space-y-4 text-center">
-      <div class="flex flex-wrap justify-center gap-2">
-        {badges.map((b) => (
-          <a
-            href={b.url}
-            class="inline-flex items-center gap-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] hover:bg-amber-300 px-3 py-1 rounded-full border border-amber-300 transition-colors shadow-2xs"
-          >
-            <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
-            <span>{b.title}</span>
-          </a>
-        ))}
-      </div>
-
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight">
-        {title}
-      </h1>
-
-      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto">
-        {description}
-      </p>
-
-      <div class="flex items-center justify-center gap-6 text-xs font-bold text-[#8D6E63] pt-2">
-        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
-          <Clock class="w-4 h-4 text-[#FFB800]" />
-          <span>{recipe.time} min tiempo total</span>
-        </div>
-        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
-          <Users class="w-4 h-4 text-[#FFB800]" />
-          <span>4 raciones</span>
-        </div>
-      </div>
-
-      <!-- SOURCES & AUTHORSHIP ATTRIBUTION -->
-      {(recipe.sources?.length || recipe.author) && (
-        <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-foreground/80 bg-[#FCF9F2] p-3.5 rounded-xl border border-[#E8E2D5] max-w-2xl mx-auto shadow-2xs">
-          {recipe.author && (
-            <div class="flex items-center gap-1.5 font-medium">
-              <span class="text-muted-foreground">Publicado por:</span>
-              <span class="font-bold text-[#8D6E63]">{recipe.author.name}</span>
-            </div>
-          )}
-          {recipe.sources && recipe.sources.map((src) => (
-            <div class="flex flex-wrap items-center gap-1.5 font-medium border-l border-[#E8E2D5] pl-3 first:border-l-0 first:pl-0">
-              <span class="text-muted-foreground capitalize">Origen ({src.type}):</span>
-              <span class="font-bold text-[#8D6E63]">{src.name}</span>
-              {src.description && (
-                <span class="text-foreground/70 italic">
-                  — {src.description[currentLang as keyof typeof src.description] || src.description.es}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </header>
-
-    <!-- RECIPE HERO IMAGE -->
-    <div class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE] h-72 sm:h-96 relative shadow-xs">
-      <img
-        src={recipe.image || '/images/clasica.jpg'}
-        alt={title}
-        width="1200"
-        height="800"
-        loading="eager"
-        decoding="async"
-        referrerPolicy="no-referrer"
-        class="w-full h-full object-cover"
-      />
-    </div>
-
-    <!-- INGREDIENTS & INSTRUCTIONS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- INGREDIENTS SIDEBAR -->
-      <aside class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4 h-fit">
-        <h2 class="text-xl font-serif-heading font-bold text-[#292521] flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
-          <BookOpen class="w-5 h-5 text-[#FFB800]" />
-          Ingredientes
-        </h2>
-        <ul class="space-y-2 text-xs sm:text-sm text-foreground/90 font-sans">
-          {ingredientsList.map((ing) => (
-            <li class="flex items-start gap-2">
-              <span class="text-[#FFB800] font-bold">•</span>
-              <span>{ing}</span>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      <!-- STEP BY STEP INSTRUCTIONS -->
-      <main class="md:col-span-2 space-y-6">
-        <h2 class="text-2xl font-serif-heading font-bold text-[#292521] border-b border-[#E8E2D5] pb-2">
-          Pasos de Elaboración
-        </h2>
-
-        <div class="space-y-4">
-          {instructionsList.map((inst, idx) => (
-            <div class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-[#FFB800] text-[#292521] text-xs font-bold flex items-center justify-center shrink-0">
-                  {idx + 1}
-                </span>
-                <h3 class="font-serif-heading font-bold text-base text-[#292521]">
-                  {inst.step}
-                </h3>
-              </div>
-              <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed pl-8">
-                {inst.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
-
-    <!-- BACTERICIDAL SAFETY WARNING -->
-    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p class="font-sans">
-          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
-        </p>
-      </div>
-    </section>
-  </div>
-</Layout>
-````
-
-## File: src/pages/[lang]/history.astro
-````astro
----
-import Layout from '@/layouts/Layout.astro';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Calendar, MapPin, ShieldCheck, Quote, Sparkles } from 'lucide-react';
-import { getCollection } from 'astro:content';
-import { historyData } from '@/data/historyData';
-import { getTranslations, supportedLanguages } from '@/lib/i18n';
-import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
-
-export function getStaticPaths() {
-  return supportedLanguages.map((lang) => ({
-    params: { lang },
-  }));
-}
-
-const { lang = 'es' } = Astro.params;
-const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
-
-// Get JSON content from content collection
-const pagesCollection = await getCollection('pages');
-const historyEntry = pagesCollection.find((p) => p.id === 'history' || p.id.includes('history'));
-const jsonContent = historyEntry ? historyEntry.data : null;
-
-// Fallback to historyData if needed
-const fallbackContent = historyData[currentLang] || historyData.es;
-
-const badge = jsonContent?.badge?.[currentLang] || fallbackContent.badge;
-const titleText = jsonContent?.title?.[currentLang] || fallbackContent.title;
-const subtitle = jsonContent?.subtitle?.[currentLang] || fallbackContent.subtitle;
-const chefNote = jsonContent?.chefNote?.[currentLang] || fallbackContent.chefNote;
-const timelineTitle = jsonContent?.timelineTitle?.[currentLang] || fallbackContent.timelineTitle;
-const timelineSubtitle = jsonContent?.timelineSubtitle?.[currentLang] || fallbackContent.timelineSubtitle;
-const chaptersTitle = jsonContent?.chaptersTitle?.[currentLang] || fallbackContent.chaptersTitle;
-const chaptersSubtitle = jsonContent?.chaptersSubtitle?.[currentLang] || fallbackContent.chaptersSubtitle;
-
-const timelineEvents = jsonContent?.timelineEvents ? jsonContent.timelineEvents.map((evt: any) => ({
-  year: evt.year,
-  title: evt.title?.[currentLang] || evt.title,
-  location: evt.location,
-  description: evt.description?.[currentLang] || evt.description,
-  badge: evt.badge?.[currentLang] || evt.badge
-})) : fallbackContent.timelineEvents;
-
-const chapters = jsonContent?.chapters ? jsonContent.chapters.map((chap: any) => ({
-  id: chap.id,
-  number: chap.number,
-  title: chap.title?.[currentLang] || chap.title,
-  content: chap.content?.[currentLang] || chap.content || [],
-  bulletPoints: chap.bulletPoints?.[currentLang] || chap.bulletPoints,
-  tableData: chap.tableData,
-  callout: chap.callout
-})) : fallbackContent.chapters;
-
-const content = {
-  badge,
-  title: titleText,
-  subtitle,
-  chefNote,
-  timelineTitle,
-  timelineSubtitle,
-  chaptersTitle,
-  chaptersSubtitle,
-  timelineEvents,
-  chapters
-};
-const t = getTranslations(lang);
-
-function formatText(text: string) {
-  if (!text) return '';
-  return text.replace(/(\*\*.*?\*\*)/g, (match) => {
-    return `<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE]/80 px-1 py-0.5 rounded">${match.slice(2, -2)}</strong>`;
-  });
-}
-
-const title = `${content.title} - tortilladepatatas.org`;
-const description = content.subtitle;
-
-const articleSchema = generateArticleSchema({
-  headline: content.title,
-  description: content.subtitle,
-  url: `/${lang}/history`,
-});
-
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${lang}` },
-  { name: content.title, url: `/${lang}/history` }
-]);
-
-const schemas = [articleSchema, breadcrumbSchema];
----
-
-<Layout title={title} description={description} lang={lang} schema={schemas}>
-  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
-    <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto space-y-3">
-      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
-        <BookOpen class="w-3.5 h-3.5" />
-        {content.badge}
-      </Badge>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
-        {content.title}
-      </h1>
-      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
-        {content.subtitle}
-      </p>
-    </div>
-
-    <!-- Chef Note Callout -->
-    <Card class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800]">
-      <div class="flex items-start gap-4">
-        <Quote class="w-8 h-8 text-[#8D6E63] shrink-0 mt-1 opacity-80" />
-        <div class="text-sm md:text-base text-foreground leading-relaxed font-medium">
-          <p set:html={formatText(content.chefNote)} />
-        </div>
-      </div>
-    </Card>
-
-    <!-- Timeline Section -->
-    <div class="space-y-8">
-      <div class="border-b border-[#E8E2D5] pb-4">
-        <h2 class="text-2xl md:text-3xl font-serif-heading font-bold flex items-center gap-2">
-          <Calendar class="w-6 h-6 text-[#FFB800]" />
-          {content.timelineTitle}
-        </h2>
-        <p class="text-muted-foreground text-xs sm:text-sm mt-1">{content.timelineSubtitle}</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        {content.timelineEvents.map((event, idx) => (
-          <Card key={idx} class="card-notebook p-2">
-            <CardHeader class="pb-2">
-              <div class="flex items-center justify-between gap-2 mb-1">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300">
-                  {event.year}
-                </span>
-                {event.badge && (
-                  <Badge variant="outline" class="text-[11px] border-amber-300 bg-[#FCF9F2]">
-                    {event.badge}
-                  </Badge>
-                )}
-              </div>
-              <CardTitle class="text-lg font-serif-heading font-bold text-foreground pt-1">
-                {event.title}
-              </CardTitle>
-              {event.location && (
-                <div class="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
-                  <MapPin class="w-3 h-3 text-[#FFB800]" />
-                  <span>{event.location}</span>
-                </div>
-              )}
-            </CardHeader>
-            <CardContent>
-              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed" set:html={formatText(event.description)} />
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-
-    <!-- Chapters Detail Section -->
-    <div class="space-y-10 pt-6">
-      <div class="border-b border-[#E8E2D5] pb-4">
-        <h2 class="text-2xl md:text-3xl font-serif-heading font-bold flex items-center gap-2">
-          <Sparkles class="w-6 h-6 text-[#FFB800]" />
-          {content.chaptersTitle}
-        </h2>
-        <p class="text-muted-foreground text-xs sm:text-sm mt-1">{content.chaptersSubtitle}</p>
-      </div>
-
-      <div class="space-y-8">
-        {content.chapters.map((chapter) => (
-          <Card key={chapter.id} class="card-notebook p-6 md:p-8 space-y-4">
-            <div class="flex items-center gap-3">
-              <span class="text-xl md:text-2xl font-black text-[#8D6E63] font-mono bg-[#F5E6BE] px-3.5 py-1 rounded-xl border border-amber-300">
-                {chapter.number}
-              </span>
-              <h3 class="text-xl md:text-2xl font-serif-heading font-bold text-foreground">
-                {chapter.title}
-              </h3>
-            </div>
-
-            <div class="space-y-3 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
-              {chapter.content.map((p, i) => (
-                <p key={i} set:html={formatText(p)} />
-              ))}
-            </div>
-
-            {chapter.bulletPoints && (
-              <ul class="list-disc pl-6 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
-                {chapter.bulletPoints.map((bp, i) => (
-                  <li key={i}>{bp}</li>
-                ))}
-              </ul>
-            )}
-
-            {chapter.tableData && (
-              <div class="overflow-x-auto my-4 rounded-xl border border-[#E8E2D5] shadow-2xs">
-                <table class="w-full text-xs md:text-sm text-left">
-                  <thead class="bg-[#F5E6BE] text-[#8D6E63] font-bold border-b border-[#E8E2D5]">
-                    <tr>
-                      {chapter.tableData.headers.map((h, i) => (
-                        <th key={i} class="p-3">{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-[#E8E2D5]">
-                    {chapter.tableData.rows.map((row, i) => (
-                      <tr key={i} class="hover:bg-[#F5E6BE]/40">
-                        {row.map((cell, j) => (
-                          <td key={j} class="p-3" set:html={formatText(cell)} />
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-
-            {chapter.callout && (
-              <div class="p-4 rounded-xl bg-[#F5E6BE]/60 border border-amber-300 text-xs sm:text-sm font-medium flex items-start gap-3">
-                <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-                <span set:html={formatText(chapter.callout.text)} />
-              </div>
-            )}
-          </Card>
-        ))}
-      </div>
-    </div>
-  </div>
-</Layout>
-````
-
-## File: src/index.css
-````css
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
-
-@custom-variant dark (&:is(.dark *));
-
-@theme inline {
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', 'Geist Variable', sans-serif;
-    --font-script: 'Caveat', cursive;
-
-    /* Design System Palette */
-    --color-yolk-gold: #FFB800;
-    --color-potato-cream: #F5E6BE;
-    --color-onion-umber: #8D6E63;
-
-    /* Burner Palette */
-    --color-pilot-blue: #00A3FF;
-    --color-safety-orange: #FF8A00;
-    --color-bactericidal-crimson: #D32F2F;
-
-    /* Semantic UI Safety Colors */
-    --color-risk-danger: #B00020;
-    --color-risk-warning: #FFC107;
-    --color-risk-safe: #2E7D32;
-
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
-    --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
-}
-
-:root {
-    --background: #FCF9F2;
-    --foreground: #2A2421;
-    --card: #FFFFFF;
-    --card-foreground: #2A2421;
-    --popover: #FFFFFF;
-    --popover-foreground: #2A2421;
-    --primary: #8D6E63;
-    --primary-foreground: #FFFFFF;
-    --secondary: #F5E6BE;
-    --secondary-foreground: #4A3B32;
-    --muted: #F3EFE6;
-    --muted-foreground: #73675F;
-    --accent: #FFF8E7;
-    --accent-foreground: #3D2C1E;
-    --destructive: #B00020;
-    --border: #E8E2D5;
-    --input: #E8E2D5;
-    --ring: #FFB800;
-    --chart-1: #FFB800;
-    --chart-2: #8D6E63;
-    --chart-3: #2E7D32;
-    --chart-4: #FF8A00;
-    --chart-5: #00A3FF;
-    --radius: 0.75rem;
-    --sidebar: #FCF9F2;
-    --sidebar-foreground: #2A2421;
-    --sidebar-primary: #8D6E63;
-    --sidebar-primary-foreground: #FFFFFF;
-    --sidebar-accent: #F5E6BE;
-    --sidebar-accent-foreground: #4A3B32;
-    --sidebar-border: #E8E2D5;
-    --sidebar-ring: #FFB800;
-}
-
-.dark {
-    --background: #1C1917;
-    --foreground: #F5E6BE;
-    --card: #262220;
-    --card-foreground: #F5E6BE;
-    --popover: #262220;
-    --popover-foreground: #F5E6BE;
-    --primary: #FFB800;
-    --primary-foreground: #1C1917;
-    --secondary: #3D332A;
-    --secondary-foreground: #F5E6BE;
-    --muted: #2E2824;
-    --muted-foreground: #A89C90;
-    --accent: #3A2F22;
-    --accent-foreground: #FFB800;
-    --destructive: #D32F2F;
-    --border: #3D352E;
-    --input: #3D352E;
-    --ring: #FFB800;
-    --sidebar: #1C1917;
-    --sidebar-foreground: #F5E6BE;
-    --sidebar-primary: #FFB800;
-    --sidebar-primary-foreground: #1C1917;
-    --sidebar-accent: #3D332A;
-    --sidebar-accent-foreground: #F5E6BE;
-    --sidebar-border: #3D352E;
-    --sidebar-ring: #FFB800;
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-    }
-  html {
-    @apply font-sans;
-    overflow-x: clip;
-    max-width: 100vw;
-    }
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background-image: radial-gradient(#E8E2D5 0.75px, transparent 0.75px);
-    background-size: 20px 20px;
-    overflow-x: clip;
-    width: 100%;
-    max-width: 100vw;
-    }
-  h1, h2, h3, h4, .font-serif-heading {
-    font-family: 'Playfair Display', Georgia, serif;
-    }
-}
-
-/* Skeuomorphic-Modernist Kitchen Notebook Utilities */
-.font-script {
-  font-family: 'Caveat', cursive;
-}
-
-.font-serif-heading {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-/* Notebook Graph Paper / Parchment Overlay */
-.bg-notebook-grid {
-  background-color: #FCF9F2;
-  background-image: linear-gradient(to right, rgba(141, 110, 99, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(141, 110, 99, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.bg-parchment {
-  background-color: #FDFBF7;
-  border: 1px solid #E8E2D5;
-}
-
-/* Stacked Parchment Elevation */
-.shadow-stacked-parchment {
-  box-shadow: 0 4px 6px -1px rgba(74, 59, 50, 0.06), 
-              0 2px 4px -1px rgba(74, 59, 50, 0.04),
-              0 0 0 1px rgba(232, 226, 213, 0.8),
-              0 8px 16px -4px rgba(74, 59, 50, 0.08);
-}
-
-.card-notebook {
-  background-color: #FFFFFF;
-  border-radius: 12px;
-  border: 1px solid #E8E2D5;
-  box-shadow: 0 4px 12px rgba(141, 110, 99, 0.08);
-  position: relative;
-  transition: all 0.2s ease-in-out;
-}
-
-.card-notebook:hover {
-  box-shadow: 0 8px 20px rgba(141, 110, 99, 0.12);
-  transform: translateY(-2px);
-}
-
-/* Chef Tip Handwritten Annotation */
-.chef-note {
-  font-family: 'Caveat', cursive;
-  font-size: 1.25rem;
-  line-height: 1.3;
-  color: #8D6E63;
-  background-color: #FFF8E7;
-  border-left: 3px solid #FFB800;
-  padding: 0.75rem 1rem;
-  border-radius: 0 8px 8px 0;
-}
-
-/* Safety Indicators according to Design System */
-.safety-safe {
-  color: #2E7D32;
-  background-color: rgba(46, 125, 50, 0.1);
-  border: 1px solid rgba(46, 125, 50, 0.25);
-}
-
-.safety-warning {
-  color: #B78103;
-  background-color: rgba(255, 193, 7, 0.15);
-  border: 1px solid rgba(255, 193, 7, 0.35);
-}
-
-.safety-danger {
-  color: #B00020;
-  background-color: rgba(176, 0, 32, 0.1);
-  border: 1px solid rgba(176, 0, 32, 0.25);
-}
-````
-
-## File: README.md
-````markdown
-# tortilladepatatas.org — Cuaderno & Ciencia Culinaria
-
-An open culinary notebook and food safety guide for the authentic Spanish Omelette (*Tortilla de Patatas*). Built with **Astro**, **React**, **TypeScript**, and **Tailwind CSS**.
-
----
-
-## 🚀 How Build & Publishing Works (Static HTML vs. Vite Bundles)
-
-When you run `npm run build`, Astro performs **Static Site Generation (SSG)**:
-
-1. **Static HTML Pages**: Astro pre-renders every route and language variant (`/es/`, `/en/`, `/de/`, `/es/builder`, `/es/science`, `/es/recipes`, etc.) into static `.html` files inside the `dist/` directory. This delivers ultra-fast page loads, zero-JS initial renders, and maximum SEO performance.
-2. **Optimized Client JS Bundles**: For interactive React components marked with `client:load` (such as the interactive **Tortilla Builder**, **Header/Language Drawer**, and **Interactive Cards**), Vite bundles minimal JavaScript required for client hydration.
-3. **Zero-Server Requirement**: The resulting `dist/` directory is completely standalone and static. You do **not** need a Node.js server to run the live application.
-
----
-
-## 📥 How to Download & Publish This Project
-
-### 1. Export / Download Code
-- **Via AI Studio**: Click **Settings** in the top right, then choose **Export to GitHub** or **Download ZIP**.
-- Unzip the project folder on your machine (or clone your exported GitHub repository).
-
----
-
-### 2. Local Installation & Development
-
-Make sure you have **Node.js** (v18+ recommended) installed.
-
-```bash
-# Install dependencies
-npm install
-
-# Start local development server (runs on http://localhost:3000)
-npm run dev
-```
-
----
-
-### 3. Build for Production
-
-Generate the static production build:
-
-```bash
-npm run build
-```
-
-This creates the output folder `dist/` containing all static HTML files, CSS, images, and optimized Vite JavaScript bundles.
-
-To preview the production build locally:
-
-```bash
-npm run preview
-```
-
----
-
-### 4. Publishing to Web Hosting
-
-You can publish the generated `dist/` folder to any static hosting provider for free:
-
-#### Option A: Vercel / Netlify / Cloudflare Pages
-1. Connect your GitHub repository to **Vercel**, **Netlify**, or **Cloudflare Pages**.
-2. Set the configuration settings:
-   - **Framework Preset**: `Astro`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-3. Click **Deploy**.
-
-#### Option B: GitHub Pages
-1. In your GitHub repository, go to **Settings** > **Pages**.
-2. Choose **GitHub Actions** as the source and select the default Astro workflow.
-
-#### Option C: Standard Web Server (Apache / Nginx / Shared Hosting)
-1. Run `npm run build` locally.
-2. Upload the contents of the `dist/` directory directly to your web server's `public_html` or root directory via FTP / SFTP.
-
----
-
-## 🛠️ Project Scripts
-
-| Script | Command | Description |
-| :--- | :--- | :--- |
-| **Development** | `npm run dev` | Runs the Astro development server on `http://localhost:3000` |
-| **Production Build** | `npm run build` | Builds static HTML pages & Vite assets into `/dist` |
-| **Preview** | `npm run preview` | Serves the production `/dist` build locally |
-| **Linter** | `npm run lint` | Runs Oxlint for fast TypeScript/JSX code analysis |
-
----
-
-## 📁 Project Structure
-
-```
-├── astro.config.mjs     # Astro configuration & React integration
-├── package.json         # Dependencies and scripts
-├── public/              # Static assets (images, icons)
-└── src/
-    ├── components/      # React & Astro components
-    │   ├── home/        # Hero, Feature Grid, Builder Teaser
-    │   ├── layout/      # Header, Footer, Sub-nav
-    │   └── ui/          # Radix & Tailwind UI primitives
-    ├── layouts/         # Base & Page Astro layouts
-    ├── lib/             # i18n translations & culinary math engine
-    ├── pages/           # Astro routes with i18n static paths ([lang]/)
-    └── index.css        # Global Tailwind CSS styles
-```
-````
-
-## File: .astro/content-assets.mjs
-````javascript
-export default new Map();
 ````
 
 ## File: src/components/home/BuilderTeaser.tsx
@@ -16599,6 +18654,541 @@ export default function FeatureGrid({ lang = "es" }: FeatureGridProps) {
 }
 ````
 
+## File: src/pages/[lang]/recipes/[slug].astro
+````astro
+---
+import Layout from '@/layouts/Layout.astro';
+import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateRecipeSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { Clock, Users, BookOpen, ExternalLink, Shield } from 'lucide-react';
+
+export async function getStaticPaths() {
+  const recipes = await getAllRecipes();
+  const languages = supportedLanguages;
+  const paths = [];
+
+  for (const lang of languages) {
+    for (const r of recipes) {
+      const localizedSlug = r.slug[lang as keyof typeof r.slug] || r.slug.es;
+      if (localizedSlug) {
+        paths.push({
+          params: {
+            lang,
+            slug: localizedSlug,
+          },
+          props: {
+            recipe: r,
+            lang,
+          },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { recipe, lang } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+const title = recipe.title[currentLang as keyof typeof recipe.title] || recipe.title.es;
+const description = recipe.description[currentLang as keyof typeof recipe.description] || recipe.description.es;
+const badges = await resolveRecipeBadges(recipe.taxonomyIds, currentLang);
+
+const currentUrl = `${SITE_URL}/${currentLang}/recipes/${Astro.params.slug}`;
+
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'de' ? 'Rezepte' : currentLang === 'en' ? 'Recipes' : 'Recetas', url: `/${currentLang}/recipes` },
+  { name: title, url: `/${currentLang}/recipes/${Astro.params.slug}` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
+
+const ingredientsList = recipe.ingredients 
+  ? recipe.ingredients.map((i) => {
+      if (typeof i === 'string') return i;
+      const note = i.notes ? (i.notes[currentLang as keyof typeof i.notes] || i.notes.es) : undefined;
+      if (note) return note;
+      const name = i.name[currentLang as keyof typeof i.name] || i.name.es;
+      return `${i.amount}${i.unit === 'unit' ? '' : i.unit} ${name}`;
+    })
+  : ['600g Patatas Monalisa', '6 Huevos camperos', '150ml Aceite de oliva virgen extra', '6g Sal fina'];
+
+const instructionsList = recipe.instructions
+  ? recipe.instructions.map((inst) => ({
+      step: inst.step[currentLang as keyof typeof inst.step] || inst.step.es,
+      text: inst.text[currentLang as keyof typeof inst.text] || inst.text.es,
+    }))
+  : [
+      { step: 'Cortar', text: 'Pelar y cortar las patatas en láminas finas.' },
+      { step: 'Confitar', text: 'Confitar en abundante AOVE a fuego medio-bajo.' },
+      { step: 'Mezclar', text: 'Batir los huevos con la sal y agregar las patatas.' },
+      { step: 'Cuajar', text: 'Cuajar a fuego vivo 1 minuto por cada lado.' },
+    ];
+
+const recipeSchema = generateRecipeSchema({
+  name: title,
+  description: description,
+  image: recipe.image || '/images/clasica.jpg',
+  prepTimeMinutes: recipe.prepTimeMinutes || 15,
+  cookTimeMinutes: recipe.cookTimeMinutes || 20,
+  yieldServings: recipe.yieldServings || 4,
+  ingredients: ingredientsList,
+  instructions: instructionsList,
+});
+
+const schemas = [breadcrumbSchema, recipeSchema];
+---
+
+<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
+    <!-- HEADER -->
+    <header class="space-y-4 text-center">
+      <div class="flex flex-wrap justify-center gap-2">
+        {badges.map((b) => (
+          <a
+            href={b.url}
+            class="inline-flex items-center gap-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] hover:bg-amber-300 px-3 py-1 rounded-full border border-amber-300 transition-colors shadow-2xs"
+          >
+            <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
+            <span>{b.title}</span>
+          </a>
+        ))}
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight">
+        {title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto">
+        {description}
+      </p>
+
+      <div class="flex items-center justify-center gap-6 text-xs font-bold text-[#8D6E63] pt-2">
+        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
+          <Clock class="w-4 h-4 text-[#FFB800]" />
+          <span>{recipe.time} min tiempo total</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
+          <Users class="w-4 h-4 text-[#FFB800]" />
+          <span>4 raciones</span>
+        </div>
+      </div>
+
+      <!-- SOURCES & AUTHORSHIP ATTRIBUTION -->
+      {(recipe.sources?.length || recipe.author) && (
+        <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-foreground/80 bg-[#FCF9F2] p-3.5 rounded-xl border border-[#E8E2D5] max-w-2xl mx-auto shadow-2xs">
+          {recipe.author && (
+            <div class="flex items-center gap-1.5 font-medium">
+              <span class="text-muted-foreground">Publicado por:</span>
+              <span class="font-bold text-[#8D6E63]">{recipe.author.name}</span>
+            </div>
+          )}
+          {recipe.sources && recipe.sources.map((src) => (
+            <div class="flex flex-wrap items-center gap-1.5 font-medium border-l border-[#E8E2D5] pl-3 first:border-l-0 first:pl-0">
+              <span class="text-muted-foreground capitalize">Origen ({src.type}):</span>
+              <span class="font-bold text-[#8D6E63]">{src.name}</span>
+              {src.description && (
+                <span class="text-foreground/70 italic">
+                  — {src.description[currentLang as keyof typeof src.description] || src.description.es}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- RECIPE HERO IMAGE -->
+    <div class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE] h-72 sm:h-96 relative shadow-xs">
+      <img
+        src={recipe.image || '/images/clasica.jpg'}
+        alt={title}
+        width="1200"
+        height="800"
+        loading="eager"
+        decoding="async"
+        referrerPolicy="no-referrer"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- INGREDIENTS & INSTRUCTIONS GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- INGREDIENTS SIDEBAR -->
+      <aside class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4 h-fit">
+        <h2 class="text-xl font-serif-heading font-bold text-[#292521] flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
+          <BookOpen class="w-5 h-5 text-[#FFB800]" />
+          Ingredientes
+        </h2>
+        <ul class="space-y-2 text-xs sm:text-sm text-foreground/90 font-sans">
+          {ingredientsList.map((ing) => (
+            <li class="flex items-start gap-2">
+              <span class="text-[#FFB800] font-bold">•</span>
+              <span>{ing}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <!-- STEP BY STEP INSTRUCTIONS -->
+      <main class="md:col-span-2 space-y-6">
+        <h2 class="text-2xl font-serif-heading font-bold text-[#292521] border-b border-[#E8E2D5] pb-2">
+          Pasos de Elaboración
+        </h2>
+
+        <div class="space-y-4">
+          {instructionsList.map((inst, idx) => (
+            <div class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-[#FFB800] text-[#292521] text-xs font-bold flex items-center justify-center shrink-0">
+                  {idx + 1}
+                </span>
+                <h3 class="font-serif-heading font-bold text-base text-[#292521]">
+                  {inst.step}
+                </h3>
+              </div>
+              <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed pl-8">
+                {inst.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
+
+    <!-- BACTERICIDAL SAFETY WARNING -->
+    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p class="font-sans">
+          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
+````
+
+## File: src/pages/[lang]/history.astro
+````astro
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BookOpen, Calendar, Clock, MapPin, Quote, Sparkles, ChevronRight, User, ListOrdered, History as HistoryIcon, Award, Scale } from 'lucide-react';
+import { getCollection, render } from 'astro:content';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+// Fetch markdown history collection
+const historyEntries = await getCollection('history');
+
+const currentEntry = historyEntries.find(
+  (entry) => entry.data.lang === currentLang || entry.id === `tortilla-history.${currentLang}`
+) || historyEntries.find((entry) => entry.data.lang === 'es' || entry.id === 'tortilla-history.es');
+
+let Content: any = null;
+let headings: Array<{ depth: number; slug: string; text: string }> = [];
+
+if (currentEntry) {
+  const rendered = await render(currentEntry);
+  Content = rendered.Content;
+  headings = rendered.headings;
+}
+
+const articleTitle = currentEntry?.data.title || (
+  currentLang === 'en' ? 'The History of the Tortilla de Patatas' :
+  currentLang === 'de' ? 'Die Geschichte der Tortilla de Patatas' :
+  'La historia de la tortilla de patatas'
+);
+
+const articleDescription = currentEntry?.data.description || (
+  currentLang === 'en' ? 'A journey through the history of the Spanish potato omelette, from the arrival of the potato in Europe to its place as one of Spain\'s most iconic dishes.' :
+  currentLang === 'de' ? 'Eine Reise durch die Geschichte der spanischen Kartoffel-Tortilla: von der Ankunft der Kartoffel in Europa bis zu ihrer Bedeutung als eines der bekanntesten Gerichte Spaniens.' :
+  'Un recorrido por la historia de la tortilla de patatas, desde la llegada de la patata a Europa hasta convertirse en uno de los platos más emblemáticos de España.'
+);
+
+const uiLabels = {
+  es: {
+    badge: "Manuscrito Gastronómico & Crónica Histórica",
+    readTime: "7 min de lectura",
+    era: "Siglos XVI – XXI",
+    keyMilestone: "1798 Villanueva de la Serena",
+    tocTitle: "Índice del Manuscrito",
+    figuresTitle: "Personajes Históricos Clave",
+    debateTitle: "El Gran Debate: ¿Con o sin cebolla?",
+    debateDesc: "Una polémica histórica que trasciende lo culinario para convertirse en seña de identidad en toda España.",
+    debateLink: "Ir al Comparador de Estilos",
+    regionalTitle: "Estilos & Tradiciones Históricas",
+    chefNoteText: "«La tortilla de patatas no nació de la abundancia, sino de la necesidad, la imaginación culinaria y la transformación agrícola tras el encuentro de dos mundos.»",
+    timelineSummaryTitle: "Hitos Cronológicos Destacados",
+    backToTop: "Volver arriba",
+  },
+  en: {
+    badge: "Gastronomic Manuscript & Historical Chronicle",
+    readTime: "7 min read",
+    era: "16th – 21st Centuries",
+    keyMilestone: "1798 Villanueva de la Serena",
+    tocTitle: "Table of Contents",
+    figuresTitle: "Key Historical Figures",
+    debateTitle: "The Great Debate: With or without onion?",
+    debateDesc: "A century-old controversy that transcends cooking to become a passionate cultural debate across Spain.",
+    debateLink: "Go to Style Comparator",
+    regionalTitle: "Historical Regional Styles",
+    chefNoteText: "“The tortilla de patatas was born not from abundance, but from necessity, culinary ingenuity, and agricultural transformation following the meeting of two worlds.”",
+    timelineSummaryTitle: "Key Chronological Milestones",
+    backToTop: "Back to top",
+  },
+  de: {
+    badge: "Gastronomisches Manuskript & Historische Chronik",
+    readTime: "7 Min. Lesezeit",
+    era: "16. – 21. Jahrhundert",
+    keyMilestone: "1798 Villanueva de la Serena",
+    tocTitle: "Inhaltsverzeichnis",
+    figuresTitle: "Wichtige historische Persönlichkeiten",
+    debateTitle: "Die große Debatte: Mit oder ohne Zwiebeln?",
+    debateDesc: "Eine jahrhundertealte Kontroverse, die über das Kochen hinausgeht und ganz Spanien begeistert.",
+    debateLink: "Zum Stil-Vergleicher",
+    regionalTitle: "Historische regionale Stile",
+    chefNoteText: "„Die Tortilla de Patatas entstand nicht aus Überfluss, sondern aus Notwendigkeit, kulinarischer Erfindungskraft und dem landwirtschaftlichen Wandel.“",
+    timelineSummaryTitle: "Wichtige chronologische Meilensteine",
+    backToTop: "Nach oben",
+  }
+};
+
+const labels = uiLabels[currentLang] || uiLabels.es;
+
+const keyMilestones = [
+  { year: "S. XVI", title: currentLang === 'en' ? "Arrives in Europe" : currentLang === 'de' ? "Ankunft in Europa" : "Llegada a Europa", tag: "Andes" },
+  { year: "1604", title: "Lancelot de Casteau", tag: "*Ouverture de cuisine*" },
+  { year: "1798", title: "Villanueva de la Serena", tag: "Tena Godoy & Robledo" },
+  { year: "1817", title: "Navarra Rural", tag: "Primeras notas rurales" },
+  { year: "1940s", title: "Años del Hambre", tag: "Falsa tortilla" },
+  { year: "S. XXI", title: currentLang === 'en' ? "Global Symbol" : currentLang === 'de' ? "Globales Symbol" : "Símbolo Mundial", tag: "Gastronomía" },
+];
+
+const keyFigures = [
+  {
+    name: "Lancelot de Casteau",
+    year: "1604",
+    role: currentLang === 'en' ? "European Master Chef" : currentLang === 'de' ? "Europäischer Meisterkoch" : "Maestro Cocinero Europeo",
+    desc: currentLang === 'en' ? "Documented early European potato preparations in *Ouverture de cuisine*." : currentLang === 'de' ? "Dokumentierte frühe europäische Kartoffelgerichte in *Ouverture de cuisine*." : "Documentó las primeras preparaciones europeas con patata en *Ouverture de cuisine*."
+  },
+  {
+    name: "Francisco Martínez Montiño",
+    year: "1611",
+    role: currentLang === 'en' ? "Royal Court Chef" : currentLang === 'de' ? "Hofkoch König Philips" : "Cocinero de la Corte Real",
+    desc: currentLang === 'en' ? "Author of *Arte de Cocina*, featuring egg dishes like the *tortilla de la Cartuja*." : currentLang === 'de' ? "Autor von *Arte de Cocina*, der Eiergerichte wie die *Tortilla de la Cartuja* erfand." : "Autor de *Arte de Cocina*, creador de recetas con huevo como la *tortilla de la Cartuja*."
+  },
+  {
+    name: "J. de Tena Godoy & M. de Robledo",
+    year: "1798",
+    role: currentLang === 'en' ? "Pioneers of Villanueva" : currentLang === 'de' ? "Pioniere aus Villanueva" : "Pioneros de Villanueva",
+    desc: currentLang === 'en' ? "Researched by J. López Linage; documented an early precursor during cereal shortages in Extremadura." : currentLang === 'de' ? "Nach Forschungen von J. López Linage Dokumentation eines Vorläufers in der Extremadura." : "Investigado por J. López Linage; documentaron una preparación económica durante la escasez de trigo."
+  },
+  {
+    name: "Gen. Tomás de Zumalacárregui",
+    year: "1835",
+    role: currentLang === 'en' ? "Popular Legend" : currentLang === 'de' ? "Populäre Legende" : "Leyenda Popular",
+    desc: currentLang === 'en' ? "Popular folklore credits him with feeding troops in the Carlist Wars, though historians view it as myth." : currentLang === 'de' ? "Laut Volksmund erfand er die Tortilla im Karlistenkrieg — historisch eher Legende." : "La tradición popular le atribuía la invención para nutrir a las tropas en las Guerras Carlistas."
+  }
+];
+
+const metaTitle = `${articleTitle} - tortilladepatatas.org`;
+const articleSchema = generateArticleSchema({
+  headline: articleTitle,
+  description: articleDescription,
+  url: `/${lang}/history`,
+});
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${lang}` },
+  { name: articleTitle, url: `/${lang}/history` }
+]);
+const schemas = [articleSchema, breadcrumbSchema];
+
+// Filter h2/h3 headings for table of contents
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+<Layout title={metaTitle} description={articleDescription} lang={lang} schema={schemas}>
+  <div class="bg-notebook-grid min-h-screen pb-16">
+    <div class="container mx-auto px-4 py-8 md:py-14 max-w-6xl space-y-10">
+      
+      <!-- Article Header & Hero Banner -->
+      <div class="card-notebook p-6 sm:p-8 md:p-10 border-t-4 border-t-[#FFB800] shadow-stacked-parchment">
+        <div class="max-w-4xl mx-auto space-y-5 text-center sm:text-left">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+            <Badge variant="secondary" class="px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 inline-flex items-center gap-1.5 shadow-2xs">
+              <BookOpen class="w-3.5 h-3.5 text-[#8D6E63]" />
+              {labels.badge}
+            </Badge>
+            <span class="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground bg-[#FCF9F2] px-3 py-1 rounded-full border border-[#E8E2D5]">
+              <Clock class="w-3 h-3 text-[#FFB800]" />
+              {labels.readTime}
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground bg-[#FCF9F2] px-3 py-1 rounded-full border border-[#E8E2D5]">
+              <Calendar class="w-3 h-3 text-[#8D6E63]" />
+              {labels.era}
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground leading-tight">
+            {articleTitle}
+          </h1>
+
+          <p class="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal">
+            {articleDescription}
+          </p>
+
+          <!-- Key Milestone Pills -->
+          <div class="pt-4 border-t border-[#E8E2D5] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+            {keyMilestones.map((ms) => (
+              <div class="p-2.5 rounded-lg bg-[#FCF9F2] border border-[#E8E2D5] text-center hover:bg-[#F5E6BE]/40 transition-colors">
+                <span class="block text-xs font-bold text-[#8D6E63] font-mono">{ms.year}</span>
+                <span class="block text-xs font-semibold text-foreground truncate">{ms.title}</span>
+                <span class="block text-[10px] text-muted-foreground truncate">{ms.tag}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Chef's Parchment Note Callout -->
+      <div class="card-notebook p-6 md:p-8 bg-[#FFF8E7] border-l-4 border-l-[#FFB800] shadow-sm">
+        <div class="flex items-start gap-4">
+          <Quote class="w-8 h-8 text-[#8D6E63] shrink-0 mt-0.5 opacity-80" />
+          <div class="space-y-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63]">Crónica de la Cocina Española</span>
+            <p class="font-script text-lg sm:text-xl md:text-2xl text-[#8D6E63] leading-snug">
+              {labels.chefNoteText}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout: Sidebar & Content -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Sidebar Navigation & Context Cards (4 cols on lg) -->
+        <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-6 order-2 lg:order-1">
+          
+          <!-- Table of Contents Card -->
+          {tocHeadings.length > 0 && (
+            <Card class="card-notebook p-5 border-t-2 border-t-[#8D6E63]">
+              <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5]">
+                <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                  <ListOrdered class="w-4 h-4 text-[#FFB800]" />
+                  {labels.tocTitle}
+                </CardTitle>
+              </CardHeader>
+              <CardContent class="p-0 pt-3">
+                <nav class="space-y-1.5 max-h-[380px] overflow-y-auto pr-1 text-xs sm:text-sm">
+                  {tocHeadings.map((h) => (
+                    <a
+                      href={`#${h.slug}`}
+                      class:list={[
+                        "block rounded-md py-1.5 px-2.5 transition-colors leading-snug hover:bg-[#F5E6BE]/60 hover:text-[#8D6E63]",
+                        h.depth === 2 ? "font-semibold text-foreground border-l-2 border-l-amber-300 pl-2.5" : "pl-6 text-muted-foreground"
+                      ]}
+                    >
+                      {h.text}
+                    </a>
+                  ))}
+                </nav>
+              </CardContent>
+            </Card>
+          )}
+
+          <!-- Key Historical Figures Card -->
+          <Card class="card-notebook p-5">
+            <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5]">
+              <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                <User class="w-4 h-4 text-[#8D6E63]" />
+                {labels.figuresTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="p-0 pt-3 space-y-3.5">
+              {keyFigures.map((fig) => (
+                <div class="p-3 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-foreground">{fig.name}</span>
+                    <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#F5E6BE] text-[#8D6E63]">{fig.year}</span>
+                  </div>
+                  <span class="block text-[11px] font-medium text-[#8D6E63]">{fig.role}</span>
+                  <p class="text-xs text-muted-foreground leading-relaxed">{fig.desc}</p>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
+          <!-- Debate Highlights Card -->
+          <Card class="card-notebook p-5 bg-gradient-to-br from-[#FCF9F2] to-[#F5E6BE]/40 border border-amber-300">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-[#8D6E63]">
+                <Scale class="w-4 h-4 text-[#FFB800]" />
+                <h3 class="font-serif-heading font-bold text-sm text-foreground">{labels.debateTitle}</h3>
+              </div>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                {labels.debateDesc}
+              </p>
+              <a
+                href={`/${lang}/comparador`}
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] hover:text-[#FFB800] transition-colors pt-1"
+              >
+                <span>{labels.debateLink}</span>
+                <ChevronRight class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </Card>
+
+        </aside>
+
+        <!-- Article Prose Content Container (8 cols on lg) -->
+        <main class="lg:col-span-8 order-1 lg:order-2 space-y-6">
+          <article class="card-notebook p-6 sm:p-8 md:p-10 shadow-stacked-parchment bg-[#FDFBF7]">
+            {Content ? (
+              <div class="history-prose">
+                <Content />
+              </div>
+            ) : (
+              <div class="p-8 text-center text-muted-foreground">
+                <p>No se pudo cargar el artículo de historia.</p>
+              </div>
+            )}
+
+            <!-- Back to top button -->
+            <div class="pt-8 mt-10 border-t border-[#E8E2D5] flex items-center justify-between text-xs text-muted-foreground">
+              <span class="font-medium text-[#8D6E63]">tortilladepatatas.org — Archivo Histórico</span>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#F5E6BE] text-[#8D6E63] font-bold hover:bg-[#FFB800] hover:text-white transition-colors"
+              >
+                <span>{labels.backToTop}</span>
+                <ChevronRight class="w-3.5 h-3.5 -rotate-90" />
+              </a>
+            </div>
+          </article>
+        </main>
+
+      </div>
+    </div>
+  </div>
+</Layout>
+````
+
 ## File: src/pages/[lang]/personas.astro
 ````astro
 ---
@@ -16968,9 +19558,356 @@ export interface ResolvedTaxonomyBadge {
 }
 ````
 
-## File: .astro/data-store.json
+## File: src/index.css
+````css
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', 'Geist Variable', sans-serif;
+    --font-script: 'Caveat', cursive;
+
+    /* Design System Palette */
+    --color-yolk-gold: #FFB800;
+    --color-potato-cream: #F5E6BE;
+    --color-onion-umber: #8D6E63;
+
+    /* Burner Palette */
+    --color-pilot-blue: #00A3FF;
+    --color-safety-orange: #FF8A00;
+    --color-bactericidal-crimson: #D32F2F;
+
+    /* Semantic UI Safety Colors */
+    --color-risk-danger: #B00020;
+    --color-risk-warning: #FFC107;
+    --color-risk-safe: #2E7D32;
+
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: #FCF9F2;
+    --foreground: #2A2421;
+    --card: #FFFFFF;
+    --card-foreground: #2A2421;
+    --popover: #FFFFFF;
+    --popover-foreground: #2A2421;
+    --primary: #8D6E63;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F5E6BE;
+    --secondary-foreground: #4A3B32;
+    --muted: #F3EFE6;
+    --muted-foreground: #73675F;
+    --accent: #FFF8E7;
+    --accent-foreground: #3D2C1E;
+    --destructive: #B00020;
+    --border: #E8E2D5;
+    --input: #E8E2D5;
+    --ring: #FFB800;
+    --chart-1: #FFB800;
+    --chart-2: #8D6E63;
+    --chart-3: #2E7D32;
+    --chart-4: #FF8A00;
+    --chart-5: #00A3FF;
+    --radius: 0.75rem;
+    --sidebar: #FCF9F2;
+    --sidebar-foreground: #2A2421;
+    --sidebar-primary: #8D6E63;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F5E6BE;
+    --sidebar-accent-foreground: #4A3B32;
+    --sidebar-border: #E8E2D5;
+    --sidebar-ring: #FFB800;
+}
+
+.dark {
+    --background: #1C1917;
+    --foreground: #F5E6BE;
+    --card: #262220;
+    --card-foreground: #F5E6BE;
+    --popover: #262220;
+    --popover-foreground: #F5E6BE;
+    --primary: #FFB800;
+    --primary-foreground: #1C1917;
+    --secondary: #3D332A;
+    --secondary-foreground: #F5E6BE;
+    --muted: #2E2824;
+    --muted-foreground: #A89C90;
+    --accent: #3A2F22;
+    --accent-foreground: #FFB800;
+    --destructive: #D32F2F;
+    --border: #3D352E;
+    --input: #3D352E;
+    --ring: #FFB800;
+    --sidebar: #1C1917;
+    --sidebar-foreground: #F5E6BE;
+    --sidebar-primary: #FFB800;
+    --sidebar-primary-foreground: #1C1917;
+    --sidebar-accent: #3D332A;
+    --sidebar-accent-foreground: #F5E6BE;
+    --sidebar-border: #3D352E;
+    --sidebar-ring: #FFB800;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  html {
+    @apply font-sans;
+    overflow-x: clip;
+    max-width: 100vw;
+    }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: radial-gradient(#E8E2D5 0.75px, transparent 0.75px);
+    background-size: 20px 20px;
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100vw;
+    }
+  h1, h2, h3, h4, .font-serif-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    }
+}
+
+/* Skeuomorphic-Modernist Kitchen Notebook Utilities */
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+.font-serif-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Notebook Graph Paper / Parchment Overlay */
+.bg-notebook-grid {
+  background-color: #FCF9F2;
+  background-image: linear-gradient(to right, rgba(141, 110, 99, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(141, 110, 99, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-parchment {
+  background-color: #FDFBF7;
+  border: 1px solid #E8E2D5;
+}
+
+/* Stacked Parchment Elevation */
+.shadow-stacked-parchment {
+  box-shadow: 0 4px 6px -1px rgba(74, 59, 50, 0.06), 
+              0 2px 4px -1px rgba(74, 59, 50, 0.04),
+              0 0 0 1px rgba(232, 226, 213, 0.8),
+              0 8px 16px -4px rgba(74, 59, 50, 0.08);
+}
+
+.card-notebook {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E8E2D5;
+  box-shadow: 0 4px 12px rgba(141, 110, 99, 0.08);
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-notebook:hover {
+  box-shadow: 0 8px 20px rgba(141, 110, 99, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Chef Tip Handwritten Annotation */
+.chef-note {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: #8D6E63;
+  background-color: #FFF8E7;
+  border-left: 3px solid #FFB800;
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Safety Indicators according to Design System */
+.safety-safe {
+  color: #2E7D32;
+  background-color: rgba(46, 125, 50, 0.1);
+  border: 1px solid rgba(46, 125, 50, 0.25);
+}
+
+.safety-warning {
+  color: #B78103;
+  background-color: rgba(255, 193, 7, 0.15);
+  border: 1px solid rgba(255, 193, 7, 0.35);
+}
+
+.safety-danger {
+  color: #B00020;
+  background-color: rgba(176, 0, 32, 0.1);
+  border: 1px solid rgba(176, 0, 32, 0.25);
+}
+
+/* History Article Typography & Prose Styling */
+.history-prose {
+  color: #374151;
+  font-size: 1.025rem;
+  line-height: 1.85;
+}
+
+.history-prose h1 {
+  display: none;
+}
+
+.history-prose h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #27272a;
+  margin-top: 2.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #F5E6BE;
+  scroll-margin-top: 6rem;
+}
+
+.history-prose h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #8D6E63;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+
+.history-prose p {
+  margin-bottom: 1.25rem;
+  color: #4b5563;
+  font-size: 1.025rem;
+  line-height: 1.85;
+}
+
+.history-prose ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.history-prose ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: #374151;
+}
+
+.history-prose ul li::before {
+  content: "�";
+  position: absolute;
+  left: 0.5rem;
+  top: -0.1rem;
+  color: #FFB800;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.history-prose hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E8E2D5, #FFB800, #E8E2D5, transparent);
+  margin: 2.75rem 0;
+}
+
+.history-prose strong {
+  font-weight: 700;
+  color: #8D6E63;
+  background-color: rgba(245, 230, 190, 0.5);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+.history-prose em {
+  font-style: italic;
+  color: #4b5563;
+}
+
+.history-prose blockquote {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: #8D6E63;
+  background-color: #FFF8E7;
+  border-left: 4px solid #FFB800;
+  padding: 1rem 1.25rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1.75rem 0;
+  box-shadow: 0 2px 8px rgba(141, 110, 99, 0.05);
+}
+````
+
+## File: tsconfig.json
 ````json
-[["Map",1,2,9,10,140,141,41,874,1438,1439,1456,1457],"meta::meta",["Map",3,4,5,6,7,8],"astro-config-digest","{\"root\":{},\"srcDir\":{},\"publicDir\":{},\"outDir\":{},\"cacheDir\":{},\"site\":\"https://tortilladepatatas.org\",\"compressHTML\":\"jsx\",\"base\":\"/\",\"trailingSlash\":\"ignore\",\"output\":\"static\",\"scopedStyleStrategy\":\"attribute\",\"build\":{\"format\":\"directory\",\"client\":{},\"server\":{},\"assets\":\"_astro\",\"serverEntry\":\"entry.mjs\",\"redirects\":true,\"inlineStylesheets\":\"auto\",\"concurrency\":1},\"server\":{\"open\":false,\"host\":\"0.0.0.0\",\"port\":3000,\"allowedHosts\":[\"0.0.0.0\",\"0.0.0.0\",\"0.0.0.0\",\"0.0.0.0\"]},\"redirects\":{},\"image\":{\"endpoint\":{\"route\":\"/_image\"},\"service\":{\"entrypoint\":\"astro/assets/services/sharp\",\"config\":{}},\"dangerouslyProcessSVG\":false,\"domains\":[],\"remotePatterns\":[],\"responsiveStyles\":false},\"devToolbar\":{\"enabled\":true},\"markdown\":{\"syntaxHighlight\":{\"type\":\"shiki\",\"excludeLangs\":[\"math\"]},\"shikiConfig\":{\"langs\":[],\"langAlias\":{},\"theme\":\"github-dark\",\"themes\":{},\"wrap\":false,\"transformers\":[]},\"remarkPlugins\":[],\"rehypePlugins\":[],\"remarkRehype\":{},\"processor\":{\"name\":\"satteri\",\"options\":{\"mdastPlugins\":[],\"hastPlugins\":[],\"features\":{}}}},\"security\":{\"checkOrigin\":true,\"allowedDomains\":[],\"csp\":false,\"actionBodySizeLimit\":1048576,\"serverIslandBodySizeLimit\":1048576},\"env\":{\"schema\":{},\"validateSecrets\":false},\"prerenderConflictBehavior\":\"warn\",\"fetchFile\":\"fetch\",\"experimental\":{\"clientPrerender\":false,\"contentIntellisense\":false,\"chromeDevtoolsWorkspace\":false,\"collectionStorage\":\"single-file\"},\"legacy\":{\"collectionsBackwardsCompat\":false}}","astro-version","7.1.6","content-config-digest","d75a7bff312ecea1","navigation",["Map",11,12,36,37],"footer",{"id":11,"data":13,"filePath":34,"digest":35},{"brandDesc":14,"subtitle":18,"safetyTitle":22,"safetyText":26,"rights":30},{"es":15,"en":16,"de":17},"La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.","The gastronomic encyclopedia and laboratory notebook dedicated to the authentic Spanish potato omelette.","Die gastronomische Enzyklopädie und das Laborbuch zur echten spanischen Kartoffeltortilla.",{"es":19,"en":20,"de":21},"Gastronomía, Tradición & Ciencia Culinaria","Gastronomy, Tradition & Culinary Science","Gastronomie, Tradition & Kulinarische Wissenschaft",{"es":23,"en":24,"de":25},"Estándar de Seguridad Bactericida","Bactericidal Safety Standard","Bakterizider Sicherheitsstandard",{"es":27,"en":28,"de":29},"Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 hours** a temperatura ambiente.","To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as intermediate threshold). Runny omelettes must not exceed **4 hours** at room temperature.","Zur mikrobiologischen Sicherheit verlangt der bakterizide Standard **70°C for 2 minutes** (oder **63°C for 20 seconds**). Leicht gebratene Tortillas dürfen nicht länger als **4 hours** bei Raumtemperatur stehen.",{"es":31,"en":32,"de":33},"Todos los derechos reservados.","All rights reserved.","Alle Rechte vorbehalten.","src/content/navigation/footer.json","931fed7eb8f91908","header",{"id":36,"data":38,"filePath":138,"digest":139},{"items":39},[40,47,54,124,131],{"key":41,"href":42,"label":43},"recipes","/recipes",{"es":44,"en":45,"de":46},"Recetas","Recipes","Rezepte",{"key":48,"href":49,"label":50},"factions","/facciones",{"es":51,"en":52,"de":53},"Facciones","Factions","Faktionen",{"key":55,"href":56,"label":57,"children":61},"universo","/enciclopedia",{"es":58,"en":59,"de":60},"Universo Tortilla","Tortilla Universe","Tortilla-Universum",[62,69,76,83,89,96,103,110,117],{"key":63,"href":64,"label":65},"history","/history",{"es":66,"en":67,"de":68},"Historia","History","Geschichte",{"key":70,"href":71,"label":72},"estilos","/estilos",{"es":73,"en":74,"de":75},"Estilos","Styles","Stile",{"key":77,"href":78,"label":79},"personas","/personas",{"es":80,"en":81,"de":82},"Personas","People","Personen",{"key":84,"href":85,"label":86},"restaurantes","/restaurantes",{"es":87,"en":88,"de":88},"Restaurantes","Restaurants",{"key":90,"href":91,"label":92},"regiones","/regiones",{"es":93,"en":94,"de":95},"Regiones","Regions","Regionen",{"key":97,"href":98,"label":99},"ingredients","/ingredients",{"es":100,"en":101,"de":102},"Ingredientes","Ingredients","Zutaten",{"key":104,"href":105,"label":106},"techniques","/techniques",{"es":107,"en":108,"de":109},"Técnicas","Techniques","Techniken",{"key":111,"href":112,"label":113},"science","/science",{"es":114,"en":115,"de":116},"Ciencia","Science","Wissenschaft",{"key":118,"href":119,"label":120},"records","/records",{"es":121,"en":122,"de":123},"Récords","Records","Rekorde",{"key":125,"href":126,"label":127},"laboratory","/laboratorio",{"es":128,"en":129,"de":130},"Laboratorio","Laboratory","Labor",{"key":132,"href":133,"label":134},"about","/about",{"es":135,"en":136,"de":137},"Sobre nosotros","About us","Über uns","src/content/navigation/header.json","494712c39d89c27f","pages",["Map",132,142,176,177,284,285,63,345,535,536,584,585,605,606,77,671,691,692,118,724,752,753,788,789,111,833,853,854],{"id":132,"data":143,"filePath":174,"digest":175},{"badge":144,"title":148,"subtitle":152,"mission":156,"safetyStandard":165},{"es":145,"en":146,"de":147},"Manifiesto & Misión Editorial","Manifesto & Editorial Mission","Manifest & Redaktioneller Auftrag",{"es":149,"en":150,"de":151},"Sobre tortilladepatatas.org","About tortilladepatatas.org","Über tortilladepatatas.org",{"es":153,"en":154,"de":155},"La enciclopedia independiente, cuaderno de laboratorio y espacio de encuentro riguroso dedicado al plato más emblemático de España.","The independent encyclopedia, laboratory notebook, and rigorous meeting space dedicated to Spain's most iconic dish.","Die unabhängige Enzyklopädie, das Laborbuch und der Begegnungsraum für das kultigste Gericht Spaniens.",{"title":157,"body":161},{"es":158,"en":159,"de":160},"Nuestra Misión Culinaria","Our Culinary Mission","Unsere Kulinarische Mission",{"es":162,"en":163,"de":164},"Documentar con precisión científica, rigor histórico y amor por la gastronomía todas las vertientes, técnicas, variantes e innovaciones de la tortilla de patatas, promoviendo siempre los más altos estándares de inocuidad alimentaria.","To document with scientific precision, historical rigor, and passion for gastronomy every technique, variation, and innovation of the Spanish tortilla while upholding the highest food safety standards.","Mit wissenschaftlicher Präzision, historischer Strenge und Leidenschaft alle Varianten und Techniken der Tortilla de Patatas zu dokumentieren.",{"title":166,"body":170},{"es":167,"en":168,"de":169},"El Compromiso de Inocuidad Bactericida","Bactericidal Safety Commitment","Verpflichtung zur Lebensmittelsicherheit",{"es":171,"en":172,"de":173},"Divulgamos activamente las recomendaciones del Instituto de Estudios del Huevo y las autoridades sanitarias: alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** con huevo pasteurizado) y limitar a **4 hours** la exposición a temperatura ambiente.","We actively disseminate public health recommendations: reach **70°C for 2 minutes** (or **63°C for 20 seconds** with pasteurized eggs) and limit room temperature exposure to **4 hours**.","Wir vermitteln aktiv die Hygiene-Empfehlungen: **70°C for 2 minutes** (oder **63°C for 20 seconds**) sowie maximal **4 hours** bei Raumtemperatur.","src/content/pages/about.json","bdd82be21e046077","enciclopedia-index",{"id":176,"data":178,"filePath":282,"digest":283},{"badge":179,"title":183,"subtitle":184,"sections":188},{"es":180,"en":181,"de":182},"Área de Conocimiento Editorial","Editorial Knowledge Base","Redaktionelles Wissenszentrum",{"es":58,"en":59,"de":60},{"es":185,"en":186,"de":187},"Compendio enciclopédico sobre la historia, estilos, personalidades, restaurantes, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.","Encyclopedic compendium covering history, styles, key personalities, culinary temples, regional geography, ingredients, techniques, science, and records.","Enzyklopädisches Kompendium zu Geschichte, Stilen, Persönlichkeiten, Restaurants, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden.",[189,199,209,219,229,239,250,261,272],{"id":190,"href":64,"title":191,"description":195,"icon":67},"historia",{"es":192,"en":193,"de":194},"Historia & Cronología","History & Timeline","Geschichte & Zeitleiste",{"es":196,"en":197,"de":198},"De las primeras menciones del siglo XVIII en Villanueva de la Serena a las crisis de subsistencia y la era digital.","From 18th-century records in Extremadura to wartime survival recipes and the digital delivery era.","Von den ersten Aufzeichnungen im 18. Jahrhundert bis zur digitalen Delivery-Ära.",{"id":70,"href":71,"title":200,"description":204,"icon":208},{"es":201,"en":202,"de":203},"Estilos de Tortilla","Tortilla Styles","Tortilla-Stile",{"es":205,"en":206,"de":207},"Estilo Betanzos, tortilla clásica cuajada, tortilla paisana y variantes tradicionales.","Betanzos style, classic set omelette, paisana style, and traditional variations.","Betanzos-Stil, klassische durchgebratene Tortilla, Landfrauen-Stil und traditionelle Varianten.","Palette",{"id":77,"href":78,"title":210,"description":214,"icon":218},{"es":211,"en":212,"de":213},"Personas & Referentes","People & References","Personen & Referenzen",{"es":215,"en":216,"de":217},"Mentes y manos maestras: científicos como José Manuel Barat, pioneras populares como Pepa Miranda y chefs como José Andrés.","Masterminds and hands: scientists like José Manuel Barat, traditional pioneers like Pepa Miranda, and chefs like José Andrés.","Köpfe und Meisterhände: Wissenschaftler, Traditionsträger und Spitzenköche.","Users",{"id":84,"href":85,"title":220,"description":224,"icon":228},{"es":221,"en":222,"de":223},"Restaurantes & Templos","Restaurants & Temples","Restaurants & Tempel",{"es":225,"en":226,"de":227},"Guía de los establecimientos icónicos: Casa Dani, La Penela, O Pote, Kasino de Lesaka y barras de culto.","Guide to iconic establishments: Casa Dani, La Penela, O Pote, Kasino de Lesaka, and cult bars.","Führer zu den ikonischsten Lokalen und Kult-Bars.","Utensils",{"id":90,"href":91,"title":230,"description":234,"icon":238},{"es":231,"en":232,"de":233},"Geografía & Regiones","Geography & Regions","Geografie & Regionen",{"es":235,"en":236,"de":237},"Recorrido por las identidades regionales: Galicia (Betanzos), País Vasco, Madrid, Navarra y Andalucía.","A journey through regional identities: Galicia (Betanzos), Basque Country, Madrid, Navarra, and Andalusia.","Eine Reise durch die regionalen Identitäten Spaniens.","MapPin",{"id":240,"href":98,"title":241,"description":245,"icon":249},"ingredientes",{"es":242,"en":243,"de":244},"Ingredientes Sagrados","Sacred Ingredients","Heilige Zutaten",{"es":246,"en":247,"de":248},"Patatas ideales (Monalisa, Kennebec), huevos camperos, AOVE de acidez suave y cebolla dulce.","Ideal potatoes (Monalisa, Kennebec), free-range eggs, mild extra virgin olive oil, and sweet onions.","Ideale Kartoffeln (Monalisa, Kennebec), Freilandeier, mildes Olivenöl extra vergine und süße Zwiebeln.","Egg",{"id":251,"href":105,"title":252,"description":256,"icon":260},"tecnicas",{"es":253,"en":254,"de":255},"Técnicas & Pasos","Techniques & Steps","Techniken & Schritte",{"es":257,"en":258,"de":259},"Corte y chasquido, confitado lento, reposo sagrado, volteo perfecto y sellado exterior.","Cutting and snapping, slow poaching, sacred rest, perfect flip, and exterior searing.","Schneiden, langsames Sanftgaren, heilige Ruhezeit, perfektes Wenden und äußeres Anbraten.","Flame",{"id":262,"href":112,"title":263,"description":267,"icon":271},"ciencia",{"es":264,"en":265,"de":266},"Ciencia & Microbiología","Science & Microbiology","Wissenschaft & Mikrobiologie",{"es":268,"en":269,"de":270},"Físico-química del huevo, gelatinización de la patata, reacción de Maillard y protocolo bactericida.","Egg chemistry, potato gelatinization, Maillard reaction, and pasteurization protocols.","Chemie des Eies, Stärkewandlung, Maillard-Reaktion und Pasteurisierung.","Microscope",{"id":118,"href":119,"title":273,"description":277,"icon":281},{"es":274,"en":275,"de":276},"Récords & Hitos","Records & Milestones","Rekorde & Meilensteine",{"es":278,"en":279,"de":280},"Las tortillas más grandes del mundo, récords Guinness, velocidad de volteo y concursos de culto.","World's largest tortillas, Guinness records, flipping speed, and legendary competitions.","Die größten Tortillas der Welt, Guinness-Rekorde und legendäre Wettbewerbe.","Trophy","src/content/pages/enciclopedia-index.json","866afb0fc98ad25d","factions-index",{"id":284,"data":286,"filePath":343,"digest":344},{"badge":287,"hero":291,"introduction":304,"poll":317,"safetyNote":339},{"es":288,"en":289,"de":290},"Facciones Culinarias","Culinary Factions","Kulinarische Faktionen",{"title":292,"subtitle":296,"adriaDoctrine":300},{"es":293,"en":294,"de":295},"¿Purista de la Doctrina o Rebelde Culinario?","Doctrinal Purist or Culinary Rebel?","Doktrinärer Purist oder kulinarischer Rebell?",{"es":297,"en":298,"de":299},"Del dogma de la patata y el huevo a las variaciones regionales con personalidad. Descubre a qué facción perteneces.","From the egg-and-potato dogma to regional variations with personality. Find out which faction you belong to.","Vom Ei-Kartoffel-Dogma bis zu regionalen Variationen mit Persönlichkeit. Finde deine Faktion.",{"es":301,"en":302,"de":303},"Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica y dar voz a cada tradición.","We formally distinguish between the 'Traditional Spanish Omelette' and 'Omelettes with...' to ensure gastronomic peace and give voice to every tradition.","Wir unterscheiden formal zwischen der 'Traditionellen Kartoffeltortilla' und 'Tortillas mit...', um den kulinarischen Frieden zu wahren.",{"title":305,"body1":309,"body2":313},{"es":306,"en":307,"de":308},"La evolución de una receta universal","The Evolution of a Universal Recipe","Die Evolution eines universalen Rezepts",{"es":310,"en":311,"de":312},"Nacida a finales del siglo XVIII en Villanueva de la Serena (Badajoz) como una solución contra la escasez de alimentos, la tortilla de patatas ha evolucionado de alimento humilde de supervivencia a icono gastronómico global.","Born in the late 18th century in Villanueva de la Serena (Extremadura) as a solution to food scarcity, the Spanish tortilla has transformed from a humble survival dish into a global gastronomic icon.","Entstanden Ende des 18. Jahrhunderts in Villanueva de la Serena als günstige Speise in Notzeiten, hat sich die Tortilla von der einfachen Arme-Leute-Mahlzeit zum weltweiten Kultgericht gewandelt.",{"es":314,"en":315,"de":316},"Hoy la mesa española es un campo de batalla dialéctico entre el ascetismo de la patata desnuda y la audacia del plebiscito popular. Desde la Santísima Trinidad Betanceira hasta las vanguardias de alta cocina, coexisten grandes doctrinas culinarias.","Today, the Spanish table is a debate battlefield between strict minimalist purism and popular preference. From the Betanzos Holy Trinity to modernist high cuisine, core culinary doctrines coexist.","Heute stehen sich große kulinarische Strömungen gegenüber – von der puristischen Heiligen Dreifaltigkeit aus Betanzos bis hin zu modernen Kreationen der Spitzengastronomie.",{"title":318,"subtitle":322,"votedMessage":326,"totalVotesLabel":330,"initialStats":334},{"es":319,"en":320,"de":321},"Test de Ortodoxia: Elige tu Lealtad","Orthodoxy Test: Declare Your Allegiance","Orthodoxie-Test: Wähle deine Faktion",{"es":323,"en":324,"de":325},"¡Declara tu facción! Vota y descubre los porcentajes en tiempo real de la comunidad tortillera.","Cast your vote and view real-time community percentages across all factions.","Stimme ab und sieh die Echtzeit-Prozente der Community.",{"es":327,"en":328,"de":329},"¡Voto registrado! Tu lealtad a la causa ha quedado anotada en el cuaderno culinario.","Vote recorded! Your allegiance has been immortalized in the kitchen notebook.","Stimme gezählt! Deine Faktion wurde im Küchenbuch verewigt.",{"es":331,"en":332,"de":333},"Votos totales registrados","Total community votes","Stimmen insgesamt",{"puristas":335,"concebollistas":336,"pimientistas":337,"ajistas":338,"con-cosas":338},28,54,8,5,{"es":340,"en":341,"de":342},"Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.","Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**.","Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**.","src/content/pages/factions-index.json","b13d89ad68650ec4",{"id":63,"data":346,"filePath":533,"digest":534},{"badge":347,"title":351,"subtitle":355,"chefNote":359,"timelineTitle":363,"timelineSubtitle":367,"timelineEvents":371,"chaptersTitle":490,"chaptersSubtitle":494,"chapters":498},{"es":348,"en":349,"de":350},"Crónica Histórica & Cronología Gastronómica","Historical Chronicle & Gastronomic Timeline","Historische Chronik & Gastronomische Zeitleiste",{"es":352,"en":353,"de":354},"La Tortilla de Patatas: Crónica del Ingenio y la Identidad","Chronicle of the Spanish Potato Omelette","Die Geschichte der Tortilla de Patatas",{"es":356,"en":357,"de":358},"Investigación histórica integral: desde los orígenes del Siglo de las Luces y la cocina de subsistencia hasta los retos de la seguridad alimentaria y la era digital.","A comprehensive investigation: from Enlightenment origins and survival cuisine to modern food safety protocols and the 21st-century digital era.","Umfassende historische Untersuchung: Von den Aufklärungs-Wurzeln im 18. Jahrhundert über Überlebensrezepte bis zur modernen Lebensmittelsicherheit.",{"es":360,"en":361,"de":362},"La historia de la tortilla es la crónica del ingenio popular español. Desde 'estirar' huevos con patatas en 1817 hasta usar corteza de naranja en la posguerra, este plato personifica la supervivencia. Para disfrutarlo con total seguridad, la pasteurización exige alcanzar **70°C for 2 minutes** o **63°C for 20 seconds**, evitando mantener la tortilla más de **4 hours** a temperatura ambiente.","The history of the tortilla is a testament to popular Spanish resourcefulness. From expanding egg volumes with potatoes in 1817 to using orange peel during post-war scarcity, it embodies survival. For maximum food safety, pasteurization standards mandate reaching **70°C for 2 minutes** or **63°C for 20 seconds**, and never leaving room temperature preparations for over **4 hours**.","Die Geschichte der Tortilla ist ein Denkmal des spanischen Volksgeistes. Vom Gestrecken spärlicher Eier mit Kartoffeln 1817 bis zur Verwendung von Orangenschalen in der Nachkriegszeit verkörpert sie Überlebenswillen. Für absolute Sicherheit verlangt die Pasteurisierung **70°C for 2 minutes** oder **63°C for 20 seconds** sowie maximal **4 hours** Stehzeit bei Raumtemperatur.",{"es":364,"en":365,"de":366},"Línea del Tiempo & Hitos Históricos","Timeline & Historical Milestones","Zeitleiste & Historische Meilensteine",{"es":368,"en":369,"de":370},"Los momentos clave que transformaron un plato de supervivencia en el icono de España.","The key moments that shaped a survival recipe into Spain's national icon.","Schlüsselmomente der Transformation vom Notgericht zum Nationalsymbol.",[372,387,402,417,432,447,461,475],{"year":373,"title":374,"location":378,"description":379,"badge":383},"1767 - 1772",{"es":375,"en":376,"de":377},"Primeras Menciones Ilustradas","First Enlightenment Citations","Erste Dokumentierte Erwähnungen","España",{"es":380,"en":381,"de":382},"Joseph Valcárcel (1767) y Roig (1772) registran las primigenias menciones que vinculan la patata americana con preparaciones de huevo batido en la cocina popular.","Joseph Valcárcel (1767) and Roig (1772) record the earliest documentary references linking potatoes with beaten egg preparations.","Joseph Valcárcel (1767) und Roig (1772) hielten die ersten schriftlichen Nachweise über Kartoffeln mit verquirlten Eiern fest.",{"es":384,"en":385,"de":386},"Siglo de las Luces","Enlightenment Era","Zeitalter der Aufklärung",{"year":388,"title":389,"location":393,"description":394,"badge":398},"1798",{"es":390,"en":391,"de":392},"Origen Geográfico Documentado","Documented Birthplace","Dokumentierte Geburtsstätte","Villanueva de la Serena (Badajoz)",{"es":395,"en":396,"de":397},"Documentos de Extremadura detallan cómo el ingenio local creó la fórmula de patata y huevo como respuesta nutritiva a la escasez agrícola.","Extremaduran historical archives detail how local ingenuity created the potato and egg formula as a nutritious answer to agricultural scarcity.","Archive aus Extremadura belegen die genaue Kombination aus Kartoffel und Ei als nährstoffreiche Antwort auf Hungersnöte.",{"es":399,"en":400,"de":401},"Hito Fundacional","Foundational Milestone","Gründungs-Meilenstein",{"year":403,"title":404,"location":408,"description":409,"badge":413},"1810 - 1812",{"es":405,"en":406,"de":407},"El Sitio de Cádiz y la 'Tortilla Francesa'","Siege of Cádiz & 'French Omelette'","Belagerung von Cádiz & 'Tortilla Francesa'","Cádiz",{"es":410,"en":411,"de":412},"Durante el bloqueo napoleónico, la falta de patatas obligó a cocinar el huevo solo. Con humor gaditano, la bautizaron 'tortilla francesa' para diferenciarla de la 'española'.","During the Napoleonic blockade, potato depletion forced citizens to cook plain egg omelettes, ironically naming them 'French omelettes'.","Mangel an Kartoffeln zwang die Bürger zum Omelett rein aus Eiern – spöttisch 'französisches Omelett' genannt.",{"es":414,"en":415,"de":416},"Conflicto & Lenguaje","Conflict & Nomenclature","Konflikt & Name",{"year":418,"title":419,"location":423,"description":424,"badge":428},"1817",{"es":420,"en":421,"de":422},"El Memorial de Navarra","Navarra Memorial","Das Navarra-Denkmal","Navarra",{"es":425,"en":426,"de":427},"Documento oficial presentado a las Cortes que describe cómo los campesinos 'estiraban' los escasos huevos mezclándolos con patatas para alimentar a familias numerosas.","Official submission to the Cortes advocating potato omelettes to stretch scarce eggs and feed impoverished rural families.","Offizielles Dokument an die Cortes über die Streckung weniger Eier mit reichlich Kartoffeln für arme Landfamilien.",{"es":429,"en":430,"de":431},"Respuesta a la Penuria","Survival Solution","Überlebensmittel",{"year":433,"title":434,"location":438,"description":439,"badge":443},"1835",{"es":435,"en":436,"de":437},"Leyenda del General Zumalacárregui","General Zumalacárregui Legend","Legende von General Zumalacárregui","Guerras Carlistas",{"es":440,"en":441,"de":442},"La tradición narra que una campesina anónima improvisó el plato para el general Carlista para nutrir a sus tropas de forma rápida, económica y calórica.","Tradition holds that an anonymous farmwoman created the dish for Carlist troops to provide a dense, affordable military ration.","Eine Bäuerin soll das nahrhafte, günstige Gericht improvisiert haben, um Karlistentruppen schnell zu verpflegen.",{"es":444,"en":445,"de":446},"Mito Gastronómico","Gastronomic Legend","Mythen & Legenden",{"year":448,"title":449,"location":378,"description":453,"badge":457},"1940s",{"es":450,"en":451,"de":452},"La Tortilla de Naranja de la Posguerra","Post-War Orange Peel Omelette","Die Orangenschalen-Not-Tortilla",{"es":454,"en":455,"de":456},"En tiempos de racionamiento extremo, la parte blanca de la corteza de naranja (albedo) macerada sustituía a la patata, y harina con agua al huevo.","In times of severe rationing, soaked orange peel albedo replaced potatoes, and flour water replaced eggs.","In Zeiten extremer Not ersetzte eingeweichte Orangenschale (Albedo) die Kartoffel und Mehl-Wasser das Ei.",{"es":458,"en":459,"de":460},"Ingenio Extremo","Peak Ingenuity","Höchster Einfallsreichtum",{"year":462,"title":463,"location":378,"description":467,"badge":471},"1991 - 2025",{"es":464,"en":465,"de":466},"Alertas Sanitarias y Control Epidemiológico","Public Health Outbreaks & Pasteurization","Ausbrüche & Inaktivierungs-Standards",{"es":468,"en":469,"de":470},"Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C for 2 minutes** y ovoproductos.","Outbreaks such as Casa Dani (2023) and Trasan Fest (2025) drive safety regulations: **70°C for 2 minutes** and liquid egg products.","Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C for 2 minutes** und Flüssigei.",{"es":472,"en":473,"de":474},"Seguridad Alimentaria","Food Safety","Lebensmittelsicherheit",{"year":476,"title":477,"location":481,"description":482,"badge":486},"2024 - 2025+",{"es":478,"en":479,"de":480},"Revolución Digital y Versiones Veganas","Digital Delivery & Vegan Innovations","Digitales Delivery & Vegane Alternativen","España Digital",{"es":483,"en":484,"de":485},"El delivery alcanza 8.000M€. Surgen versiones veganas con harina de garbanzo y almidón de tapioca para alérgicos e intolerantes.","Online food delivery reaches €8 billion. Chickpea flour and tapioca starch enable egg-free, allergen-safe tortillas.","Online-Delivery erreicht 8 Mrd. Euro. Kichererbsenmehl und Tapiokastärke ermöglichen allergiefreie, vegane Tortillas.",{"es":487,"en":488,"de":489},"Era Contemporánea","Digital Era","Digitales Zeitalter",{"es":491,"en":492,"de":493},"Investigación Histórica y Cronológica Completa","Full Historical & Chronological Investigation","Vollständige Historische Untersuchung",{"es":495,"en":496,"de":497},"Un análisis detallado estructurado en 8 capítulos de investigación.","A detailed 8-chapter research breakdown.","Detaillierte Analyse in 8 Kapiteln.",[499,516],{"id":500,"number":501,"title":502,"content":506},"intro","01",{"es":503,"en":504,"de":505},"Introducción: El Icono de la Gastronomía Popular","Introduction: The Icon of Spanish Gastronomic Identity","Einleitung: Ein kulturelles und gastronomisches Wahrzeichen",{"es":507,"en":510,"de":513},[508,509],"La tortilla de patatas no es simplemente un plato en el recetario español; es un pilar de identidad, un fenómeno social y el máximo exponente del ingenio ante la escasez. Su importancia trasciende el ámbito doméstico para erigirse como un motor fundamental del sector de la restauración profesional en España.","Desde las barras más humildes hasta las propuestas de alta cocina, este plato personifica la capacidad de síntesis cultural de la península. La presente crónica se propone como una investigación histórica y técnica rigurosa que reconcilia los hallazgos documentales del Siglo de las Luces con los desafíos de la seguridad alimentaria y la revolución digital contemporánea.",[511,512],"The Spanish potato omelette (tortilla de patatas) is not merely a food product; it represents a fundamental pillar of culinary identity and social cohesion. Its presence is omnipresent, from humble neighborhood bars to haute-cuisine showcases.","This chronicle presents a rigorous historical and technical investigation, reconciling 18th-century Enlightenment records with 21st-century food safety guidelines and digital convenience trends.",[514,515],"Die Tortilla de Patatas ist weit mehr als ein bloßes Rezept; sie ist ein identitätsstiftendes Artefakt der spanischen Kulturwissenschaft. Ihre Bedeutung gründet sich auf einer beispiellosen sozioökonomischen Resilienz.","Diese wissenschaftliche Chronik verbindet historische Dokumente des 18. Jahrhunderts mit modernen Sicherheitsstandards und dem digitalen Wandel.",{"id":517,"number":518,"title":519,"content":523},"siglo-18","02",{"es":520,"en":521,"de":522},"Los Primeros Rastros: El Siglo XVIII y las Luces","The 18th Century: Earliest Documentary Evidence","Die Wurzeln im 18. Jahrhundert",{"es":524,"en":527,"de":530},[525,526],"La historiografía gastronómica ha evolucionado significativamente, desplazando las teorías que situaban el origen de la tortilla de patatas a mediados del siglo XIX. La evidencia documental nos obliga a retroceder al Siglo de las Luces, donde la patata comenzó a integrarse en la dieta popular no solo por su valor nutritivo, sino como una respuesta ilustrada al hambre.","En 1767, Joseph Valcárcel registra las menciones primigenias que vinculan la patata americana con preparaciones de huevo batido. En 1772, las referencias de Roig confirman la consolidación de esta unión de ingredientes. Finalmente, en 1798 en Villanueva de la Serena (Badajoz), los registros extremeños detallan cómo el ingenio local dio con la fórmula exacta de huevo y patata que hoy es patrimonio nacional.",[528,529],"Gastronomic historiography has debunked 19th-century origin myths. Documentary evidence points back to the Enlightenment, where potatoes were integrated into popular diets to fight hunger.","In 1767, Joseph Valcárcel recorded initial mentions of potato and beaten egg mixtures. By 1798 in Villanueva de la Serena (Extremadura), official archives confirmed the precise recipe used today.",[531,532],"Frühe Schriften von Valcárcel (1767) und Roig (1772) belegen die Nutzung der Kartoffel mit verquirlten Eiern.","Das Dokument aus Villanueva de la Serena (1798) markiert den exakten historischen Ursprung des Gerichts.","src/content/pages/history.json","b9b6c02a9f40d0f3","index",{"id":535,"data":537,"filePath":582,"digest":583},{"badge":538,"hero":542,"sections":559,"safetyBanner":573},{"es":539,"en":540,"de":541},"Cuaderno & Enciclopedia Culinaria","Culinary Encyclopedia & Notebook","Kulinarische Enzyklopädie & Laborbuch",{"title":543,"subtitle":547,"ctaRecipes":551,"ctaBuilder":555},{"es":544,"en":545,"de":546},"La Enciclopedia Definitiva de la Tortilla de Patatas","The Definitive Encyclopedia of the Spanish Omelette","Die ultimative Enzyklopädie der Tortilla de Patatas",{"es":548,"en":549,"de":550},"De la tradición centenaria al análisis científico, las facciones culinarias y el estándar bactericida de conservación.","From century-old traditions to scientific analysis, culinary factions, and bactericidal food safety standards.","Von hundertjähriger Tradition bis zu wissenschaftlicher Analyse, Faktionen und mikrobiologischer Sicherheit.",{"es":552,"en":553,"de":554},"Explorar Recetas","Explore Recipes","Rezepte entdecken",{"es":556,"en":557,"de":558},"Laboratorio & Constructor","Lab & Builder","Labor & Baukasten",{"recipesTitle":560,"recipesSubtitle":564,"factionsTitle":568,"factionsSubtitle":569},{"es":561,"en":562,"de":563},"Recetas Destacadas","Featured Recipes","Empfohlene Rezepte",{"es":565,"en":566,"de":567},"Descubre las fórmulas canónicas y variaciones regionales con sus fichas técnicas completas.","Discover canonical formulas and regional variations with full technical datasheets.","Entdecke kanonische Formeln und regionale Variationen mit vollständigen Datenblättern.",{"es":288,"en":289,"de":290},{"es":570,"en":571,"de":572},"¿Cebolla o sin cebolla? ¿Poco cuajada o firme? Elige tu lealtad en la comunidad.","Onion or no onion? Runny or firm? Choose your allegiance in the community.","Mit oder ohne Zwiebel? Saftig oder fest? Wähle deine Faktion.",{"title":574,"body":578},{"es":575,"en":576,"de":577},"Estándar Bactericida de Inocuidad Alimentaria","Bactericidal Food Safety Standard","Bakterizider Lebensmittelsicherheits-Standard",{"es":579,"en":580,"de":581},"Garantiza la inactivación de Salmonella spp. alcanzando **70°C for 2 minutes** o **63°C for 20 seconds**. No mantener tortillas poco cuajadas más de **4 hours** a temperatura ambiente.","Ensures inactivation of Salmonella spp. reaching **70°C for 2 minutes** or **63°C for 20 seconds**. Do not keep runny omelettes over **4 hours** at room temperature.","Garantiert die Inaktivierung von Salmonella spp. bei **70°C for 2 minutes** oder **63°C for 20 seconds**. Maximal **4 hours** Stehzeit bei Raumtemperatur.","src/content/pages/index.json","f5b026b86897db27","ingredients-index",{"id":584,"data":586,"filePath":603,"digest":604},{"badge":587,"title":591,"subtitle":595,"safetyNote":599},{"es":588,"en":589,"de":590},"Análisis Culinario & Materia Prima","Culinary Analysis & Raw Materials","Kulinarische Analyse & Rohstoffe",{"es":592,"en":593,"de":594},"Ingredientes: La Química del Sabor","Ingredients: The Chemistry of Flavor","Zutaten: Die Chemie des Geschmacks",{"es":596,"en":597,"de":598},"Estudio detallado de la patata, el huevo, la cebolla, el aceite de oliva y los añadidos opcionales. Descubre cómo cada ingrediente transforma la textura y la estructura de la tortilla.","Detailed study of potatoes, eggs, onions, olive oil, and optional additions. Discover how each ingredient shapes the texture and structure of the tortilla.","Detaillierte Untersuchung von Kartoffeln, Eiern, Zwiebeln, Olivenöl und optionalen Zutaten.",{"es":600,"en":601,"de":602},"La elección y manipulación del huevo es crucial para prevenir la contaminación por Salmonella. Recomendamos usar huevos frescos o pasteurizados y respetar los **70°C for 2 minutes** de cocinado bactericida.","Egg selection and handling is critical to prevent Salmonella. We recommend fresh or pasteurized eggs and maintaining **70°C for 2 minutes** bactericidal cooking.","Die Ausfallwahl und Behandlung des Eies ist entscheidend gegen Salmonellen. Wir empfehlen frische oder pasteurisierte Eier und **70°C for 2 minutes**.","src/content/pages/ingredients-index.json","73ebe80a7c779a84","laboratorio-index",{"id":605,"data":607,"filePath":669,"digest":670},{"badge":608,"title":612,"subtitle":616,"sections":620},{"es":609,"en":610,"de":611},"Experiencias Interactivas & Herramientas","Interactive Experiences & Tools","Interaktive Werkzeuge & Experimente",{"es":613,"en":614,"de":615},"Laboratorio Gastronómico de la Tortilla","Gastronomic Tortilla Laboratory","Gastronomisches Tortilla-Laboratorium",{"es":617,"en":618,"de":619},"Herramientas interactivas para diseñar tu fórmula ideal, comparar perfiles nutricionales, evaluar la orto-doxia de recetas y participar en encuestas de la comunidad.","Interactive tools to design your ideal recipe, compare nutritional profiles, evaluate recipe orthodoxy, and participate in community polls.","Interaktive Tools zur Entwicklung deiner idealen Tortilla, zum Nährwertvergleich und für Community-Umfragen.",[621,633,645,657],{"id":622,"href":623,"title":624,"description":628,"icon":632},"builder","/builder",{"es":625,"en":626,"de":627},"Constructor de Tortilla","Omelette Builder","Tortilla-Baukasten",{"es":629,"en":630,"de":631},"Calculadora interactiva de proporciones, huevos por patata, nivel de cuajado, sal y calorietas con estimador de seguridad.","Interactive ratio calculator for eggs per potato, runniness level, salt, calories, and safety estimation.","Interaktiver Rechner für Ei-Kartoffel-Verhältnis, Garstufe und Nährwerte.","Sparkles",{"id":634,"href":635,"title":636,"description":640,"icon":644},"comparador","/comparador",{"es":637,"en":638,"de":639},"Comparador de Estilos","Style Comparator","Stil-Vergleicher",{"es":641,"en":642,"de":643},"Compara lado a lado dos estilos de tortilla (Betanzos vs Clásica vs Vasca) en términos de viscosidad, temperatura y macronutrientes.","Side-by-side comparison of tortilla styles (Betanzos vs Classic vs Basque) across viscosity, temperature, and macros.","Vergleiche zwei Stile nebeneinander in Viskosität, Temperatur und Nährwerten.","Scale",{"id":646,"href":647,"title":648,"description":652,"icon":656},"encuestas","/encuestas",{"es":649,"en":650,"de":651},"Encuestas & Plebiscitos","Polls & Debates","Umfragen & Debatten",{"es":653,"en":654,"de":655},"Participa en los grandes plebiscitos: cebolla sí/no, grosor de corte de patata, tipo de aceite y punto de cuajado.","Participate in major debates: onion vs no onion, potato cut thickness, oil choice, and runniness.","Nimm an den großen Debatten teil: Zwiebel-Frage, Schnittdicke und Öl-Wahl.","Vote",{"id":658,"href":659,"title":660,"description":664,"icon":668},"tests","/tests",{"es":661,"en":662,"de":663},"Test de Ortodoxia & Cuestionarios","Orthodoxy Test & Quizzes","Orthodoxie-Test & Quiz",{"es":665,"en":666,"de":667},"Descubre a qué facción perteneces respondiendo al cuestionario de lealtad culinaria.","Discover which faction you belong to by answering our culinary allegiance quiz.","Finde heraus, welcher Faktion du angehörst.","HelpCircle","src/content/pages/laboratorio-index.json","ce9e6298e4d149bf",{"id":77,"data":672,"filePath":689,"digest":690},{"badge":673,"title":677,"subtitle":681,"chefNote":685},{"es":674,"en":675,"de":676},"Directorio Maestro & Figura Clave","Master Directory & Key Personalities","Meister-Verzeichnis & Schlüsselpersönlichkeiten",{"es":678,"en":679,"de":680},"Personas: Mentes & Manos de la Tortilla","Personas: Minds & Hands of the Tortilla","Personas: Köpfe & Hände der Tortilla",{"es":682,"en":683,"de":684},"Compendio analítico de las figuras y mentes que, desde la investigación académica, la innovación culinaria, la tradición popular y la visión empresarial, definen el presente y futuro de la tortilla de patatas.","An analytical directory of key figures shaping the past, present, and future of the Spanish potato omelette through academic research, culinary innovation, tradition, and business vision.","Analytisches Verzeichnis der Personen, die durch akademische Forschung, kulinarische Innovation, Tradition und Wirtschaftsvision die Gegenwart und Zukunft der Kartoffeltortilla prägen.",{"es":686,"en":687,"de":688},"Este directorio rinde homenaje tanto a las pioneras anónimas como a los científicos y chefs de vanguardia. La tradición culinaria y la seguridad bactericida (**70°C for 2 minutes**) caminan de la mano en nuestro cuaderno de laboratorio.","This directory honors both anonymous rural cooks and cutting-edge scientists and chefs. Culinary heritage and bactericidal safety (**70°C for 2 minutes**) go hand-in-hand in our laboratory notebook.","Dieses Verzeichnis ehrt anonyme Landköchinnen ebenso wie Spitzenköche und Wissenschaftler. Tradition und mikrobiologische Sicherheit (**70°C for 2 minutes**) gehen in unserem Laborbuch Hand in Hand.","src/content/pages/personas.json","9005bf77778971fe","recipes-index",{"id":691,"data":693,"filePath":722,"digest":723},{"badge":694,"title":698,"subtitle":702,"filters":706},{"es":695,"en":696,"de":697},"Catálogo de Recetas","Recipe Catalog","Rezeptkatalog",{"es":699,"en":700,"de":701},"Recetas de Tortilla de Patatas","Spanish Omelette Recipes","Tortilla-Rezepte",{"es":703,"en":704,"de":705},"Colección técnica de recetas tradicionales, regionales e innovadoras con ratios precisos, tiempos de pochado y pautas de temperatura.","Technical collection of traditional, regional, and innovative recipes with precise ratios, poaching times, and temperature guidelines.","Technische Sammlung von traditionellen, regionalen und innovativen Rezepten mit genauen Mengenverhältnissen und Garzeiten.",{"all":707,"traditional":711,"regional":715,"innovative":718},{"es":708,"en":709,"de":710},"Todas","All","Alle",{"es":712,"en":713,"de":714},"Tradicionales","Traditional","Traditionell",{"es":716,"en":717,"de":717},"Regionales","Regional",{"es":719,"en":720,"de":721},"Innovadoras","Innovative","Innovativ","src/content/pages/recipes-index.json","d65cbb2e128f1172",{"id":118,"data":725,"filePath":750,"digest":751},{"badge":726,"title":730,"subtitle":734,"records":738},{"es":727,"en":728,"de":729},"Hitos & Récords Culinarios","Gastronomic Records & Feats","Gastronomische Rekorde",{"es":731,"en":732,"de":733},"Récords Culinarios de la Tortilla","Culinary Records of the Omelette","Kulinarische Tortilla-Rekorde",{"es":735,"en":736,"de":737},"Las hazañas monumentales: la tortilla más grande del mundo, miles de kilos de patatas y sarténes gigantescas.","Monumental feats: the world's largest tortilla, thousands of kilos of potatoes, and giant frying pans.","Monumentale Rekorde: Die größte Tortilla der Welt mit tausenden Kilo Kartoffeln.",[739],{"year":740,"location":741,"feat":742,"stats":746},"2014","Vitoria-Gasteiz",{"es":743,"en":744,"de":745},"La Tortilla Gigante de Vitoria","Vitoria's Giant Tortilla","Die Riesen-Tortilla von Vitoria",{"es":747,"en":748,"de":749},"1.600 kg de patatas, 16.000 huevos, 150 litros de aceite y sartén de 5 metros de diámetro.","1,600 kg of potatoes, 16,000 eggs, 150 liters of oil, and a 5-meter diameter frying pan.","1.600 kg Kartoffeln, 16.000 Eier, 150 Liter Öl, 5 Meter Pfannendurchmesser.","src/content/pages/records.json","dbff4d9abef3e357","regions",{"id":752,"data":754,"filePath":786,"digest":787},{"badge":755,"title":759,"subtitle":763,"regions":767},{"es":756,"en":757,"de":758},"Geografía Gastronómica","Gastronomic Geography","Gastronomische Geografie",{"es":760,"en":761,"de":762},"Regiones & Variaciones de España","Regions & Variations of Spain","Regionen & Variationen Spaniens",{"es":764,"en":765,"de":766},"Descubre las expresiones culturales y regionales de la tortilla de patatas a lo largo de la península ibérica e islas.","Discover the cultural and regional expressions of the potato omelette across the Iberian Peninsula and islands.","Entdecke die kulturellen und regionalen Varianten der Tortilla auf der iberischen Halbinsel.",[768,774,780],{"name":769,"description":770},"Galicia (Betanzos)",{"es":771,"en":772,"de":773},"Caracterizada por no llevar jamás cebolla, utilizar patata de la variedad Kenebec cortada muy fina y frita a alta temperatura, logrando un interior líquido con abundante yema.","Famous for never containing onion, using finely sliced Kennebec potatoes fried at high heat, yielding a liquid interior.","Ohne Zwiebel, hauchdünne Kennebec-Kartoffeln, kross frittiert und innen flüssig.",{"name":775,"description":776},"País Vasco & Navarra",{"es":777,"en":778,"de":779},"Tradición de tortillas jugosas, a menudo servidas como pintxo sobre pan, con versiones que incorporan pimientos verdes fritos o bacalao (tortilla de bacalao de sidrería).","Juicy pintxo tradition served on crusty bread, featuring versions with fried green peppers or salt cod.","Saftige Pintxo-Tradition mit Varianten mit grünem Paprika oder Klippfisch.",{"name":781,"description":782},"Madrid & Centro",{"es":783,"en":784,"de":785},"Predominio de la tortilla con cebolla bien caramelizada, jugosidad media-alta y patata monalisa pocha en abundante aceite de oliva.","Prevalence of well-caramelized onions, medium-high runniness, and poached Monalisa potatoes.","Überwiegend mit karamellisierter Zwiebel und mittel-saftigem Kern.","src/content/pages/regions.json","72d96ea857aea6ba","restaurants",{"id":788,"data":790,"filePath":831,"digest":832},{"badge":791,"title":795,"subtitle":799,"restaurants":803},{"es":792,"en":793,"de":794},"Guía Culinaria & Templos","Culinary Guide & Temples","Gastronomie-Führer",{"es":796,"en":797,"de":798},"Restaurantes & Templos de la Tortilla","Restaurants & Omelette Temples","Restaurants & Tortilla-Tempel",{"es":800,"en":801,"de":802},"Los establecimientos más aclamados de España donde la tortilla de patatas es objeto de culto, maestría técnica y devoción diaria.","Spain's most acclaimed establishments where the potato omelette is a matter of devotion and technical mastery.","Spaniens hochgeschätzte Lokale, in denen die Tortilla de Patatas meisterhaft zubereitet wird.",[804,813,822],{"name":805,"city":806,"style":807,"description":808,"award":812},"Casa Dani","Madrid","Estilo Tradicional con Cebolla",{"es":809,"en":810,"de":811},"Ubicado en el Mercado de la Paz, elabora más de 300 tortillas al día con patata monalisa y un cuajado cremoso insuperable.","Located in Mercado de la Paz, producing over 300 tortillas daily with Monalisa potatoes and unbeatable creaminess.","Im Mercado de la Paz in Madrid, über 300 Tortillas täglich mit cremigem Kern.","Campeón de España de Tortilla de Patatas",{"name":814,"city":815,"style":816,"description":817,"award":821},"La Penela","Betanzos / A Coruña / Madrid","Estilo Betanzos",{"es":818,"en":819,"de":820},"Icono de la tortilla muy líquida, patata finísima frita crujiente y huevos camperos de yema intensa.","Icon of runny Betanzos style with ultra-thin crispy potatoes and farm egg yolks.","Ikone des flüssigen Betanzos-Stils mit krossen Kartoffeln und intensiv gelben Eiern.","Referente de la Tortilla Betanceira",{"name":823,"city":824,"style":825,"description":826,"award":830},"Kasino de Lesaka","Lesaka (Navarra)","Estilo Navarro Elevado",{"es":827,"en":828,"de":829},"Famoso por su equilibrio de sabor, volteo impecable y patata frita a fuego lento.","Famous for its balanced flavor, perfect flip, and slowly poached potatoes.","Berühmt für perfekte Balance, makelloses Wenden und langsame Zutatengare.","Premio Nacional de Gastronomía Culinaria","src/content/pages/restaurants.json","11defe3248604be5",{"id":111,"data":834,"filePath":851,"digest":852},{"badge":835,"title":839,"subtitle":843,"safetyNote":847},{"es":836,"en":837,"de":838},"Físico-Química Culinaria & Microbiología","Culinary Physics, Chemistry & Microbiology","Kulinarische Physik, Chemie & Mikrobiologie",{"es":840,"en":841,"de":842},"La Ciencia Detrás de la Tortilla de Patatas","The Science Behind the Spanish Potato Omelette","Die Wissenschaft hinter der Tortilla de Patatas",{"es":844,"en":845,"de":846},"Análisis moleculares, cinética de coagulación de las proteínas del huevo, gelatinización de almidones, reacción de Maillard y protocolo microbiológico de seguridad.","Molecular analysis, egg protein coagulation kinetics, starch gelatinization, Maillard reaction, and microbiological safety protocols.","Molekulare Analysen, Kinetik der Eiprotein-Koagulation, Stärkegelatinierung, Maillard-Reaktion und mikrobiologisches Sicherheitsprotokoll.",{"es":848,"en":849,"de":850},"Garantía de Pasteurización y Seguridad Alimentaria: La Salmonella Enteritidis se destruye térmicamente cuando la mezcla alcanza **70°C for 2 minutes** o **63°C for 20 seconds**. Las tortillas jugosas consumidas de inmediato o preparadas con huevo pasteurizado son seguras si no superan las **4 hours** a temperatura ambiente.","Pasteurization & Food Safety Guarantee: Salmonella Enteritidis is thermally destroyed when the mixture reaches **70°C for 2 minutes** or **63°C for 20 seconds**. Runny omelettes made with pasteurized eggs remain safe if consumed within **4 hours** at room temperature.","Sicherheitsgarantie: Salmonella Enteritidis wird abgetötet, wenn die Mischung **70°C for 2 minutes** oder **63°C for 20 seconds** erreicht. Saftige Tortillas mit Flüssigei sind sicher bei maximal **4 hours** Stehzeit.","src/content/pages/science.json","bb988b792546301c","techniques-index",{"id":853,"data":855,"filePath":872,"digest":873},{"badge":856,"title":860,"subtitle":864,"safetyNote":868},{"es":857,"en":858,"de":859},"Manual de Ejecución & Métodos","Execution Manual & Methods","Ausführungshandbuch & Methoden",{"es":861,"en":862,"de":863},"Técnicas Culinarias de la Tortilla","Culinary Techniques for Spanish Omelette","Kulinarische Techniken der Tortilla",{"es":865,"en":866,"de":867},"Desde el confitado/pochado a baja temperatura y la frita crujiente estilo Betanzos, hasta la física del volteo con plato y el control térmico del cuajado.","From low-temperature poaching and Betanzos crisp frying to the physics of plate flipping and thermal coagulation control.","Vom Sanftgaren bei niedriger Temperatur über das krosse Frittieren bis hin zur Physik des Wendens und der Temperaturkontrolle beim Stocken.",{"es":869,"en":870,"de":871},"Toda técnica debe controlar el tiempo y la temperatura. El punto óptimo de inactivación bactericida es de **70°C for 2 minutes** o **63°C for 20 seconds**. No superar **4 hours** a temperatura ambiente.","Every technique must monitor time and temperature. Optimal bactericidal threshold is **70°C for 2 minutes** or **63°C for 20 seconds**. Never exceed **4 hours** at room temperature.","Jede Technik muss Zeit und Temperatur kontrollieren. Der optimale bakterizide Wert liegt bei **70°C for 2 minutes** oder **63°C for 20 seconds** (max. **4 hours** bei Raumtemperatur).","src/content/pages/techniques-index.json","1eb4959a34425277",["Map",875,876,1022,1023,1115,1116,1211,1212,1321,1322],"betanzos",{"id":875,"data":877,"filePath":1020,"digest":1021},{"id":875,"slug":878,"title":882,"description":886,"taxonomyIds":890,"time":901,"image":902,"prepTimeMinutes":903,"cookTimeMinutes":904,"yieldServings":905,"ingredients":906,"instructions":963,"sources":1009,"author":1017},{"es":879,"en":880,"de":881},"tortilla-betanzos","betanzos-style-spanish-omelette","betanzos-tortilla",{"es":883,"en":884,"de":885},"Tortilla de Betanzos Jugosa","Runny Betanzos-Style Spanish Omelette","Saftige Betanzos-Tortilla",{"es":887,"en":888,"de":889},"La icónica tortilla gallega de Betanzos: muy jugosa, con abundante huevo, patata tierna y un interior casi líquido.","The iconic Galician Betanzos tortilla: egg-forward, with tender potatoes and an almost liquid creamy center.","Die ikonische galicische Betanzos-Tortilla: ei-betont, mit zarten Kartoffeln und fast flüssigem cremigem Kern.",[891,892,893,894,895,896,897,898,899,900],"faction:puristas","ingredient:potato","ingredient:egg","ingredient:egg_yolk","ingredient:oil","region:betanzos","style:juicy","technique:short_cook","technique:frying","difficulty:medium",25,"/images/betanzos.jpg",10,15,4,[907,919,929,940,952],{"id":908,"ingredientId":908,"name":909,"amount":913,"unit":914,"notes":915},"potato",{"es":910,"en":911,"de":912},"Patata","Potato","Kartoffel",500,"g",{"es":916,"en":917,"de":918},"Patata cortada fina y cocinada hasta quedar muy tierna","Thinly sliced potatoes cooked until very tender","Dünn geschnittene Kartoffeln, sehr weich gegart",{"id":920,"ingredientId":920,"name":921,"amount":337,"unit":924,"notes":925},"egg",{"es":922,"en":249,"de":923},"Huevo","Ei","unit",{"es":926,"en":927,"de":928},"8 huevos camperos","8 free-range eggs","8 Freilandeier",{"id":930,"ingredientId":930,"name":931,"amount":935,"unit":924,"notes":936},"egg_yolk",{"es":932,"en":933,"de":934},"Yema extra","Extra egg yolks","Zusätzliche Eigelb",2,{"es":937,"en":938,"de":939},"Yemas añadidas para aumentar cremosidad y untuosidad","Extra yolks added for richness and creaminess","Zusätzliche Eigelb für mehr Cremigkeit",{"id":941,"ingredientId":941,"name":942,"amount":946,"unit":947,"notes":948},"oil",{"es":943,"en":944,"de":945},"Aceite de Oliva Virgen Extra","Extra Virgin Olive Oil","Natives Olivenöl Extra",150,"ml",{"es":949,"en":950,"de":951},"Aceite abundante para freír la patata","Generous olive oil for frying potatoes","Reichlich Olivenöl zum Braten der Kartoffeln",{"id":953,"ingredientId":953,"name":954,"amount":958,"unit":914,"notes":959},"salt",{"es":955,"en":956,"de":957},"Sal","Salt","Salz",7,{"es":960,"en":961,"de":962},"Sal al gusto","Salt to taste","Salz nach Geschmack",[964,973,982,991,1000],{"step":965,"text":969},{"es":966,"en":967,"de":968},"Preparar las patatas","Prepare the potatoes","Kartoffeln vorbereiten",{"es":970,"en":971,"de":972},"Pelar las patatas y cortarlas en láminas muy finas e irregulares.","Peel the potatoes and cut them into very thin irregular slices.","Kartoffeln schälen und in sehr dünne unregelmäßige Scheiben schneiden.",{"step":974,"text":978},{"es":975,"en":976,"de":977},"Confitar las patatas","Slow-fry the potatoes","Kartoffeln confieren",{"es":979,"en":980,"de":981},"Cocinar las patatas en abundante aceite de oliva a fuego medio hasta que estén tiernas pero no demasiado doradas.","Cook the potatoes in plenty of olive oil over medium heat until tender but not heavily browned.","Kartoffeln in reichlich Olivenöl bei mittlerer Hitze weich garen.",{"step":983,"text":987},{"es":984,"en":985,"de":986},"Mezclar con huevo","Combine with eggs","Mit Ei vermischen",{"es":988,"en":989,"de":990},"Batir los huevos con sal y añadir las patatas calientes. Dejar que absorban parte del huevo.","Beat the eggs with salt and add the hot potatoes. Allow them to absorb some of the egg.","Eier mit Salz schlagen und die heißen Kartoffeln hinzufügen.",{"step":992,"text":996},{"es":993,"en":994,"de":995},"Reposar la mezcla","Rest the mixture","Mischung ruhen lassen",{"es":997,"en":998,"de":999},"Dejar reposar unos minutos para conseguir una textura más cremosa.","Rest for a few minutes to achieve a creamier texture.","Einige Minuten ruhen lassen, damit eine cremigere Textur entsteht.",{"step":1001,"text":1005},{"es":1002,"en":1003,"de":1004},"Cuajar la tortilla","Cook the omelette","Tortilla braten",{"es":1006,"en":1007,"de":1008},"Cuajar en sartén muy caliente durante pocos segundos por cada lado. El centro debe quedar líquido y cremoso.","Cook in a very hot pan for a few seconds on each side. The center should remain runny and creamy.","In einer sehr heißen Pfanne wenige Sekunden pro Seite braten. Die Mitte bleibt flüssig und cremig.",[1010],{"type":1011,"name":1012,"description":1013},"traditional","Betanzos tortilla tradition",{"es":1014,"en":1015,"de":1016},"Estilo gallego caracterizado por un interior muy poco cuajado.","Galician style known for a very runny centre.","Galicischer Stil mit sehr flüssigem Kern.",{"type":1018,"name":1019},"platform","tortilladepatatas.org","src/content/recipes/betanzos.json","8f2c4cae69167bec","clasica",{"id":1022,"data":1024,"filePath":1113,"digest":1114},{"id":1022,"slug":1025,"title":1029,"description":1033,"taxonomyIds":1037,"time":1041,"image":1042,"prepTimeMinutes":904,"cookTimeMinutes":901,"yieldServings":905,"ingredients":1043,"instructions":1067,"sources":1105,"author":1112},{"es":1026,"en":1027,"de":1028},"tortilla-clasica","classic-spanish-omelette","klassische-spanische-tortilla",{"es":1030,"en":1031,"de":1032},"Tortilla Clásica sin Cebolla","Classic Spanish Omelette Without Onion","Klassische Spanische Tortilla ohne Zwiebel",{"es":1034,"en":1035,"de":1036},"La receta fundamental de la tortilla española: patata, huevo, aceite y sal. El equilibrio perfecto entre tradición y técnica.","The fundamental Spanish omelette recipe: potato, egg, olive oil, and salt. The perfect balance between tradition and technique.","Das Grundrezept der spanischen Tortilla: Kartoffeln, Ei, Olivenöl und Salz. Perfekte Balance zwischen Tradition und Technik.",[891,1038,892,893,895,1039,1040],"faction:ajistas","technique:confit","difficulty:easy",40,"/images/clasica.jpg",[1044,1051,1058,1064],{"id":908,"ingredientId":908,"name":1045,"amount":1046,"unit":914,"notes":1047},{"es":910,"en":911,"de":912},600,{"es":1048,"en":1049,"de":1050},"5 patatas medianas","5 medium potatoes","5 mittelgroße Kartoffeln",{"id":920,"ingredientId":920,"name":1052,"amount":1053,"unit":924,"notes":1054},{"es":922,"en":249,"de":923},6,{"es":1055,"en":1056,"de":1057},"6 huevos","6 eggs","6 Eier",{"id":941,"ingredientId":941,"name":1059,"amount":946,"unit":947,"notes":1060},{"es":943,"en":944,"de":945},{"es":1061,"en":1062,"de":1063},"Aceite de oliva virgen extra","Extra virgin olive oil","Natives Olivenöl extra",{"id":953,"ingredientId":953,"name":1065,"amount":1053,"unit":914,"notes":1066},{"es":955,"en":956,"de":957},{"es":955,"en":956,"de":957},[1068,1077,1086,1093,1099],{"step":1069,"text":1073},{"es":1070,"en":1071,"de":1072},"Cortar las patatas","Slice the potatoes","Kartoffeln schneiden",{"es":1074,"en":1075,"de":1076},"Pelar las patatas y cortarlas en láminas finas.","Peel the potatoes and cut them into thin slices.","Kartoffeln schälen und in dünne Scheiben schneiden.",{"step":1078,"text":1082},{"es":1079,"en":1080,"de":1081},"Pochar las patatas","Slow-cook the potatoes","Kartoffeln langsam garen",{"es":1083,"en":1084,"de":1085},"Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.","Cook the potatoes in plenty of olive oil over medium-low heat until tender.","Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen.",{"step":1087,"text":1089},{"es":984,"en":1088,"de":986},"Mix with eggs",{"es":1090,"en":1091,"de":1092},"Batir los huevos con sal y mezclar con las patatas escurridas.","Beat eggs with salt and combine with the drained potatoes.","Eier mit Salz schlagen und mit den abgetropften Kartoffeln vermischen.",{"step":1094,"text":1095},{"es":993,"en":994,"de":995},{"es":1096,"en":1097,"de":1098},"Dejar reposar unos minutos para integrar sabores.","Rest for a few minutes to combine flavors.","Einige Minuten ruhen lassen, damit sich die Aromen verbinden.",{"step":1100,"text":1101},{"es":1002,"en":1003,"de":1004},{"es":1102,"en":1103,"de":1104},"Cocinar en sartén caliente hasta conseguir el punto deseado, girando la tortilla para dorar ambos lados.","Cook in a hot pan until reaching the desired doneness, turning once to brown both sides.","In einer heißen Pfanne bis zum gewünschten Gargrad braten und einmal wenden.",[1106],{"type":1011,"name":1107,"description":1108},"Receta Tradicional de Tortilla Española",{"es":1109,"en":1110,"de":1111},"El estándar tradicional purista sin cebolla, perfeccionado en los hogares españoles.","The traditional purist standard without onion, refined in Spanish homes.","Der traditionelle puristische Standard ohne Zwiebeln, verfeinert in spanischen Haushalten.",{"type":1018,"name":1019},"src/content/recipes/clasica.json","e46aa52c1bf43d78","concebolla",{"id":1115,"data":1117,"filePath":1209,"digest":1210},{"id":1118,"slug":1119,"title":1123,"description":1127,"taxonomyIds":1131,"time":1136,"image":1137,"prepTimeMinutes":904,"cookTimeMinutes":1138,"yieldServings":905,"ingredients":1139,"instructions":1167,"sources":1201,"author":1208},"con-cebolla",{"es":1120,"en":1121,"de":1122},"tortilla-clasica-con-cebolla","classic-spanish-omelette-with-onion","klassische-spanische-tortilla-mit-zwiebel",{"es":1124,"en":1125,"de":1126},"Tortilla Clásica con Cebolla","Classic Spanish Omelette with Onion","Klassische Spanische Tortilla mit Zwiebel",{"es":1128,"en":1129,"de":1130},"La versión más popular de la tortilla española: patata, huevo, aceite y cebolla pochada lentamente para aportar dulzor y jugosidad.","The most popular version of Spanish tortilla: potatoes, eggs, olive oil and slowly cooked onion for sweetness and extra moisture.","Die beliebteste Version der spanischen Tortilla: Kartoffeln, Eier, Olivenöl und langsam geschmorte Zwiebeln.",[1132,1133,892,893,1134,895,1039,1135,1040],"faction:concebollistas","faction:cebollistas","ingredient:onion","technique:slow_onion",45,"/images/concebolla.jpg",30,[1140,1146,1149,1160,1164],{"id":908,"ingredientId":908,"name":1141,"amount":1046,"unit":914,"notes":1142},{"es":910,"en":911,"de":912},{"es":1143,"en":1144,"de":1145},"Patata cortada en láminas finas","Thinly sliced potatoes","Dünn geschnittene Kartoffeln",{"id":920,"ingredientId":920,"name":1147,"amount":1053,"unit":924,"notes":1148},{"es":922,"en":249,"de":923},{"es":1055,"en":1056,"de":1057},{"id":1150,"ingredientId":1150,"name":1151,"amount":1155,"unit":914,"notes":1156},"onion",{"es":1152,"en":1153,"de":1154},"Cebolla","Onion","Zwiebel",200,{"es":1157,"en":1158,"de":1159},"Cebolla pochada lentamente hasta caramelizar ligeramente","Slowly cooked onion until soft and sweet","Langsam geschmorte Zwiebeln",{"id":941,"ingredientId":941,"name":1161,"amount":1162,"unit":947,"notes":1163},{"es":943,"en":944,"de":945},160,{"es":1061,"en":1062,"de":1063},{"id":953,"ingredientId":953,"name":1165,"amount":1053,"unit":914,"notes":1166},{"es":955,"en":956,"de":957},{"es":960,"en":961,"de":962},[1168,1177,1186,1192],{"step":1169,"text":1173},{"es":1170,"en":1171,"de":1172},"Preparar patata y cebolla","Prepare potatoes and onion","Kartoffeln und Zwiebeln vorbereiten",{"es":1174,"en":1175,"de":1176},"Cortar las patatas en láminas finas y la cebolla en juliana.","Slice the potatoes thinly and cut the onion into strips.","Kartoffeln in dünne Scheiben und Zwiebeln in Streifen schneiden.",{"step":1178,"text":1182},{"es":1179,"en":1180,"de":1181},"Pochar la mezcla","Slow-cook the mixture","Mischung langsam garen",{"es":1183,"en":1184,"de":1185},"Cocinar patata y cebolla juntas en aceite de oliva hasta que estén tiernas y melosas.","Cook potatoes and onion together in olive oil until tender and soft.","Kartoffeln und Zwiebeln zusammen in Olivenöl weich und cremig garen.",{"step":1187,"text":1188},{"es":984,"en":985,"de":986},{"es":1189,"en":1190,"de":1191},"Escurrir la mezcla y unirla con los huevos batidos con sal.","Drain the mixture and combine with beaten salted eggs.","Die Mischung abtropfen lassen und mit gesalzenen geschlagenen Eiern vermengen.",{"step":1193,"text":1197},{"es":1194,"en":1195,"de":1196},"Cuajar","Cook","Braten",{"es":1198,"en":1199,"de":1200},"Cuajar en sartén a fuego medio, buscando un interior jugoso.","Cook over medium heat while keeping the center moist.","Bei mittlerer Hitze braten und die Mitte saftig halten.",[1202],{"type":1011,"name":1203,"description":1204},"Tradición Concebollista Española",{"es":1205,"en":1206,"de":1207},"La fórmula popular más extendida en la gastronomía española con cebolla caramelizada.","The most widespread popular formula in Spanish gastronomy with caramelized onions.","Die am weitesten verbreitete populäre Formel in der gastronomischen Tradition mit karamellisierten Zwiebeln.",{"type":1018,"name":1019},"src/content/recipes/concebolla.json","9abc88a74ed1cbc1","express",{"id":1211,"data":1213,"filePath":1319,"digest":1320},{"id":1214,"slug":1215,"title":1219,"description":1223,"taxonomyIds":1227,"time":903,"image":1233,"prepTimeMinutes":338,"cookTimeMinutes":338,"yieldServings":905,"ingredients":1234,"instructions":1264,"sources":1310,"author":1318},"express-chips",{"es":1216,"en":1217,"de":1218},"tortilla-express-patatas-chips","express-potato-chip-omelette","express-kartoffelchips-tortilla",{"es":1220,"en":1221,"de":1222},"Tortilla Express de Patatas Chips","Express Potato Chip Spanish Omelette","Express-Kartoffelchips-Tortilla",{"es":1224,"en":1225,"de":1226},"Una versión revolucionaria y rápida de la tortilla española utilizando patatas chips como sustituto de la patata tradicional.","A revolutionary quick version of Spanish tortilla using potato chips instead of fresh potatoes.","Eine schnelle moderne Variante der spanischen Tortilla mit Kartoffelchips statt frischer Kartoffeln.",[1228,1229,1230,893,895,1231,1232,1040],"faction:con-cosas","faction:modernistas","ingredient:potato-chips","technique:hydration","technique:no_frying","/images/chips.jpg",[1235,1245,1248,1258],{"id":1236,"ingredientId":1236,"name":1237,"amount":946,"unit":914,"notes":1241},"potato-chips",{"es":1238,"en":1239,"de":1240},"Patatas Chips","Potato Chips","Kartoffelchips",{"es":1242,"en":1243,"de":1244},"Patatas chips como sustituto de la patata tradicional","Potato chips replacing fresh potatoes","Kartoffelchips als Ersatz für frische Kartoffeln",{"id":920,"ingredientId":920,"name":1246,"amount":1053,"unit":924,"notes":1247},{"es":922,"en":249,"de":923},{"es":1055,"en":1056,"de":1057},{"id":941,"ingredientId":941,"name":1249,"amount":1253,"unit":947,"notes":1254},{"es":1250,"en":1251,"de":1252},"Aceite de Oliva","Olive Oil","Olivenöl",20,{"es":1255,"en":1256,"de":1257},"Solo para cuajar la tortilla","Only for cooking the tortilla","Nur zum Ausbacken",{"id":953,"ingredientId":953,"name":1259,"amount":935,"unit":914,"notes":1260},{"es":955,"en":956,"de":957},{"es":1261,"en":1262,"de":1263},"Normalmente las chips ya aportan sal","Chips usually already contain salt","Chips enthalten normalerweise bereits Salz",[1265,1274,1283,1292,1301],{"step":1266,"text":1270},{"es":1267,"en":1268,"de":1269},"Preparar las chips","Prepare the chips","Chips vorbereiten",{"es":1271,"en":1272,"de":1273},"Romper ligeramente las patatas chips con las manos, manteniendo algunos trozos grandes.","Break the potato chips slightly by hand, keeping some larger pieces.","Kartoffelchips leicht zerbrechen und einige größere Stücke erhalten.",{"step":1275,"text":1279},{"es":1276,"en":1277,"de":1278},"Batir los huevos","Beat the eggs","Eier schlagen",{"es":1280,"en":1281,"de":1282},"Batir los huevos. Añadir poca sal o ninguna, dependiendo del punto de sal de las chips.","Beat the eggs. Add little or no salt depending on the chips seasoning.","Eier schlagen. Wenig oder kein Salz hinzufügen.",{"step":1284,"text":1288},{"es":1285,"en":1286,"de":1287},"Hidratar las patatas","Hydrate the chips","Chips einweichen",{"es":1289,"en":1290,"de":1291},"Mezclar las chips con el huevo y dejar reposar unos minutos para que recuperen humedad.","Mix chips with eggs and rest for a few minutes to absorb moisture.","Chips mit Ei vermischen und einige Minuten ruhen lassen.",{"step":1293,"text":1297},{"es":1294,"en":1295,"de":1296},"Cuajar rápidamente","Cook quickly","Schnell braten",{"es":1298,"en":1299,"de":1300},"Cocinar en sartén antiadherente con unas gotas de aceite hasta que ambos lados estén dorados.","Cook in a non-stick pan with a few drops of oil until both sides are golden.","In einer beschichteten Pfanne mit etwas Öl goldbraun braten.",{"step":1302,"text":1306},{"es":1303,"en":1304,"de":1305},"Servir","Serve","Servieren",{"es":1307,"en":1308,"de":1309},"Dejar reposar un minuto antes de cortar para que la textura se estabilice.","Rest for one minute before cutting to stabilize the texture.","Eine Minute ruhen lassen.",[1311],{"type":1312,"name":1313,"author":1313,"description":1314},"chef","Ferran Adrià",{"es":1315,"en":1316,"de":1317},"Interpretación moderna de la tortilla española con patatas chips.","Modern interpretation of Spanish tortilla using potato chips.","Moderne Interpretation der spanischen Tortilla mit Kartoffelchips.",{"type":1018,"name":1019},"src/content/recipes/express.json","9d1c556b6b75baf1","paisana",{"id":1321,"data":1323,"filePath":1436,"digest":1437},{"id":1321,"slug":1324,"title":1328,"description":1332,"taxonomyIds":1336,"time":1343,"image":1344,"prepTimeMinutes":1253,"cookTimeMinutes":1138,"yieldServings":905,"ingredients":1345,"instructions":1389,"sources":1428,"author":1435},{"es":1325,"en":1326,"de":1327},"tortilla-paisana","paisana-spanish-omelette","paisana-tortilla",{"es":1329,"en":1330,"de":1331},"Tortilla Paisana","Paisana Spanish Omelette","Paisana Tortilla",{"es":1333,"en":1334,"de":1335},"Una variante tradicional de la tortilla española con patata, cebolla y verduras como pimiento, con un perfil más campesino y sabroso.","A traditional variation of Spanish tortilla with potatoes, onion and vegetables, with a rustic and flavorful profile.","Eine traditionelle Variante der spanischen Tortilla mit Kartoffeln, Zwiebeln und Gemüse.",[1337,1228,1338,892,893,1134,1339,1340,1341,1039,1342,900],"faction:pimientistas","faction:vegetarianos","ingredient:pepper","style:rustic","style:vegetable_rich","technique:sofrito",50,"/images/paisana.jpg",[1346,1352,1355,1361,1373,1383,1386],{"id":908,"ingredientId":908,"name":1347,"amount":913,"unit":914,"notes":1348},{"es":910,"en":911,"de":912},{"es":1349,"en":1350,"de":1351},"4 patatas medianas","4 medium potatoes","4 mittelgroße Kartoffeln",{"id":920,"ingredientId":920,"name":1353,"amount":1053,"unit":924,"notes":1354},{"es":922,"en":249,"de":923},{"es":1055,"en":1056,"de":1057},{"id":1150,"ingredientId":1150,"name":1356,"amount":946,"unit":914,"notes":1357},{"es":1152,"en":1153,"de":1154},{"es":1358,"en":1359,"de":1360},"1 cebolla","1 onion","1 Zwiebel",{"id":1362,"ingredientId":1363,"name":1364,"amount":1368,"unit":914,"notes":1369},"green-pepper","pepper",{"es":1365,"en":1366,"de":1367},"Pimiento Verde","Green Pepper","Grüne Paprika",100,{"es":1370,"en":1371,"de":1372},"1 pimiento verde","1 green pepper","1 grüne Paprika",{"id":1374,"ingredientId":1363,"name":1375,"amount":1368,"unit":914,"notes":1379},"red-pepper",{"es":1376,"en":1377,"de":1378},"Pimiento Rojo","Red Pepper","Rote Paprika",{"es":1380,"en":1381,"de":1382},"1 pimiento rojo","1 red pepper","1 rote Paprika",{"id":941,"ingredientId":941,"name":1384,"amount":946,"unit":947,"notes":1385},{"es":943,"en":944,"de":945},{"es":1061,"en":1062,"de":1063},{"id":953,"ingredientId":953,"name":1387,"amount":1053,"unit":914,"notes":1388},{"es":955,"en":956,"de":957},{"es":955,"en":956,"de":957},[1390,1399,1408,1417,1422],{"step":1391,"text":1395},{"es":1392,"en":1393,"de":1394},"Preparar las verduras","Prepare the vegetables","Gemüse vorbereiten",{"es":1396,"en":1397,"de":1398},"Pelar las patatas y cortarlas en láminas. Cortar cebolla y pimientos en trozos pequeños.","Peel and slice the potatoes. Cut onion and peppers into small pieces.","Kartoffeln schälen und schneiden. Zwiebeln und Paprika klein schneiden.",{"step":1400,"text":1404},{"es":1401,"en":1402,"de":1403},"Pochar la huerta","Cook the vegetables","Gemüse langsam garen",{"es":1405,"en":1406,"de":1407},"Cocinar cebolla y pimientos en aceite de oliva hasta que estén tiernos. Añadir la patata y cocinar lentamente.","Cook onion and peppers in olive oil until soft. Add potatoes and continue cooking slowly.","Zwiebeln und Paprika in Olivenöl weich garen. Kartoffeln hinzufügen und langsam weiterkochen.",{"step":1409,"text":1413},{"es":1410,"en":1411,"de":1412},"Escurrir y mezclar","Drain and combine","Abtropfen und vermischen",{"es":1414,"en":1415,"de":1416},"Escurrir las verduras y mezclarlas con los huevos batidos y sal.","Drain the vegetables and combine with beaten eggs and salt.","Gemüse abtropfen lassen und mit geschlagenen Eiern und Salz vermischen.",{"step":1418,"text":1420},{"es":1419,"en":994,"de":995},"Reposar",{"es":1096,"en":1097,"de":1421},"Einige Minuten ruhen lassen.",{"step":1423,"text":1424},{"es":1002,"en":1003,"de":1004},{"es":1425,"en":1426,"de":1427},"Cocinar en sartén a fuego medio hasta conseguir una tortilla jugosa pero más compacta que la clásica.","Cook over medium heat until obtaining a moist but firmer omelette than the classic version.","Bei mittlerer Hitze braten, bis eine saftige aber festere Tortilla entsteht.",[1429],{"type":1011,"name":1430,"description":1431},"Tradición Paisana del Norte",{"es":1432,"en":1433,"de":1434},"Receta campestre norteña enriquecida con pimientos de la huerta.","Northern countryside recipe enriched with garden peppers.","Ländliches Rezept aus dem Norden, angereichert mit Paprika aus dem Garten.",{"type":1018,"name":1019},"src/content/recipes/paisana.json","bbd1ffb831c3f256","settings",["Map",1440,1441],"site",{"id":1440,"data":1442,"filePath":1454,"digest":1455},{"id":1443,"name":1019,"domain":1019,"appUrl":1444,"supportedLanguages":1445,"defaultLanguage":1446,"safetyStandard":1449},"site-settings","https://tortilladepatatas.de",[1446,1447,1448],"es","en","de",{"bactericidalTemp":1450,"mediumTemp":1451,"ambientLimit":1452,"refrigerationTemp":1453},"70°C for 2 minutes","63°C for 20 seconds","4 hours","8°C","src/content/settings/site.json","30d637f92a366348","taxonomies",["Map",1458,1459,1476,1477,1493,1494,1529,1530,1564,1565,1601,1602,1637,1638,1675,1676,1692,1693,1708,1709,1723,1724,1736,1737,1749,1750,1763,1764,1779,1780,1795,1796,1811,1812,1826,1827,1841,1842,1862,1863,1880,1881,1898,1899,1916,1917],"difficulties-easy",{"id":1458,"data":1460,"filePath":1474,"digest":1475},{"id":1461,"type":1462,"slug":1463,"title":1466,"description":1470,"icon":632},"easy","difficulty",{"es":1464,"en":1461,"de":1465},"facil","einfach",{"es":1467,"en":1468,"de":1469},"Fácil","Easy","Einfach",{"es":1471,"en":1472,"de":1473},"Dificultad accesible para principiantes en cocina casera.","Accessible difficulty for home cooking beginners.","Einfache Schwierigkeitsstufe für Anfänger.","src/content/taxonomies/difficulties/easy.json","61b89d238693ad59","difficulties-medium",{"id":1476,"data":1478,"filePath":1491,"digest":1492},{"id":1479,"type":1462,"slug":1480,"title":1483,"description":1487,"icon":260},"medium",{"es":1481,"en":1479,"de":1482},"media","mittel",{"es":1484,"en":1485,"de":1486},"Intermedia","Medium","Mittel",{"es":1488,"en":1489,"de":1490},"Requiere destreza controlando la temperatura del aceite y la técnica de volteo con plato.","Requires skill controlling oil temperature and plate-flipping technique.","Erfordert Geschick bei der Öl-Temperatur und beim Wenden mit dem Teller.","src/content/taxonomies/difficulties/medium.json","23d8bad3d0c743b4","factions-ajistas",{"id":1493,"data":1495,"filePath":1527,"digest":1528},{"id":1496,"type":1497,"slug":1498,"title":1501,"description":1505,"image":1509,"icon":632,"theme":1510,"dogma":1512,"badge":1516,"keyIngredient":1520,"prominentFigures":1524},"ajistas","faction",{"es":1496,"en":1499,"de":1500},"garlic-cult","knoblauch-kult",{"es":1502,"en":1503,"de":1504},"Los Ajistas","The Ajistas","Der Knoblauch-Kult",{"es":1506,"en":1507,"de":1508},"El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.","The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.","Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe.","/images/factions/faction-garlic.jpg",{"color":1511},"charcoal",{"es":1513,"en":1514,"de":1515},"Aromatizar el aceite sin sobrecargar de azúcar la mezcla.","Infuse the frying oil with garlic without overloading sweetness.","Knoblauch als unsichtbare aromatische Basis im Olivenöl.",{"es":1517,"en":1518,"de":1519},"Técnicos y Secretos","Technical & Secret","Technisch & Geheim",{"es":1521,"en":1522,"de":1523},"Ajo frito aromatizante","Aromatic Garlic","Aromatischer Knoblauch",[1525,1526],"Ángel León (Aponiente)","Óscar Vidal (O'Pazo)","src/content/taxonomies/factions/ajistas.json","a6ece5f9d74cc638","factions-con-cosas",{"id":1529,"data":1531,"filePath":1562,"digest":1563},{"id":1532,"type":1497,"slug":1533,"title":1536,"description":1540,"image":1544,"icon":260,"theme":1545,"dogma":1547,"badge":1551,"keyIngredient":1555,"prominentFigures":1559},"con-cosas",{"es":1532,"en":1534,"de":1535},"modernists","experimente",{"es":1537,"en":1538,"de":1539},"Los 'Con Cosas'","The 'Con Cosas'","Die 'Con Cosas' Experimente",{"es":1541,"en":1542,"de":1543},"Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.","From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.","Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten.","/images/factions/faction-cosas.jpg",{"color":1546},"cream",{"es":1548,"en":1549,"de":1550},"La tortilla como un lienzo abierto a la creatividad y expresión regional.","The omelette as an open canvas for regional creativity and modernist innovation.","Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze.",{"es":1552,"en":1553,"de":1554},"Innovadores & Vanguardia","Innovators & Modernists","Innovatoren & Avantgarde",{"es":1556,"en":1557,"de":1558},"Queso, trufa, chistorra, chips de bolsa","Cheese, truffle, chistorra, potato chips","Käse, Trüffel, Chorizo, Kartoffelchips",[1313,1560,1561],"Pez Tortilla","José Antonio Labordeta","src/content/taxonomies/factions/con-cosas.json","d8c79e52fd029e47","factions-concebollistas",{"id":1564,"data":1566,"filePath":1599,"digest":1600},{"id":1567,"type":1497,"slug":1568,"title":1571,"description":1575,"image":1579,"icon":1580,"theme":1581,"dogma":1583,"badge":1587,"keyIngredient":1591,"prominentFigures":1595},"concebollistas",{"es":1567,"en":1569,"de":1570},"onion-lovers","zwiebelliebhaber",{"es":1572,"en":1573,"de":1574},"Los Concebollistas","The Onion Lovers","Die Zwiebel-Liebhaber",{"es":1576,"en":1577,"de":1578},"Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.","Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.","Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie.","/images/factions/faction-onion.jpg","Heart",{"color":1582},"tortillaGold",{"es":1584,"en":1585,"de":1586},"La cebolla pochada aporta la jugosidad y el dulzor esenciales.","Slow-poached onions provide essential juiciness and sweetness.","Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht.",{"es":1588,"en":1589,"de":1590},"Tradicionalistas Populares","Popular Traditionalists","Beliebte Traditionalisten",{"es":1592,"en":1593,"de":1594},"Cebolla Caramelizada","Caramelized Onion","Karamellisierte Zwiebel",[1596,1597,1598],"Karlos Arguiñano","José Andrés","Rosalía","src/content/taxonomies/factions/concebollistas.json","bc1814a24759a2fe","factions-pimientistas",{"id":1601,"data":1603,"filePath":1635,"digest":1636},{"id":1604,"type":1497,"slug":1605,"title":1608,"description":1612,"image":1616,"icon":1617,"theme":1618,"dogma":1620,"badge":1624,"keyIngredient":1628,"prominentFigures":1632},"pimientistas",{"es":1604,"en":1606,"de":1607},"pepper-lovers","paprika-fraktion",{"es":1609,"en":1610,"de":1611},"Los Pimientistas","The Pimientistas","Die Paprika-Fraktion",{"es":1613,"en":1614,"de":1615},"Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.","Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.","Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens.","/images/factions/faction-pimientos.jpg","Sprout",{"color":1619},"olive",{"es":1621,"en":1622,"de":1623},"El toque fresco y ahumado de la huerta campera.","A fresh and smoky touch straight from the countryside.","Das rustikale Power-Omelett mit der Frische des Gemüsegartens.",{"es":1625,"en":1626,"de":1627},"Rurales y Regionales","Rural & Regional","Ländlich & Regional",{"es":1629,"en":1630,"de":1631},"Pimiento verde o rojo & Verduras","Green or Red Pepper & Veggies","Paprika & Gemüse",[1633,1634],"Bar Néstor (San Sebastián)","Recetario Campero","src/content/taxonomies/factions/pimientistas.json","0ff21197760cd516","factions-puristas",{"id":1637,"data":1639,"filePath":1673,"digest":1674},{"id":1640,"type":1497,"slug":1641,"title":1644,"description":1648,"image":1652,"icon":1653,"theme":1654,"dogma":1656,"badge":1660,"keyIngredient":1663,"prominentFigures":1667},"puristas",{"es":1640,"en":1642,"de":1643},"purists","puristen",{"es":1645,"en":1646,"de":1647},"Los Puristas","The Purists","Die Puristen",{"es":1649,"en":1650,"de":1651},"Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.","They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.","Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern.","/images/factions/faction-purist.jpg","Shield",{"color":1655},"terracotta",{"es":1657,"en":1658,"de":1659},"Solo patata, huevo, aceite de oliva y sal.","Only potato, egg, olive oil, and salt.","Nur Kartoffel, Ei, Olivenöl und Salz.",{"es":1661,"en":1662,"de":1662},"Ortodoxos (Betanzos)","Orthodox (Betanzos)",{"es":1664,"en":1665,"de":1666},"Sin añadidos (0% Cebolla)","No additives (0% Onion)","Ohne Zusätze (0% Zwiebel)",[1668,1669,1670,1671,1672],"Señora Angelita (Betanzos)","Pepa Miranda","Dabiz Muñoz","Dani García","La Falda de Chamberí","src/content/taxonomies/factions/puristas.json","ba5de269586acbc8","ingredients-egg",{"id":1675,"data":1677,"filePath":1690,"digest":1691},{"id":920,"type":1678,"slug":1679,"title":1682,"description":1686,"icon":249},"ingredient",{"es":1680,"en":920,"de":1681},"huevo","ei",{"es":1683,"en":1684,"de":1685},"Huevo Fresco","Fresh Egg","Frisches Ei",{"es":1687,"en":1688,"de":1689},"El nexo de unión. Huevos camperos de gallina criada en libertad garantizan un color dorado intenso y máxima untuosidad.","The emulsifying nexus. Free-range eggs ensure rich golden color and creamy emulsion.","Eier aus Freilandhaltung garantieren eine goldene Farbe und maximale Sämigkeit.","src/content/taxonomies/ingredients/egg.json","708b1d642bb723a1","ingredients-garlic",{"id":1692,"data":1694,"filePath":1706,"digest":1707},{"id":1695,"type":1678,"slug":1696,"title":1699,"description":1702,"icon":632},"garlic",{"es":1697,"en":1695,"de":1698},"ajo","knoblauch",{"es":1700,"en":1701,"de":1523},"Ajo Aromatizante","Garlic Infusion",{"es":1703,"en":1704,"de":1705},"Diente de ajo frito brevemente en el aceite para infundir un perfume sutil sin amargar.","Garlic clove briefly fried in oil to infuse a subtle background perfume.","Kurz im Öl angebratene Knoblauchzehe für ein feines Aroma im Hintergrund.","src/content/taxonomies/ingredients/garlic.json","336ee014b0d163d4","ingredients-oil",{"id":1708,"data":1710,"filePath":1721,"digest":1722},{"id":941,"type":1678,"slug":1711,"title":1715,"description":1716,"icon":1720},{"es":1712,"en":1713,"de":1714},"aceite-de-oliva","olive-oil","olivenoel",{"es":943,"en":944,"de":945},{"es":1717,"en":1718,"de":1719},"Medio de transmisión térmica y sabor. El AOVE infunde aromas frutales y garantiza una fritura limpia y saludable.","Thermal transmission medium. EVOO infuses fruity aromas and clean frying properties.","Natives Olivenöl Extra verleiht fruchtige Aromen und sorgt für sauberes Frittieren.","Droplet","src/content/taxonomies/ingredients/oil.json","2fba72a366389801","ingredients-onion",{"id":1723,"data":1725,"filePath":1734,"digest":1735},{"id":1150,"type":1678,"slug":1726,"title":1729,"description":1730,"icon":260},{"es":1727,"en":1150,"de":1728},"cebolla","zwiebel",{"es":1152,"en":1153,"de":1154},{"es":1731,"en":1732,"de":1733},"Eje del gran debate nacional. Pochada a fuego lento, aporta dulzor natural y melosidad incomparable.","Center of Spain's culinary debate. Poached slowly, it adds natural sweetness and rich texture.","Hauptthema des kulinarischen Debatte. Langsam gedünstet verleiht sie natürliche Süße und Saftigkeit.","src/content/taxonomies/ingredients/onion.json","387538c850912374","ingredients-pepper",{"id":1736,"data":1738,"filePath":1747,"digest":1748},{"id":1363,"type":1678,"slug":1739,"title":1742,"description":1743,"icon":1617},{"es":1740,"en":1363,"de":1741},"pimiento","paprika",{"es":1365,"en":1366,"de":1367},{"es":1744,"en":1745,"de":1746},"Aporte aromático campero característico de la tortilla paisana y vasca.","Aromatic pepper addition characteristic of northern country-style omelettes.","Aromatischer Paprika-Anteil, charakteristisch für nordspanische Land-Tortillas.","src/content/taxonomies/ingredients/pepper.json","e22304ef0be49913","ingredients-potato",{"id":1749,"data":1751,"filePath":1761,"digest":1762},{"id":908,"type":1678,"slug":1752,"title":1755,"description":1756,"icon":1760},{"es":1753,"en":908,"de":1754},"patata","kartoffel",{"es":910,"en":911,"de":912},{"es":1757,"en":1758,"de":1759},"La base fundamental de la tortilla. Variedades como Monalisa, Kennebec o Agria ofrecen el equilibrio perfecto de almidón y textura.","The structural base of the Spanish omelette. Varieties like Monalisa or Kennebec yield the best confit texture.","Die Grundlage der Tortilla. Sorten wie Monalisa oder Kennebec eignen sich am besten zum Confitieren.","CookingPot","src/content/taxonomies/ingredients/potato.json","9ae83c668260c584","people-barat",{"id":1763,"data":1765,"filePath":1777,"digest":1778},{"id":1766,"type":1767,"slug":1768,"title":1770,"description":1772,"badge":1776},"barat","person",{"es":1769,"en":1769,"de":1769},"jose-manuel-barat",{"es":1771,"en":1771,"de":1771},"José Manuel Barat Baviera",{"es":1773,"en":1774,"de":1775},"Catedrático de la Universitat Politècnica de València especializado en la formalización científica de procesos culinarios.","Professor at Universitat Politècnica de València specializing in scientific formalization of culinary processes.","Professor an der Universitat Politècnica de València mit Spezialisierung auf die wissenschaftliche Erfassung kulinarischer Prozesse.",{"es":66,"en":67,"de":68},"src/content/taxonomies/people/barat.json","cd05e48a348b6f55","people-jose-andres",{"id":1779,"data":1781,"filePath":1793,"digest":1794},{"id":1782,"type":1767,"slug":1783,"title":1784,"description":1785,"badge":1789},"jose-andres",{"es":1782,"en":1782,"de":1782},{"es":1597,"en":1597,"de":1597},{"es":1786,"en":1787,"de":1788},"Chef español reconocido internacionalmente que ha popularizado la tortilla en todo el mundo.","Internationally renowned Spanish chef who popularized the Spanish omelette worldwide.","Weltberühmter spanischer Koch, der die Tortilla weltweit bekannt machte.",{"es":1790,"en":1791,"de":1792},"Divulgación","Outreach","Kommunikation","src/content/taxonomies/people/jose-andres.json","ab8bcace7fa81135","people-pepa-miranda",{"id":1795,"data":1797,"filePath":1809,"digest":1810},{"id":1798,"type":1767,"slug":1799,"title":1800,"description":1802,"badge":1806},"pepa-miranda",{"es":1798,"en":1798,"de":1798},{"es":1801,"en":1801,"de":1801},"Pepa Miranda (Casa Dani)",{"es":1803,"en":1804,"de":1805},"Referente de la tortilla de estilo tradicional en Madrid con jugosidad extrema.","Reference for traditional style Spanish omelette in Madrid with extreme juiciness.","Referenz für die traditionelle spanische Tortilla in Madrid mit extremer Saftigkeit.",{"es":1807,"en":1808,"de":1808},"Tradición","Tradition","src/content/taxonomies/people/pepa-miranda.json","db904c2d1c566d7a","regions-betanzos",{"id":1811,"data":1813,"filePath":1824,"digest":1825},{"id":875,"type":1814,"slug":1815,"title":1816,"description":1820,"icon":1653},"region",{"es":875,"en":875,"de":875},{"es":1817,"en":1818,"de":1819},"Betanzos (A Coruña)","Betanzos (Galicia)","Betanzos (Galicien)",{"es":1821,"en":1822,"de":1823},"Meca gallega del cuajado ultra-líquido y dorado, célebre en toda España por sus mesones históricos.","Galician capital of runny, golden omelettes made famous by historical taverns.","Galicische Hauptstadt der flüssigen goldenen Tortilla, berühmt für ihre historischen Tavernen.","src/content/taxonomies/regions/betanzos.json","ceeb687be9a28eb8","regions-donostia",{"id":1826,"data":1828,"filePath":1839,"digest":1840},{"id":1829,"type":1814,"slug":1830,"title":1831,"description":1835,"icon":1617},"donostia",{"es":1829,"en":1829,"de":1829},{"es":1832,"en":1833,"de":1834},"Donostia - San Sebastián","San Sebastián (Basque Country)","San Sebastián (Baskenland)",{"es":1836,"en":1837,"de":1838},"Cuna del Bar Néstor y las famosas tortillas camperas y paisanas de la Parte Vieja.","Home of Bar Néstor and famous rustic pintxos omelettes in the Old Town.","Heimat der Bar Néstor und berühmter rustikaler Pintxo-Tortillas.","src/content/taxonomies/regions/donostia.json","fd723ea5187736bb","styles-betanzos",{"id":1841,"data":1843,"filePath":1860,"digest":1861},{"id":875,"type":1844,"slug":1845,"title":1849,"description":1852,"badge":1856},"style",{"es":1846,"en":1847,"de":1848},"estilo-betanzos","betanzos-style","betanzos-stil",{"es":816,"en":1850,"de":1851},"Betanzos Style","Betanzos-Stil",{"es":1853,"en":1854,"de":1855},"Famosa por su interior muy líquido, huevo casi sin cuajar y patatas muy crujientes fritas a alta temperatura.","Famous for its very liquid center, barely cooked egg, and high-temperature crispy potatoes.","Berühmt für ihren sehr flüssigen Kern, kaum stockendes Ei und krosse Kartoffeln.",{"es":1857,"en":1858,"de":1859},"Jugosa","Runny","Saftig","src/content/taxonomies/styles/betanzos.json","7369aa701e1734e4","styles-clasica",{"id":1862,"data":1864,"filePath":1878,"digest":1879},{"id":1022,"type":1844,"slug":1865,"title":1868,"description":1872,"badge":1876},{"es":1022,"en":1866,"de":1867},"classic","klassisch",{"es":1869,"en":1870,"de":1871},"Estilo Clásico","Classic Style","Klassischer Stil",{"es":1873,"en":1874,"de":1875},"La fórmula tradicional equilibrada de patata pochada, huevo cremoso y exterior sellado.","The traditional balanced formula of poached potato, creamy egg, and sealed crust.","Die klassisch ausgewogene Formel aus confitierter Kartoffel und cremigem Ei.",{"es":1877,"en":713,"de":714},"Tradicional","src/content/taxonomies/styles/clasica.json","3551651df0c81ad8","techniques-deconstruction",{"id":1880,"data":1882,"filePath":1896,"digest":1897},{"id":1883,"type":1884,"slug":1885,"title":1888,"description":1892,"icon":632},"deconstruction","technique",{"es":1886,"en":1883,"de":1887},"deconstruccion","dekonstruktion",{"es":1889,"en":1890,"de":1891},"Deconstrucción y Vanguardia","Modernist Deconstruction","Dekonstruktion & Avantgarde",{"es":1893,"en":1894,"de":1895},"Técnica iniciada por Ferran Adrià utilizando sifones, emulsiones o ingredientes precocinados de alta calidad.","Pioneered by Ferran Adrià using siphons, emulsions, or pre-cooked ingredients.","Von Ferran Adrià entwickelte Technik mit Siphons, Emulsionen oder Spezialzutaten.","src/content/taxonomies/techniques/deconstruction.json","2b08e81b3f0d651e","techniques-frying",{"id":1898,"data":1900,"filePath":1914,"digest":1915},{"id":1901,"type":1884,"slug":1902,"title":1906,"description":1910,"icon":260},"frying",{"es":1903,"en":1904,"de":1905},"fritura-crujiente","crispy-frying","knusprig-frittieren",{"es":1907,"en":1908,"de":1909},"Fritura Crujiente","Crispy Frying","Knusprige Fritüre",{"es":1911,"en":1912,"de":1913},"Fritura rápida de láminas muy finas de patata para lograr bordes dorados y crujientes típicos de Betanzos.","Rapid frying of wafer-thin potato slices to create crispy golden edges typical of Betanzos.","Schnelles Frittieren hauchdünner Kartoffelscheiben für knusprige Ränder nach Betanzos-Art.","src/content/taxonomies/techniques/frying.json","90d76812b8a5630f","techniques-slow-cooking",{"id":1916,"data":1918,"filePath":1932,"digest":1933},{"id":1919,"type":1884,"slug":1920,"title":1924,"description":1928,"icon":260},"slow-cooking",{"es":1921,"en":1922,"de":1923},"confitado","slow-poaching","langsam-pochieren",{"es":1925,"en":1926,"de":1927},"Confitado a Fuego Lento","Slow Poaching (Confit)","Sanftes Poachieren",{"es":1929,"en":1930,"de":1931},"Cocinado de la patata a baja/media temperatura (130-140°C) para lograr una textura mantequillosa sin quemar los azúcares.","Poaching potatoes at low-to-medium heat (130-140°C) to achieve buttery texture.","Garen der Kartoffeln bei niedriger bis mittlerer Temperatur für eine butterweiche Textur.","src/content/taxonomies/techniques/slow-cooking.json","1a6dfffb5e54e7e6"]
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["src/**/*", ".astro/types.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
 ````
 
 ## File: src/components/factions/FactionsPage.tsx
@@ -18409,356 +21346,26 @@ export const personasData: Record<string, PersonasPageContent> = {
 };
 ````
 
-## File: src/layouts/BaseLayout.astro
-````astro
----
-import '@/index.css';
-import Header from '@/components/layout/Header.tsx';
-import Footer from '@/components/layout/Footer.tsx';
-import { getCanonicalUrl, getHreflangs } from '@/lib/seo';
-
-interface Props {
-  title?: string;
-  description?: string;
-  lang?: string;
-  image?: string;
-  type?: string;
-  schema?: Record<string, any> | Array<Record<string, any>>;
-  showHeader?: boolean;
-  showFooter?: boolean;
-}
-
-const {
-  title = "Tortilla de Patatas - Guía Culinaria & Calculadora Científica",
-  description = "Portal internacional sobre la tortilla de patatas: recetas tradicionales (Betanzos, con cebolla), proporciones calculadas, historia y parámetros de seguridad alimentaria bactericida.",
-  lang = "es",
-  image = "/images/clasica.jpg",
-  type = "website",
-  schema,
-  showHeader = true,
-  showFooter = true,
-} = Astro.props;
-
-const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
-const hreflangs = getHreflangs(Astro.url.pathname);
-const siteName = "tortilladepatatas.org";
-const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.org${image}`;
----
-
-<!doctype html>
-<html lang={lang} class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#FFB800" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    
-    <!-- Title & SEO Meta -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content="tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, 70°C 2 minutos" />
-    <meta name="author" content="tortilladepatatas.org" />
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalUrl} />
-
-    <!-- Hreflang Multilingual Tags -->
-    {hreflangs.map((item) => (
-      <link rel="alternate" hreflang={item.lang} href={item.href} />
-    ))}
-
-    <!-- Open Graph Metadata -->
-    <meta property="og:site_name" content={siteName} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content={type} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={imageUrl} />
-    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : lang === 'de' ? 'de_DE' : 'en_US'} />
-
-    <!-- Twitter Card Metadata -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={imageUrl} />
-    
-    <!-- Design System Typography Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Google Consent Mode Default & gtag.js -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      // Default all tracking to 'denied'
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied'
-      });
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9L1DQMKPR"></script>
-    <script is:inline>
-      gtag('js', new Date());
-      gtag('config', 'G-J9L1DQMKPR');
-    </script>
-
-    <!-- Structured Data (JSON-LD) -->
-    {schema && (
-      <script
-        type="application/ld+json"
-        set:html={JSON.stringify(Array.isArray(schema) ? schema : [schema])}
-      />
-    )}
-    
-    <slot name="head" />
-  </head>
-  <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
-    {showHeader && (
-      <Header lang={lang} currentPath={Astro.url.pathname} client:load />
-    )}
-
-    <main id="main-content" class="flex-1 w-full">
-      <slot />
-    </main>
-
-    {showFooter && (
-      <Footer lang={lang} currentPath={Astro.url.pathname} client:load />
-    )}
-
-    <!-- Cookie Consent Banner -->
-    <div
-      id="cookie-banner"
-      style="
-        display: none;
-        position: fixed;
-        bottom: 16px;
-        right: 16px;
-        left: 16px;
-        max-width: 420px;
-        margin: 0 auto;
-        background: #292521;
-        color: #FFF7EA;
-        padding: 12px 16px;
-        border-radius: 10px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 184, 0, 0.25);
-        font-family: system-ui, -apple-system, sans-serif;
-        font-size: 13px;
-        z-index: 9999;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-      "
-    >
-      <span style="line-height: 1.3;">
-        {lang === 'es' ? 'Utilizamos cookies para analizar el tráfico.' : lang === 'de' ? 'Wir verwenden Cookies zur Analyse des Datenverkehrs.' : 'We use cookies to analyze traffic.'}
-      </span>
-      <div style="display: flex; gap: 8px; flex-shrink: 0;">
-        <button
-          id="btn-decline"
-          type="button"
-          style="
-            background: transparent;
-            color: #FFF7EA;
-            border: 1px solid rgba(255, 247, 234, 0.4);
-            padding: 5px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-          "
-        >
-          {lang === 'es' ? 'Rechazar' : lang === 'de' ? 'Ablehnen' : 'Decline'}
-        </button>
-        <button
-          id="btn-accept"
-          type="button"
-          style="
-            background: #FFB800;
-            color: #292521;
-            border: none;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-          "
-        >
-          {lang === 'es' ? 'Aceptar' : lang === 'de' ? 'Akzeptieren' : 'Accept'}
-        </button>
-      </div>
-    </div>
-
-    <script is:inline>
-      (function () {
-        const banner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('btn-accept');
-        const declineBtn = document.getElementById('btn-decline');
-
-        if (!banner || !acceptBtn || !declineBtn) return;
-
-        // Check if user has already made a choice
-        const userConsent = localStorage.getItem('cookie_consent');
-
-        if (!userConsent) {
-          // Show banner if no prior choice exists
-          banner.style.display = 'flex';
-        } else if (userConsent === 'granted') {
-          // Restore 'granted' consent state if previously accepted
-          gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-          });
-        }
-
-        // Accept action
-        acceptBtn.addEventListener('click', function () {
-          localStorage.setItem('cookie_consent', 'granted');
-          gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-          });
-          banner.style.display = 'none';
-        });
-
-        // Decline action
-        declineBtn.addEventListener('click', function () {
-          localStorage.setItem('cookie_consent', 'denied');
-          gtag('consent', 'update', {
-            'analytics_storage': 'denied'
-          });
-          banner.style.display = 'none';
-        });
-      })();
-    </script>
-  </body>
-</html>
-````
-
-## File: src/content.config.ts
+## File: src/domain/recipes/referenceRecipes.ts
 ````typescript
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import betanzos from "../../content/recipes/betanzos.json";
+import clasica from "../../content/recipes/clasica.json";
+import concebolla from "../../content/recipes/concebolla.json";
+import express from "../../content/recipes/express.json";
+import paisana from "../../content/recipes/paisana.json";
+import type { RawRecipeInput } from "../tortilla-dna/types";
 
-const localizedStringSchema = z.object({
-  es: z.string(),
-  en: z.string(),
-  de: z.string(),
-});
+export const REFERENCE_RECIPES: RawRecipeInput[] = [
+  betanzos as RawRecipeInput,
+  clasica as RawRecipeInput,
+  concebolla as RawRecipeInput,
+  paisana as RawRecipeInput,
+  express as RawRecipeInput,
+];
 
-const recipeIngredientSchema = z.object({
-  id: z.string(),
-  ingredientId: z.string(),
-  name: localizedStringSchema,
-  amount: z.number(),
-  unit: z.enum(['g', 'ml', 'unit']),
-  notes: localizedStringSchema.optional(),
-});
-
-const recipeSourceSchema = z.object({
-  type: z.enum(['chef', 'restaurant', 'book', 'website', 'traditional', 'community', 'user']),
-  name: z.string(),
-  author: z.string().optional(),
-  url: z.string().optional(),
-  description: localizedStringSchema.optional(),
-});
-
-const recipeAuthorSchema = z.object({
-  type: z.enum(['platform', 'user']),
-  userId: z.string().optional(),
-  name: z.string(),
-});
-
-const recipeCollection = defineCollection({
-  loader: glob({ 
-    pattern: '**/*.json', 
-    base: './src/content/recipes',
-    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
-  }),
-  schema: z.object({
-    id: z.string(),
-    slug: localizedStringSchema,
-    title: localizedStringSchema,
-    description: localizedStringSchema,
-    taxonomyIds: z.array(z.string()),
-    time: z.number(),
-    image: z.string().optional(),
-    prepTimeMinutes: z.number().optional(),
-    cookTimeMinutes: z.number().optional(),
-    yieldServings: z.number().optional(),
-    ingredients: z.array(recipeIngredientSchema).optional(),
-    instructions: z.array(z.object({
-      step: localizedStringSchema,
-      text: localizedStringSchema,
-    })).optional(),
-    sources: z.array(recipeSourceSchema).optional(),
-    author: recipeAuthorSchema.optional(),
-  }),
-});
-
-const taxonomyCollection = defineCollection({
-  loader: glob({ 
-    pattern: '**/*.json', 
-    base: './src/content/taxonomies',
-    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
-  }),
-  schema: z.object({
-    id: z.string(),
-    type: z.string(),
-    slug: localizedStringSchema,
-    title: localizedStringSchema,
-    description: localizedStringSchema,
-    image: z.string().optional(),
-    icon: z.string().optional(),
-    theme: z.object({
-      color: z.string().optional(),
-    }).optional(),
-    dogma: localizedStringSchema.optional(),
-    badge: localizedStringSchema.optional(),
-    keyIngredient: localizedStringSchema.optional(),
-    prominentFigures: z.array(z.string()).optional(),
-  }),
-});
-
-const pagesCollection = defineCollection({
-  loader: glob({ 
-    pattern: '**/*.json', 
-    base: './src/content/pages',
-    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
-  }),
-  schema: z.record(z.any()),
-});
-
-const navigationCollection = defineCollection({
-  loader: glob({ 
-    pattern: '**/*.json', 
-    base: './src/content/navigation',
-    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
-  }),
-  schema: z.record(z.any()),
-});
-
-const settingsCollection = defineCollection({
-  loader: glob({ 
-    pattern: '**/*.json', 
-    base: './src/content/settings',
-    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
-  }),
-  schema: z.record(z.any()),
-});
-
-export const collections = {
-  recipes: recipeCollection,
-  taxonomies: taxonomyCollection,
-  pages: pagesCollection,
-  navigation: navigationCollection,
-  settings: settingsCollection,
-};
+export function getReferenceRecipes(): RawRecipeInput[] {
+  return REFERENCE_RECIPES;
+}
 ````
 
 ## File: .astro/types.d.ts
@@ -19382,6 +21989,383 @@ const schemas = [articleSchema, breadcrumbSchema];
 </Layout>
 ````
 
+## File: src/content.config.ts
+````typescript
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const localizedStringSchema = z.object({
+  es: z.string(),
+  en: z.string(),
+  de: z.string(),
+});
+
+const recipeIngredientSchema = z.object({
+  id: z.string(),
+  ingredientId: z.string(),
+  name: localizedStringSchema,
+  amount: z.number(),
+  unit: z.enum(['g', 'ml', 'unit']),
+  notes: localizedStringSchema.optional(),
+});
+
+const recipeSourceSchema = z.object({
+  type: z.enum(['chef', 'restaurant', 'book', 'website', 'traditional', 'community', 'user']),
+  name: z.string(),
+  author: z.string().optional(),
+  url: z.string().optional(),
+  description: localizedStringSchema.optional(),
+});
+
+const recipeAuthorSchema = z.object({
+  type: z.enum(['platform', 'user']),
+  userId: z.string().optional(),
+  name: z.string(),
+});
+
+const recipeCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/recipes',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    id: z.string(),
+    slug: localizedStringSchema,
+    title: localizedStringSchema,
+    description: localizedStringSchema,
+    taxonomyIds: z.array(z.string()),
+    time: z.number(),
+    image: z.string().optional(),
+    prepTimeMinutes: z.number().optional(),
+    cookTimeMinutes: z.number().optional(),
+    yieldServings: z.number().optional(),
+    ingredients: z.array(recipeIngredientSchema).optional(),
+    instructions: z.array(z.object({
+      step: localizedStringSchema,
+      text: localizedStringSchema,
+    })).optional(),
+    sources: z.array(recipeSourceSchema).optional(),
+    author: recipeAuthorSchema.optional(),
+  }),
+});
+
+const taxonomyCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/taxonomies',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    id: z.string(),
+    type: z.string(),
+    slug: localizedStringSchema,
+    title: localizedStringSchema,
+    description: localizedStringSchema,
+    image: z.string().optional(),
+    icon: z.string().optional(),
+    theme: z.object({
+      color: z.string().optional(),
+    }).optional(),
+    dogma: localizedStringSchema.optional(),
+    badge: localizedStringSchema.optional(),
+    keyIngredient: localizedStringSchema.optional(),
+    prominentFigures: z.array(z.string()).optional(),
+  }),
+});
+
+const pagesCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/pages',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.record(z.string(), z.any()),
+});
+
+const navigationCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/navigation',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.record(z.string(), z.any()),
+});
+
+const settingsCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/settings',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.record(z.string(), z.any()),
+});
+
+const historyCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.md', 
+    base: './src/content/history',
+    generateId: ({ entry }) => entry.replace(/\.md$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lang: z.string(),
+  }),
+});
+
+export const collections = {
+  recipes: recipeCollection,
+  taxonomies: taxonomyCollection,
+  pages: pagesCollection,
+  navigation: navigationCollection,
+  settings: settingsCollection,
+  history: historyCollection,
+};
+````
+
+## File: .astro/content-assets.mjs
+````javascript
+export default new Map([]);
+````
+
+## File: src/layouts/BaseLayout.astro
+````astro
+---
+import '@/index.css';
+import Header from '@/components/layout/Header.tsx';
+import Footer from '@/components/layout/Footer.tsx';
+import Breadcrumbs, { type BreadcrumbItem } from '@/components/navigation/Breadcrumbs.tsx';
+import { getCanonicalUrl, getHreflangs } from '@/lib/seo';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  image?: string;
+  type?: string;
+  schema?: Record<string, any> | Array<Record<string, any>>;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const {
+  title = "Tortilla de Patatas - Guía Culinaria & Calculadora Científica",
+  description = "Portal internacional sobre la tortilla de patatas: recetas tradicionales (Betanzos, con cebolla), proporciones calculadas, historia y parámetros de seguridad alimentaria bactericida.",
+  lang = "es",
+  image = "/images/clasica.jpg",
+  type = "website",
+  schema,
+  showHeader = true,
+  showFooter = true,
+  breadcrumbs,
+} = Astro.props;
+
+const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
+const hreflangs = getHreflangs(Astro.url.pathname);
+const siteName = "tortilladepatatas.org";
+const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.org${image}`;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFB800" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Title & SEO Meta -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, 70°C 2 minutos" />
+    <meta name="author" content="tortilladepatatas.org" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Hreflang Multilingual Tags -->
+    {hreflangs.map((item) => (
+      <link rel="alternate" hreflang={item.lang} href={item.href} />
+    ))}
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : lang === 'de' ? 'de_DE' : 'en_US'} />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    
+    <!-- Design System Typography Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Consent Mode Default & gtag.js -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Default all tracking to 'denied'
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied'
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9L1DQMKPR"></script>
+    <script is:inline>
+      gtag('js', new Date());
+      gtag('config', 'G-J9L1DQMKPR');
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    {schema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(Array.isArray(schema) ? schema : [schema])}
+      />
+    )}
+    
+    <slot name="head" />
+  </head>
+  <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
+    {showHeader && (
+      <>
+        <Header lang={lang} currentPath={Astro.url.pathname} client:load />
+        <Breadcrumbs lang={lang} currentPath={Astro.url.pathname} items={breadcrumbs} client:load />
+      </>
+    )}
+
+    <main id="main-content" class="flex-1 w-full">
+      <slot />
+    </main>
+
+    {showFooter && (
+      <Footer lang={lang} currentPath={Astro.url.pathname} client:load />
+    )}
+
+    <!-- Cookie Consent Banner -->
+    <div
+      id="cookie-banner"
+      style="
+        display: none;
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        max-width: 420px;
+        margin: 0 auto;
+        background: #292521;
+        color: #FFF7EA;
+        padding: 12px 16px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 184, 0, 0.25);
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 13px;
+        z-index: 9999;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      "
+    >
+      <span style="line-height: 1.3;">
+        {lang === 'es' ? 'Utilizamos cookies para analizar el tráfico.' : lang === 'de' ? 'Wir verwenden Cookies zur Analyse des Datenverkehrs.' : 'We use cookies to analyze traffic.'}
+      </span>
+      <div style="display: flex; gap: 8px; flex-shrink: 0;">
+        <button
+          id="btn-decline"
+          type="button"
+          style="
+            background: transparent;
+            color: #FFF7EA;
+            border: 1px solid rgba(255, 247, 234, 0.4);
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+          "
+        >
+          {lang === 'es' ? 'Rechazar' : lang === 'de' ? 'Ablehnen' : 'Decline'}
+        </button>
+        <button
+          id="btn-accept"
+          type="button"
+          style="
+            background: #FFB800;
+            color: #292521;
+            border: none;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+          "
+        >
+          {lang === 'es' ? 'Aceptar' : lang === 'de' ? 'Akzeptieren' : 'Accept'}
+        </button>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('btn-accept');
+        const declineBtn = document.getElementById('btn-decline');
+
+        if (!banner || !acceptBtn || !declineBtn) return;
+
+        // Check if user has already made a choice
+        const userConsent = localStorage.getItem('cookie_consent');
+
+        if (!userConsent) {
+          // Show banner if no prior choice exists
+          banner.style.display = 'flex';
+        } else if (userConsent === 'granted') {
+          // Restore 'granted' consent state if previously accepted
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+        }
+
+        // Accept action
+        acceptBtn.addEventListener('click', function () {
+          localStorage.setItem('cookie_consent', 'granted');
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+          banner.style.display = 'none';
+        });
+
+        // Decline action
+        declineBtn.addEventListener('click', function () {
+          localStorage.setItem('cookie_consent', 'denied');
+          gtag('consent', 'update', {
+            'analytics_storage': 'denied'
+          });
+          banner.style.display = 'none';
+        });
+      })();
+    </script>
+  </body>
+</html>
+````
+
 ## File: src/components/layout/Header.tsx
 ````typescript
 import { useState, useEffect } from "react";
@@ -19408,7 +22392,8 @@ import {
   MapPin,
   Microscope,
   Trophy,
-  ChevronDown
+  ChevronDown,
+  Mail
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import headerNavData from "@/content/navigation/header.json";
@@ -19433,6 +22418,7 @@ const iconMap: Record<string, any> = {
   records: Trophy,
   laboratory: FlaskConical,
   about: Info,
+  contact: Mail,
 };
 
 const navigation = headerNavData.items.map((item: any) => ({
@@ -19872,155 +22858,6 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
 }
 ````
 
-## File: src/components/layout/Footer.tsx
-````typescript
-import { useState, useEffect } from "react";
-import "@/i18n/config";
-import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight } from "lucide-react";
-import { useTranslation } from "react-i18next";
-
-interface FooterProps {
-  lang?: string;
-  currentPath?: string;
-}
-
-export default function Footer({ lang = "es", currentPath: propPath }: FooterProps) {
-  const [clientPath, setClientPath] = useState("");
-
-  const { t } = useTranslation(undefined, { lng: lang });
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setClientPath(window.location.pathname);
-    }
-  }, []);
-
-  const activePath = propPath || clientPath;
-
-  function getLocalizedHref(path: string) {
-    const cleanPath = path.startsWith("/") ? path : `/${path}`;
-    if (cleanPath === "/") return `/${lang}`;
-    return `/${lang}${cleanPath}`;
-  }
-
-  function isLinkActive(targetPath: string) {
-    if (!activePath) return false;
-    if (targetPath === "/") {
-      return activePath === `/${lang}` || activePath === `/${lang}/` || activePath === "/";
-    }
-    return activePath.includes(targetPath);
-  }
-
-  return (
-    <footer className="site-footer relative overflow-hidden bg-[#2A2421] text-[#E8E2D5] py-12 border-t border-[#8D6E63]/30 mt-16">
-      <div className="footer-container max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-        {/* Brand Column */}
-        <div className="footer-brand space-y-3">
-          <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-lg bg-[#FFB800] text-[#2A2421] shadow-2xs border border-amber-300">
-              <ChefHat className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="font-serif-heading font-bold text-lg text-white tracking-tight m-0">
-                tortilladepatatas.org
-              </h3>
-              <p className="font-script text-sm text-[#FFB800]/90 -mt-0.5 m-0">
-                {t("footer.subtitle", "Gastronomía, Tradición & Ciencia Culinaria")}
-              </p>
-            </div>
-          </div>
-
-          <p className="text-xs md:text-sm text-[#E8E2D5]/80 leading-relaxed">
-            {t(
-              "footer.brandDesc",
-              "La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española."
-            )}
-          </p>
-        </div>
-
-        {/* Navigation Map */}
-        <nav className="footer-nav space-y-3" aria-label="Footer Navigation">
-          <h4 className="font-bold text-sm text-white uppercase tracking-wider font-mono">
-            {t("footer.exploreTitle", "Explorar Cuaderno")}
-          </h4>
-          <ul className="space-y-2 text-xs md:text-sm">
-            {[
-              { path: "/recipes", label: t("nav.recipes", "Recetas de la Gastronomía") },
-              { path: "/builder", label: t("nav.builder", "Constructor Interactivo") },
-              { path: "/ingredients", label: t("nav.ingredients", "Ingredientes & Proporciones") },
-              { path: "/techniques", label: t("nav.techniques", "Técnicas & Volteado") },
-              { path: "/science", label: t("nav.science", "Ciencia & Seguridad Alimentaria") },
-              { path: "/history", label: t("nav.history", "Historia & Cronología 1767-2025") },
-              { path: "/personas", label: t("nav.personas", "Personas & Creadores") },
-              { path: "/about", label: t("nav.about", "Sobre Nosotros") },
-            ].map((item) => (
-              <li key={item.path}>
-                <a
-                  href={getLocalizedHref(item.path)}
-                  className={`flex items-center justify-between group py-0.5 hover:text-white transition-colors ${
-                    isLinkActive(item.path) ? "font-bold text-[#FFB800]" : "text-[#E8E2D5]/80"
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {isLinkActive(item.path) && (
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
-                  )}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a
-                href="https://tortilladepatatas.de/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#FFB800] flex items-center justify-between group py-0.5 hover:underline"
-              >
-                <span>Tortilla Creator App (tortilladepatatas.de)</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        {/* Food Safety Notice Card */}
-        <div className="space-y-3">
-          <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-2">
-            <h4 className="font-bold text-sm text-[#FFB800] flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#FFB800]" />
-              <span>{t("footer.safetyTitle", "Estándar de Seguridad Bactericida")}</span>
-            </h4>
-
-            <p className="text-[#E8E2D5]/80 leading-relaxed">
-              Para garantizar la inocuidad microbiológica y la destrucción de <i>Salmonella spp.</i>, el estándar de cocinado bactericida exige alcanzar <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">70°C for 2 minutes</strong> (o <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">4 hours</strong> a temperatura ambiente.
-            </p>
-
-            <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/60">
-              <span className="font-mono">{t("footer.safetyNorm", "Normativa Colectividades Real Decreto 1021/2022")}</span>
-              <a href={getLocalizedHref('/science')} className="font-bold text-[#FFB800] hover:underline flex items-center gap-1">
-                <span>{t("footer.viewReport", "Ver Informe")}</span>
-                <BookOpen className="w-3 h-3" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer Bottom Bar */}
-      <div className="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-[#8D6E63]/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#E8E2D5]/70 text-center sm:text-left">
-        <p>
-          &copy; {new Date().getFullYear()} tortilladepatatas.org. {t("footer.rights", "Todos los derechos reservados.")}
-        </p>
-        <p className="flex items-center justify-center gap-1.5 font-medium">
-          <span>{t("footer.craftedWith", "Hecho con")}</span>
-          <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline" />
-          <span>{t("footer.forGastronomy", "para los amantes de la gastronomía y la ciencia culinaria.")}</span>
-        </p>
-      </div>
-    </footer>
-  );
-}
-````
-
 ## File: src/components/personas/PersonCard.tsx
 ````typescript
 import React from "react";
@@ -20165,10 +23002,165 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
 }
 ````
 
+## File: .astro/data-store.json
+````json
+[["Map",1,2,233,234,241,242,378,379,273,1108,2132,2133,2147,2148],"history",["Map",3,4,86,87,159,160],"tortilla-history.de",{"id":3,"data":5,"body":9,"filePath":10,"digest":11,"rendered":12},{"title":6,"description":7,"lang":8},"Die Geschichte der Tortilla de Patatas","Eine Reise durch die Geschichte der spanischen Kartoffel-Tortilla: von der Ankunft der Kartoffel in Europa bis zu ihrer Bedeutung als eines der bekanntesten Gerichte Spaniens.","de","# Die Geschichte der Tortilla de Patatas\r\n\r\nDie Tortilla de Patatas ist eines der bekanntesten Gerichte der spanischen Küche. Hinter ihrer scheinbaren Einfachheit — Kartoffeln, Eier, Olivenöl und häufig Zwiebeln — verbirgt sich eine Geschichte, die eng mit Landwirtschaft, gesellschaftlichen Veränderungen, Zeiten der Knappheit und dem Alltag der Menschen verbunden ist.\r\n\r\nSie wurde nicht von einer einzigen Person erfunden und entstand nicht zu einem einzigen Zeitpunkt. Die Tortilla de Patatas entwickelte sich über Jahrhunderte hinweg: durch die Ankunft der Kartoffel aus Amerika, den Wandel der europäischen Landwirtschaft und die ständige Suche nach günstigen und nahrhaften Lebensmitteln.\r\n\r\n---\r\n\r\n## Die Ankunft der Kartoffel: Ein neues Lebensmittel aus Amerika\r\n\r\nDie Geschichte der Tortilla beginnt mit der Kartoffel.\r\n\r\nUrsprünglich in den Anden angebaut, gelangte die Kartoffel im 16. Jahrhundert nach Europa, nachdem spanische Expeditionen den amerikanischen Kontinent erreicht hatten. Erste europäische Aufzeichnungen über die Pflanze entstanden in den Jahrzehnten nach ihrer Einführung, doch ihre Akzeptanz als Lebensmittel verlief langsam.\r\n\r\nZunächst betrachteten viele Europäer die Kartoffel mit Misstrauen. Als Mitglied der Familie der Nachtschattengewächse, zu der auch als giftig geltende Pflanzen gehören, wurde sie lange eher als botanische Kuriosität denn als wichtiges Nahrungsmittel betrachtet.\r\n\r\nÜber viele Generationen wurde die Kartoffel hauptsächlich in botanischen Gärten, Versuchsfeldern oder als Tierfutter angebaut. Mit der Zeit wurden jedoch ihre Vorteile erkannt:\r\n\r\n- Sie konnte unter unterschiedlichen klimatischen Bedingungen wachsen.\r\n- Sie brachte zuverlässige Ernten.\r\n- Sie lieferte einen hohen Nährwert.\r\n- Sie half, Zeiten von Lebensmittelknappheit zu überstehen.\r\n\r\nSpanien spielte eine entscheidende Rolle bei der Verbreitung der Kartoffel in Europa. Selbst das spanische Wort *patata* spiegelt diese komplexe Geschichte wider und verbindet sprachliche Einflüsse aus dem Quechua-Wort *papa* und dem Taíno-Wort *batata*.\r\n\r\n---\r\n\r\n## Frühe kulinarische Vorläufer\r\n\r\nBevor die moderne Tortilla de Patatas entstand, experimentierten Köche bereits mit Kombinationen aus Eiern und Kartoffeln.\r\n\r\nEine der frühesten europäischen kulinarischen Erwähnungen findet sich bei **Lancelot de Casteau** in seinem Werk *Ouverture de cuisine* (1604), das die Verwendung von Kartoffeln in europäischen Küchen dokumentiert.\r\n\r\nIn Spanien veröffentlichte **Francisco Martínez Montiño**, Koch am spanischen Hof, sein Werk *Arte de Cocina*, in dem verschiedene Zubereitungen mit Ei beschrieben werden, darunter die bekannte *Tortilla de la Cartuja*.\r\n\r\nDiese Gerichte waren noch nicht identisch mit der heutigen Tortilla de Patatas, zeigen aber, wie Kartoffeln und Eier langsam Teil der europäischen Kochtraditionen wurden.\r\n\r\nDie Tortilla entstand nicht plötzlich. Sie entwickelte sich durch viele kleine Anpassungen über Generationen hinweg in verschiedenen spanischen Küchen.\r\n\r\n---\r\n\r\n## Die Kartoffel wird zum Lebensmittel des Volkes\r\n\r\nIm 18. Jahrhundert begannen Landwirtschaftsexperten und Regierungen zunehmend, die Kartoffel als Lösung gegen Versorgungsprobleme zu fördern.\r\n\r\nAutoren wie **Joseph Antonio Valcárcel** betonten die Bedeutung eines verbesserten Kartoffelanbaus in Spanien. Die Knolle gewann an Bedeutung, weil sie eine verlässliche Alternative darstellte, wenn Getreide teuer oder knapp war.\r\n\r\nEnde des 18. Jahrhunderts war die Kartoffel von einem experimentellen Anbauprodukt zu einem Bestandteil der ländlichen Alltagsküche geworden.\r\n\r\nDie Kombination aus Kartoffeln und Eiern war besonders praktisch:\r\n\r\n- Kartoffeln lieferten günstige Energie.\r\n- Eier lieferten Proteine.\r\n- Olivenöl ermöglichte das Kochen und Konservieren.\r\n- Mit wenigen Zutaten konnten mehrere Menschen ernährt werden.\r\n\r\nDiese Verbindung bildete die Grundlage für das, was später zur Tortilla de Patatas wurde.\r\n\r\n---\r\n\r\n## Villanueva de la Serena und die Aufzeichnung von 1798\r\n\r\nEine der wichtigsten historischen Referenzen zur modernen Tortilla de Patatas stammt aus **Villanueva de la Serena in Extremadura aus dem Jahr 1798**.\r\n\r\nNach den Forschungen des Historikers **Javier López Linage** entstand die dort dokumentierte Zubereitung im Zusammenhang mit der Suche nach einem günstigen und nahrhaften Lebensmittel in einer Zeit wirtschaftlicher Schwierigkeiten.\r\n\r\nDiese Initiative wird mit **Joseph de Tena Godoy** und dem **Markgrafen von Robledo** verbunden, die nach Alternativen zu teureren Produkten wie Weizen suchten.\r\n\r\nDas ursprüngliche Ziel war nicht die Erfindung eines berühmten Nationalgerichts, sondern eine praktische Lösung mit verfügbaren Zutaten.\r\n\r\nObwohl Historiker weiterhin darüber diskutieren, ob dies der absolute Ursprung der Tortilla de Patatas war, stellt die Referenz von 1798 eine der frühesten dokumentierten Verbindungen zur modernen Form des Gerichts dar.\r\n\r\n---\r\n\r\n## Das 19. Jahrhundert: Von der ländlichen Mahlzeit zur Tradition\r\n\r\nIm 19. Jahrhundert verbreitete sich die Tortilla de Patatas in ganz Spanien.\r\n\r\nWirtschaftliche Schwierigkeiten, Kriege und gesellschaftliche Veränderungen trugen zu ihrer Popularität bei. Ihre Eigenschaften machten sie ideal für den Alltag:\r\n\r\n- Günstige Zutaten.\r\n- Einfache Zubereitung.\r\n- Hoher Nährwert.\r\n- Leichter Transport und gute Haltbarkeit.\r\n\r\nEine bekannte Quelle aus Navarra aus dem Jahr 1817 beschreibt eine Zubereitung aus Eiern und Kartoffeln und zeigt, dass diese Art von Gericht bereits in ländlichen Gemeinschaften verbreitet war.\r\n\r\nEine weitere bekannte Erzählung schreibt die Erfindung der Tortilla dem **General Tomás de Zumalacárregui** während der Karlistenkriege zu. Historiker betrachten diese Geschichte jedoch meist als spätere Legende und nicht als tatsächlichen Ursprung des Gerichts.\r\n\r\nDie Tortilla war bereits Teil der Volksküche, bevor sie mit historischen Persönlichkeiten verbunden wurde.\r\n\r\n---\r\n\r\n## Die Zwiebel-Frage\r\n\r\nIm Laufe des 19. und 20. Jahrhunderts wurde die Zwiebel in vielen Haushalten zu einer üblichen Zutat.\r\n\r\nDaraus entstand eine der bekanntesten kulinarischen Diskussionen Spaniens:\r\n\r\n**Soll eine Tortilla de Patatas Zwiebeln enthalten?**\r\n\r\nDie Antwort hängt von Tradition, Familie und persönlichem Geschmack ab.\r\n\r\nDie Version mit Zwiebeln bietet mehr Süße, Feuchtigkeit und eine weichere Konsistenz. Die Version ohne Zwiebeln betont die direkten Aromen von Kartoffeln, Ei und Olivenöl.\r\n\r\nBeide Varianten existieren seit Generationen und gehören zur Vielfalt der spanischen Küche.\r\n\r\n---\r\n\r\n## Die Tortilla während der Hungerjahre\r\n\r\nDie 1940er Jahre, bekannt als die **Años del Hambre** („Jahre des Hungers“), waren in Spanien nach dem Bürgerkrieg von großer Lebensmittelknappheit geprägt.\r\n\r\nViele Familien hatten Schwierigkeiten, grundlegende Zutaten zu erhalten. Da die Tortilla bereits tief mit dem spanischen Alltag verbunden war, entstanden Ersatzversionen, wenn Kartoffeln und Eier nicht verfügbar waren.\r\n\r\nEin Beispiel war die sogenannte „falsche Tortilla“, bei der das weiße Innere der Orangenschale (*Albedo*) verarbeitet und mit Mehl und Wasser kombiniert wurde, um die Textur des ursprünglichen Gerichts nachzuahmen.\r\n\r\nDiese Überlebensrezepte zeigen die kulturelle Bedeutung der Tortilla: Selbst wenn ihre Zutaten fehlten, versuchten Menschen, die Idee und Identität dieses Gerichts zu bewahren.\r\n\r\n---\r\n\r\n## Regionale Vielfalt und moderne Entwicklung\r\n\r\nIm Laufe der Zeit entwickelten verschiedene Regionen Spaniens eigene Varianten der Tortilla de Patatas.\r\n\r\n### Tortilla de Betanzos\r\n\r\nDiese aus Galicien stammende Variante ist für ihr besonders weiches Inneres und den hohen Eieranteil bekannt. Sie gilt als eine der anspruchsvollsten und feinfühligsten Arten, eine Tortilla zuzubereiten.\r\n\r\n### Tortilla del Sacromonte\r\n\r\nDiese traditionelle Variante aus dem Stadtviertel Sacromonte in Granada enthält Zutaten wie Innereien und spiegelt lokale Geschichte und kulinarische Traditionen wider.\r\n\r\nIn ganz Spanien wird weiterhin diskutiert über:\r\n\r\n- Das ideale Verhältnis von Kartoffeln und Ei.\r\n- Die perfekte Garzeit.\r\n- Die richtige Dicke.\r\n- Das Gleichgewicht zwischen Festigkeit und Cremigkeit.\r\n- Die Rolle der Zwiebel.\r\n\r\nDiese Diskussionen gehören zu einer lebendigen kulinarischen Tradition.\r\n\r\n---\r\n\r\n## Die Tortilla heute: Ein internationales Symbol der spanischen Küche\r\n\r\nIm 21. Jahrhundert hat sich die Tortilla de Patatas von einer einfachen ländlichen Mahlzeit zu einem internationalen Symbol der spanischen Gastronomie entwickelt.\r\n\r\nMan findet sie überall:\r\n\r\n- In Familienküchen.\r\n- In traditionellen Bars.\r\n- In Restaurants.\r\n- Bei gastronomischen Wettbewerben.\r\n- In modernen kulinarischen Interpretationen.\r\n\r\nGroße Rekord-Tortillas zeigen ihre kulturelle Bedeutung, während Köche weiterhin mit Techniken, Texturen und Präsentationen experimentieren.\r\n\r\nTrotz dieser Entwicklungen bleibt das Wesentliche unverändert:\r\n\r\n**Kartoffeln, die in Olivenöl gegart, mit verquirltem Ei vermischt und sorgfältig bis zur gewünschten Konsistenz zubereitet werden.**\r\n\r\n---\r\n\r\n## Ein einfaches Gericht mit einer komplexen Geschichte\r\n\r\nDie Tortilla de Patatas erzählt eine Geschichte der Anpassung.\r\n\r\nEine Pflanze aus den Anden wurde zu einem wichtigen europäischen Lebensmittel. Eine Speise aus der Not wurde zu einem kulturellen Symbol. Eine einfache Kombination aus Kartoffeln und Eiern wurde zu einem der bekanntesten Ausdrucksformen spanischer Identität.\r\n\r\nIhre Bedeutung entsteht nicht durch Luxus oder Komplexität.\r\n\r\nSie entsteht durch die Fähigkeit, einfache Zutaten in etwas Außergewöhnliches zu verwandeln.\r\n\r\n**Die Tortilla de Patatas ist die Geschichte Spaniens, erzählt durch Essen.**\r\n\r\n---\r\n\r\n## Zeitleiste\r\n\r\n### 16. Jahrhundert\r\nDie Kartoffel gelangt aus Amerika nach Europa.\r\n\r\n### 17. Jahrhundert\r\nKartoffeln erscheinen in europäischen Kochaufzeichnungen und gelangen in höfische und religiöse Küchen.\r\n\r\n### 18. Jahrhundert\r\nDie Kartoffel wird zu einer wichtigen landwirtschaftlichen Ressource in Spanien.\r\n\r\n### 1798\r\nVillanueva de la Serena liefert eine der frühesten dokumentierten Verbindungen zur modernen Tortilla de Patatas.\r\n\r\n### 1817\r\nAufzeichnungen aus Navarra zeigen Kartoffel-Omeletts in ländlichen Gemeinschaften.\r\n\r\n### 19. Jahrhundert\r\nDie Tortilla verbreitet sich in ganz Spanien und wird zu einem alltäglichen Gericht.\r\n\r\n### 1940er Jahre\r\nWährend der Años del Hambre entstehen Überlebensvarianten.\r\n\r\n### 21. Jahrhundert\r\nDie Tortilla wird zu einem internationalen Symbol der spanischen Küche.","src/content/history/tortilla-history.de.md","fde0d7f8458bfcbd",{"html":13,"metadata":14},"\u003Ch1 id=\"die-geschichte-der-tortilla-de-patatas\">Die Geschichte der Tortilla de Patatas\u003C/h1>\n\u003Cp>Die Tortilla de Patatas ist eines der bekanntesten Gerichte der spanischen Küche. Hinter ihrer scheinbaren Einfachheit — Kartoffeln, Eier, Olivenöl und häufig Zwiebeln — verbirgt sich eine Geschichte, die eng mit Landwirtschaft, gesellschaftlichen Veränderungen, Zeiten der Knappheit und dem Alltag der Menschen verbunden ist.\u003C/p>\n\u003Cp>Sie wurde nicht von einer einzigen Person erfunden und entstand nicht zu einem einzigen Zeitpunkt. Die Tortilla de Patatas entwickelte sich über Jahrhunderte hinweg: durch die Ankunft der Kartoffel aus Amerika, den Wandel der europäischen Landwirtschaft und die ständige Suche nach günstigen und nahrhaften Lebensmitteln.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"die-ankunft-der-kartoffel-ein-neues-lebensmittel-aus-amerika\">Die Ankunft der Kartoffel: Ein neues Lebensmittel aus Amerika\u003C/h2>\n\u003Cp>Die Geschichte der Tortilla beginnt mit der Kartoffel.\u003C/p>\n\u003Cp>Ursprünglich in den Anden angebaut, gelangte die Kartoffel im 16. Jahrhundert nach Europa, nachdem spanische Expeditionen den amerikanischen Kontinent erreicht hatten. Erste europäische Aufzeichnungen über die Pflanze entstanden in den Jahrzehnten nach ihrer Einführung, doch ihre Akzeptanz als Lebensmittel verlief langsam.\u003C/p>\n\u003Cp>Zunächst betrachteten viele Europäer die Kartoffel mit Misstrauen. Als Mitglied der Familie der Nachtschattengewächse, zu der auch als giftig geltende Pflanzen gehören, wurde sie lange eher als botanische Kuriosität denn als wichtiges Nahrungsmittel betrachtet.\u003C/p>\n\u003Cp>Über viele Generationen wurde die Kartoffel hauptsächlich in botanischen Gärten, Versuchsfeldern oder als Tierfutter angebaut. Mit der Zeit wurden jedoch ihre Vorteile erkannt:\u003C/p>\n\u003Cul>\n\u003Cli>Sie konnte unter unterschiedlichen klimatischen Bedingungen wachsen.\u003C/li>\n\u003Cli>Sie brachte zuverlässige Ernten.\u003C/li>\n\u003Cli>Sie lieferte einen hohen Nährwert.\u003C/li>\n\u003Cli>Sie half, Zeiten von Lebensmittelknappheit zu überstehen.\u003C/li>\n\u003C/ul>\n\u003Cp>Spanien spielte eine entscheidende Rolle bei der Verbreitung der Kartoffel in Europa. Selbst das spanische Wort \u003Cem>patata\u003C/em> spiegelt diese komplexe Geschichte wider und verbindet sprachliche Einflüsse aus dem Quechua-Wort \u003Cem>papa\u003C/em> und dem Taíno-Wort \u003Cem>batata\u003C/em>.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"frühe-kulinarische-vorläufer\">Frühe kulinarische Vorläufer\u003C/h2>\n\u003Cp>Bevor die moderne Tortilla de Patatas entstand, experimentierten Köche bereits mit Kombinationen aus Eiern und Kartoffeln.\u003C/p>\n\u003Cp>Eine der frühesten europäischen kulinarischen Erwähnungen findet sich bei \u003Cstrong>Lancelot de Casteau\u003C/strong> in seinem Werk \u003Cem>Ouverture de cuisine\u003C/em> (1604), das die Verwendung von Kartoffeln in europäischen Küchen dokumentiert.\u003C/p>\n\u003Cp>In Spanien veröffentlichte \u003Cstrong>Francisco Martínez Montiño\u003C/strong>, Koch am spanischen Hof, sein Werk \u003Cem>Arte de Cocina\u003C/em>, in dem verschiedene Zubereitungen mit Ei beschrieben werden, darunter die bekannte \u003Cem>Tortilla de la Cartuja\u003C/em>.\u003C/p>\n\u003Cp>Diese Gerichte waren noch nicht identisch mit der heutigen Tortilla de Patatas, zeigen aber, wie Kartoffeln und Eier langsam Teil der europäischen Kochtraditionen wurden.\u003C/p>\n\u003Cp>Die Tortilla entstand nicht plötzlich. Sie entwickelte sich durch viele kleine Anpassungen über Generationen hinweg in verschiedenen spanischen Küchen.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"die-kartoffel-wird-zum-lebensmittel-des-volkes\">Die Kartoffel wird zum Lebensmittel des Volkes\u003C/h2>\n\u003Cp>Im 18. Jahrhundert begannen Landwirtschaftsexperten und Regierungen zunehmend, die Kartoffel als Lösung gegen Versorgungsprobleme zu fördern.\u003C/p>\n\u003Cp>Autoren wie \u003Cstrong>Joseph Antonio Valcárcel\u003C/strong> betonten die Bedeutung eines verbesserten Kartoffelanbaus in Spanien. Die Knolle gewann an Bedeutung, weil sie eine verlässliche Alternative darstellte, wenn Getreide teuer oder knapp war.\u003C/p>\n\u003Cp>Ende des 18. Jahrhunderts war die Kartoffel von einem experimentellen Anbauprodukt zu einem Bestandteil der ländlichen Alltagsküche geworden.\u003C/p>\n\u003Cp>Die Kombination aus Kartoffeln und Eiern war besonders praktisch:\u003C/p>\n\u003Cul>\n\u003Cli>Kartoffeln lieferten günstige Energie.\u003C/li>\n\u003Cli>Eier lieferten Proteine.\u003C/li>\n\u003Cli>Olivenöl ermöglichte das Kochen und Konservieren.\u003C/li>\n\u003Cli>Mit wenigen Zutaten konnten mehrere Menschen ernährt werden.\u003C/li>\n\u003C/ul>\n\u003Cp>Diese Verbindung bildete die Grundlage für das, was später zur Tortilla de Patatas wurde.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"villanueva-de-la-serena-und-die-aufzeichnung-von-1798\">Villanueva de la Serena und die Aufzeichnung von 1798\u003C/h2>\n\u003Cp>Eine der wichtigsten historischen Referenzen zur modernen Tortilla de Patatas stammt aus \u003Cstrong>Villanueva de la Serena in Extremadura aus dem Jahr 1798\u003C/strong>.\u003C/p>\n\u003Cp>Nach den Forschungen des Historikers \u003Cstrong>Javier López Linage\u003C/strong> entstand die dort dokumentierte Zubereitung im Zusammenhang mit der Suche nach einem günstigen und nahrhaften Lebensmittel in einer Zeit wirtschaftlicher Schwierigkeiten.\u003C/p>\n\u003Cp>Diese Initiative wird mit \u003Cstrong>Joseph de Tena Godoy\u003C/strong> und dem \u003Cstrong>Markgrafen von Robledo\u003C/strong> verbunden, die nach Alternativen zu teureren Produkten wie Weizen suchten.\u003C/p>\n\u003Cp>Das ursprüngliche Ziel war nicht die Erfindung eines berühmten Nationalgerichts, sondern eine praktische Lösung mit verfügbaren Zutaten.\u003C/p>\n\u003Cp>Obwohl Historiker weiterhin darüber diskutieren, ob dies der absolute Ursprung der Tortilla de Patatas war, stellt die Referenz von 1798 eine der frühesten dokumentierten Verbindungen zur modernen Form des Gerichts dar.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"das-19-jahrhundert-von-der-ländlichen-mahlzeit-zur-tradition\">Das 19. Jahrhundert: Von der ländlichen Mahlzeit zur Tradition\u003C/h2>\n\u003Cp>Im 19. Jahrhundert verbreitete sich die Tortilla de Patatas in ganz Spanien.\u003C/p>\n\u003Cp>Wirtschaftliche Schwierigkeiten, Kriege und gesellschaftliche Veränderungen trugen zu ihrer Popularität bei. Ihre Eigenschaften machten sie ideal für den Alltag:\u003C/p>\n\u003Cul>\n\u003Cli>Günstige Zutaten.\u003C/li>\n\u003Cli>Einfache Zubereitung.\u003C/li>\n\u003Cli>Hoher Nährwert.\u003C/li>\n\u003Cli>Leichter Transport und gute Haltbarkeit.\u003C/li>\n\u003C/ul>\n\u003Cp>Eine bekannte Quelle aus Navarra aus dem Jahr 1817 beschreibt eine Zubereitung aus Eiern und Kartoffeln und zeigt, dass diese Art von Gericht bereits in ländlichen Gemeinschaften verbreitet war.\u003C/p>\n\u003Cp>Eine weitere bekannte Erzählung schreibt die Erfindung der Tortilla dem \u003Cstrong>General Tomás de Zumalacárregui\u003C/strong> während der Karlistenkriege zu. Historiker betrachten diese Geschichte jedoch meist als spätere Legende und nicht als tatsächlichen Ursprung des Gerichts.\u003C/p>\n\u003Cp>Die Tortilla war bereits Teil der Volksküche, bevor sie mit historischen Persönlichkeiten verbunden wurde.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"die-zwiebel-frage\">Die Zwiebel-Frage\u003C/h2>\n\u003Cp>Im Laufe des 19. und 20. Jahrhunderts wurde die Zwiebel in vielen Haushalten zu einer üblichen Zutat.\u003C/p>\n\u003Cp>Daraus entstand eine der bekanntesten kulinarischen Diskussionen Spaniens:\u003C/p>\n\u003Cp>\u003Cstrong>Soll eine Tortilla de Patatas Zwiebeln enthalten?\u003C/strong>\u003C/p>\n\u003Cp>Die Antwort hängt von Tradition, Familie und persönlichem Geschmack ab.\u003C/p>\n\u003Cp>Die Version mit Zwiebeln bietet mehr Süße, Feuchtigkeit und eine weichere Konsistenz. Die Version ohne Zwiebeln betont die direkten Aromen von Kartoffeln, Ei und Olivenöl.\u003C/p>\n\u003Cp>Beide Varianten existieren seit Generationen und gehören zur Vielfalt der spanischen Küche.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"die-tortilla-während-der-hungerjahre\">Die Tortilla während der Hungerjahre\u003C/h2>\n\u003Cp>Die 1940er Jahre, bekannt als die \u003Cstrong>Años del Hambre\u003C/strong> („Jahre des Hungers“), waren in Spanien nach dem Bürgerkrieg von großer Lebensmittelknappheit geprägt.\u003C/p>\n\u003Cp>Viele Familien hatten Schwierigkeiten, grundlegende Zutaten zu erhalten. Da die Tortilla bereits tief mit dem spanischen Alltag verbunden war, entstanden Ersatzversionen, wenn Kartoffeln und Eier nicht verfügbar waren.\u003C/p>\n\u003Cp>Ein Beispiel war die sogenannte „falsche Tortilla“, bei der das weiße Innere der Orangenschale (\u003Cem>Albedo\u003C/em>) verarbeitet und mit Mehl und Wasser kombiniert wurde, um die Textur des ursprünglichen Gerichts nachzuahmen.\u003C/p>\n\u003Cp>Diese Überlebensrezepte zeigen die kulturelle Bedeutung der Tortilla: Selbst wenn ihre Zutaten fehlten, versuchten Menschen, die Idee und Identität dieses Gerichts zu bewahren.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"regionale-vielfalt-und-moderne-entwicklung\">Regionale Vielfalt und moderne Entwicklung\u003C/h2>\n\u003Cp>Im Laufe der Zeit entwickelten verschiedene Regionen Spaniens eigene Varianten der Tortilla de Patatas.\u003C/p>\n\u003Ch3 id=\"tortilla-de-betanzos\">Tortilla de Betanzos\u003C/h3>\n\u003Cp>Diese aus Galicien stammende Variante ist für ihr besonders weiches Inneres und den hohen Eieranteil bekannt. Sie gilt als eine der anspruchsvollsten und feinfühligsten Arten, eine Tortilla zuzubereiten.\u003C/p>\n\u003Ch3 id=\"tortilla-del-sacromonte\">Tortilla del Sacromonte\u003C/h3>\n\u003Cp>Diese traditionelle Variante aus dem Stadtviertel Sacromonte in Granada enthält Zutaten wie Innereien und spiegelt lokale Geschichte und kulinarische Traditionen wider.\u003C/p>\n\u003Cp>In ganz Spanien wird weiterhin diskutiert über:\u003C/p>\n\u003Cul>\n\u003Cli>Das ideale Verhältnis von Kartoffeln und Ei.\u003C/li>\n\u003Cli>Die perfekte Garzeit.\u003C/li>\n\u003Cli>Die richtige Dicke.\u003C/li>\n\u003Cli>Das Gleichgewicht zwischen Festigkeit und Cremigkeit.\u003C/li>\n\u003Cli>Die Rolle der Zwiebel.\u003C/li>\n\u003C/ul>\n\u003Cp>Diese Diskussionen gehören zu einer lebendigen kulinarischen Tradition.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"die-tortilla-heute-ein-internationales-symbol-der-spanischen-küche\">Die Tortilla heute: Ein internationales Symbol der spanischen Küche\u003C/h2>\n\u003Cp>Im 21. Jahrhundert hat sich die Tortilla de Patatas von einer einfachen ländlichen Mahlzeit zu einem internationalen Symbol der spanischen Gastronomie entwickelt.\u003C/p>\n\u003Cp>Man findet sie überall:\u003C/p>\n\u003Cul>\n\u003Cli>In Familienküchen.\u003C/li>\n\u003Cli>In traditionellen Bars.\u003C/li>\n\u003Cli>In Restaurants.\u003C/li>\n\u003Cli>Bei gastronomischen Wettbewerben.\u003C/li>\n\u003Cli>In modernen kulinarischen Interpretationen.\u003C/li>\n\u003C/ul>\n\u003Cp>Große Rekord-Tortillas zeigen ihre kulturelle Bedeutung, während Köche weiterhin mit Techniken, Texturen und Präsentationen experimentieren.\u003C/p>\n\u003Cp>Trotz dieser Entwicklungen bleibt das Wesentliche unverändert:\u003C/p>\n\u003Cp>\u003Cstrong>Kartoffeln, die in Olivenöl gegart, mit verquirltem Ei vermischt und sorgfältig bis zur gewünschten Konsistenz zubereitet werden.\u003C/strong>\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"ein-einfaches-gericht-mit-einer-komplexen-geschichte\">Ein einfaches Gericht mit einer komplexen Geschichte\u003C/h2>\n\u003Cp>Die Tortilla de Patatas erzählt eine Geschichte der Anpassung.\u003C/p>\n\u003Cp>Eine Pflanze aus den Anden wurde zu einem wichtigen europäischen Lebensmittel. Eine Speise aus der Not wurde zu einem kulturellen Symbol. Eine einfache Kombination aus Kartoffeln und Eiern wurde zu einem der bekanntesten Ausdrucksformen spanischer Identität.\u003C/p>\n\u003Cp>Ihre Bedeutung entsteht nicht durch Luxus oder Komplexität.\u003C/p>\n\u003Cp>Sie entsteht durch die Fähigkeit, einfache Zutaten in etwas Außergewöhnliches zu verwandeln.\u003C/p>\n\u003Cp>\u003Cstrong>Die Tortilla de Patatas ist die Geschichte Spaniens, erzählt durch Essen.\u003C/strong>\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"zeitleiste\">Zeitleiste\u003C/h2>\n\u003Ch3 id=\"16-jahrhundert\">16. Jahrhundert\u003C/h3>\n\u003Cp>Die Kartoffel gelangt aus Amerika nach Europa.\u003C/p>\n\u003Ch3 id=\"17-jahrhundert\">17. Jahrhundert\u003C/h3>\n\u003Cp>Kartoffeln erscheinen in europäischen Kochaufzeichnungen und gelangen in höfische und religiöse Küchen.\u003C/p>\n\u003Ch3 id=\"18-jahrhundert\">18. Jahrhundert\u003C/h3>\n\u003Cp>Die Kartoffel wird zu einer wichtigen landwirtschaftlichen Ressource in Spanien.\u003C/p>\n\u003Ch3 id=\"1798\">1798\u003C/h3>\n\u003Cp>Villanueva de la Serena liefert eine der frühesten dokumentierten Verbindungen zur modernen Tortilla de Patatas.\u003C/p>\n\u003Ch3 id=\"1817\">1817\u003C/h3>\n\u003Cp>Aufzeichnungen aus Navarra zeigen Kartoffel-Omeletts in ländlichen Gemeinschaften.\u003C/p>\n\u003Ch3 id=\"19-jahrhundert\">19. Jahrhundert\u003C/h3>\n\u003Cp>Die Tortilla verbreitet sich in ganz Spanien und wird zu einem alltäglichen Gericht.\u003C/p>\n\u003Ch3 id=\"1940er-jahre\">1940er Jahre\u003C/h3>\n\u003Cp>Während der Años del Hambre entstehen Überlebensvarianten.\u003C/p>\n\u003Ch3 id=\"21-jahrhundert\">21. Jahrhundert\u003C/h3>\n\u003Cp>Die Tortilla wird zu einem internationalen Symbol der spanischen Küche.\u003C/p>\n",{"headings":15,"localImagePaths":82,"remoteImagePaths":83,"frontmatter":84,"imagePaths":85},[16,19,23,26,29,32,35,38,41,44,48,51,54,57,60,63,66,69,71,73,76,79],{"depth":17,"slug":18,"text":6},1,"die-geschichte-der-tortilla-de-patatas",{"depth":20,"slug":21,"text":22},2,"die-ankunft-der-kartoffel-ein-neues-lebensmittel-aus-amerika","Die Ankunft der Kartoffel: Ein neues Lebensmittel aus Amerika",{"depth":20,"slug":24,"text":25},"frühe-kulinarische-vorläufer","Frühe kulinarische Vorläufer",{"depth":20,"slug":27,"text":28},"die-kartoffel-wird-zum-lebensmittel-des-volkes","Die Kartoffel wird zum Lebensmittel des Volkes",{"depth":20,"slug":30,"text":31},"villanueva-de-la-serena-und-die-aufzeichnung-von-1798","Villanueva de la Serena und die Aufzeichnung von 1798",{"depth":20,"slug":33,"text":34},"das-19-jahrhundert-von-der-ländlichen-mahlzeit-zur-tradition","Das 19. Jahrhundert: Von der ländlichen Mahlzeit zur Tradition",{"depth":20,"slug":36,"text":37},"die-zwiebel-frage","Die Zwiebel-Frage",{"depth":20,"slug":39,"text":40},"die-tortilla-während-der-hungerjahre","Die Tortilla während der Hungerjahre",{"depth":20,"slug":42,"text":43},"regionale-vielfalt-und-moderne-entwicklung","Regionale Vielfalt und moderne Entwicklung",{"depth":45,"slug":46,"text":47},3,"tortilla-de-betanzos","Tortilla de Betanzos",{"depth":45,"slug":49,"text":50},"tortilla-del-sacromonte","Tortilla del Sacromonte",{"depth":20,"slug":52,"text":53},"die-tortilla-heute-ein-internationales-symbol-der-spanischen-küche","Die Tortilla heute: Ein internationales Symbol der spanischen Küche",{"depth":20,"slug":55,"text":56},"ein-einfaches-gericht-mit-einer-komplexen-geschichte","Ein einfaches Gericht mit einer komplexen Geschichte",{"depth":20,"slug":58,"text":59},"zeitleiste","Zeitleiste",{"depth":45,"slug":61,"text":62},"16-jahrhundert","16. Jahrhundert",{"depth":45,"slug":64,"text":65},"17-jahrhundert","17. Jahrhundert",{"depth":45,"slug":67,"text":68},"18-jahrhundert","18. Jahrhundert",{"depth":45,"slug":70,"text":70},"1798",{"depth":45,"slug":72,"text":72},"1817",{"depth":45,"slug":74,"text":75},"19-jahrhundert","19. Jahrhundert",{"depth":45,"slug":77,"text":78},"1940er-jahre","1940er Jahre",{"depth":45,"slug":80,"text":81},"21-jahrhundert","21. Jahrhundert",[],[],{"title":6,"description":7,"lang":8},[],"tortilla-history.en",{"id":86,"data":88,"body":92,"filePath":93,"digest":94,"rendered":95},{"title":89,"description":90,"lang":91},"The History of the Tortilla de Patatas","A journey through the history of the Spanish potato omelette, from the arrival of the potato in Europe to its place as one of Spain's most iconic dishes.","en","# The History of the Tortilla de Patatas\r\n\r\nThe tortilla de patatas is one of the most recognizable dishes in Spanish cuisine. Behind its apparent simplicity — potatoes, eggs, olive oil, and sometimes onion — lies a history connected to agriculture, social change, food scarcity, and everyday life.\r\n\r\nIt is not the creation of a single person or a single moment. Instead, the tortilla de patatas emerged gradually through centuries of adaptation: the arrival of the potato from the Americas, the transformation of European agriculture, and the constant search for affordable and nutritious food.\r\n\r\n---\r\n\r\n## The Arrival of the Potato: A New Ingredient from the Americas\r\n\r\nThe history of the tortilla begins with the potato.\r\n\r\nOriginally cultivated in the Andes, the potato arrived in Europe during the 16th century following Spanish expeditions in the Americas. Early European references to the plant appeared in the decades after its introduction, but its acceptance as a food source was slow.\r\n\r\nAt first, many Europeans viewed the potato with suspicion. As a member of the Solanaceae family, related to plants considered dangerous, it was often treated as an unusual botanical curiosity rather than an essential crop.\r\n\r\nFor generations, potatoes were mainly grown in botanical gardens, experimental farms, or used as animal feed. Over time, however, their advantages became clear:\r\n\r\n- They grew well in different climates.\r\n- They produced reliable harvests.\r\n- They provided significant nutritional value.\r\n- They could help populations survive periods of scarcity.\r\n\r\nSpain played a fundamental role in the potato's journey into Europe. Even the Spanish word *patata* reflects this complex history, combining influences from the Quechua word *papa* and the Taíno word *batata*.\r\n\r\n---\r\n\r\n## Early Culinary Precursors\r\n\r\nBefore the modern tortilla de patatas existed, cooks were already experimenting with combinations of eggs and potatoes.\r\n\r\nOne of the earliest European culinary references appears in **Lancelot de Casteau's** *Ouverture de cuisine* (1604), which documents the presence of potatoes in European kitchens.\r\n\r\nIn Spain, **Francisco Martínez Montiño**, chef to the Spanish royal court, published *Arte de Cocina*, describing sophisticated egg preparations, including the well-known *tortilla de la Cartuja*.\r\n\r\nThese dishes were not identical to today's tortilla de patatas, but they show that potatoes and eggs were gradually becoming part of European culinary traditions.\r\n\r\nThe tortilla was not created suddenly. It developed through many small adaptations made in kitchens across Spain.\r\n\r\n---\r\n\r\n## The Potato Becomes a Food of the People\r\n\r\nDuring the 18th century, agricultural thinkers and governments increasingly promoted the potato as a solution to food insecurity.\r\n\r\nWriters such as **Joseph Antonio Valcárcel** highlighted the importance of improving potato cultivation in Spain. The crop became increasingly valuable because it provided a dependable alternative during periods when cereals were expensive or unavailable.\r\n\r\nBy the end of the century, potatoes had moved from experimental agriculture into everyday rural cooking.\r\n\r\nThe combination of potatoes and eggs was especially practical:\r\n\r\n- Potatoes provided affordable energy.\r\n- Eggs provided protein.\r\n- Olive oil allowed cooking and preservation.\r\n- A small number of ingredients could feed several people.\r\n\r\nThis combination created the foundation of what would become the tortilla de patatas.\r\n\r\n---\r\n\r\n## Villanueva de la Serena and the 1798 Record\r\n\r\nOne of the most important historical references connected to the modern tortilla de patatas comes from **Villanueva de la Serena, Extremadura, in 1798**.\r\n\r\nAccording to research by historian **Javier López Linage**, the preparation developed in this area was linked to attempts to create an affordable and nutritious food during times of scarcity.\r\n\r\nLocal figures including **Joseph de Tena Godoy** and the **Marquis of Robledo** are associated with this search for a potato-based alternative to expensive wheat products.\r\n\r\nThe objective was not originally to create a famous national dish, but rather to find a practical solution using accessible ingredients.\r\n\r\nAlthough historians continue to discuss whether this was the absolute origin of the tortilla de patatas, the 1798 reference represents one of the earliest documented examples of a preparation close to the modern dish.\r\n\r\n---\r\n\r\n## The 19th Century: From Rural Meal to National Tradition\r\n\r\nDuring the 19th century, the tortilla de patatas spread throughout Spain.\r\n\r\nEconomic difficulties, wars, and social changes contributed to its popularity. The dish had many qualities that made it ideal for everyday life:\r\n\r\n- Affordable ingredients.\r\n- Simple preparation.\r\n- High nutritional value.\r\n- Easy transport and storage.\r\n\r\nA famous reference from Navarra in 1817 describes a meal consisting of eggs mixed with potatoes, showing that this type of preparation was already established among rural communities.\r\n\r\nAnother popular story attributes the invention of the tortilla to **General Tomás de Zumalacárregui** during the Carlist Wars. However, historians generally consider this a later legend rather than the true origin of the dish.\r\n\r\nThe tortilla existed as a popular food before it became connected with historical figures.\r\n\r\n---\r\n\r\n## The Onion Debate\r\n\r\nDuring the 19th and 20th centuries, onions became a common addition in many households.\r\n\r\nThis created one of Spain's most famous culinary debates:\r\n\r\n**Should a tortilla de patatas contain onion?**\r\n\r\nThe answer depends on tradition, family, and personal preference.\r\n\r\nThe onion version adds sweetness, moisture, and a softer texture. The onion-free version emphasizes the flavors of potato, egg, and olive oil.\r\n\r\nBoth versions have existed for generations and represent the diversity of Spanish cooking.\r\n\r\n---\r\n\r\n## The Tortilla During the Years of Hunger\r\n\r\nThe 1940s, known as the **Años del Hambre** (\"Years of Hunger\"), were a period of severe scarcity in Spain after the Civil War.\r\n\r\nDuring this time, many families struggled to obtain basic ingredients. Because the tortilla was already deeply connected with Spanish everyday life, people created substitute versions when potatoes and eggs were unavailable.\r\n\r\nOne example was the so-called \"false tortilla\", where orange peel pith (*albedo*) was processed and combined with flour and water to imitate the texture of the original dish.\r\n\r\nThese survival recipes demonstrate the cultural importance of the tortilla: even when its ingredients disappeared, people attempted to preserve the memory and identity of the dish.\r\n\r\n---\r\n\r\n## Regional Diversity and Modern Evolution\r\n\r\nOver time, different regions of Spain developed their own interpretations of the tortilla de patatas.\r\n\r\n### Tortilla de Betanzos\r\n\r\nOriginating in Galicia, this style is known for its extremely soft interior and generous use of egg. It represents one of the most delicate and technically demanding approaches to the dish.\r\n\r\n### Tortilla del Sacromonte\r\n\r\nFrom Granada's Sacromonte neighborhood, this traditional variation incorporates ingredients such as offal, reflecting local history and culinary customs.\r\n\r\nAcross Spain, cooks continue to discuss:\r\n\r\n- The ideal potato-to-egg ratio.\r\n- The perfect cooking time.\r\n- The thickness of the tortilla.\r\n- The balance between firmness and creaminess.\r\n- The role of onion.\r\n\r\nThese discussions are part of the living tradition of the dish.\r\n\r\n---\r\n\r\n## The Tortilla Today: A Global Symbol of Spanish Cuisine\r\n\r\nIn the 21st century, the tortilla de patatas has evolved from a humble rural meal into an internationally recognized symbol of Spanish gastronomy.\r\n\r\nIt appears everywhere:\r\n\r\n- Family kitchens.\r\n- Traditional bars.\r\n- Restaurants.\r\n- Gastronomic competitions.\r\n- Contemporary culinary interpretations.\r\n\r\nLarge-scale creations demonstrate its cultural importance, while chefs continue experimenting with technique, texture, and presentation.\r\n\r\nDespite these innovations, the essence remains unchanged:\r\n\r\n**Potatoes cooked in olive oil, combined with beaten eggs, and carefully cooked until the desired texture is achieved.**\r\n\r\n---\r\n\r\n## A Simple Dish with a Complex History\r\n\r\nThe tortilla de patatas tells a story of adaptation.\r\n\r\nA crop from the Andes became a European staple. A food of necessity became a cultural symbol. A simple combination of potatoes and eggs became one of Spain's most recognizable expressions of identity.\r\n\r\nIts importance does not come from complexity or luxury.\r\n\r\nIt comes from the ability to transform ordinary ingredients into something extraordinary.\r\n\r\n**The tortilla de patatas is a history of Spain told through food.**\r\n\r\n---\r\n\r\n## Timeline\r\n\r\n### 16th century\r\nThe potato arrives in Europe from the Americas.\r\n\r\n### 17th century\r\nPotatoes appear in European culinary records and begin entering elite and monastic kitchens.\r\n\r\n### 18th century\r\nThe potato becomes an important agricultural resource in Spain.\r\n\r\n### 1798\r\nVillanueva de la Serena provides one of the earliest documented references connected to the modern tortilla de patatas.\r\n\r\n### 1817\r\nReferences from Navarra show potato omelettes among rural communities.\r\n\r\n### 19th century\r\nThe tortilla spreads throughout Spain and becomes an everyday dish.\r\n\r\n### 1940s\r\nSurvival versions appear during the Años del Hambre.\r\n\r\n### 21st century\r\nThe tortilla becomes an international symbol of Spanish cuisine.","src/content/history/tortilla-history.en.md","f43e8c3f5edd5096",{"html":96,"metadata":97},"\u003Ch1 id=\"the-history-of-the-tortilla-de-patatas\">The History of the Tortilla de Patatas\u003C/h1>\n\u003Cp>The tortilla de patatas is one of the most recognizable dishes in Spanish cuisine. Behind its apparent simplicity — potatoes, eggs, olive oil, and sometimes onion — lies a history connected to agriculture, social change, food scarcity, and everyday life.\u003C/p>\n\u003Cp>It is not the creation of a single person or a single moment. Instead, the tortilla de patatas emerged gradually through centuries of adaptation: the arrival of the potato from the Americas, the transformation of European agriculture, and the constant search for affordable and nutritious food.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"the-arrival-of-the-potato-a-new-ingredient-from-the-americas\">The Arrival of the Potato: A New Ingredient from the Americas\u003C/h2>\n\u003Cp>The history of the tortilla begins with the potato.\u003C/p>\n\u003Cp>Originally cultivated in the Andes, the potato arrived in Europe during the 16th century following Spanish expeditions in the Americas. Early European references to the plant appeared in the decades after its introduction, but its acceptance as a food source was slow.\u003C/p>\n\u003Cp>At first, many Europeans viewed the potato with suspicion. As a member of the Solanaceae family, related to plants considered dangerous, it was often treated as an unusual botanical curiosity rather than an essential crop.\u003C/p>\n\u003Cp>For generations, potatoes were mainly grown in botanical gardens, experimental farms, or used as animal feed. Over time, however, their advantages became clear:\u003C/p>\n\u003Cul>\n\u003Cli>They grew well in different climates.\u003C/li>\n\u003Cli>They produced reliable harvests.\u003C/li>\n\u003Cli>They provided significant nutritional value.\u003C/li>\n\u003Cli>They could help populations survive periods of scarcity.\u003C/li>\n\u003C/ul>\n\u003Cp>Spain played a fundamental role in the potato’s journey into Europe. Even the Spanish word \u003Cem>patata\u003C/em> reflects this complex history, combining influences from the Quechua word \u003Cem>papa\u003C/em> and the Taíno word \u003Cem>batata\u003C/em>.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"early-culinary-precursors\">Early Culinary Precursors\u003C/h2>\n\u003Cp>Before the modern tortilla de patatas existed, cooks were already experimenting with combinations of eggs and potatoes.\u003C/p>\n\u003Cp>One of the earliest European culinary references appears in \u003Cstrong>Lancelot de Casteau’s\u003C/strong> \u003Cem>Ouverture de cuisine\u003C/em> (1604), which documents the presence of potatoes in European kitchens.\u003C/p>\n\u003Cp>In Spain, \u003Cstrong>Francisco Martínez Montiño\u003C/strong>, chef to the Spanish royal court, published \u003Cem>Arte de Cocina\u003C/em>, describing sophisticated egg preparations, including the well-known \u003Cem>tortilla de la Cartuja\u003C/em>.\u003C/p>\n\u003Cp>These dishes were not identical to today’s tortilla de patatas, but they show that potatoes and eggs were gradually becoming part of European culinary traditions.\u003C/p>\n\u003Cp>The tortilla was not created suddenly. It developed through many small adaptations made in kitchens across Spain.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"the-potato-becomes-a-food-of-the-people\">The Potato Becomes a Food of the People\u003C/h2>\n\u003Cp>During the 18th century, agricultural thinkers and governments increasingly promoted the potato as a solution to food insecurity.\u003C/p>\n\u003Cp>Writers such as \u003Cstrong>Joseph Antonio Valcárcel\u003C/strong> highlighted the importance of improving potato cultivation in Spain. The crop became increasingly valuable because it provided a dependable alternative during periods when cereals were expensive or unavailable.\u003C/p>\n\u003Cp>By the end of the century, potatoes had moved from experimental agriculture into everyday rural cooking.\u003C/p>\n\u003Cp>The combination of potatoes and eggs was especially practical:\u003C/p>\n\u003Cul>\n\u003Cli>Potatoes provided affordable energy.\u003C/li>\n\u003Cli>Eggs provided protein.\u003C/li>\n\u003Cli>Olive oil allowed cooking and preservation.\u003C/li>\n\u003Cli>A small number of ingredients could feed several people.\u003C/li>\n\u003C/ul>\n\u003Cp>This combination created the foundation of what would become the tortilla de patatas.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"villanueva-de-la-serena-and-the-1798-record\">Villanueva de la Serena and the 1798 Record\u003C/h2>\n\u003Cp>One of the most important historical references connected to the modern tortilla de patatas comes from \u003Cstrong>Villanueva de la Serena, Extremadura, in 1798\u003C/strong>.\u003C/p>\n\u003Cp>According to research by historian \u003Cstrong>Javier López Linage\u003C/strong>, the preparation developed in this area was linked to attempts to create an affordable and nutritious food during times of scarcity.\u003C/p>\n\u003Cp>Local figures including \u003Cstrong>Joseph de Tena Godoy\u003C/strong> and the \u003Cstrong>Marquis of Robledo\u003C/strong> are associated with this search for a potato-based alternative to expensive wheat products.\u003C/p>\n\u003Cp>The objective was not originally to create a famous national dish, but rather to find a practical solution using accessible ingredients.\u003C/p>\n\u003Cp>Although historians continue to discuss whether this was the absolute origin of the tortilla de patatas, the 1798 reference represents one of the earliest documented examples of a preparation close to the modern dish.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"the-19th-century-from-rural-meal-to-national-tradition\">The 19th Century: From Rural Meal to National Tradition\u003C/h2>\n\u003Cp>During the 19th century, the tortilla de patatas spread throughout Spain.\u003C/p>\n\u003Cp>Economic difficulties, wars, and social changes contributed to its popularity. The dish had many qualities that made it ideal for everyday life:\u003C/p>\n\u003Cul>\n\u003Cli>Affordable ingredients.\u003C/li>\n\u003Cli>Simple preparation.\u003C/li>\n\u003Cli>High nutritional value.\u003C/li>\n\u003Cli>Easy transport and storage.\u003C/li>\n\u003C/ul>\n\u003Cp>A famous reference from Navarra in 1817 describes a meal consisting of eggs mixed with potatoes, showing that this type of preparation was already established among rural communities.\u003C/p>\n\u003Cp>Another popular story attributes the invention of the tortilla to \u003Cstrong>General Tomás de Zumalacárregui\u003C/strong> during the Carlist Wars. However, historians generally consider this a later legend rather than the true origin of the dish.\u003C/p>\n\u003Cp>The tortilla existed as a popular food before it became connected with historical figures.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"the-onion-debate\">The Onion Debate\u003C/h2>\n\u003Cp>During the 19th and 20th centuries, onions became a common addition in many households.\u003C/p>\n\u003Cp>This created one of Spain’s most famous culinary debates:\u003C/p>\n\u003Cp>\u003Cstrong>Should a tortilla de patatas contain onion?\u003C/strong>\u003C/p>\n\u003Cp>The answer depends on tradition, family, and personal preference.\u003C/p>\n\u003Cp>The onion version adds sweetness, moisture, and a softer texture. The onion-free version emphasizes the flavors of potato, egg, and olive oil.\u003C/p>\n\u003Cp>Both versions have existed for generations and represent the diversity of Spanish cooking.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"the-tortilla-during-the-years-of-hunger\">The Tortilla During the Years of Hunger\u003C/h2>\n\u003Cp>The 1940s, known as the \u003Cstrong>Años del Hambre\u003C/strong> (“Years of Hunger”), were a period of severe scarcity in Spain after the Civil War.\u003C/p>\n\u003Cp>During this time, many families struggled to obtain basic ingredients. Because the tortilla was already deeply connected with Spanish everyday life, people created substitute versions when potatoes and eggs were unavailable.\u003C/p>\n\u003Cp>One example was the so-called “false tortilla”, where orange peel pith (\u003Cem>albedo\u003C/em>) was processed and combined with flour and water to imitate the texture of the original dish.\u003C/p>\n\u003Cp>These survival recipes demonstrate the cultural importance of the tortilla: even when its ingredients disappeared, people attempted to preserve the memory and identity of the dish.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"regional-diversity-and-modern-evolution\">Regional Diversity and Modern Evolution\u003C/h2>\n\u003Cp>Over time, different regions of Spain developed their own interpretations of the tortilla de patatas.\u003C/p>\n\u003Ch3 id=\"tortilla-de-betanzos\">Tortilla de Betanzos\u003C/h3>\n\u003Cp>Originating in Galicia, this style is known for its extremely soft interior and generous use of egg. It represents one of the most delicate and technically demanding approaches to the dish.\u003C/p>\n\u003Ch3 id=\"tortilla-del-sacromonte\">Tortilla del Sacromonte\u003C/h3>\n\u003Cp>From Granada’s Sacromonte neighborhood, this traditional variation incorporates ingredients such as offal, reflecting local history and culinary customs.\u003C/p>\n\u003Cp>Across Spain, cooks continue to discuss:\u003C/p>\n\u003Cul>\n\u003Cli>The ideal potato-to-egg ratio.\u003C/li>\n\u003Cli>The perfect cooking time.\u003C/li>\n\u003Cli>The thickness of the tortilla.\u003C/li>\n\u003Cli>The balance between firmness and creaminess.\u003C/li>\n\u003Cli>The role of onion.\u003C/li>\n\u003C/ul>\n\u003Cp>These discussions are part of the living tradition of the dish.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"the-tortilla-today-a-global-symbol-of-spanish-cuisine\">The Tortilla Today: A Global Symbol of Spanish Cuisine\u003C/h2>\n\u003Cp>In the 21st century, the tortilla de patatas has evolved from a humble rural meal into an internationally recognized symbol of Spanish gastronomy.\u003C/p>\n\u003Cp>It appears everywhere:\u003C/p>\n\u003Cul>\n\u003Cli>Family kitchens.\u003C/li>\n\u003Cli>Traditional bars.\u003C/li>\n\u003Cli>Restaurants.\u003C/li>\n\u003Cli>Gastronomic competitions.\u003C/li>\n\u003Cli>Contemporary culinary interpretations.\u003C/li>\n\u003C/ul>\n\u003Cp>Large-scale creations demonstrate its cultural importance, while chefs continue experimenting with technique, texture, and presentation.\u003C/p>\n\u003Cp>Despite these innovations, the essence remains unchanged:\u003C/p>\n\u003Cp>\u003Cstrong>Potatoes cooked in olive oil, combined with beaten eggs, and carefully cooked until the desired texture is achieved.\u003C/strong>\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"a-simple-dish-with-a-complex-history\">A Simple Dish with a Complex History\u003C/h2>\n\u003Cp>The tortilla de patatas tells a story of adaptation.\u003C/p>\n\u003Cp>A crop from the Andes became a European staple. A food of necessity became a cultural symbol. A simple combination of potatoes and eggs became one of Spain’s most recognizable expressions of identity.\u003C/p>\n\u003Cp>Its importance does not come from complexity or luxury.\u003C/p>\n\u003Cp>It comes from the ability to transform ordinary ingredients into something extraordinary.\u003C/p>\n\u003Cp>\u003Cstrong>The tortilla de patatas is a history of Spain told through food.\u003C/strong>\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"timeline\">Timeline\u003C/h2>\n\u003Ch3 id=\"16th-century\">16th century\u003C/h3>\n\u003Cp>The potato arrives in Europe from the Americas.\u003C/p>\n\u003Ch3 id=\"17th-century\">17th century\u003C/h3>\n\u003Cp>Potatoes appear in European culinary records and begin entering elite and monastic kitchens.\u003C/p>\n\u003Ch3 id=\"18th-century\">18th century\u003C/h3>\n\u003Cp>The potato becomes an important agricultural resource in Spain.\u003C/p>\n\u003Ch3 id=\"1798\">1798\u003C/h3>\n\u003Cp>Villanueva de la Serena provides one of the earliest documented references connected to the modern tortilla de patatas.\u003C/p>\n\u003Ch3 id=\"1817\">1817\u003C/h3>\n\u003Cp>References from Navarra show potato omelettes among rural communities.\u003C/p>\n\u003Ch3 id=\"19th-century\">19th century\u003C/h3>\n\u003Cp>The tortilla spreads throughout Spain and becomes an everyday dish.\u003C/p>\n\u003Ch3 id=\"1940s\">1940s\u003C/h3>\n\u003Cp>Survival versions appear during the Años del Hambre.\u003C/p>\n\u003Ch3 id=\"21st-century\">21st century\u003C/h3>\n\u003Cp>The tortilla becomes an international symbol of Spanish cuisine.\u003C/p>\n",{"headings":98,"localImagePaths":155,"remoteImagePaths":156,"frontmatter":157,"imagePaths":158},[99,101,104,107,110,113,116,119,122,125,126,127,130,133,136,139,142,145,146,147,150,152],{"depth":17,"slug":100,"text":89},"the-history-of-the-tortilla-de-patatas",{"depth":20,"slug":102,"text":103},"the-arrival-of-the-potato-a-new-ingredient-from-the-americas","The Arrival of the Potato: A New Ingredient from the Americas",{"depth":20,"slug":105,"text":106},"early-culinary-precursors","Early Culinary Precursors",{"depth":20,"slug":108,"text":109},"the-potato-becomes-a-food-of-the-people","The Potato Becomes a Food of the People",{"depth":20,"slug":111,"text":112},"villanueva-de-la-serena-and-the-1798-record","Villanueva de la Serena and the 1798 Record",{"depth":20,"slug":114,"text":115},"the-19th-century-from-rural-meal-to-national-tradition","The 19th Century: From Rural Meal to National Tradition",{"depth":20,"slug":117,"text":118},"the-onion-debate","The Onion Debate",{"depth":20,"slug":120,"text":121},"the-tortilla-during-the-years-of-hunger","The Tortilla During the Years of Hunger",{"depth":20,"slug":123,"text":124},"regional-diversity-and-modern-evolution","Regional Diversity and Modern Evolution",{"depth":45,"slug":46,"text":47},{"depth":45,"slug":49,"text":50},{"depth":20,"slug":128,"text":129},"the-tortilla-today-a-global-symbol-of-spanish-cuisine","The Tortilla Today: A Global Symbol of Spanish Cuisine",{"depth":20,"slug":131,"text":132},"a-simple-dish-with-a-complex-history","A Simple Dish with a Complex History",{"depth":20,"slug":134,"text":135},"timeline","Timeline",{"depth":45,"slug":137,"text":138},"16th-century","16th century",{"depth":45,"slug":140,"text":141},"17th-century","17th century",{"depth":45,"slug":143,"text":144},"18th-century","18th century",{"depth":45,"slug":70,"text":70},{"depth":45,"slug":72,"text":72},{"depth":45,"slug":148,"text":149},"19th-century","19th century",{"depth":45,"slug":151,"text":151},"1940s",{"depth":45,"slug":153,"text":154},"21st-century","21st century",[],[],{"title":89,"description":90,"lang":91},[],"tortilla-history.es",{"id":159,"data":161,"body":165,"filePath":166,"digest":167,"rendered":168},{"title":162,"description":163,"lang":164},"La historia de la tortilla de patatas","Un recorrido por la historia de la tortilla de patatas, desde la llegada de la patata a Europa hasta convertirse en uno de los platos más emblemáticos de España.","es","# La historia de la tortilla de patatas\r\n\r\nLa tortilla de patatas es uno de los platos más reconocibles de la gastronomía española. Detrás de su aparente sencillez —patatas, huevos, aceite de oliva y, en muchas ocasiones, cebolla— existe una historia relacionada con la agricultura, los cambios sociales, las épocas de escasez y la vida cotidiana.\r\n\r\nNo fue creada por una única persona ni apareció en un momento concreto. La tortilla de patatas surgió gradualmente a través de siglos de adaptación: la llegada de la patata desde América, la transformación de la agricultura europea y la búsqueda constante de alimentos económicos y nutritivos.\r\n\r\n---\r\n\r\n## La llegada de la patata: un nuevo ingrediente procedente de América\r\n\r\nLa historia de la tortilla comienza con la patata.\r\n\r\nOriginaria de los Andes, la patata llegó a Europa durante el siglo XVI tras las expediciones españolas en América. Las primeras referencias europeas a esta planta aparecen en las décadas posteriores a su llegada, pero su aceptación como alimento fue lenta.\r\n\r\nAl principio, muchos europeos miraban la patata con desconfianza. Como miembro de la familia de las solanáceas, relacionada con plantas consideradas peligrosas, fue tratada durante mucho tiempo como una curiosidad botánica más que como un alimento esencial.\r\n\r\nDurante generaciones, las patatas se cultivaron principalmente en jardines botánicos, campos experimentales o incluso como alimento para animales. Con el tiempo, sus ventajas se hicieron evidentes:\r\n\r\n- Crecía bien en diferentes condiciones climáticas.\r\n- Producía cosechas abundantes y fiables.\r\n- Aportaba un importante valor nutricional.\r\n- Permitía superar periodos de escasez alimentaria.\r\n\r\nEspaña tuvo un papel fundamental en la llegada de la patata a Europa. Incluso su nombre refleja esta historia compleja: la palabra española *patata* combina influencias del quechua *papa* y del taíno *batata*.\r\n\r\n---\r\n\r\n## Los primeros antecedentes culinarios\r\n\r\nAntes de existir la tortilla de patatas moderna, los cocineros ya experimentaban con combinaciones de huevos y patatas.\r\n\r\nUna de las primeras referencias culinarias europeas aparece en **Lancelot de Casteau** y su obra *Ouverture de cuisine* (1604), donde se documenta la presencia de la patata en las cocinas europeas.\r\n\r\nEn España, **Francisco Martínez Montiño**, cocinero de la corte española, publicó *Arte de Cocina*, donde aparecen elaboraciones con huevo, incluyendo la conocida *tortilla de la Cartuja*.\r\n\r\nEstas preparaciones no eran todavía la tortilla de patatas actual, pero muestran cómo la patata y el huevo fueron entrando progresivamente en las tradiciones culinarias europeas.\r\n\r\nLa tortilla no nació de forma repentina. Se desarrolló mediante pequeñas adaptaciones realizadas durante generaciones en distintas cocinas españolas.\r\n\r\n---\r\n\r\n## La patata se convierte en alimento popular\r\n\r\nDurante el siglo XVIII, pensadores agrícolas y gobiernos comenzaron a promocionar la patata como una solución frente a los problemas de abastecimiento alimentario.\r\n\r\nAutores como **Joseph Antonio Valcárcel** destacaron la importancia de mejorar el cultivo de la patata en España. El tubérculo ganó importancia porque ofrecía una alternativa fiable cuando los cereales eran caros o escaseaban.\r\n\r\nA finales del siglo XVIII, la patata había pasado de los campos experimentales a formar parte de la cocina cotidiana rural.\r\n\r\nLa combinación de patatas y huevos era especialmente práctica:\r\n\r\n- Las patatas aportaban energía a bajo coste.\r\n- Los huevos proporcionaban proteínas.\r\n- El aceite de oliva permitía cocinar y conservar.\r\n- Con pocos ingredientes se podía alimentar a varias personas.\r\n\r\nEsta combinación creó la base de lo que posteriormente sería la tortilla de patatas.\r\n\r\n---\r\n\r\n## Villanueva de la Serena y la referencia de 1798\r\n\r\nUno de los momentos históricos más importantes relacionados con la tortilla de patatas moderna se sitúa en **Villanueva de la Serena, Extremadura, en 1798**.\r\n\r\nSegún las investigaciones del historiador **Javier López Linage**, la preparación desarrollada en esta zona estuvo relacionada con la búsqueda de un alimento económico y nutritivo durante una época de dificultades.\r\n\r\nSe vincula esta iniciativa con **Joseph de Tena Godoy** y el **Marqués de Robledo**, quienes buscaban alternativas a productos más costosos como el trigo.\r\n\r\nEl objetivo inicial no era crear un plato famoso, sino encontrar una solución práctica utilizando ingredientes accesibles.\r\n\r\nAunque los historiadores continúan debatiendo si este fue el origen absoluto de la tortilla de patatas, el episodio de 1798 representa una de las primeras referencias documentadas relacionadas con una preparación cercana al plato moderno.\r\n\r\n---\r\n\r\n## El siglo XIX: de comida rural a tradición nacional\r\n\r\nDurante el siglo XIX, la tortilla de patatas se extendió por toda España.\r\n\r\nLas dificultades económicas, los conflictos y los cambios sociales favorecieron su popularidad. Sus características la hacían ideal para la vida diaria:\r\n\r\n- Ingredientes económicos.\r\n- Preparación sencilla.\r\n- Alto valor nutritivo.\r\n- Fácil transporte y conservación.\r\n\r\nUna referencia conocida de Navarra en 1817 describe una preparación de huevos mezclados con patatas, demostrando que este tipo de plato ya estaba establecido entre las comunidades rurales.\r\n\r\nOtra historia popular atribuye la invención de la tortilla al **General Tomás de Zumalacárregui** durante las Guerras Carlistas. Sin embargo, los historiadores consideran generalmente esta versión como una leyenda posterior y no como el verdadero origen del plato.\r\n\r\nLa tortilla ya formaba parte de la alimentación popular antes de asociarse a figuras históricas.\r\n\r\n---\r\n\r\n## El debate de la cebolla\r\n\r\nDurante los siglos XIX y XX, la cebolla se convirtió en un ingrediente habitual en muchos hogares.\r\n\r\nEsto dio origen a uno de los debates culinarios más famosos de España:\r\n\r\n**¿Debe llevar cebolla una tortilla de patatas?**\r\n\r\nLa respuesta depende de la tradición, la familia y el gusto personal.\r\n\r\nLa versión con cebolla aporta dulzor, humedad y una textura más suave. La versión sin cebolla destaca los sabores directos de la patata, el huevo y el aceite de oliva.\r\n\r\nAmbas variantes existen desde hace generaciones y forman parte de la diversidad de la cocina española.\r\n\r\n---\r\n\r\n## La tortilla durante los Años del Hambre\r\n\r\nLa década de 1940, conocida como los **Años del Hambre**, fue un periodo de gran escasez en España tras la Guerra Civil.\r\n\r\nDurante esos años, muchas familias tuvieron dificultades para conseguir ingredientes básicos. Como la tortilla ya estaba profundamente ligada a la vida cotidiana española, surgieron versiones alternativas cuando las patatas y los huevos eran difíciles de encontrar.\r\n\r\nUn ejemplo fue la llamada \"falsa tortilla\", donde se utilizaba el albedo de la naranja (la parte blanca de la piel), procesado y mezclado con harina y agua para imitar la textura del plato original.\r\n\r\nEstas recetas de supervivencia muestran la importancia cultural de la tortilla: incluso cuando desaparecían sus ingredientes, la población intentaba conservar la idea y la identidad del plato.\r\n\r\n---\r\n\r\n## Diversidad regional y evolución moderna\r\n\r\nCon el paso del tiempo, diferentes regiones de España desarrollaron sus propias interpretaciones de la tortilla de patatas.\r\n\r\n### Tortilla de Betanzos\r\n\r\nOriginaria de Galicia, esta versión es conocida por su interior extremadamente jugoso y por una mayor proporción de huevo. Representa una de las formas más delicadas y técnicamente exigentes de preparar la tortilla.\r\n\r\n### Tortilla del Sacromonte\r\n\r\nProcedente del barrio del Sacromonte en Granada, esta variante tradicional incorpora ingredientes como casquería, reflejando la historia local y sus costumbres culinarias.\r\n\r\nEn toda España continúan los debates sobre:\r\n\r\n- La proporción ideal entre patata y huevo.\r\n- El tiempo perfecto de cocción.\r\n- El grosor adecuado.\r\n- El equilibrio entre firmeza y cremosidad.\r\n- El papel de la cebolla.\r\n\r\nEstas discusiones forman parte de una tradición gastronómica viva.\r\n\r\n---\r\n\r\n## La tortilla actual: un símbolo internacional de la cocina española\r\n\r\nEn el siglo XXI, la tortilla de patatas ha pasado de ser una comida humilde a convertirse en uno de los símbolos internacionales de la gastronomía española.\r\n\r\nEstá presente en todas partes:\r\n\r\n- Cocinas familiares.\r\n- Bares tradicionales.\r\n- Restaurantes.\r\n- Concursos gastronómicos.\r\n- Interpretaciones contemporáneas.\r\n\r\nLas grandes elaboraciones demuestran su importancia cultural, mientras que los cocineros siguen experimentando con técnicas, texturas y presentaciones.\r\n\r\nA pesar de estas innovaciones, la esencia permanece:\r\n\r\n**Patatas cocinadas en aceite de oliva, mezcladas con huevo batido y cocinadas cuidadosamente hasta alcanzar la textura deseada.**\r\n\r\n---\r\n\r\n## Un plato sencillo con una historia compleja\r\n\r\nLa tortilla de patatas cuenta una historia de adaptación.\r\n\r\nUna planta procedente de los Andes se convirtió en un alimento fundamental de Europa. Una comida nacida de la necesidad se transformó en un símbolo cultural. Una sencilla combinación de patatas y huevos llegó a representar una de las expresiones más reconocibles de la identidad española.\r\n\r\nSu importancia no viene de la complejidad ni del lujo.\r\n\r\nViene de la capacidad de transformar ingredientes humildes en algo extraordinario.\r\n\r\n**La tortilla de patatas es la historia de España contada a través de la comida.**\r\n\r\n---\r\n\r\n## Línea temporal\r\n\r\n### Siglo XVI\r\nLa patata llega a Europa desde América.\r\n\r\n### Siglo XVII\r\nLa patata aparece en documentos culinarios europeos y comienza a entrar en cocinas de élite y religiosas.\r\n\r\n### Siglo XVIII\r\nLa patata se convierte en un recurso agrícola importante en España.\r\n\r\n### 1798\r\nVillanueva de la Serena aporta una de las primeras referencias documentadas relacionadas con la tortilla de patatas moderna.\r\n\r\n### 1817\r\nReferencias de Navarra muestran tortillas con patata entre comunidades rurales.\r\n\r\n### Siglo XIX\r\nLa tortilla se extiende por España y se convierte en un plato cotidiano.\r\n\r\n### Década de 1940\r\nAparecen versiones de supervivencia durante los Años del Hambre.\r\n\r\n### Siglo XXI\r\nLa tortilla se consolida como símbolo internacional de la gastronomía española.","src/content/history/tortilla-history.es.md","ff7b5413f134e57d",{"html":169,"metadata":170},"\u003Ch1 id=\"la-historia-de-la-tortilla-de-patatas\">La historia de la tortilla de patatas\u003C/h1>\n\u003Cp>La tortilla de patatas es uno de los platos más reconocibles de la gastronomía española. Detrás de su aparente sencillez —patatas, huevos, aceite de oliva y, en muchas ocasiones, cebolla— existe una historia relacionada con la agricultura, los cambios sociales, las épocas de escasez y la vida cotidiana.\u003C/p>\n\u003Cp>No fue creada por una única persona ni apareció en un momento concreto. La tortilla de patatas surgió gradualmente a través de siglos de adaptación: la llegada de la patata desde América, la transformación de la agricultura europea y la búsqueda constante de alimentos económicos y nutritivos.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"la-llegada-de-la-patata-un-nuevo-ingrediente-procedente-de-américa\">La llegada de la patata: un nuevo ingrediente procedente de América\u003C/h2>\n\u003Cp>La historia de la tortilla comienza con la patata.\u003C/p>\n\u003Cp>Originaria de los Andes, la patata llegó a Europa durante el siglo XVI tras las expediciones españolas en América. Las primeras referencias europeas a esta planta aparecen en las décadas posteriores a su llegada, pero su aceptación como alimento fue lenta.\u003C/p>\n\u003Cp>Al principio, muchos europeos miraban la patata con desconfianza. Como miembro de la familia de las solanáceas, relacionada con plantas consideradas peligrosas, fue tratada durante mucho tiempo como una curiosidad botánica más que como un alimento esencial.\u003C/p>\n\u003Cp>Durante generaciones, las patatas se cultivaron principalmente en jardines botánicos, campos experimentales o incluso como alimento para animales. Con el tiempo, sus ventajas se hicieron evidentes:\u003C/p>\n\u003Cul>\n\u003Cli>Crecía bien en diferentes condiciones climáticas.\u003C/li>\n\u003Cli>Producía cosechas abundantes y fiables.\u003C/li>\n\u003Cli>Aportaba un importante valor nutricional.\u003C/li>\n\u003Cli>Permitía superar periodos de escasez alimentaria.\u003C/li>\n\u003C/ul>\n\u003Cp>España tuvo un papel fundamental en la llegada de la patata a Europa. Incluso su nombre refleja esta historia compleja: la palabra española \u003Cem>patata\u003C/em> combina influencias del quechua \u003Cem>papa\u003C/em> y del taíno \u003Cem>batata\u003C/em>.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"los-primeros-antecedentes-culinarios\">Los primeros antecedentes culinarios\u003C/h2>\n\u003Cp>Antes de existir la tortilla de patatas moderna, los cocineros ya experimentaban con combinaciones de huevos y patatas.\u003C/p>\n\u003Cp>Una de las primeras referencias culinarias europeas aparece en \u003Cstrong>Lancelot de Casteau\u003C/strong> y su obra \u003Cem>Ouverture de cuisine\u003C/em> (1604), donde se documenta la presencia de la patata en las cocinas europeas.\u003C/p>\n\u003Cp>En España, \u003Cstrong>Francisco Martínez Montiño\u003C/strong>, cocinero de la corte española, publicó \u003Cem>Arte de Cocina\u003C/em>, donde aparecen elaboraciones con huevo, incluyendo la conocida \u003Cem>tortilla de la Cartuja\u003C/em>.\u003C/p>\n\u003Cp>Estas preparaciones no eran todavía la tortilla de patatas actual, pero muestran cómo la patata y el huevo fueron entrando progresivamente en las tradiciones culinarias europeas.\u003C/p>\n\u003Cp>La tortilla no nació de forma repentina. Se desarrolló mediante pequeñas adaptaciones realizadas durante generaciones en distintas cocinas españolas.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"la-patata-se-convierte-en-alimento-popular\">La patata se convierte en alimento popular\u003C/h2>\n\u003Cp>Durante el siglo XVIII, pensadores agrícolas y gobiernos comenzaron a promocionar la patata como una solución frente a los problemas de abastecimiento alimentario.\u003C/p>\n\u003Cp>Autores como \u003Cstrong>Joseph Antonio Valcárcel\u003C/strong> destacaron la importancia de mejorar el cultivo de la patata en España. El tubérculo ganó importancia porque ofrecía una alternativa fiable cuando los cereales eran caros o escaseaban.\u003C/p>\n\u003Cp>A finales del siglo XVIII, la patata había pasado de los campos experimentales a formar parte de la cocina cotidiana rural.\u003C/p>\n\u003Cp>La combinación de patatas y huevos era especialmente práctica:\u003C/p>\n\u003Cul>\n\u003Cli>Las patatas aportaban energía a bajo coste.\u003C/li>\n\u003Cli>Los huevos proporcionaban proteínas.\u003C/li>\n\u003Cli>El aceite de oliva permitía cocinar y conservar.\u003C/li>\n\u003Cli>Con pocos ingredientes se podía alimentar a varias personas.\u003C/li>\n\u003C/ul>\n\u003Cp>Esta combinación creó la base de lo que posteriormente sería la tortilla de patatas.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"villanueva-de-la-serena-y-la-referencia-de-1798\">Villanueva de la Serena y la referencia de 1798\u003C/h2>\n\u003Cp>Uno de los momentos históricos más importantes relacionados con la tortilla de patatas moderna se sitúa en \u003Cstrong>Villanueva de la Serena, Extremadura, en 1798\u003C/strong>.\u003C/p>\n\u003Cp>Según las investigaciones del historiador \u003Cstrong>Javier López Linage\u003C/strong>, la preparación desarrollada en esta zona estuvo relacionada con la búsqueda de un alimento económico y nutritivo durante una época de dificultades.\u003C/p>\n\u003Cp>Se vincula esta iniciativa con \u003Cstrong>Joseph de Tena Godoy\u003C/strong> y el \u003Cstrong>Marqués de Robledo\u003C/strong>, quienes buscaban alternativas a productos más costosos como el trigo.\u003C/p>\n\u003Cp>El objetivo inicial no era crear un plato famoso, sino encontrar una solución práctica utilizando ingredientes accesibles.\u003C/p>\n\u003Cp>Aunque los historiadores continúan debatiendo si este fue el origen absoluto de la tortilla de patatas, el episodio de 1798 representa una de las primeras referencias documentadas relacionadas con una preparación cercana al plato moderno.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"el-siglo-xix-de-comida-rural-a-tradición-nacional\">El siglo XIX: de comida rural a tradición nacional\u003C/h2>\n\u003Cp>Durante el siglo XIX, la tortilla de patatas se extendió por toda España.\u003C/p>\n\u003Cp>Las dificultades económicas, los conflictos y los cambios sociales favorecieron su popularidad. Sus características la hacían ideal para la vida diaria:\u003C/p>\n\u003Cul>\n\u003Cli>Ingredientes económicos.\u003C/li>\n\u003Cli>Preparación sencilla.\u003C/li>\n\u003Cli>Alto valor nutritivo.\u003C/li>\n\u003Cli>Fácil transporte y conservación.\u003C/li>\n\u003C/ul>\n\u003Cp>Una referencia conocida de Navarra en 1817 describe una preparación de huevos mezclados con patatas, demostrando que este tipo de plato ya estaba establecido entre las comunidades rurales.\u003C/p>\n\u003Cp>Otra historia popular atribuye la invención de la tortilla al \u003Cstrong>General Tomás de Zumalacárregui\u003C/strong> durante las Guerras Carlistas. Sin embargo, los historiadores consideran generalmente esta versión como una leyenda posterior y no como el verdadero origen del plato.\u003C/p>\n\u003Cp>La tortilla ya formaba parte de la alimentación popular antes de asociarse a figuras históricas.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"el-debate-de-la-cebolla\">El debate de la cebolla\u003C/h2>\n\u003Cp>Durante los siglos XIX y XX, la cebolla se convirtió en un ingrediente habitual en muchos hogares.\u003C/p>\n\u003Cp>Esto dio origen a uno de los debates culinarios más famosos de España:\u003C/p>\n\u003Cp>\u003Cstrong>¿Debe llevar cebolla una tortilla de patatas?\u003C/strong>\u003C/p>\n\u003Cp>La respuesta depende de la tradición, la familia y el gusto personal.\u003C/p>\n\u003Cp>La versión con cebolla aporta dulzor, humedad y una textura más suave. La versión sin cebolla destaca los sabores directos de la patata, el huevo y el aceite de oliva.\u003C/p>\n\u003Cp>Ambas variantes existen desde hace generaciones y forman parte de la diversidad de la cocina española.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"la-tortilla-durante-los-años-del-hambre\">La tortilla durante los Años del Hambre\u003C/h2>\n\u003Cp>La década de 1940, conocida como los \u003Cstrong>Años del Hambre\u003C/strong>, fue un periodo de gran escasez en España tras la Guerra Civil.\u003C/p>\n\u003Cp>Durante esos años, muchas familias tuvieron dificultades para conseguir ingredientes básicos. Como la tortilla ya estaba profundamente ligada a la vida cotidiana española, surgieron versiones alternativas cuando las patatas y los huevos eran difíciles de encontrar.\u003C/p>\n\u003Cp>Un ejemplo fue la llamada “falsa tortilla”, donde se utilizaba el albedo de la naranja (la parte blanca de la piel), procesado y mezclado con harina y agua para imitar la textura del plato original.\u003C/p>\n\u003Cp>Estas recetas de supervivencia muestran la importancia cultural de la tortilla: incluso cuando desaparecían sus ingredientes, la población intentaba conservar la idea y la identidad del plato.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"diversidad-regional-y-evolución-moderna\">Diversidad regional y evolución moderna\u003C/h2>\n\u003Cp>Con el paso del tiempo, diferentes regiones de España desarrollaron sus propias interpretaciones de la tortilla de patatas.\u003C/p>\n\u003Ch3 id=\"tortilla-de-betanzos\">Tortilla de Betanzos\u003C/h3>\n\u003Cp>Originaria de Galicia, esta versión es conocida por su interior extremadamente jugoso y por una mayor proporción de huevo. Representa una de las formas más delicadas y técnicamente exigentes de preparar la tortilla.\u003C/p>\n\u003Ch3 id=\"tortilla-del-sacromonte\">Tortilla del Sacromonte\u003C/h3>\n\u003Cp>Procedente del barrio del Sacromonte en Granada, esta variante tradicional incorpora ingredientes como casquería, reflejando la historia local y sus costumbres culinarias.\u003C/p>\n\u003Cp>En toda España continúan los debates sobre:\u003C/p>\n\u003Cul>\n\u003Cli>La proporción ideal entre patata y huevo.\u003C/li>\n\u003Cli>El tiempo perfecto de cocción.\u003C/li>\n\u003Cli>El grosor adecuado.\u003C/li>\n\u003Cli>El equilibrio entre firmeza y cremosidad.\u003C/li>\n\u003Cli>El papel de la cebolla.\u003C/li>\n\u003C/ul>\n\u003Cp>Estas discusiones forman parte de una tradición gastronómica viva.\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"la-tortilla-actual-un-símbolo-internacional-de-la-cocina-española\">La tortilla actual: un símbolo internacional de la cocina española\u003C/h2>\n\u003Cp>En el siglo XXI, la tortilla de patatas ha pasado de ser una comida humilde a convertirse en uno de los símbolos internacionales de la gastronomía española.\u003C/p>\n\u003Cp>Está presente en todas partes:\u003C/p>\n\u003Cul>\n\u003Cli>Cocinas familiares.\u003C/li>\n\u003Cli>Bares tradicionales.\u003C/li>\n\u003Cli>Restaurantes.\u003C/li>\n\u003Cli>Concursos gastronómicos.\u003C/li>\n\u003Cli>Interpretaciones contemporáneas.\u003C/li>\n\u003C/ul>\n\u003Cp>Las grandes elaboraciones demuestran su importancia cultural, mientras que los cocineros siguen experimentando con técnicas, texturas y presentaciones.\u003C/p>\n\u003Cp>A pesar de estas innovaciones, la esencia permanece:\u003C/p>\n\u003Cp>\u003Cstrong>Patatas cocinadas en aceite de oliva, mezcladas con huevo batido y cocinadas cuidadosamente hasta alcanzar la textura deseada.\u003C/strong>\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"un-plato-sencillo-con-una-historia-compleja\">Un plato sencillo con una historia compleja\u003C/h2>\n\u003Cp>La tortilla de patatas cuenta una historia de adaptación.\u003C/p>\n\u003Cp>Una planta procedente de los Andes se convirtió en un alimento fundamental de Europa. Una comida nacida de la necesidad se transformó en un símbolo cultural. Una sencilla combinación de patatas y huevos llegó a representar una de las expresiones más reconocibles de la identidad española.\u003C/p>\n\u003Cp>Su importancia no viene de la complejidad ni del lujo.\u003C/p>\n\u003Cp>Viene de la capacidad de transformar ingredientes humildes en algo extraordinario.\u003C/p>\n\u003Cp>\u003Cstrong>La tortilla de patatas es la historia de España contada a través de la comida.\u003C/strong>\u003C/p>\n\u003Chr>\n\u003Ch2 id=\"línea-temporal\">Línea temporal\u003C/h2>\n\u003Ch3 id=\"siglo-xvi\">Siglo XVI\u003C/h3>\n\u003Cp>La patata llega a Europa desde América.\u003C/p>\n\u003Ch3 id=\"siglo-xvii\">Siglo XVII\u003C/h3>\n\u003Cp>La patata aparece en documentos culinarios europeos y comienza a entrar en cocinas de élite y religiosas.\u003C/p>\n\u003Ch3 id=\"siglo-xviii\">Siglo XVIII\u003C/h3>\n\u003Cp>La patata se convierte en un recurso agrícola importante en España.\u003C/p>\n\u003Ch3 id=\"1798\">1798\u003C/h3>\n\u003Cp>Villanueva de la Serena aporta una de las primeras referencias documentadas relacionadas con la tortilla de patatas moderna.\u003C/p>\n\u003Ch3 id=\"1817\">1817\u003C/h3>\n\u003Cp>Referencias de Navarra muestran tortillas con patata entre comunidades rurales.\u003C/p>\n\u003Ch3 id=\"siglo-xix\">Siglo XIX\u003C/h3>\n\u003Cp>La tortilla se extiende por España y se convierte en un plato cotidiano.\u003C/p>\n\u003Ch3 id=\"década-de-1940\">Década de 1940\u003C/h3>\n\u003Cp>Aparecen versiones de supervivencia durante los Años del Hambre.\u003C/p>\n\u003Ch3 id=\"siglo-xxi\">Siglo XXI\u003C/h3>\n\u003Cp>La tortilla se consolida como símbolo internacional de la gastronomía española.\u003C/p>\n",{"headings":171,"localImagePaths":229,"remoteImagePaths":230,"frontmatter":231,"imagePaths":232},[172,174,177,180,183,186,189,192,195,198,199,200,203,206,209,212,215,218,219,220,223,226],{"depth":17,"slug":173,"text":162},"la-historia-de-la-tortilla-de-patatas",{"depth":20,"slug":175,"text":176},"la-llegada-de-la-patata-un-nuevo-ingrediente-procedente-de-américa","La llegada de la patata: un nuevo ingrediente procedente de América",{"depth":20,"slug":178,"text":179},"los-primeros-antecedentes-culinarios","Los primeros antecedentes culinarios",{"depth":20,"slug":181,"text":182},"la-patata-se-convierte-en-alimento-popular","La patata se convierte en alimento popular",{"depth":20,"slug":184,"text":185},"villanueva-de-la-serena-y-la-referencia-de-1798","Villanueva de la Serena y la referencia de 1798",{"depth":20,"slug":187,"text":188},"el-siglo-xix-de-comida-rural-a-tradición-nacional","El siglo XIX: de comida rural a tradición nacional",{"depth":20,"slug":190,"text":191},"el-debate-de-la-cebolla","El debate de la cebolla",{"depth":20,"slug":193,"text":194},"la-tortilla-durante-los-años-del-hambre","La tortilla durante los Años del Hambre",{"depth":20,"slug":196,"text":197},"diversidad-regional-y-evolución-moderna","Diversidad regional y evolución moderna",{"depth":45,"slug":46,"text":47},{"depth":45,"slug":49,"text":50},{"depth":20,"slug":201,"text":202},"la-tortilla-actual-un-símbolo-internacional-de-la-cocina-española","La tortilla actual: un símbolo internacional de la cocina española",{"depth":20,"slug":204,"text":205},"un-plato-sencillo-con-una-historia-compleja","Un plato sencillo con una historia compleja",{"depth":20,"slug":207,"text":208},"línea-temporal","Línea temporal",{"depth":45,"slug":210,"text":211},"siglo-xvi","Siglo XVI",{"depth":45,"slug":213,"text":214},"siglo-xvii","Siglo XVII",{"depth":45,"slug":216,"text":217},"siglo-xviii","Siglo XVIII",{"depth":45,"slug":70,"text":70},{"depth":45,"slug":72,"text":72},{"depth":45,"slug":221,"text":222},"siglo-xix","Siglo XIX",{"depth":45,"slug":224,"text":225},"década-de-1940","Década de 1940",{"depth":45,"slug":227,"text":228},"siglo-xxi","Siglo XXI",[],[],{"title":162,"description":163,"lang":164},[],"meta::meta",["Map",235,236,237,238,239,240],"astro-config-digest","{\"root\":{},\"srcDir\":{},\"publicDir\":{},\"outDir\":{},\"cacheDir\":{},\"site\":\"https://tortilladepatatas.org\",\"compressHTML\":\"jsx\",\"base\":\"/\",\"trailingSlash\":\"ignore\",\"output\":\"static\",\"scopedStyleStrategy\":\"attribute\",\"build\":{\"format\":\"directory\",\"client\":{},\"server\":{},\"assets\":\"_astro\",\"serverEntry\":\"entry.mjs\",\"redirects\":true,\"inlineStylesheets\":\"auto\",\"concurrency\":1},\"server\":{\"open\":false,\"host\":\"0.0.0.0\",\"port\":3000,\"allowedHosts\":[\"0.0.0.0\",\"0.0.0.0\",\"0.0.0.0\",\"0.0.0.0\"]},\"redirects\":{},\"image\":{\"endpoint\":{\"route\":\"/_image\"},\"service\":{\"entrypoint\":\"astro/assets/services/sharp\",\"config\":{}},\"dangerouslyProcessSVG\":false,\"domains\":[],\"remotePatterns\":[],\"responsiveStyles\":false},\"devToolbar\":{\"enabled\":true},\"markdown\":{\"syntaxHighlight\":{\"type\":\"shiki\",\"excludeLangs\":[\"math\"]},\"shikiConfig\":{\"langs\":[],\"langAlias\":{},\"theme\":\"github-dark\",\"themes\":{},\"wrap\":false,\"transformers\":[]},\"remarkPlugins\":[],\"rehypePlugins\":[],\"remarkRehype\":{},\"processor\":{\"name\":\"satteri\",\"options\":{\"mdastPlugins\":[],\"hastPlugins\":[],\"features\":{}}}},\"security\":{\"checkOrigin\":true,\"allowedDomains\":[],\"csp\":false,\"actionBodySizeLimit\":1048576,\"serverIslandBodySizeLimit\":1048576},\"env\":{\"schema\":{},\"validateSecrets\":false},\"prerenderConflictBehavior\":\"warn\",\"fetchFile\":\"fetch\",\"experimental\":{\"clientPrerender\":false,\"contentIntellisense\":false,\"chromeDevtoolsWorkspace\":false,\"collectionStorage\":\"single-file\"},\"legacy\":{\"collectionsBackwardsCompat\":false}}","astro-version","7.1.6","content-config-digest","33e099aa90d7d70f","navigation",["Map",243,244,268,269],"footer",{"id":243,"data":245,"filePath":266,"digest":267},{"brandDesc":246,"subtitle":250,"safetyTitle":254,"safetyText":258,"rights":262},{"es":247,"en":248,"de":249},"La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.","The gastronomic encyclopedia and laboratory notebook dedicated to the authentic Spanish potato omelette.","Die gastronomische Enzyklopädie und das Laborbuch zur echten spanischen Kartoffeltortilla.",{"es":251,"en":252,"de":253},"Gastronomía, Tradición & Ciencia Culinaria","Gastronomy, Tradition & Culinary Science","Gastronomie, Tradition & Kulinarische Wissenschaft",{"es":255,"en":256,"de":257},"Estándar de Seguridad Bactericida","Bactericidal Safety Standard","Bakterizider Sicherheitsstandard",{"es":259,"en":260,"de":261},"Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 hours** a temperatura ambiente.","To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as intermediate threshold). Runny omelettes must not exceed **4 hours** at room temperature.","Zur mikrobiologischen Sicherheit verlangt der bakterizide Standard **70°C for 2 minutes** (oder **63°C for 20 seconds**). Leicht gebratene Tortillas dürfen nicht länger als **4 hours** bei Raumtemperatur stehen.",{"es":263,"en":264,"de":265},"Todos los derechos reservados.","All rights reserved.","Alle Rechte vorbehalten.","src/content/navigation/footer.json","931fed7eb8f91908","header",{"id":268,"data":270,"filePath":376,"digest":377},{"items":271},[272,279,286,355,362,369],{"key":273,"href":274,"label":275},"recipes","/recipes",{"es":276,"en":277,"de":278},"Recetas","Recipes","Rezepte",{"key":280,"href":281,"label":282},"factions","/facciones",{"es":283,"en":284,"de":285},"Facciones","Factions","Faktionen",{"key":287,"href":288,"label":289,"children":293},"universo","/enciclopedia",{"es":290,"en":291,"de":292},"Universo Tortilla","Tortilla Universe","Tortilla-Universum",[294,300,307,314,320,327,334,341,348],{"key":1,"href":295,"label":296},"/history",{"es":297,"en":298,"de":299},"Historia","History","Geschichte",{"key":301,"href":302,"label":303},"estilos","/estilos",{"es":304,"en":305,"de":306},"Estilos","Styles","Stile",{"key":308,"href":309,"label":310},"personas","/personas",{"es":311,"en":312,"de":313},"Personas","People","Personen",{"key":315,"href":316,"label":317},"restaurantes","/restaurantes",{"es":318,"en":319,"de":319},"Restaurantes","Restaurants",{"key":321,"href":322,"label":323},"regiones","/regiones",{"es":324,"en":325,"de":326},"Regiones","Regions","Regionen",{"key":328,"href":329,"label":330},"ingredients","/ingredients",{"es":331,"en":332,"de":333},"Ingredientes","Ingredients","Zutaten",{"key":335,"href":336,"label":337},"techniques","/techniques",{"es":338,"en":339,"de":340},"Técnicas","Techniques","Techniken",{"key":342,"href":343,"label":344},"science","/science",{"es":345,"en":346,"de":347},"Ciencia","Science","Wissenschaft",{"key":349,"href":350,"label":351},"records","/records",{"es":352,"en":353,"de":354},"Récords","Records","Rekorde",{"key":356,"href":357,"label":358},"laboratory","/laboratorio",{"es":359,"en":360,"de":361},"Laboratorio","Laboratory","Labor",{"key":363,"href":364,"label":365},"about","/about",{"es":366,"en":367,"de":368},"Sobre nosotros","About us","Über uns",{"key":370,"href":371,"label":372},"contact","/contacto",{"es":373,"en":374,"de":375},"Contacto","Contact","Kontakt","src/content/navigation/header.json","ed109565c7f2eb4b","pages",["Map",363,380,414,415,522,523,1,583,769,770,818,819,839,840,308,905,925,926,349,958,986,987,1022,1023,342,1067,1087,1088],{"id":363,"data":381,"filePath":412,"digest":413},{"badge":382,"title":386,"subtitle":390,"mission":394,"safetyStandard":403},{"es":383,"en":384,"de":385},"Manifiesto & Misión Editorial","Manifesto & Editorial Mission","Manifest & Redaktioneller Auftrag",{"es":387,"en":388,"de":389},"Sobre tortilladepatatas.org","About tortilladepatatas.org","Über tortilladepatatas.org",{"es":391,"en":392,"de":393},"La enciclopedia independiente, cuaderno de laboratorio y espacio de encuentro riguroso dedicado al plato más emblemático de España.","The independent encyclopedia, laboratory notebook, and rigorous meeting space dedicated to Spain's most iconic dish.","Die unabhängige Enzyklopädie, das Laborbuch und der Begegnungsraum für das kultigste Gericht Spaniens.",{"title":395,"body":399},{"es":396,"en":397,"de":398},"Nuestra Misión Culinaria","Our Culinary Mission","Unsere Kulinarische Mission",{"es":400,"en":401,"de":402},"Documentar con precisión científica, rigor histórico y amor por la gastronomía todas las vertientes, técnicas, variantes e innovaciones de la tortilla de patatas, promoviendo siempre los más altos estándares de inocuidad alimentaria.","To document with scientific precision, historical rigor, and passion for gastronomy every technique, variation, and innovation of the Spanish tortilla while upholding the highest food safety standards.","Mit wissenschaftlicher Präzision, historischer Strenge und Leidenschaft alle Varianten und Techniken der Tortilla de Patatas zu dokumentieren.",{"title":404,"body":408},{"es":405,"en":406,"de":407},"El Compromiso de Inocuidad Bactericida","Bactericidal Safety Commitment","Verpflichtung zur Lebensmittelsicherheit",{"es":409,"en":410,"de":411},"Divulgamos activamente las recomendaciones del Instituto de Estudios del Huevo y las autoridades sanitarias: alcanzar **70°C for 2 minutes** (o **63°C for 20 seconds** con huevo pasteurizado) y limitar a **4 hours** la exposición a temperatura ambiente.","We actively disseminate public health recommendations: reach **70°C for 2 minutes** (or **63°C for 20 seconds** with pasteurized eggs) and limit room temperature exposure to **4 hours**.","Wir vermitteln aktiv die Hygiene-Empfehlungen: **70°C for 2 minutes** (oder **63°C for 20 seconds**) sowie maximal **4 hours** bei Raumtemperatur.","src/content/pages/about.json","bdd82be21e046077","enciclopedia-index",{"id":414,"data":416,"filePath":520,"digest":521},{"badge":417,"title":421,"subtitle":422,"sections":426},{"es":418,"en":419,"de":420},"Área de Conocimiento Editorial","Editorial Knowledge Base","Redaktionelles Wissenszentrum",{"es":290,"en":291,"de":292},{"es":423,"en":424,"de":425},"Compendio enciclopédico sobre la historia, estilos, personalidades, restaurantes, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.","Encyclopedic compendium covering history, styles, key personalities, culinary temples, regional geography, ingredients, techniques, science, and records.","Enzyklopädisches Kompendium zu Geschichte, Stilen, Persönlichkeiten, Restaurants, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden.",[427,437,447,457,467,477,488,499,510],{"id":428,"href":295,"title":429,"description":433,"icon":298},"historia",{"es":430,"en":431,"de":432},"Historia & Cronología","History & Timeline","Geschichte & Zeitleiste",{"es":434,"en":435,"de":436},"De las primeras menciones del siglo XVIII en Villanueva de la Serena a las crisis de subsistencia y la era digital.","From 18th-century records in Extremadura to wartime survival recipes and the digital delivery era.","Von den ersten Aufzeichnungen im 18. Jahrhundert bis zur digitalen Delivery-Ära.",{"id":301,"href":302,"title":438,"description":442,"icon":446},{"es":439,"en":440,"de":441},"Estilos de Tortilla","Tortilla Styles","Tortilla-Stile",{"es":443,"en":444,"de":445},"Estilo Betanzos, tortilla clásica cuajada, tortilla paisana y variantes tradicionales.","Betanzos style, classic set omelette, paisana style, and traditional variations.","Betanzos-Stil, klassische durchgebratene Tortilla, Landfrauen-Stil und traditionelle Varianten.","Palette",{"id":308,"href":309,"title":448,"description":452,"icon":456},{"es":449,"en":450,"de":451},"Personas & Referentes","People & References","Personen & Referenzen",{"es":453,"en":454,"de":455},"Mentes y manos maestras: científicos como José Manuel Barat, pioneras populares como Pepa Miranda y chefs como José Andrés.","Masterminds and hands: scientists like José Manuel Barat, traditional pioneers like Pepa Miranda, and chefs like José Andrés.","Köpfe und Meisterhände: Wissenschaftler, Traditionsträger und Spitzenköche.","Users",{"id":315,"href":316,"title":458,"description":462,"icon":466},{"es":459,"en":460,"de":461},"Restaurantes & Templos","Restaurants & Temples","Restaurants & Tempel",{"es":463,"en":464,"de":465},"Guía de los establecimientos icónicos: Casa Dani, La Penela, O Pote, Kasino de Lesaka y barras de culto.","Guide to iconic establishments: Casa Dani, La Penela, O Pote, Kasino de Lesaka, and cult bars.","Führer zu den ikonischsten Lokalen und Kult-Bars.","Utensils",{"id":321,"href":322,"title":468,"description":472,"icon":476},{"es":469,"en":470,"de":471},"Geografía & Regiones","Geography & Regions","Geografie & Regionen",{"es":473,"en":474,"de":475},"Recorrido por las identidades regionales: Galicia (Betanzos), País Vasco, Madrid, Navarra y Andalucía.","A journey through regional identities: Galicia (Betanzos), Basque Country, Madrid, Navarra, and Andalusia.","Eine Reise durch die regionalen Identitäten Spaniens.","MapPin",{"id":478,"href":329,"title":479,"description":483,"icon":487},"ingredientes",{"es":480,"en":481,"de":482},"Ingredientes Sagrados","Sacred Ingredients","Heilige Zutaten",{"es":484,"en":485,"de":486},"Patatas ideales (Monalisa, Kennebec), huevos camperos, AOVE de acidez suave y cebolla dulce.","Ideal potatoes (Monalisa, Kennebec), free-range eggs, mild extra virgin olive oil, and sweet onions.","Ideale Kartoffeln (Monalisa, Kennebec), Freilandeier, mildes Olivenöl extra vergine und süße Zwiebeln.","Egg",{"id":489,"href":336,"title":490,"description":494,"icon":498},"tecnicas",{"es":491,"en":492,"de":493},"Técnicas & Pasos","Techniques & Steps","Techniken & Schritte",{"es":495,"en":496,"de":497},"Corte y chasquido, confitado lento, reposo sagrado, volteo perfecto y sellado exterior.","Cutting and snapping, slow poaching, sacred rest, perfect flip, and exterior searing.","Schneiden, langsames Sanftgaren, heilige Ruhezeit, perfektes Wenden und äußeres Anbraten.","Flame",{"id":500,"href":343,"title":501,"description":505,"icon":509},"ciencia",{"es":502,"en":503,"de":504},"Ciencia & Microbiología","Science & Microbiology","Wissenschaft & Mikrobiologie",{"es":506,"en":507,"de":508},"Físico-química del huevo, gelatinización de la patata, reacción de Maillard y protocolo bactericida.","Egg chemistry, potato gelatinization, Maillard reaction, and pasteurization protocols.","Chemie des Eies, Stärkewandlung, Maillard-Reaktion und Pasteurisierung.","Microscope",{"id":349,"href":350,"title":511,"description":515,"icon":519},{"es":512,"en":513,"de":514},"Récords & Hitos","Records & Milestones","Rekorde & Meilensteine",{"es":516,"en":517,"de":518},"Las tortillas más grandes del mundo, récords Guinness, velocidad de volteo y concursos de culto.","World's largest tortillas, Guinness records, flipping speed, and legendary competitions.","Die größten Tortillas der Welt, Guinness-Rekorde und legendäre Wettbewerbe.","Trophy","src/content/pages/enciclopedia-index.json","866afb0fc98ad25d","factions-index",{"id":522,"data":524,"filePath":581,"digest":582},{"badge":525,"hero":529,"introduction":542,"poll":555,"safetyNote":577},{"es":526,"en":527,"de":528},"Facciones Culinarias","Culinary Factions","Kulinarische Faktionen",{"title":530,"subtitle":534,"adriaDoctrine":538},{"es":531,"en":532,"de":533},"¿Purista de la Doctrina o Rebelde Culinario?","Doctrinal Purist or Culinary Rebel?","Doktrinärer Purist oder kulinarischer Rebell?",{"es":535,"en":536,"de":537},"Del dogma de la patata y el huevo a las variaciones regionales con personalidad. Descubre a qué facción perteneces.","From the egg-and-potato dogma to regional variations with personality. Find out which faction you belong to.","Vom Ei-Kartoffel-Dogma bis zu regionalen Variationen mit Persönlichkeit. Finde deine Faktion.",{"es":539,"en":540,"de":541},"Distinguimos formalmente entre la 'Tortilla de Patatas Tradicional' y las 'Tortillas de Patatas con...' para garantizar la paz gastronómica y dar voz a cada tradición.","We formally distinguish between the 'Traditional Spanish Omelette' and 'Omelettes with...' to ensure gastronomic peace and give voice to every tradition.","Wir unterscheiden formal zwischen der 'Traditionellen Kartoffeltortilla' und 'Tortillas mit...', um den kulinarischen Frieden zu wahren.",{"title":543,"body1":547,"body2":551},{"es":544,"en":545,"de":546},"La evolución de una receta universal","The Evolution of a Universal Recipe","Die Evolution eines universalen Rezepts",{"es":548,"en":549,"de":550},"Nacida a finales del siglo XVIII en Villanueva de la Serena (Badajoz) como una solución contra la escasez de alimentos, la tortilla de patatas ha evolucionado de alimento humilde de supervivencia a icono gastronómico global.","Born in the late 18th century in Villanueva de la Serena (Extremadura) as a solution to food scarcity, the Spanish tortilla has transformed from a humble survival dish into a global gastronomic icon.","Entstanden Ende des 18. Jahrhunderts in Villanueva de la Serena als günstige Speise in Notzeiten, hat sich die Tortilla von der einfachen Arme-Leute-Mahlzeit zum weltweiten Kultgericht gewandelt.",{"es":552,"en":553,"de":554},"Hoy la mesa española es un campo de batalla dialéctico entre el ascetismo de la patata desnuda y la audacia del plebiscito popular. Desde la Santísima Trinidad Betanceira hasta las vanguardias de alta cocina, coexisten grandes doctrinas culinarias.","Today, the Spanish table is a debate battlefield between strict minimalist purism and popular preference. From the Betanzos Holy Trinity to modernist high cuisine, core culinary doctrines coexist.","Heute stehen sich große kulinarische Strömungen gegenüber – von der puristischen Heiligen Dreifaltigkeit aus Betanzos bis hin zu modernen Kreationen der Spitzengastronomie.",{"title":556,"subtitle":560,"votedMessage":564,"totalVotesLabel":568,"initialStats":572},{"es":557,"en":558,"de":559},"Test de Ortodoxia: Elige tu Lealtad","Orthodoxy Test: Declare Your Allegiance","Orthodoxie-Test: Wähle deine Faktion",{"es":561,"en":562,"de":563},"¡Declara tu facción! Vota y descubre los porcentajes en tiempo real de la comunidad tortillera.","Cast your vote and view real-time community percentages across all factions.","Stimme ab und sieh die Echtzeit-Prozente der Community.",{"es":565,"en":566,"de":567},"¡Voto registrado! Tu lealtad a la causa ha quedado anotada en el cuaderno culinario.","Vote recorded! Your allegiance has been immortalized in the kitchen notebook.","Stimme gezählt! Deine Faktion wurde im Küchenbuch verewigt.",{"es":569,"en":570,"de":571},"Votos totales registrados","Total community votes","Stimmen insgesamt",{"puristas":573,"concebollistas":574,"pimientistas":575,"ajistas":576,"con-cosas":576},28,54,8,5,{"es":578,"en":579,"de":580},"Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella en hostelería y hogar, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.","Safety & Hygiene Protocol: To guarantee pasteurization safety against Salmonella, the gold bactericidal standard requires **70°C for 2 minutes** or pasteurized egg held at **63°C for 20 seconds**. Consume within **4 hours** at ambient temperature or refrigerate below **8°C**.","Lebensmittelsicherheit: Zur sicheren Entkeimung gegen Salmonellen gilt der Goldstandard von **70°C für 2 Minuten** oder **63°C für 20 Sekunden**. Verzehr innerhalb von **4 Stunden** bei Raumtemperatur oder Kühlung unter **8°C**.","src/content/pages/factions-index.json","b13d89ad68650ec4",{"id":1,"data":584,"filePath":767,"digest":768},{"badge":585,"title":589,"subtitle":592,"chefNote":596,"timelineTitle":600,"timelineSubtitle":604,"timelineEvents":608,"chaptersTitle":724,"chaptersSubtitle":728,"chapters":732},{"es":586,"en":587,"de":588},"Crónica Histórica & Cronología Gastronómica","Historical Chronicle & Gastronomic Timeline","Historische Chronik & Gastronomische Zeitleiste",{"es":590,"en":591,"de":6},"La Tortilla de Patatas: Crónica del Ingenio y la Identidad","Chronicle of the Spanish Potato Omelette",{"es":593,"en":594,"de":595},"Investigación histórica integral: desde los orígenes del Siglo de las Luces y la cocina de subsistencia hasta los retos de la seguridad alimentaria y la era digital.","A comprehensive investigation: from Enlightenment origins and survival cuisine to modern food safety protocols and the 21st-century digital era.","Umfassende historische Untersuchung: Von den Aufklärungs-Wurzeln im 18. Jahrhundert über Überlebensrezepte bis zur modernen Lebensmittelsicherheit.",{"es":597,"en":598,"de":599},"La historia de la tortilla es la crónica del ingenio popular español. Desde 'estirar' huevos con patatas en 1817 hasta usar corteza de naranja en la posguerra, este plato personifica la supervivencia. Para disfrutarlo con total seguridad, la pasteurización exige alcanzar **70°C for 2 minutes** o **63°C for 20 seconds**, evitando mantener la tortilla más de **4 hours** a temperatura ambiente.","The history of the tortilla is a testament to popular Spanish resourcefulness. From expanding egg volumes with potatoes in 1817 to using orange peel during post-war scarcity, it embodies survival. For maximum food safety, pasteurization standards mandate reaching **70°C for 2 minutes** or **63°C for 20 seconds**, and never leaving room temperature preparations for over **4 hours**.","Die Geschichte der Tortilla ist ein Denkmal des spanischen Volksgeistes. Vom Gestrecken spärlicher Eier mit Kartoffeln 1817 bis zur Verwendung von Orangenschalen in der Nachkriegszeit verkörpert sie Überlebenswillen. Für absolute Sicherheit verlangt die Pasteurisierung **70°C for 2 minutes** oder **63°C for 20 seconds** sowie maximal **4 hours** Stehzeit bei Raumtemperatur.",{"es":601,"en":602,"de":603},"Línea del Tiempo & Hitos Históricos","Timeline & Historical Milestones","Zeitleiste & Historische Meilensteine",{"es":605,"en":606,"de":607},"Los momentos clave que transformaron un plato de supervivencia en el icono de España.","The key moments that shaped a survival recipe into Spain's national icon.","Schlüsselmomente der Transformation vom Notgericht zum Nationalsymbol.",[609,624,638,653,667,682,695,709],{"year":610,"title":611,"location":615,"description":616,"badge":620},"1767 - 1772",{"es":612,"en":613,"de":614},"Primeras Menciones Ilustradas","First Enlightenment Citations","Erste Dokumentierte Erwähnungen","España",{"es":617,"en":618,"de":619},"Joseph Valcárcel (1767) y Roig (1772) registran las primigenias menciones que vinculan la patata americana con preparaciones de huevo batido en la cocina popular.","Joseph Valcárcel (1767) and Roig (1772) record the earliest documentary references linking potatoes with beaten egg preparations.","Joseph Valcárcel (1767) und Roig (1772) hielten die ersten schriftlichen Nachweise über Kartoffeln mit verquirlten Eiern fest.",{"es":621,"en":622,"de":623},"Siglo de las Luces","Enlightenment Era","Zeitalter der Aufklärung",{"year":70,"title":625,"location":629,"description":630,"badge":634},{"es":626,"en":627,"de":628},"Origen Geográfico Documentado","Documented Birthplace","Dokumentierte Geburtsstätte","Villanueva de la Serena (Badajoz)",{"es":631,"en":632,"de":633},"Documentos de Extremadura detallan cómo el ingenio local creó la fórmula de patata y huevo como respuesta nutritiva a la escasez agrícola.","Extremaduran historical archives detail how local ingenuity created the potato and egg formula as a nutritious answer to agricultural scarcity.","Archive aus Extremadura belegen die genaue Kombination aus Kartoffel und Ei als nährstoffreiche Antwort auf Hungersnöte.",{"es":635,"en":636,"de":637},"Hito Fundacional","Foundational Milestone","Gründungs-Meilenstein",{"year":639,"title":640,"location":644,"description":645,"badge":649},"1810 - 1812",{"es":641,"en":642,"de":643},"El Sitio de Cádiz y la 'Tortilla Francesa'","Siege of Cádiz & 'French Omelette'","Belagerung von Cádiz & 'Tortilla Francesa'","Cádiz",{"es":646,"en":647,"de":648},"Durante el bloqueo napoleónico, la falta de patatas obligó a cocinar el huevo solo. Con humor gaditano, la bautizaron 'tortilla francesa' para diferenciarla de la 'española'.","During the Napoleonic blockade, potato depletion forced citizens to cook plain egg omelettes, ironically naming them 'French omelettes'.","Mangel an Kartoffeln zwang die Bürger zum Omelett rein aus Eiern – spöttisch 'französisches Omelett' genannt.",{"es":650,"en":651,"de":652},"Conflicto & Lenguaje","Conflict & Nomenclature","Konflikt & Name",{"year":72,"title":654,"location":658,"description":659,"badge":663},{"es":655,"en":656,"de":657},"El Memorial de Navarra","Navarra Memorial","Das Navarra-Denkmal","Navarra",{"es":660,"en":661,"de":662},"Documento oficial presentado a las Cortes que describe cómo los campesinos 'estiraban' los escasos huevos mezclándolos con patatas para alimentar a familias numerosas.","Official submission to the Cortes advocating potato omelettes to stretch scarce eggs and feed impoverished rural families.","Offizielles Dokument an die Cortes über die Streckung weniger Eier mit reichlich Kartoffeln für arme Landfamilien.",{"es":664,"en":665,"de":666},"Respuesta a la Penuria","Survival Solution","Überlebensmittel",{"year":668,"title":669,"location":673,"description":674,"badge":678},"1835",{"es":670,"en":671,"de":672},"Leyenda del General Zumalacárregui","General Zumalacárregui Legend","Legende von General Zumalacárregui","Guerras Carlistas",{"es":675,"en":676,"de":677},"La tradición narra que una campesina anónima improvisó el plato para el general Carlista para nutrir a sus tropas de forma rápida, económica y calórica.","Tradition holds that an anonymous farmwoman created the dish for Carlist troops to provide a dense, affordable military ration.","Eine Bäuerin soll das nahrhafte, günstige Gericht improvisiert haben, um Karlistentruppen schnell zu verpflegen.",{"es":679,"en":680,"de":681},"Mito Gastronómico","Gastronomic Legend","Mythen & Legenden",{"year":151,"title":683,"location":615,"description":687,"badge":691},{"es":684,"en":685,"de":686},"La Tortilla de Naranja de la Posguerra","Post-War Orange Peel Omelette","Die Orangenschalen-Not-Tortilla",{"es":688,"en":689,"de":690},"En tiempos de racionamiento extremo, la parte blanca de la corteza de naranja (albedo) macerada sustituía a la patata, y harina con agua al huevo.","In times of severe rationing, soaked orange peel albedo replaced potatoes, and flour water replaced eggs.","In Zeiten extremer Not ersetzte eingeweichte Orangenschale (Albedo) die Kartoffel und Mehl-Wasser das Ei.",{"es":692,"en":693,"de":694},"Ingenio Extremo","Peak Ingenuity","Höchster Einfallsreichtum",{"year":696,"title":697,"location":615,"description":701,"badge":705},"1991 - 2025",{"es":698,"en":699,"de":700},"Alertas Sanitarias y Control Epidemiológico","Public Health Outbreaks & Pasteurization","Ausbrüche & Inaktivierungs-Standards",{"es":702,"en":703,"de":704},"Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C for 2 minutes** y ovoproductos.","Outbreaks such as Casa Dani (2023) and Trasan Fest (2025) drive safety regulations: **70°C for 2 minutes** and liquid egg products.","Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C for 2 minutes** und Flüssigei.",{"es":706,"en":707,"de":708},"Seguridad Alimentaria","Food Safety","Lebensmittelsicherheit",{"year":710,"title":711,"location":715,"description":716,"badge":720},"2024 - 2025+",{"es":712,"en":713,"de":714},"Revolución Digital y Versiones Veganas","Digital Delivery & Vegan Innovations","Digitales Delivery & Vegane Alternativen","España Digital",{"es":717,"en":718,"de":719},"El delivery alcanza 8.000M€. Surgen versiones veganas con harina de garbanzo y almidón de tapioca para alérgicos e intolerantes.","Online food delivery reaches €8 billion. Chickpea flour and tapioca starch enable egg-free, allergen-safe tortillas.","Online-Delivery erreicht 8 Mrd. Euro. Kichererbsenmehl und Tapiokastärke ermöglichen allergiefreie, vegane Tortillas.",{"es":721,"en":722,"de":723},"Era Contemporánea","Digital Era","Digitales Zeitalter",{"es":725,"en":726,"de":727},"Investigación Histórica y Cronológica Completa","Full Historical & Chronological Investigation","Vollständige Historische Untersuchung",{"es":729,"en":730,"de":731},"Un análisis detallado estructurado en 8 capítulos de investigación.","A detailed 8-chapter research breakdown.","Detaillierte Analyse in 8 Kapiteln.",[733,750],{"id":734,"number":735,"title":736,"content":740},"intro","01",{"es":737,"en":738,"de":739},"Introducción: El Icono de la Gastronomía Popular","Introduction: The Icon of Spanish Gastronomic Identity","Einleitung: Ein kulturelles und gastronomisches Wahrzeichen",{"es":741,"en":744,"de":747},[742,743],"La tortilla de patatas no es simplemente un plato en el recetario español; es un pilar de identidad, un fenómeno social y el máximo exponente del ingenio ante la escasez. Su importancia trasciende el ámbito doméstico para erigirse como un motor fundamental del sector de la restauración profesional en España.","Desde las barras más humildes hasta las propuestas de alta cocina, este plato personifica la capacidad de síntesis cultural de la península. La presente crónica se propone como una investigación histórica y técnica rigurosa que reconcilia los hallazgos documentales del Siglo de las Luces con los desafíos de la seguridad alimentaria y la revolución digital contemporánea.",[745,746],"The Spanish potato omelette (tortilla de patatas) is not merely a food product; it represents a fundamental pillar of culinary identity and social cohesion. Its presence is omnipresent, from humble neighborhood bars to haute-cuisine showcases.","This chronicle presents a rigorous historical and technical investigation, reconciling 18th-century Enlightenment records with 21st-century food safety guidelines and digital convenience trends.",[748,749],"Die Tortilla de Patatas ist weit mehr als ein bloßes Rezept; sie ist ein identitätsstiftendes Artefakt der spanischen Kulturwissenschaft. Ihre Bedeutung gründet sich auf einer beispiellosen sozioökonomischen Resilienz.","Diese wissenschaftliche Chronik verbindet historische Dokumente des 18. Jahrhunderts mit modernen Sicherheitsstandards und dem digitalen Wandel.",{"id":751,"number":752,"title":753,"content":757},"siglo-18","02",{"es":754,"en":755,"de":756},"Los Primeros Rastros: El Siglo XVIII y las Luces","The 18th Century: Earliest Documentary Evidence","Die Wurzeln im 18. Jahrhundert",{"es":758,"en":761,"de":764},[759,760],"La historiografía gastronómica ha evolucionado significativamente, desplazando las teorías que situaban el origen de la tortilla de patatas a mediados del siglo XIX. La evidencia documental nos obliga a retroceder al Siglo de las Luces, donde la patata comenzó a integrarse en la dieta popular no solo por su valor nutritivo, sino como una respuesta ilustrada al hambre.","En 1767, Joseph Valcárcel registra las menciones primigenias que vinculan la patata americana con preparaciones de huevo batido. En 1772, las referencias de Roig confirman la consolidación de esta unión de ingredientes. Finalmente, en 1798 en Villanueva de la Serena (Badajoz), los registros extremeños detallan cómo el ingenio local dio con la fórmula exacta de huevo y patata que hoy es patrimonio nacional.",[762,763],"Gastronomic historiography has debunked 19th-century origin myths. Documentary evidence points back to the Enlightenment, where potatoes were integrated into popular diets to fight hunger.","In 1767, Joseph Valcárcel recorded initial mentions of potato and beaten egg mixtures. By 1798 in Villanueva de la Serena (Extremadura), official archives confirmed the precise recipe used today.",[765,766],"Frühe Schriften von Valcárcel (1767) und Roig (1772) belegen die Nutzung der Kartoffel mit verquirlten Eiern.","Das Dokument aus Villanueva de la Serena (1798) markiert den exakten historischen Ursprung des Gerichts.","src/content/pages/history.json","b9b6c02a9f40d0f3","index",{"id":769,"data":771,"filePath":816,"digest":817},{"badge":772,"hero":776,"sections":793,"safetyBanner":807},{"es":773,"en":774,"de":775},"Cuaderno & Enciclopedia Culinaria","Culinary Encyclopedia & Notebook","Kulinarische Enzyklopädie & Laborbuch",{"title":777,"subtitle":781,"ctaRecipes":785,"ctaBuilder":789},{"es":778,"en":779,"de":780},"La Enciclopedia Definitiva de la Tortilla de Patatas","The Definitive Encyclopedia of the Spanish Omelette","Die ultimative Enzyklopädie der Tortilla de Patatas",{"es":782,"en":783,"de":784},"De la tradición centenaria al análisis científico, las facciones culinarias y el estándar bactericida de conservación.","From century-old traditions to scientific analysis, culinary factions, and bactericidal food safety standards.","Von hundertjähriger Tradition bis zu wissenschaftlicher Analyse, Faktionen und mikrobiologischer Sicherheit.",{"es":786,"en":787,"de":788},"Explorar Recetas","Explore Recipes","Rezepte entdecken",{"es":790,"en":791,"de":792},"Laboratorio & Constructor","Lab & Builder","Labor & Baukasten",{"recipesTitle":794,"recipesSubtitle":798,"factionsTitle":802,"factionsSubtitle":803},{"es":795,"en":796,"de":797},"Recetas Destacadas","Featured Recipes","Empfohlene Rezepte",{"es":799,"en":800,"de":801},"Descubre las fórmulas canónicas y variaciones regionales con sus fichas técnicas completas.","Discover canonical formulas and regional variations with full technical datasheets.","Entdecke kanonische Formeln und regionale Variationen mit vollständigen Datenblättern.",{"es":526,"en":527,"de":528},{"es":804,"en":805,"de":806},"¿Cebolla o sin cebolla? ¿Poco cuajada o firme? Elige tu lealtad en la comunidad.","Onion or no onion? Runny or firm? Choose your allegiance in the community.","Mit oder ohne Zwiebel? Saftig oder fest? Wähle deine Faktion.",{"title":808,"body":812},{"es":809,"en":810,"de":811},"Estándar Bactericida de Inocuidad Alimentaria","Bactericidal Food Safety Standard","Bakterizider Lebensmittelsicherheits-Standard",{"es":813,"en":814,"de":815},"Garantiza la inactivación de Salmonella spp. alcanzando **70°C for 2 minutes** o **63°C for 20 seconds**. No mantener tortillas poco cuajadas más de **4 hours** a temperatura ambiente.","Ensures inactivation of Salmonella spp. reaching **70°C for 2 minutes** or **63°C for 20 seconds**. Do not keep runny omelettes over **4 hours** at room temperature.","Garantiert die Inaktivierung von Salmonella spp. bei **70°C for 2 minutes** oder **63°C for 20 seconds**. Maximal **4 hours** Stehzeit bei Raumtemperatur.","src/content/pages/index.json","f5b026b86897db27","ingredients-index",{"id":818,"data":820,"filePath":837,"digest":838},{"badge":821,"title":825,"subtitle":829,"safetyNote":833},{"es":822,"en":823,"de":824},"Análisis Culinario & Materia Prima","Culinary Analysis & Raw Materials","Kulinarische Analyse & Rohstoffe",{"es":826,"en":827,"de":828},"Ingredientes: La Química del Sabor","Ingredients: The Chemistry of Flavor","Zutaten: Die Chemie des Geschmacks",{"es":830,"en":831,"de":832},"Estudio detallado de la patata, el huevo, la cebolla, el aceite de oliva y los añadidos opcionales. Descubre cómo cada ingrediente transforma la textura y la estructura de la tortilla.","Detailed study of potatoes, eggs, onions, olive oil, and optional additions. Discover how each ingredient shapes the texture and structure of the tortilla.","Detaillierte Untersuchung von Kartoffeln, Eiern, Zwiebeln, Olivenöl und optionalen Zutaten.",{"es":834,"en":835,"de":836},"La elección y manipulación del huevo es crucial para prevenir la contaminación por Salmonella. Recomendamos usar huevos frescos o pasteurizados y respetar los **70°C for 2 minutes** de cocinado bactericida.","Egg selection and handling is critical to prevent Salmonella. We recommend fresh or pasteurized eggs and maintaining **70°C for 2 minutes** bactericidal cooking.","Die Ausfallwahl und Behandlung des Eies ist entscheidend gegen Salmonellen. Wir empfehlen frische oder pasteurisierte Eier und **70°C for 2 minutes**.","src/content/pages/ingredients-index.json","73ebe80a7c779a84","laboratorio-index",{"id":839,"data":841,"filePath":903,"digest":904},{"badge":842,"title":846,"subtitle":850,"sections":854},{"es":843,"en":844,"de":845},"Experiencias Interactivas & Herramientas","Interactive Experiences & Tools","Interaktive Werkzeuge & Experimente",{"es":847,"en":848,"de":849},"Laboratorio Gastronómico de la Tortilla","Gastronomic Tortilla Laboratory","Gastronomisches Tortilla-Laboratorium",{"es":851,"en":852,"de":853},"Herramientas interactivas para diseñar tu fórmula ideal, comparar perfiles nutricionales, evaluar la orto-doxia de recetas y participar en encuestas de la comunidad.","Interactive tools to design your ideal recipe, compare nutritional profiles, evaluate recipe orthodoxy, and participate in community polls.","Interaktive Tools zur Entwicklung deiner idealen Tortilla, zum Nährwertvergleich und für Community-Umfragen.",[855,867,879,891],{"id":856,"href":857,"title":858,"description":862,"icon":866},"builder","/builder",{"es":859,"en":860,"de":861},"Constructor de Tortilla","Omelette Builder","Tortilla-Baukasten",{"es":863,"en":864,"de":865},"Calculadora interactiva de proporciones, huevos por patata, nivel de cuajado, sal y calorietas con estimador de seguridad.","Interactive ratio calculator for eggs per potato, runniness level, salt, calories, and safety estimation.","Interaktiver Rechner für Ei-Kartoffel-Verhältnis, Garstufe und Nährwerte.","Sparkles",{"id":868,"href":869,"title":870,"description":874,"icon":878},"comparador","/comparador",{"es":871,"en":872,"de":873},"Comparador de Estilos","Style Comparator","Stil-Vergleicher",{"es":875,"en":876,"de":877},"Compara lado a lado dos estilos de tortilla (Betanzos vs Clásica vs Vasca) en términos de viscosidad, temperatura y macronutrientes.","Side-by-side comparison of tortilla styles (Betanzos vs Classic vs Basque) across viscosity, temperature, and macros.","Vergleiche zwei Stile nebeneinander in Viskosität, Temperatur und Nährwerten.","Scale",{"id":880,"href":881,"title":882,"description":886,"icon":890},"encuestas","/encuestas",{"es":883,"en":884,"de":885},"Encuestas & Plebiscitos","Polls & Debates","Umfragen & Debatten",{"es":887,"en":888,"de":889},"Participa en los grandes plebiscitos: cebolla sí/no, grosor de corte de patata, tipo de aceite y punto de cuajado.","Participate in major debates: onion vs no onion, potato cut thickness, oil choice, and runniness.","Nimm an den großen Debatten teil: Zwiebel-Frage, Schnittdicke und Öl-Wahl.","Vote",{"id":892,"href":893,"title":894,"description":898,"icon":902},"tests","/tests",{"es":895,"en":896,"de":897},"Test de Ortodoxia & Cuestionarios","Orthodoxy Test & Quizzes","Orthodoxie-Test & Quiz",{"es":899,"en":900,"de":901},"Descubre a qué facción perteneces respondiendo al cuestionario de lealtad culinaria.","Discover which faction you belong to by answering our culinary allegiance quiz.","Finde heraus, welcher Faktion du angehörst.","HelpCircle","src/content/pages/laboratorio-index.json","ce9e6298e4d149bf",{"id":308,"data":906,"filePath":923,"digest":924},{"badge":907,"title":911,"subtitle":915,"chefNote":919},{"es":908,"en":909,"de":910},"Directorio Maestro & Figura Clave","Master Directory & Key Personalities","Meister-Verzeichnis & Schlüsselpersönlichkeiten",{"es":912,"en":913,"de":914},"Personas: Mentes & Manos de la Tortilla","Personas: Minds & Hands of the Tortilla","Personas: Köpfe & Hände der Tortilla",{"es":916,"en":917,"de":918},"Compendio analítico de las figuras y mentes que, desde la investigación académica, la innovación culinaria, la tradición popular y la visión empresarial, definen el presente y futuro de la tortilla de patatas.","An analytical directory of key figures shaping the past, present, and future of the Spanish potato omelette through academic research, culinary innovation, tradition, and business vision.","Analytisches Verzeichnis der Personen, die durch akademische Forschung, kulinarische Innovation, Tradition und Wirtschaftsvision die Gegenwart und Zukunft der Kartoffeltortilla prägen.",{"es":920,"en":921,"de":922},"Este directorio rinde homenaje tanto a las pioneras anónimas como a los científicos y chefs de vanguardia. La tradición culinaria y la seguridad bactericida (**70°C for 2 minutes**) caminan de la mano en nuestro cuaderno de laboratorio.","This directory honors both anonymous rural cooks and cutting-edge scientists and chefs. Culinary heritage and bactericidal safety (**70°C for 2 minutes**) go hand-in-hand in our laboratory notebook.","Dieses Verzeichnis ehrt anonyme Landköchinnen ebenso wie Spitzenköche und Wissenschaftler. Tradition und mikrobiologische Sicherheit (**70°C for 2 minutes**) gehen in unserem Laborbuch Hand in Hand.","src/content/pages/personas.json","9005bf77778971fe","recipes-index",{"id":925,"data":927,"filePath":956,"digest":957},{"badge":928,"title":932,"subtitle":936,"filters":940},{"es":929,"en":930,"de":931},"Catálogo de Recetas","Recipe Catalog","Rezeptkatalog",{"es":933,"en":934,"de":935},"Recetas de Tortilla de Patatas","Spanish Omelette Recipes","Tortilla-Rezepte",{"es":937,"en":938,"de":939},"Colección técnica de recetas tradicionales, regionales e innovadoras con ratios precisos, tiempos de pochado y pautas de temperatura.","Technical collection of traditional, regional, and innovative recipes with precise ratios, poaching times, and temperature guidelines.","Technische Sammlung von traditionellen, regionalen und innovativen Rezepten mit genauen Mengenverhältnissen und Garzeiten.",{"all":941,"traditional":945,"regional":949,"innovative":952},{"es":942,"en":943,"de":944},"Todas","All","Alle",{"es":946,"en":947,"de":948},"Tradicionales","Traditional","Traditionell",{"es":950,"en":951,"de":951},"Regionales","Regional",{"es":953,"en":954,"de":955},"Innovadoras","Innovative","Innovativ","src/content/pages/recipes-index.json","d65cbb2e128f1172",{"id":349,"data":959,"filePath":984,"digest":985},{"badge":960,"title":964,"subtitle":968,"records":972},{"es":961,"en":962,"de":963},"Hitos & Récords Culinarios","Gastronomic Records & Feats","Gastronomische Rekorde",{"es":965,"en":966,"de":967},"Récords Culinarios de la Tortilla","Culinary Records of the Omelette","Kulinarische Tortilla-Rekorde",{"es":969,"en":970,"de":971},"Las hazañas monumentales: la tortilla más grande del mundo, miles de kilos de patatas y sarténes gigantescas.","Monumental feats: the world's largest tortilla, thousands of kilos of potatoes, and giant frying pans.","Monumentale Rekorde: Die größte Tortilla der Welt mit tausenden Kilo Kartoffeln.",[973],{"year":974,"location":975,"feat":976,"stats":980},"2014","Vitoria-Gasteiz",{"es":977,"en":978,"de":979},"La Tortilla Gigante de Vitoria","Vitoria's Giant Tortilla","Die Riesen-Tortilla von Vitoria",{"es":981,"en":982,"de":983},"1.600 kg de patatas, 16.000 huevos, 150 litros de aceite y sartén de 5 metros de diámetro.","1,600 kg of potatoes, 16,000 eggs, 150 liters of oil, and a 5-meter diameter frying pan.","1.600 kg Kartoffeln, 16.000 Eier, 150 Liter Öl, 5 Meter Pfannendurchmesser.","src/content/pages/records.json","dbff4d9abef3e357","regions",{"id":986,"data":988,"filePath":1020,"digest":1021},{"badge":989,"title":993,"subtitle":997,"regions":1001},{"es":990,"en":991,"de":992},"Geografía Gastronómica","Gastronomic Geography","Gastronomische Geografie",{"es":994,"en":995,"de":996},"Regiones & Variaciones de España","Regions & Variations of Spain","Regionen & Variationen Spaniens",{"es":998,"en":999,"de":1000},"Descubre las expresiones culturales y regionales de la tortilla de patatas a lo largo de la península ibérica e islas.","Discover the cultural and regional expressions of the potato omelette across the Iberian Peninsula and islands.","Entdecke die kulturellen und regionalen Varianten der Tortilla auf der iberischen Halbinsel.",[1002,1008,1014],{"name":1003,"description":1004},"Galicia (Betanzos)",{"es":1005,"en":1006,"de":1007},"Caracterizada por no llevar jamás cebolla, utilizar patata de la variedad Kenebec cortada muy fina y frita a alta temperatura, logrando un interior líquido con abundante yema.","Famous for never containing onion, using finely sliced Kennebec potatoes fried at high heat, yielding a liquid interior.","Ohne Zwiebel, hauchdünne Kennebec-Kartoffeln, kross frittiert und innen flüssig.",{"name":1009,"description":1010},"País Vasco & Navarra",{"es":1011,"en":1012,"de":1013},"Tradición de tortillas jugosas, a menudo servidas como pintxo sobre pan, con versiones que incorporan pimientos verdes fritos o bacalao (tortilla de bacalao de sidrería).","Juicy pintxo tradition served on crusty bread, featuring versions with fried green peppers or salt cod.","Saftige Pintxo-Tradition mit Varianten mit grünem Paprika oder Klippfisch.",{"name":1015,"description":1016},"Madrid & Centro",{"es":1017,"en":1018,"de":1019},"Predominio de la tortilla con cebolla bien caramelizada, jugosidad media-alta y patata monalisa pocha en abundante aceite de oliva.","Prevalence of well-caramelized onions, medium-high runniness, and poached Monalisa potatoes.","Überwiegend mit karamellisierter Zwiebel und mittel-saftigem Kern.","src/content/pages/regions.json","72d96ea857aea6ba","restaurants",{"id":1022,"data":1024,"filePath":1065,"digest":1066},{"badge":1025,"title":1029,"subtitle":1033,"restaurants":1037},{"es":1026,"en":1027,"de":1028},"Guía Culinaria & Templos","Culinary Guide & Temples","Gastronomie-Führer",{"es":1030,"en":1031,"de":1032},"Restaurantes & Templos de la Tortilla","Restaurants & Omelette Temples","Restaurants & Tortilla-Tempel",{"es":1034,"en":1035,"de":1036},"Los establecimientos más aclamados de España donde la tortilla de patatas es objeto de culto, maestría técnica y devoción diaria.","Spain's most acclaimed establishments where the potato omelette is a matter of devotion and technical mastery.","Spaniens hochgeschätzte Lokale, in denen die Tortilla de Patatas meisterhaft zubereitet wird.",[1038,1047,1056],{"name":1039,"city":1040,"style":1041,"description":1042,"award":1046},"Casa Dani","Madrid","Estilo Tradicional con Cebolla",{"es":1043,"en":1044,"de":1045},"Ubicado en el Mercado de la Paz, elabora más de 300 tortillas al día con patata monalisa y un cuajado cremoso insuperable.","Located in Mercado de la Paz, producing over 300 tortillas daily with Monalisa potatoes and unbeatable creaminess.","Im Mercado de la Paz in Madrid, über 300 Tortillas täglich mit cremigem Kern.","Campeón de España de Tortilla de Patatas",{"name":1048,"city":1049,"style":1050,"description":1051,"award":1055},"La Penela","Betanzos / A Coruña / Madrid","Estilo Betanzos",{"es":1052,"en":1053,"de":1054},"Icono de la tortilla muy líquida, patata finísima frita crujiente y huevos camperos de yema intensa.","Icon of runny Betanzos style with ultra-thin crispy potatoes and farm egg yolks.","Ikone des flüssigen Betanzos-Stils mit krossen Kartoffeln und intensiv gelben Eiern.","Referente de la Tortilla Betanceira",{"name":1057,"city":1058,"style":1059,"description":1060,"award":1064},"Kasino de Lesaka","Lesaka (Navarra)","Estilo Navarro Elevado",{"es":1061,"en":1062,"de":1063},"Famoso por su equilibrio de sabor, volteo impecable y patata frita a fuego lento.","Famous for its balanced flavor, perfect flip, and slowly poached potatoes.","Berühmt für perfekte Balance, makelloses Wenden und langsame Zutatengare.","Premio Nacional de Gastronomía Culinaria","src/content/pages/restaurants.json","11defe3248604be5",{"id":342,"data":1068,"filePath":1085,"digest":1086},{"badge":1069,"title":1073,"subtitle":1077,"safetyNote":1081},{"es":1070,"en":1071,"de":1072},"Físico-Química Culinaria & Microbiología","Culinary Physics, Chemistry & Microbiology","Kulinarische Physik, Chemie & Mikrobiologie",{"es":1074,"en":1075,"de":1076},"La Ciencia Detrás de la Tortilla de Patatas","The Science Behind the Spanish Potato Omelette","Die Wissenschaft hinter der Tortilla de Patatas",{"es":1078,"en":1079,"de":1080},"Análisis moleculares, cinética de coagulación de las proteínas del huevo, gelatinización de almidones, reacción de Maillard y protocolo microbiológico de seguridad.","Molecular analysis, egg protein coagulation kinetics, starch gelatinization, Maillard reaction, and microbiological safety protocols.","Molekulare Analysen, Kinetik der Eiprotein-Koagulation, Stärkegelatinierung, Maillard-Reaktion und mikrobiologisches Sicherheitsprotokoll.",{"es":1082,"en":1083,"de":1084},"Garantía de Pasteurización y Seguridad Alimentaria: La Salmonella Enteritidis se destruye térmicamente cuando la mezcla alcanza **70°C for 2 minutes** o **63°C for 20 seconds**. Las tortillas jugosas consumidas de inmediato o preparadas con huevo pasteurizado son seguras si no superan las **4 hours** a temperatura ambiente.","Pasteurization & Food Safety Guarantee: Salmonella Enteritidis is thermally destroyed when the mixture reaches **70°C for 2 minutes** or **63°C for 20 seconds**. Runny omelettes made with pasteurized eggs remain safe if consumed within **4 hours** at room temperature.","Sicherheitsgarantie: Salmonella Enteritidis wird abgetötet, wenn die Mischung **70°C for 2 minutes** oder **63°C for 20 seconds** erreicht. Saftige Tortillas mit Flüssigei sind sicher bei maximal **4 hours** Stehzeit.","src/content/pages/science.json","bb988b792546301c","techniques-index",{"id":1087,"data":1089,"filePath":1106,"digest":1107},{"badge":1090,"title":1094,"subtitle":1098,"safetyNote":1102},{"es":1091,"en":1092,"de":1093},"Manual de Ejecución & Métodos","Execution Manual & Methods","Ausführungshandbuch & Methoden",{"es":1095,"en":1096,"de":1097},"Técnicas Culinarias de la Tortilla","Culinary Techniques for Spanish Omelette","Kulinarische Techniken der Tortilla",{"es":1099,"en":1100,"de":1101},"Desde el confitado/pochado a baja temperatura y la frita crujiente estilo Betanzos, hasta la física del volteo con plato y el control térmico del cuajado.","From low-temperature poaching and Betanzos crisp frying to the physics of plate flipping and thermal coagulation control.","Vom Sanftgaren bei niedriger Temperatur über das krosse Frittieren bis hin zur Physik des Wendens und der Temperaturkontrolle beim Stocken.",{"es":1103,"en":1104,"de":1105},"Toda técnica debe controlar el tiempo y la temperatura. El punto óptimo de inactivación bactericida es de **70°C for 2 minutes** o **63°C for 20 seconds**. No superar **4 hours** a temperatura ambiente.","Every technique must monitor time and temperature. Optimal bactericidal threshold is **70°C for 2 minutes** or **63°C for 20 seconds**. Never exceed **4 hours** at room temperature.","Jede Technik muss Zeit und Temperatur kontrollieren. Der optimale bakterizide Wert liegt bei **70°C for 2 minutes** oder **63°C for 20 seconds** (max. **4 hours** bei Raumtemperatur).","src/content/pages/techniques-index.json","1eb4959a34425277",["Map",1109,1110,1279,1280,1403,1404,1492,1493,1581,1582,1690,1691,1763,1764,1878,1879,2001,2002],"atun",{"id":1109,"data":1111,"filePath":1277,"digest":1278},{"id":1112,"slug":1113,"title":1117,"description":1121,"taxonomyIds":1125,"time":1137,"image":1138,"prepTimeMinutes":1139,"cookTimeMinutes":1140,"yieldServings":1141,"ingredients":1142,"instructions":1221,"sources":1258,"author":1274},"con-atun",{"es":1114,"en":1115,"de":1116},"tortilla-de-patatas-con-atun","spanish-omelette-with-tuna","spanische-tortilla-mit-thunfisch",{"es":1118,"en":1119,"de":1120},"Tortilla de Patatas con Atún y Pimientos del Piquillo","Spanish Omelette with Tuna & Piquillo Peppers","Spanische Tortilla mit Thunfisch und Piquillo-Paprika",{"es":1122,"en":1123,"de":1124},"Variante de la facción 'Con Cosas' popularizada por chefs como José Andrés: combina patata pocha, huevo campero y lomos de atún en conserva bien escurridos, pudiendo acompañarse de pimientos del piquillo asados.","A popular 'Con Cosas' variant championed by chefs like José Andrés: combining poached potatoes, free-range eggs, and well-drained canned tuna in olive oil with roasted piquillo peppers.","Eine beliebte Variante der 'Con Cosas'-Fraktion, bekannt durch Chefs wie José Andrés: Verbindet geschmorte Kartoffeln, Freilandeier und gut abgetropften Thunfisch in Olivenöl mit gegrillten Piquillo-Paprikas.",[1126,1127,1128,1129,1130,1131,1132,1133,1134,1135,1136],"faction:con-cosas","ingredient:potato","ingredient:egg","ingredient:tuna","ingredient:onion","ingredient:pepper","ingredient:oil","ingredient:salt","technique:confit","style:gourmet","difficulty:easy",40,"/images/recipes/con-atun.jpg",15,25,4,[1143,1155,1167,1178,1189,1200,1211],{"id":1144,"ingredientId":1144,"name":1145,"amount":1149,"unit":1150,"notes":1151},"potato",{"es":1146,"en":1147,"de":1148},"Patata (Monalisa o Agria)","Potato (Monalisa or Agria)","Kartoffel (Monalisa oder Agria)",500,"g",{"es":1152,"en":1153,"de":1154},"Patatas cortadas en láminas finas","Thinly sliced potatoes","Dünn geschnittene Kartoffeln",{"id":1156,"ingredientId":1156,"name":1157,"amount":1161,"unit":1162,"notes":1163},"egg",{"es":1158,"en":1159,"de":1160},"Huevo campero","Free-range egg","Ei aus Freilandhaltung",6,"unit",{"es":1164,"en":1165,"de":1166},"6 huevos a temperatura ambiente","6 eggs at room temperature","6 Eier bei Raumtemperatur",{"id":1168,"ingredientId":1168,"name":1169,"amount":1173,"unit":1150,"notes":1174},"tuna",{"es":1170,"en":1171,"de":1172},"Atún en conserva en aceite de oliva","Canned tuna in olive oil","Thunfisch in Olivenöl (Dose)",120,{"es":1175,"en":1176,"de":1177},"Lomos de atún en conserva bien escurridos y desmigados","Flaked tuna loins, thoroughly drained","Gut abgetropfter Thunfisch, leicht zerpflückt",{"id":1179,"ingredientId":1179,"name":1180,"amount":1184,"unit":1150,"notes":1185},"onion",{"es":1181,"en":1182,"de":1183},"Cebolla","Onion","Zwiebel",150,{"es":1186,"en":1187,"de":1188},"1 cebolla mediana pochada lentamente","1 medium onion, slowly poached","1 mittelgroße Zwiebel, langsam geschmort",{"id":1190,"ingredientId":1190,"name":1191,"amount":1195,"unit":1150,"notes":1196},"pepper",{"es":1192,"en":1193,"de":1194},"Pimientos del piquillo asados","Roasted piquillo peppers","Gegrillte Piquillo-Paprika",60,{"es":1197,"en":1198,"de":1199},"Pimientos del piquillo cortados en tiras (estilo Jaleo)","Piquillo peppers sliced into strips (Jaleo style)","In Streifen geschnittene Piquillo-Paprika",{"id":1201,"ingredientId":1201,"name":1202,"amount":1184,"unit":1206,"notes":1207},"oil",{"es":1203,"en":1204,"de":1205},"Aceite de Oliva Virgen Extra","Extra Virgin Olive Oil","Natives Olivenöl Extra","ml",{"es":1208,"en":1209,"de":1210},"Para confitar las patatas y cebolla","For poaching potatoes and onions","Zum Garen der Kartoffeln und Zwiebeln",{"id":1212,"ingredientId":1212,"name":1213,"amount":45,"unit":1150,"notes":1217},"salt",{"es":1214,"en":1215,"de":1216},"Sal","Salt","Salz",{"es":1218,"en":1219,"de":1220},"Sal moderada (el atún en conserva ya aporta salinidad)","Moderate salt (canned tuna is naturally salty)","Sparsames Salz (Thunfisch ist bereits salzig)",[1222,1231,1240,1249],{"step":1223,"text":1227},{"es":1224,"en":1225,"de":1226},"Confitar patatas y cebolla","Poach potatoes and onion","Kartoffeln und Zwiebeln garen",{"es":1228,"en":1229,"de":1230},"Pelar y cortar las patatas en láminas finas y la cebolla en juliana. Pochar en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas y melosas. Escurrir bien el exceso de aceite.","Peel and thinly slice potatoes and onion. Poach in olive oil over medium-low heat until tender. Drain excess oil thoroughly.","Kartoffeln und Zwiebeln dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze weich garen. Gut abtropfen lassen.",{"step":1232,"text":1236},{"es":1233,"en":1234,"de":1235},"Preparar el atún y los huevos","Prepare tuna and eggs","Thunfisch und Eier vorbereiten",{"es":1237,"en":1238,"de":1239},"Escurrir completamente el atún en conserva y desmigarlo. Batir los huevos suavemente con una pizca de sal en un bol grande.","Thoroughly drain the canned tuna and flake it. Whisk eggs gently with a pinch of salt in a large bowl.","Den Thunfisch gut abtropfen lassen und zerpflücken. Eier mit einer Prise Salz leicht verquirlen.",{"step":1241,"text":1245},{"es":1242,"en":1243,"de":1244},"Mezclar e integrar ingredientes","Combine ingredients","Zutaten vermengen",{"es":1246,"en":1247,"de":1248},"Añadir la patata y cebolla calientes al bol de huevo. Dejar reposar 3-5 minutos para que la patata absorba el huevo e incorporar el atún desmigado y las tiras de pimiento del piquillo mezclando con delicadeza.","Add warm potatoes and onion to the eggs. Rest for 3-5 minutes, then gently fold in the flaked tuna and piquillo pepper strips.","Warme Kartoffeln und Zwiebeln zu den Eiern geben. 3-5 Minuten ruhen lassen, dann den Thunfisch und die Piquillo-Streifen vorsichtig unterheben.",{"step":1250,"text":1254},{"es":1251,"en":1252,"de":1253},"Cuajado y acabado jugoso","Cook and finish","Anbraten und fertigstellen",{"es":1255,"en":1256,"de":1257},"Verter la mezcla en una sartén antiadherente caliente con un hilo de aceite. Cuajar a fuego medio durante 1.5 - 2 minutos por lado dando la vuelta con un plato, manteniendo el interior meloso.","Pour into a hot non-stick skillet with a drizzle of oil. Cook for 1.5 - 2 minutes per side over medium heat, flipping with a plate to keep the center juicy.","In eine heiße beschichtete Pfanne geben. Bei mittlerer Hitze 1,5 - 2 Minuten pro Seite braten y mit einem Teller wenden, damit der Kern saftig bleibt.",[1259,1267],{"type":1260,"name":1261,"url":1262,"description":1263},"community","Jaleo by José Andrés","https://www.jaleo.com/tortilla-espanola/",{"es":1264,"en":1265,"de":1266},"Receta de autor del chef José Andrés que incorpora atún en conserva en aceite de oliva y pimientos del piquillo.","Chef José Andrés signature recipe combining canned tuna in olive oil and piquillo peppers.","Rezept von Chefkoch José Andrés mit Thunfisch in Olivenöl und Piquillo-Paprika.",{"type":1260,"name":1268,"url":1269,"description":1270},"Patente ES2331168B1 (Procedimiento para elaboración de tortilla)","https://patents.google.com/patent/ES2331168B1/es",{"es":1271,"en":1272,"de":1273},"Documentación técnica e industrial que registra las proporciones de tortilla de patata con atún.","Technical documentation registering industrial proportions for potato omelette with tuna.","Technische Dokumentation zur industriellen Herstellung von Kartoffeltortilla mit Thunfisch.",{"type":1275,"name":1276},"platform","José Andrés & Tradición Con Cosas","src/content/recipes/atun.json","e407dbf1f96eb318","betanzos",{"id":1279,"data":1281,"filePath":1401,"digest":1402},{"id":1279,"slug":1282,"title":1286,"description":1290,"taxonomyIds":1294,"time":1140,"image":1302,"prepTimeMinutes":1303,"cookTimeMinutes":1139,"yieldServings":1141,"ingredients":1304,"instructions":1345,"sources":1391,"author":1399},{"es":1283,"en":1284,"de":1285},"tortilla-betanzos","betanzos-style-spanish-omelette","betanzos-tortilla",{"es":1287,"en":1288,"de":1289},"Tortilla de Betanzos Jugosa","Runny Betanzos-Style Spanish Omelette","Saftige Betanzos-Tortilla",{"es":1291,"en":1292,"de":1293},"La icónica tortilla gallega de Betanzos: muy jugosa, con abundante huevo, patata tierna y un interior casi líquido.","The iconic Galician Betanzos tortilla: egg-forward, with tender potatoes and an almost liquid creamy center.","Die ikonische galicische Betanzos-Tortilla: ei-betont, mit zarten Kartoffeln und fast flüssigem cremigem Kern.",[1295,1127,1128,1296,1132,1297,1298,1299,1300,1301],"faction:puristas","ingredient:egg_yolk","region:betanzos","style:juicy","technique:short_cook","technique:frying","difficulty:medium","/images/betanzos.jpg",10,[1305,1314,1322,1332,1338],{"id":1144,"ingredientId":1144,"name":1306,"amount":1149,"unit":1150,"notes":1310},{"es":1307,"en":1308,"de":1309},"Patata","Potato","Kartoffel",{"es":1311,"en":1312,"de":1313},"Patata cortada fina y cocinada hasta quedar muy tierna","Thinly sliced potatoes cooked until very tender","Dünn geschnittene Kartoffeln, sehr weich gegart",{"id":1156,"ingredientId":1156,"name":1315,"amount":575,"unit":1162,"notes":1318},{"es":1316,"en":487,"de":1317},"Huevo","Ei",{"es":1319,"en":1320,"de":1321},"8 huevos camperos","8 free-range eggs","8 Freilandeier",{"id":1323,"ingredientId":1323,"name":1324,"amount":20,"unit":1162,"notes":1328},"egg_yolk",{"es":1325,"en":1326,"de":1327},"Yema extra","Extra egg yolks","Zusätzliche Eigelb",{"es":1329,"en":1330,"de":1331},"Yemas añadidas para aumentar cremosidad y untuosidad","Extra yolks added for richness and creaminess","Zusätzliche Eigelb für mehr Cremigkeit",{"id":1201,"ingredientId":1201,"name":1333,"amount":1184,"unit":1206,"notes":1334},{"es":1203,"en":1204,"de":1205},{"es":1335,"en":1336,"de":1337},"Aceite abundante para freír la patata","Generous olive oil for frying potatoes","Reichlich Olivenöl zum Braten der Kartoffeln",{"id":1212,"ingredientId":1212,"name":1339,"amount":1340,"unit":1150,"notes":1341},{"es":1214,"en":1215,"de":1216},7,{"es":1342,"en":1343,"de":1344},"Sal al gusto","Salt to taste","Salz nach Geschmack",[1346,1355,1364,1373,1382],{"step":1347,"text":1351},{"es":1348,"en":1349,"de":1350},"Preparar las patatas","Prepare the potatoes","Kartoffeln vorbereiten",{"es":1352,"en":1353,"de":1354},"Pelar las patatas y cortarlas en láminas muy finas e irregulares.","Peel the potatoes and cut them into very thin irregular slices.","Kartoffeln schälen und in sehr dünne unregelmäßige Scheiben schneiden.",{"step":1356,"text":1360},{"es":1357,"en":1358,"de":1359},"Confitar las patatas","Slow-fry the potatoes","Kartoffeln confieren",{"es":1361,"en":1362,"de":1363},"Cocinar las patatas en abundante aceite de oliva a fuego medio hasta que estén tiernas pero no demasiado doradas.","Cook the potatoes in plenty of olive oil over medium heat until tender but not heavily browned.","Kartoffeln in reichlich Olivenöl bei mittlerer Hitze weich garen.",{"step":1365,"text":1369},{"es":1366,"en":1367,"de":1368},"Mezclar con huevo","Combine with eggs","Mit Ei vermischen",{"es":1370,"en":1371,"de":1372},"Batir los huevos con sal y añadir las patatas calientes. Dejar que absorban parte del huevo.","Beat the eggs with salt and add the hot potatoes. Allow them to absorb some of the egg.","Eier mit Salz schlagen und die heißen Kartoffeln hinzufügen.",{"step":1374,"text":1378},{"es":1375,"en":1376,"de":1377},"Reposar la mezcla","Rest the mixture","Mischung ruhen lassen",{"es":1379,"en":1380,"de":1381},"Dejar reposar unos minutos para conseguir una textura más cremosa.","Rest for a few minutes to achieve a creamier texture.","Einige Minuten ruhen lassen, damit eine cremigere Textur entsteht.",{"step":1383,"text":1387},{"es":1384,"en":1385,"de":1386},"Cuajar la tortilla","Cook the omelette","Tortilla braten",{"es":1388,"en":1389,"de":1390},"Cuajar en sartén muy caliente durante pocos segundos por cada lado. El centro debe quedar líquido y cremoso.","Cook in a very hot pan for a few seconds on each side. The center should remain runny and creamy.","In einer sehr heißen Pfanne wenige Sekunden pro Seite braten. Die Mitte bleibt flüssig und cremig.",[1392],{"type":1393,"name":1394,"description":1395},"traditional","Betanzos tortilla tradition",{"es":1396,"en":1397,"de":1398},"Estilo gallego caracterizado por un interior muy poco cuajado.","Galician style known for a very runny centre.","Galicischer Stil mit sehr flüssigem Kern.",{"type":1275,"name":1400},"tortilladepatatas.org","src/content/recipes/betanzos.json","8f2c4cae69167bec","clasica",{"id":1403,"data":1405,"filePath":1490,"digest":1491},{"id":1403,"slug":1406,"title":1410,"description":1414,"taxonomyIds":1418,"time":1137,"image":1420,"prepTimeMinutes":1139,"cookTimeMinutes":1140,"yieldServings":1141,"ingredients":1421,"instructions":1444,"sources":1482,"author":1489},{"es":1407,"en":1408,"de":1409},"tortilla-clasica","classic-spanish-omelette","klassische-spanische-tortilla",{"es":1411,"en":1412,"de":1413},"Tortilla Clásica sin Cebolla","Classic Spanish Omelette Without Onion","Klassische Spanische Tortilla ohne Zwiebel",{"es":1415,"en":1416,"de":1417},"La receta fundamental de la tortilla española: patata, huevo, aceite y sal. El equilibrio perfecto entre tradición y técnica.","The fundamental Spanish omelette recipe: potato, egg, olive oil, and salt. The perfect balance between tradition and technique.","Das Grundrezept der spanischen Tortilla: Kartoffeln, Ei, Olivenöl und Salz. Perfekte Balance zwischen Tradition und Technik.",[1295,1419,1127,1128,1132,1134,1136],"faction:ajistas","/images/clasica.jpg",[1422,1429,1435,1441],{"id":1144,"ingredientId":1144,"name":1423,"amount":1424,"unit":1150,"notes":1425},{"es":1307,"en":1308,"de":1309},600,{"es":1426,"en":1427,"de":1428},"5 patatas medianas","5 medium potatoes","5 mittelgroße Kartoffeln",{"id":1156,"ingredientId":1156,"name":1430,"amount":1161,"unit":1162,"notes":1431},{"es":1316,"en":487,"de":1317},{"es":1432,"en":1433,"de":1434},"6 huevos","6 eggs","6 Eier",{"id":1201,"ingredientId":1201,"name":1436,"amount":1184,"unit":1206,"notes":1437},{"es":1203,"en":1204,"de":1205},{"es":1438,"en":1439,"de":1440},"Aceite de oliva virgen extra","Extra virgin olive oil","Natives Olivenöl extra",{"id":1212,"ingredientId":1212,"name":1442,"amount":1161,"unit":1150,"notes":1443},{"es":1214,"en":1215,"de":1216},{"es":1214,"en":1215,"de":1216},[1445,1454,1463,1470,1476],{"step":1446,"text":1450},{"es":1447,"en":1448,"de":1449},"Cortar las patatas","Slice the potatoes","Kartoffeln schneiden",{"es":1451,"en":1452,"de":1453},"Pelar las patatas y cortarlas en láminas finas.","Peel the potatoes and cut them into thin slices.","Kartoffeln schälen und in dünne Scheiben schneiden.",{"step":1455,"text":1459},{"es":1456,"en":1457,"de":1458},"Pochar las patatas","Slow-cook the potatoes","Kartoffeln langsam garen",{"es":1460,"en":1461,"de":1462},"Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.","Cook the potatoes in plenty of olive oil over medium-low heat until tender.","Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen.",{"step":1464,"text":1466},{"es":1366,"en":1465,"de":1368},"Mix with eggs",{"es":1467,"en":1468,"de":1469},"Batir los huevos con sal y mezclar con las patatas escurridas.","Beat eggs with salt and combine with the drained potatoes.","Eier mit Salz schlagen und mit den abgetropften Kartoffeln vermischen.",{"step":1471,"text":1472},{"es":1375,"en":1376,"de":1377},{"es":1473,"en":1474,"de":1475},"Dejar reposar unos minutos para integrar sabores.","Rest for a few minutes to combine flavors.","Einige Minuten ruhen lassen, damit sich die Aromen verbinden.",{"step":1477,"text":1478},{"es":1384,"en":1385,"de":1386},{"es":1479,"en":1480,"de":1481},"Cocinar en sartén caliente hasta conseguir el punto deseado, girando la tortilla para dorar ambos lados.","Cook in a hot pan until reaching the desired doneness, turning once to brown both sides.","In einer heißen Pfanne bis zum gewünschten Gargrad braten und einmal wenden.",[1483],{"type":1393,"name":1484,"description":1485},"Receta Tradicional de Tortilla Española",{"es":1486,"en":1487,"de":1488},"El estándar tradicional purista sin cebolla, perfeccionado en los hogares españoles.","The traditional purist standard without onion, refined in Spanish homes.","Der traditionelle puristische Standard ohne Zwiebeln, verfeinert in spanischen Haushalten.",{"type":1275,"name":1400},"src/content/recipes/clasica.json","e46aa52c1bf43d78","concebolla",{"id":1492,"data":1494,"filePath":1579,"digest":1580},{"id":1495,"slug":1496,"title":1500,"description":1504,"taxonomyIds":1508,"time":1512,"image":1513,"prepTimeMinutes":1139,"cookTimeMinutes":1514,"yieldServings":1141,"ingredients":1515,"instructions":1537,"sources":1571,"author":1578},"con-cebolla",{"es":1497,"en":1498,"de":1499},"tortilla-clasica-con-cebolla","classic-spanish-omelette-with-onion","klassische-spanische-tortilla-mit-zwiebel",{"es":1501,"en":1502,"de":1503},"Tortilla Clásica con Cebolla","Classic Spanish Omelette with Onion","Klassische Spanische Tortilla mit Zwiebel",{"es":1505,"en":1506,"de":1507},"La versión más popular de la tortilla española: patata, huevo, aceite y cebolla pochada lentamente para aportar dulzor y jugosidad.","The most popular version of Spanish tortilla: potatoes, eggs, olive oil and slowly cooked onion for sweetness and extra moisture.","Die beliebteste Version der spanischen Tortilla: Kartoffeln, Eier, Olivenöl und langsam geschmorte Zwiebeln.",[1509,1510,1127,1128,1130,1132,1134,1511,1136],"faction:concebollistas","faction:cebollistas","technique:slow_onion",45,"/images/concebolla.jpg",30,[1516,1520,1523,1530,1534],{"id":1144,"ingredientId":1144,"name":1517,"amount":1424,"unit":1150,"notes":1518},{"es":1307,"en":1308,"de":1309},{"es":1519,"en":1153,"de":1154},"Patata cortada en láminas finas",{"id":1156,"ingredientId":1156,"name":1521,"amount":1161,"unit":1162,"notes":1522},{"es":1316,"en":487,"de":1317},{"es":1432,"en":1433,"de":1434},{"id":1179,"ingredientId":1179,"name":1524,"amount":1525,"unit":1150,"notes":1526},{"es":1181,"en":1182,"de":1183},200,{"es":1527,"en":1528,"de":1529},"Cebolla pochada lentamente hasta caramelizar ligeramente","Slowly cooked onion until soft and sweet","Langsam geschmorte Zwiebeln",{"id":1201,"ingredientId":1201,"name":1531,"amount":1532,"unit":1206,"notes":1533},{"es":1203,"en":1204,"de":1205},160,{"es":1438,"en":1439,"de":1440},{"id":1212,"ingredientId":1212,"name":1535,"amount":1161,"unit":1150,"notes":1536},{"es":1214,"en":1215,"de":1216},{"es":1342,"en":1343,"de":1344},[1538,1547,1556,1562],{"step":1539,"text":1543},{"es":1540,"en":1541,"de":1542},"Preparar patata y cebolla","Prepare potatoes and onion","Kartoffeln und Zwiebeln vorbereiten",{"es":1544,"en":1545,"de":1546},"Cortar las patatas en láminas finas y la cebolla en juliana.","Slice the potatoes thinly and cut the onion into strips.","Kartoffeln in dünne Scheiben und Zwiebeln in Streifen schneiden.",{"step":1548,"text":1552},{"es":1549,"en":1550,"de":1551},"Pochar la mezcla","Slow-cook the mixture","Mischung langsam garen",{"es":1553,"en":1554,"de":1555},"Cocinar patata y cebolla juntas en aceite de oliva hasta que estén tiernas y melosas.","Cook potatoes and onion together in olive oil until tender and soft.","Kartoffeln und Zwiebeln zusammen in Olivenöl weich und cremig garen.",{"step":1557,"text":1558},{"es":1366,"en":1367,"de":1368},{"es":1559,"en":1560,"de":1561},"Escurrir la mezcla y unirla con los huevos batidos con sal.","Drain the mixture and combine with beaten salted eggs.","Die Mischung abtropfen lassen und mit gesalzenen geschlagenen Eiern vermengen.",{"step":1563,"text":1567},{"es":1564,"en":1565,"de":1566},"Cuajar","Cook","Braten",{"es":1568,"en":1569,"de":1570},"Cuajar en sartén a fuego medio, buscando un interior jugoso.","Cook over medium heat while keeping the center moist.","Bei mittlerer Hitze braten und die Mitte saftig halten.",[1572],{"type":1393,"name":1573,"description":1574},"Tradición Concebollista Española",{"es":1575,"en":1576,"de":1577},"La fórmula popular más extendida en la gastronomía española con cebolla caramelizada.","The most widespread popular formula in Spanish gastronomy with caramelized onions.","Die am weitesten verbreitete populäre Formel in der gastronomischen Tradition mit karamellisierten Zwiebeln.",{"type":1275,"name":1400},"src/content/recipes/concebolla.json","9abc88a74ed1cbc1","express",{"id":1581,"data":1583,"filePath":1688,"digest":1689},{"id":1584,"slug":1585,"title":1589,"description":1593,"taxonomyIds":1597,"time":1303,"image":1602,"prepTimeMinutes":576,"cookTimeMinutes":576,"yieldServings":1141,"ingredients":1603,"instructions":1633,"sources":1679,"author":1687},"express-chips",{"es":1586,"en":1587,"de":1588},"tortilla-express-patatas-chips","express-potato-chip-omelette","express-kartoffelchips-tortilla",{"es":1590,"en":1591,"de":1592},"Tortilla Express de Patatas Chips","Express Potato Chip Spanish Omelette","Express-Kartoffelchips-Tortilla",{"es":1594,"en":1595,"de":1596},"Una versión revolucionaria y rápida de la tortilla española utilizando patatas chips como sustituto de la patata tradicional.","A revolutionary quick version of Spanish tortilla using potato chips instead of fresh potatoes.","Eine schnelle moderne Variante der spanischen Tortilla mit Kartoffelchips statt frischer Kartoffeln.",[1126,1598,1599,1128,1132,1600,1601,1136],"faction:modernistas","ingredient:potato-chips","technique:hydration","technique:no_frying","/images/chips.jpg",[1604,1614,1617,1627],{"id":1605,"ingredientId":1605,"name":1606,"amount":1184,"unit":1150,"notes":1610},"potato-chips",{"es":1607,"en":1608,"de":1609},"Patatas Chips","Potato Chips","Kartoffelchips",{"es":1611,"en":1612,"de":1613},"Patatas chips como sustituto de la patata tradicional","Potato chips replacing fresh potatoes","Kartoffelchips als Ersatz für frische Kartoffeln",{"id":1156,"ingredientId":1156,"name":1615,"amount":1161,"unit":1162,"notes":1616},{"es":1316,"en":487,"de":1317},{"es":1432,"en":1433,"de":1434},{"id":1201,"ingredientId":1201,"name":1618,"amount":1622,"unit":1206,"notes":1623},{"es":1619,"en":1620,"de":1621},"Aceite de Oliva","Olive Oil","Olivenöl",20,{"es":1624,"en":1625,"de":1626},"Solo para cuajar la tortilla","Only for cooking the tortilla","Nur zum Ausbacken",{"id":1212,"ingredientId":1212,"name":1628,"amount":20,"unit":1150,"notes":1629},{"es":1214,"en":1215,"de":1216},{"es":1630,"en":1631,"de":1632},"Normalmente las chips ya aportan sal","Chips usually already contain salt","Chips enthalten normalerweise bereits Salz",[1634,1643,1652,1661,1670],{"step":1635,"text":1639},{"es":1636,"en":1637,"de":1638},"Preparar las chips","Prepare the chips","Chips vorbereiten",{"es":1640,"en":1641,"de":1642},"Romper ligeramente las patatas chips con las manos, manteniendo algunos trozos grandes.","Break the potato chips slightly by hand, keeping some larger pieces.","Kartoffelchips leicht zerbrechen und einige größere Stücke erhalten.",{"step":1644,"text":1648},{"es":1645,"en":1646,"de":1647},"Batir los huevos","Beat the eggs","Eier schlagen",{"es":1649,"en":1650,"de":1651},"Batir los huevos. Añadir poca sal o ninguna, dependiendo del punto de sal de las chips.","Beat the eggs. Add little or no salt depending on the chips seasoning.","Eier schlagen. Wenig oder kein Salz hinzufügen.",{"step":1653,"text":1657},{"es":1654,"en":1655,"de":1656},"Hidratar las patatas","Hydrate the chips","Chips einweichen",{"es":1658,"en":1659,"de":1660},"Mezclar las chips con el huevo y dejar reposar unos minutos para que recuperen humedad.","Mix chips with eggs and rest for a few minutes to absorb moisture.","Chips mit Ei vermischen und einige Minuten ruhen lassen.",{"step":1662,"text":1666},{"es":1663,"en":1664,"de":1665},"Cuajar rápidamente","Cook quickly","Schnell braten",{"es":1667,"en":1668,"de":1669},"Cocinar en sartén antiadherente con unas gotas de aceite hasta que ambos lados estén dorados.","Cook in a non-stick pan with a few drops of oil until both sides are golden.","In einer beschichteten Pfanne mit etwas Öl goldbraun braten.",{"step":1671,"text":1675},{"es":1672,"en":1673,"de":1674},"Servir","Serve","Servieren",{"es":1676,"en":1677,"de":1678},"Dejar reposar un minuto antes de cortar para que la textura se estabilice.","Rest for one minute before cutting to stabilize the texture.","Eine Minute ruhen lassen.",[1680],{"type":1681,"name":1682,"author":1682,"description":1683},"chef","Ferran Adrià",{"es":1684,"en":1685,"de":1686},"Interpretación moderna de la tortilla española con patatas chips.","Modern interpretation of Spanish tortilla using potato chips.","Moderne Interpretation der spanischen Tortilla mit Kartoffelchips.",{"type":1275,"name":1400},"src/content/recipes/express.json","9d1c556b6b75baf1","jamon",{"id":1690,"data":1692,"filePath":1761,"digest":1762},{"id":1690,"slug":1693,"title":1697,"description":1701,"taxonomyIds":1705,"time":1137,"image":1707,"prepTimeMinutes":1139,"cookTimeMinutes":1140,"yieldServings":1141,"ingredients":1708,"instructions":1725,"sources":1753,"author":1760},{"es":1694,"en":1695,"de":1696},"tortilla-jamon","jamon-spanish-omelette","jamon-spanische-tortilla",{"es":1698,"en":1699,"de":1700},"Tortilla Clásica jamon","Classic Spanish Omelette jamon","Klassische Spanische jamon",{"es":1702,"en":1703,"de":1704},"La esencia del jamón español: cerdo, sal, tiempo y paciencia. El equilibrio perfecto entre tradición y técnica.","The essence of Spanish ham: pork, salt, time, and patience. The perfect balance between tradition and technique.","Das Wesen des spanischen Jamón: Schweinefleisch, Salz, Zeit und Geduld. Perfekte Balance zwischen Tradition und Technik.",[1126,1127,1128,1706,1132,1134,1136],"ingredient:jamon","/images/jamon.jpg",[1709,1712,1716,1719,1722],{"id":1144,"ingredientId":1144,"name":1710,"amount":1424,"unit":1150,"notes":1711},{"es":1307,"en":1308,"de":1309},{"es":1426,"en":1427,"de":1428},{"id":1690,"ingredientId":1690,"name":1713,"amount":1184,"unit":1150,"notes":1715},{"es":1714,"en":1714,"de":1714},"Jamón",{"es":1714,"en":1714,"de":1714},{"id":1156,"ingredientId":1156,"name":1717,"amount":1161,"unit":1162,"notes":1718},{"es":1316,"en":487,"de":1317},{"es":1432,"en":1433,"de":1434},{"id":1201,"ingredientId":1201,"name":1720,"amount":1184,"unit":1206,"notes":1721},{"es":1203,"en":1204,"de":1205},{"es":1438,"en":1439,"de":1440},{"id":1212,"ingredientId":1212,"name":1723,"amount":1161,"unit":1150,"notes":1724},{"es":1214,"en":1215,"de":1216},{"es":1214,"en":1215,"de":1216},[1726,1729,1732,1741,1747,1750],{"step":1727,"text":1728},{"es":1447,"en":1448,"de":1449},{"es":1451,"en":1452,"de":1453},{"step":1730,"text":1731},{"es":1456,"en":1457,"de":1458},{"es":1460,"en":1461,"de":1462},{"step":1733,"text":1737},{"es":1734,"en":1735,"de":1736},"Pochar el jamón","Slow-cook the ham","Schinken langsam garen",{"es":1738,"en":1739,"de":1740},"Cocinar el jamón en abundante aceite de oliva a fuego medio-bajo hasta que esté tierno.","Cook the ham in plenty of olive oil over medium-low heat until tender.","Schinken in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen.",{"step":1742,"text":1743},{"es":1366,"en":1465,"de":1368},{"es":1744,"en":1745,"de":1746},"Batir los huevos con sal y mezclar con las patatas y el jamón escurridos.","Beat eggs with salt and combine with the drained potatoes and ham.","Eier mit Salz schlagen und mit den abgetropften Kartoffeln und dem Schinken vermischen.",{"step":1748,"text":1749},{"es":1375,"en":1376,"de":1377},{"es":1473,"en":1474,"de":1475},{"step":1751,"text":1752},{"es":1384,"en":1385,"de":1386},{"es":1479,"en":1480,"de":1481},[1754],{"type":1393,"name":1755,"description":1756},"Receta Tradicional de Jamón Serrano",{"es":1757,"en":1758,"de":1759},"El estándar tradicional de curación artesanal, perfeccionado en bodegas y secaderos españoles.","The traditional artisanal curing standard, refined in Spanish cellars and drying sheds.","Der traditionelle handwerkliche Reifungsstandard, verfeinert in spanischen Kellern und Trocknungsräumen.",{"type":1275,"name":1400},"src/content/recipes/jamon.json","e6cd41d8d6dd15c8","paisana",{"id":1763,"data":1765,"filePath":1876,"digest":1877},{"id":1763,"slug":1766,"title":1770,"description":1774,"taxonomyIds":1778,"time":1784,"image":1785,"prepTimeMinutes":1622,"cookTimeMinutes":1514,"yieldServings":1141,"ingredients":1786,"instructions":1829,"sources":1868,"author":1875},{"es":1767,"en":1768,"de":1769},"tortilla-paisana","paisana-spanish-omelette","paisana-tortilla",{"es":1771,"en":1772,"de":1773},"Tortilla Paisana","Paisana Spanish Omelette","Paisana Tortilla",{"es":1775,"en":1776,"de":1777},"Una variante tradicional de la tortilla española con patata, cebolla y verduras como pimiento, con un perfil más campesino y sabroso.","A traditional variation of Spanish tortilla with potatoes, onion and vegetables, with a rustic and flavorful profile.","Eine traditionelle Variante der spanischen Tortilla mit Kartoffeln, Zwiebeln und Gemüse.",[1779,1126,1780,1127,1128,1130,1131,1781,1782,1134,1783,1301],"faction:pimientistas","faction:vegetarianos","style:rustic","style:vegetable_rich","technique:sofrito",50,"/images/paisana.jpg",[1787,1793,1796,1802,1813,1823,1826],{"id":1144,"ingredientId":1144,"name":1788,"amount":1149,"unit":1150,"notes":1789},{"es":1307,"en":1308,"de":1309},{"es":1790,"en":1791,"de":1792},"4 patatas medianas","4 medium potatoes","4 mittelgroße Kartoffeln",{"id":1156,"ingredientId":1156,"name":1794,"amount":1161,"unit":1162,"notes":1795},{"es":1316,"en":487,"de":1317},{"es":1432,"en":1433,"de":1434},{"id":1179,"ingredientId":1179,"name":1797,"amount":1184,"unit":1150,"notes":1798},{"es":1181,"en":1182,"de":1183},{"es":1799,"en":1800,"de":1801},"1 cebolla","1 onion","1 Zwiebel",{"id":1803,"ingredientId":1190,"name":1804,"amount":1808,"unit":1150,"notes":1809},"green-pepper",{"es":1805,"en":1806,"de":1807},"Pimiento Verde","Green Pepper","Grüne Paprika",100,{"es":1810,"en":1811,"de":1812},"1 pimiento verde","1 green pepper","1 grüne Paprika",{"id":1814,"ingredientId":1190,"name":1815,"amount":1808,"unit":1150,"notes":1819},"red-pepper",{"es":1816,"en":1817,"de":1818},"Pimiento Rojo","Red Pepper","Rote Paprika",{"es":1820,"en":1821,"de":1822},"1 pimiento rojo","1 red pepper","1 rote Paprika",{"id":1201,"ingredientId":1201,"name":1824,"amount":1184,"unit":1206,"notes":1825},{"es":1203,"en":1204,"de":1205},{"es":1438,"en":1439,"de":1440},{"id":1212,"ingredientId":1212,"name":1827,"amount":1161,"unit":1150,"notes":1828},{"es":1214,"en":1215,"de":1216},{"es":1214,"en":1215,"de":1216},[1830,1839,1848,1857,1862],{"step":1831,"text":1835},{"es":1832,"en":1833,"de":1834},"Preparar las verduras","Prepare the vegetables","Gemüse vorbereiten",{"es":1836,"en":1837,"de":1838},"Pelar las patatas y cortarlas en láminas. Cortar cebolla y pimientos en trozos pequeños.","Peel and slice the potatoes. Cut onion and peppers into small pieces.","Kartoffeln schälen und schneiden. Zwiebeln und Paprika klein schneiden.",{"step":1840,"text":1844},{"es":1841,"en":1842,"de":1843},"Pochar la huerta","Cook the vegetables","Gemüse langsam garen",{"es":1845,"en":1846,"de":1847},"Cocinar cebolla y pimientos en aceite de oliva hasta que estén tiernos. Añadir la patata y cocinar lentamente.","Cook onion and peppers in olive oil until soft. Add potatoes and continue cooking slowly.","Zwiebeln und Paprika in Olivenöl weich garen. Kartoffeln hinzufügen und langsam weiterkochen.",{"step":1849,"text":1853},{"es":1850,"en":1851,"de":1852},"Escurrir y mezclar","Drain and combine","Abtropfen und vermischen",{"es":1854,"en":1855,"de":1856},"Escurrir las verduras y mezclarlas con los huevos batidos y sal.","Drain the vegetables and combine with beaten eggs and salt.","Gemüse abtropfen lassen und mit geschlagenen Eiern und Salz vermischen.",{"step":1858,"text":1860},{"es":1859,"en":1376,"de":1377},"Reposar",{"es":1473,"en":1474,"de":1861},"Einige Minuten ruhen lassen.",{"step":1863,"text":1864},{"es":1384,"en":1385,"de":1386},{"es":1865,"en":1866,"de":1867},"Cocinar en sartén a fuego medio hasta conseguir una tortilla jugosa pero más compacta que la clásica.","Cook over medium heat until obtaining a moist but firmer omelette than the classic version.","Bei mittlerer Hitze braten, bis eine saftige aber festere Tortilla entsteht.",[1869],{"type":1393,"name":1870,"description":1871},"Tradición Paisana del Norte",{"es":1872,"en":1873,"de":1874},"Receta campestre norteña enriquecida con pimientos de la huerta.","Northern countryside recipe enriched with garden peppers.","Ländliches Rezept aus dem Norden, angereichert mit Paprika aus dem Garten.",{"type":1275,"name":1400},"src/content/recipes/paisana.json","bbd1ffb831c3f256","quesoazul",{"id":1878,"data":1880,"filePath":1999,"digest":2000},{"id":1878,"slug":1881,"title":1885,"description":1889,"taxonomyIds":1893,"time":1512,"image":1895,"prepTimeMinutes":1139,"cookTimeMinutes":1514,"yieldServings":1141,"ingredients":1896,"instructions":1939,"sources":1974,"author":1997},{"es":1882,"en":1883,"de":1884},"tortilla-de-patatas-con-queso-azul","spanish-omelette-with-blue-cheese","spanische-tortilla-mit-blauschimmelkaese",{"es":1886,"en":1887,"de":1888},"Tortilla de Patatas con Queso Azul y Cebolla Caramelizada","Spanish Omelette with Blue Cheese & Caramelized Onion","Spanische Tortilla mit Blauschimmelkäse & Karamellisierten Zwiebeln",{"es":1890,"en":1891,"de":1892},"Receta gourmet de la facción 'Con Cosas' inspirada en los afamados locales Pez Tortilla (Madrid) y las tabernas de Santander: queso azul fundido (Gorgonzola, Roquefort o Cabrales) sobre patata pocha y cebolla caramelizada.","Gourmet 'Con Cosas' faction recipe inspired by Madrid's Pez Tortilla and Santander tapas bars: melted blue cheese (Gorgonzola, Roquefort, or Cabrales) layered over confit potatoes and caramelized onions.","Gourmet-Rezept der 'Con Cosas'-Fraktion, inspiriert von Pez Tortilla (Madrid) und den Tapas-Bars in Santander: geschmolzener Blauschimmelkäse auf sanft gegarten Kartoffeln und karamellisierten Zwiebeln.",[1126,1127,1128,1894,1130,1132,1133,1134,1511,1135,1301],"ingredient:blue_cheese","/images/quesoazul.jpg",[1897,1903,1906,1916,1925,1930],{"id":1144,"ingredientId":1144,"name":1898,"amount":1424,"unit":1150,"notes":1899},{"es":1146,"en":1147,"de":1148},{"es":1900,"en":1901,"de":1902},"Patatas cortadas en láminas finas de 2-3 mm","Thinly sliced potatoes (2-3 mm)","Dünn geschnittene Kartoffeln (2-3 mm)",{"id":1156,"ingredientId":1156,"name":1904,"amount":1161,"unit":1162,"notes":1905},{"es":1158,"en":1159,"de":1160},{"es":1164,"en":1165,"de":1166},{"id":1907,"ingredientId":1907,"name":1908,"amount":1808,"unit":1150,"notes":1912},"blue_cheese",{"es":1909,"en":1910,"de":1911},"Queso Azul (Gorgonzola, Roquefort o Cabrales)","Blue Cheese (Gorgonzola, Roquefort, or Cabrales)","Blauschimmelkäse (Gorgonzola, Roquefort oder Cabrales)",{"es":1913,"en":1914,"de":1915},"Cortado en dados pequeños para distribuir en el centro","Diced into small cubes to melt in the center","In kleine Würfel geschnitten für die schmelzende Füllung",{"id":1179,"ingredientId":1179,"name":1917,"amount":1525,"unit":1150,"notes":1921},{"es":1918,"en":1919,"de":1920},"Cebolla dulce","Sweet onion","Süße Zwiebel",{"es":1922,"en":1923,"de":1924},"1 cebolla grande en juliana, pochada lentamente","1 large onion julienned, slowly poached","1 große Zwiebel in Streifen, langsam geschmort",{"id":1201,"ingredientId":1201,"name":1926,"amount":1532,"unit":1206,"notes":1927},{"es":1203,"en":1204,"de":1205},{"es":1928,"en":1209,"de":1929},"Para confitar patatas y cebolla","Zum sanften Garen der Kartoffeln und Zwiebeln",{"id":1212,"ingredientId":1212,"name":1931,"amount":1141,"unit":1150,"notes":1935},{"es":1932,"en":1933,"de":1934},"Sal marina","Sea salt","Meersalz",{"es":1936,"en":1937,"de":1938},"Cantidad moderada (el queso azul aporta salinidad)","Moderate amount (blue cheese provides natural saltiness)","Sparsamt dosieren (der Käse ist bereits salzig)",[1940,1947,1956,1965],{"step":1941,"text":1943},{"es":1224,"en":1942,"de":1226},"Poach potatoes and onions",{"es":1944,"en":1945,"de":1946},"Cortar las patatas y la cebolla finamente. Pochar en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas y ligeramente caramelizadas.","Slice potatoes and onions thinly. Poach in olive oil over medium-low heat until soft and gently caramelized.","Kartoffeln und Zwiebeln dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze weich und leicht karamellisiert garen.",{"step":1948,"text":1952},{"es":1949,"en":1950,"de":1951},"Integrar el huevo y reposar","Mix with eggs and rest","Mit Eiern mischen und ruhen lassen",{"es":1953,"en":1954,"de":1955},"Batir los huevos ligeramente con la sal. Escurrir las patatas y cebollas calientes, unirlas a los huevos y dejar reposar 5 minutos para trabar la mezcla.","Whisk eggs gently with salt. Drain the hot potatoes and onions, add to the eggs, and let rest for 5 minutes so the starch absorbs the egg.","Eier leicht mit Salz verquirlen. Heiße Kartoffeln und Zwiebeln abtropfen lassen, zu den Eiern geben und 5 Minuten ruhen lassen.",{"step":1957,"text":1961},{"es":1958,"en":1959,"de":1960},"Incorporar dados de queso azul","Fold in blue cheese","Blauschimmelkäse unterheben",{"es":1962,"en":1963,"de":1964},"Añadir los dados de queso azul a la mezcla justo antes de pasar a la sartén, doblando suavemente para que no se deshagan por completo.","Gently fold the blue cheese cubes into the egg-potato mixture right before pouring into the pan.","Die Blauschimmelkäsewürfel kurz vor dem Anbraten vorsichtig unter die Masse heben.",{"step":1966,"text":1970},{"es":1967,"en":1968,"de":1969},"Cuajado y fundido interior","Cook and melt","Braten und schmelzen",{"es":1971,"en":1972,"de":1973},"Verter en sartén caliente con unas gotas de aceite. Cuajar a fuego medio 1.5 minutos por lado, manteniendo el centro jugoso con el queso azul fundido.","Pour into a hot skillet with a drizzle of oil. Cook for 1.5 minutes per side over medium heat, keeping the center juicy with melted blue cheese.","In eine heiße Pfanne geben. Bei mittlerer Hitze ca. 1.5 Minuten pro Seite braten, sodass der Kern saftig bleibt und der Käse schmilzt.",[1975,1983,1990],{"type":1976,"name":1977,"url":1978,"description":1979},"restaurant","Pez Tortilla (Madrid)","https://www.reddit.com/r/tortilladepatatas/comments/11h152c/pez_tortilla_madrid/",{"es":1980,"en":1981,"de":1982},"Referente madrileño en tortillas de autor jugosas con quesos fundidos e ingredientes gourmet.","Madrid benchmark for juicy gourmet tortillas featuring melted cheeses and artisan toppings.","Madrider Referenz für saftige Gourmet-Tortillas mit geschmolzenem Käse.",{"type":1976,"name":1984,"url":1985,"description":1986},"Tabernas de Santander (Gorgonzola & Cebolla Caramelizada)","https://www.reddit.com/r/tortilladepatatas/comments/12mvj4d/caramelised_onion_gorgonzola_and_a_classic/",{"es":1987,"en":1988,"de":1989},"Especialidad típica de desayunos y pinchos en las tabernas de Santander combinando Gorgonzola y cebolla dulce.","Popular breakfast and tapas bar specialty in Santander combining Gorgonzola cheese with caramelized onion.","Beliebte Tapas-Spezialität aus Santander mit Gorgonzola und karamellisierten Zwiebeln.",{"type":1260,"name":1991,"url":1992,"description":1993},"r/tortilladepatatas - Roquefort & Bacon Variant","https://www.reddit.com/r/tortilladepatatas/comments/1ppd8ha/roquefort_bacon_tortilla/",{"es":1994,"en":1995,"de":1996},"Variación comunitaria documentada utilizando queso Roquefort y crujiente de bacon.","Community documented variation using Roquefort cheese and crispy bacon.","Dokumentierte Variante aus der Community mit Roquefort-Käse und krosser Bacon-Einlage.",{"type":1275,"name":1998},"Pez Tortilla & r/tortilladepatatas","src/content/recipes/quesoazul.json","c62847479f224760","vegana",{"id":2001,"data":2003,"filePath":2130,"digest":2131},{"id":2001,"slug":2004,"title":2008,"description":2012,"taxonomyIds":2016,"time":1137,"image":2022,"prepTimeMinutes":1139,"cookTimeMinutes":1140,"yieldServings":1141,"ingredients":2023,"instructions":2084,"sources":2121,"author":2128},{"es":2005,"en":2006,"de":2007},"tortilla-de-patatas-vegana-sin-gluten","vegan-gluten-free-spanish-omelette","vegane-glutenfreie-spanische-tortilla",{"es":2009,"en":2010,"de":2011},"Tortilla de Patatas Vegana y Sin Gluten","Vegan & Gluten-Free Spanish Omelette","Vegane und Glutenfreie Spanische Tortilla",{"es":2013,"en":2014,"de":2015},"Receta vegana e inclusiva creada por Cris (Delantal de Alces): sustituye el huevo por harina de garbanzo, agua y almidón de tapioca para lograr jugosidad y dorado sin productos animales.","Inclusive vegan recipe created by Cris (Delantal de Alces): replaces eggs with chickpea flour, water, and tapioca starch to achieve traditional juiciness and a golden crust without animal products.","Inklusives veganes Rezept von Cris (Delantal de Alces): Ersetzt Eier durch Kichererbsenmehl, Wasser und Tapiokastärke für Saftigkeit und eine goldene Kruste ohne tierische Produkte.",[1126,2017,2018,1127,1130,2019,1132,1133,1131,2020,2021,1136],"ingredient:chickpea_flour","ingredient:tapioca_starch","ingredient:water","technique:vegan_emulsion","style:vegana","/images/vegana.png",[2024,2030,2040,2050,2056,2066,2069,2078],{"id":1144,"ingredientId":1144,"name":2025,"amount":1141,"unit":1162,"notes":2026},{"es":1307,"en":1308,"de":1309},{"es":2027,"en":2028,"de":2029},"4 patatas medianas cortadas en rodajas finas","4 medium potatoes, thinly sliced","4 mittlere Kartoffeln, in dünne Scheiben geschnitten",{"id":2031,"ingredientId":2031,"name":2032,"amount":1808,"unit":1150,"notes":2036},"chickpea_flour",{"es":2033,"en":2034,"de":2035},"Harina de garbanzo","Chickpea flour","Kichererbsenmehl",{"es":2037,"en":2038,"de":2039},"Base proteica para sustituir el huevo batido","Protein base substitute for beaten eggs","Proteinbasis als Ersatz für geschlagene Eier",{"id":2041,"ingredientId":2041,"name":2042,"amount":1303,"unit":1150,"notes":2046},"tapioca_starch",{"es":2043,"en":2044,"de":2045},"Harina o almidón de tapioca","Tapioca starch / flour","Tapiokamehl / Stärke",{"es":2047,"en":2048,"de":2049},"½ cucharada de postre (aporta aglutinación y elasticidad)","½ dessert spoon (adds binding and elasticity)","½ Teelöffel (sorgt für Bindung und Elastizität)",{"id":1179,"ingredientId":1179,"name":2051,"amount":17,"unit":1162,"notes":2052},{"es":1181,"en":1182,"de":1183},{"es":2053,"en":2054,"de":2055},"1 cebolla grande en juliana (imprescindible para aportar jugosidad)","1 large onion julienned (essential for moisture)","1 große Zwiebel in Streifen (essenziell für die Saftigkeit)",{"id":2057,"ingredientId":2057,"name":2058,"amount":1184,"unit":1206,"notes":2062},"water",{"es":2059,"en":2060,"de":2061},"Agua","Water","Wasser",{"es":2063,"en":2064,"de":2065},"Para formar la mezcla líquida con las harinas","To form the liquid mix with the flours","Zum Anmischen mit den Mehlen",{"id":1212,"ingredientId":1212,"name":2067,"amount":576,"unit":1150,"notes":2068},{"es":1214,"en":1215,"de":1216},{"es":1342,"en":1343,"de":1344},{"id":1190,"ingredientId":1190,"name":2070,"amount":576,"unit":1150,"notes":2074},{"es":2071,"en":2072,"de":2073},"Pimienta negra","Black pepper","Schwarzer Pfeffer",{"es":2075,"en":2076,"de":2077},"Pimienta negra molida al gusto","Ground black pepper to taste","Gemahlener schwarzer Pfeffer nach Geschmack",{"id":1201,"ingredientId":1201,"name":2079,"amount":1184,"unit":1206,"notes":2080},{"es":1619,"en":1620,"de":1621},{"es":2081,"en":2082,"de":2083},"Para freír las patatas y cebolla por separado","To fry potatoes and onion separately","Zum getrennten Anbraten von Kartoffeln und Zwiebeln",[2085,2094,2103,2112],{"step":2086,"text":2090},{"es":2087,"en":2088,"de":2089},"Freír patatas y cebolla","Fry potatoes and onion","Kartoffeln und Zwiebeln anbraten",{"es":2091,"en":2092,"de":2093},"Pelar las patatas y cortarlas en rodajas finas. Cortar la cebolla en juliana no muy fina. Calentar el aceite y freír patatas y cebolla por separado.","Peel and thinly slice the potatoes. Cut the onion into medium julienne strips. Heat oil and fry potatoes and onion separately.","Kartoffeln schälen und in dünne Scheiben schneiden. Zwiebel in Streifen schneiden. Öl erhitzen und Kartoffeln sowie Zwiebeln getrennt anbraten.",{"step":2095,"text":2099},{"es":2096,"en":2097,"de":2098},"Preparar la mezcla líquida","Prepare the liquid mixture","Vegane Flüssigmischung anrühren",{"es":2100,"en":2101,"de":2102},"En un cuenco, batir la harina de garbanzo, el agua, la harina de tapioca, la sal y la pimienta hasta lograr una consistencia similar al huevo batido. Batir justo al final para evitar que espese.","In a bowl, whisk chickpea flour, water, tapioca flour, salt, and pepper until reaching an egg-like consistency. Mix right before cooking so it does not thicken prematurely.","In einer Schüssel Kichererbsenmehl, Wasser, Tapiokamehl, Salz und Pfeffer verquirlen, bis eine eiähnliche Konsistenz entsteht. Erst kurz vor dem Braten anrühren.",{"step":2104,"text":2108},{"es":2105,"en":2106,"de":2107},"Integrar y primer sellado","Combine and initial sear","Mischen und anbraten",{"es":2109,"en":2110,"de":2111},"Echar patatas y cebolla a la sartén caliente, verter la mezcla de garbanzo y agitar. Subir el fuego al máximo 5 segundos para hacer 'crostita', luego bajar el fuego, tapar y cocinar 3 minutos.","Add potatoes and onion to the hot pan, pour the chickpea mixture, and shake to combine. Turn heat to high for 5 seconds to form a crust, then lower heat, cover, and cook for 3 minutes.","Kartoffeln und Zwiebeln in die Pfanne geben, die Kichererbsenmischung darüber gießen und verteilen. 5 Sekunden bei hoher Hitze anbraten für eine Kruste, dann Hitze reduzieren, abdecken und 3 Minuten garen.",{"step":2113,"text":2117},{"es":2114,"en":2115,"de":2116},"Volteo y cuajado final","Flip and finish cooking","Wenden und fertig garen",{"es":2118,"en":2119,"de":2120},"Dar la vuelta con un plato, subir el fuego al máximo 5 segundos para sellar la otra cara, y continuar a fuego lento con la sartén tapada dando una última vuelta antes de servir.","Flip using a plate, turn heat to high for 5 seconds to sear the other side, then continue cooking covered on low heat until fully set inside.","Die Tortilla wenden, 5 Sekunden bei hoher Hitze anbraten, dann abgedeckt bei niedriger Hitze zu Ende garen.",[2122],{"type":1681,"name":2123,"description":2124},"Delantal de Alces (Cris)",{"es":2125,"en":2126,"de":2127},"Receta original inclusiva de tortilla de patatas vegana y sin gluten.","Original inclusive recipe for vegan and gluten-free Spanish omelette.","Originales inklusives Rezept für vegane und glutenfreie spanische Tortilla.",{"type":1275,"name":2129},"Cris (Delantal de Alces)","src/content/recipes/vegana.json","eea373494d34a866","settings",["Map",2134,2135],"site",{"id":2134,"data":2136,"filePath":2145,"digest":2146},{"id":2137,"name":1400,"domain":1400,"appUrl":2138,"supportedLanguages":2139,"defaultLanguage":164,"safetyStandard":2140},"site-settings","https://tortilladepatatas.de",[164,91,8],{"bactericidalTemp":2141,"mediumTemp":2142,"ambientLimit":2143,"refrigerationTemp":2144},"70°C for 2 minutes","63°C for 20 seconds","4 hours","8°C","src/content/settings/site.json","30d637f92a366348","taxonomies",["Map",2149,2150,2167,2168,2184,2185,2220,2221,2255,2256,2292,2293,2328,2329,2366,2367,2383,2384,2399,2400,2414,2415,2427,2428,2440,2441,2454,2455,2470,2471,2486,2487,2502,2503,2517,2518,2532,2533,2553,2554,2571,2572,2589,2590,2607,2608],"difficulties-easy",{"id":2149,"data":2151,"filePath":2165,"digest":2166},{"id":2152,"type":2153,"slug":2154,"title":2157,"description":2161,"icon":866},"easy","difficulty",{"es":2155,"en":2152,"de":2156},"facil","einfach",{"es":2158,"en":2159,"de":2160},"Fácil","Easy","Einfach",{"es":2162,"en":2163,"de":2164},"Dificultad accesible para principiantes en cocina casera.","Accessible difficulty for home cooking beginners.","Einfache Schwierigkeitsstufe für Anfänger.","src/content/taxonomies/difficulties/easy.json","61b89d238693ad59","difficulties-medium",{"id":2167,"data":2169,"filePath":2182,"digest":2183},{"id":2170,"type":2153,"slug":2171,"title":2174,"description":2178,"icon":498},"medium",{"es":2172,"en":2170,"de":2173},"media","mittel",{"es":2175,"en":2176,"de":2177},"Intermedia","Medium","Mittel",{"es":2179,"en":2180,"de":2181},"Requiere destreza controlando la temperatura del aceite y la técnica de volteo con plato.","Requires skill controlling oil temperature and plate-flipping technique.","Erfordert Geschick bei der Öl-Temperatur und beim Wenden mit dem Teller.","src/content/taxonomies/difficulties/medium.json","23d8bad3d0c743b4","factions-ajistas",{"id":2184,"data":2186,"filePath":2218,"digest":2219},{"id":2187,"type":2188,"slug":2189,"title":2192,"description":2196,"image":2200,"icon":866,"theme":2201,"dogma":2203,"badge":2207,"keyIngredient":2211,"prominentFigures":2215},"ajistas","faction",{"es":2187,"en":2190,"de":2191},"garlic-cult","knoblauch-kult",{"es":2193,"en":2194,"de":2195},"Los Ajistas","The Ajistas","Der Knoblauch-Kult",{"es":2197,"en":2198,"de":2199},"El recurso secreto de los chefs con estrella Michelin. El ajo frito en el aceite infunde una profundidad sutil sin restar protagonismo al huevo.","The secret technique of Michelin-starred chefs. Garlic poached in oil creates a subtle aromatic baseline that enhances the egg.","Der Geheimtipp der Sterneköche. Sanft im Öl pochierter Knoblauch verleiht eine feine aromatische Tiefe ohne Schärfe.","/images/factions/faction-garlic.jpg",{"color":2202},"charcoal",{"es":2204,"en":2205,"de":2206},"Aromatizar el aceite sin sobrecargar de azúcar la mezcla.","Infuse the frying oil with garlic without overloading sweetness.","Knoblauch als unsichtbare aromatische Basis im Olivenöl.",{"es":2208,"en":2209,"de":2210},"Técnicos y Secretos","Technical & Secret","Technisch & Geheim",{"es":2212,"en":2213,"de":2214},"Ajo frito aromatizante","Aromatic Garlic","Aromatischer Knoblauch",[2216,2217],"Ángel León (Aponiente)","Óscar Vidal (O'Pazo)","src/content/taxonomies/factions/ajistas.json","a6ece5f9d74cc638","factions-con-cosas",{"id":2220,"data":2222,"filePath":2253,"digest":2254},{"id":2223,"type":2188,"slug":2224,"title":2227,"description":2231,"image":2235,"icon":498,"theme":2236,"dogma":2238,"badge":2242,"keyIngredient":2246,"prominentFigures":2250},"con-cosas",{"es":2223,"en":2225,"de":2226},"modernists","experimente",{"es":2228,"en":2229,"de":2230},"Los 'Con Cosas'","The 'Con Cosas'","Die 'Con Cosas' Experimente",{"es":2232,"en":2233,"de":2234},"Desde la deconstrucción en copa y la tortilla exprés de chips de Ferran Adrià hasta rellenos gourmet y la histórica Tortilla del Sacromonte.","From Ferran Adrià's deconstructed siphon and potato chip express omelettes to gourmet fillings and Granada's historic Sacromonte.","Von Ferran Adriàs berühmter Chip-Tortilla bis hin zu feinen Gourmet-Füllungen und historischen Spezialitäten.","/images/factions/faction-cosas.jpg",{"color":2237},"cream",{"es":2239,"en":2240,"de":2241},"La tortilla como un lienzo abierto a la creatividad y expresión regional.","The omelette as an open canvas for regional creativity and modernist innovation.","Die Tortilla als Leinwand für kreative Entdeckungen und regionale Schätze.",{"es":2243,"en":2244,"de":2245},"Innovadores & Vanguardia","Innovators & Modernists","Innovatoren & Avantgarde",{"es":2247,"en":2248,"de":2249},"Queso, trufa, chistorra, chips de bolsa","Cheese, truffle, chistorra, potato chips","Käse, Trüffel, Chorizo, Kartoffelchips",[1682,2251,2252],"Pez Tortilla","José Antonio Labordeta","src/content/taxonomies/factions/con-cosas.json","d8c79e52fd029e47","factions-concebollistas",{"id":2255,"data":2257,"filePath":2290,"digest":2291},{"id":2258,"type":2188,"slug":2259,"title":2262,"description":2266,"image":2270,"icon":2271,"theme":2272,"dogma":2274,"badge":2278,"keyIngredient":2282,"prominentFigures":2286},"concebollistas",{"es":2258,"en":2260,"de":2261},"onion-lovers","zwiebelliebhaber",{"es":2263,"en":2264,"de":2265},"Los Concebollistas","The Onion Lovers","Die Zwiebel-Liebhaber",{"es":2267,"en":2268,"de":2269},"Respaldados por el 70,4% de la población según el CIS. La caramelización lenta de la cebolla equilibra la textura y el dulzor del conjunto.","Backed by 70.4% of the population according to CIS surveys. Slow onion caramelization balances the potato texture and savory depth.","Unterstützt von über 70% der spanischen Bevölkerung. Langsam pochierte Zwiebeln verleihen dem Gericht perfekte Harmonie.","/images/factions/faction-onion.jpg","Heart",{"color":2273},"tortillaGold",{"es":2275,"en":2276,"de":2277},"La cebolla pochada aporta la jugosidad y el dulzor esenciales.","Slow-poached onions provide essential juiciness and sweetness.","Karamellisierte Zwiebeln bringen die Seele und Saftigkeit in das Gericht.",{"es":2279,"en":2280,"de":2281},"Tradicionalistas Populares","Popular Traditionalists","Beliebte Traditionalisten",{"es":2283,"en":2284,"de":2285},"Cebolla Caramelizada","Caramelized Onion","Karamellisierte Zwiebel",[2287,2288,2289],"Karlos Arguiñano","José Andrés","Rosalía","src/content/taxonomies/factions/concebollistas.json","bc1814a24759a2fe","factions-pimientistas",{"id":2292,"data":2294,"filePath":2326,"digest":2327},{"id":2295,"type":2188,"slug":2296,"title":2299,"description":2303,"image":2307,"icon":2308,"theme":2309,"dogma":2311,"badge":2315,"keyIngredient":2319,"prominentFigures":2323},"pimientistas",{"es":2295,"en":2297,"de":2298},"pepper-lovers","paprika-fraktion",{"es":2300,"en":2301,"de":2302},"Los Pimientistas","The Pimientistas","Die Paprika-Fraktion",{"es":2304,"en":2305,"de":2306},"Inspirados en la tortilla paisana o campera de Donostia, donde el pimiento verde, el calabacín y el guisante aportan frescura y volumen.","Inspired by the country-style 'tortilla paisana' in Donostia, where bell peppers, zucchini, and peas add vibrancy and texture.","Klassische Tortilla Paisana mit Paprika, Zucchini und Erbsen – die herzhafte und ballaststoffreiche Antwort des Nordens.","/images/factions/faction-pimientos.jpg","Sprout",{"color":2310},"olive",{"es":2312,"en":2313,"de":2314},"El toque fresco y ahumado de la huerta campera.","A fresh and smoky touch straight from the countryside.","Das rustikale Power-Omelett mit der Frische des Gemüsegartens.",{"es":2316,"en":2317,"de":2318},"Rurales y Regionales","Rural & Regional","Ländlich & Regional",{"es":2320,"en":2321,"de":2322},"Pimiento verde o rojo & Verduras","Green or Red Pepper & Veggies","Paprika & Gemüse",[2324,2325],"Bar Néstor (San Sebastián)","Recetario Campero","src/content/taxonomies/factions/pimientistas.json","0ff21197760cd516","factions-puristas",{"id":2328,"data":2330,"filePath":2364,"digest":2365},{"id":2331,"type":2188,"slug":2332,"title":2335,"description":2339,"image":2343,"icon":2344,"theme":2345,"dogma":2347,"badge":2351,"keyIngredient":2354,"prominentFigures":2358},"puristas",{"es":2331,"en":2333,"de":2334},"purists","puristen",{"es":2336,"en":2337,"de":2338},"Los Puristas","The Purists","Die Puristen",{"es":2340,"en":2341,"de":2342},"Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.","They argue that sweet vegetables mask the clean taste of egg and potato. They revere the runny, golden center of the Betanzos style.","Sie verteidigen den reinen Geschmack von Ei und Kartoffel. Die Betanzos-Tradition verlangt einen flüssigen, cremigen Kern.","/images/factions/faction-purist.jpg","Shield",{"color":2346},"terracotta",{"es":2348,"en":2349,"de":2350},"Solo patata, huevo, aceite de oliva y sal.","Only potato, egg, olive oil, and salt.","Nur Kartoffel, Ei, Olivenöl und Salz.",{"es":2352,"en":2353,"de":2353},"Ortodoxos (Betanzos)","Orthodox (Betanzos)",{"es":2355,"en":2356,"de":2357},"Sin añadidos (0% Cebolla)","No additives (0% Onion)","Ohne Zusätze (0% Zwiebel)",[2359,2360,2361,2362,2363],"Señora Angelita (Betanzos)","Pepa Miranda","Dabiz Muñoz","Dani García","La Falda de Chamberí","src/content/taxonomies/factions/puristas.json","ba5de269586acbc8","ingredients-egg",{"id":2366,"data":2368,"filePath":2381,"digest":2382},{"id":1156,"type":2369,"slug":2370,"title":2373,"description":2377,"icon":487},"ingredient",{"es":2371,"en":1156,"de":2372},"huevo","ei",{"es":2374,"en":2375,"de":2376},"Huevo Fresco","Fresh Egg","Frisches Ei",{"es":2378,"en":2379,"de":2380},"El nexo de unión. Huevos camperos de gallina criada en libertad garantizan un color dorado intenso y máxima untuosidad.","The emulsifying nexus. Free-range eggs ensure rich golden color and creamy emulsion.","Eier aus Freilandhaltung garantieren eine goldene Farbe und maximale Sämigkeit.","src/content/taxonomies/ingredients/egg.json","708b1d642bb723a1","ingredients-garlic",{"id":2383,"data":2385,"filePath":2397,"digest":2398},{"id":2386,"type":2369,"slug":2387,"title":2390,"description":2393,"icon":866},"garlic",{"es":2388,"en":2386,"de":2389},"ajo","knoblauch",{"es":2391,"en":2392,"de":2214},"Ajo Aromatizante","Garlic Infusion",{"es":2394,"en":2395,"de":2396},"Diente de ajo frito brevemente en el aceite para infundir un perfume sutil sin amargar.","Garlic clove briefly fried in oil to infuse a subtle background perfume.","Kurz im Öl angebratene Knoblauchzehe für ein feines Aroma im Hintergrund.","src/content/taxonomies/ingredients/garlic.json","336ee014b0d163d4","ingredients-oil",{"id":2399,"data":2401,"filePath":2412,"digest":2413},{"id":1201,"type":2369,"slug":2402,"title":2406,"description":2407,"icon":2411},{"es":2403,"en":2404,"de":2405},"aceite-de-oliva","olive-oil","olivenoel",{"es":1203,"en":1204,"de":1205},{"es":2408,"en":2409,"de":2410},"Medio de transmisión térmica y sabor. El AOVE infunde aromas frutales y garantiza una fritura limpia y saludable.","Thermal transmission medium. EVOO infuses fruity aromas and clean frying properties.","Natives Olivenöl Extra verleiht fruchtige Aromen und sorgt für sauberes Frittieren.","Droplet","src/content/taxonomies/ingredients/oil.json","2fba72a366389801","ingredients-onion",{"id":2414,"data":2416,"filePath":2425,"digest":2426},{"id":1179,"type":2369,"slug":2417,"title":2420,"description":2421,"icon":498},{"es":2418,"en":1179,"de":2419},"cebolla","zwiebel",{"es":1181,"en":1182,"de":1183},{"es":2422,"en":2423,"de":2424},"Eje del gran debate nacional. Pochada a fuego lento, aporta dulzor natural y melosidad incomparable.","Center of Spain's culinary debate. Poached slowly, it adds natural sweetness and rich texture.","Hauptthema des kulinarischen Debatte. Langsam gedünstet verleiht sie natürliche Süße und Saftigkeit.","src/content/taxonomies/ingredients/onion.json","387538c850912374","ingredients-pepper",{"id":2427,"data":2429,"filePath":2438,"digest":2439},{"id":1190,"type":2369,"slug":2430,"title":2433,"description":2434,"icon":2308},{"es":2431,"en":1190,"de":2432},"pimiento","paprika",{"es":1805,"en":1806,"de":1807},{"es":2435,"en":2436,"de":2437},"Aporte aromático campero característico de la tortilla paisana y vasca.","Aromatic pepper addition characteristic of northern country-style omelettes.","Aromatischer Paprika-Anteil, charakteristisch für nordspanische Land-Tortillas.","src/content/taxonomies/ingredients/pepper.json","e22304ef0be49913","ingredients-potato",{"id":2440,"data":2442,"filePath":2452,"digest":2453},{"id":1144,"type":2369,"slug":2443,"title":2446,"description":2447,"icon":2451},{"es":2444,"en":1144,"de":2445},"patata","kartoffel",{"es":1307,"en":1308,"de":1309},{"es":2448,"en":2449,"de":2450},"La base fundamental de la tortilla. Variedades como Monalisa, Kennebec o Agria ofrecen el equilibrio perfecto de almidón y textura.","The structural base of the Spanish omelette. Varieties like Monalisa or Kennebec yield the best confit texture.","Die Grundlage der Tortilla. Sorten wie Monalisa oder Kennebec eignen sich am besten zum Confitieren.","CookingPot","src/content/taxonomies/ingredients/potato.json","9ae83c668260c584","people-barat",{"id":2454,"data":2456,"filePath":2468,"digest":2469},{"id":2457,"type":2458,"slug":2459,"title":2461,"description":2463,"badge":2467},"barat","person",{"es":2460,"en":2460,"de":2460},"jose-manuel-barat",{"es":2462,"en":2462,"de":2462},"José Manuel Barat Baviera",{"es":2464,"en":2465,"de":2466},"Catedrático de la Universitat Politècnica de València especializado en la formalización científica de procesos culinarios.","Professor at Universitat Politècnica de València specializing in scientific formalization of culinary processes.","Professor an der Universitat Politècnica de València mit Spezialisierung auf die wissenschaftliche Erfassung kulinarischer Prozesse.",{"es":297,"en":298,"de":299},"src/content/taxonomies/people/barat.json","cd05e48a348b6f55","people-jose-andres",{"id":2470,"data":2472,"filePath":2484,"digest":2485},{"id":2473,"type":2458,"slug":2474,"title":2475,"description":2476,"badge":2480},"jose-andres",{"es":2473,"en":2473,"de":2473},{"es":2288,"en":2288,"de":2288},{"es":2477,"en":2478,"de":2479},"Chef español reconocido internacionalmente que ha popularizado la tortilla en todo el mundo.","Internationally renowned Spanish chef who popularized the Spanish omelette worldwide.","Weltberühmter spanischer Koch, der die Tortilla weltweit bekannt machte.",{"es":2481,"en":2482,"de":2483},"Divulgación","Outreach","Kommunikation","src/content/taxonomies/people/jose-andres.json","ab8bcace7fa81135","people-pepa-miranda",{"id":2486,"data":2488,"filePath":2500,"digest":2501},{"id":2489,"type":2458,"slug":2490,"title":2491,"description":2493,"badge":2497},"pepa-miranda",{"es":2489,"en":2489,"de":2489},{"es":2492,"en":2492,"de":2492},"Pepa Miranda (Casa Dani)",{"es":2494,"en":2495,"de":2496},"Referente de la tortilla de estilo tradicional en Madrid con jugosidad extrema.","Reference for traditional style Spanish omelette in Madrid with extreme juiciness.","Referenz für die traditionelle spanische Tortilla in Madrid mit extremer Saftigkeit.",{"es":2498,"en":2499,"de":2499},"Tradición","Tradition","src/content/taxonomies/people/pepa-miranda.json","db904c2d1c566d7a","regions-betanzos",{"id":2502,"data":2504,"filePath":2515,"digest":2516},{"id":1279,"type":2505,"slug":2506,"title":2507,"description":2511,"icon":2344},"region",{"es":1279,"en":1279,"de":1279},{"es":2508,"en":2509,"de":2510},"Betanzos (A Coruña)","Betanzos (Galicia)","Betanzos (Galicien)",{"es":2512,"en":2513,"de":2514},"Meca gallega del cuajado ultra-líquido y dorado, célebre en toda España por sus mesones históricos.","Galician capital of runny, golden omelettes made famous by historical taverns.","Galicische Hauptstadt der flüssigen goldenen Tortilla, berühmt für ihre historischen Tavernen.","src/content/taxonomies/regions/betanzos.json","ceeb687be9a28eb8","regions-donostia",{"id":2517,"data":2519,"filePath":2530,"digest":2531},{"id":2520,"type":2505,"slug":2521,"title":2522,"description":2526,"icon":2308},"donostia",{"es":2520,"en":2520,"de":2520},{"es":2523,"en":2524,"de":2525},"Donostia - San Sebastián","San Sebastián (Basque Country)","San Sebastián (Baskenland)",{"es":2527,"en":2528,"de":2529},"Cuna del Bar Néstor y las famosas tortillas camperas y paisanas de la Parte Vieja.","Home of Bar Néstor and famous rustic pintxos omelettes in the Old Town.","Heimat der Bar Néstor und berühmter rustikaler Pintxo-Tortillas.","src/content/taxonomies/regions/donostia.json","fd723ea5187736bb","styles-betanzos",{"id":2532,"data":2534,"filePath":2551,"digest":2552},{"id":1279,"type":2535,"slug":2536,"title":2540,"description":2543,"badge":2547},"style",{"es":2537,"en":2538,"de":2539},"estilo-betanzos","betanzos-style","betanzos-stil",{"es":1050,"en":2541,"de":2542},"Betanzos Style","Betanzos-Stil",{"es":2544,"en":2545,"de":2546},"Famosa por su interior muy líquido, huevo casi sin cuajar y patatas muy crujientes fritas a alta temperatura.","Famous for its very liquid center, barely cooked egg, and high-temperature crispy potatoes.","Berühmt für ihren sehr flüssigen Kern, kaum stockendes Ei und krosse Kartoffeln.",{"es":2548,"en":2549,"de":2550},"Jugosa","Runny","Saftig","src/content/taxonomies/styles/betanzos.json","7369aa701e1734e4","styles-clasica",{"id":2553,"data":2555,"filePath":2569,"digest":2570},{"id":1403,"type":2535,"slug":2556,"title":2559,"description":2563,"badge":2567},{"es":1403,"en":2557,"de":2558},"classic","klassisch",{"es":2560,"en":2561,"de":2562},"Estilo Clásico","Classic Style","Klassischer Stil",{"es":2564,"en":2565,"de":2566},"La fórmula tradicional equilibrada de patata pochada, huevo cremoso y exterior sellado.","The traditional balanced formula of poached potato, creamy egg, and sealed crust.","Die klassisch ausgewogene Formel aus confitierter Kartoffel und cremigem Ei.",{"es":2568,"en":947,"de":948},"Tradicional","src/content/taxonomies/styles/clasica.json","3551651df0c81ad8","techniques-deconstruction",{"id":2571,"data":2573,"filePath":2587,"digest":2588},{"id":2574,"type":2575,"slug":2576,"title":2579,"description":2583,"icon":866},"deconstruction","technique",{"es":2577,"en":2574,"de":2578},"deconstruccion","dekonstruktion",{"es":2580,"en":2581,"de":2582},"Deconstrucción y Vanguardia","Modernist Deconstruction","Dekonstruktion & Avantgarde",{"es":2584,"en":2585,"de":2586},"Técnica iniciada por Ferran Adrià utilizando sifones, emulsiones o ingredientes precocinados de alta calidad.","Pioneered by Ferran Adrià using siphons, emulsions, or pre-cooked ingredients.","Von Ferran Adrià entwickelte Technik mit Siphons, Emulsionen oder Spezialzutaten.","src/content/taxonomies/techniques/deconstruction.json","2b08e81b3f0d651e","techniques-frying",{"id":2589,"data":2591,"filePath":2605,"digest":2606},{"id":2592,"type":2575,"slug":2593,"title":2597,"description":2601,"icon":498},"frying",{"es":2594,"en":2595,"de":2596},"fritura-crujiente","crispy-frying","knusprig-frittieren",{"es":2598,"en":2599,"de":2600},"Fritura Crujiente","Crispy Frying","Knusprige Fritüre",{"es":2602,"en":2603,"de":2604},"Fritura rápida de láminas muy finas de patata para lograr bordes dorados y crujientes típicos de Betanzos.","Rapid frying of wafer-thin potato slices to create crispy golden edges typical of Betanzos.","Schnelles Frittieren hauchdünner Kartoffelscheiben für knusprige Ränder nach Betanzos-Art.","src/content/taxonomies/techniques/frying.json","90d76812b8a5630f","techniques-slow-cooking",{"id":2607,"data":2609,"filePath":2623,"digest":2624},{"id":2610,"type":2575,"slug":2611,"title":2615,"description":2619,"icon":498},"slow-cooking",{"es":2612,"en":2613,"de":2614},"confitado","slow-poaching","langsam-pochieren",{"es":2616,"en":2617,"de":2618},"Confitado a Fuego Lento","Slow Poaching (Confit)","Sanftes Poachieren",{"es":2620,"en":2621,"de":2622},"Cocinado de la patata a baja/media temperatura (130-140°C) para lograr una textura mantequillosa sin quemar los azúcares.","Poaching potatoes at low-to-medium heat (130-140°C) to achieve buttery texture.","Garen der Kartoffeln bei niedriger bis mittlerer Temperatur für eine butterweiche Textur.","src/content/taxonomies/techniques/slow-cooking.json","1a6dfffb5e54e7e6"]
+````
+
+## File: src/components/layout/Footer.tsx
+````typescript
+import { useState, useEffect } from "react";
+import "@/i18n/config";
+import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+interface FooterProps {
+  lang?: string;
+  currentPath?: string;
+}
+
+export default function Footer({ lang = "es", currentPath: propPath }: FooterProps) {
+  const [clientPath, setClientPath] = useState("");
+
+  const { t } = useTranslation(undefined, { lng: lang });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setClientPath(window.location.pathname);
+    }
+  }, []);
+
+  const activePath = propPath || clientPath;
+
+  function getLocalizedHref(path: string) {
+    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    if (cleanPath === "/") return `/${lang}`;
+    return `/${lang}${cleanPath}`;
+  }
+
+  function isLinkActive(targetPath: string) {
+    if (!activePath) return false;
+    if (targetPath === "/") {
+      return activePath === `/${lang}` || activePath === `/${lang}/` || activePath === "/";
+    }
+    return activePath.includes(targetPath);
+  }
+
+  return (
+    <footer className="site-footer relative overflow-hidden bg-[#2A2421] text-[#E8E2D5] py-12 border-t border-[#8D6E63]/30 mt-16">
+      <div className="footer-container max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+        {/* Brand Column */}
+        <div className="footer-brand space-y-3">
+          <div className="flex items-center gap-2.5">
+            <div className="p-1.5 rounded-lg bg-[#FFB800] text-[#2A2421] shadow-2xs border border-amber-300">
+              <ChefHat className="h-5 w-5" />
+            </div>
+            <div>
+              <h3 className="font-serif-heading font-bold text-lg text-white tracking-tight m-0">
+                tortilladepatatas.org
+              </h3>
+              <p className="font-script text-sm text-[#FFB800]/90 -mt-0.5 m-0">
+                {t("footer.subtitle", "Gastronomía, Tradición & Ciencia Culinaria")}
+              </p>
+            </div>
+          </div>
+
+          <p className="text-xs md:text-sm text-[#E8E2D5]/80 leading-relaxed">
+            {t(
+              "footer.brandDesc",
+              "La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española."
+            )}
+          </p>
+        </div>
+
+        {/* Navigation Map */}
+        <nav className="footer-nav space-y-3" aria-label="Footer Navigation">
+          <h4 className="font-bold text-sm text-white uppercase tracking-wider font-mono">
+            {t("footer.exploreTitle", "Explorar Cuaderno")}
+          </h4>
+          <ul className="space-y-2 text-xs md:text-sm">
+            {[
+              { path: "/recipes", label: t("nav.recipes", "Recetas de la Gastronomía") },
+              { path: "/builder", label: t("nav.builder", "Constructor Interactivo") },
+              { path: "/ingredients", label: t("nav.ingredients", "Ingredientes & Proporciones") },
+              { path: "/techniques", label: t("nav.techniques", "Técnicas & Volteado") },
+              { path: "/science", label: t("nav.science", "Ciencia & Seguridad Alimentaria") },
+              { path: "/history", label: t("nav.history", "Historia & Cronología 1767-2025") },
+              { path: "/personas", label: t("nav.personas", "Personas & Creadores") },
+              { path: "/about", label: t("nav.about", "Sobre Nosotros") },
+              { path: "/contacto", label: t("nav.contact", "Contacto & Consultas") },
+            ].map((item) => (
+              <li key={item.path}>
+                <a
+                  href={getLocalizedHref(item.path)}
+                  className={`flex items-center justify-between group py-0.5 hover:text-white transition-colors ${
+                    isLinkActive(item.path) ? "font-bold text-[#FFB800]" : "text-[#E8E2D5]/80"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isLinkActive(item.path) && (
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                  )}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href="https://tortilladepatatas.de/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FFB800] flex items-center justify-between group py-0.5 hover:underline"
+              >
+                <span>Tortilla Creator App (tortilladepatatas.de)</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Food Safety Notice Card */}
+        <div className="space-y-3">
+          <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-2">
+            <h4 className="font-bold text-sm text-[#FFB800] flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#FFB800]" />
+              <span>{t("footer.safetyTitle", "Estándar de Seguridad Bactericida")}</span>
+            </h4>
+
+            <p className="text-[#E8E2D5]/80 leading-relaxed">
+              Para garantizar la inocuidad microbiológica y la destrucción de <i>Salmonella spp.</i>, el estándar de cocinado bactericida exige alcanzar <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">70°C for 2 minutes</strong> (o <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">4 hours</strong> a temperatura ambiente.
+            </p>
+
+            <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/60">
+              <span className="font-mono">{t("footer.safetyNorm", "Normativa Colectividades Real Decreto 1021/2022")}</span>
+              <a href={getLocalizedHref('/science')} className="font-bold text-[#FFB800] hover:underline flex items-center gap-1">
+                <span>{t("footer.viewReport", "Ver Informe")}</span>
+                <BookOpen className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom Bar */}
+      <div className="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-[#8D6E63]/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#E8E2D5]/70 text-center sm:text-left">
+        <p>
+          &copy; {new Date().getFullYear()} tortilladepatatas.org. {t("footer.rights", "Todos los derechos reservados.")}
+        </p>
+        <p className="flex items-center justify-center gap-1.5 font-medium">
+          <span>{t("footer.craftedWith", "Hecho con")}</span>
+          <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline" />
+          <span>{t("footer.forGastronomy", "para los amantes de la gastronomía y la ciencia culinaria.")}</span>
+        </p>
+      </div>
+    </footer>
+  );
+}
+````
+
 ## File: .astro/dev.json
 ````json
 {
-	"pid": 28608,
+	"pid": 172286,
 	"port": 3000,
 	"url": "http://localhost:3000",
 	"urls": {
@@ -20181,7 +23173,7 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
 		]
 	},
 	"background": false,
-	"startedAt": "2026-07-31T07:50:48.341Z"
+	"startedAt": "2026-08-02T12:20:16.863Z"
 }
 ````
 
@@ -20197,7 +23189,8 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
     "history": "Geschichte",
     "personas": "Persönlichkeiten",
     "builder": "Baukasten",
-    "about": "Über uns"
+    "about": "Über uns",
+    "contact": "Kontakt"
   },
   "hero": {
     "badge": "Die Enzyklopädie der spanischen Tortilla",
@@ -20439,6 +23432,37 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
     "rights": "Alle Rechte vorbehalten.",
     "craftedWith": "Erstellt mit",
     "forGastronomy": "für Liebhaber der Gastronomie und kulinarischen Wissenschaft."
+  },
+  "contact": {
+    "title": "Kontakt & Anfragen",
+    "subtitle": "Haben Sie Fragen zur Enzyklopädie, Rezeptvorschläge oder möchten Sie zusammenarbeiten?",
+    "badge": "Kontakt",
+    "nameLabel": "Vollständiger Name",
+    "namePlaceholder": "z.B. Max Mustermann",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "ihre@email.de",
+    "typeLabel": "Grund der Anfrage",
+    "typeOptions": {
+      "help": "Ich brauche Hilfe",
+      "question": "Ich habe eine Frage",
+      "thanks": "Ihr seid die Besten!",
+      "other": "Sonstiges"
+    },
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Schreiben Sie hier Ihre Nachricht...",
+    "submitButton": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "successTitle": "Nachricht erfolgreich gesendet!",
+    "successMessage": "Vielen Dank für Ihre Anfrage an tortilladepatatas.org. Wir melden uns schnellstmöglich bei Ihnen.",
+    "sendAnother": "Weitere Nachricht senden",
+    "errorMessage": "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "errors": {
+      "nameRequired": "Bitte geben Sie Ihren Namen ein.",
+      "emailRequired": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "typeRequired": "Bitte wählen Sie den Grund Ihrer Anfrage aus.",
+      "messageRequired": "Bitte geben Sie eine Nachricht ein."
+    }
   }
 }
 ````
@@ -20455,7 +23479,8 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
     "history": "History",
     "personas": "Personas",
     "builder": "Builder",
-    "about": "About"
+    "about": "About",
+    "contact": "Contact"
   },
   "hero": {
     "badge": "The encyclopedia of Spanish tortilla",
@@ -20697,6 +23722,37 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
     "rights": "All rights reserved.",
     "craftedWith": "Crafted with",
     "forGastronomy": "for lovers of gastronomy and culinary science."
+  },
+  "contact": {
+    "title": "Contact & Inquiries",
+    "subtitle": "Have questions about the encyclopedia, recipe suggestions, or want to collaborate?",
+    "badge": "Get in Touch",
+    "nameLabel": "Full name",
+    "namePlaceholder": "e.g. Jane Doe",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "typeLabel": "Message reason",
+    "typeOptions": {
+      "help": "I need help",
+      "question": "I have a question",
+      "thanks": "You are the best!",
+      "other": "Other"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message or inquiry here...",
+    "submitButton": "Send message",
+    "sending": "Sending...",
+    "successTitle": "Message sent successfully!",
+    "successMessage": "Thank you for contacting tortilladepatatas.org. We will get back to you as soon as possible.",
+    "sendAnother": "Send another message",
+    "errorMessage": "Failed to send your message. Please try again.",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "typeRequired": "Please select a message type.",
+      "messageRequired": "Please enter a message."
+    }
   }
 }
 ````
@@ -20713,7 +23769,8 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
     "history": "Historia",
     "personas": "Personas",
     "builder": "Constructor",
-    "about": "Sobre nosotros"
+    "about": "Sobre nosotros",
+    "contact": "Contacto"
   },
   "hero": {
     "badge": "La enciclopedia de la tortilla española",
@@ -20955,6 +24012,37 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
     "rights": "Todos los derechos reservados.",
     "craftedWith": "Hecho con",
     "forGastronomy": "para los amantes de la gastronomía y la ciencia culinaria."
+  },
+  "contact": {
+    "title": "Contacto & Consultas",
+    "subtitle": "¿Tienes alguna duda sobre la enciclopedia, sugerencias de recetas o quieres colaborar?",
+    "badge": "Atención al Tortillero",
+    "nameLabel": "Nombre completo",
+    "namePlaceholder": "Ej. Juan Pérez",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "typeLabel": "Motivo del mensaje",
+    "typeOptions": {
+      "help": "Necesito ayuda",
+      "question": "Tengo una pregunta",
+      "thanks": "¡Sois los mejores!",
+      "other": "Otro asunto"
+    },
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribe aquí tu consulta o comentario...",
+    "submitButton": "Enviar mensaje",
+    "sending": "Enviando...",
+    "successTitle": "¡Mensaje enviado con éxito!",
+    "successMessage": "Gracias por contactar con tortilladepatatas.org. Nos pondremos en contacto contigo lo antes posible.",
+    "sendAnother": "Enviar otro mensaje",
+    "errorMessage": "No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "errors": {
+      "nameRequired": "Por favor, introduce tu nombre.",
+      "emailRequired": "Por favor, introduce tu correo electrónico.",
+      "emailInvalid": "Por favor, introduce un correo electrónico válido.",
+      "typeRequired": "Por favor, selecciona el motivo de tu mensaje.",
+      "messageRequired": "Por favor, escribe un mensaje."
+    }
   }
 }
 ````
