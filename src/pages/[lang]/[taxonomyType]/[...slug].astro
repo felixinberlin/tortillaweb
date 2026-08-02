@@ -4,7 +4,8 @@ import {
   TAXONOMY_ROUTING_MAP, 
   getAllTaxonomies, 
   getRecipesForTaxonomy, 
-  resolveRecipeBadges
+  resolveRecipeBadges,
+  getTaxonomyTypeLabel
 } from '@/lib/taxonomy';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateBreadcrumbSchema, generateArticleSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
@@ -224,9 +225,7 @@ const currentUrl = ingredientArticle?.data.seo?.canonical
   ? ingredientArticle.data.seo.canonical
   : `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
 
-const taxonomyTypeLabel = taxonomyType === 'ingredient' 
-  ? (currentLang === 'de' ? 'Zutaten' : currentLang === 'en' ? 'Ingredients' : 'Ingredientes')
-  : taxonomyType;
+const taxonomyTypeLabel = getTaxonomyTypeLabel(Astro.params.taxonomyType || taxonomyType, currentLang);
 
 const breadcrumbsList = [
   { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },

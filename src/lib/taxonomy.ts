@@ -49,6 +49,34 @@ export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
   },
 };
 
+export const TAXONOMY_TYPE_LABELS: Record<string, Record<string, string>> = {
+  ingredient: { es: 'Ingredientes', en: 'Ingredients', de: 'Zutaten' },
+  faction: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
+  technique: { es: 'Técnicas', en: 'Techniques', de: 'Techniken' },
+  style: { es: 'Estilos Culinarios', en: 'Culinary Styles', de: 'Kulinarische Stile' },
+  region: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
+  person: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
+  restaurant: { es: 'Restaurantes', en: 'Restaurants', de: 'Restaurants' },
+  utensil: { es: 'Utensilios', en: 'Utensils', de: 'Utensilien' },
+  'cooking-method': { es: 'Métodos de Cocción', en: 'Cooking Methods', de: 'Kochmethoden' },
+  texture: { es: 'Texturas', en: 'Textures', de: 'Texturen' },
+  event: { es: 'Eventos', en: 'Events', de: 'Events' },
+  glossary: { es: 'Glosario', en: 'Glossary', de: 'Glossar' },
+  difficulty: { es: 'Dificultad', en: 'Difficulty', de: 'Schwierigkeit' },
+};
+
+/**
+ * Resolves localized display label for a taxonomy type or route segment.
+ */
+export function getTaxonomyTypeLabel(typeOrRoute: string, lang: string = 'es'): string {
+  const canonical = getTaxonomyTypeFromRoute(typeOrRoute, lang) || typeOrRoute;
+  const labels = TAXONOMY_TYPE_LABELS[canonical];
+  if (labels && labels[lang]) {
+    return labels[lang];
+  }
+  return typeOrRoute.charAt(0).toUpperCase() + typeOrRoute.slice(1);
+}
+
 /**
  * Resolves localized URL prefix for a taxonomy type.
  */
