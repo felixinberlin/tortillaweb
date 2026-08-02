@@ -255,7 +255,7 @@ const schemas = [breadcrumbSchema, articleSchema];
 const currentSlug = Astro.params.slug || '';
 const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy ? taxonomy.id : 'potato');
 const isIngredientCluster = Boolean(ingredientArticle || taxonomy?.type === 'ingredient');
-const isPotatoCluster = isIngredientCluster;
+const isPotatoCluster = isIngredientCluster && taxonomy?.id === 'potato';
 
 const mainGuideGroup = allIngredientGroups?.[ingredientKey];
 const mainPotatoUrl = mainGuideGroup && mainGuideGroup[currentLang]
