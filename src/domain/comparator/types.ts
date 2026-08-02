@@ -61,7 +61,7 @@ export interface RecipeProfile {
 
 export interface IngredientComparison {
   ingredientId: string;
-  name: string;
+  name: string | LocalizedString;
   localizedName?: LocalizedString;
   recipeAValue: number;
   recipeBValue: number;

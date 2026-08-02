@@ -71,7 +71,8 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
     return compareRecipes(userRecipe, selectedRefRecipe);
   }, [userRecipe, selectedRefRecipe]);
 
-  const { eggCount, panSizeCm } = userRecipe;
+  const { panSizeCm } = userRecipe;
+  const eggCount = userRecipe.ingredients.find((i) => i.ingredientId === "egg")?.amount || 0;
   const potatoGrams = userRecipe.ingredients.find((i) => i.ingredientId === "potato")?.amount || 0;
   const onionGrams = userRecipe.ingredients.find((i) => i.ingredientId === "onion")?.amount || 0;
   const saltGrams = userRecipe.ingredients.find((i) => i.ingredientId === "salt")?.amount || 0;

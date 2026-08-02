@@ -87,7 +87,7 @@ const pagesCollection = defineCollection({
     base: './src/content/pages',
     generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
   }),
-  schema: z.record(z.any()),
+  schema: z.record(z.string(), z.any()),
 });
 
 const navigationCollection = defineCollection({
@@ -96,7 +96,7 @@ const navigationCollection = defineCollection({
     base: './src/content/navigation',
     generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
   }),
-  schema: z.record(z.any()),
+  schema: z.record(z.string(), z.any()),
 });
 
 const settingsCollection = defineCollection({
@@ -105,7 +105,7 @@ const settingsCollection = defineCollection({
     base: './src/content/settings',
     generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
   }),
-  schema: z.record(z.any()),
+  schema: z.record(z.string(), z.any()),
 });
 
 export const collections = {

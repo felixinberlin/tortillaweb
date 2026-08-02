@@ -91,7 +91,7 @@ export function getTaxonomyTypeFromRoute(routeSegment: string, lang: string = 'e
  */
 export async function getAllTaxonomies(): Promise<Taxonomy[]> {
   const collection = await getCollection('taxonomies');
-  return collection.map((item) => item.data as Taxonomy);
+  return collection.map((item: any) => item.data as Taxonomy);
 }
 
 /**
@@ -99,7 +99,7 @@ export async function getAllTaxonomies(): Promise<Taxonomy[]> {
  */
 export async function getAllRecipes(): Promise<Recipe[]> {
   const collection = await getCollection('recipes');
-  return collection.map((item) => item.data as Recipe);
+  return collection.map((item: any) => item.data as Recipe);
 }
 
 /**
