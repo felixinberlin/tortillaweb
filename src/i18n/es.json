@@ -8,7 +8,8 @@
     "history": "Historia",
     "personas": "Personas",
     "builder": "Constructor",
-    "about": "Sobre nosotros"
+    "about": "Sobre nosotros",
+    "contact": "Contacto"
   },
   "hero": {
     "badge": "La enciclopedia de la tortilla española",
@@ -250,5 +251,36 @@
     "rights": "Todos los derechos reservados.",
     "craftedWith": "Hecho con",
     "forGastronomy": "para los amantes de la gastronomía y la ciencia culinaria."
+  },
+  "contact": {
+    "title": "Contacto & Consultas",
+    "subtitle": "¿Tienes alguna duda sobre la enciclopedia, sugerencias de recetas o quieres colaborar?",
+    "badge": "Atención al Tortillero",
+    "nameLabel": "Nombre completo",
+    "namePlaceholder": "Ej. Juan Pérez",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "typeLabel": "Motivo del mensaje",
+    "typeOptions": {
+      "help": "Necesito ayuda",
+      "question": "Tengo una pregunta",
+      "thanks": "¡Sois los mejores!",
+      "other": "Otro asunto"
+    },
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Escribe aquí tu consulta o comentario...",
+    "submitButton": "Enviar mensaje",
+    "sending": "Enviando...",
+    "successTitle": "¡Mensaje enviado con éxito!",
+    "successMessage": "Gracias por contactar con tortilladepatatas.org. Nos pondremos en contacto contigo lo antes posible.",
+    "sendAnother": "Enviar otro mensaje",
+    "errorMessage": "No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "errors": {
+      "nameRequired": "Por favor, introduce tu nombre.",
+      "emailRequired": "Por favor, introduce tu correo electrónico.",
+      "emailInvalid": "Por favor, introduce un correo electrónico válido.",
+      "typeRequired": "Por favor, selecciona el motivo de tu mensaje.",
+      "messageRequired": "Por favor, escribe un mensaje."
+    }
   }
 }

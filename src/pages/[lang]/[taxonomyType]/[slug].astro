@@ -82,11 +82,17 @@ const pageTitle = `${title} - ${taxonomy.type.toUpperCase()} | tortilladepatatas
 
 // SEO Schemas
 const currentUrl = `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${currentLang}` },
-  { name: taxonomy.type, url: `/${currentLang}/${Astro.params.taxonomyType}` },
-  { name: title, url: currentUrl },
-]);
+const taxonomyTypeLabel = taxonomy.type === 'factions' 
+  ? (currentLang === 'de' ? 'Fraktionen' : currentLang === 'en' ? 'Factions' : 'Facciones')
+  : taxonomy.type;
+
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: taxonomyTypeLabel, url: `/${currentLang}/${Astro.params.taxonomyType}` },
+  { name: title, url: `/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
 
 const collectionSchema = generateCollectionPageSchema({
   name: title,
@@ -101,7 +107,7 @@ const collectionSchema = generateCollectionPageSchema({
 const schemas = [breadcrumbSchema, collectionSchema];
 ---
 
-<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas}>
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
     <!-- HERO TAXONOMY HEADER -->
     {taxonomy.image ? (

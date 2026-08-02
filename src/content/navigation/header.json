@@ -127,6 +127,15 @@
         "en": "About us",
         "de": "Über uns"
       }
+    },
+    {
+      "key": "contact",
+      "href": "/contacto",
+      "label": {
+        "es": "Contacto",
+        "en": "Contact",
+        "de": "Kontakt"
+      }
     }
   ]
 }

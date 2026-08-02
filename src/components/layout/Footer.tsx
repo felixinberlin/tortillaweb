@@ -77,6 +77,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
               { path: "/history", label: t("nav.history", "Historia & Cronología 1767-2025") },
               { path: "/personas", label: t("nav.personas", "Personas & Creadores") },
               { path: "/about", label: t("nav.about", "Sobre Nosotros") },
+              { path: "/contacto", label: t("nav.contact", "Contacto & Consultas") },
             ].map((item) => (
               <li key={item.path}>
                 <a

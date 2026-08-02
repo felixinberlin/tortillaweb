@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import type { BreadcrumbItem } from '@/components/navigation/Breadcrumbs';
 
 interface Props {
   title?: string;
@@ -10,6 +11,7 @@ interface Props {
   schema?: Record<string, any> | Array<Record<string, any>>;
   showHeader?: boolean;
   showFooter?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const props = Astro.props;

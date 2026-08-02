@@ -2,6 +2,7 @@
 import '@/index.css';
 import Header from '@/components/layout/Header.tsx';
 import Footer from '@/components/layout/Footer.tsx';
+import Breadcrumbs, { type BreadcrumbItem } from '@/components/navigation/Breadcrumbs.tsx';
 import { getCanonicalUrl, getHreflangs } from '@/lib/seo';
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
   schema?: Record<string, any> | Array<Record<string, any>>;
   showHeader?: boolean;
   showFooter?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const {
@@ -24,6 +26,7 @@ const {
   schema,
   showHeader = true,
   showFooter = true,
+  breadcrumbs,
 } = Astro.props;
 
 const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
@@ -109,7 +112,10 @@ const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.o
   </head>
   <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
     {showHeader && (
-      <Header lang={lang} currentPath={Astro.url.pathname} client:load />
+      <>
+        <Header lang={lang} currentPath={Astro.url.pathname} client:load />
+        <Breadcrumbs lang={lang} currentPath={Astro.url.pathname} items={breadcrumbs} client:load />
+      </>
     )}
 
     <main id="main-content" class="flex-1 w-full">

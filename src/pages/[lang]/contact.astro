@@ -1,0 +1,50 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactForm from '@/components/contact/ContactForm';
+import { Badge } from '@/components/ui/badge';
+import { Mail } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'en' } = Astro.params;
+const t = getTranslations(lang);
+
+const pageTitle = `${t('contact.title', 'Contact & Inquiries')} - tortilladepatatas.org`;
+const description = t('contact.subtitle', 'Contact form for questions, suggestions, and collaborations.');
+
+const homeLabel = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
+const contactLabel = t('nav.contact', 'Contact');
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: homeLabel, url: `/${lang}` },
+  { name: contactLabel, url: `/${lang}/contact` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
+---
+
+<Layout title={pageTitle} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-3xl space-y-8">
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <Mail class="w-3.5 h-3.5 text-[#FFB800]" />
+        <span>{t("contact.badge", "Get in Touch")}</span>
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        {t("contact.title", "Contact & Inquiries")}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("contact.subtitle", "Have questions about the encyclopedia, recipe suggestions, or want to collaborate?")}
+      </p>
+    </div>
+
+    <ContactForm lang={lang} currentPath={Astro.url.pathname} client:load />
+  </div>
+</Layout>

@@ -41,11 +41,13 @@ const badges = await resolveRecipeBadges(recipe.taxonomyIds, currentLang);
 
 const currentUrl = `${SITE_URL}/${currentLang}/recipes/${Astro.params.slug}`;
 
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${currentLang}` },
-  { name: 'Recetas', url: `/${currentLang}/recipes` },
-  { name: title, url: currentUrl },
-]);
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'de' ? 'Rezepte' : currentLang === 'en' ? 'Recipes' : 'Recetas', url: `/${currentLang}/recipes` },
+  { name: title, url: `/${currentLang}/recipes/${Astro.params.slug}` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
 
 const ingredientsList = recipe.ingredients 
   ? recipe.ingredients.map((i) => {
@@ -83,7 +85,7 @@ const recipeSchema = generateRecipeSchema({
 const schemas = [breadcrumbSchema, recipeSchema];
 ---
 
-<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas}>
+<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
     <!-- HEADER -->
     <header class="space-y-4 text-center">

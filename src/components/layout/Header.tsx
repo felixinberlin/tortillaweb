@@ -22,7 +22,8 @@ import {
   MapPin,
   Microscope,
   Trophy,
-  ChevronDown
+  ChevronDown,
+  Mail
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import headerNavData from "@/content/navigation/header.json";
@@ -47,6 +48,7 @@ const iconMap: Record<string, any> = {
   records: Trophy,
   laboratory: FlaskConical,
   about: Info,
+  contact: Mail,
 };
 
 const navigation = headerNavData.items.map((item: any) => ({

@@ -8,7 +8,8 @@
     "history": "Geschichte",
     "personas": "Persönlichkeiten",
     "builder": "Baukasten",
-    "about": "Über uns"
+    "about": "Über uns",
+    "contact": "Kontakt"
   },
   "hero": {
     "badge": "Die Enzyklopädie der spanischen Tortilla",
@@ -250,5 +251,36 @@
     "rights": "Alle Rechte vorbehalten.",
     "craftedWith": "Erstellt mit",
     "forGastronomy": "für Liebhaber der Gastronomie und kulinarischen Wissenschaft."
+  },
+  "contact": {
+    "title": "Kontakt & Anfragen",
+    "subtitle": "Haben Sie Fragen zur Enzyklopädie, Rezeptvorschläge oder möchten Sie zusammenarbeiten?",
+    "badge": "Kontakt",
+    "nameLabel": "Vollständiger Name",
+    "namePlaceholder": "z.B. Max Mustermann",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "ihre@email.de",
+    "typeLabel": "Grund der Anfrage",
+    "typeOptions": {
+      "help": "Ich brauche Hilfe",
+      "question": "Ich habe eine Frage",
+      "thanks": "Ihr seid die Besten!",
+      "other": "Sonstiges"
+    },
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Schreiben Sie hier Ihre Nachricht...",
+    "submitButton": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "successTitle": "Nachricht erfolgreich gesendet!",
+    "successMessage": "Vielen Dank für Ihre Anfrage an tortilladepatatas.org. Wir melden uns schnellstmöglich bei Ihnen.",
+    "sendAnother": "Weitere Nachricht senden",
+    "errorMessage": "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "errors": {
+      "nameRequired": "Bitte geben Sie Ihren Namen ein.",
+      "emailRequired": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "typeRequired": "Bitte wählen Sie den Grund Ihrer Anfrage aus.",
+      "messageRequired": "Bitte geben Sie eine Nachricht ein."
+    }
   }
 }
