@@ -33,9 +33,24 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/recipes/vegana.jpg",
-  "ingredients": [
+  "image": "/images/vegana.png",
+  "ingredients": [    
     {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 4,
+      "unit": "unit",
+      "notes": {
+        "es": "4 patatas medianas cortadas en rodajas finas",
+        "en": "4 medium potatoes, thinly sliced",
+        "de": "4 mittlere Kartoffeln, in dünne Scheiben geschnitten"
+      }
+    },    {
       "id": "chickpea_flour",
       "ingredientId": "chickpea_flour",
       "name": {
@@ -59,12 +74,28 @@
         "en": "Tapioca starch / flour",
         "de": "Tapiokamehl / Stärke"
       },
-      "amount": 0.5,
-      "unit": "c.p.",
+      "amount": 10,
+      "unit": "g",
       "notes": {
         "es": "½ cucharada de postre (aporta aglutinación y elasticidad)",
         "en": "½ dessert spoon (adds binding and elasticity)",
         "de": "½ Teelöffel (sorgt für Bindung und Elastizität)"
+      }
+    },
+        {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 1,
+      "unit": "unit",
+      "notes": {
+        "es": "1 cebolla grande en juliana (imprescindible para aportar jugosidad)",
+        "en": "1 large onion julienned (essential for moisture)",
+        "de": "1 große Zwiebel in Streifen (essenziell für die Saftigkeit)"
       }
     },
     {
@@ -81,38 +112,6 @@
         "es": "Para formar la mezcla líquida con las harinas",
         "en": "To form the liquid mix with the flours",
         "de": "Zum Anmischen mit den Mehlen"
-      }
-    },
-    {
-      "id": "potato",
-      "ingredientId": "potato",
-      "name": {
-        "es": "Patata",
-        "en": "Potato",
-        "de": "Kartoffel"
-      },
-      "amount": 4,
-      "unit": "unit",
-      "notes": {
-        "es": "4 patatas medianas cortadas en rodajas finas",
-        "en": "4 medium potatoes, thinly sliced",
-        "de": "4 mittlere Kartoffeln, in dünne Scheiben geschnitten"
-      }
-    },
-    {
-      "id": "onion",
-      "ingredientId": "onion",
-      "name": {
-        "es": "Cebolla",
-        "en": "Onion",
-        "de": "Zwiebel"
-      },
-      "amount": 1,
-      "unit": "unit",
-      "notes": {
-        "es": "1 cebolla grande en juliana (imprescindible para aportar jugosidad)",
-        "en": "1 large onion julienned (essential for moisture)",
-        "de": "1 große Zwiebel in Streifen (essenziell für die Saftigkeit)"
       }
     },
     {
@@ -139,8 +138,8 @@
         "en": "Black pepper",
         "de": "Schwarzer Pfeffer"
       },
-      "amount": 1,
-      "unit": "pinch",
+      "amount": 5,
+      "unit": "g",
       "notes": {
         "es": "Pimienta negra molida al gusto",
         "en": "Ground black pepper to taste",
@@ -216,7 +215,7 @@
   ],
   "sources": [
     {
-      "type": "creator",
+      "type": "chef",
       "name": "Delantal de Alces (Cris)",
       "description": {
         "es": "Receta original inclusiva de tortilla de patatas vegana y sin gluten.",
@@ -226,7 +225,7 @@
     }
   ],
   "author": {
-    "type": "external",
+    "type": "platform",
     "name": "Cris (Delantal de Alces)"
   }
 }
