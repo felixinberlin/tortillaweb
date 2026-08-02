@@ -108,10 +108,24 @@ const settingsCollection = defineCollection({
   schema: z.record(z.string(), z.any()),
 });
 
+const historyCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.md', 
+    base: './src/content/history',
+    generateId: ({ entry }) => entry.replace(/\.md$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lang: z.string(),
+  }),
+});
+
 export const collections = {
   recipes: recipeCollection,
   taxonomies: taxonomyCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
   settings: settingsCollection,
+  history: historyCollection,
 };

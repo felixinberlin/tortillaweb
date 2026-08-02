@@ -2,10 +2,9 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Calendar, MapPin, ShieldCheck, Quote, Sparkles } from 'lucide-react';
-import { getCollection } from 'astro:content';
-import { historyData } from '@/data/historyData';
-import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { BookOpen, Calendar, Clock, MapPin, Quote, Sparkles, ChevronRight, User, ListOrdered, History as HistoryIcon, Award, Scale } from 'lucide-react';
+import { getCollection, render } from 'astro:content';
+import { supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
 export function getStaticPaths() {
@@ -17,214 +16,296 @@ export function getStaticPaths() {
 const { lang = 'es' } = Astro.params;
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
 
-// Get JSON content from content collection
-const pagesCollection = await getCollection('pages');
-const historyEntry = pagesCollection.find((p) => p.id === 'history' || p.id.includes('history'));
-const jsonContent = historyEntry ? historyEntry.data : null;
+// Fetch markdown history collection
+const historyEntries = await getCollection('history');
 
-// Fallback to historyData if needed
-const fallbackContent = historyData[currentLang] || historyData.es;
+const currentEntry = historyEntries.find(
+  (entry) => entry.data.lang === currentLang || entry.id === `tortilla-history.${currentLang}`
+) || historyEntries.find((entry) => entry.data.lang === 'es' || entry.id === 'tortilla-history.es');
 
-const badge = jsonContent?.badge?.[currentLang] || fallbackContent.badge;
-const titleText = jsonContent?.title?.[currentLang] || fallbackContent.title;
-const subtitle = jsonContent?.subtitle?.[currentLang] || fallbackContent.subtitle;
-const chefNote = jsonContent?.chefNote?.[currentLang] || fallbackContent.chefNote;
-const timelineTitle = jsonContent?.timelineTitle?.[currentLang] || fallbackContent.timelineTitle;
-const timelineSubtitle = jsonContent?.timelineSubtitle?.[currentLang] || fallbackContent.timelineSubtitle;
-const chaptersTitle = jsonContent?.chaptersTitle?.[currentLang] || fallbackContent.chaptersTitle;
-const chaptersSubtitle = jsonContent?.chaptersSubtitle?.[currentLang] || fallbackContent.chaptersSubtitle;
+let Content: any = null;
+let headings: Array<{ depth: number; slug: string; text: string }> = [];
 
-const timelineEvents = jsonContent?.timelineEvents ? jsonContent.timelineEvents.map((evt: any) => ({
-  year: evt.year,
-  title: evt.title?.[currentLang] || evt.title,
-  location: evt.location,
-  description: evt.description?.[currentLang] || evt.description,
-  badge: evt.badge?.[currentLang] || evt.badge
-})) : fallbackContent.timelineEvents;
-
-const chapters = jsonContent?.chapters ? jsonContent.chapters.map((chap: any) => ({
-  id: chap.id,
-  number: chap.number,
-  title: chap.title?.[currentLang] || chap.title,
-  content: chap.content?.[currentLang] || chap.content || [],
-  bulletPoints: chap.bulletPoints?.[currentLang] || chap.bulletPoints,
-  tableData: chap.tableData,
-  callout: chap.callout
-})) : fallbackContent.chapters;
-
-const content = {
-  badge,
-  title: titleText,
-  subtitle,
-  chefNote,
-  timelineTitle,
-  timelineSubtitle,
-  chaptersTitle,
-  chaptersSubtitle,
-  timelineEvents,
-  chapters
-};
-const t = getTranslations(lang);
-
-function formatText(text: string) {
-  if (!text) return '';
-  return text.replace(/(\*\*.*?\*\*)/g, (match) => {
-    return `<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE]/80 px-1 py-0.5 rounded">${match.slice(2, -2)}</strong>`;
-  });
+if (currentEntry) {
+  const rendered = await render(currentEntry);
+  Content = rendered.Content;
+  headings = rendered.headings;
 }
 
-const title = `${content.title} - tortilladepatatas.org`;
-const description = content.subtitle;
+const articleTitle = currentEntry?.data.title || (
+  currentLang === 'en' ? 'The History of the Tortilla de Patatas' :
+  currentLang === 'de' ? 'Die Geschichte der Tortilla de Patatas' :
+  'La historia de la tortilla de patatas'
+);
 
+const articleDescription = currentEntry?.data.description || (
+  currentLang === 'en' ? 'A journey through the history of the Spanish potato omelette, from the arrival of the potato in Europe to its place as one of Spain\'s most iconic dishes.' :
+  currentLang === 'de' ? 'Eine Reise durch die Geschichte der spanischen Kartoffel-Tortilla: von der Ankunft der Kartoffel in Europa bis zu ihrer Bedeutung als eines der bekanntesten Gerichte Spaniens.' :
+  'Un recorrido por la historia de la tortilla de patatas, desde la llegada de la patata a Europa hasta convertirse en uno de los platos más emblemáticos de España.'
+);
+
+const uiLabels = {
+  es: {
+    badge: "Manuscrito Gastronómico & Crónica Histórica",
+    readTime: "7 min de lectura",
+    era: "Siglos XVI – XXI",
+    keyMilestone: "1798 Villanueva de la Serena",
+    tocTitle: "Índice del Manuscrito",
+    figuresTitle: "Personajes Históricos Clave",
+    debateTitle: "El Gran Debate: ¿Con o sin cebolla?",
+    debateDesc: "Una polémica histórica que trasciende lo culinario para convertirse en seña de identidad en toda España.",
+    debateLink: "Ir al Comparador de Estilos",
+    regionalTitle: "Estilos & Tradiciones Históricas",
+    chefNoteText: "«La tortilla de patatas no nació de la abundancia, sino de la necesidad, la imaginación culinaria y la transformación agrícola tras el encuentro de dos mundos.»",
+    timelineSummaryTitle: "Hitos Cronológicos Destacados",
+    backToTop: "Volver arriba",
+  },
+  en: {
+    badge: "Gastronomic Manuscript & Historical Chronicle",
+    readTime: "7 min read",
+    era: "16th – 21st Centuries",
+    keyMilestone: "1798 Villanueva de la Serena",
+    tocTitle: "Table of Contents",
+    figuresTitle: "Key Historical Figures",
+    debateTitle: "The Great Debate: With or without onion?",
+    debateDesc: "A century-old controversy that transcends cooking to become a passionate cultural debate across Spain.",
+    debateLink: "Go to Style Comparator",
+    regionalTitle: "Historical Regional Styles",
+    chefNoteText: "“The tortilla de patatas was born not from abundance, but from necessity, culinary ingenuity, and agricultural transformation following the meeting of two worlds.”",
+    timelineSummaryTitle: "Key Chronological Milestones",
+    backToTop: "Back to top",
+  },
+  de: {
+    badge: "Gastronomisches Manuskript & Historische Chronik",
+    readTime: "7 Min. Lesezeit",
+    era: "16. – 21. Jahrhundert",
+    keyMilestone: "1798 Villanueva de la Serena",
+    tocTitle: "Inhaltsverzeichnis",
+    figuresTitle: "Wichtige historische Persönlichkeiten",
+    debateTitle: "Die große Debatte: Mit oder ohne Zwiebeln?",
+    debateDesc: "Eine jahrhundertealte Kontroverse, die über das Kochen hinausgeht und ganz Spanien begeistert.",
+    debateLink: "Zum Stil-Vergleicher",
+    regionalTitle: "Historische regionale Stile",
+    chefNoteText: "„Die Tortilla de Patatas entstand nicht aus Überfluss, sondern aus Notwendigkeit, kulinarischer Erfindungskraft und dem landwirtschaftlichen Wandel.“",
+    timelineSummaryTitle: "Wichtige chronologische Meilensteine",
+    backToTop: "Nach oben",
+  }
+};
+
+const labels = uiLabels[currentLang] || uiLabels.es;
+
+const keyMilestones = [
+  { year: "S. XVI", title: currentLang === 'en' ? "Arrives in Europe" : currentLang === 'de' ? "Ankunft in Europa" : "Llegada a Europa", tag: "Andes" },
+  { year: "1604", title: "Lancelot de Casteau", tag: "*Ouverture de cuisine*" },
+  { year: "1798", title: "Villanueva de la Serena", tag: "Tena Godoy & Robledo" },
+  { year: "1817", title: "Navarra Rural", tag: "Primeras notas rurales" },
+  { year: "1940s", title: "Años del Hambre", tag: "Falsa tortilla" },
+  { year: "S. XXI", title: currentLang === 'en' ? "Global Symbol" : currentLang === 'de' ? "Globales Symbol" : "Símbolo Mundial", tag: "Gastronomía" },
+];
+
+const keyFigures = [
+  {
+    name: "Lancelot de Casteau",
+    year: "1604",
+    role: currentLang === 'en' ? "European Master Chef" : currentLang === 'de' ? "Europäischer Meisterkoch" : "Maestro Cocinero Europeo",
+    desc: currentLang === 'en' ? "Documented early European potato preparations in *Ouverture de cuisine*." : currentLang === 'de' ? "Dokumentierte frühe europäische Kartoffelgerichte in *Ouverture de cuisine*." : "Documentó las primeras preparaciones europeas con patata en *Ouverture de cuisine*."
+  },
+  {
+    name: "Francisco Martínez Montiño",
+    year: "1611",
+    role: currentLang === 'en' ? "Royal Court Chef" : currentLang === 'de' ? "Hofkoch König Philips" : "Cocinero de la Corte Real",
+    desc: currentLang === 'en' ? "Author of *Arte de Cocina*, featuring egg dishes like the *tortilla de la Cartuja*." : currentLang === 'de' ? "Autor von *Arte de Cocina*, der Eiergerichte wie die *Tortilla de la Cartuja* erfand." : "Autor de *Arte de Cocina*, creador de recetas con huevo como la *tortilla de la Cartuja*."
+  },
+  {
+    name: "J. de Tena Godoy & M. de Robledo",
+    year: "1798",
+    role: currentLang === 'en' ? "Pioneers of Villanueva" : currentLang === 'de' ? "Pioniere aus Villanueva" : "Pioneros de Villanueva",
+    desc: currentLang === 'en' ? "Researched by J. López Linage; documented an early precursor during cereal shortages in Extremadura." : currentLang === 'de' ? "Nach Forschungen von J. López Linage Dokumentation eines Vorläufers in der Extremadura." : "Investigado por J. López Linage; documentaron una preparación económica durante la escasez de trigo."
+  },
+  {
+    name: "Gen. Tomás de Zumalacárregui",
+    year: "1835",
+    role: currentLang === 'en' ? "Popular Legend" : currentLang === 'de' ? "Populäre Legende" : "Leyenda Popular",
+    desc: currentLang === 'en' ? "Popular folklore credits him with feeding troops in the Carlist Wars, though historians view it as myth." : currentLang === 'de' ? "Laut Volksmund erfand er die Tortilla im Karlistenkrieg — historisch eher Legende." : "La tradición popular le atribuía la invención para nutrir a las tropas en las Guerras Carlistas."
+  }
+];
+
+const metaTitle = `${articleTitle} - tortilladepatatas.org`;
 const articleSchema = generateArticleSchema({
-  headline: content.title,
-  description: content.subtitle,
+  headline: articleTitle,
+  description: articleDescription,
   url: `/${lang}/history`,
 });
-
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Inicio', url: `/${lang}` },
-  { name: content.title, url: `/${lang}/history` }
+  { name: articleTitle, url: `/${lang}/history` }
 ]);
-
 const schemas = [articleSchema, breadcrumbSchema];
+
+// Filter h2/h3 headings for table of contents
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
 ---
 
-<Layout title={title} description={description} lang={lang} schema={schemas}>
-  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
-    <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto space-y-3">
-      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
-        <BookOpen class="w-3.5 h-3.5" />
-        {content.badge}
-      </Badge>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
-        {content.title}
-      </h1>
-      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
-        {content.subtitle}
-      </p>
-    </div>
+<Layout title={metaTitle} description={articleDescription} lang={lang} schema={schemas}>
+  <div class="bg-notebook-grid min-h-screen pb-16">
+    <div class="container mx-auto px-4 py-8 md:py-14 max-w-6xl space-y-10">
+      
+      <!-- Article Header & Hero Banner -->
+      <div class="card-notebook p-6 sm:p-8 md:p-10 border-t-4 border-t-[#FFB800] shadow-stacked-parchment">
+        <div class="max-w-4xl mx-auto space-y-5 text-center sm:text-left">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+            <Badge variant="secondary" class="px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 inline-flex items-center gap-1.5 shadow-2xs">
+              <BookOpen class="w-3.5 h-3.5 text-[#8D6E63]" />
+              {labels.badge}
+            </Badge>
+            <span class="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground bg-[#FCF9F2] px-3 py-1 rounded-full border border-[#E8E2D5]">
+              <Clock class="w-3 h-3 text-[#FFB800]" />
+              {labels.readTime}
+            </span>
+            <span class="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground bg-[#FCF9F2] px-3 py-1 rounded-full border border-[#E8E2D5]">
+              <Calendar class="w-3 h-3 text-[#8D6E63]" />
+              {labels.era}
+            </span>
+          </div>
 
-    <!-- Chef Note Callout -->
-    <Card class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800]">
-      <div class="flex items-start gap-4">
-        <Quote class="w-8 h-8 text-[#8D6E63] shrink-0 mt-1 opacity-80" />
-        <div class="text-sm md:text-base text-foreground leading-relaxed font-medium">
-          <p set:html={formatText(content.chefNote)} />
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground leading-tight">
+            {articleTitle}
+          </h1>
+
+          <p class="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-normal">
+            {articleDescription}
+          </p>
+
+          <!-- Key Milestone Pills -->
+          <div class="pt-4 border-t border-[#E8E2D5] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+            {keyMilestones.map((ms) => (
+              <div class="p-2.5 rounded-lg bg-[#FCF9F2] border border-[#E8E2D5] text-center hover:bg-[#F5E6BE]/40 transition-colors">
+                <span class="block text-xs font-bold text-[#8D6E63] font-mono">{ms.year}</span>
+                <span class="block text-xs font-semibold text-foreground truncate">{ms.title}</span>
+                <span class="block text-[10px] text-muted-foreground truncate">{ms.tag}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </Card>
 
-    <!-- Timeline Section -->
-    <div class="space-y-8">
-      <div class="border-b border-[#E8E2D5] pb-4">
-        <h2 class="text-2xl md:text-3xl font-serif-heading font-bold flex items-center gap-2">
-          <Calendar class="w-6 h-6 text-[#FFB800]" />
-          {content.timelineTitle}
-        </h2>
-        <p class="text-muted-foreground text-xs sm:text-sm mt-1">{content.timelineSubtitle}</p>
+      <!-- Chef's Parchment Note Callout -->
+      <div class="card-notebook p-6 md:p-8 bg-[#FFF8E7] border-l-4 border-l-[#FFB800] shadow-sm">
+        <div class="flex items-start gap-4">
+          <Quote class="w-8 h-8 text-[#8D6E63] shrink-0 mt-0.5 opacity-80" />
+          <div class="space-y-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63]">Crónica de la Cocina Española</span>
+            <p class="font-script text-lg sm:text-xl md:text-2xl text-[#8D6E63] leading-snug">
+              {labels.chefNoteText}
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        {content.timelineEvents.map((event, idx) => (
-          <Card key={idx} class="card-notebook p-2">
-            <CardHeader class="pb-2">
-              <div class="flex items-center justify-between gap-2 mb-1">
-                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300">
-                  {event.year}
-                </span>
-                {event.badge && (
-                  <Badge variant="outline" class="text-[11px] border-amber-300 bg-[#FCF9F2]">
-                    {event.badge}
-                  </Badge>
-                )}
-              </div>
-              <CardTitle class="text-lg font-serif-heading font-bold text-foreground pt-1">
-                {event.title}
+      <!-- Main Layout: Sidebar & Content -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Sidebar Navigation & Context Cards (4 cols on lg) -->
+        <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-6 order-2 lg:order-1">
+          
+          <!-- Table of Contents Card -->
+          {tocHeadings.length > 0 && (
+            <Card class="card-notebook p-5 border-t-2 border-t-[#8D6E63]">
+              <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5]">
+                <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                  <ListOrdered class="w-4 h-4 text-[#FFB800]" />
+                  {labels.tocTitle}
+                </CardTitle>
+              </CardHeader>
+              <CardContent class="p-0 pt-3">
+                <nav class="space-y-1.5 max-h-[380px] overflow-y-auto pr-1 text-xs sm:text-sm">
+                  {tocHeadings.map((h) => (
+                    <a
+                      href={`#${h.slug}`}
+                      class:list={[
+                        "block rounded-md py-1.5 px-2.5 transition-colors leading-snug hover:bg-[#F5E6BE]/60 hover:text-[#8D6E63]",
+                        h.depth === 2 ? "font-semibold text-foreground border-l-2 border-l-amber-300 pl-2.5" : "pl-6 text-muted-foreground"
+                      ]}
+                    >
+                      {h.text}
+                    </a>
+                  ))}
+                </nav>
+              </CardContent>
+            </Card>
+          )}
+
+          <!-- Key Historical Figures Card -->
+          <Card class="card-notebook p-5">
+            <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5]">
+              <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                <User class="w-4 h-4 text-[#8D6E63]" />
+                {labels.figuresTitle}
               </CardTitle>
-              {event.location && (
-                <div class="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
-                  <MapPin class="w-3 h-3 text-[#FFB800]" />
-                  <span>{event.location}</span>
-                </div>
-              )}
             </CardHeader>
-            <CardContent>
-              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed" set:html={formatText(event.description)} />
+            <CardContent class="p-0 pt-3 space-y-3.5">
+              {keyFigures.map((fig) => (
+                <div class="p-3 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-foreground">{fig.name}</span>
+                    <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#F5E6BE] text-[#8D6E63]">{fig.year}</span>
+                  </div>
+                  <span class="block text-[11px] font-medium text-[#8D6E63]">{fig.role}</span>
+                  <p class="text-xs text-muted-foreground leading-relaxed">{fig.desc}</p>
+                </div>
+              ))}
             </CardContent>
           </Card>
-        ))}
-      </div>
-    </div>
 
-    <!-- Chapters Detail Section -->
-    <div class="space-y-10 pt-6">
-      <div class="border-b border-[#E8E2D5] pb-4">
-        <h2 class="text-2xl md:text-3xl font-serif-heading font-bold flex items-center gap-2">
-          <Sparkles class="w-6 h-6 text-[#FFB800]" />
-          {content.chaptersTitle}
-        </h2>
-        <p class="text-muted-foreground text-xs sm:text-sm mt-1">{content.chaptersSubtitle}</p>
-      </div>
-
-      <div class="space-y-8">
-        {content.chapters.map((chapter) => (
-          <Card key={chapter.id} class="card-notebook p-6 md:p-8 space-y-4">
-            <div class="flex items-center gap-3">
-              <span class="text-xl md:text-2xl font-black text-[#8D6E63] font-mono bg-[#F5E6BE] px-3.5 py-1 rounded-xl border border-amber-300">
-                {chapter.number}
-              </span>
-              <h3 class="text-xl md:text-2xl font-serif-heading font-bold text-foreground">
-                {chapter.title}
-              </h3>
-            </div>
-
-            <div class="space-y-3 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">
-              {chapter.content.map((p, i) => (
-                <p key={i} set:html={formatText(p)} />
-              ))}
-            </div>
-
-            {chapter.bulletPoints && (
-              <ul class="list-disc pl-6 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
-                {chapter.bulletPoints.map((bp, i) => (
-                  <li key={i}>{bp}</li>
-                ))}
-              </ul>
-            )}
-
-            {chapter.tableData && (
-              <div class="overflow-x-auto my-4 rounded-xl border border-[#E8E2D5] shadow-2xs">
-                <table class="w-full text-xs md:text-sm text-left">
-                  <thead class="bg-[#F5E6BE] text-[#8D6E63] font-bold border-b border-[#E8E2D5]">
-                    <tr>
-                      {chapter.tableData.headers.map((h, i) => (
-                        <th key={i} class="p-3">{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-[#E8E2D5]">
-                    {chapter.tableData.rows.map((row, i) => (
-                      <tr key={i} class="hover:bg-[#F5E6BE]/40">
-                        {row.map((cell, j) => (
-                          <td key={j} class="p-3" set:html={formatText(cell)} />
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+          <!-- Debate Highlights Card -->
+          <Card class="card-notebook p-5 bg-gradient-to-br from-[#FCF9F2] to-[#F5E6BE]/40 border border-amber-300">
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 text-[#8D6E63]">
+                <Scale class="w-4 h-4 text-[#FFB800]" />
+                <h3 class="font-serif-heading font-bold text-sm text-foreground">{labels.debateTitle}</h3>
               </div>
-            )}
-
-            {chapter.callout && (
-              <div class="p-4 rounded-xl bg-[#F5E6BE]/60 border border-amber-300 text-xs sm:text-sm font-medium flex items-start gap-3">
-                <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-                <span set:html={formatText(chapter.callout.text)} />
-              </div>
-            )}
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                {labels.debateDesc}
+              </p>
+              <a
+                href={`/${lang}/comparador`}
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] hover:text-[#FFB800] transition-colors pt-1"
+              >
+                <span>{labels.debateLink}</span>
+                <ChevronRight class="w-3.5 h-3.5" />
+              </a>
+            </div>
           </Card>
-        ))}
+
+        </aside>
+
+        <!-- Article Prose Content Container (8 cols on lg) -->
+        <main class="lg:col-span-8 order-1 lg:order-2 space-y-6">
+          <article class="card-notebook p-6 sm:p-8 md:p-10 shadow-stacked-parchment bg-[#FDFBF7]">
+            {Content ? (
+              <div class="history-prose">
+                <Content />
+              </div>
+            ) : (
+              <div class="p-8 text-center text-muted-foreground">
+                <p>No se pudo cargar el artículo de historia.</p>
+              </div>
+            )}
+
+            <!-- Back to top button -->
+            <div class="pt-8 mt-10 border-t border-[#E8E2D5] flex items-center justify-between text-xs text-muted-foreground">
+              <span class="font-medium text-[#8D6E63]">tortilladepatatas.org — Archivo Histórico</span>
+              <a
+                href="#"
+                class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#F5E6BE] text-[#8D6E63] font-bold hover:bg-[#FFB800] hover:text-white transition-colors"
+              >
+                <span>{labels.backToTop}</span>
+                <ChevronRight class="w-3.5 h-3.5 -rotate-90" />
+              </a>
+            </div>
+          </article>
+        </main>
+
       </div>
     </div>
   </div>

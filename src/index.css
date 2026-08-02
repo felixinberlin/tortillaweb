@@ -226,3 +226,102 @@
   background-color: rgba(176, 0, 32, 0.1);
   border: 1px solid rgba(176, 0, 32, 0.25);
 }
+
+/* History Article Typography & Prose Styling */
+.history-prose {
+  color: #374151;
+  font-size: 1.025rem;
+  line-height: 1.85;
+}
+
+.history-prose h1 {
+  display: none;
+}
+
+.history-prose h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #27272a;
+  margin-top: 2.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #F5E6BE;
+  scroll-margin-top: 6rem;
+}
+
+.history-prose h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #8D6E63;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  scroll-margin-top: 6rem;
+}
+
+.history-prose p {
+  margin-bottom: 1.25rem;
+  color: #4b5563;
+  font-size: 1.025rem;
+  line-height: 1.85;
+}
+
+.history-prose ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.history-prose ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: #374151;
+}
+
+.history-prose ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0.5rem;
+  top: -0.1rem;
+  color: #FFB800;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.history-prose hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #E8E2D5, #FFB800, #E8E2D5, transparent);
+  margin: 2.75rem 0;
+}
+
+.history-prose strong {
+  font-weight: 700;
+  color: #8D6E63;
+  background-color: rgba(245, 230, 190, 0.5);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+.history-prose em {
+  font-style: italic;
+  color: #4b5563;
+}
+
+.history-prose blockquote {
+  font-family: 'Caveat', cursive;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: #8D6E63;
+  background-color: #FFF8E7;
+  border-left: 4px solid #FFB800;
+  padding: 1rem 1.25rem;
+  border-radius: 0 12px 12px 0;
+  margin: 1.75rem 0;
+  box-shadow: 0 2px 8px rgba(141, 110, 99, 0.05);
+}
