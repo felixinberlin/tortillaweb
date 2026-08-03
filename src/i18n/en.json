@@ -8,7 +8,8 @@
     "history": "History",
     "personas": "Personas",
     "builder": "Builder",
-    "about": "About"
+    "about": "About",
+    "contact": "Contact"
   },
   "hero": {
     "badge": "The encyclopedia of Spanish tortilla",
@@ -96,6 +97,11 @@
       "desc": "For onion enthusiasts, thinly sliced onion adds natural moisture and caramelized sugars that complement the savory egg."
     },
     "peppers": {
+      "title": "Bell & Frying Peppers",
+      "subtitle": "Green or red peppers (Optional - Country / Paisana Style)",
+      "desc": "Fresh sweet or frying peppers that bring garden aromas and color to regional varieties like Basque tortilla paisana. Note: distinct from black pepper."
+    },
+    "cherryPepper": {
       "title": "Bell & Frying Peppers",
       "subtitle": "Green or red peppers (Optional - Country / Paisana Style)",
       "desc": "Fresh sweet or frying peppers that bring garden aromas and color to regional varieties like Basque tortilla paisana. Note: distinct from black pepper."
@@ -250,5 +256,228 @@
     "rights": "All rights reserved.",
     "craftedWith": "Crafted with",
     "forGastronomy": "for lovers of gastronomy and culinary science."
+  },
+  "contact": {
+    "title": "Contact & Inquiries",
+    "subtitle": "Have questions about the encyclopedia, recipe suggestions, or want to collaborate?",
+    "badge": "Get in Touch",
+    "nameLabel": "Full name",
+    "namePlaceholder": "e.g. Jane Doe",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "typeLabel": "Message reason",
+    "typeOptions": {
+      "help": "I need help",
+      "question": "I have a question",
+      "thanks": "You are the best!",
+      "other": "Other"
+    },
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message or inquiry here...",
+    "submitButton": "Send message",
+    "sending": "Sending...",
+    "successTitle": "Message sent successfully!",
+    "successMessage": "Thank you for contacting tortilladepatatas.org. We will get back to you as soon as possible.",
+    "sendAnother": "Send another message",
+    "errorMessage": "Failed to send your message. Please try again.",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "typeRequired": "Please select a message type.",
+      "messageRequired": "Please enter a message."
+    }
+  },
+  "notFound": {
+    "title": "404: Page Not Found | tortilladepatatas.org",
+    "heading": "404",
+    "subheading": "Page Not Found",
+    "description": "Oops! This omelette flipped the wrong way. The page you are looking for does not exist or has been moved.",
+    "homeButton": "Back to Home"
+  },
+  "oilDetail": {
+    "categoryBadge": "🫒 Thermal Medium & Emulsion Axis",
+    "heroTitle": "Olive Oil (Olea europaea)",
+    "breadcrumbs": {
+      "home": "Home",
+      "ingredients": "Ingredients",
+      "oil": "Olive Oil"
+    },
+    "quickStats": {
+      "confitTempLabel": "Confiting Temp",
+      "confitTempValue": "110 °C – 130 °C",
+      "acidLabel": "Oleic Acid (EVOO)",
+      "acidValue": "70% – 80%",
+      "emulsionLabel": "Emulsion Axis",
+      "emulsionValue": "Lecithin + Starch + Fat",
+      "reuseLabel": "Reuse Cycles",
+      "reuseValue": "3 to 4 times (filtered)"
+    },
+    "varieties": {
+      "title": "Olive Cultivars & Aromatic Profile",
+      "subtitle": "Key Spanish olive varieties recommended for potato confiting",
+      "picual": {
+        "name": "Picual",
+        "badge": "Maximum Stability",
+        "desc": "Tomato leaf, green grass, and gentle pepper. Exceptionally rich in polyphenols; ideal for long confiting and heat stability."
+      },
+      "arbequina": {
+        "name": "Arbequina",
+        "badge": "Sweet & Delicate",
+        "desc": "Apple, green banana, and sweet smoothness. Excellent for delicate tortillas highlighting egg flavor."
+      },
+      "hojiblanca": {
+        "name": "Hojiblanca",
+        "badge": "Great Versatility",
+        "desc": "Almond and balanced fruitiness with mild pepper. The ideal versatile choice for onion tortillas."
+      }
+    },
+    "techniques": {
+      "title": "Science of Confiting and Emulsion",
+      "subtitle": "Essential physicochemical factors to achieve a silky interior without deep-frying",
+      "confit": {
+        "title": "Slow Confiting (110–130 °C)",
+        "desc": "Promotes gradual potato starch gelatinization without browning or forming crisp outer crusts."
+      },
+      "emulsion": {
+        "title": "The Warm Emulsion",
+        "desc": "When warm potatoes mix with egg, yolk lecithin and olive oil form an unctuously smooth cream."
+      },
+      "draining": {
+        "title": "Draining and Resting",
+        "desc": "Draining excess free oil before mixing prevents greasy separation and protects protein binding."
+      }
+    },
+    "recipes": {
+      "title": "Recipes Featuring Olive Oil",
+      "subtitle": "Emblematic recipes where EVOO defines confit quality and flavor",
+      "viewRecipe": "View Recipe"
+    }
+  },
+  "eggDetail": {
+    "categoryBadge": "🥚 Protein & Emulsion Matrix",
+    "heroTitle": "The Egg (Gallus gallus domesticus)",
+    "breadcrumbs": {
+      "home": "Home",
+      "ingredients": "Ingredients",
+      "egg": "Egg"
+    },
+    "quickStats": {
+      "albumenCoagLabel": "White Coagulation",
+      "albumenCoagValue": "58 °C – 62 °C",
+      "yolkCoagLabel": "Yolk Coagulation",
+      "yolkCoagValue": "65 °C – 68 °C",
+      "emulsionLabel": "Emulsifying Agent",
+      "emulsionValue": "Lecithin & Lipoproteins",
+      "safetyLabel": "Safety Threshold",
+      "safetyValue": "70°C for 2 minutes"
+    },
+    "ratios": {
+      "title": "Culinary Schools & Ratio Comparison",
+      "subtitle": "The egg-to-potato ratio defined by regional style and desired fluidity",
+      "classic": {
+        "name": "Classic Tortilla",
+        "badge": "Balanced",
+        "desc": "1 egg per 100 g raw potato. Uniform structure, stable juiciness, and clean sliceable texture."
+      },
+      "betanzos": {
+        "name": "Betanzos Style",
+        "badge": "Yolk Dominant",
+        "desc": "12 eggs per 350 g potato. Highly fluid center with rich, unctuous yolk flow."
+      },
+      "competition": {
+        "name": "Competition Style",
+        "badge": "Extreme Creaminess",
+        "desc": "12 eggs + extra yolks per 700 g potato. Exceptionally creamy texture with flawless thermal binding."
+      }
+    },
+    "techniques": {
+      "title": "Beating Technique & Preparation",
+      "subtitle": "Mechanical and thermal factors determining the final texture",
+      "beating": {
+        "title": "Gentle Mixing (No Foam)",
+        "desc": "Mix gently without aerating to prevent a spongy soufflé or cake-like texture."
+      },
+      "unbeaten": {
+        "title": "Betanzos Method (Unbeaten)",
+        "desc": "Crack eggs directly over hot potatoes to start gentle pre-coagulation before hitting the pan."
+      },
+      "resting": {
+        "title": "The Resting Rule (3 to 5 min)",
+        "desc": "Rest the warm potato-egg mixture at 60 °C – 70 °C so gelatinized starch absorbs yolk and stabilizes emulsion."
+      }
+    },
+    "science": {
+      "title": "🛡️ Food Safety & Thermal Control",
+      "body": "For runny tortillas, thermal control is critical. Health standards establish safe Salmonella destruction at **70°C for 2 minutes** (or pasteurization equivalent at **63°C for 20 seconds**), with a maximum **4 hours** ambient limit."
+    },
+    "recipes": {
+      "title": "Recipes Featuring Egg",
+      "subtitle": "Key recipes utilizing the chemistry and fluidity of egg as their primary matrix",
+      "viewRecipe": "View Recipe"
+    }
+  },
+  "potatoDetail": {
+    "categoryBadge": "🥔 Base Structural Ingredient",
+    "heroTitle": "The Potato (Solanum tuberosum)",
+    "breadcrumbs": {
+      "home": "Home",
+      "ingredients": "Ingredients",
+      "potato": "Potato"
+    },
+    "quickStats": {
+      "idealStarchLabel": "Ideal Starch",
+      "idealStarchValue": "15% – 18% (Semi-firm)",
+      "confitTempLabel": "Confit Temp",
+      "confitTempValue": "110 °C – 130 °C",
+      "oilAbsorptionLabel": "Oil Absorption",
+      "oilAbsorptionValue": "Low-Moderate",
+      "gelatinizationLabel": "Gelatinization Point",
+      "gelatinizationValue": "60 °C – 70 °C"
+    },
+    "cultivars": {
+      "title": "Potato Cultivar Comparison",
+      "subtitle": "Analysis of dry matter, moisture, and culinary suitability by agricultural variety",
+      "monalisa": {
+        "name": "Monalisa",
+        "badge": "Creaminess",
+        "desc": "Ideal balance between starch and water. Delivers a smooth, velvety texture when gently poached at moderate heat."
+      },
+      "kennebec": {
+        "name": "Kennebec",
+        "badge": "Betanzos Style",
+        "desc": "Low moisture content and medium starch. Yields crisp edges while maintaining a liquid center for Betanzos-style tortillas."
+      },
+      "agria": {
+        "name": "Agria",
+        "badge": "Low Absorption",
+        "desc": "High dry matter content. Minimizes oil absorption during high-heat frying, producing a golden, crispy exterior."
+      }
+    },
+    "cuts": {
+      "title": "Cutting Geometry & Techniques",
+      "subtitle": "Impact of slice shape on contact surface area and starch release",
+      "panadera": {
+        "title": "Panadera Cut (3–5 mm)",
+        "desc": "Uniform slices ensuring homogeneous thermal transfer. Ideal for gentle poaching without structural breakdown."
+      },
+      "chascado": {
+        "title": "Snapping Cut (Chascar)",
+        "desc": "Snapping potato slices at the edge fractures cell walls irregularly, releasing surface amylopectin starch to thicken the egg mix."
+      },
+      "ultrafinas": {
+        "title": "Paper-Thin Slices",
+        "desc": "Translucent shavings for flash frying at high temperatures. Essential for Betanzos-style runny omelettes."
+      }
+    },
+    "science": {
+      "title": "🔬 The Resting Rule (3 to 5 minutes)",
+      "body": "Mixing freshly drained hot potatoes (60 °C – 70 °C) with beaten eggs allows gentle residual heat to swell ovalbumin proteins while starch granules absorb creamy yolk emulsion before entering the pan."
+    },
+    "recipes": {
+      "title": "Potato-Based Recipes",
+      "subtitle": "Traditional and modern recipes utilizing potato as their core structural foundation",
+      "viewRecipe": "View Recipe"
+    }
   }
 }

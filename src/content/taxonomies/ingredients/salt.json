@@ -1,0 +1,21 @@
+{
+  "id": "salt",
+  "type": "ingredient",
+  "contentId": "ingredient.salt",
+  "slug": {
+    "es": "salt",
+    "en": "salt",
+    "de": "salt"
+  },
+  "title": {
+    "es": "Sal Marina Fina",
+    "en": "Fine Sea Salt",
+    "de": "Feines Meersalz"
+  },
+  "description": {
+    "es": "Elemento esencial para sazonar la patata y realzar la matriz del huevo.",
+    "en": "Essential mineral to season potatoes and enhance egg matrix flavor.",
+    "de": "Essentielles Mineral zum Würzen der Kartoffeln und Abrunden der Ei-Matrix."
+  },
+  "icon": "Sparkles"
+}

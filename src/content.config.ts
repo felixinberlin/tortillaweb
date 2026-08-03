@@ -38,15 +38,17 @@ const recipeCollection = defineCollection({
   }),
   schema: z.object({
     id: z.string(),
+    contentId: z.string().optional(),
+    translationKey: z.string().optional(),
     slug: localizedStringSchema,
     title: localizedStringSchema,
     description: localizedStringSchema,
     taxonomyIds: z.array(z.string()),
     time: z.number(),
-    image: z.string().optional(),
-    prepTimeMinutes: z.number().optional(),
-    cookTimeMinutes: z.number().optional(),
-    yieldServings: z.number().optional(),
+    image: z.string(),
+    prepTimeMinutes: z.number(),
+    cookTimeMinutes: z.number(),
+    yieldServings: z.number(),
     ingredients: z.array(recipeIngredientSchema).optional(),
     instructions: z.array(z.object({
       step: localizedStringSchema,
@@ -66,6 +68,8 @@ const taxonomyCollection = defineCollection({
   schema: z.object({
     id: z.string(),
     type: z.string(),
+    contentId: z.string().optional(),
+    translationKey: z.string().optional(),
     slug: localizedStringSchema,
     title: localizedStringSchema,
     description: localizedStringSchema,
@@ -78,6 +82,11 @@ const taxonomyCollection = defineCollection({
     badge: localizedStringSchema.optional(),
     keyIngredient: localizedStringSchema.optional(),
     prominentFigures: z.array(z.string()).optional(),
+    related: z.array(z.object({
+      type: z.string(),
+      id: z.string(),
+      relationship: z.string().optional(),
+    })).optional(),
   }),
 });
 
@@ -87,7 +96,7 @@ const pagesCollection = defineCollection({
     base: './src/content/pages',
     generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
   }),
-  schema: z.record(z.any()),
+  schema: z.record(z.string(), z.any()),
 });
 
 const navigationCollection = defineCollection({
@@ -96,7 +105,7 @@ const navigationCollection = defineCollection({
     base: './src/content/navigation',
     generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
   }),
-  schema: z.record(z.any()),
+  schema: z.record(z.string(), z.any()),
 });
 
 const settingsCollection = defineCollection({
@@ -105,7 +114,48 @@ const settingsCollection = defineCollection({
     base: './src/content/settings',
     generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
   }),
-  schema: z.record(z.any()),
+  schema: z.record(z.string(), z.any()),
+});
+
+const historyCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.md', 
+    base: './src/content/history',
+    generateId: ({ entry }) => entry.replace(/\.md$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    contentId: z.string().optional(),
+    lang: z.string().optional(),
+    locale: z.enum(['es', 'en', 'de']).optional(),
+    translationKey: z.string().optional(),
+    slug: z.string().optional(),
+  }),
+});
+
+const ingredientsCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.md', 
+    base: './src/content/ingredients',
+    generateId: ({ entry }) => entry.replace(/\.md$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    contentId: z.string().optional(),
+    slug: z.string().optional(),
+    translationKey: z.string().optional(),
+    locale: z.enum(['es', 'en', 'de']).optional(),
+    category: z.string().optional(),
+    ingredient: z.string().optional(),
+    scientificName: z.string().optional(),
+    image: z.string().optional(),
+    seo: z.object({
+      canonical: z.string().optional(),
+      keywords: z.array(z.string()).optional(),
+    }).optional(),
+  }),
 });
 
 export const collections = {
@@ -114,4 +164,6 @@ export const collections = {
   pages: pagesCollection,
   navigation: navigationCollection,
   settings: settingsCollection,
+  history: historyCollection,
+  ingredients: ingredientsCollection,
 };

@@ -1,6 +1,7 @@
 {
-  "id": "betanzos",
+  "id": "style-betanzos",
   "type": "style",
+  "contentId": "style.betanzos",
   "slug": {
     "es": "estilo-betanzos",
     "en": "betanzos-style",

@@ -1,0 +1,633 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import PotatoIngredientDetail from '@/components/ingredients/PotatoIngredientDetail';
+import EggIngredientDetail from '@/components/ingredients/EggIngredientDetail';
+import OliveOilIngredientDetail from '@/components/ingredients/OliveOilIngredientDetail';
+import { 
+  TAXONOMY_ROUTING_MAP, 
+  getAllTaxonomies, 
+  getRecipesForTaxonomy, 
+  resolveRecipeBadges,
+  getTaxonomyTypeLabel,
+  getTaxonomyRoutePrefix
+} from '@/lib/taxonomy';
+import { getRelatedRecipes, getRelatedIngredients, getRelatedArticles, getRelatedTaxonomies, getRelatedKnowledgeForIngredient } from '@/lib/content/related';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateArticleSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
+import { assertRouteEntities } from '@/lib/routing/assertRoute';
+import { getCollection, render } from 'astro:content';
+import { 
+  ShieldCheck, 
+  ChefHat, 
+  BookOpen, 
+  Sparkles,
+  ArrowLeft,
+  Flame,
+  Scale,
+  FlaskConical,
+  Scissors
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  const taxonomies = await getAllTaxonomies();
+  const ingredientEntries = await getCollection('ingredients');
+  const languages = supportedLanguages;
+  
+  const pathMap = new Map<string, any>();
+
+  // 1. Group ingredient entries by translationKey to build multilingual alternate mappings
+  const translationGroups = new Map<string, Record<string, any>>();
+  for (const entry of ingredientEntries) {
+    if (!entry.data.slug) continue;
+    const parts = entry.data.slug.split('/');
+    const routeSegment = parts[0];
+    const slug = parts.slice(1).join('/');
+
+    let lang = entry.data.locale;
+    if (!lang) {
+      if (routeSegment === 'ingredients' || entry.id.includes('.en')) {
+        lang = 'en';
+      } else if (routeSegment === 'zutaten' || entry.id.includes('.de')) {
+        lang = 'de';
+      } else {
+        lang = 'es';
+      }
+    }
+
+    const tKey = entry.data.translationKey || (parts.length > 2 ? `${parts[1]}-${parts[2]}` : parts[1] || entry.id);
+    if (!translationGroups.has(tKey)) {
+      translationGroups.set(tKey, {});
+    }
+    translationGroups.get(tKey)![lang] = {
+      entry,
+      lang,
+      routeSegment,
+      slug,
+      fullUrl: `${SITE_URL}/${lang}/${routeSegment}/${slug}`,
+    };
+  }
+
+  // 2. Base Taxonomy routes (e.g., /en/factions/purists, /en/ingredients/potato)
+  for (const lang of languages) {
+    const routeMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
+    
+    for (const tax of taxonomies) {
+      const routeSegment = routeMap[tax.type];
+      const localizedSlug = tax.slug[lang as keyof typeof tax.slug] || tax.slug.es;
+      
+      if (routeSegment && localizedSlug) {
+        const key = `${lang}:${routeSegment}:${localizedSlug}`;
+        
+        // Check if there is an ingredient article matching this taxonomy
+        const group = translationGroups.get(tax.id);
+        const ingredientArticle = group && group[lang] ? group[lang].entry : null;
+
+        const customHreflangs = languages.map(l => {
+          const lRouteSegment = (TAXONOMY_ROUTING_MAP[l] || TAXONOMY_ROUTING_MAP['es'])[tax.type];
+          const lSlug = tax.slug[l as keyof typeof tax.slug] || tax.slug.es;
+          return {
+            lang: l,
+            href: `${SITE_URL}/${l}/${lRouteSegment}/${lSlug}`
+          };
+        });
+        customHreflangs.push({
+          lang: 'x-default',
+          href: `${SITE_URL}/es/${(TAXONOMY_ROUTING_MAP['es'])[tax.type]}/${tax.slug.es}`
+        });
+
+        pathMap.set(key, {
+          params: {
+            lang,
+            taxonomyType: routeSegment,
+            slug: localizedSlug,
+          },
+          props: {
+            taxonomy: tax,
+            lang,
+            ingredientArticle,
+            customHreflangs,
+            translationGroup: group || null,
+            allIngredientGroups: Object.fromEntries(translationGroups.entries()),
+          },
+        });
+      }
+    }
+  }
+
+  // 3. Rich Markdown Ingredient Articles (e.g. /en/ingredients/potato, /en/ingredients/potato/varieties)
+  for (const entry of ingredientEntries) {
+    if (!entry.data.slug) continue;
+    const parts = entry.data.slug.split('/');
+    const routeSegment = parts[0];
+    const slug = parts.slice(1).join('/');
+
+    let lang = entry.data.locale;
+    if (!lang) {
+      if (routeSegment === 'ingredients' || entry.id.includes('.en')) {
+        lang = 'en';
+      } else if (routeSegment === 'zutaten' || entry.id.includes('.de')) {
+        lang = 'de';
+      } else {
+        lang = 'es';
+      }
+    }
+
+    const tKey = entry.data.translationKey || (parts.length > 2 ? `${parts[1]}-${parts[2]}` : parts[1] || entry.id);
+    const group = translationGroups.get(tKey);
+
+    const key = `${lang}:${routeSegment}:${slug}`;
+    const existing = pathMap.get(key);
+
+    const customHreflangs: Array<{ lang: string; href: string }> = [];
+    for (const l of languages) {
+      if (group && group[l]) {
+        customHreflangs.push({
+          lang: l,
+          href: group[l].fullUrl
+        });
+      } else {
+        const lRouteSegment = (TAXONOMY_ROUTING_MAP[l] || TAXONOMY_ROUTING_MAP['es'])['ingredient'] || 'ingredientes';
+        customHreflangs.push({
+          lang: l,
+          href: `${SITE_URL}/${l}/${lRouteSegment}/${slug}`
+        });
+      }
+    }
+    const defaultHref = group && group['es'] ? group['es'].fullUrl : customHreflangs[0].href;
+    customHreflangs.push({
+      lang: 'x-default',
+      href: defaultHref,
+    });
+
+    if (existing) {
+      existing.props.ingredientArticle = entry;
+      existing.props.customHreflangs = customHreflangs;
+      existing.props.translationGroup = group || null;
+      existing.props.allIngredientGroups = Object.fromEntries(translationGroups.entries());
+    } else {
+      const taxId = entry.data.ingredient || parts[1];
+      const tax = taxonomies.find(t => t.type === 'ingredient' && t.id === taxId);
+      pathMap.set(key, {
+        params: {
+          lang,
+          taxonomyType: routeSegment,
+          slug,
+        },
+        props: {
+          taxonomy: tax || null,
+          lang,
+          ingredientArticle: entry,
+          customHreflangs,
+          translationGroup: group || null,
+          allIngredientGroups: Object.fromEntries(translationGroups.entries()),
+        },
+      });
+    }
+  }
+
+  return Array.from(pathMap.values());
+}
+
+const { taxonomy, lang, ingredientArticle, customHreflangs, translationGroup, allIngredientGroups } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+// Validate content entity existence - sets Astro.response.status = 404 when invalid
+const isValidRoute = assertRouteEntities(Astro.response, taxonomy, ingredientArticle);
+
+// If an ingredient article exists and route is valid, render its rich content
+let Content = null;
+if (isValidRoute && ingredientArticle) {
+  const rendered = await render(ingredientArticle);
+  Content = rendered.Content;
+}
+
+// Titles and metadata
+const title = isValidRoute
+  ? (ingredientArticle 
+      ? ingredientArticle.data.title 
+      : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : ''))
+  : (currentLang === 'en' ? 'Page Not Found' : currentLang === 'de' ? 'Seite nicht gefunden' : 'Página no encontrada');
+
+const description = isValidRoute
+  ? (ingredientArticle
+      ? ingredientArticle.data.description
+      : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : ''))
+  : (currentLang === 'en' ? 'The requested page could not be found.' : currentLang === 'de' ? 'Die angeforderte Seite konnte nicht gefunden werden.' : 'La página solicitada no existe.');
+
+const dogma = taxonomy?.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
+const badgeText = taxonomy?.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
+const keyIngredient = taxonomy?.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
+
+// Load related recipes, articles, taxonomies, and knowledge base dynamically
+const taxonomyId = taxonomy ? taxonomy.id : ingredientArticle?.data.ingredient;
+const taxonomyType = taxonomy ? taxonomy.type : 'ingredient';
+const relatedRecipes = (isValidRoute && taxonomyId) ? await getRecipesForTaxonomy(taxonomyType, taxonomyId) : [];
+const relatedArticles = (isValidRoute && taxonomyId) ? await getRelatedArticles({ type: taxonomyType, id: taxonomyId }, currentLang) : [];
+const relatedTaxonomies = (isValidRoute && taxonomyId) ? await getRelatedTaxonomies({ type: taxonomyType, id: taxonomyId }, currentLang) : [];
+const relatedKnowledge = (isValidRoute && taxonomyId && taxonomyType === 'ingredient') ? await getRelatedKnowledgeForIngredient(taxonomyId, currentLang) : [];
+
+const recipesWithBadges = await Promise.all(
+  relatedRecipes.map(async (r) => ({
+    ...r,
+    badges: await resolveRecipeBadges(r.taxonomyIds, currentLang),
+  }))
+);
+
+const pageTitle = isValidRoute ? `${title} | tortilladepatatas.org` : `404: ${title} | tortilladepatatas.org`;
+
+// SEO Schemas
+const currentUrl = isValidRoute
+  ? (ingredientArticle?.data.seo?.canonical
+      ? ingredientArticle.data.seo.canonical
+      : `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`)
+  : undefined;
+
+const taxonomyTypeLabel = getTaxonomyTypeLabel(Astro.params.taxonomyType || taxonomyType, currentLang);
+
+const breadcrumbsList = isValidRoute ? [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: taxonomyTypeLabel, url: `/${currentLang}/${Astro.params.taxonomyType}` },
+  { name: title, url: `/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}` },
+] : [];
+
+const breadcrumbSchema = isValidRoute ? generateBreadcrumbSchema(breadcrumbsList) : undefined;
+const articleSchema = isValidRoute ? (ingredientArticle ? generateArticleSchema({
+  headline: title,
+  description: description,
+  url: currentUrl || `${SITE_URL}/${currentLang}`,
+  image: ingredientArticle.data.image || '/images/ingredients/potato_editorial_card.jpg',
+}) : generateCollectionPageSchema({
+  name: title,
+  description: description,
+  url: currentUrl || `${SITE_URL}/${currentLang}`,
+  items: relatedRecipes.map((r) => ({
+    name: r.title[currentLang as keyof typeof r.title] || r.title.es,
+    url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
+  })),
+})) : undefined;
+
+const schemas = isValidRoute ? [breadcrumbSchema, articleSchema].filter(Boolean) : undefined;
+const pageHreflangs = isValidRoute ? customHreflangs : undefined;
+
+// Pillar Links for Ingredient Cluster (Potato, etc.)
+const currentSlug = Astro.params.slug || '';
+const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy?.type === 'ingredient' ? taxonomy.id : undefined);
+const isIngredientCluster = Boolean(isValidRoute && ingredientKey && (ingredientArticle || taxonomy?.type === 'ingredient'));
+const isPotatoCluster = Boolean(isIngredientCluster && ingredientKey === 'potato');
+const isEggCluster = Boolean(isIngredientCluster && ingredientKey === 'egg');
+const isOilCluster = Boolean(isIngredientCluster && (ingredientKey === 'oil' || ingredientKey === 'olive-oil'));
+
+const mainGuideGroup = ingredientKey ? allIngredientGroups?.[ingredientKey] : undefined;
+const mainPotatoUrl = mainGuideGroup && mainGuideGroup[currentLang]
+  ? `/${currentLang}/${mainGuideGroup[currentLang].routeSegment}/${mainGuideGroup[currentLang].slug}`
+  : (currentLang === 'en' ? '/en/ingredients/potato' : currentLang === 'de' ? '/de/zutaten/kartoffel' : '/es/ingredientes/patata');
+
+const isMainPotatoPage = Boolean(
+  isPotatoCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'potato' || currentSlug === 'patata' || currentSlug === 'kartoffel')
+  )
+);
+
+const isMainEggPage = Boolean(
+  isEggCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'egg' || currentSlug === 'huevo' || currentSlug === 'ei')
+  )
+);
+
+const isMainOilPage = Boolean(
+  isOilCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'oil' || currentSlug === 'aceite-de-oliva' || currentSlug === 'olive-oil' || currentSlug === 'olivenoel')
+  )
+);
+
+const getPillarUrl = (pillarSuffix: string) => {
+  const pillarGroupKey = `${ingredientKey}-${pillarSuffix}`;
+  const pGroup = allIngredientGroups?.[pillarGroupKey];
+  if (pGroup && pGroup[currentLang]) {
+    return `/${currentLang}/${pGroup[currentLang].routeSegment}/${pGroup[currentLang].slug}`;
+  }
+  if (currentLang === 'en') return `/${currentLang}/ingredients/${ingredientKey}/${pillarSuffix}`;
+  if (currentLang === 'de') {
+    const deMap: Record<string, string> = { varieties: 'sorten', cuts: 'schnitte', techniques: 'techniken', science: 'wissenschaft' };
+    return `/${currentLang}/zutaten/${ingredientKey}/${deMap[pillarSuffix] || pillarSuffix}`;
+  }
+  const esMap: Record<string, string> = { varieties: 'variedades', cuts: 'cortes', techniques: 'tecnicas', science: 'ciencia' };
+  return `/${currentLang}/ingredientes/${ingredientKey}/${esMap[pillarSuffix] || pillarSuffix}`;
+};
+
+const pillars = [
+  {
+    key: 'varieties',
+    icon: Scale,
+    title: currentLang === 'en' ? 'Varieties' : currentLang === 'de' ? 'Sorten' : 'Variedades',
+    desc: currentLang === 'en' ? 'Monalisa, Kennebec, Agria & Sour' : currentLang === 'de' ? 'Monalisa, Kennebec, Agria & Mehlig' : 'Monalisa, Kennebec, Agria y Ágria',
+    url: getPillarUrl('varieties'),
+  },
+  {
+    key: 'cuts',
+    icon: Scissors,
+    title: currentLang === 'en' ? 'Cutting Geometry' : currentLang === 'de' ? 'Schnittgeometrie' : 'Cortes y Geometría',
+    desc: currentLang === 'en' ? 'Panadera, Cascado & Thin slices' : currentLang === 'de' ? 'Panadera, Geknickt & Scheiben' : 'Corte panadera, chasqueado y grosor',
+    url: getPillarUrl('cuts'),
+  },
+  {
+    key: 'techniques',
+    icon: Flame,
+    title: currentLang === 'en' ? 'Cooking Methods' : currentLang === 'de' ? 'Kochmethoden' : 'Técnicas de Cocción',
+    desc: currentLang === 'en' ? 'EVOO Confit vs. Frying' : currentLang === 'de' ? 'AOVE Confitieren vs. Frittieren' : 'Confitado en AOVE vs. Fritura',
+    url: getPillarUrl('techniques'),
+  },
+  {
+    key: 'science',
+    icon: FlaskConical,
+    title: currentLang === 'en' ? 'Starch Science' : currentLang === 'de' ? 'Stärkewissenschaft' : 'Ciencia del Almidón',
+    desc: currentLang === 'en' ? 'Gelatinization & Amylose ratio' : currentLang === 'de' ? 'Gelatinierung & Amyloseverhältnis' : 'Gelatinización y amilosa/amilopectina',
+    url: getPillarUrl('science'),
+  },
+];
+---
+
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={pageHreflangs}>
+  {!isValidRoute ? (
+    <div class="container mx-auto px-4 py-24 text-center max-w-lg">
+      <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
+        <ChefHat class="w-10 h-10" />
+      </div>
+      <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
+      <p class="text-base sm:text-lg text-muted-foreground mb-8">
+        {currentLang === 'en' 
+          ? 'The requested ingredient or taxonomy topic could not be found.' 
+          : currentLang === 'de' 
+          ? 'Die angeforderte Zutat oder Taxonomie konnte nicht gefunden werden.' 
+          : 'El ingrediente o concepto solicitado no existe en nuestro catálogo.'}
+      </p>
+      <a href={`/${currentLang}`}>
+        <button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+          {currentLang === 'en' ? 'Back to Home' : currentLang === 'de' ? 'Zurück zur Startseite' : 'Volver al inicio'}
+        </button>
+      </a>
+    </div>
+  ) : isMainOilPage ? (
+    <OliveOilIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : isMainEggPage ? (
+    <EggIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : isMainPotatoPage ? (
+    <PotatoIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : (
+    <div class="container mx-auto px-4 py-8 md:py-14 max-w-5xl space-y-10">
+    
+    <!-- SUB-ARTICLE BACK LINK IF IN SUB-MONOGRAPH OR TECHNIQUE -->
+    {isPotatoCluster && !isMainPotatoPage && (
+      <div class="flex items-center gap-2">
+        <a 
+          href={mainPotatoUrl} 
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] text-xs font-bold border border-amber-300 hover:bg-[#FFB800]/30 transition-colors"
+        >
+          <ArrowLeft class="w-4 h-4" />
+          <span>{currentLang === 'en' ? 'Back to Main Potato Guide' : currentLang === 'de' ? 'Zurück zum Kartoffel-Hauptleitfaden' : 'Volver a la Guía Principal de la Patata'}</span>
+        </a>
+      </div>
+    )}
+
+    {taxonomy?.type === 'technique' && (
+      <div class="flex items-center gap-2">
+        <a 
+          href={`/${currentLang}/${getTaxonomyRoutePrefix('technique', currentLang)}`}
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] text-xs font-bold border border-amber-300 hover:bg-[#FFB800]/30 transition-colors"
+        >
+          <ArrowLeft class="w-4 h-4" />
+          <span>{currentLang === 'en' ? 'Back to All Culinary Techniques' : currentLang === 'de' ? 'Zurück zu allen Küchentechniken' : 'Volver al Manual de Técnicas'}</span>
+        </a>
+      </div>
+    )}
+
+    <!-- HERO HEADER -->
+    <div class="space-y-6">
+      <div class="relative w-full h-64 sm:h-80 md:h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2D5] shadow-md bg-[#F5E6BE] group">
+        <img
+          src={ingredientArticle?.data.image || taxonomy?.image || "/images/ingredients/potato_editorial_card.jpg"}
+          alt={title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          referrerPolicy="no-referrer"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex items-end p-6 sm:p-10">
+          <div class="text-white space-y-3 max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800] text-[#292521] text-xs font-extrabold uppercase tracking-wider shadow-xs">
+              <Sparkles class="w-3.5 h-3.5" />
+              <span>{ingredientArticle?.data.scientificName || taxonomyTypeLabel}</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif-heading font-extrabold text-white drop-shadow-md tracking-tight leading-none">
+              {title}
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <header class="text-center max-w-3xl mx-auto space-y-3">
+        <p class="text-base sm:text-lg text-foreground/85 leading-relaxed font-sans font-medium">
+          {description}
+        </p>
+
+        {keyIngredient && (
+          <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE] px-3.5 py-1.5 rounded-full border border-amber-300 shadow-2xs">
+            <span>{currentLang === 'en' ? 'Key Element:' : currentLang === 'de' ? 'Schlüsselelement:' : 'Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
+          </div>
+        )}
+      </header>
+    </div>
+
+    <!-- POTATO PILLARS SUB-MONOGRAPHS NAV (IF POTATO CLUSTER) -->
+    {isPotatoCluster && (
+      <section class="space-y-4">
+        <div class="flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
+          <BookOpen class="w-5 h-5 text-[#8D6E63]" />
+          <h2 class="text-lg font-serif-heading font-bold text-foreground">
+            {currentLang === 'en' ? 'Potato Monograph Pillars' : currentLang === 'de' ? 'Monographie-Säulen der Kartoffel' : 'Pilares de la Monografía de la Patata'}
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {pillars.map((pillar) => {
+            const IconComponent = pillar.icon;
+            const isActive = currentSlug.endsWith(pillar.key) || (pillar.key === 'varieties' && currentSlug.endsWith('sorten')) || (pillar.key === 'cuts' && currentSlug.endsWith('schnitte')) || (pillar.key === 'techniques' && currentSlug.endsWith('techniken')) || (pillar.key === 'science' && currentSlug.endsWith('wissenschaft'));
+            return (
+              <a 
+                href={pillar.url}
+                class={`card-notebook p-4 rounded-xl border flex flex-col justify-between transition-all duration-200 hover:scale-[1.02] ${
+                  isActive 
+                    ? 'border-[#FFB800] bg-[#FFB800]/15 shadow-sm ring-2 ring-[#FFB800]/30' 
+                    : 'border-[#E8E2D5] bg-[#FCF9F2] hover:border-amber-300'
+                }`}
+              >
+                <div class="space-y-2">
+                  <div class="p-2 rounded-lg bg-[#F5E6BE] text-[#8D6E63] w-fit border border-amber-300/60">
+                    <IconComponent class="w-4 h-4" />
+                  </div>
+                  <h3 class="font-serif-heading font-bold text-sm text-foreground">
+                    {pillar.title}
+                  </h3>
+                  <p class="text-[11px] text-muted-foreground line-clamp-2">
+                    {pillar.desc}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- RENDERED MARKDOWN ARTICLE CONTENT IF PRESENT -->
+    {Content && (
+      <article class="card-notebook p-6 sm:p-10 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] shadow-sm space-y-6">
+        <div class="prose prose-amber max-w-none text-foreground leading-relaxed prose-headings:font-serif-heading prose-headings:font-bold prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-img:rounded-xl prose-img:border prose-img:border-[#E8E2D5] prose-table:border prose-table:border-[#E8E2D5] prose-th:bg-[#F5E6BE] prose-th:p-3 prose-td:p-3 prose-td:border-t prose-td:border-[#E8E2D5]">
+          <Content />
+        </div>
+
+        <!-- FOOD SAFETY & BACTERICIDAL CALLOUT BOX -->
+        <div class="mt-8 p-5 rounded-2xl bg-amber-50/80 border border-amber-300/80 space-y-3">
+          <div class="flex items-center gap-2 text-amber-900 font-serif-heading font-bold text-base">
+            <ShieldCheck class="w-5 h-5 text-[#2E7D32]" />
+            <span>{currentLang === 'en' ? 'Food Safety & Microbiological Standard' : currentLang === 'de' ? 'Lebensmittelsicherheit & Mikrobiologischer Standard' : 'Seguridad Alimentaria y Estándar Microbiológico'}</span>
+          </div>
+          <p class="text-xs sm:text-sm text-amber-950/90 leading-relaxed font-sans">
+            {currentLang === 'en' ? (
+              <>
+                For maximum culinary enjoyment and microbiological safety, egg-potato mixtures must reach <strong>70°C for 2 minutes</strong> (or <strong>63°C for 20 seconds</strong>). Keep ambient display under <strong>4 hours</strong>, or refrigerate at less than <strong>8°C</strong>.
+              </>
+            ) : currentLang === 'de' ? (
+              <>
+                Für optimalen Genuss und mikrobiologische Sicherheit sollte das Ei-Kartoffel-Gemisch <strong>70°C for 2 minutes</strong> (oder <strong>63°C for 20 seconds</strong>) erreichen. Die Umgebungstemperatur darf max. <strong>4 hours</strong> betragen, oder kühl lagern unter <strong>8°C</strong>.
+              </>
+            ) : (
+              <>
+                Para máxima calidad gastronómica y seguridad microbiológica, la mezcla de huevo y patata debe alcanzar los <strong>70°C por 2 minutos</strong> (o <strong>63°C por 20 segundos</strong>). Mantener a temperatura ambiente máximo <strong>4 horas</strong>, o refrigerar a menos de <strong>8°C</strong>.
+              </>
+            )}
+          </p>
+        </div>
+      </article>
+    )}
+
+    <!-- DOGMA CALLOUT IF APPLICABLE -->
+    {dogma && !Content && (
+      <section class="card-notebook p-6 md:p-8 max-w-4xl mx-auto border-l-4 border-l-[#FFB800] bg-[#FCF9F2] shadow-xs rounded-2xl border border-[#E8E2D5] relative overflow-hidden">
+        <div class="flex items-start gap-4 relative z-10">
+          <div class="p-3 rounded-2xl bg-[#FFB800]/20 text-[#8D6E63] shrink-0 hidden sm:flex items-center justify-center border border-amber-300/50">
+            <ChefHat class="w-6 h-6 text-[#FFB800]" />
+          </div>
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-0.5 rounded-full border border-amber-300/60 inline-flex items-center gap-1">
+              {currentLang === 'en' ? 'Dogma & Philosophy' : currentLang === 'de' ? 'Dogma & Philosophie' : 'Dogma & Filosofía'}
+            </span>
+            <blockquote class="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
+              &ldquo;{dogma}&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- RELATED RECIPES GRID -->
+    <section class="space-y-6 pt-4">
+      <div class="border-b border-[#E8E2D5] pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-serif-heading font-bold text-[#292521]">
+            {currentLang === 'en' ? 'Related Recipes' : currentLang === 'de' ? 'Verknüpfte Rezepte' : 'Recetas Relacionadas'}
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">
+            {currentLang === 'en'
+              ? `Recipes featuring or representing this ingredient (${relatedRecipes.length})`
+              : currentLang === 'de'
+              ? `Rezepte, die diese Zutat beinhalten oder repräsentieren (${relatedRecipes.length})`
+              : `Recetas que incorporan o representan esta categoría (${relatedRecipes.length})`}
+          </p>
+        </div>
+      </div>
+
+      {relatedRecipes.length === 0 ? (
+        <div class="card-notebook p-8 text-center text-muted-foreground rounded-2xl border border-[#E8E2D5]">
+          {currentLang === 'en'
+            ? 'No recipes currently registered for this concept in the catalog.'
+            : currentLang === 'de'
+            ? 'Derzeit sind für dieses Konzept keine Rezepte im Katalog registriert.'
+            : 'No hay recetas registradas actualmente para este concepto en el catálogo.'}
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recipesWithBadges.map((r) => {
+            const recipeTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
+            const recipeDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
+            const recipeSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
+
+            return (
+              <article class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-200 flex flex-col justify-between group">
+                <div>
+                  <div class="h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
+                    <img
+                      src={r.image || '/images/clasica.jpg'}
+                      alt={recipeTitle}
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                      <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFB800] text-[#292521] border border-amber-300 shadow-2xs">
+                        {r.prepTimeMinutes + r.cookTimeMinutes} min
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="p-5 space-y-3">
+                    <h3 class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors">
+                      {recipeTitle}
+                    </h3>
+                    <p class="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                      {recipeDesc}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="p-5 pt-0">
+                  <a
+                    href={`/${currentLang}/recipes/${recipeSlug}`}
+                    class="inline-flex items-center justify-center w-full px-4 py-2 rounded-xl bg-[#F5E6BE] text-[#8D6E63] font-bold text-xs border border-amber-300 hover:bg-[#FFB800] hover:text-[#292521] transition-colors"
+                  >
+                    {currentLang === 'en' ? 'View Recipe' : currentLang === 'de' ? 'Rezept ansehen' : 'Ver Receta'}
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </section>
+  </div>
+  )}
+</Layout>

@@ -1,5 +1,7 @@
 {
   "id": "paisana",
+  "contentId": "recipe.paisana",
+  "translationKey": "recipe-paisana",
   "slug": {
     "es": "tortilla-paisana",
     "en": "paisana-spanish-omelette",
@@ -22,7 +24,7 @@
     "ingredient:potato",
     "ingredient:egg",
     "ingredient:onion",
-    "ingredient:pepper",
+    "ingredient:cherryPepper",
     "style:rustic",
     "style:vegetable_rich",
     "technique:confit",

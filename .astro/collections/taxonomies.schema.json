@@ -8,6 +8,12 @@
     "type": {
       "type": "string"
     },
+    "contentId": {
+      "type": "string"
+    },
+    "translationKey": {
+      "type": "string"
+    },
     "slug": {
       "type": "object",
       "properties": {
@@ -140,6 +146,27 @@
       "type": "array",
       "items": {
         "type": "string"
+      }
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ]
       }
     },
     "$schema": {

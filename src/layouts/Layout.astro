@@ -1,15 +1,20 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import type { BreadcrumbItem } from '@/components/navigation/Breadcrumbs';
 
 interface Props {
-  title?: string;
-  description?: string;
-  lang?: string;
+  title: string;
+  description: string;
+  lang: 'es' | 'en' | 'de' | (string & {});
   image?: string;
   type?: string;
   schema?: Record<string, any> | Array<Record<string, any>>;
   showHeader?: boolean;
   showFooter?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+  canonical?: string;
+  customHreflangs?: Array<{ lang: string; href: string }>;
+  noindex?: boolean;
 }
 
 const props = Astro.props;

@@ -1,6 +1,7 @@
 {
   "id": "concebollistas",
   "type": "faction",
+  "contentId": "faction.concebollistas",
   "slug": {
     "es": "concebollistas",
     "en": "onion-lovers",

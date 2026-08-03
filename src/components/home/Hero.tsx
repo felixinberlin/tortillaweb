@@ -77,7 +77,7 @@ export default function Hero({ lang = "es" }: HeroProps) {
         >
           <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-amber-100 shadow-xl border border-border">
             <img
-              src="/images/clasica.jpg"
+              src="/images/hero.jpg"
               alt={t("hero.title")}
               referrerPolicy="no-referrer"
               className="h-full w-full object-cover"

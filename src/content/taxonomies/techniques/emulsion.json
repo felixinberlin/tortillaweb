@@ -1,0 +1,21 @@
+{
+  "id": "emulsion",
+  "type": "technique",
+  "contentId": "technique.emulsion",
+  "slug": {
+    "es": "emulsion-caliente",
+    "en": "warm-emulsion",
+    "de": "warme-emulsion"
+  },
+  "title": {
+    "es": "Emulsión Caliente de Yema y Aceite",
+    "en": "Warm Yolk & Oil Emulsion",
+    "de": "Warme Eigelb-Öl-Emulsion"
+  },
+  "description": {
+    "es": "Integración del aceite libre de la patata confitada con la lecitina de la yema para lograr la textura cremosa definitiva.",
+    "en": "Binding free olive oil from confited potatoes with yolk lecithin to form a velvety emulsion.",
+    "de": "Verbindung von freiem Olivenöl mit Eigelb-Lecithin zu einer samtigen Creme."
+  },
+  "icon": "Droplet"
+}

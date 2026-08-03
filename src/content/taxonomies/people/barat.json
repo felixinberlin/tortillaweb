@@ -1,6 +1,7 @@
 {
   "id": "barat",
   "type": "person",
+  "contentId": "person.barat",
   "slug": {
     "es": "jose-manuel-barat",
     "en": "jose-manuel-barat",

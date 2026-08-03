@@ -1,0 +1,180 @@
+{
+  "id": "quesoazul",
+  "contentId": "recipe.quesoazul",
+  "translationKey": "recipe-quesoazul",
+  "slug": {
+    "es": "tortilla-queso-azul",
+    "en": "blue-cheese-spanish-omelette",
+    "de": "blauschimmelkaese-spanische-tortilla"
+  },
+  "title": {
+    "es": "Tortilla con Queso Azul",
+    "en": "Spanish Omelette with Blue Cheese",
+    "de": "Spanische Tortilla mit Blauschimmelkäse"
+  },
+  "description": {
+    "es": "Una variante de autor sabrosa e intensa donde el queso azul cremoso se funde en el interior de la jugosa tortilla de patatas.",
+    "en": "A flavorful gourmet variation where creamy blue cheese melts right inside the juicy potato omelette.",
+    "de": "Eine schmackhafte Gourmet-Variante, bei der cremiger Blauschimmelkäse im Inneren der saftigen Kartoffel-Tortilla schmilzt."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "technique:confit",
+    "difficulty:medium"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/quesoazul.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
+    },
+    {
+      "id": "quesoazul",
+      "ingredientId": "quesoazul",
+      "name": {
+        "es": "Queso Azul",
+        "en": "Blue Cheese",
+        "de": "Blauschimmelkäse"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "Queso azul o Cabrales desmenuzado",
+        "en": "Crumble blue cheese or Cabrales",
+        "de": "Zerbröckelter Blauschimmelkäse oder Cabrales"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Cortar las patatas",
+        "en": "Slice the potatoes",
+        "de": "Kartoffeln schneiden"
+      },
+      "text": {
+        "es": "Pelar las patatas y cortarlas en láminas finas.",
+        "en": "Peel the potatoes and cut them into thin slices.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden."
+      }
+    },
+    {
+      "step": {
+        "es": "Pochar las patatas",
+        "en": "Slow-cook the potatoes",
+        "de": "Kartoffeln langsam garen"
+      },
+      "text": {
+        "es": "Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.",
+        "en": "Cook the potatoes in plenty of olive oil over medium-low heat until tender.",
+        "de": "Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Mezclar con huevo y queso azul",
+        "en": "Mix with eggs and blue cheese",
+        "de": "Mit Ei und Blauschimmelkäse vermischen"
+      },
+      "text": {
+        "es": "Batir los huevos con sal, añadir las patatas escurridas y el queso azul desmenuzado.",
+        "en": "Beat eggs with salt, add drained potatoes and crumbled blue cheese.",
+        "de": "Eier mit Salz schlagen, abgetropfte Kartoffeln und zerbröckelten Blauschimmelkäse dazugeben."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
+      },
+      "text": {
+        "es": "Cuajar a fuego medio para lograr un corazón meloso con el queso derretido.",
+        "en": "Cook over medium heat to achieve a creamy melted cheese center.",
+        "de": "Bei mittlerer Hitze braten, um ein geschmolzenes Käsezentrum zu erhalten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Variante de Autor con Queso Azul",
+      "description": {
+        "es": "Receta de autor que combina el dulzor de la patata pochada con la potencia del queso azul.",
+        "en": "Gourmet recipe combining sweet poached potato with bold blue cheese flavor.",
+        "de": "Gourmet-Rezept, das die Süße gedünsteter Kartoffeln mit kräftigem Blauschimmelkäse kombiniert."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

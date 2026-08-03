@@ -1,5 +1,7 @@
 {
   "id": "betanzos",
+  "contentId": "recipe.betanzos",
+  "translationKey": "recipe-betanzos",
   "slug": {
     "es": "tortilla-betanzos",
     "en": "betanzos-style-spanish-omelette",

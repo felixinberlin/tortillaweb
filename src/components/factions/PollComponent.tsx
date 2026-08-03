@@ -57,10 +57,13 @@ export default function PollComponent({ lang = "es" }: PollComponentProps) {
         {options.map((opt) => {
           const isSelected = selected === opt.id;
           return (
-            <div
+            <button
               key={opt.id}
+              type="button"
+              disabled={hasVoted}
+              aria-pressed={isSelected}
               onClick={() => !hasVoted && handleVote(opt.id)}
-              className={`p-4 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
+              className={`w-full text-left p-4 rounded-xl border transition-all cursor-pointer flex items-center justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800] disabled:cursor-default ${
                 isSelected
                   ? "bg-[#F5E6BE] border-[#FFB800] shadow-2xs"
                   : "bg-white border-[#E8E2D5] hover:border-amber-300"
@@ -86,7 +89,7 @@ export default function PollComponent({ lang = "es" }: PollComponentProps) {
                   <span className="font-mono text-xs font-bold text-[#8D6E63]">{opt.pct}%</span>
                 </div>
               )}
-            </div>
+            </button>
           );
         })}
       </div>

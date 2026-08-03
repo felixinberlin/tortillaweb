@@ -1,6 +1,7 @@
 {
   "id": "egg",
   "type": "ingredient",
+  "contentId": "ingredient.egg",
   "slug": {
     "es": "huevo",
     "en": "egg",
@@ -16,5 +17,14 @@
     "en": "The emulsifying nexus. Free-range eggs ensure rich golden color and creamy emulsion.",
     "de": "Eier aus Freilandhaltung garantieren eine goldene Farbe und maximale Sämigkeit."
   },
-  "icon": "Egg"
+  "icon": "Egg",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "structural_partner" },
+    { "type": "ingredient", "id": "oil", "relationship": "emulsion_partner" },
+    { "type": "technique", "id": "coagulation", "relationship": "thermal_process" },
+    { "type": "technique", "id": "emulsion", "relationship": "physicochemical_process" },
+    { "type": "recipe", "id": "clasica", "relationship": "featured_recipe" },
+    { "type": "recipe", "id": "betanzos", "relationship": "featured_recipe" },
+    { "type": "history", "id": "history", "relationship": "food_systems" }
+  ]
 }

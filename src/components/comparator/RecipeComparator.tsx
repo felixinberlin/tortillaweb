@@ -44,7 +44,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
     return str;
   }
 
-  const translations = {
+  const translationsMap = {
     es: {
       title: "Comparador Nutricional y DNA de Tortilla",
       subtitle: "Conversión matemática estandarizada por cada huevo (1 Huevo = Unidad Fundamental)",
@@ -99,7 +99,8 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
       equal: "Gleich (0%)",
       classificationTitle: "Normalisiertes Kulinarisches Profil",
     },
-  }[lang as "es" | "en" | "de"] || translations.es;
+  };
+  const translations = translationsMap[lang as "es" | "en" | "de"] || translationsMap.es;
 
   if (!comparison) return null;
 

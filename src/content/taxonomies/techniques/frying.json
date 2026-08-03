@@ -1,6 +1,7 @@
 {
   "id": "frying",
   "type": "technique",
+  "contentId": "technique.frying",
   "slug": {
     "es": "fritura-crujiente",
     "en": "crispy-frying",

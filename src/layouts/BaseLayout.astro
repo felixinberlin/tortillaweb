@@ -2,34 +2,59 @@
 import '@/index.css';
 import Header from '@/components/layout/Header.tsx';
 import Footer from '@/components/layout/Footer.tsx';
-import { getCanonicalUrl, getHreflangs } from '@/lib/seo';
+import Breadcrumbs, { type BreadcrumbItem } from '@/components/navigation/Breadcrumbs.tsx';
+import { getCanonicalUrl, SITE_URL } from '@/lib/seo';
+import { getTranslationLookup, findTranslationURL } from '@/lib/translationLookup';
 
 interface Props {
-  title?: string;
-  description?: string;
-  lang?: string;
+  title: string;
+  description: string;
+  lang: 'es' | 'en' | 'de' | (string & {});
   image?: string;
   type?: string;
   schema?: Record<string, any> | Array<Record<string, any>>;
   showHeader?: boolean;
   showFooter?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+  canonical?: string;
+  customHreflangs?: Array<{ lang: string; href: string }>;
+  noindex?: boolean;
 }
 
 const {
-  title = "Tortilla de Patatas - Guía Culinaria & Calculadora Científica",
-  description = "Portal internacional sobre la tortilla de patatas: recetas tradicionales (Betanzos, con cebolla), proporciones calculadas, historia y parámetros de seguridad alimentaria bactericida.",
-  lang = "es",
+  title,
+  description,
+  lang,
   image = "/images/clasica.jpg",
   type = "website",
   schema,
   showHeader = true,
   showFooter = true,
+  breadcrumbs,
+  canonical,
+  customHreflangs,
+  noindex = false,
 } = Astro.props;
 
-const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
-const hreflangs = getHreflangs(Astro.url.pathname);
+const lookup = await getTranslationLookup();
+
+const defaultHreflangs = [
+  { lang: 'es', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'es', lookupData: lookup })}` },
+  { lang: 'en', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'en', lookupData: lookup })}` },
+  { lang: 'de', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'de', lookupData: lookup })}` },
+  { lang: 'x-default', href: `${SITE_URL}${findTranslationURL({ currentPath: Astro.url.pathname, targetLang: 'es', lookupData: lookup })}` },
+];
+
+const rawCanonical = canonical || getCanonicalUrl(Astro.url.pathname);
+const canonicalUrl = rawCanonical.startsWith('http://') || rawCanonical.startsWith('https://')
+  ? rawCanonical
+  : `${SITE_URL}${rawCanonical.startsWith('/') ? rawCanonical : `/${rawCanonical}`}`;
+
+const hreflangs = customHreflangs || defaultHreflangs;
 const siteName = "tortilladepatatas.org";
-const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.org${image}`;
+const imageUrl = image.startsWith('http://') || image.startsWith('https://')
+  ? image
+  : `${SITE_URL}${image.startsWith('/') ? image : `/${image}`}`;
 ---
 
 <!doctype html>
@@ -46,6 +71,7 @@ const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.o
     <meta name="description" content={description} />
     <meta name="keywords" content="tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, 70°C 2 minutos" />
     <meta name="author" content="tortilladepatatas.org" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalUrl} />
@@ -109,7 +135,17 @@ const imageUrl = image.startsWith('http') ? image : `https://tortilladepatatas.o
   </head>
   <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
     {showHeader && (
-      <Header lang={lang} currentPath={Astro.url.pathname} client:load />
+      <>
+        <Header
+          lang={lang}
+          currentPath={Astro.url.pathname}
+          customHreflangs={hreflangs}
+          translationMap={lookup.translationMap}
+          urlToKey={lookup.urlToKey}
+          client:load
+        />
+        <Breadcrumbs lang={lang} currentPath={Astro.url.pathname} items={breadcrumbs} client:load />
+      </>
     )}
 
     <main id="main-content" class="flex-1 w-full">

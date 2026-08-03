@@ -1,6 +1,7 @@
 {
   "id": "garlic",
   "type": "ingredient",
+  "contentId": "ingredient.garlic",
   "slug": {
     "es": "ajo",
     "en": "garlic",

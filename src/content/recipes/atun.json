@@ -1,0 +1,180 @@
+{
+  "id": "atun",
+  "contentId": "recipe.atun",
+  "translationKey": "recipe-atun",
+  "slug": {
+    "es": "tortilla-atun",
+    "en": "tuna-spanish-omelette",
+    "de": "thunfisch-spanische-tortilla"
+  },
+  "title": {
+    "es": "Tortilla con Atún",
+    "en": "Spanish Omelette with Tuna",
+    "de": "Spanische Tortilla mit Thunfisch"
+  },
+  "description": {
+    "es": "Una opción clásica del recetario mediterráneo que añade lomos o migas de atún de calidad a la masa de patata y huevo.",
+    "en": "A classic Mediterranean variation adding quality tuna flakes to the potato and egg mixture.",
+    "de": "Eine klassische mediterrane Variante, die der Kartoffel-Ei-Masse hochwertigen Thunfisch hinzufügt."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "technique:confit",
+    "difficulty:easy"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/con-atun.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
+    },
+    {
+      "id": "atun",
+      "ingredientId": "atun",
+      "name": {
+        "es": "Atún en Aceite de Oliva",
+        "en": "Tuna in Olive Oil",
+        "de": "Thunfisch in Olivenöl"
+      },
+      "amount": 120,
+      "unit": "g",
+      "notes": {
+        "es": "Atún o bonito en conserva escurrido",
+        "en": "Canned tuna drained",
+        "de": "Abtropfter Thunfisch aus der Dose"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Cortar las patatas",
+        "en": "Slice the potatoes",
+        "de": "Kartoffeln schneiden"
+      },
+      "text": {
+        "es": "Pelar las patatas y cortarlas en láminas finas.",
+        "en": "Peel the potatoes and cut them into thin slices.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden."
+      }
+    },
+    {
+      "step": {
+        "es": "Pochar las patatas",
+        "en": "Slow-cook the potatoes",
+        "de": "Kartoffeln langsam garen"
+      },
+      "text": {
+        "es": "Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.",
+        "en": "Cook the potatoes in plenty of olive oil over medium-low heat until tender.",
+        "de": "Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Mezclar con huevo y atún",
+        "en": "Mix with eggs and tuna",
+        "de": "Mit Ei und Thunfisch vermischen"
+      },
+      "text": {
+        "es": "Batir los huevos con sal, incorporar las patatas escurridas y el atún desmigado.",
+        "en": "Beat eggs with salt, incorporate drained potatoes and flaked tuna.",
+        "de": "Eier mit Salz schlagen, abgetropfte Kartoffeln und zerkleinerten Thunfisch unterrühren."
+      }
+    },
+    {
+      "step": {
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
+      },
+      "text": {
+        "es": "Cocinar en sartén antiadherente caliente unos minutos por cada lado hasta conseguir un dorado jugoso.",
+        "en": "Cook in a hot non-stick pan for a few minutes per side until juicy and golden.",
+        "de": "In einer heißen beschichteten Pfanne einige Minuten von jeder Seite goldbraun und saftig braten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Receta Tradicional con Atún",
+      "description": {
+        "es": "Especialidad casera mediterránea popular en tascas y hogares.",
+        "en": "Popular home-style Mediterranean specialty found in taverns and Spanish homes.",
+        "de": "Beliebte mediterrane Spezialität nach Hausfrauenart."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

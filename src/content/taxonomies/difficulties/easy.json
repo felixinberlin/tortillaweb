@@ -1,6 +1,7 @@
 {
   "id": "easy",
   "type": "difficulty",
+  "contentId": "difficulty.easy",
   "slug": {
     "es": "facil",
     "en": "easy",

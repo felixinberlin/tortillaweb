@@ -1,6 +1,7 @@
 {
   "id": "medium",
   "type": "difficulty",
+  "contentId": "difficulty.medium",
   "slug": {
     "es": "media",
     "en": "medium",

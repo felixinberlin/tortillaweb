@@ -1,0 +1,609 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FactionsPage from '@/components/factions/FactionsPage';
+import TechniquesPage from '@/components/techniques/TechniquesPage';
+import { 
+  TAXONOMY_ROUTING_MAP, 
+  getTaxonomyTypeFromRoute, 
+  getTaxonomyRoutePrefix, 
+  getAllTaxonomies,
+  getTaxonomyTypeLabel,
+  getTaxonomyUrl
+} from '@/lib/taxonomy';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { 
+  generateBreadcrumbSchema, 
+  generateArticleSchema, 
+  generateFAQSchema, 
+  SITE_URL 
+} from '@/lib/seo';
+import { getCollection } from 'astro:content';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { 
+  Sparkles, Egg, Sprout, Droplet, Circle, Cherry, ShieldCheck, PlusCircle, ArrowRight,
+  Palette, MapPin, Utensils, ChefHat, BookOpen, Scale
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  const paths: Array<{ params: { lang: string; taxonomyType: string }; props: { canonicalType: string; lang: string } }> = [];
+
+  for (const lang of supportedLanguages) {
+    const langMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
+    
+    // 1. Primary localized route segments for this language
+    for (const [canonicalType, mappedSegment] of Object.entries(langMap)) {
+      paths.push({
+        params: { lang, taxonomyType: mappedSegment },
+        props: { canonicalType, lang },
+      });
+    }
+
+    // 2. Secondary fallback route segments across all languages
+    for (const lMap of Object.values(TAXONOMY_ROUTING_MAP)) {
+      for (const [canonicalType, mappedSegment] of Object.entries(lMap)) {
+        if (!paths.some((p) => p.params.lang === lang && p.params.taxonomyType === mappedSegment)) {
+          paths.push({
+            params: { lang, taxonomyType: mappedSegment },
+            props: { canonicalType, lang },
+          });
+        }
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { lang = 'es', taxonomyType = '' } = Astro.params;
+const { canonicalType: propCanonicalType } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const canonicalType = propCanonicalType || getTaxonomyTypeFromRoute(taxonomyType, currentLang) || 'ingredient';
+
+const t = getTranslations(currentLang);
+const allTaxonomies = await getAllTaxonomies();
+const pagesCollection = await getCollection('pages');
+
+// Localized route metadata
+const sectionLabel = getTaxonomyTypeLabel(canonicalType, currentLang);
+const canonicalPrefix = getTaxonomyRoutePrefix(canonicalType, currentLang);
+const sectionUrl = `/${currentLang}/${canonicalPrefix}`;
+
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: sectionLabel, url: sectionUrl },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
+
+// INGREDIENTS PREPARATION
+const getIngredientUrl = (taxonomyId: string) => {
+  const item = allTaxonomies.find(t => t.type === 'ingredient' && t.id === taxonomyId);
+  const slug = item ? (item.slug[currentLang as keyof typeof item.slug] || item.slug.es) : taxonomyId;
+  const prefix = getTaxonomyRoutePrefix('ingredient', currentLang);
+  return `/${currentLang}/${prefix}/${slug}`;
+};
+
+const sacredIngredients = [
+  {
+    key: "potatoes",
+    taxonomyId: "potato",
+    icon: Sprout,
+    image: "/images/ingredients/potato_editorial_card.jpg",
+    badge: "Monalisa / Kennebec / Agria",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
+  },
+  {
+    key: "eggs",
+    taxonomyId: "egg",
+    icon: Egg,
+    image: "/images/ingredients/egg_editorial_card.jpg",
+    badge: "Frescos Categoría 0 / 1",
+    badgeColor: "bg-yellow-100 text-yellow-900 border-yellow-300",
+    iconColor: "text-yellow-700 bg-yellow-100/80 border-yellow-200",
+  },
+  {
+    key: "oil",
+    taxonomyId: "oil",
+    icon: Droplet,
+    image: "/images/ingredients/olive_oil_editorial_card.jpg",
+    badge: "AOVE (Arbequina / Picual)",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    iconColor: "text-emerald-700 bg-emerald-100/80 border-emerald-200",
+  },
+  {
+    key: "salt",
+    taxonomyId: "salt",
+    icon: Sparkles,
+    image: "/images/ingredients/salt_editorial_card.jpg",
+    badge: "Sal Marina Fina",
+    badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
+    iconColor: "text-blue-700 bg-blue-100/80 border-blue-200",
+  },
+];
+
+const optionalIngredients = [
+  {
+    key: "onion",
+    taxonomyId: "onion",
+    icon: Circle,
+    image: "/images/ingredients/onion_editorial_card.jpg",
+    badge: "Opcional - Cebolla Dulce",
+    badgeColor: "bg-orange-100 text-orange-900 border-orange-300",
+    iconColor: "text-orange-700 bg-orange-100/80 border-orange-200",
+  },
+  {
+    key: "garlic",
+    taxonomyId: "garlic",
+    icon: Sparkles,
+    image: "/images/ingredients/garlic_editorial_card.jpg",
+    badge: "Opcional - Ajo Aromatizante",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
+  },
+  {
+    key: "cherryPepper",
+    taxonomyId: "cherryPepper",
+    icon: Cherry,
+    image: "/images/ingredients/peppers_editorial_card.jpg",
+    badge: "Opcional - Pimiento Verde / Rojo",
+    badgeColor: "bg-red-100 text-red-900 border-red-300",
+    iconColor: "text-red-700 bg-red-100/80 border-red-200",
+  },
+  {
+    key: "blackPepper",
+    taxonomyId: "blackPepper",
+    icon: Sparkles,
+    image: "/images/ingredients/black_pepper_editorial_card.jpg",
+    badge: "Opcional - Pimienta Negra (Especia)",
+    badgeColor: "bg-zinc-200 text-zinc-900 border-zinc-300",
+    iconColor: "text-zinc-800 bg-zinc-200/80 border-zinc-300",
+  },
+];
+
+// FACTIONS PREPARATION
+const factionsPageEntry = pagesCollection.find((p) => p.id === 'factions-index' || p.id.includes('factions-index'));
+const factionsPageData = factionsPageEntry ? factionsPageEntry.data : {};
+const factionTaxonomies = allTaxonomies.filter((t) => t.type === 'faction');
+
+// STYLES PREPARATION
+const styleTaxonomies = allTaxonomies.filter((item) => item.type === 'style');
+
+// REGIONS PREPARATION
+const regEntry = pagesCollection.find((p) => p.id === 'regions' || p.id.includes('regions'));
+const regContent = regEntry ? regEntry.data : null;
+
+// PERSONAS PREPARATION
+const personasEntry = pagesCollection.find((p) => p.id === 'personas-index' || p.id.includes('personas-index'));
+const personasContent = personasEntry ? personasEntry.data : null;
+
+// RESTAURANTS PREPARATION
+const restEntry = pagesCollection.find((p) => p.id === 'restaurants' || p.id.includes('restaurants'));
+const restContent = restEntry ? restEntry.data : null;
+
+// TECHNIQUES PREPARATION
+const techTaxonomies = allTaxonomies.filter((t) => t.type === 'technique');
+
+// SCHEMAS BUILDER
+let schemas = [breadcrumbSchema];
+
+if (canonicalType === 'ingredient') {
+  const ingArticleSchema = generateArticleSchema({
+    headline: t("ingredientsPage.title", "Los 4 Ingredientes Sagrados"),
+    description: t("ingredientsPage.subtitle", "La patata, el huevo, el aceite de oliva y la sal forman la columna vertebral inviolable de la auténtica tortilla española."),
+    url: `${SITE_URL}${sectionUrl}`,
+  });
+  schemas.push(ingArticleSchema);
+} else if (canonicalType === 'faction') {
+  const faqSchema = generateFAQSchema(
+    factionTaxonomies.map((f) => ({
+      question: `¿Qué caracteriza a la facción ${f.title[currentLang as keyof typeof f.title] || f.title.es}?`,
+      answer: `${f.dogma?.[currentLang as keyof typeof f.dogma] || ''} ${f.description[currentLang as keyof typeof f.description] || ''} Figuras clave: ${(f.prominentFigures || []).join(', ')}.`,
+    }))
+  );
+  const itemPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemPage',
+    '@id': `${SITE_URL}${sectionUrl}#webpage`,
+    url: `${SITE_URL}${sectionUrl}`,
+    name: `${factionsPageData.hero?.title?.[currentLang] || 'Facciones Culinarias'} | tortilladepatatas.org`,
+    description: factionsPageData.hero?.subtitle?.[currentLang] || 'Doctrinas de la tortilla de patatas',
+    inLanguage: currentLang,
+  };
+  schemas.push(faqSchema, itemPageSchema);
+} else if (canonicalType === 'technique') {
+  const techArticleSchema = generateArticleSchema({
+    headline: t("techniquesPage.title", "Técnicas y Pasos Críticos de Elaboración"),
+    description: t("techniquesPage.subtitle", "Desde el chasquido inicial de la patata hasta el volteo en la sartén."),
+    url: `${SITE_URL}${sectionUrl}`,
+  });
+  schemas.push(techArticleSchema);
+}
+---
+
+<Layout 
+  title={`${sectionLabel} | tortilladepatatas.org`} 
+  description={t(`${canonicalType}Page.subtitle`, `Explora la sección de ${sectionLabel}`)} 
+  lang={currentLang} 
+  schema={schemas}
+  breadcrumbs={breadcrumbsList}
+>
+  {canonicalType === 'ingredient' && (
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+          <Sparkles class="w-3.5 h-3.5" />
+          {t("ingredientsPage.badge", "Los Fundamentos")}
+        </Badge>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+          {t("ingredientsPage.title", "Los 4 Ingredientes Sagrados")}
+        </h1>
+        <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+          {t("ingredientsPage.subtitle", "La patata, el huevo, el aceite de oliva y la sal forman la columna vertebral inviolable de la auténtica tortilla española.")}
+        </p>
+      </div>
+
+      <!-- Hero Flatlay Image Banner -->
+      <div class="relative rounded-2xl overflow-hidden border border-[#E8E2D5] shadow-sm max-w-5xl mx-auto">
+        <div class="aspect-21/9 w-full max-h-[380px] overflow-hidden relative">
+          <img
+            src="/images/ingredients/ingredient_flatlay_hero.jpg"
+            alt="Ingredientes de la Tortilla de Patatas - Flatlay"
+            width="1200"
+            height="550"
+            loading="eager"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-6 md:p-8">
+            <p class="text-white font-serif-heading text-lg md:text-2xl font-bold drop-shadow-md">
+              Materia prima excepcional. Técnica depurada.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 1: THE 4 SACRED INGREDIENTS -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3 border-b border-[#E8E2D5] pb-4">
+          <div class="p-2 rounded-xl bg-[#FFB800]/20 text-[#8D6E63] border border-[#FFB800]/40">
+            <ShieldCheck class="w-6 h-6 text-[#8D6E63]" />
+          </div>
+          <div>
+            <h2 class="text-2xl font-serif-heading font-extrabold text-foreground">
+              {t("ingredientsPage.sacredSectionTitle", "Los 4 Sagrados e Imprescindibles")}
+            </h2>
+            <p class="text-xs sm:text-sm text-muted-foreground">
+              {t("ingredientsPage.sacredSectionSubtitle", "Sin estos cuatro elementos no existe la tortilla. La proporción justa y la máxima calidad son la clave.")}
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          {sacredIngredients.map((item, index) => {
+            const Icon = item.icon;
+            const url = getIngredientUrl(item.taxonomyId);
+            return (
+              <a href={url} key={item.key} class="group block hover:no-underline">
+                <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
+                  <div>
+                    <div class="h-48 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                      <img
+                        src={item.image}
+                        alt={t(`ingredientsPage.${item.key}.title`, item.key)}
+                        width="600"
+                        height="400"
+                        loading={index < 2 ? "eager" : "lazy"}
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                      <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                        <span class={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${item.badgeColor}`}>
+                          {item.badge}
+                        </span>
+                      </div>
+                    </div>
+
+                    <CardHeader class="pb-3 pt-4">
+                      <div class="flex items-center gap-3">
+                        <div class={`p-2.5 rounded-xl border shadow-2xs ${item.iconColor}`}>
+                          <Icon class="w-5 h-5" />
+                        </div>
+                        <div>
+                          <CardTitle class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors flex items-center gap-2">
+                            <span>{t(`ingredientsPage.${item.key}.title`, item.key)}</span>
+                            <ArrowRight class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#FFB800]" />
+                          </CardTitle>
+                          <span class="text-xs font-semibold text-[#8D6E63] block mt-0.5">
+                            {t(`ingredientsPage.${item.key}.subtitle`, '')}
+                          </span>
+                        </div>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent class="pb-4">
+                      <p class="text-muted-foreground leading-relaxed text-xs sm:text-sm">
+                        {t(`ingredientsPage.${item.key}.desc`, '')}
+                      </p>
+                    </CardContent>
+                  </div>
+                  
+                  <div class="p-4 pt-0 border-t border-[#E8E2D5]/50 bg-[#F5E6BE]/20 mt-2 flex items-center justify-between text-xs font-bold text-[#8D6E63] group-hover:text-[#292521] transition-colors">
+                    <span>{currentLang === 'en' ? 'View Complete Monograph' : currentLang === 'de' ? 'Vollständige Monographie ansehen' : 'Ver Monografía Completa'}</span>
+                    <ArrowRight class="w-3.5 h-3.5 text-[#FFB800]" />
+                  </div>
+                </Card>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- SECTION 2: OPTIONAL INGREDIENTS & VARIATIONS -->
+      <div class="space-y-6 pt-4">
+        <div class="flex items-center gap-3 border-b border-[#E8E2D5] pb-4">
+          <div class="p-2 rounded-xl bg-orange-100 text-orange-800 border border-orange-200">
+            <PlusCircle class="w-6 h-6" />
+          </div>
+          <div>
+            <h2 class="text-2xl font-serif-heading font-extrabold text-foreground">
+              {t("ingredientsPage.optionalSectionTitle", "Ingredientes Opcionales y Variaciones")}
+            </h2>
+            <p class="text-xs sm:text-sm text-muted-foreground">
+              {t("ingredientsPage.optionalSectionSubtitle", "Acompañantes tradicionales y toques personales que enriquecen o transforman la receta.")}
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {optionalIngredients.map((item) => {
+            const Icon = item.icon;
+            const url = getIngredientUrl(item.taxonomyId);
+            return (
+              <a href={url} key={item.key} class="group block hover:no-underline">
+                <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
+                  <div>
+                    <div class="h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                      <img
+                        src={item.image}
+                        alt={t(`ingredientsPage.${item.key}.title`, item.key)}
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
+                        referrerPolicy="no-referrer"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                      <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                        <span class={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${item.badgeColor}`}>
+                          {item.badge}
+                        </span>
+                      </div>
+                    </div>
+
+                    <CardHeader class="pb-2 pt-4">
+                      <div class="flex items-center gap-2.5">
+                        <div class={`p-2 rounded-xl border shadow-2xs ${item.iconColor}`}>
+                          <Icon class="w-4 h-4" />
+                        </div>
+                        <div>
+                          <CardTitle class="text-lg font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors">
+                            {t(`ingredientsPage.${item.key}.title`, item.key)}
+                          </CardTitle>
+                          <span class="text-[11px] font-semibold text-[#8D6E63] block mt-0.5">
+                            {t(`ingredientsPage.${item.key}.subtitle`, '')}
+                          </span>
+                        </div>
+                      </div>
+                    </CardHeader>
+
+                    <CardContent>
+                      <p class="text-muted-foreground leading-relaxed text-xs">
+                        {t(`ingredientsPage.${item.key}.desc`, '')}
+                      </p>
+                    </CardContent>
+                  </div>
+                </Card>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  )}
+
+  {canonicalType === 'faction' && (
+    <FactionsPage lang={currentLang} factions={factionTaxonomies} pageData={factionsPageData} client:load />
+  )}
+
+  {canonicalType === 'technique' && (
+    <TechniquesPage lang={currentLang} client:load />
+  )}
+
+  {canonicalType === 'style' && (
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-10">
+      <header class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+          <Palette class="w-3.5 h-3.5" />
+          <span>Categoría Gastronómica</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground">
+          {t('nav.estilos', 'Estilos de Tortilla')}
+        </h1>
+        <p class="text-base text-muted-foreground max-w-2xl mx-auto">
+          Explora los principales estilos tradicionales y contemporáneos de tortilla de patatas.
+        </p>
+      </header>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {styleTaxonomies.map((item) => {
+          const localizedTitle = item.title[currentLang as keyof typeof item.title] || item.title.es;
+          const localizedDesc = item.description[currentLang as keyof typeof item.description] || item.description.es;
+          const localizedSlug = item.slug[currentLang as keyof typeof item.slug] || item.slug.es;
+          const itemUrl = `/${currentLang}/${getTaxonomyRoutePrefix('style', currentLang)}/${localizedSlug}`;
+
+          return (
+            <a href={itemUrl} class="group block hover:no-underline">
+              <Card class="card-notebook p-6 h-full flex flex-col justify-between hover:border-[#FFB800] transition-all">
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-1 rounded-full">
+                      Estilo Culinario
+                    </span>
+                    <ArrowRight class="w-4 h-4 text-[#FFB800] group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <h2 class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63]">
+                    {localizedTitle}
+                  </h2>
+                  <p class="text-xs sm:text-sm text-muted-foreground line-clamp-3">
+                    {localizedDesc}
+                  </p>
+                </div>
+              </Card>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  )}
+
+  {canonicalType === 'region' && (
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+      <header class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+          <MapPin class="w-3.5 h-3.5" />
+          <span>{regContent?.badge?.[currentLang] || 'Geografía Gastronómica'}</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground">
+          {regContent?.title?.[currentLang] || 'Regiones & Variaciones de España'}
+        </h1>
+        <p class="text-base text-muted-foreground max-w-2xl mx-auto">
+          {regContent?.subtitle?.[currentLang] || 'Expresiones regionales de la tortilla de patatas.'}
+        </p>
+      </header>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {(regContent?.regions || []).map((region: any) => (
+          <Card class="card-notebook p-6 space-y-3">
+            <h2 class="text-xl font-serif-heading font-bold text-foreground">
+              {region.name?.[currentLang] || region.name?.es}
+            </h2>
+            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              {region.description?.[currentLang] || region.description?.es}
+            </p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {canonicalType === 'person' && (
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
+      <header class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+          <ChefHat class="w-3.5 h-3.5" />
+          <span>{personasContent?.badge?.[currentLang] || 'Pioneros & Referentes'}</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground">
+          {personasContent?.title?.[currentLang] || 'Personajes Clave del Universo Tortilla'}
+        </h1>
+        <p class="text-base text-muted-foreground max-w-2xl mx-auto">
+          {personasContent?.subtitle?.[currentLang] || 'Chefs, divulgadores e historiadores que han marcado la historia de la tortilla.'}
+        </p>
+      </header>
+
+      {(personasContent?.categories || []).map((cat: any) => (
+        <section class="space-y-6">
+          <h2 class="text-2xl font-serif-heading font-bold border-b border-[#E8E2D5] pb-2 text-foreground">
+            {cat.title?.[currentLang] || cat.title?.es}
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {(cat.personas || []).map((person: any) => (
+              <Card class="card-notebook p-6 space-y-3 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-3 mb-3">
+                    <img 
+                      src={person.image || '/images/personas/persona_placeholder.jpg'} 
+                      alt={person.name} 
+                      width="56"
+                      height="56"
+                      class="w-14 h-14 rounded-full object-cover border-2 border-[#E8E2D5]" 
+                    />
+                    <div>
+                      <h3 class="font-serif-heading font-bold text-lg text-foreground">{person.name}</h3>
+                      <span class="text-xs text-[#8D6E63] font-medium">{person.title}</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-muted-foreground leading-relaxed">{person.bio}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  )}
+
+  {canonicalType === 'restaurant' && (
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+      <header class="text-center max-w-3xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+          <Utensils class="w-3.5 h-3.5" />
+          <span>{restContent?.badge?.[currentLang] || 'Guía Culinaria & Templos'}</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground">
+          {restContent?.title?.[currentLang] || 'Restaurantes & Templos de la Tortilla'}
+        </h1>
+        <p class="text-base text-muted-foreground max-w-2xl mx-auto">
+          {restContent?.subtitle?.[currentLang] || 'Los establecimientos más aclamados de España.'}
+        </p>
+      </header>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {(restContent?.restaurants || []).map((rest: any) => (
+          <Card class="card-notebook p-6 space-y-3">
+            <div class="flex items-center justify-between">
+              <h2 class="text-xl font-serif-heading font-bold text-foreground">
+                {rest.name}
+              </h2>
+              <span class="text-xs font-bold text-[#8D6E63] bg-[#F5E6BE] px-2.5 py-1 rounded-full">
+                {rest.location}
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              {rest.description?.[currentLang] || rest.description?.es}
+            </p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {!['ingredient', 'faction', 'technique', 'style', 'region', 'person', 'restaurant'].includes(canonicalType) && (
+    <div class="container mx-auto px-4 py-10 max-w-5xl space-y-8">
+      <h1 class="text-3xl font-serif-heading font-bold text-foreground">{sectionLabel}</h1>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {allTaxonomies.filter((t) => t.type === canonicalType).map((item) => {
+          const localizedTitle = item.title[currentLang as keyof typeof item.title] || item.title.es;
+          const localizedDesc = item.description[currentLang as keyof typeof item.description] || item.description.es;
+          const itemUrl = getTaxonomyUrl(canonicalType, item.slug[currentLang as keyof typeof item.slug] || item.slug.es, currentLang);
+
+          return (
+            <a href={itemUrl} class="group block hover:no-underline">
+              <Card class="card-notebook p-6 hover:border-[#FFB800] transition-all">
+                <h2 class="text-lg font-bold group-hover:text-[#8D6E63]">{localizedTitle}</h2>
+                <p class="text-xs text-muted-foreground mt-2 line-clamp-3">{localizedDesc}</p>
+              </Card>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  )}
+</Layout>

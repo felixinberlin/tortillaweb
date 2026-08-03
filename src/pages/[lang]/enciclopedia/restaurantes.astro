@@ -1,11 +1,14 @@
 ---
-import RestaurantesPage from '../restaurantes.astro';
 import { supportedLanguages } from '@/lib/i18n';
+import { getTaxonomyRoutePrefix } from '@/lib/taxonomy';
 
 export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
     params: { lang },
   }));
 }
+
+const { lang = 'es' } = Astro.params;
+const prefix = getTaxonomyRoutePrefix('restaurant', lang);
+return Astro.redirect(`/${lang}/${prefix}`);
 ---
-<RestaurantesPage />

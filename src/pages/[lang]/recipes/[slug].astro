@@ -1,9 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import LocalizedLink from '@/components/navigation/LocalizedLink';
 import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateRecipeSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
-import { Clock, Users, BookOpen, ExternalLink, Shield } from 'lucide-react';
+import { Clock, Users, BookOpen, ExternalLink, Shield, ChefHat } from 'lucide-react';
+import { assertEntityExists } from '@/lib/routing/assertEntity';
+import { getRelatedRecipes, getRelatedIngredients, getRelatedTaxonomies } from '@/lib/content/related';
 
 export async function getStaticPaths() {
   const recipes = await getAllRecipes();
@@ -32,22 +35,36 @@ export async function getStaticPaths() {
 }
 
 const { recipe, lang } = Astro.props;
-const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de')
+  ? lang
+  : (Astro.params.lang === 'en' || Astro.params.lang === 'de' ? Astro.params.lang : 'es');
+
 const t = getTranslations(currentLang);
 
-const title = recipe.title[currentLang as keyof typeof recipe.title] || recipe.title.es;
-const description = recipe.description[currentLang as keyof typeof recipe.description] || recipe.description.es;
-const badges = await resolveRecipeBadges(recipe.taxonomyIds, currentLang);
+// Validate content entity existence - sets Astro.response.status = 404 when invalid
+const isValidRoute = assertEntityExists(Astro, recipe);
 
-const currentUrl = `${SITE_URL}/${currentLang}/recipes/${Astro.params.slug}`;
+const title = isValidRoute && recipe
+  ? (recipe.title[currentLang as keyof typeof recipe.title] || recipe.title.es)
+  : t("notFound.subheading", "Receta no encontrada");
 
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Inicio', url: `/${currentLang}` },
-  { name: 'Recetas', url: `/${currentLang}/recipes` },
-  { name: title, url: currentUrl },
-]);
+const description = isValidRoute && recipe
+  ? (recipe.description[currentLang as keyof typeof recipe.description] || recipe.description.es)
+  : t("notFound.description", "La receta solicitada no existe.");
 
-const ingredientsList = recipe.ingredients 
+const badges = (isValidRoute && recipe) ? await resolveRecipeBadges(recipe.taxonomyIds, currentLang) : [];
+
+const currentUrl = isValidRoute ? `${SITE_URL}/${currentLang}/recipes/${Astro.params.slug}` : undefined;
+
+const breadcrumbsList = isValidRoute ? [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'de' ? 'Rezepte' : currentLang === 'en' ? 'Recipes' : 'Recetas', url: `/${currentLang}/recipes` },
+  { name: title, url: `/${currentLang}/recipes/${Astro.params.slug}` },
+] : [];
+
+const breadcrumbSchema = isValidRoute ? generateBreadcrumbSchema(breadcrumbsList) : undefined;
+
+const ingredientsList = isValidRoute && recipe?.ingredients 
   ? recipe.ingredients.map((i) => {
       if (typeof i === 'string') return i;
       const note = i.notes ? (i.notes[currentLang as keyof typeof i.notes] || i.notes.es) : undefined;
@@ -55,159 +72,228 @@ const ingredientsList = recipe.ingredients
       const name = i.name[currentLang as keyof typeof i.name] || i.name.es;
       return `${i.amount}${i.unit === 'unit' ? '' : i.unit} ${name}`;
     })
-  : ['600g Patatas Monalisa', '6 Huevos camperos', '150ml Aceite de oliva virgen extra', '6g Sal fina'];
+  : [];
 
-const instructionsList = recipe.instructions
+const instructionsList = isValidRoute && recipe?.instructions
   ? recipe.instructions.map((inst) => ({
       step: inst.step[currentLang as keyof typeof inst.step] || inst.step.es,
       text: inst.text[currentLang as keyof typeof inst.text] || inst.text.es,
     }))
-  : [
-      { step: 'Cortar', text: 'Pelar y cortar las patatas en láminas finas.' },
-      { step: 'Confitar', text: 'Confitar en abundante AOVE a fuego medio-bajo.' },
-      { step: 'Mezclar', text: 'Batir los huevos con la sal y agregar las patatas.' },
-      { step: 'Cuajar', text: 'Cuajar a fuego vivo 1 minuto por cada lado.' },
-    ];
+  : [];
 
-const recipeSchema = generateRecipeSchema({
+const recipeSchema = (isValidRoute && recipe) ? generateRecipeSchema({
   name: title,
   description: description,
-  image: recipe.image || '/images/clasica.jpg',
-  prepTimeMinutes: recipe.prepTimeMinutes || 15,
-  cookTimeMinutes: recipe.cookTimeMinutes || 20,
-  yieldServings: recipe.yieldServings || 4,
+  image: recipe.image,
+  prepTimeMinutes: recipe.prepTimeMinutes,
+  cookTimeMinutes: recipe.cookTimeMinutes,
+  yieldServings: recipe.yieldServings,
   ingredients: ingredientsList,
   instructions: instructionsList,
-});
+}) : undefined;
 
-const schemas = [breadcrumbSchema, recipeSchema];
+const schemas = isValidRoute ? [breadcrumbSchema, recipeSchema].filter(Boolean) : undefined;
+
+const recipeHreflangs = (isValidRoute && recipe) ? supportedLanguages.map((l) => ({
+  lang: l,
+  href: `${SITE_URL}/${l}/recipes/${recipe.slug[l as keyof typeof recipe.slug] || recipe.slug.es}`,
+})) : undefined;
+
+if (isValidRoute && recipe && recipeHreflangs) {
+  recipeHreflangs.push({
+    lang: 'x-default',
+    href: `${SITE_URL}/es/recipes/${recipe.slug.es}`,
+  });
+}
+
+const pageTitle = isValidRoute ? `${title} - Receta | tortilladepatatas.org` : `404: ${title} | tortilladepatatas.org`;
+
+const relatedRecipes = (isValidRoute && recipe) ? await getRelatedRecipes({ type: 'recipe', id: recipe.id, taxonomyIds: recipe.taxonomyIds }, currentLang) : [];
+const relatedIngredients = (isValidRoute && recipe) ? await getRelatedIngredients(recipe, currentLang) : [];
+const relatedTaxonomies = (isValidRoute && recipe) ? await getRelatedTaxonomies(recipe, currentLang) : [];
 ---
 
-<Layout title={`${title} - Receta | tortilladepatatas.org`} description={description} lang={currentLang} schema={schemas}>
-  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
-    <!-- HEADER -->
-    <header class="space-y-4 text-center">
-      <div class="flex flex-wrap justify-center gap-2">
-        {badges.map((b) => (
-          <a
-            href={b.url}
-            class="inline-flex items-center gap-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] hover:bg-amber-300 px-3 py-1 rounded-full border border-amber-300 transition-colors shadow-2xs"
-          >
-            <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
-            <span>{b.title}</span>
-          </a>
-        ))}
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} customHreflangs={recipeHreflangs} canonical={currentUrl}>
+  {!isValidRoute || !recipe ? (
+    <div class="container mx-auto px-4 py-24 text-center max-w-lg">
+      <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
+        <ChefHat class="w-10 h-10" />
       </div>
-
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight">
-        {title}
-      </h1>
-
-      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto">
-        {description}
+      <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
+      <h2 class="text-xl font-bold text-foreground mb-2 font-serif-heading">
+        {t("notFound.subheading", "Receta no encontrada")}
+      </h2>
+      <p class="text-base sm:text-lg text-muted-foreground mb-8">
+        {t("notFound.description", "La receta solicitada no existe o ha sido movida.")}
       </p>
-
-      <div class="flex items-center justify-center gap-6 text-xs font-bold text-[#8D6E63] pt-2">
-        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
-          <Clock class="w-4 h-4 text-[#FFB800]" />
-          <span>{recipe.time} min tiempo total</span>
-        </div>
-        <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
-          <Users class="w-4 h-4 text-[#FFB800]" />
-          <span>4 raciones</span>
-        </div>
-      </div>
-
-      <!-- SOURCES & AUTHORSHIP ATTRIBUTION -->
-      {(recipe.sources?.length || recipe.author) && (
-        <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-foreground/80 bg-[#FCF9F2] p-3.5 rounded-xl border border-[#E8E2D5] max-w-2xl mx-auto shadow-2xs">
-          {recipe.author && (
-            <div class="flex items-center gap-1.5 font-medium">
-              <span class="text-muted-foreground">Publicado por:</span>
-              <span class="font-bold text-[#8D6E63]">{recipe.author.name}</span>
-            </div>
-          )}
-          {recipe.sources && recipe.sources.map((src) => (
-            <div class="flex flex-wrap items-center gap-1.5 font-medium border-l border-[#E8E2D5] pl-3 first:border-l-0 first:pl-0">
-              <span class="text-muted-foreground capitalize">Origen ({src.type}):</span>
-              <span class="font-bold text-[#8D6E63]">{src.name}</span>
-              {src.description && (
-                <span class="text-foreground/70 italic">
-                  — {src.description[currentLang as keyof typeof src.description] || src.description.es}
-                </span>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </header>
-
-    <!-- RECIPE HERO IMAGE -->
-    <div class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE] h-72 sm:h-96 relative shadow-xs">
-      <img
-        src={recipe.image || '/images/clasica.jpg'}
-        alt={title}
-        width="1200"
-        height="800"
-        loading="eager"
-        decoding="async"
-        referrerPolicy="no-referrer"
-        class="w-full h-full object-cover"
-      />
+      <LocalizedLink to="/">
+        <button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm inline-flex items-center gap-2">
+          <span>{t("notFound.homeButton", "Volver al inicio")}</span>
+        </button>
+      </LocalizedLink>
     </div>
-
-    <!-- INGREDIENTS & INSTRUCTIONS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- INGREDIENTS SIDEBAR -->
-      <aside class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4 h-fit">
-        <h2 class="text-xl font-serif-heading font-bold text-[#292521] flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
-          <BookOpen class="w-5 h-5 text-[#FFB800]" />
-          Ingredientes
-        </h2>
-        <ul class="space-y-2 text-xs sm:text-sm text-foreground/90 font-sans">
-          {ingredientsList.map((ing) => (
-            <li class="flex items-start gap-2">
-              <span class="text-[#FFB800] font-bold">•</span>
-              <span>{ing}</span>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      <!-- STEP BY STEP INSTRUCTIONS -->
-      <main class="md:col-span-2 space-y-6">
-        <h2 class="text-2xl font-serif-heading font-bold text-[#292521] border-b border-[#E8E2D5] pb-2">
-          Pasos de Elaboración
-        </h2>
-
-        <div class="space-y-4">
-          {instructionsList.map((inst, idx) => (
-            <div class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
-              <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-[#FFB800] text-[#292521] text-xs font-bold flex items-center justify-center shrink-0">
-                  {idx + 1}
-                </span>
-                <h3 class="font-serif-heading font-bold text-base text-[#292521]">
-                  {inst.step}
-                </h3>
-              </div>
-              <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed pl-8">
-                {inst.text}
-              </p>
-            </div>
+  ) : (
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
+      <!-- HEADER -->
+      <header class="space-y-4 text-center">
+        <div class="flex flex-wrap justify-center gap-2">
+          {badges.map((b) => (
+            <a
+              href={b.url}
+              class="inline-flex items-center gap-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] hover:bg-amber-300 px-3 py-1 rounded-full border border-amber-300 transition-colors shadow-2xs"
+            >
+              <span class="capitalize text-muted-foreground text-[10px]">{b.type}:</span>
+              <span>{b.title}</span>
+            </a>
           ))}
         </div>
-      </main>
-    </div>
 
-    <!-- BACTERICIDAL SAFETY WARNING -->
-    <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-        <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p class="font-sans">
-          Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight">
+          {title}
+        </h1>
+
+        <p class="text-base sm:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto">
+          {description}
         </p>
+
+        <div class="flex items-center justify-center gap-6 text-xs font-bold text-[#8D6E63] pt-2">
+          <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
+            <Clock class="w-4 h-4 text-[#FFB800]" />
+            <span>{recipe.time} min tiempo total</span>
+          </div>
+          <div class="flex items-center gap-1.5 bg-[#FCF9F2] px-3 py-1.5 rounded-xl border border-[#E8E2D5]">
+            <Users class="w-4 h-4 text-[#FFB800]" />
+            <span>4 raciones</span>
+          </div>
+        </div>
+
+        <!-- SOURCES & AUTHORSHIP ATTRIBUTION -->
+        {(recipe.sources?.length || recipe.author) && (
+          <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-foreground/80 bg-[#FCF9F2] p-3.5 rounded-xl border border-[#E8E2D5] max-w-2xl mx-auto shadow-2xs">
+            {recipe.author && (
+              <div class="flex items-center gap-1.5 font-medium">
+                <span class="text-muted-foreground">Publicado por:</span>
+                <span class="font-bold text-[#8D6E63]">{recipe.author.name}</span>
+              </div>
+            )}
+            {recipe.sources && recipe.sources.map((src) => (
+              <div class="flex flex-wrap items-center gap-1.5 font-medium border-l border-[#E8E2D5] pl-3 first:border-l-0 first:pl-0">
+                <span class="text-muted-foreground capitalize">Origen ({src.type}):</span>
+                <span class="font-bold text-[#8D6E63]">{src.name}</span>
+                {src.description && (
+                  <span class="text-foreground/70 italic">
+                    — {src.description[currentLang as keyof typeof src.description] || src.description.es}
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- RECIPE HERO IMAGE -->
+      <div class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE] h-72 sm:h-96 relative shadow-xs">
+        <img
+          src={recipe.image || '/images/clasica.jpg'}
+          alt={title}
+          width="1200"
+          height="800"
+          loading="eager"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          class="w-full h-full object-cover"
+        />
       </div>
-    </section>
-  </div>
+
+      <!-- INGREDIENTS & INSTRUCTIONS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- INGREDIENTS SIDEBAR -->
+        <aside class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-4 h-fit">
+          <h2 class="text-xl font-serif-heading font-bold text-[#292521] flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
+            <BookOpen class="w-5 h-5 text-[#FFB800]" />
+            Ingredientes
+          </h2>
+          <ul class="space-y-2 text-xs sm:text-sm text-foreground/90 font-sans">
+            {ingredientsList.map((ing) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#FFB800] font-bold">•</span>
+                <span>{ing}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+
+        <!-- STEP BY STEP INSTRUCTIONS -->
+        <main class="md:col-span-2 space-y-6">
+          <h2 class="text-2xl font-serif-heading font-bold text-[#292521] border-b border-[#E8E2D5] pb-2">
+            Pasos de Elaboración
+          </h2>
+
+          <div class="space-y-4">
+            {instructionsList.map((inst, idx) => (
+              <div class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-[#FFB800] text-[#292521] text-xs font-bold flex items-center justify-center shrink-0">
+                    {idx + 1}
+                  </span>
+                  <h3 class="font-serif-heading font-bold text-base text-[#292521]">
+                    {inst.step}
+                  </h3>
+                </div>
+                <p class="text-xs sm:text-sm text-foreground/80 leading-relaxed pl-8">
+                  {inst.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
+
+      <!-- BACTERICIDAL SAFETY WARNING -->
+      <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
+        <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+          <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+          <p class="font-sans">
+            Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- RELATED INGREDIENTS & VARIATIONS -->
+      {relatedIngredients.length > 0 && (
+        <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">
+          <h2 class="text-xl sm:text-2xl font-serif-heading font-bold text-[#292521]">
+            {currentLang === 'en' ? 'Key Ingredients' : currentLang === 'de' ? 'Hauptzutaten' : 'Ingredientes Clave'}
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {relatedIngredients.map((ing) => (
+              <a href={ing.url} class="card-notebook p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-[#FFB800] transition-colors flex items-center gap-3">
+                <span class="text-lg">🥔</span>
+                <div>
+                  <h3 class="font-bold text-sm text-[#292521]">{ing.title}</h3>
+                  <span class="text-xs text-muted-foreground line-clamp-1">{ing.description || ing.title}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {relatedRecipes.length > 0 && (
+        <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">
+          <h2 class="text-xl sm:text-2xl font-serif-heading font-bold text-[#292521]">
+            {currentLang === 'en' ? 'Related Variations' : currentLang === 'de' ? 'Verwandte Rezepte' : 'Variaciones Relacionadas'}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {relatedRecipes.map((r) => (
+              <a href={r.url} class="card-notebook p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-[#FFB800] transition-colors space-y-1.5">
+                <h3 class="font-bold text-sm text-[#292521]">{r.title}</h3>
+                <p class="text-xs text-muted-foreground line-clamp-2">{r.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  )}
 </Layout>

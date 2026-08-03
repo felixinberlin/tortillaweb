@@ -87,35 +87,42 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
-export function generateRecipeSchema(data: {
+export interface RecipeSchemaInput {
   name: string;
   description: string;
   image?: string;
-  prepTimeMinutes?: number;
-  cookTimeMinutes?: number;
-  yieldServings?: number;
+  prepTimeMinutes: number;
+  cookTimeMinutes: number;
+  yieldServings: number;
   authorName?: string;
   ingredients: string[];
   instructions: { step: string; text: string }[];
   category?: string;
   cuisine?: string;
-}) {
+}
+
+export function generateRecipeSchema(data: RecipeSchemaInput) {
+  const imagePath = data.image || '/images/clasica.jpg';
+  const fullImage = imagePath.startsWith('http')
+    ? imagePath
+    : `${SITE_URL}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
     name: data.name,
     description: data.description,
-    image: data.image ? [data.image.startsWith('http') ? data.image : `${SITE_URL}${data.image}`] : [`${SITE_URL}/images/clasica.jpg`],
+    image: [fullImage],
     author: {
       '@type': 'Organization',
       name: data.authorName || 'tortilladepatatas.org',
       url: SITE_URL,
     },
     datePublished: '2026-01-01',
-    prepTime: `PT${data.prepTimeMinutes || 20}M`,
-    cookTime: `PT${data.cookTimeMinutes || 25}M`,
-    totalTime: `PT${(data.prepTimeMinutes || 20) + (data.cookTimeMinutes || 25)}M`,
-    recipeYield: `${data.yieldServings || 4} raciones`,
+    prepTime: `PT${data.prepTimeMinutes}M`,
+    cookTime: `PT${data.cookTimeMinutes}M`,
+    totalTime: `PT${data.prepTimeMinutes + data.cookTimeMinutes}M`,
+    recipeYield: `${data.yieldServings} raciones`,
     recipeCategory: data.category || 'Main Course',
     recipeCuisine: data.cuisine || 'Spanish',
     keywords: 'tortilla de patatas, Spanish omelette, tortilla española, receta tradicional, 70°C for 2 minutes',

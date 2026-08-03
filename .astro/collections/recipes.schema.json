@@ -5,6 +5,12 @@
     "id": {
       "type": "string"
     },
+    "contentId": {
+      "type": "string"
+    },
+    "translationKey": {
+      "type": "string"
+    },
     "slug": {
       "type": "object",
       "properties": {
@@ -287,6 +293,10 @@
     "title",
     "description",
     "taxonomyIds",
-    "time"
+    "time",
+    "image",
+    "prepTimeMinutes",
+    "cookTimeMinutes",
+    "yieldServings"
   ]
 }

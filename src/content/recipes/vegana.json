@@ -1,0 +1,233 @@
+{
+  "id": "vegana",
+  "contentId": "recipe.vegana",
+  "translationKey": "recipe-vegana",
+  "slug": {
+    "es": "tortilla-de-patatas-vegana-sin-gluten",
+    "en": "vegan-gluten-free-spanish-omelette",
+    "de": "vegane-glutenfreie-spanische-tortilla"
+  },
+  "title": {
+    "es": "Tortilla de Patatas Vegana y Sin Gluten",
+    "en": "Vegan & Gluten-Free Spanish Omelette",
+    "de": "Vegane und Glutenfreie Spanische Tortilla"
+  },
+  "description": {
+    "es": "Receta vegana e inclusiva creada por Cris (Delantal de Alces): sustituye el huevo por harina de garbanzo, agua y almidón de tapioca para lograr jugosidad y dorado sin productos animales.",
+    "en": "Inclusive vegan recipe created by Cris (Delantal de Alces): replaces eggs with chickpea flour, water, and tapioca starch to achieve traditional juiciness and a golden crust without animal products.",
+    "de": "Inklusives veganes Rezept von Cris (Delantal de Alces): Ersetzt Eier durch Kichererbsenmehl, Wasser und Tapiokastärke für Saftigkeit und eine goldene Kruste ohne tierische Produkte."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:chickpea_flour",
+    "ingredient:tapioca_starch",
+    "ingredient:potato",
+    "ingredient:onion",
+    "ingredient:water",
+    "ingredient:oil",
+    "ingredient:salt",
+    "ingredient:blackPepper",
+    "technique:vegan_emulsion",
+    "style:vegana",
+    "difficulty:easy"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/vegana.png",
+  "ingredients": [    
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 4,
+      "unit": "unit",
+      "notes": {
+        "es": "4 patatas medianas cortadas en rodajas finas",
+        "en": "4 medium potatoes, thinly sliced",
+        "de": "4 mittlere Kartoffeln, in dünne Scheiben geschnitten"
+      }
+    },    {
+      "id": "chickpea_flour",
+      "ingredientId": "chickpea_flour",
+      "name": {
+        "es": "Harina de garbanzo",
+        "en": "Chickpea flour",
+        "de": "Kichererbsenmehl"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "Base proteica para sustituir el huevo batido",
+        "en": "Protein base substitute for beaten eggs",
+        "de": "Proteinbasis als Ersatz für geschlagene Eier"
+      }
+    },
+    {
+      "id": "tapioca_starch",
+      "ingredientId": "tapioca_starch",
+      "name": {
+        "es": "Harina o almidón de tapioca",
+        "en": "Tapioca starch / flour",
+        "de": "Tapiokamehl / Stärke"
+      },
+      "amount": 10,
+      "unit": "g",
+      "notes": {
+        "es": "½ cucharada de postre (aporta aglutinación y elasticidad)",
+        "en": "½ dessert spoon (adds binding and elasticity)",
+        "de": "½ Teelöffel (sorgt für Bindung und Elastizität)"
+      }
+    },
+        {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 1,
+      "unit": "unit",
+      "notes": {
+        "es": "1 cebolla grande en juliana (imprescindible para aportar jugosidad)",
+        "en": "1 large onion julienned (essential for moisture)",
+        "de": "1 große Zwiebel in Streifen (essenziell für die Saftigkeit)"
+      }
+    },
+    {
+      "id": "water",
+      "ingredientId": "water",
+      "name": {
+        "es": "Agua",
+        "en": "Water",
+        "de": "Wasser"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Para formar la mezcla líquida con las harinas",
+        "en": "To form the liquid mix with the flours",
+        "de": "Zum Anmischen mit den Mehlen"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Sal al gusto",
+        "en": "Salt to taste",
+        "de": "Salz nach Geschmack"
+      }
+    },
+    {
+      "id": "pepper",
+      "ingredientId": "pepper",
+      "name": {
+        "es": "Pimienta negra",
+        "en": "Black pepper",
+        "de": "Schwarzer Pfeffer"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Pimienta negra molida al gusto",
+        "en": "Ground black pepper to taste",
+        "de": "Gemahlener schwarzer Pfeffer nach Geschmack"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva",
+        "en": "Olive Oil",
+        "de": "Olivenöl"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "Para freír las patatas y cebolla por separado",
+        "en": "To fry potatoes and onion separately",
+        "de": "Zum getrennten Anbraten von Kartoffeln und Zwiebeln"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "Freír patatas y cebolla",
+        "en": "Fry potatoes and onion",
+        "de": "Kartoffeln und Zwiebeln anbraten"
+      },
+      "text": {
+        "es": "Pelar las patatas y cortarlas en rodajas finas. Cortar la cebolla en juliana no muy fina. Calentar el aceite y freír patatas y cebolla por separado.",
+        "en": "Peel and thinly slice the potatoes. Cut the onion into medium julienne strips. Heat oil and fry potatoes and onion separately.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden. Zwiebel in Streifen schneiden. Öl erhitzen und Kartoffeln sowie Zwiebeln getrennt anbraten."
+      }
+    },
+    {
+      "step": {
+        "es": "Preparar la mezcla líquida",
+        "en": "Prepare the liquid mixture",
+        "de": "Vegane Flüssigmischung anrühren"
+      },
+      "text": {
+        "es": "En un cuenco, batir la harina de garbanzo, el agua, la harina de tapioca, la sal y la pimienta hasta lograr una consistencia similar al huevo batido. Batir justo al final para evitar que espese.",
+        "en": "In a bowl, whisk chickpea flour, water, tapioca flour, salt, and pepper until reaching an egg-like consistency. Mix right before cooking so it does not thicken prematurely.",
+        "de": "In einer Schüssel Kichererbsenmehl, Wasser, Tapiokamehl, Salz und Pfeffer verquirlen, bis eine eiähnliche Konsistenz entsteht. Erst kurz vor dem Braten anrühren."
+      }
+    },
+    {
+      "step": {
+        "es": "Integrar y primer sellado",
+        "en": "Combine and initial sear",
+        "de": "Mischen und anbraten"
+      },
+      "text": {
+        "es": "Echar patatas y cebolla a la sartén caliente, verter la mezcla de garbanzo y agitar. Subir el fuego al máximo 5 segundos para hacer 'crostita', luego bajar el fuego, tapar y cocinar 3 minutos.",
+        "en": "Add potatoes and onion to the hot pan, pour the chickpea mixture, and shake to combine. Turn heat to high for 5 seconds to form a crust, then lower heat, cover, and cook for 3 minutes.",
+        "de": "Kartoffeln und Zwiebeln in die Pfanne geben, die Kichererbsenmischung darüber gießen und verteilen. 5 Sekunden bei hoher Hitze anbraten für eine Kruste, dann Hitze reduzieren, abdecken und 3 Minuten garen."
+      }
+    },
+    {
+      "step": {
+        "es": "Volteo y cuajado final",
+        "en": "Flip and finish cooking",
+        "de": "Wenden und fertig garen"
+      },
+      "text": {
+        "es": "Dar la vuelta con un plato, subir el fuego al máximo 5 segundos para sellar la otra cara, y continuar a fuego lento con la sartén tapada dando una última vuelta antes de servir.",
+        "en": "Flip using a plate, turn heat to high for 5 seconds to sear the other side, then continue cooking covered on low heat until fully set inside.",
+        "de": "Die Tortilla wenden, 5 Sekunden bei hoher Hitze anbraten, dann abgedeckt bei niedriger Hitze zu Ende garen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "chef",
+      "name": "Delantal de Alces (Cris)",
+      "description": {
+        "es": "Receta original inclusiva de tortilla de patatas vegana y sin gluten.",
+        "en": "Original inclusive recipe for vegan and gluten-free Spanish omelette.",
+        "de": "Originales inklusives Rezept für vegane und glutenfreie spanische Tortilla."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Cris (Delantal de Alces)"
+  }
+}

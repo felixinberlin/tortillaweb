@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "translationKey": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string",
+      "enum": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "category": {
+      "type": "string"
+    },
+    "ingredient": {
+      "type": "string"
+    },
+    "scientificName": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "canonical": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}

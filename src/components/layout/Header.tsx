@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "@/i18n/config";
+import { findTranslationURL, type TranslationMap } from "@/lib/translationFinder";
+import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 import { 
   Menu, 
   ChefHat, 
@@ -22,7 +24,8 @@ import {
   MapPin,
   Microscope,
   Trophy,
-  ChevronDown
+  ChevronDown,
+  Mail
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import headerNavData from "@/content/navigation/header.json";
@@ -30,6 +33,10 @@ import headerNavData from "@/content/navigation/header.json";
 interface HeaderProps {
   lang?: string;
   currentPath?: string;
+  translationKey?: string;
+  customHreflangs?: Array<{ lang: string; href: string }>;
+  translationMap?: TranslationMap;
+  urlToKey?: Record<string, string>;
 }
 
 const iconMap: Record<string, any> = {
@@ -47,6 +54,7 @@ const iconMap: Record<string, any> = {
   records: Trophy,
   laboratory: FlaskConical,
   about: Info,
+  contact: Mail,
 };
 
 const navigation = headerNavData.items.map((item: any) => ({
@@ -68,7 +76,14 @@ const languages = [
   { code: "de", label: "DE" },
 ];
 
-export default function Header({ lang = "es", currentPath: propPath }: HeaderProps) {
+export default function Header({
+  lang = "es",
+  currentPath: propPath,
+  translationKey,
+  customHreflangs,
+  translationMap,
+  urlToKey,
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [clientPath, setClientPath] = useState("");
   const [openSubmenu, setOpenSubmenu] = useState<string | null>("universo");
@@ -84,19 +99,17 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
   const activePath = propPath || clientPath;
 
   function getLocalizedHref(path: string) {
-    const cleanPath = path.startsWith("/") ? path : `/${path}`;
-    if (cleanPath === "/") return `/${lang}`;
-    return `/${lang}${cleanPath}`;
+    return resolveNavigationTarget({ to: path }, (lang as SupportedLocale) || 'es');
   }
 
   function getLangUrl(targetLang: string) {
-    if (!activePath) return `/${targetLang}`;
-    const parts = activePath.split("/").filter(Boolean);
-    if (parts.length > 0 && ["es", "en", "de"].includes(parts[0])) {
-      parts[0] = targetLang;
-      return "/" + parts.join("/");
-    }
-    return `/${targetLang}${activePath}`;
+    return findTranslationURL({
+      currentPath: activePath,
+      targetLang,
+      translationKey,
+      customHreflangs,
+      lookupData: translationMap && urlToKey ? { translationMap, urlToKey } : undefined,
+    });
   }
 
   function getItemLabel(item: { key: string; label: Record<string, string> }) {
@@ -108,10 +121,11 @@ export default function Header({ lang = "es", currentPath: propPath }: HeaderPro
 
   function isLinkActive(targetPath: string) {
     if (!activePath) return false;
-    if (targetPath === "/") {
+    const resolvedUrl = getLocalizedHref(targetPath);
+    if (targetPath === "/" || resolvedUrl === `/${lang}` || resolvedUrl === `/${lang}/`) {
       return activePath === `/${lang}` || activePath === `/${lang}/` || activePath === "/";
     }
-    return activePath.includes(targetPath);
+    return activePath === resolvedUrl || activePath.startsWith(`${resolvedUrl}/`);
   }
 
   return (

@@ -1,11 +1,14 @@
 ---
-import PersonasPage from '../personas.astro';
 import { supportedLanguages } from '@/lib/i18n';
+import { getTaxonomyRoutePrefix } from '@/lib/taxonomy';
 
 export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
     params: { lang },
   }));
 }
+
+const { lang = 'es' } = Astro.params;
+const prefix = getTaxonomyRoutePrefix('person', lang);
+return Astro.redirect(`/${lang}/${prefix}`);
 ---
-<PersonasPage />

@@ -1,0 +1,21 @@
+{
+  "id": "blackPepper",
+  "type": "ingredient",
+  "contentId": "ingredient.blackPepper",
+  "slug": {
+    "es": "blackPepper",
+    "en": "blackPepper",
+    "de": "blackPepper"
+  },
+  "title": {
+    "es": "Pimienta Negra",
+    "en": "Black Pepper",
+    "de": "Schwarzer Pfeffer"
+  },
+  "description": {
+    "es": "Un toque sutil de pimienta negra recién molida para realzar el aroma del huevo y el aceite.",
+    "en": "A subtle pinch of freshly cracked black pepper in the beaten eggs to elevate aroma.",
+    "de": "Eine feine Prise frisch gemahlener schwarzer Pfeffer zur Abrundung des Aromas."
+  },
+  "icon": "Sparkles"
+}

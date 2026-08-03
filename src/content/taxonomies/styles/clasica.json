@@ -1,6 +1,7 @@
 {
   "id": "clasica",
   "type": "style",
+  "contentId": "style.clasica",
   "slug": {
     "es": "clasica",
     "en": "classic",
