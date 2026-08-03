@@ -17,5 +17,14 @@
     "en": "Thermal transmission medium. EVOO infuses fruity aromas and clean frying properties.",
     "de": "Natives Olivenöl Extra verleiht fruchtige Aromen und sorgt für sauberes Frittieren."
   },
-  "icon": "Droplet"
+  "icon": "Droplet",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "confit_medium" },
+    { "type": "ingredient", "id": "egg", "relationship": "emulsion_partner" },
+    { "type": "technique", "id": "slow-cooking", "relationship": "thermal_process" },
+    { "type": "technique", "id": "emulsion", "relationship": "chemical_process" },
+    { "type": "recipe", "id": "clasica", "relationship": "featured_recipe" },
+    { "type": "recipe", "id": "betanzos", "relationship": "featured_recipe" },
+    { "type": "history", "id": "history", "relationship": "cooperatives_culture" }
+  ]
 }

@@ -80,8 +80,8 @@ Explore other specialized knowledge modules in the potato system:
 
 ### Related tortilla recipes
 
-- [Classic Traditional Tortilla](/en/recipes/clasica) — Canonical confit method execution.
-- [Express Tortilla](/en/recipes/express) — Streamlined thermal process.
+- [Classic Traditional Tortilla](/en/recipes/classic-spanish-omelette) — Canonical confit method execution.
+- [Express Tortilla](/en/recipes/express-potato-chip-omelette) — Streamlined thermal process.
 
 ### Complementary ingredients
 

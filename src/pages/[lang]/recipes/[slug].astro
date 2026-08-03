@@ -6,6 +6,7 @@ import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateRecipeSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
 import { Clock, Users, BookOpen, ExternalLink, Shield, ChefHat } from 'lucide-react';
 import { assertEntityExists } from '@/lib/routing/assertEntity';
+import { getRelatedRecipes, getRelatedIngredients, getRelatedTaxonomies } from '@/lib/content/related';
 
 export async function getStaticPaths() {
   const recipes = await getAllRecipes();
@@ -106,6 +107,10 @@ if (isValidRoute && recipe && recipeHreflangs) {
 }
 
 const pageTitle = isValidRoute ? `${title} - Receta | tortilladepatatas.org` : `404: ${title} | tortilladepatatas.org`;
+
+const relatedRecipes = (isValidRoute && recipe) ? await getRelatedRecipes({ type: 'recipe', id: recipe.id, taxonomyIds: recipe.taxonomyIds }, currentLang) : [];
+const relatedIngredients = (isValidRoute && recipe) ? await getRelatedIngredients(recipe, currentLang) : [];
+const relatedTaxonomies = (isValidRoute && recipe) ? await getRelatedTaxonomies(recipe, currentLang) : [];
 ---
 
 <Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} customHreflangs={recipeHreflangs} canonical={currentUrl}>
@@ -253,6 +258,42 @@ const pageTitle = isValidRoute ? `${title} - Receta | tortilladepatatas.org` : `
           </p>
         </div>
       </section>
+
+      <!-- RELATED INGREDIENTS & VARIATIONS -->
+      {relatedIngredients.length > 0 && (
+        <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">
+          <h2 class="text-xl sm:text-2xl font-serif-heading font-bold text-[#292521]">
+            {currentLang === 'en' ? 'Key Ingredients' : currentLang === 'de' ? 'Hauptzutaten' : 'Ingredientes Clave'}
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {relatedIngredients.map((ing) => (
+              <a href={ing.url} class="card-notebook p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-[#FFB800] transition-colors flex items-center gap-3">
+                <span class="text-lg">🥔</span>
+                <div>
+                  <h3 class="font-bold text-sm text-[#292521]">{ing.title}</h3>
+                  <span class="text-xs text-muted-foreground line-clamp-1">{ing.description || ing.title}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {relatedRecipes.length > 0 && (
+        <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">
+          <h2 class="text-xl sm:text-2xl font-serif-heading font-bold text-[#292521]">
+            {currentLang === 'en' ? 'Related Variations' : currentLang === 'de' ? 'Verwandte Rezepte' : 'Variaciones Relacionadas'}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {relatedRecipes.map((r) => (
+              <a href={r.url} class="card-notebook p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-[#FFB800] transition-colors space-y-1.5">
+                <h3 class="font-bold text-sm text-[#292521]">{r.title}</h3>
+                <p class="text-xs text-muted-foreground line-clamp-2">{r.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )}
 </Layout>

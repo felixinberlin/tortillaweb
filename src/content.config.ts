@@ -82,6 +82,11 @@ const taxonomyCollection = defineCollection({
     badge: localizedStringSchema.optional(),
     keyIngredient: localizedStringSchema.optional(),
     prominentFigures: z.array(z.string()).optional(),
+    related: z.array(z.object({
+      type: z.string(),
+      id: z.string(),
+      relationship: z.string().optional(),
+    })).optional(),
   }),
 });
 

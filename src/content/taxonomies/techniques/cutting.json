@@ -1,0 +1,21 @@
+{
+  "id": "cutting",
+  "type": "technique",
+  "contentId": "technique.cutting",
+  "slug": {
+    "es": "corte-chascado",
+    "en": "potato-cutting",
+    "de": "kartoffel-schneiden"
+  },
+  "title": {
+    "es": "Corte y Chascado de la Patata",
+    "en": "Potato Cutting & Breaking",
+    "de": "Kartoffelschnitt & Chascar-Technik"
+  },
+  "description": {
+    "es": "Técnica de chascar o cascar la patata para liberar almidón amilopectina y espesar la ligazón de la tortilla.",
+    "en": "Breaking potatoes to release amylopectin starch and naturally thicken the tortilla mix.",
+    "de": "Breaking-Technik zur Stärkefreisetzung für natürliche Bindung."
+  },
+  "icon": "Utensils"
+}

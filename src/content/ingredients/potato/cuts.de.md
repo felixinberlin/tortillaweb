@@ -95,8 +95,8 @@ Vertiefe dein Wissen in den weiteren Kapitel des Kartoffel-Wissenssystems:
 
 ### Verknüpfte Tortilla-Rezepte
 
-- [Tortilla nach Betanzos-Art](/de/recipes/betanzos) — Meisterschaft des hauchdünnen Hobelns.
-- [Klassische traditionelle Tortilla](/de/recipes/clasica) — Einwandfreier *Panadera*-Schnitt.
+- [Tortilla nach Betanzos-Art](/de/recipes/betanzos-tortilla) — Meisterschaft des hauchdünnen Hobelns.
+- [Klassische traditionelle Tortilla](/de/recipes/klassische-spanische-tortilla) — Einwandfreier *Panadera*-Schnitt.
 
 ### Ergänzende Zutaten
 

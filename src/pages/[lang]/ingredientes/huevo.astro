@@ -1,0 +1,69 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import EggIngredientDetail from '@/components/ingredients/EggIngredientDetail';
+import { supportedLanguages } from '@/lib/i18n';
+import { getRecipesForTaxonomy } from '@/lib/taxonomy';
+import { SITE_URL, generateBreadcrumbSchema, generateArticleSchema } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const recipes = await getRecipesForTaxonomy('ingredient', 'egg');
+
+const customHreflangs = [
+  { lang: 'es', href: `${SITE_URL}/es/ingredientes/huevo` },
+  { lang: 'en', href: `${SITE_URL}/en/ingredients/egg` },
+  { lang: 'de', href: `${SITE_URL}/de/zutaten/ei` },
+  { lang: 'x-default', href: `${SITE_URL}/es/ingredientes/huevo` },
+];
+
+const title = currentLang === 'en'
+  ? 'The Egg (Gallus gallus domesticus) | Ingredient Monograph | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Das Ei (Gallus gallus domesticus) | Zutaten-Monographie | tortilladepatatas.org'
+  : 'El Huevo (Gallus gallus domesticus) | Monografía de Ingrediente | tortilladepatatas.org';
+
+const description = currentLang === 'en'
+  ? 'Comprehensive guide to eggs in Spanish tortilla: protein matrix, emulsion chemistry, yolk coagulation, food safety, and beating techniques.'
+  : currentLang === 'de'
+  ? 'Umfassender Leitfaden zum Ei in der spanischen Tortilla: Proteinmatrix, Emulsionschemie, Eigelb-Gerinnung, Lebensmittelsicherheit und Aufschlagtechniken.'
+  : 'Guía enciclopédica sobre el huevo en la tortilla española: matriz proteica, química de la emulsión, coagulación de la yema, seguridad alimentaria y técnicas de batido.';
+
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'de' ? 'Zutaten' : currentLang === 'en' ? 'Ingredients' : 'Ingredientes', url: `/${currentLang}/ingredientes` },
+  { name: currentLang === 'de' ? 'Ei' : currentLang === 'en' ? 'Egg' : 'Huevo', url: `/${currentLang}/ingredientes/huevo` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
+const articleSchema = generateArticleSchema({
+  headline: 'El Huevo (Gallus gallus domesticus)',
+  description: description,
+  url: `${SITE_URL}/${currentLang}/ingredientes/huevo`,
+  image: '/images/ingredients/egg_editorial_card.jpg',
+});
+
+const schemas = [breadcrumbSchema, articleSchema];
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang={currentLang}
+  schema={schemas}
+  breadcrumbs={breadcrumbsList}
+  canonical={`${SITE_URL}/${currentLang}/ingredientes/huevo`}
+  customHreflangs={customHreflangs}
+>
+  <EggIngredientDetail
+    lang={currentLang}
+    relatedRecipes={recipes}
+    client:load
+  />
+</Layout>

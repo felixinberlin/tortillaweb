@@ -83,9 +83,9 @@ El estado fisiológico del tubérculo modifica drásticamente su comportamiento 
 
 Consulta cómo aplicar la patata según las distintas recetas canónicas de nuestro catálogo:
 
-- [Tortilla Clásica Tradicional](/es/recipes/clasica) — El equilibrio perfecto con patata Monalisa y corte panadera.
-- [Tortilla de Betanzos](/es/recipes/betanzos) — Láminas traslúcidas de patata Kennebec en un interior altamente fluido.
-- [Tortilla Express](/es/recipes/express) — Técnica simplificada manteniendo los estándares de calidad.
+- [Tortilla Clásica Tradicional](/es/recipes/tortilla-clasica) — El equilibrio perfecto con patata Monalisa y corte panadera.
+- [Tortilla de Betanzos](/es/recipes/tortilla-betanzos) — Láminas traslúcidas de patata Kennebec en un interior altamente fluido.
+- [Tortilla Express](/es/recipes/tortilla-express-patatas-chips) — Técnica simplificada manteniendo los estándares de calidad.
 
 ---
 

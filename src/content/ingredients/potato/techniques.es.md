@@ -80,8 +80,8 @@ Profundiza en la enciclopedia temática de la patata:
 
 ### Recetas de tortilla relacionadas
 
-- [Tortilla Clásica Tradicional](/es/recipes/clasica) — Ejecución del confitado canónico.
-- [Tortilla Express](/es/recipes/express) — Optimización del proceso térmico.
+- [Tortilla Clásica Tradicional](/es/recipes/tortilla-clasica) — Ejecución del confitado canónico.
+- [Tortilla Express](/es/recipes/tortilla-express-patatas-chips) — Optimización del proceso térmico.
 
 ### Ingredientes complementarios
 

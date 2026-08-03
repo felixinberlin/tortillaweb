@@ -1,12 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import PotatoIngredientDetail from '@/components/ingredients/PotatoIngredientDetail';
+import EggIngredientDetail from '@/components/ingredients/EggIngredientDetail';
+import OliveOilIngredientDetail from '@/components/ingredients/OliveOilIngredientDetail';
 import { 
   TAXONOMY_ROUTING_MAP, 
   getAllTaxonomies, 
   getRecipesForTaxonomy, 
   resolveRecipeBadges,
-  getTaxonomyTypeLabel
+  getTaxonomyTypeLabel,
+  getTaxonomyRoutePrefix
 } from '@/lib/taxonomy';
+import { getRelatedRecipes, getRelatedIngredients, getRelatedArticles, getRelatedTaxonomies, getRelatedKnowledgeForIngredient } from '@/lib/content/related';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateBreadcrumbSchema, generateArticleSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
 import { assertRouteEntities } from '@/lib/routing/assertRoute';
@@ -214,10 +219,13 @@ const dogma = taxonomy?.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxo
 const badgeText = taxonomy?.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
 const keyIngredient = taxonomy?.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
 
-// Load related recipes dynamically - ONLY when valid entity exists (NO SILENT POTATO FALLBACK)
+// Load related recipes, articles, taxonomies, and knowledge base dynamically
 const taxonomyId = taxonomy ? taxonomy.id : ingredientArticle?.data.ingredient;
 const taxonomyType = taxonomy ? taxonomy.type : 'ingredient';
 const relatedRecipes = (isValidRoute && taxonomyId) ? await getRecipesForTaxonomy(taxonomyType, taxonomyId) : [];
+const relatedArticles = (isValidRoute && taxonomyId) ? await getRelatedArticles({ type: taxonomyType, id: taxonomyId }, currentLang) : [];
+const relatedTaxonomies = (isValidRoute && taxonomyId) ? await getRelatedTaxonomies({ type: taxonomyType, id: taxonomyId }, currentLang) : [];
+const relatedKnowledge = (isValidRoute && taxonomyId && taxonomyType === 'ingredient') ? await getRelatedKnowledgeForIngredient(taxonomyId, currentLang) : [];
 
 const recipesWithBadges = await Promise.all(
   relatedRecipes.map(async (r) => ({
@@ -267,6 +275,8 @@ const currentSlug = Astro.params.slug || '';
 const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy?.type === 'ingredient' ? taxonomy.id : undefined);
 const isIngredientCluster = Boolean(isValidRoute && ingredientKey && (ingredientArticle || taxonomy?.type === 'ingredient'));
 const isPotatoCluster = Boolean(isIngredientCluster && ingredientKey === 'potato');
+const isEggCluster = Boolean(isIngredientCluster && ingredientKey === 'egg');
+const isOilCluster = Boolean(isIngredientCluster && (ingredientKey === 'oil' || ingredientKey === 'olive-oil'));
 
 const mainGuideGroup = ingredientKey ? allIngredientGroups?.[ingredientKey] : undefined;
 const mainPotatoUrl = mainGuideGroup && mainGuideGroup[currentLang]
@@ -278,6 +288,22 @@ const isMainPotatoPage = Boolean(
     mainGuideGroup && mainGuideGroup[currentLang]
       ? Astro.params.slug === mainGuideGroup[currentLang].slug
       : (currentSlug === 'potato' || currentSlug === 'patata' || currentSlug === 'kartoffel')
+  )
+);
+
+const isMainEggPage = Boolean(
+  isEggCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'egg' || currentSlug === 'huevo' || currentSlug === 'ei')
+  )
+);
+
+const isMainOilPage = Boolean(
+  isOilCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'oil' || currentSlug === 'aceite-de-oliva' || currentSlug === 'olive-oil' || currentSlug === 'olivenoel')
   )
 );
 
@@ -348,10 +374,31 @@ const pillars = [
         </button>
       </a>
     </div>
+  ) : isMainOilPage ? (
+    <OliveOilIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : isMainEggPage ? (
+    <EggIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : isMainPotatoPage ? (
+    <PotatoIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
   ) : (
     <div class="container mx-auto px-4 py-8 md:py-14 max-w-5xl space-y-10">
     
-    <!-- SUB-ARTICLE BACK LINK IF IN SUB-MONOGRAPH -->
+    <!-- SUB-ARTICLE BACK LINK IF IN SUB-MONOGRAPH OR TECHNIQUE -->
     {isPotatoCluster && !isMainPotatoPage && (
       <div class="flex items-center gap-2">
         <a 
@@ -360,6 +407,18 @@ const pillars = [
         >
           <ArrowLeft class="w-4 h-4" />
           <span>{currentLang === 'en' ? 'Back to Main Potato Guide' : currentLang === 'de' ? 'Zurück zum Kartoffel-Hauptleitfaden' : 'Volver a la Guía Principal de la Patata'}</span>
+        </a>
+      </div>
+    )}
+
+    {taxonomy?.type === 'technique' && (
+      <div class="flex items-center gap-2">
+        <a 
+          href={`/${currentLang}/${getTaxonomyRoutePrefix('technique', currentLang)}`}
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] text-xs font-bold border border-amber-300 hover:bg-[#FFB800]/30 transition-colors"
+        >
+          <ArrowLeft class="w-4 h-4" />
+          <span>{currentLang === 'en' ? 'Back to All Culinary Techniques' : currentLang === 'de' ? 'Zurück zu allen Küchentechniken' : 'Volver al Manual de Técnicas'}</span>
         </a>
       </div>
     )}

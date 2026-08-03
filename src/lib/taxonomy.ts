@@ -1,6 +1,13 @@
-import { getCollection } from 'astro:content';
 import type { Taxonomy, Recipe, ResolvedTaxonomyBadge } from '@/types/taxonomy';
 import { ROUTES } from './routes';
+
+const rawRecipes = Object.values(
+  import.meta.glob('/src/content/recipes/*.json', { eager: true })
+).map((mod: any) => (mod.default || mod) as Recipe);
+
+const rawTaxonomies = Object.values(
+  import.meta.glob('/src/content/taxonomies/**/*.json', { eager: true })
+).map((mod: any) => (mod.default || mod) as Taxonomy);
 
 export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
   es: {
@@ -120,16 +127,14 @@ export function getTaxonomyTypeFromRoute(routeSegment: string, lang: string = 'e
  * Retrieves all taxonomy records.
  */
 export async function getAllTaxonomies(): Promise<Taxonomy[]> {
-  const collection = await getCollection('taxonomies');
-  return collection.map((item: any) => item.data as Taxonomy);
+  return rawTaxonomies;
 }
 
 /**
  * Retrieves all recipe records.
  */
 export async function getAllRecipes(): Promise<Recipe[]> {
-  const collection = await getCollection('recipes');
-  return collection.map((item: any) => item.data as Recipe);
+  return rawRecipes;
 }
 
 /**

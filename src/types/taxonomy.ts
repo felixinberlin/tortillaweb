@@ -75,6 +75,11 @@ export interface Taxonomy {
   badge?: LocalizedString;
   keyIngredient?: LocalizedString;
   prominentFigures?: string[];
+  related?: Array<{
+    type: string;
+    id: string;
+    relationship?: string;
+  }>;
 }
 
 export interface ResolvedTaxonomyBadge {

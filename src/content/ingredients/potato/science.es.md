@@ -111,8 +111,8 @@ Explora todos los capítulos de la enciclopedia de la patata:
 
 ### Recetas de tortilla relacionadas
 
-- [Tortilla Clásica Tradicional](/es/recipes/clasica) — Equilibrio de gelatinización y proteína.
-- [Tortilla de Betanzos](/es/recipes/betanzos) — Fluidez proteica extrema.
+- [Tortilla Clásica Tradicional](/es/recipes/tortilla-clasica) — Equilibrio de gelatinización y proteína.
+- [Tortilla de Betanzos](/es/recipes/tortilla-betanzos) — Fluidez proteica extrema.
 
 ### Ingredientes complementarios
 

@@ -62,8 +62,44 @@ export function getRouteLabel(routeId: RouteId, lang: SupportedLocale = 'es'): s
 /**
  * Resolves route ID from any localized segment.
  */
+const ROUTE_SEGMENT_ALIASES: Record<string, RouteId> = {
+  recetas: 'recipes',
+  rezepte: 'recipes',
+  recipes: 'recipes',
+  ingredientes: 'ingredients',
+  ingredients: 'ingredients',
+  zutaten: 'ingredients',
+  tecnicas: 'techniques',
+  techniques: 'techniques',
+  techniken: 'techniques',
+  facciones: 'factions',
+  factions: 'factions',
+  faktionen: 'factions',
+  ciencia: 'science',
+  science: 'science',
+  wissenschaft: 'science',
+  historia: 'history',
+  history: 'history',
+  geschichte: 'history',
+  personas: 'personas',
+  people: 'personas',
+  personen: 'personas',
+  restaurantes: 'restaurantes',
+  restaurants: 'restaurantes',
+  regiones: 'regiones',
+  regions: 'regiones',
+  regionen: 'regiones',
+  contacto: 'contact',
+  contact: 'contact',
+  kontakt: 'contact',
+};
+
 export function getRouteIdFromSlug(slugSegment: string, lang?: SupportedLocale): RouteId | undefined {
   if (!slugSegment) return 'home';
+
+  if (ROUTE_SEGMENT_ALIASES[slugSegment.toLowerCase()]) {
+    return ROUTE_SEGMENT_ALIASES[slugSegment.toLowerCase()];
+  }
 
   for (const route of Object.values(ROUTES)) {
     if (lang) {
@@ -108,6 +144,33 @@ export function getEntityRoute(
 }
 
 /**
+ * Route Resolver API
+ */
+export const routeResolver = {
+  urlFor: (
+    entity: any,
+    lang: SupportedLocale = 'es'
+  ): string => {
+    if (typeof entity === 'string') {
+      return resolveNavigationTarget(entity, lang);
+    }
+    if (!entity) return `/${lang}`;
+    if ('url' in entity && typeof entity.url === 'string' && entity.url) {
+      return entity.url;
+    }
+    if ('href' in entity || 'to' in entity) {
+      return resolveNavigationTarget(entity, lang);
+    }
+    return getContentUrl(entity, lang);
+  },
+  getRouteUrl,
+  getContentUrl,
+  getEntityRoute,
+  resolveNavigationTarget,
+  resolveLegacyPath,
+};
+
+/**
  * Resolves typed internal navigation target (routeId OR entity).
  */
 export function resolveNavigationTarget(
@@ -138,6 +201,55 @@ export function resolveNavigationTarget(
   return `/${lang}`;
 }
 
+const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
+  // Recipes
+  'clasica': { es: 'tortilla-clasica', en: 'classic-spanish-omelette', de: 'klassische-spanische-tortilla' },
+  'classic': { es: 'tortilla-clasica', en: 'classic-spanish-omelette', de: 'klassische-spanische-tortilla' },
+  'tortilla-clasica': { es: 'tortilla-clasica', en: 'classic-spanish-omelette', de: 'klassische-spanische-tortilla' },
+  'betanzos': { es: 'tortilla-betanzos', en: 'betanzos-style-spanish-omelette', de: 'betanzos-tortilla' },
+  'tortilla-betanzos': { es: 'tortilla-betanzos', en: 'betanzos-style-spanish-omelette', de: 'betanzos-tortilla' },
+  'express': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },
+  'express-chips': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },
+  'tortilla-express': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },
+  'tortilla-express-patatas-chips': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },
+  'con-cebolla': { es: 'tortilla-clasica-con-cebolla', en: 'classic-spanish-omelette-with-onion', de: 'klassische-spanische-tortilla-mit-zwiebel' },
+  'concebolla': { es: 'tortilla-clasica-con-cebolla', en: 'classic-spanish-omelette-with-onion', de: 'klassische-spanische-tortilla-mit-zwiebel' },
+  'tortilla-clasica-con-cebolla': { es: 'tortilla-clasica-con-cebolla', en: 'classic-spanish-omelette-with-onion', de: 'klassische-spanische-tortilla-mit-zwiebel' },
+  'atun': { es: 'tortilla-atun', en: 'tuna-spanish-omelette', de: 'thunfisch-spanische-tortilla' },
+  'jamon': { es: 'tortilla-jamon', en: 'jamon-spanish-omelette', de: 'jamon-spanische-tortilla' },
+  'paisana': { es: 'tortilla-paisana', en: 'paisana-spanish-omelette', de: 'paisana-tortilla' },
+  'quesoazul': { es: 'tortilla-queso-azul', en: 'blue-cheese-spanish-omelette', de: 'blauschimmelkaese-spanische-tortilla' },
+  'vegana': { es: 'tortilla-de-patatas-vegana-sin-gluten', en: 'vegan-gluten-free-spanish-omelette', de: 'vegane-glutenfreie-spanische-tortilla' },
+  'vegan': { es: 'tortilla-de-patatas-vegana-sin-gluten', en: 'vegan-gluten-free-spanish-omelette', de: 'vegane-glutenfreie-spanische-tortilla' },
+  // Ingredients
+  'potato': { es: 'patata', en: 'potato', de: 'kartoffel' },
+  'patata': { es: 'patata', en: 'potato', de: 'kartoffel' },
+  'kartoffel': { es: 'patata', en: 'potato', de: 'kartoffel' },
+  'egg': { es: 'huevo', en: 'egg', de: 'ei' },
+  'huevo': { es: 'huevo', en: 'egg', de: 'ei' },
+  'ei': { es: 'huevo', en: 'egg', de: 'ei' },
+  'oil': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
+  'aceite-de-oliva': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
+  'olive-oil': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
+  'olivenoel': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
+  'onion': { es: 'cebolla', en: 'onion', de: 'zwiebel' },
+  'cebolla': { es: 'cebolla', en: 'onion', de: 'zwiebel' },
+  'zwiebel': { es: 'cebolla', en: 'onion', de: 'zwiebel' },
+  // Techniques
+  'corte-chascado': { es: 'corte-chascado', en: 'potato-cutting', de: 'kartoffel-schneiden' },
+  'potato-cutting': { es: 'corte-chascado', en: 'potato-cutting', de: 'kartoffel-schneiden' },
+  'confitado': { es: 'confitado', en: 'slow-poaching', de: 'langsam-pochieren' },
+  'slow-poaching': { es: 'confitado', en: 'slow-poaching', de: 'langsam-pochieren' },
+  'fritura-crujiente': { es: 'fritura-crujiente', en: 'crispy-frying', de: 'knusprig-frittieren' },
+  'crispy-frying': { es: 'fritura-crujiente', en: 'crispy-frying', de: 'knusprig-frittieren' },
+  'emulsion-caliente': { es: 'emulsion-caliente', en: 'warm-emulsion', de: 'warme-emulsion' },
+  'warm-emulsion': { es: 'emulsion-caliente', en: 'warm-emulsion', de: 'warme-emulsion' },
+  'coagulacion-proteica': { es: 'coagulacion-proteica', en: 'protein-coagulation', de: 'protein-gerinnung' },
+  'protein-coagulation': { es: 'coagulacion-proteica', en: 'protein-coagulation', de: 'protein-gerinnung' },
+  'deconstruccion': { es: 'deconstruccion', en: 'deconstruction', de: 'dekonstruktion' },
+  'deconstruction': { es: 'deconstruccion', en: 'deconstruction', de: 'dekonstruktion' },
+};
+
 /**
  * Migration helper for converting legacy path strings (e.g., "/ingredients") into resolved URLs.
  */
@@ -160,7 +272,8 @@ export function resolveLegacyPath(rawPath: string, lang: SupportedLocale = 'es')
   if (resolution.routeId) {
     const baseUrl = getRouteUrl(resolution.routeId, lang);
     if (resolution.slug) {
-      return `${baseUrl}/${resolution.slug}`.replace(/\/+/g, '/');
+      const mappedSlug = KNOWN_ENTITY_SLUGS[resolution.slug]?.[lang] || resolution.slug;
+      return `${baseUrl}/${mappedSlug}`.replace(/\/+/g, '/');
     }
     return baseUrl;
   }
