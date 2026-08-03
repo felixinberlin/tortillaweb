@@ -276,7 +276,8 @@ export default function Header({
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-1.5 sm:p-2 border border-[#E8E2D5] bg-[#FAF6EE] text-foreground rounded-lg hover:bg-[#F5E6BE]/60 cursor-pointer"
+            aria-expanded={mobileMenuOpen}
+            className="lg:hidden p-1.5 sm:p-2 border border-[#E8E2D5] bg-[#FAF6EE] text-foreground rounded-lg hover:bg-[#F5E6BE]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800] focus-visible:ring-offset-1 cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             <Menu className="h-5 w-5" />
@@ -393,7 +394,8 @@ export default function Header({
                           <button
                             type="button"
                             onClick={() => setOpenSubmenu(isSubOpen ? null : item.key)}
-                            className="p-1 text-xs text-amber-900 cursor-pointer"
+                            aria-expanded={isSubOpen}
+                            className="p-1 text-xs text-amber-900 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800] rounded"
                             aria-label="Toggle submenu"
                           >
                             <ChevronDown className={`w-4 h-4 transition-transform ${isSubOpen ? "rotate-180" : ""}`} />
