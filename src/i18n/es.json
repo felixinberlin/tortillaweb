@@ -121,10 +121,10 @@
     "title": "La Ciencia Detrás de la Tortilla",
     "subtitle": "Entiende las transformaciones moleculares, la inactivación térmica de patógenos y los umbrales microbiológicos.",
     "chefNoteHeader": "Del Cuaderno de la Chef & Laboratorio:",
-    "chefNoteText": "La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C durante 2 minutos** para lograr una reducción de bacterias del 99.999% (*S. Enteritidis*).",
+    "chefNoteText": "La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C durante 2 minutos** para lograr una reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*.",
     "card1": {
       "title": "Coagulación de Proteínas",
-      "desc": "Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C durante 2 minutos** (reducción de bacterias del 99.999% de *S. Enteritidis*)."
+      "desc": "Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C durante 2 minutos** (reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*)."
     },
     "card2": {
       "title": "Gelatinización del Almidón",
@@ -136,7 +136,7 @@
     },
     "card4": {
       "title": "Gestión Microbiológica de Riesgos",
-      "desc": "Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta humedad. Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 horas**."
+      "desc": "Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta actividad de agua ($a_w > 0.99$). Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 horas**."
     },
     "safetySectionTitle": "Garantía de Seguridad Alimentaria & Térmica",
     "safetySectionSub": "Los tres umbrales de procesamiento térmico según la metodología Risk Ranger.",
@@ -145,7 +145,7 @@
     "levelMediumTitle": "Umbral de Seguridad Medio",
     "levelMediumDesc": "Procesamiento a **63°C durante 20 segundos**. Indicado para tortillas jugosas de consumo inmediato.",
     "levelSafeTitle": "Estándar Bactericida Oro",
-    "levelSafeDesc": "Procesamiento térmico de **70°C durante 2 minutos**. Garantiza una reducción de bacterias del 99.999% de *S. Enteritidis*."
+    "levelSafeDesc": "Procesamiento térmico de **70°C durante 2 minutos**. Garantiza una reducción $\\ge 5 \\text{ log}$ de *S. Enteritidis*."
   },
   "personasPage": {
     "notebookLabel": "Cuaderno de Laboratorio Gastronómico",
