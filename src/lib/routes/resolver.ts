@@ -111,14 +111,29 @@ export function getEntityRoute(
  * Resolves typed internal navigation target (routeId OR entity).
  */
 export function resolveNavigationTarget(
-  target: NavigationTarget | { routeId?: RouteId; entity?: ContentEntity },
+  target: NavigationTarget | { routeId?: RouteId; entity?: ContentEntity; to?: string; href?: string; key?: string } | string,
   lang: SupportedLocale = 'es'
 ): string {
-  if (target.routeId) {
+  if (typeof target === 'string') {
+    return resolveLegacyPath(target, lang);
+  }
+  if (!target) {
+    return `/${lang}`;
+  }
+  if ('routeId' in target && target.routeId) {
     return getRouteUrl(target.routeId, lang);
   }
-  if (target.entity) {
+  if ('entity' in target && target.entity) {
     return getContentUrl(target.entity, lang);
+  }
+  if ('to' in target && target.to) {
+    return resolveLegacyPath(target.to, lang);
+  }
+  if ('href' in target && target.href) {
+    return resolveLegacyPath(target.href, lang);
+  }
+  if ('key' in target && target.key) {
+    return resolveLegacyPath(target.key, lang);
   }
   return `/${lang}`;
 }

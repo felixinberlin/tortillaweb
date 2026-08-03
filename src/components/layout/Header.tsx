@@ -121,10 +121,11 @@ export default function Header({
 
   function isLinkActive(targetPath: string) {
     if (!activePath) return false;
-    if (targetPath === "/") {
+    const resolvedUrl = getLocalizedHref(targetPath);
+    if (targetPath === "/" || resolvedUrl === `/${lang}` || resolvedUrl === `/${lang}/`) {
       return activePath === `/${lang}` || activePath === `/${lang}/` || activePath === "/";
     }
-    return activePath.includes(targetPath);
+    return activePath === resolvedUrl || activePath.startsWith(`${resolvedUrl}/`);
   }
 
   return (

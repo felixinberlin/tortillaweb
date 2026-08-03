@@ -9,6 +9,7 @@ import {
 } from '@/lib/taxonomy';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateBreadcrumbSchema, generateArticleSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
+import { assertRouteEntities } from '@/lib/routing/assertRoute';
 import { getCollection, render } from 'astro:content';
 import { 
   ShieldCheck, 
@@ -186,30 +187,37 @@ const { taxonomy, lang, ingredientArticle, customHreflangs, translationGroup, al
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
 const t = getTranslations(currentLang);
 
-// If an ingredient article exists, render its rich content
+// Validate content entity existence - sets Astro.response.status = 404 when invalid
+const isValidRoute = assertRouteEntities(Astro.response, taxonomy, ingredientArticle);
+
+// If an ingredient article exists and route is valid, render its rich content
 let Content = null;
-if (ingredientArticle) {
+if (isValidRoute && ingredientArticle) {
   const rendered = await render(ingredientArticle);
   Content = rendered.Content;
 }
 
 // Titles and metadata
-const title = ingredientArticle 
-  ? ingredientArticle.data.title 
-  : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : 'Ingrediente');
+const title = isValidRoute
+  ? (ingredientArticle 
+      ? ingredientArticle.data.title 
+      : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : ''))
+  : (currentLang === 'en' ? 'Page Not Found' : currentLang === 'de' ? 'Seite nicht gefunden' : 'Página no encontrada');
 
-const description = ingredientArticle
-  ? ingredientArticle.data.description
-  : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : '');
+const description = isValidRoute
+  ? (ingredientArticle
+      ? ingredientArticle.data.description
+      : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : ''))
+  : (currentLang === 'en' ? 'The requested page could not be found.' : currentLang === 'de' ? 'Die angeforderte Seite konnte nicht gefunden werden.' : 'La página solicitada no existe.');
 
 const dogma = taxonomy?.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
 const badgeText = taxonomy?.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
 const keyIngredient = taxonomy?.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
 
-// Load related recipes dynamically
-const taxonomyId = taxonomy ? taxonomy.id : (ingredientArticle?.data.ingredient || 'potato');
+// Load related recipes dynamically - ONLY when valid entity exists (NO SILENT POTATO FALLBACK)
+const taxonomyId = taxonomy ? taxonomy.id : ingredientArticle?.data.ingredient;
 const taxonomyType = taxonomy ? taxonomy.type : 'ingredient';
-const relatedRecipes = await getRecipesForTaxonomy(taxonomyType, taxonomyId);
+const relatedRecipes = (isValidRoute && taxonomyId) ? await getRecipesForTaxonomy(taxonomyType, taxonomyId) : [];
 
 const recipesWithBadges = await Promise.all(
   relatedRecipes.map(async (r) => ({
@@ -218,7 +226,7 @@ const recipesWithBadges = await Promise.all(
   }))
 );
 
-const pageTitle = `${title} | tortilladepatatas.org`;
+const pageTitle = isValidRoute ? `${title} | tortilladepatatas.org` : `404: ${title} | tortilladepatatas.org`;
 
 // SEO Schemas
 const currentUrl = ingredientArticle?.data.seo?.canonical
@@ -251,20 +259,24 @@ const articleSchema = ingredientArticle ? generateArticleSchema({
 
 const schemas = [breadcrumbSchema, articleSchema];
 
-// Pillar Links for Ingredient Cluster (e.g., Potato, Egg, Oil, etc.)
+// Pillar Links for Ingredient Cluster (Potato, etc.)
 const currentSlug = Astro.params.slug || '';
-const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy ? taxonomy.id : 'potato');
-const isIngredientCluster = Boolean(ingredientArticle || taxonomy?.type === 'ingredient');
-const isPotatoCluster = isIngredientCluster;
+const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy?.type === 'ingredient' ? taxonomy.id : undefined);
+const isIngredientCluster = Boolean(isValidRoute && ingredientKey && (ingredientArticle || taxonomy?.type === 'ingredient'));
+const isPotatoCluster = Boolean(isIngredientCluster && ingredientKey === 'potato');
 
-const mainGuideGroup = allIngredientGroups?.[ingredientKey];
+const mainGuideGroup = ingredientKey ? allIngredientGroups?.[ingredientKey] : undefined;
 const mainPotatoUrl = mainGuideGroup && mainGuideGroup[currentLang]
   ? `/${currentLang}/${mainGuideGroup[currentLang].routeSegment}/${mainGuideGroup[currentLang].slug}`
   : (currentLang === 'en' ? '/en/ingredients/potato' : currentLang === 'de' ? '/de/zutaten/kartoffel' : '/es/ingredientes/patata');
 
-const isMainPotatoPage = mainGuideGroup && mainGuideGroup[currentLang]
-  ? Astro.params.slug === mainGuideGroup[currentLang].slug
-  : (currentSlug === 'potato' || currentSlug === 'patata' || currentSlug === 'kartoffel');
+const isMainPotatoPage = Boolean(
+  isPotatoCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'potato' || currentSlug === 'patata' || currentSlug === 'kartoffel')
+  )
+);
 
 const getPillarUrl = (pillarSuffix: string) => {
   const pillarGroupKey = `${ingredientKey}-${pillarSuffix}`;
@@ -314,7 +326,27 @@ const pillars = [
 ---
 
 <Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={customHreflangs}>
-  <div class="container mx-auto px-4 py-8 md:py-14 max-w-5xl space-y-10">
+  {!isValidRoute ? (
+    <div class="container mx-auto px-4 py-24 text-center max-w-lg">
+      <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
+        <ChefHat class="w-10 h-10" />
+      </div>
+      <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
+      <p class="text-base sm:text-lg text-muted-foreground mb-8">
+        {currentLang === 'en' 
+          ? 'The requested ingredient or taxonomy topic could not be found.' 
+          : currentLang === 'de' 
+          ? 'Die angeforderte Zutat oder Taxonomie konnte nicht gefunden werden.' 
+          : 'El ingrediente o concepto solicitado no existe en nuestro catálogo.'}
+      </p>
+      <a href={`/${currentLang}`}>
+        <button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+          {currentLang === 'en' ? 'Back to Home' : currentLang === 'de' ? 'Zurück zur Startseite' : 'Volver al inicio'}
+        </button>
+      </a>
+    </div>
+  ) : (
+    <div class="container mx-auto px-4 py-8 md:py-14 max-w-5xl space-y-10">
     
     <!-- SUB-ARTICLE BACK LINK IF IN SUB-MONOGRAPH -->
     {isPotatoCluster && !isMainPotatoPage && (
@@ -535,4 +567,5 @@ const pillars = [
       )}
     </section>
   </div>
+  )}
 </Layout>

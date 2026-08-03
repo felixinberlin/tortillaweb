@@ -33,8 +33,12 @@ export type CanonicalType =
   | 'style';
 
 export type NavigationTarget =
-  | { routeId: RouteId; entity?: never }
-  | { entity: ContentEntity; routeId?: never };
+  | { routeId: RouteId; entity?: never; to?: never; href?: never; key?: never }
+  | { entity: ContentEntity; routeId?: never; to?: never; href?: never; key?: never }
+  | { to: string; routeId?: never; entity?: never; href?: never; key?: never }
+  | { href: string; routeId?: never; entity?: never; to?: never; key?: never }
+  | { key: string; routeId?: never; entity?: never; to?: never; href?: never }
+  | string;
 
 export interface RouteDefinition {
   id: RouteId;
