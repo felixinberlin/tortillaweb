@@ -506,6 +506,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <h2 className="text-2xl font-extrabold text-foreground">
                 {t("builder.compareTitle", "Compara tu tortilla personalizada con referencias icónicas")}
               </h2>
+              {/* i18n verified */}
             </div>
             <p className="text-sm text-muted-foreground">{t("builder.compareSubtitle", "Compara matemáticamente las proporciones normalizadas por huevo de tu receta contra tortillas famosas.")}</p>
           </div>
