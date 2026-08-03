@@ -187,6 +187,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <Button
                     key={num}
                     variant={diners === num ? "default" : "outline"}
+                    aria-pressed={diners === num}
                     className={`flex-1 h-12 text-base font-semibold transition-all ${
                       diners === num ? "bg-amber-600 hover:bg-amber-700 text-white shadow" : ""
                     }`}
@@ -217,6 +218,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 <button
                   type="button"
                   onClick={() => setHasOnion(true)}
+                  aria-pressed={hasOnion}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     hasOnion
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
@@ -234,6 +236,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 <button
                   type="button"
                   onClick={() => setHasOnion(false)}
+                  aria-pressed={!hasOnion}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     !hasOnion
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
@@ -285,6 +288,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                     key={item.id}
                     type="button"
                     onClick={() => setDoneness(item.id as any)}
+                    aria-pressed={doneness === item.id}
                     className={`p-3.5 rounded-xl border text-left transition-all ${
                       doneness === item.id
                         ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
@@ -314,6 +318,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 <button
                   type="button"
                   onClick={() => setPotatoCut("pochada")}
+                  aria-pressed={potatoCut === "pochada"}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     potatoCut === "pochada"
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
@@ -331,6 +336,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                 <button
                   type="button"
                   onClick={() => setPotatoCut("crujiente")}
+                  aria-pressed={potatoCut === "crujiente"}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     potatoCut === "crujiente"
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
