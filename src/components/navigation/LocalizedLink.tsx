@@ -1,62 +1,101 @@
-import React from "react";
+import React from 'react';
+import { resolveNavigationTarget, resolveLegacyPath, getRouteUrl, getContentUrl } from '@/lib/routes';
+import type { RouteId, SupportedLocale, ContentEntity } from '@/lib/routes';
 
-type LocalizedLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  to: string;
-  lang?: string;
+export type BaseLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
+  lang?: SupportedLocale | string;
   children: React.ReactNode;
 };
 
+export type RouteLinkProps = BaseLinkProps & {
+  routeId: RouteId;
+};
+
+export type EntityLinkProps = BaseLinkProps & {
+  entity: ContentEntity;
+};
+
+export type ExternalLinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'target' | 'rel'> & {
+  href: string;
+  children: React.ReactNode;
+  isExternal?: boolean;
+};
+
+export type LocalizedLinkProps = BaseLinkProps & (
+  | { routeId: RouteId; entity?: never; to?: never; href?: never }
+  | { entity: ContentEntity; routeId?: never; to?: never; href?: never }
+  | { to: string; routeId?: never; entity?: never; href?: never }
+  | { href: string; routeId?: never; entity?: never; to?: never }
+);
+
+function getActiveLanguage(lang?: SupportedLocale | string): SupportedLocale {
+  let activeLang = lang;
+  if (!activeLang && typeof window !== 'undefined') {
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    if (parts.length > 0 && ['es', 'en', 'de'].includes(parts[0])) {
+      activeLang = parts[0];
+    }
+  }
+  return (activeLang && ['es', 'en', 'de'].includes(activeLang) ? activeLang : 'es') as SupportedLocale;
+}
+
+export function RouteLink({ routeId, lang, children, className, ...props }: RouteLinkProps) {
+  const language = getActiveLanguage(lang);
+  const url = getRouteUrl(routeId, language);
+  return (
+    <a href={url} className={className} {...props}>
+      {children}
+    </a>
+  );
+}
+
+export function EntityLink({ entity, lang, children, className, ...props }: EntityLinkProps) {
+  const language = getActiveLanguage(lang);
+  const url = getContentUrl(entity, language);
+  return (
+    <a href={url} className={className} {...props}>
+      {children}
+    </a>
+  );
+}
+
+export function ExternalLink({ href, children, className, ...props }: ExternalLinkProps) {
+  return (
+    <a 
+      href={href} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className={className} 
+      {...props}
+    >
+      {children}
+    </a>
+  );
+}
+
 export default function LocalizedLink({
   to,
+  href,
+  routeId,
+  entity,
   lang,
   children,
   className,
   ...props
 }: LocalizedLinkProps) {
-  let activeLang = lang;
-  if (!activeLang && typeof window !== "undefined") {
-    const parts = window.location.pathname.split("/").filter(Boolean);
-    if (parts.length > 0 && ["es", "en", "de"].includes(parts[0])) {
-      activeLang = parts[0];
-    }
-  }
-  const language = activeLang && ["es", "en", "de"].includes(activeLang) ? activeLang : "es";
+  const language = getActiveLanguage(lang);
 
-const ROUTE_LOCALIZATIONS: Record<string, Record<string, string>> = {
-  '/ingredients': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  '/ingredientes': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  '/zutaten': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  '/facciones': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  '/factions': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  '/faktionen': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  '/techniques': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  '/tecnicas': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  '/techniken': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  '/estilos': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  '/styles': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  '/stile': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  '/regiones': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  '/regions': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  '/regionen': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  '/personas': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  '/people': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  '/personen': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  '/restaurantes': { es: '/es/restaurantes', en: '/en/restaurants', de: '/de/restaurants' },
-  '/restaurants': { es: '/es/restaurantes', en: '/en/restaurants', de: '/de/restaurants' },
-  '/contacto': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-  '/contact': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-  '/kontakt': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-};
-
-  const cleanTo = to.startsWith("/") ? to : `/${to}`;
-  let path = cleanTo === "/" ? `/${language}` : `/${language}${cleanTo}`;
-
-  if (ROUTE_LOCALIZATIONS[cleanTo] && ROUTE_LOCALIZATIONS[cleanTo][language]) {
-    path = ROUTE_LOCALIZATIONS[cleanTo][language];
+  let targetUrl = `/${language}`;
+  if (routeId) {
+    targetUrl = resolveNavigationTarget({ routeId }, language);
+  } else if (entity) {
+    targetUrl = resolveNavigationTarget({ entity }, language);
+  } else if (to || href) {
+    targetUrl = resolveLegacyPath(to || href || '/', language);
   }
 
   return (
-    <a href={path} className={className} {...props}>
+    <a href={targetUrl} className={className} {...props}>
       {children}
     </a>
   );

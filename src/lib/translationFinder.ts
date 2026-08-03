@@ -1,3 +1,10 @@
+import { 
+  ROUTES, 
+  getRouteUrl, 
+  resolveReverseRoute 
+} from './routes';
+import type { SupportedLocale, RouteId } from './routes';
+
 export interface TranslationMap {
   [translationKey: string]: {
     es?: string;
@@ -11,49 +18,18 @@ export interface LookupResult {
   urlToKey: Record<string, string>;
 }
 
-// Static routes mapping table
-export const STATIC_ROUTE_TRANSLATIONS: TranslationMap = {
-  'page.home': { es: '/es', en: '/en', de: '/de' },
-  'page-home': { es: '/es', en: '/en', de: '/de' },
-  'page.recipes': { es: '/es/recipes', en: '/en/recipes', de: '/de/recipes' },
-  'page-recipes': { es: '/es/recipes', en: '/en/recipes', de: '/de/recipes' },
-  'page.facciones': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  'page-facciones': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  'page.ingredients': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  'page-ingredients': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  'page.techniques': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  'page-techniques': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  'page.science': { es: '/es/science', en: '/en/science', de: '/de/science' },
-  'page-science': { es: '/es/science', en: '/en/science', de: '/de/science' },
-  'page.history': { es: '/es/history', en: '/en/history', de: '/de/history' },
-  'page-history': { es: '/es/history', en: '/en/history', de: '/de/history' },
-  'page.personas': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  'page-personas': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  'page.restaurantes': { es: '/es/restaurantes', en: '/en/restaurants', de: '/de/restaurants' },
-  'page-restaurantes': { es: '/es/restaurantes', en: '/en/restaurants', de: '/de/restaurants' },
-  'page.regiones': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  'page-regiones': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  'page.records': { es: '/es/records', en: '/en/records', de: '/de/records' },
-  'page-records': { es: '/es/records', en: '/en/records', de: '/de/records' },
-  'page.estilos': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  'page-estilos': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  'page.enciclopedia': { es: '/es/enciclopedia', en: '/en/enciclopedia', de: '/de/enciclopedia' },
-  'page-enciclopedia': { es: '/es/enciclopedia', en: '/en/enciclopedia', de: '/de/enciclopedia' },
-  'page.laboratorio': { es: '/es/laboratorio', en: '/en/laboratorio', de: '/de/laboratorio' },
-  'page-laboratorio': { es: '/es/laboratorio', en: '/en/laboratorio', de: '/de/laboratorio' },
-  'page.comparador': { es: '/es/comparador', en: '/en/comparador', de: '/de/comparador' },
-  'page-comparador': { es: '/es/comparador', en: '/en/comparador', de: '/de/comparador' },
-  'page.builder': { es: '/es/builder', en: '/en/builder', de: '/de/builder' },
-  'page-builder': { es: '/es/builder', en: '/en/builder', de: '/de/builder' },
-  'page.encuestas': { es: '/es/encuestas', en: '/en/encuestas', de: '/de/encuestas' },
-  'page-encuestas': { es: '/es/encuestas', en: '/en/encuestas', de: '/de/encuestas' },
-  'page.tests': { es: '/es/tests', en: '/en/tests', de: '/de/tests' },
-  'page-tests': { es: '/es/tests', en: '/en/tests', de: '/de/tests' },
-  'page.contact': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-  'page-contact': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-  'page.about': { es: '/es/about', en: '/en/about', de: '/de/about' },
-  'page-about': { es: '/es/about', en: '/en/about', de: '/de/about' },
-};
+// Generate static route translations dynamically from the central ROUTES registry
+export const STATIC_ROUTE_TRANSLATIONS: TranslationMap = Object.entries(ROUTES).reduce(
+  (acc, [routeId]) => {
+    acc[routeId] = {
+      es: getRouteUrl(routeId as RouteId, 'es'),
+      en: getRouteUrl(routeId as RouteId, 'en'),
+      de: getRouteUrl(routeId as RouteId, 'de'),
+    };
+    return acc;
+  },
+  {} as TranslationMap
+);
 
 /**
  * Client & Server safe function to find destination URL for a given target language.
@@ -71,6 +47,8 @@ export function findTranslationURL({
   customHreflangs?: Array<{ lang: string; href: string }>;
   lookupData?: LookupResult;
 }): string {
+  const target = targetLang as SupportedLocale;
+
   // 1. Check customHreflangs if provided
   if (customHreflangs && customHreflangs.length > 0) {
     const match = customHreflangs.find((item) => item.lang === targetLang);
@@ -85,41 +63,42 @@ export function findTranslationURL({
   }
 
   // Normalize path
-  const cleanPath = currentPath.split('?')[0].split('#')[0].replace(/\/$/, '') || `/${targetLang}`;
+  const cleanPath = currentPath.split('?')[0].split('#')[0].replace(/\/$/, '') || `/${target}`;
 
-  // 2. Check translationKey if provided
+  // 2. Check translationKey if provided in lookupData
   if (translationKey && lookupData?.translationMap?.[translationKey]) {
-    const targetUrl = lookupData.translationMap[translationKey][targetLang as 'es' | 'en' | 'de'];
+    const targetUrl = lookupData.translationMap[translationKey][target];
     if (targetUrl) return targetUrl;
   }
 
-  // 3. Lookup via urlToKey
+  // 3. Lookup via urlToKey in lookupData
   if (lookupData?.urlToKey) {
     const key = lookupData.urlToKey[cleanPath];
     if (key && lookupData.translationMap[key]) {
-      const targetUrl = lookupData.translationMap[key][targetLang as 'es' | 'en' | 'de'];
+      const targetUrl = lookupData.translationMap[key][target];
       if (targetUrl) return targetUrl;
     }
   }
 
-  // 4. Fallback for static routes
-  for (const [, map] of Object.entries(STATIC_ROUTE_TRANSLATIONS)) {
-    const currentMatches = Object.values(map).includes(cleanPath);
-    if (currentMatches && map[targetLang as 'es' | 'en' | 'de']) {
-      return map[targetLang as 'es' | 'en' | 'de']!;
+  // 4. Reverse Route Resolution via typed ROUTES registry
+  const resolution = resolveReverseRoute(cleanPath);
+  if (resolution.routeId) {
+    const baseTargetUrl = getRouteUrl(resolution.routeId, target);
+    if (resolution.slug) {
+      return `${baseTargetUrl}/${resolution.slug}`.replace(/\/+/g, '/');
     }
+    return baseTargetUrl;
   }
 
-  // 5. Graceful fallback to section root if possible, or homepage
-  const parts = cleanPath.split('/').filter(Boolean);
-  if (parts.length > 1) {
-    const section = parts[1];
-    const sectionKey = `page-${section}`;
-    if (lookupData?.translationMap?.[sectionKey]?.[targetLang as 'es' | 'en' | 'de']) {
-      return lookupData.translationMap[sectionKey][targetLang as 'es' | 'en' | 'de']!;
+  // 5. Fallback check across static routes map
+  for (const [, map] of Object.entries(STATIC_ROUTE_TRANSLATIONS)) {
+    const currentMatches = Object.values(map).includes(cleanPath);
+    if (currentMatches && map[target]) {
+      return map[target]!;
     }
   }
 
   // Fallback to localized homepage
-  return `/${targetLang}`;
+  return `/${target}`;
 }
+
