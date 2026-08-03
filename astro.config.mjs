@@ -3,9 +3,10 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://tortilladepatatas.org',
+  site: 'https://felixinberlin.github.io',
+  base: '/tortillaweb/',
+
   integrations: [
     react(),
     sitemap({
@@ -19,6 +20,7 @@ export default defineConfig({
       },
     }),
   ],
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -27,6 +29,7 @@ export default defineConfig({
       },
     },
   },
+
   server: {
     host: '0.0.0.0',
     port: 3000,
