@@ -216,8 +216,9 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
+                  aria-pressed={hasOnion}
                   onClick={() => setHasOnion(true)}
-                  className={`p-4 rounded-xl border text-left transition-all ${
+                  className={`p-4 rounded-xl border text-left transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                     hasOnion
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
@@ -233,8 +234,9 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
 
                 <button
                   type="button"
+                  aria-pressed={!hasOnion}
                   onClick={() => setHasOnion(false)}
-                  className={`p-4 rounded-xl border text-left transition-all ${
+                  className={`p-4 rounded-xl border text-left transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                     !hasOnion
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
@@ -284,8 +286,9 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <button
                     key={item.id}
                     type="button"
+                    aria-pressed={doneness === item.id}
                     onClick={() => setDoneness(item.id as any)}
-                    className={`p-3.5 rounded-xl border text-left transition-all ${
+                    className={`p-3.5 rounded-xl border text-left transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                       doneness === item.id
                         ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                         : "border-border hover:border-muted-foreground/30"
@@ -313,8 +316,9 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
+                  aria-pressed={potatoCut === "pochada"}
                   onClick={() => setPotatoCut("pochada")}
-                  className={`p-3.5 rounded-xl border text-left transition-all ${
+                  className={`p-3.5 rounded-xl border text-left transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                     potatoCut === "pochada"
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
@@ -330,8 +334,9 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
 
                 <button
                   type="button"
+                  aria-pressed={potatoCut === "crujiente"}
                   onClick={() => setPotatoCut("crujiente")}
-                  className={`p-3.5 rounded-xl border text-left transition-all ${
+                  className={`p-3.5 rounded-xl border text-left transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
                     potatoCut === "crujiente"
                       ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
                       : "border-border hover:border-muted-foreground/30"
