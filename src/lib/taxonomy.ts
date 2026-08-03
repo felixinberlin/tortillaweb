@@ -1,15 +1,23 @@
-import { getCollection } from 'astro:content';
 import type { Taxonomy, Recipe, ResolvedTaxonomyBadge } from '@/types/taxonomy';
+import { ROUTES } from './routes';
+
+const rawRecipes = Object.values(
+  import.meta.glob('/src/content/recipes/*.json', { eager: true })
+).map((mod: any) => (mod.default || mod) as Recipe);
+
+const rawTaxonomies = Object.values(
+  import.meta.glob('/src/content/taxonomies/**/*.json', { eager: true })
+).map((mod: any) => (mod.default || mod) as Taxonomy);
 
 export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
   es: {
-    faction: 'facciones',
-    ingredient: 'ingredientes',
-    technique: 'tecnicas',
-    style: 'estilos',
-    region: 'regiones',
-    person: 'personas',
-    restaurant: 'restaurantes',
+    faction: ROUTES.factions.slug.es,
+    ingredient: ROUTES.ingredients.slug.es,
+    technique: ROUTES.techniques.slug.es,
+    style: ROUTES.estilos.slug.es,
+    region: ROUTES.regiones.slug.es,
+    person: ROUTES.personas.slug.es,
+    restaurant: ROUTES.restaurantes.slug.es,
     utensil: 'utensilios',
     'cooking-method': 'metodos-coccion',
     texture: 'texturas',
@@ -18,13 +26,13 @@ export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
     difficulty: 'dificultad',
   },
   en: {
-    faction: 'factions',
-    ingredient: 'ingredients',
-    technique: 'techniques',
-    style: 'styles',
-    region: 'regions',
-    person: 'people',
-    restaurant: 'restaurants',
+    faction: ROUTES.factions.slug.en,
+    ingredient: ROUTES.ingredients.slug.en,
+    technique: ROUTES.techniques.slug.en,
+    style: ROUTES.estilos.slug.en,
+    region: ROUTES.regiones.slug.en,
+    person: ROUTES.personas.slug.en,
+    restaurant: ROUTES.restaurantes.slug.en,
     utensil: 'utensils',
     'cooking-method': 'cooking-methods',
     texture: 'textures',
@@ -33,13 +41,13 @@ export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
     difficulty: 'difficulty',
   },
   de: {
-    faction: 'faktionen',
-    ingredient: 'zutaten',
-    technique: 'techniken',
-    style: 'stile',
-    region: 'regionen',
-    person: 'personen',
-    restaurant: 'restaurants',
+    faction: ROUTES.factions.slug.de,
+    ingredient: ROUTES.ingredients.slug.de,
+    technique: ROUTES.techniques.slug.de,
+    style: ROUTES.estilos.slug.de,
+    region: ROUTES.regiones.slug.de,
+    person: ROUTES.personas.slug.de,
+    restaurant: ROUTES.restaurantes.slug.de,
     utensil: 'utensilien',
     'cooking-method': 'kochmethoden',
     texture: 'texturen',
@@ -50,13 +58,13 @@ export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
 };
 
 export const TAXONOMY_TYPE_LABELS: Record<string, Record<string, string>> = {
-  ingredient: { es: 'Ingredientes', en: 'Ingredients', de: 'Zutaten' },
-  faction: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
-  technique: { es: 'Técnicas', en: 'Techniques', de: 'Techniken' },
-  style: { es: 'Estilos Culinarios', en: 'Culinary Styles', de: 'Kulinarische Stile' },
-  region: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
-  person: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
-  restaurant: { es: 'Restaurantes', en: 'Restaurants', de: 'Restaurants' },
+  ingredient: ROUTES.ingredients.label,
+  faction: ROUTES.factions.label,
+  technique: ROUTES.techniques.label,
+  style: ROUTES.estilos.label,
+  region: ROUTES.regiones.label,
+  person: ROUTES.personas.label,
+  restaurant: ROUTES.restaurantes.label,
   utensil: { es: 'Utensilios', en: 'Utensils', de: 'Utensilien' },
   'cooking-method': { es: 'Métodos de Cocción', en: 'Cooking Methods', de: 'Kochmethoden' },
   texture: { es: 'Texturas', en: 'Textures', de: 'Texturen' },
@@ -64,6 +72,7 @@ export const TAXONOMY_TYPE_LABELS: Record<string, Record<string, string>> = {
   glossary: { es: 'Glosario', en: 'Glossary', de: 'Glossar' },
   difficulty: { es: 'Dificultad', en: 'Difficulty', de: 'Schwierigkeit' },
 };
+
 
 /**
  * Resolves localized display label for a taxonomy type or route segment.
@@ -118,16 +127,14 @@ export function getTaxonomyTypeFromRoute(routeSegment: string, lang: string = 'e
  * Retrieves all taxonomy records.
  */
 export async function getAllTaxonomies(): Promise<Taxonomy[]> {
-  const collection = await getCollection('taxonomies');
-  return collection.map((item: any) => item.data as Taxonomy);
+  return rawTaxonomies;
 }
 
 /**
  * Retrieves all recipe records.
  */
 export async function getAllRecipes(): Promise<Recipe[]> {
-  const collection = await getCollection('recipes');
-  return collection.map((item: any) => item.data as Recipe);
+  return rawRecipes;
 }
 
 /**

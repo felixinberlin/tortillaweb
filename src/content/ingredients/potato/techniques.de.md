@@ -80,8 +80,8 @@ Entdecke die weiteren Spezialmonografien des Kartoffel-Systems:
 
 ### Verknüpfte Tortilla-Rezepte
 
-- [Klassische traditionelle Tortilla](/de/recipes/clasica) — Kanonische Confitier-Technik.
-- [Tortilla Express](/de/recipes/express) — Optimierter thermischer Prozess.
+- [Klassische traditionelle Tortilla](/de/recipes/klassische-spanische-tortilla) — Kanonische Confitier-Technik.
+- [Tortilla Express](/de/recipes/express-kartoffelchips-tortilla) — Optimierter thermischer Prozess.
 
 ### Ergänzende Zutaten
 

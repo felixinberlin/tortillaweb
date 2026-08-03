@@ -87,8 +87,8 @@ Explore deeper encyclopedic articles in the potato content cluster:
 
 ### Related tortilla recipes
 
-- [Classic Traditional Tortilla](/en/recipes/clasica) — Monalisa in traditional *panadera* cut.
-- [Betanzos-Style Tortilla](/en/recipes/betanzos) — Galician Kennebec potato.
+- [Classic Traditional Tortilla](/en/recipes/classic-spanish-omelette) — Monalisa in traditional *panadera* cut.
+- [Betanzos-Style Tortilla](/en/recipes/betanzos-style-spanish-omelette) — Galician Kennebec potato.
 
 ### Complementary ingredients
 

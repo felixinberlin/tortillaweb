@@ -1,0 +1,69 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import OliveOilIngredientDetail from '@/components/ingredients/OliveOilIngredientDetail';
+import { supportedLanguages } from '@/lib/i18n';
+import { getRecipesForTaxonomy } from '@/lib/taxonomy';
+import { SITE_URL, generateBreadcrumbSchema, generateArticleSchema } from '@/lib/seo';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const recipes = await getRecipesForTaxonomy('ingredient', 'oil');
+
+const customHreflangs = [
+  { lang: 'es', href: `${SITE_URL}/es/ingredientes/aceite-de-oliva` },
+  { lang: 'en', href: `${SITE_URL}/en/ingredients/olive-oil` },
+  { lang: 'de', href: `${SITE_URL}/de/zutaten/olivenoel` },
+  { lang: 'x-default', href: `${SITE_URL}/es/ingredientes/aceite-de-oliva` },
+];
+
+const title = currentLang === 'en'
+  ? 'Olive Oil (Olea europaea) | Ingredient Monograph | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Olivenöl (Olea europaea) | Zutaten-Monographie | tortilladepatatas.org'
+  : 'Aceite de Oliva (Olea europaea) | Monografía de Ingrediente | tortilladepatatas.org';
+
+const description = currentLang === 'en'
+  ? 'Comprehensive guide to olive oil in Spanish tortilla: thermal medium, EVOO varieties (Picual, Arbequina, Hojiblanca), confiting technique, and emulsion chemistry.'
+  : currentLang === 'de'
+  ? 'Umfassender Leitfaden zu Olivenöl in der spanischen Tortilla: Wärmeträger, AOVE-Sorten (Picual, Arbequina, Hojiblanca), Konfiertechnik und Emulsionschemie.'
+  : 'Guía enciclopédica sobre el aceite de oliva en la tortilla española: medio térmico, variedades de AOVE (Picual, Arbequina, Hojiblanca), técnica del confitado y química de la emulsión.';
+
+const breadcrumbsList = [
+  { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'de' ? 'Zutaten' : currentLang === 'en' ? 'Ingredients' : 'Ingredientes', url: `/${currentLang}/ingredientes` },
+  { name: currentLang === 'de' ? 'Olivenöl' : currentLang === 'en' ? 'Olive Oil' : 'Aceite de Oliva', url: `/${currentLang}/ingredientes/aceite-de-oliva` },
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
+const articleSchema = generateArticleSchema({
+  headline: 'Aceite de Oliva (Olea europaea)',
+  description: description,
+  url: `${SITE_URL}/${currentLang}/ingredientes/aceite-de-oliva`,
+  image: '/images/ingredients/olive_oil_editorial_card.jpg',
+});
+
+const schemas = [breadcrumbSchema, articleSchema];
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang={currentLang}
+  schema={schemas}
+  breadcrumbs={breadcrumbsList}
+  canonical={`${SITE_URL}/${currentLang}/ingredientes/aceite-de-oliva`}
+  customHreflangs={customHreflangs}
+>
+  <OliveOilIngredientDetail
+    lang={currentLang}
+    relatedRecipes={recipes}
+    client:load
+  />
+</Layout>

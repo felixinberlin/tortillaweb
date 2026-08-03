@@ -293,6 +293,10 @@
     "title",
     "description",
     "taxonomyIds",
-    "time"
+    "time",
+    "image",
+    "prepTimeMinutes",
+    "cookTimeMinutes",
+    "yieldServings"
   ]
 }

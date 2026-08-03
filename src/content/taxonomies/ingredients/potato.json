@@ -17,5 +17,15 @@
     "en": "The structural base of the Spanish omelette. Varieties like Monalisa or Kennebec yield the best confit texture.",
     "de": "Die Grundlage der Tortilla. Sorten wie Monalisa oder Kennebec eignen sich am besten zum Confitieren."
   },
-  "icon": "CookingPot"
+  "icon": "CookingPot",
+  "related": [
+    { "type": "ingredient", "id": "egg", "relationship": "structural_binder" },
+    { "type": "ingredient", "id": "oil", "relationship": "confit_medium" },
+    { "type": "technique", "id": "slow-cooking", "relationship": "cooking_method" },
+    { "type": "technique", "id": "cutting", "relationship": "preparation" },
+    { "type": "technique", "id": "coagulation", "relationship": "thermal_process" },
+    { "type": "recipe", "id": "clasica", "relationship": "featured_recipe" },
+    { "type": "recipe", "id": "betanzos", "relationship": "featured_recipe" },
+    { "type": "history", "id": "history", "relationship": "origin_story" }
+  ]
 }

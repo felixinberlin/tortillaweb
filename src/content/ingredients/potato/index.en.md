@@ -83,9 +83,9 @@ The physiological age of the tuber dramatically alters its pan performance:
 
 See how potato selection applies to canonical recipes in our catalog:
 
-- [Classic Traditional Tortilla](/en/recipes/clasica) — Balanced Monalisa potato with classic *panadera* cut.
-- [Betanzos-Style Tortilla](/en/recipes/betanzos) — Translucent Kennebec slices in an ultra-runny golden center.
-- [Express Tortilla](/en/recipes/express) — Streamlined technique adhering to strict quality standards.
+- [Classic Traditional Tortilla](/en/recipes/classic-spanish-omelette) — Balanced Monalisa potato with classic *panadera* cut.
+- [Betanzos-Style Tortilla](/en/recipes/betanzos-style-spanish-omelette) — Translucent Kennebec slices in an ultra-runny golden center.
+- [Express Tortilla](/en/recipes/express-potato-chip-omelette) — Streamlined technique adhering to strict quality standards.
 
 ---
 

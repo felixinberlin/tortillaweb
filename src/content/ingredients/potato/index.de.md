@@ -83,9 +83,9 @@ Das physiologische Alter der Knolle verändert ihr Verhalten in der Pfanne drast
 
 Sieht dir an, wie die richtige Kartoffel in den kanonischen Rezepten unseres Katalogs eingesetzt wird:
 
-- [Klassische traditionelle Tortilla](/de/recipes/clasica) — Perfekte Balance mit Monalisa-Kartoffel und *Panadera*-Schnitt.
-- [Tortilla nach Betanzos-Art](/de/recipes/betanzos) — Hauchdünne Kennebec-Scheiben in einem sehr flüssigen Kern.
-- [Tortilla Express](/de/recipes/express) — Vereinfachte Technik unter Einhaltung höchster Qualitätsstandards.
+- [Klassische traditionelle Tortilla](/de/recipes/klassische-spanische-tortilla) — Perfekte Balance mit Monalisa-Kartoffel und *Panadera*-Schnitt.
+- [Tortilla nach Betanzos-Art](/de/recipes/betanzos-tortilla) — Hauchdünne Kennebec-Scheiben in einem sehr flüssigen Kern.
+- [Tortilla Express](/de/recipes/express-kartoffelchips-tortilla) — Vereinfachte Technik unter Einhaltung höchster Qualitätsstandards.
 
 ---
 

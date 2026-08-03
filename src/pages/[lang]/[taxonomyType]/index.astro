@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import FactionsPage from '@/components/factions/FactionsPage';
+import TechniquesPage from '@/components/techniques/TechniquesPage';
 import { 
   TAXONOMY_ROUTING_MAP, 
   getTaxonomyTypeFromRoute, 
@@ -422,48 +423,7 @@ if (canonicalType === 'ingredient') {
   )}
 
   {canonicalType === 'technique' && (
-    <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
-          <Sparkles class="w-3.5 h-3.5" />
-          {t("techniquesPage.badge", "Maestría en la Cocina")}
-        </Badge>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
-          {t("techniquesPage.title", "Técnicas y Pasos Críticos de Elaboración")}
-        </h1>
-        <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
-          {t("techniquesPage.subtitle", "Desde el chasquido inicial de la patata hasta el movimiento decidido del volteo en la sartén.")}
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        {techTaxonomies.map((item) => {
-          const localizedTitle = item.title[currentLang as keyof typeof item.title] || item.title.es;
-          const localizedDesc = item.description[currentLang as keyof typeof item.description] || item.description.es;
-          const localizedSlug = item.slug[currentLang as keyof typeof item.slug] || item.slug.es;
-          const itemUrl = `/${currentLang}/${getTaxonomyRoutePrefix('technique', currentLang)}/${localizedSlug}`;
-
-          return (
-            <a href={itemUrl} class="group block hover:no-underline">
-              <Card class="card-notebook p-6 space-y-3 hover:border-[#FFB800] transition-all">
-                <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE]/60 px-2.5 py-1 rounded-md">
-                    Técnica Clave
-                  </span>
-                  <ArrowRight class="w-4 h-4 text-[#FFB800] group-hover:translate-x-1 transition-transform" />
-                </div>
-                <h2 class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] transition-colors">
-                  {localizedTitle}
-                </h2>
-                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                  {localizedDesc}
-                </p>
-              </Card>
-            </a>
-          );
-        })}
-      </div>
-    </div>
+    <TechniquesPage lang={currentLang} client:load />
   )}
 
   {canonicalType === 'style' && (

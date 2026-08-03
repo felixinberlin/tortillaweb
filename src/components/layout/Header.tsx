@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "@/i18n/config";
 import { findTranslationURL, type TranslationMap } from "@/lib/translationFinder";
+import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 import { 
   Menu, 
   ChefHat, 
@@ -97,39 +98,8 @@ export default function Header({
 
   const activePath = propPath || clientPath;
 
-const ROUTE_LOCALIZATIONS: Record<string, Record<string, string>> = {
-  '/ingredients': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  '/ingredientes': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  '/zutaten': { es: '/es/ingredientes', en: '/en/ingredients', de: '/de/zutaten' },
-  '/facciones': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  '/factions': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  '/faktionen': { es: '/es/facciones', en: '/en/factions', de: '/de/faktionen' },
-  '/techniques': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  '/tecnicas': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  '/techniken': { es: '/es/tecnicas', en: '/en/techniques', de: '/de/techniken' },
-  '/estilos': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  '/styles': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  '/stile': { es: '/es/estilos', en: '/en/styles', de: '/de/stile' },
-  '/regiones': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  '/regions': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  '/regionen': { es: '/es/regiones', en: '/en/regions', de: '/de/regionen' },
-  '/personas': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  '/people': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  '/personen': { es: '/es/personas', en: '/en/people', de: '/de/personen' },
-  '/restaurantes': { es: '/es/restaurantes', en: '/en/restaurants', de: '/de/restaurants' },
-  '/restaurants': { es: '/es/restaurantes', en: '/en/restaurants', de: '/de/restaurants' },
-  '/contacto': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-  '/contact': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-  '/kontakt': { es: '/es/contacto', en: '/en/contact', de: '/de/kontakt' },
-};
-
   function getLocalizedHref(path: string) {
-    const cleanPath = path.startsWith("/") ? path : `/${path}`;
-    if (cleanPath === "/") return `/${lang}`;
-    if (ROUTE_LOCALIZATIONS[cleanPath] && ROUTE_LOCALIZATIONS[cleanPath][lang]) {
-      return ROUTE_LOCALIZATIONS[cleanPath][lang];
-    }
-    return `/${lang}${cleanPath}`;
+    return resolveNavigationTarget({ to: path }, (lang as SupportedLocale) || 'es');
   }
 
   function getLangUrl(targetLang: string) {
@@ -151,10 +121,11 @@ const ROUTE_LOCALIZATIONS: Record<string, Record<string, string>> = {
 
   function isLinkActive(targetPath: string) {
     if (!activePath) return false;
-    if (targetPath === "/") {
+    const resolvedUrl = getLocalizedHref(targetPath);
+    if (targetPath === "/" || resolvedUrl === `/${lang}` || resolvedUrl === `/${lang}/`) {
       return activePath === `/${lang}` || activePath === `/${lang}/` || activePath === "/";
     }
-    return activePath.includes(targetPath);
+    return activePath === resolvedUrl || activePath.startsWith(`${resolvedUrl}/`);
   }
 
   return (

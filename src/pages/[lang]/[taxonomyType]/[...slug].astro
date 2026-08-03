@@ -1,14 +1,20 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import PotatoIngredientDetail from '@/components/ingredients/PotatoIngredientDetail';
+import EggIngredientDetail from '@/components/ingredients/EggIngredientDetail';
+import OliveOilIngredientDetail from '@/components/ingredients/OliveOilIngredientDetail';
 import { 
   TAXONOMY_ROUTING_MAP, 
   getAllTaxonomies, 
   getRecipesForTaxonomy, 
   resolveRecipeBadges,
-  getTaxonomyTypeLabel
+  getTaxonomyTypeLabel,
+  getTaxonomyRoutePrefix
 } from '@/lib/taxonomy';
+import { getRelatedRecipes, getRelatedIngredients, getRelatedArticles, getRelatedTaxonomies, getRelatedKnowledgeForIngredient } from '@/lib/content/related';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateBreadcrumbSchema, generateArticleSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
+import { assertRouteEntities } from '@/lib/routing/assertRoute';
 import { getCollection, render } from 'astro:content';
 import { 
   ShieldCheck, 
@@ -186,30 +192,40 @@ const { taxonomy, lang, ingredientArticle, customHreflangs, translationGroup, al
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
 const t = getTranslations(currentLang);
 
-// If an ingredient article exists, render its rich content
+// Validate content entity existence - sets Astro.response.status = 404 when invalid
+const isValidRoute = assertRouteEntities(Astro.response, taxonomy, ingredientArticle);
+
+// If an ingredient article exists and route is valid, render its rich content
 let Content = null;
-if (ingredientArticle) {
+if (isValidRoute && ingredientArticle) {
   const rendered = await render(ingredientArticle);
   Content = rendered.Content;
 }
 
 // Titles and metadata
-const title = ingredientArticle 
-  ? ingredientArticle.data.title 
-  : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : 'Ingrediente');
+const title = isValidRoute
+  ? (ingredientArticle
+      ? ingredientArticle.data.title
+      : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : ''))
+  : (currentLang === 'en' ? 'Page Not Found' : currentLang === 'de' ? 'Seite nicht gefunden' : 'Página no encontrada');
 
-const description = ingredientArticle
-  ? ingredientArticle.data.description
-  : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : '');
+const description = isValidRoute
+  ? (ingredientArticle
+      ? ingredientArticle.data.description
+      : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : ''))
+  : (currentLang === 'en' ? 'The requested page could not be found.' : currentLang === 'de' ? 'Die angeforderte Seite konnte nicht gefunden werden.' : 'La página solicitada no existe.');
 
 const dogma = taxonomy?.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
 const badgeText = taxonomy?.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
 const keyIngredient = taxonomy?.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
 
-// Load related recipes dynamically
-const taxonomyId = taxonomy ? taxonomy.id : (ingredientArticle?.data.ingredient || 'potato');
+// Load related recipes, articles, taxonomies, and knowledge base dynamically
+const taxonomyId = taxonomy ? taxonomy.id : ingredientArticle?.data.ingredient;
 const taxonomyType = taxonomy ? taxonomy.type : 'ingredient';
-const relatedRecipes = await getRecipesForTaxonomy(taxonomyType, taxonomyId);
+const relatedRecipes = (isValidRoute && taxonomyId) ? await getRecipesForTaxonomy(taxonomyType, taxonomyId) : [];
+const relatedArticles = (isValidRoute && taxonomyId) ? await getRelatedArticles({ type: taxonomyType, id: taxonomyId }, currentLang) : [];
+const relatedTaxonomies = (isValidRoute && taxonomyId) ? await getRelatedTaxonomies({ type: taxonomyType, id: taxonomyId }, currentLang) : [];
+const relatedKnowledge = (isValidRoute && taxonomyId && taxonomyType === 'ingredient') ? await getRelatedKnowledgeForIngredient(taxonomyId, currentLang) : [];
 
 const recipesWithBadges = await Promise.all(
   relatedRecipes.map(async (r) => ({
@@ -218,53 +234,78 @@ const recipesWithBadges = await Promise.all(
   }))
 );
 
-const pageTitle = `${title} | tortilladepatatas.org`;
+const pageTitle = isValidRoute ? `${title} | tortilladepatatas.org` : `404: ${title} | tortilladepatatas.org`;
 
 // SEO Schemas
-const currentUrl = ingredientArticle?.data.seo?.canonical
-  ? ingredientArticle.data.seo.canonical
-  : `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
+const currentUrl = isValidRoute
+  ? (ingredientArticle?.data.seo?.canonical
+      ? ingredientArticle.data.seo.canonical
+      : `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`)
+  : undefined;
 
 const taxonomyTypeLabel = getTaxonomyTypeLabel(Astro.params.taxonomyType || taxonomyType, currentLang);
 
-const breadcrumbsList = [
+const breadcrumbsList = isValidRoute ? [
   { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
   { name: taxonomyTypeLabel, url: `/${currentLang}/${Astro.params.taxonomyType}` },
   { name: title, url: `/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}` },
-];
+] : [];
 
-const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
-const articleSchema = ingredientArticle ? generateArticleSchema({
+const breadcrumbSchema = isValidRoute ? generateBreadcrumbSchema(breadcrumbsList) : undefined;
+const articleSchema = isValidRoute ? (ingredientArticle ? generateArticleSchema({
   headline: title,
   description: description,
-  url: currentUrl,
+  url: currentUrl || `${SITE_URL}/${currentLang}`,
   image: ingredientArticle.data.image || '/images/ingredients/potato_editorial_card.jpg',
 }) : generateCollectionPageSchema({
   name: title,
   description: description,
-  url: currentUrl,
+  url: currentUrl || `${SITE_URL}/${currentLang}`,
   items: relatedRecipes.map((r) => ({
     name: r.title[currentLang as keyof typeof r.title] || r.title.es,
     url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
   })),
-});
+})) : undefined;
 
-const schemas = [breadcrumbSchema, articleSchema];
+const schemas = isValidRoute ? [breadcrumbSchema, articleSchema].filter(Boolean) : undefined;
+const pageHreflangs = isValidRoute ? customHreflangs : undefined;
 
-// Pillar Links for Ingredient Cluster (e.g., Potato, Egg, Oil, etc.)
+// Pillar Links for Ingredient Cluster (Potato, etc.)
 const currentSlug = Astro.params.slug || '';
-const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy ? taxonomy.id : 'potato');
-const isIngredientCluster = Boolean(ingredientArticle || taxonomy?.type === 'ingredient');
-const isPotatoCluster = isIngredientCluster && taxonomy?.id === 'potato';
+const ingredientKey = ingredientArticle?.data.ingredient || (taxonomy?.type === 'ingredient' ? taxonomy.id : undefined);
+const isIngredientCluster = Boolean(isValidRoute && ingredientKey && (ingredientArticle || taxonomy?.type === 'ingredient'));
+const isPotatoCluster = Boolean(isIngredientCluster && ingredientKey === 'potato');
+const isEggCluster = Boolean(isIngredientCluster && ingredientKey === 'egg');
+const isOilCluster = Boolean(isIngredientCluster && (ingredientKey === 'oil' || ingredientKey === 'olive-oil'));
 
-const mainGuideGroup = allIngredientGroups?.[ingredientKey];
+const mainGuideGroup = ingredientKey ? allIngredientGroups?.[ingredientKey] : undefined;
 const mainPotatoUrl = mainGuideGroup && mainGuideGroup[currentLang]
   ? `/${currentLang}/${mainGuideGroup[currentLang].routeSegment}/${mainGuideGroup[currentLang].slug}`
   : (currentLang === 'en' ? '/en/ingredients/potato' : currentLang === 'de' ? '/de/zutaten/kartoffel' : '/es/ingredientes/patata');
 
-const isMainPotatoPage = mainGuideGroup && mainGuideGroup[currentLang]
-  ? Astro.params.slug === mainGuideGroup[currentLang].slug
-  : (currentSlug === 'potato' || currentSlug === 'patata' || currentSlug === 'kartoffel');
+const isMainPotatoPage = Boolean(
+  isPotatoCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'potato' || currentSlug === 'patata' || currentSlug === 'kartoffel')
+  )
+);
+
+const isMainEggPage = Boolean(
+  isEggCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'egg' || currentSlug === 'huevo' || currentSlug === 'ei')
+  )
+);
+
+const isMainOilPage = Boolean(
+  isOilCluster && (
+    mainGuideGroup && mainGuideGroup[currentLang]
+      ? Astro.params.slug === mainGuideGroup[currentLang].slug
+      : (currentSlug === 'oil' || currentSlug === 'aceite-de-oliva' || currentSlug === 'olive-oil' || currentSlug === 'olivenoel')
+  )
+);
 
 const getPillarUrl = (pillarSuffix: string) => {
   const pillarGroupKey = `${ingredientKey}-${pillarSuffix}`;
@@ -313,10 +354,51 @@ const pillars = [
 ];
 ---
 
-<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={customHreflangs}>
-  <div class="container mx-auto px-4 py-8 md:py-14 max-w-5xl space-y-10">
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={pageHreflangs}>
+  {!isValidRoute ? (
+    <div class="container mx-auto px-4 py-24 text-center max-w-lg">
+      <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
+        <ChefHat class="w-10 h-10" />
+      </div>
+      <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
+      <p class="text-base sm:text-lg text-muted-foreground mb-8">
+        {currentLang === 'en'
+          ? 'The requested ingredient or taxonomy topic could not be found.'
+          : currentLang === 'de'
+          ? 'Die angeforderte Zutat oder Taxonomie konnte nicht gefunden werden.'
+          : 'El ingrediente o concepto solicitado no existe en nuestro catálogo.'}
+      </p>
+      <a href={`/${currentLang}`}>
+        <button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm">
+          {currentLang === 'en' ? 'Back to Home' : currentLang === 'de' ? 'Zurück zur Startseite' : 'Volver al inicio'}
+        </button>
+      </a>
+    </div>
+  ) : isMainOilPage ? (
+    <OliveOilIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : isMainEggPage ? (
+    <EggIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : isMainPotatoPage ? (
+    <PotatoIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
+  ) : (
+    <div class="container mx-auto px-4 py-8 md:py-14 max-w-5xl space-y-10">
     
-    <!-- SUB-ARTICLE BACK LINK IF IN SUB-MONOGRAPH -->
+    <!-- SUB-ARTICLE BACK LINK IF IN SUB-MONOGRAPH OR TECHNIQUE -->
     {isPotatoCluster && !isMainPotatoPage && (
       <div class="flex items-center gap-2">
         <a 
@@ -325,6 +407,18 @@ const pillars = [
         >
           <ArrowLeft class="w-4 h-4" />
           <span>{currentLang === 'en' ? 'Back to Main Potato Guide' : currentLang === 'de' ? 'Zurück zum Kartoffel-Hauptleitfaden' : 'Volver a la Guía Principal de la Patata'}</span>
+        </a>
+      </div>
+    )}
+
+    {taxonomy?.type === 'technique' && (
+      <div class="flex items-center gap-2">
+        <a
+          href={`/${currentLang}/${getTaxonomyRoutePrefix('technique', currentLang)}`}
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] text-xs font-bold border border-amber-300 hover:bg-[#FFB800]/30 transition-colors"
+        >
+          <ArrowLeft class="w-4 h-4" />
+          <span>{currentLang === 'en' ? 'Back to All Culinary Techniques' : currentLang === 'de' ? 'Zurück zu allen Küchentechniken' : 'Volver al Manual de Técnicas'}</span>
         </a>
       </div>
     )}
@@ -535,4 +629,5 @@ const pillars = [
       )}
     </section>
   </div>
+  )}
 </Layout>

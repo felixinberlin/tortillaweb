@@ -87,8 +87,8 @@ Profundiza en los siguientes capítulos enciclopédicos del clúster de la patat
 
 ### Recetas de tortilla relacionadas
 
-- [Tortilla Clásica Tradicional](/es/recipes/clasica) — Uso de Monalisa en corte panadera.
-- [Tortilla de Betanzos](/es/recipes/betanzos) — Uso de Kennebec gallega.
+- [Tortilla Clásica Tradicional](/es/recipes/tortilla-clasica) — Uso de Monalisa en corte panadera.
+- [Tortilla de Betanzos](/es/recipes/tortilla-betanzos) — Uso de Kennebec gallega.
 
 ### Ingredientes complementarios
 

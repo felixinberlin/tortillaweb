@@ -45,10 +45,10 @@ const recipeCollection = defineCollection({
     description: localizedStringSchema,
     taxonomyIds: z.array(z.string()),
     time: z.number(),
-    image: z.string().optional(),
-    prepTimeMinutes: z.number().optional(),
-    cookTimeMinutes: z.number().optional(),
-    yieldServings: z.number().optional(),
+    image: z.string(),
+    prepTimeMinutes: z.number(),
+    cookTimeMinutes: z.number(),
+    yieldServings: z.number(),
     ingredients: z.array(recipeIngredientSchema).optional(),
     instructions: z.array(z.object({
       step: localizedStringSchema,
@@ -82,6 +82,11 @@ const taxonomyCollection = defineCollection({
     badge: localizedStringSchema.optional(),
     keyIngredient: localizedStringSchema.optional(),
     prominentFigures: z.array(z.string()).optional(),
+    related: z.array(z.object({
+      type: z.string(),
+      id: z.string(),
+      relationship: z.string().optional(),
+    })).optional(),
   }),
 });
 

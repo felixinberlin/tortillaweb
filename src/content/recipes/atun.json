@@ -1,37 +1,32 @@
 {
-  "id": "con-atun",
-  "contentId": "recipe.quesoazul",
-  "translationKey": "recipe-quesoazul",
+  "id": "atun",
+  "contentId": "recipe.atun",
+  "translationKey": "recipe-atun",
   "slug": {
-    "es": "tortilla-de-patatas-con-atun",
-    "en": "spanish-omelette-with-tuna",
-    "de": "spanische-tortilla-mit-thunfisch"
+    "es": "tortilla-atun",
+    "en": "tuna-spanish-omelette",
+    "de": "thunfisch-spanische-tortilla"
   },
   "title": {
-    "es": "Tortilla de Patatas con Atún y Pimientos del Piquillo",
-    "en": "Spanish Omelette with Tuna & Piquillo Peppers",
-    "de": "Spanische Tortilla mit Thunfisch und Piquillo-Paprika"
+    "es": "Tortilla con Atún",
+    "en": "Spanish Omelette with Tuna",
+    "de": "Spanische Tortilla mit Thunfisch"
   },
   "description": {
-    "es": "Variante de la facción 'Con Cosas' popularizada por chefs como José Andrés: combina patata pocha, huevo campero y lomos de atún en conserva bien escurridos, pudiendo acompañarse de pimientos del piquillo asados.",
-    "en": "A popular 'Con Cosas' variant championed by chefs like José Andrés: combining poached potatoes, free-range eggs, and well-drained canned tuna in olive oil with roasted piquillo peppers.",
-    "de": "Eine beliebte Variante der 'Con Cosas'-Fraktion, bekannt durch Chefs wie José Andrés: Verbindet geschmorte Kartoffeln, Freilandeier und gut abgetropften Thunfisch in Olivenöl mit gegrillten Piquillo-Paprikas."
+    "es": "Una opción clásica del recetario mediterráneo que añade lomos o migas de atún de calidad a la masa de patata y huevo.",
+    "en": "A classic Mediterranean variation adding quality tuna flakes to the potato and egg mixture.",
+    "de": "Eine klassische mediterrane Variante, die der Kartoffel-Ei-Masse hochwertigen Thunfisch hinzufügt."
   },
   "taxonomyIds": [
     "faction:con-cosas",
     "ingredient:potato",
     "ingredient:egg",
-    "ingredient:tuna",
-    "ingredient:onion",
-    "ingredient:pepper",
     "ingredient:oil",
-    "ingredient:salt",
     "technique:confit",
-    "style:gourmet",
     "difficulty:easy"
   ],
-  "time": 40,
-  "prepTimeMinutes": 15,
+  "time": 35,
+  "prepTimeMinutes": 10,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
   "image": "/images/con-atun.jpg",
@@ -40,80 +35,48 @@
       "id": "potato",
       "ingredientId": "potato",
       "name": {
-        "es": "Patata (Monalisa o Agria)",
-        "en": "Potato (Monalisa or Agria)",
-        "de": "Kartoffel (Monalisa oder Agria)"
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
       },
-      "amount": 500,
+      "amount": 600,
       "unit": "g",
       "notes": {
-        "es": "Patatas cortadas en láminas finas",
-        "en": "Thinly sliced potatoes",
-        "de": "Dünn geschnittene Kartoffeln"
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
+    },
+    {
+      "id": "atun",
+      "ingredientId": "atun",
+      "name": {
+        "es": "Atún en Aceite de Oliva",
+        "en": "Tuna in Olive Oil",
+        "de": "Thunfisch in Olivenöl"
+      },
+      "amount": 120,
+      "unit": "g",
+      "notes": {
+        "es": "Atún o bonito en conserva escurrido",
+        "en": "Canned tuna drained",
+        "de": "Abtropfter Thunfisch aus der Dose"
       }
     },
     {
       "id": "egg",
       "ingredientId": "egg",
       "name": {
-        "es": "Huevo campero",
-        "en": "Free-range egg",
-        "de": "Ei aus Freilandhaltung"
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
       },
       "amount": 6,
       "unit": "unit",
       "notes": {
-        "es": "6 huevos a temperatura ambiente",
-        "en": "6 eggs at room temperature",
-        "de": "6 Eier bei Raumtemperatur"
-      }
-    },
-    {
-      "id": "tuna",
-      "ingredientId": "tuna",
-      "name": {
-        "es": "Atún en conserva en aceite de oliva",
-        "en": "Canned tuna in olive oil",
-        "de": "Thunfisch in Olivenöl (Dose)"
-      },
-      "amount": 120,
-      "unit": "g",
-      "notes": {
-        "es": "Lomos de atún en conserva bien escurridos y desmigados",
-        "en": "Flaked tuna loins, thoroughly drained",
-        "de": "Gut abgetropfter Thunfisch, leicht zerpflückt"
-      }
-    },
-    {
-      "id": "onion",
-      "ingredientId": "onion",
-      "name": {
-        "es": "Cebolla",
-        "en": "Onion",
-        "de": "Zwiebel"
-      },
-      "amount": 150,
-      "unit": "g",
-      "notes": {
-        "es": "1 cebolla mediana pochada lentamente",
-        "en": "1 medium onion, slowly poached",
-        "de": "1 mittelgroße Zwiebel, langsam geschmort"
-      }
-    },
-    {
-      "id": "pepper",
-      "ingredientId": "pepper",
-      "name": {
-        "es": "Pimientos del piquillo asados",
-        "en": "Roasted piquillo peppers",
-        "de": "Gegrillte Piquillo-Paprika"
-      },
-      "amount": 60,
-      "unit": "g",
-      "notes": {
-        "es": "Pimientos del piquillo cortados en tiras (estilo Jaleo)",
-        "en": "Piquillo peppers sliced into strips (Jaleo style)",
-        "de": "In Streifen geschnittene Piquillo-Paprika"
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
       }
     },
     {
@@ -127,9 +90,9 @@
       "amount": 150,
       "unit": "ml",
       "notes": {
-        "es": "Para confitar las patatas y cebolla",
-        "en": "For poaching potatoes and onions",
-        "de": "Zum Garen der Kartoffeln und Zwiebeln"
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
       }
     },
     {
@@ -140,89 +103,78 @@
         "en": "Salt",
         "de": "Salz"
       },
-      "amount": 3,
+      "amount": 5,
       "unit": "g",
       "notes": {
-        "es": "Sal moderada (el atún en conserva ya aporta salinidad)",
-        "en": "Moderate salt (canned tuna is naturally salty)",
-        "de": "Sparsames Salz (Thunfisch ist bereits salzig)"
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
       }
     }
   ],
   "instructions": [
     {
       "step": {
-        "es": "Confitar patatas y cebolla",
-        "en": "Poach potatoes and onion",
-        "de": "Kartoffeln und Zwiebeln garen"
+        "es": "Cortar las patatas",
+        "en": "Slice the potatoes",
+        "de": "Kartoffeln schneiden"
       },
       "text": {
-        "es": "Pelar y cortar las patatas en láminas finas y la cebolla en juliana. Pochar en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas y melosas. Escurrir bien el exceso de aceite.",
-        "en": "Peel and thinly slice potatoes and onion. Poach in olive oil over medium-low heat until tender. Drain excess oil thoroughly.",
-        "de": "Kartoffeln und Zwiebeln dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze weich garen. Gut abtropfen lassen."
+        "es": "Pelar las patatas y cortarlas en láminas finas.",
+        "en": "Peel the potatoes and cut them into thin slices.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden."
       }
     },
     {
       "step": {
-        "es": "Preparar el atún y los huevos",
-        "en": "Prepare tuna and eggs",
-        "de": "Thunfisch und Eier vorbereiten"
+        "es": "Pochar las patatas",
+        "en": "Slow-cook the potatoes",
+        "de": "Kartoffeln langsam garen"
       },
       "text": {
-        "es": "Escurrir completamente el atún en conserva y desmigarlo. Batir los huevos suavemente con una pizca de sal en un bol grande.",
-        "en": "Thoroughly drain the canned tuna and flake it. Whisk eggs gently with a pinch of salt in a large bowl.",
-        "de": "Den Thunfisch gut abtropfen lassen und zerpflücken. Eier mit einer Prise Salz leicht verquirlen."
+        "es": "Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.",
+        "en": "Cook the potatoes in plenty of olive oil over medium-low heat until tender.",
+        "de": "Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
       }
     },
     {
       "step": {
-        "es": "Mezclar e integrar ingredientes",
-        "en": "Combine ingredients",
-        "de": "Zutaten vermengen"
+        "es": "Mezclar con huevo y atún",
+        "en": "Mix with eggs and tuna",
+        "de": "Mit Ei und Thunfisch vermischen"
       },
       "text": {
-        "es": "Añadir la patata y cebolla calientes al bol de huevo. Dejar reposar 3-5 minutos para que la patata absorba el huevo e incorporar el atún desmigado y las tiras de pimiento del piquillo mezclando con delicadeza.",
-        "en": "Add warm potatoes and onion to the eggs. Rest for 3-5 minutes, then gently fold in the flaked tuna and piquillo pepper strips.",
-        "de": "Warme Kartoffeln und Zwiebeln zu den Eiern geben. 3-5 Minuten ruhen lassen, dann den Thunfisch und die Piquillo-Streifen vorsichtig unterheben."
+        "es": "Batir los huevos con sal, incorporar las patatas escurridas y el atún desmigado.",
+        "en": "Beat eggs with salt, incorporate drained potatoes and flaked tuna.",
+        "de": "Eier mit Salz schlagen, abgetropfte Kartoffeln und zerkleinerten Thunfisch unterrühren."
       }
     },
     {
       "step": {
-        "es": "Cuajado y acabado jugoso",
-        "en": "Cook and finish",
-        "de": "Anbraten und fertigstellen"
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
       },
       "text": {
-        "es": "Verter la mezcla en una sartén antiadherente caliente con un hilo de aceite. Cuajar a fuego medio durante 1.5 - 2 minutos por lado dando la vuelta con un plato, manteniendo el interior meloso.",
-        "en": "Pour into a hot non-stick skillet with a drizzle of oil. Cook for 1.5 - 2 minutes per side over medium heat, flipping with a plate to keep the center juicy.",
-        "de": "In eine heiße beschichtete Pfanne geben. Bei mittlerer Hitze 1,5 - 2 Minuten pro Seite braten y mit einem Teller wenden, damit der Kern saftig bleibt."
+        "es": "Cocinar en sartén antiadherente caliente unos minutos por cada lado hasta conseguir un dorado jugoso.",
+        "en": "Cook in a hot non-stick pan for a few minutes per side until juicy and golden.",
+        "de": "In einer heißen beschichteten Pfanne einige Minuten von jeder Seite goldbraun und saftig braten."
       }
     }
   ],
   "sources": [
     {
-      "type": "community",
-      "name": "Jaleo by José Andrés",
-      "url": "https://www.jaleo.com/tortilla-espanola/",
+      "type": "traditional",
+      "name": "Receta Tradicional con Atún",
       "description": {
-        "es": "Receta de autor del chef José Andrés que incorpora atún en conserva en aceite de oliva y pimientos del piquillo.",
-        "en": "Chef José Andrés signature recipe combining canned tuna in olive oil and piquillo peppers.",
-        "de": "Rezept von Chefkoch José Andrés mit Thunfisch in Olivenöl und Piquillo-Paprika."
-      }
-    },
-    {
-      "type": "community",
-      "name": "Patente ES2331168B1 (Procedimiento para elaboración de tortilla)",
-      "url": "https://patents.google.com/patent/ES2331168B1/es",
-      "description": {
-        "es": "Documentación técnica e industrial que registra las proporciones de tortilla de patata con atún.",
-        "en": "Technical documentation registering industrial proportions for potato omelette with tuna.",
-        "de": "Technische Dokumentation zur industriellen Herstellung von Kartoffeltortilla mit Thunfisch."
+        "es": "Especialidad casera mediterránea popular en tascas y hogares.",
+        "en": "Popular home-style Mediterranean specialty found in taverns and Spanish homes.",
+        "de": "Beliebte mediterrane Spezialität nach Hausfrauenart."
       }
     }
   ],
   "author": {
     "type": "platform",
-    "name": "José Andrés & Tradición Con Cosas"
+    "name": "tortilladepatatas.org"
   }
 }

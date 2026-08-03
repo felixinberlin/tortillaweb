@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "@/i18n/config";
 import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 
 interface FooterProps {
   lang?: string;
@@ -22,17 +23,16 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
   const activePath = propPath || clientPath;
 
   function getLocalizedHref(path: string) {
-    const cleanPath = path.startsWith("/") ? path : `/${path}`;
-    if (cleanPath === "/") return `/${lang}`;
-    return `/${lang}${cleanPath}`;
+    return resolveNavigationTarget({ to: path }, (lang as SupportedLocale) || 'es');
   }
 
   function isLinkActive(targetPath: string) {
     if (!activePath) return false;
-    if (targetPath === "/") {
+    const resolvedUrl = getLocalizedHref(targetPath);
+    if (targetPath === "/" || resolvedUrl === `/${lang}` || resolvedUrl === `/${lang}/`) {
       return activePath === `/${lang}` || activePath === `/${lang}/` || activePath === "/";
     }
-    return activePath.includes(targetPath);
+    return activePath === resolvedUrl || activePath.startsWith(`${resolvedUrl}/`);
   }
 
   return (

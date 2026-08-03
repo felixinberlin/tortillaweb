@@ -3,36 +3,31 @@
   "contentId": "recipe.quesoazul",
   "translationKey": "recipe-quesoazul",
   "slug": {
-    "es": "tortilla-de-patatas-con-queso-azul",
-    "en": "spanish-omelette-with-blue-cheese",
-    "de": "spanische-tortilla-mit-blauschimmelkaese"
+    "es": "tortilla-queso-azul",
+    "en": "blue-cheese-spanish-omelette",
+    "de": "blauschimmelkaese-spanische-tortilla"
   },
   "title": {
-    "es": "Tortilla de Patatas con Queso Azul y Cebolla Caramelizada",
-    "en": "Spanish Omelette with Blue Cheese & Caramelized Onion",
-    "de": "Spanische Tortilla mit Blauschimmelkäse & Karamellisierten Zwiebeln"
+    "es": "Tortilla con Queso Azul",
+    "en": "Spanish Omelette with Blue Cheese",
+    "de": "Spanische Tortilla mit Blauschimmelkäse"
   },
   "description": {
-    "es": "Receta gourmet de la facción 'Con Cosas' inspirada en los afamados locales Pez Tortilla (Madrid) y las tabernas de Santander: queso azul fundido (Gorgonzola, Roquefort o Cabrales) sobre patata pocha y cebolla caramelizada.",
-    "en": "Gourmet 'Con Cosas' faction recipe inspired by Madrid's Pez Tortilla and Santander tapas bars: melted blue cheese (Gorgonzola, Roquefort, or Cabrales) layered over confit potatoes and caramelized onions.",
-    "de": "Gourmet-Rezept der 'Con Cosas'-Fraktion, inspiriert von Pez Tortilla (Madrid) und den Tapas-Bars in Santander: geschmolzener Blauschimmelkäse auf sanft gegarten Kartoffeln und karamellisierten Zwiebeln."
+    "es": "Una variante de autor sabrosa e intensa donde el queso azul cremoso se funde en el interior de la jugosa tortilla de patatas.",
+    "en": "A flavorful gourmet variation where creamy blue cheese melts right inside the juicy potato omelette.",
+    "de": "Eine schmackhafte Gourmet-Variante, bei der cremiger Blauschimmelkäse im Inneren der saftigen Kartoffel-Tortilla schmilzt."
   },
   "taxonomyIds": [
     "faction:con-cosas",
     "ingredient:potato",
     "ingredient:egg",
-    "ingredient:blue_cheese",
-    "ingredient:onion",
     "ingredient:oil",
-    "ingredient:salt",
     "technique:confit",
-    "technique:slow_onion",
-    "style:gourmet",
     "difficulty:medium"
   ],
-  "time": 45,
+  "time": 40,
   "prepTimeMinutes": 15,
-  "cookTimeMinutes": 30,
+  "cookTimeMinutes": 25,
   "yieldServings": 4,
   "image": "/images/quesoazul.jpg",
   "ingredients": [
@@ -40,64 +35,48 @@
       "id": "potato",
       "ingredientId": "potato",
       "name": {
-        "es": "Patata (Monalisa o Agria)",
-        "en": "Potato (Monalisa or Agria)",
-        "de": "Kartoffel (Monalisa oder Agria)"
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
       },
       "amount": 600,
       "unit": "g",
       "notes": {
-        "es": "Patatas cortadas en láminas finas de 2-3 mm",
-        "en": "Thinly sliced potatoes (2-3 mm)",
-        "de": "Dünn geschnittene Kartoffeln (2-3 mm)"
+        "es": "5 patatas medianas",
+        "en": "5 medium potatoes",
+        "de": "5 mittelgroße Kartoffeln"
+      }
+    },
+    {
+      "id": "quesoazul",
+      "ingredientId": "quesoazul",
+      "name": {
+        "es": "Queso Azul",
+        "en": "Blue Cheese",
+        "de": "Blauschimmelkäse"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "Queso azul o Cabrales desmenuzado",
+        "en": "Crumble blue cheese or Cabrales",
+        "de": "Zerbröckelter Blauschimmelkäse oder Cabrales"
       }
     },
     {
       "id": "egg",
       "ingredientId": "egg",
       "name": {
-        "es": "Huevo campero",
-        "en": "Free-range egg",
-        "de": "Ei aus Freilandhaltung"
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
       },
       "amount": 6,
       "unit": "unit",
       "notes": {
-        "es": "6 huevos a temperatura ambiente",
-        "en": "6 eggs at room temperature",
-        "de": "6 Eier bei Raumtemperatur"
-      }
-    },
-    {
-      "id": "blue_cheese",
-      "ingredientId": "blue_cheese",
-      "name": {
-        "es": "Queso Azul (Gorgonzola, Roquefort o Cabrales)",
-        "en": "Blue Cheese (Gorgonzola, Roquefort, or Cabrales)",
-        "de": "Blauschimmelkäse (Gorgonzola, Roquefort oder Cabrales)"
-      },
-      "amount": 100,
-      "unit": "g",
-      "notes": {
-        "es": "Cortado en dados pequeños para distribuir en el centro",
-        "en": "Diced into small cubes to melt in the center",
-        "de": "In kleine Würfel geschnitten für die schmelzende Füllung"
-      }
-    },
-    {
-      "id": "onion",
-      "ingredientId": "onion",
-      "name": {
-        "es": "Cebolla dulce",
-        "en": "Sweet onion",
-        "de": "Süße Zwiebel"
-      },
-      "amount": 200,
-      "unit": "g",
-      "notes": {
-        "es": "1 cebolla grande en juliana, pochada lentamente",
-        "en": "1 large onion julienned, slowly poached",
-        "de": "1 große Zwiebel in Streifen, langsam geschmort"
+        "es": "6 huevos",
+        "en": "6 eggs",
+        "de": "6 Eier"
       }
     },
     {
@@ -108,115 +87,94 @@
         "en": "Extra Virgin Olive Oil",
         "de": "Natives Olivenöl Extra"
       },
-      "amount": 160,
+      "amount": 150,
       "unit": "ml",
       "notes": {
-        "es": "Para confitar patatas y cebolla",
-        "en": "For poaching potatoes and onions",
-        "de": "Zum sanften Garen der Kartoffeln und Zwiebeln"
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
       }
     },
     {
       "id": "salt",
       "ingredientId": "salt",
       "name": {
-        "es": "Sal marina",
-        "en": "Sea salt",
-        "de": "Meersalz"
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
       },
-      "amount": 4,
+      "amount": 5,
       "unit": "g",
       "notes": {
-        "es": "Cantidad moderada (el queso azul aporta salinidad)",
-        "en": "Moderate amount (blue cheese provides natural saltiness)",
-        "de": "Sparsamt dosieren (der Käse ist bereits salzig)"
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
       }
     }
   ],
   "instructions": [
     {
       "step": {
-        "es": "Confitar patatas y cebolla",
-        "en": "Poach potatoes and onions",
-        "de": "Kartoffeln und Zwiebeln garen"
+        "es": "Cortar las patatas",
+        "en": "Slice the potatoes",
+        "de": "Kartoffeln schneiden"
       },
       "text": {
-        "es": "Cortar las patatas y la cebolla finamente. Pochar en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas y ligeramente caramelizadas.",
-        "en": "Slice potatoes and onions thinly. Poach in olive oil over medium-low heat until soft and gently caramelized.",
-        "de": "Kartoffeln und Zwiebeln dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze weich und leicht karamellisiert garen."
+        "es": "Pelar las patatas y cortarlas en láminas finas.",
+        "en": "Peel the potatoes and cut them into thin slices.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden."
       }
     },
     {
       "step": {
-        "es": "Integrar el huevo y reposar",
-        "en": "Mix with eggs and rest",
-        "de": "Mit Eiern mischen und ruhen lassen"
+        "es": "Pochar las patatas",
+        "en": "Slow-cook the potatoes",
+        "de": "Kartoffeln langsam garen"
       },
       "text": {
-        "es": "Batir los huevos ligeramente con la sal. Escurrir las patatas y cebollas calientes, unirlas a los huevos y dejar reposar 5 minutos para trabar la mezcla.",
-        "en": "Whisk eggs gently with salt. Drain the hot potatoes and onions, add to the eggs, and let rest for 5 minutes so the starch absorbs the egg.",
-        "de": "Eier leicht mit Salz verquirlen. Heiße Kartoffeln und Zwiebeln abtropfen lassen, zu den Eiern geben und 5 Minuten ruhen lassen."
+        "es": "Cocinar las patatas en abundante aceite de oliva a fuego medio-bajo hasta que estén tiernas.",
+        "en": "Cook the potatoes in plenty of olive oil over medium-low heat until tender.",
+        "de": "Kartoffeln in reichlich Olivenöl bei niedriger bis mittlerer Hitze weich garen."
       }
     },
     {
       "step": {
-        "es": "Incorporar dados de queso azul",
-        "en": "Fold in blue cheese",
-        "de": "Blauschimmelkäse unterheben"
+        "es": "Mezclar con huevo y queso azul",
+        "en": "Mix with eggs and blue cheese",
+        "de": "Mit Ei und Blauschimmelkäse vermischen"
       },
       "text": {
-        "es": "Añadir los dados de queso azul a la mezcla justo antes de pasar a la sartén, doblando suavemente para que no se deshagan por completo.",
-        "en": "Gently fold the blue cheese cubes into the egg-potato mixture right before pouring into the pan.",
-        "de": "Die Blauschimmelkäsewürfel kurz vor dem Anbraten vorsichtig unter die Masse heben."
+        "es": "Batir los huevos con sal, añadir las patatas escurridas y el queso azul desmenuzado.",
+        "en": "Beat eggs with salt, add drained potatoes and crumbled blue cheese.",
+        "de": "Eier mit Salz schlagen, abgetropfte Kartoffeln und zerbröckelten Blauschimmelkäse dazugeben."
       }
     },
     {
       "step": {
-        "es": "Cuajado y fundido interior",
-        "en": "Cook and melt",
-        "de": "Braten und schmelzen"
+        "es": "Cuajar la tortilla",
+        "en": "Cook the omelette",
+        "de": "Tortilla braten"
       },
       "text": {
-        "es": "Verter en sartén caliente con unas gotas de aceite. Cuajar a fuego medio 1.5 minutos por lado, manteniendo el centro jugoso con el queso azul fundido.",
-        "en": "Pour into a hot skillet with a drizzle of oil. Cook for 1.5 minutes per side over medium heat, keeping the center juicy with melted blue cheese.",
-        "de": "In eine heiße Pfanne geben. Bei mittlerer Hitze ca. 1.5 Minuten pro Seite braten, sodass der Kern saftig bleibt und der Käse schmilzt."
+        "es": "Cuajar a fuego medio para lograr un corazón meloso con el queso derretido.",
+        "en": "Cook over medium heat to achieve a creamy melted cheese center.",
+        "de": "Bei mittlerer Hitze braten, um ein geschmolzenes Käsezentrum zu erhalten."
       }
     }
   ],
   "sources": [
     {
-      "type": "restaurant",
-      "name": "Pez Tortilla (Madrid)",
-      "url": "https://www.reddit.com/r/tortilladepatatas/comments/11h152c/pez_tortilla_madrid/",
+      "type": "traditional",
+      "name": "Variante de Autor con Queso Azul",
       "description": {
-        "es": "Referente madrileño en tortillas de autor jugosas con quesos fundidos e ingredientes gourmet.",
-        "en": "Madrid benchmark for juicy gourmet tortillas featuring melted cheeses and artisan toppings.",
-        "de": "Madrider Referenz für saftige Gourmet-Tortillas mit geschmolzenem Käse."
-      }
-    },
-    {
-      "type": "restaurant",
-      "name": "Tabernas de Santander (Gorgonzola & Cebolla Caramelizada)",
-      "url": "https://www.reddit.com/r/tortilladepatatas/comments/12mvj4d/caramelised_onion_gorgonzola_and_a_classic/",
-      "description": {
-        "es": "Especialidad típica de desayunos y pinchos en las tabernas de Santander combinando Gorgonzola y cebolla dulce.",
-        "en": "Popular breakfast and tapas bar specialty in Santander combining Gorgonzola cheese with caramelized onion.",
-        "de": "Beliebte Tapas-Spezialität aus Santander mit Gorgonzola und karamellisierten Zwiebeln."
-      }
-    },
-    {
-      "type": "community",
-      "name": "r/tortilladepatatas - Roquefort & Bacon Variant",
-      "url": "https://www.reddit.com/r/tortilladepatatas/comments/1ppd8ha/roquefort_bacon_tortilla/",
-      "description": {
-        "es": "Variación comunitaria documentada utilizando queso Roquefort y crujiente de bacon.",
-        "en": "Community documented variation using Roquefort cheese and crispy bacon.",
-        "de": "Dokumentierte Variante aus der Community mit Roquefort-Käse und krosser Bacon-Einlage."
+        "es": "Receta de autor que combina el dulzor de la patata pochada con la potencia del queso azul.",
+        "en": "Gourmet recipe combining sweet poached potato with bold blue cheese flavor.",
+        "de": "Gourmet-Rezept, das die Süße gedünsteter Kartoffeln mit kräftigem Blauschimmelkäse kombiniert."
       }
     }
   ],
   "author": {
     "type": "platform",
-    "name": "Pez Tortilla & r/tortilladepatatas"
+    "name": "tortilladepatatas.org"
   }
 }

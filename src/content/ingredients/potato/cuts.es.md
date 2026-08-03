@@ -95,8 +95,8 @@ Continúa explorando los módulos enciclopédicos del clúster de la patata:
 
 ### Recetas de tortilla relacionadas
 
-- [Tortilla de Betanzos](/es/recipes/betanzos) — Dominio del corte micro-lámina.
-- [Tortilla Clásica Tradicional](/es/recipes/clasica) — Ejecución impecable del corte panadera.
+- [Tortilla de Betanzos](/es/recipes/tortilla-betanzos) — Dominio del corte micro-lámina.
+- [Tortilla Clásica Tradicional](/es/recipes/tortilla-clasica) — Ejecución impecable del corte panadera.
 
 ### Ingredientes complementarios
 

@@ -287,5 +287,197 @@
       "typeRequired": "Bitte wählen Sie den Grund Ihrer Anfrage aus.",
       "messageRequired": "Bitte geben Sie eine Nachricht ein."
     }
+  },
+  "notFound": {
+    "title": "404: Seite nicht gefunden | tortilladepatatas.org",
+    "heading": "404",
+    "subheading": "Seite nicht gefunden",
+    "description": "Hoppla! Diese Tortilla ist falsch gewendet worden. Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "homeButton": "Zurück zur Startseite"
+  },
+  "oilDetail": {
+    "categoryBadge": "🫒 Wärmeträger & Emulsionsachse",
+    "heroTitle": "Olivenöl (Olea europaea)",
+    "breadcrumbs": {
+      "home": "Startseite",
+      "ingredients": "Zutaten",
+      "oil": "Olivenöl"
+    },
+    "quickStats": {
+      "confitTempLabel": "Konfiertemperatur",
+      "confitTempValue": "110 °C – 130 °C",
+      "acidLabel": "Ölsäure (Nativ Extra)",
+      "acidValue": "70% – 80%",
+      "emulsionLabel": "Emulsionsachse",
+      "emulsionValue": "Lecithin + Stärke + Fett",
+      "reuseLabel": "Wiederverwendung",
+      "reuseValue": "3 bis 4 Mal (gefiltert)"
+    },
+    "varieties": {
+      "title": "Olivensorten & Aromenprofil",
+      "subtitle": "Wichtige spanische Olivensorten für das Konfieren der Kartoffeln",
+      "picual": {
+        "name": "Picual",
+        "badge": "Höchste Stabilität",
+        "desc": "Tomatenblatt, grünes Gras und milde Schärfe. Reichest an Polyphenolen; ideal für langes Konfieren und Hitzestabilität."
+      },
+      "arbequina": {
+        "name": "Arbequina",
+        "badge": "Süß & Mild",
+        "desc": "Apfel, grüne Banane und samtige Milde. Hervorragend für feine Tortillas mit Fokus auf Eigeschmack."
+      },
+      "hojiblanca": {
+        "name": "Hojiblanca",
+        "badge": "Große Vielseitigkeit",
+        "desc": "Mandel und ausgewogene Fruchtigkeit. Die vielseitige Wahl für Tortillas mit Zwiebeln."
+      }
+    },
+    "techniques": {
+      "title": "Wissenschaft des Konfierens und der Emulsion",
+      "subtitle": "Physiko-chemische Faktoren für ein cremiges Inneres ohne Frittieren",
+      "confit": {
+        "title": "Langsames Konfieren (110–130 °C)",
+        "desc": "Ermöglicht schrittweise Stärkegelatinierung ohne starke Bräunung oder knusprige Kruste."
+      },
+      "emulsion": {
+        "title": "Warme Emulsion",
+        "desc": "In der warmen Mischung verbinden sich Eigelblecithin, Olivenöl und Stärke zu einer samtigen Creme."
+      },
+      "draining": {
+        "title": "Abtropfen & Ruhen",
+        "desc": "Gründliches Abtropfen verhindert ölige Schichten und schützt die Eiweißbindung."
+      }
+    },
+    "recipes": {
+      "title": "Rezepte mit Olivenöl",
+      "subtitle": "Klassische Rezepte, bei denen Olivenöl Extra die Qualität des Konfierens bestimmt",
+      "viewRecipe": "Rezept ansehen"
+    }
+  },
+  "eggDetail": {
+    "categoryBadge": "🥚 Protein- & Emulsionsmatrix",
+    "heroTitle": "Das Ei (Gallus gallus domesticus)",
+    "breadcrumbs": {
+      "home": "Startseite",
+      "ingredients": "Zutaten",
+      "egg": "Ei"
+    },
+    "quickStats": {
+      "albumenCoagLabel": "Eiklar-Gerinnung",
+      "albumenCoagValue": "58 °C – 62 °C",
+      "yolkCoagLabel": "Eigelb-Gerinnung",
+      "yolkCoagValue": "65 °C – 68 °C",
+      "emulsionLabel": "Emulgator",
+      "emulsionValue": "Lecithin & Lipoproteine",
+      "safetyLabel": "Sicherheitsgrenzwert",
+      "safetyValue": "70°C für 2 Minuten"
+    },
+    "ratios": {
+      "title": "Schulen & Mengenverhältnisse",
+      "subtitle": "Das Verhältnis Ei zu Kartoffel je nach regionalem Stil und gewünschter Flüssigkeit",
+      "classic": {
+        "name": "Klassische Tortilla",
+        "badge": "Ausgewogen",
+        "desc": "1 Ei pro 100 g rohe Kartoffel. Gleichmäßige Struktur, stabile Saftigkeit und schöner Schnitt."
+      },
+      "betanzos": {
+        "name": "Stil Betanzos",
+        "badge": "Eigelb-Dominanz",
+        "desc": "12 Eier auf 350 g Kartoffeln. Sehr flüssiger Kern mit intensivem, samtigem Eigelbfluss."
+      },
+      "competition": {
+        "name": "Wettbewerbsklasse",
+        "badge": "Extreme Cremigkeit",
+        "desc": "12 Eier + extra Eigelb auf 700 g Kartoffeln. Außergewöhnlich cremige Textur bei perfekter Bindung."
+      }
+    },
+    "techniques": {
+      "title": "Aufschlagtechnik & Zubereitung",
+      "subtitle": "Mechanische und thermische Faktoren für die finale Textur",
+      "beating": {
+        "title": "Sanftes Verquirlen (ohne Schaum)",
+        "desc": "Sachte vermengen ohne Luft einzuschlagen, um eine schwammige Soufflé-Textur zu vermeiden."
+      },
+      "unbeaten": {
+        "title": "Betanzos-Methode (Ungeschlagen)",
+        "desc": "Eier direkt über die heißen Kartoffeln schlagen für sanftes Vorgaren vor der Pfanne."
+      },
+      "resting": {
+        "title": "Die Ruhe-Regel (3 bis 5 Min)",
+        "desc": "Warme Kartoffel-Ei-Mischung bei 60 °C – 70 °C ruhen lassen, damit Stärke Eigelb aufnimmt und Emulsion stabilisiert."
+      }
+    },
+    "science": {
+      "title": "🛡️ Lebensmittelsicherheit & Temperaturkontrolle",
+      "body": "Bei flüssigem Kern ist Temperaturkontrolle entscheidend. Hygiene-Standards fordern zur Abtötung von Salmonellen **70°C for 2 minutes** (oder Pasteurisation bei **63°C for 20 seconds**), bei maximal **4 hours** Lagerung bei Raumtemperatur."
+    },
+    "recipes": {
+      "title": "Rezepte mit Ei",
+      "subtitle": "Wichtige Rezepte, die die Chemie und Fließfähigkeit des Eis als Hauptmatrix nutzen",
+      "viewRecipe": "Rezept ansehen"
+    }
+  },
+  "potatoDetail": {
+    "categoryBadge": "🥔 Strukturelle Basiszutat",
+    "heroTitle": "Die Kartoffel (Solanum tuberosum)",
+    "breadcrumbs": {
+      "home": "Startseite",
+      "ingredients": "Zutaten",
+      "potato": "Kartoffel"
+    },
+    "quickStats": {
+      "idealStarchLabel": "Ideale Stärke",
+      "idealStarchValue": "15% – 18% (Halbfest)",
+      "confitTempLabel": "Confit-Temp.",
+      "confitTempValue": "110 °C – 130 °C",
+      "oilAbsorptionLabel": "Ölabsorption",
+      "oilAbsorptionValue": "Niedrig-Moderat",
+      "gelatinizationLabel": "Verkleisterungspunkt",
+      "gelatinizationValue": "60 °C – 70 °C"
+    },
+    "cultivars": {
+      "title": "Vergleich der Kartoffelsorten",
+      "subtitle": "Analyse von Trockensubstanz, Feuchtigkeit und Eignung nach Sorten",
+      "monalisa": {
+        "name": "Monalisa",
+        "badge": "Cremigkeit",
+        "desc": "Ideales Gleichgewicht zwischen Stärke und Wasser. Sorgt für eine samtige Textur beim sanften Pochieren."
+      },
+      "kennebec": {
+        "name": "Kennebec",
+        "badge": "Betanzos-Stil",
+        "desc": "Geringe Feuchtigkeit und mittlere Stärke. Bietet knusprige Ränder und einen flüssigen Kern nach Betanzos-Art."
+      },
+      "agria": {
+        "name": "Agria",
+        "badge": "Geringe Ölaufnahme",
+        "desc": "Hoher Trockensubstanzgehalt. Minimiert die Ölaufnahme beim Frittieren für eine goldgelbe Kruste."
+      }
+    },
+    "cuts": {
+      "title": "Schnittgeometrie & Techniken",
+      "subtitle": "Einfluss der Schnittform auf Kontaktfläche und Stärkefreisetzung",
+      "panadera": {
+        "title": "Panadera-Schnitt (3–5 mm)",
+        "desc": "Gleichmäßige Scheiben für homogene Wärmeübertragung und schonendes Pochieren."
+      },
+      "chascado": {
+        "title": "Geknickter Schnitt (Chascar)",
+        "desc": "Das Abbrechen der Scheiben bricht Zellwände unregelmäßig auf und setzt Amylopektin frei, um das Ei zu verdicken."
+      },
+      "ultrafinas": {
+        "title": "Hauchdünne Scheiben",
+        "desc": "Hauchdünne Scheiben für blitzschnelles Anfrittieren bei hoher Hitze im Betanzos-Stil."
+      }
+    },
+    "science": {
+      "title": "🔬 Die Ruhe-Regel (3 bis 5 Minuten)",
+      "body": "Das Mischen von heiß abgetropften Kartoffeln (60 °C – 70 °C) mit verquirltem Ei nutzt die Restwärme zur sanften Denaturierung von Ovalbumin und lässt Stärkekörner das Eigelb absorbieren."
+    },
+    "recipes": {
+      "title": "Kartoffelbasierte Rezepte",
+      "subtitle": "Klassische und moderne Rezepte mit der Kartoffel als strukturellem Hauptbestandteil",
+      "viewRecipe": "Rezept ansehen"
+    }
   }
 }

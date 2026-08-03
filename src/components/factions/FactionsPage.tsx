@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getContentUrl, type SupportedLocale } from "@/lib/routes";
 import { 
   Shield, 
   Heart, 
@@ -145,13 +146,6 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
     });
   };
 
-  const routePrefixes: Record<string, string> = {
-    es: "facciones",
-    en: "factions",
-    de: "faktionen",
-  };
-  const routePrefix = routePrefixes[currentLang] || "facciones";
-
   return (
     <div className="container mx-auto px-4 py-8 md:py-14 max-w-6xl space-y-12">
       {/* HEADER & HERO SECTION */}
@@ -220,8 +214,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
             const factionDogma = faction.dogma ? (faction.dogma[currentLang as keyof typeof faction.dogma] || faction.dogma.es) : undefined;
             const factionBadge = faction.badge ? (faction.badge[currentLang as keyof typeof faction.badge] || faction.badge.es) : undefined;
             const keyIngredient = faction.keyIngredient ? (faction.keyIngredient[currentLang as keyof typeof faction.keyIngredient] || faction.keyIngredient.es) : undefined;
-            const slug = faction.slug[currentLang as keyof typeof faction.slug] || faction.slug.es;
-            const factionUrl = `/${currentLang}/${routePrefix}/${slug}`;
+            const factionUrl = getContentUrl(faction, (currentLang as SupportedLocale) || 'es');
 
             return (
               <article

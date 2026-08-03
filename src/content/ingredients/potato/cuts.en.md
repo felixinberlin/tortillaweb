@@ -95,8 +95,8 @@ Explore other encyclopedic chapters in the potato knowledge system:
 
 ### Related tortilla recipes
 
-- [Betanzos-Style Tortilla](/en/recipes/betanzos) — Mastery of paper-thin micro-slicing.
-- [Classic Traditional Tortilla](/en/recipes/clasica) — Flawless *panadera* cut execution.
+- [Betanzos-Style Tortilla](/en/recipes/betanzos-style-spanish-omelette) — Mastery of paper-thin micro-slicing.
+- [Classic Traditional Tortilla](/en/recipes/classic-spanish-omelette) — Flawless *panadera* cut execution.
 
 ### Complementary ingredients
 

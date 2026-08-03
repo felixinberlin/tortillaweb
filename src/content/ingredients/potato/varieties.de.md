@@ -87,8 +87,8 @@ Vertiefe dein Wissen in den weiteren Monografien des Kartoffel-Clusters:
 
 ### Verknüpfte Tortilla-Rezepte
 
-- [Klassische traditionelle Tortilla](/de/recipes/clasica) — Monalisa im *Panadera*-Schnitt.
-- [Tortilla nach Betanzos-Art](/de/recipes/betanzos) — Galicische Kennebec-Kartoffel.
+- [Klassische traditionelle Tortilla](/de/recipes/klassische-spanische-tortilla) — Monalisa im *Panadera*-Schnitt.
+- [Tortilla nach Betanzos-Art](/de/recipes/betanzos-tortilla) — Galicische Kennebec-Kartoffel.
 
 ### Ergänzende Zutaten
 

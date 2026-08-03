@@ -1,0 +1,21 @@
+{
+  "id": "coagulation",
+  "type": "technique",
+  "contentId": "technique.coagulation",
+  "slug": {
+    "es": "coagulacion-proteica",
+    "en": "protein-coagulation",
+    "de": "protein-gerinnung"
+  },
+  "title": {
+    "es": "Coagulación Proteica Controlada",
+    "en": "Controlled Protein Coagulation",
+    "de": "Kontrollierte Protein-Gerinnung"
+  },
+  "description": {
+    "es": "Gestión precisa del calor en sartén (63°C – 70°C) para cuajar la clara manteniendo la yema untuosa y cremosa.",
+    "en": "Precise heat management (63°C – 70°C) to set egg whites while keeping the yolk silky.",
+    "de": "Präzises Hitzemanagement (63°C – 70°C) zum Stocken des Eiweißes bei flüssigem Eigelb."
+  },
+  "icon": "Thermometer"
+}

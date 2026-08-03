@@ -287,5 +287,197 @@
       "typeRequired": "Por favor, selecciona el motivo de tu mensaje.",
       "messageRequired": "Por favor, escribe un mensaje."
     }
+  },
+  "notFound": {
+    "title": "404: Página no encontrada | tortilladepatatas.org",
+    "heading": "404",
+    "subheading": "Página no encontrada",
+    "description": "¡Vaya! Esta tortilla se nos ha dado la vuelta mal. La página que buscas no existe o ha sido movida.",
+    "homeButton": "Volver al inicio"
+  },
+  "oilDetail": {
+    "categoryBadge": "🫒 Medio Térmico y Eje Emulsionante",
+    "heroTitle": "Aceite de Oliva (Olea europaea)",
+    "breadcrumbs": {
+      "home": "Inicio",
+      "ingredients": "Ingredientes",
+      "oil": "Aceite de Oliva"
+    },
+    "quickStats": {
+      "confitTempLabel": "Temperatura Confitado",
+      "confitTempValue": "110 °C – 130 °C",
+      "acidLabel": "Ácido Oleico (AOVE)",
+      "acidValue": "70% – 80%",
+      "emulsionLabel": "Eje Emulsionante",
+      "emulsionValue": "Lecitina + Almidón + Grasa",
+      "reuseLabel": "Ciclos de Reutilización",
+      "reuseValue": "3 a 4 veces (filtrado)"
+    },
+    "varieties": {
+      "title": "Variedades de Aceituna y Perfil Aromático",
+      "subtitle": "Principales varietales de olivar español recomendados para el confitado de la patata",
+      "picual": {
+        "name": "Picual",
+        "badge": "Máxima Estabilidad",
+        "desc": "Tomate, hoja verde y suave picante. Riquísimo en polifenoles; ideal para confitados largos y gran estabilidad térmica."
+      },
+      "arbequina": {
+        "name": "Arbequina",
+        "badge": "Dulce y Delicado",
+        "desc": "Manzana, plátano verde y gran suavidad. Excelente para tortillas delicadas donde se busca potenciar el sabor del huevo."
+      },
+      "hojiblanca": {
+        "name": "Hojiblanca",
+        "badge": "Gran Versatilidad",
+        "desc": "Almendra y fruta equilibrada con ligero picante. La opción todoterreno idónea para tortillas con cebolla."
+      }
+    },
+    "techniques": {
+      "title": "Ciencia del Confitado y la Emulsión",
+      "subtitle": "Factores fisicoquímicos fundamentales para lograr un interior meloso sin freír",
+      "confit": {
+        "title": "El Confitado Lento (110–130 °C)",
+        "desc": "Permite la gelatinización progresiva del almidón de la patata sin dorar en exceso ni formar costras crujientes."
+      },
+      "emulsion": {
+        "title": "La Emulsión Caliente",
+        "desc": "Al mezclar la patata tibia con el huevo, la lecitina de la yema y el aceite libre forman una crema homogénea e inigualable."
+      },
+      "draining": {
+        "title": "Escurrido y Reposo",
+        "desc": "Escurrir el exceso de aceite libre antes del batido garantiza que la ligazón proteica no se corte ni quede grasienta."
+      }
+    },
+    "recipes": {
+      "title": "Recetas Vinculadas con Aceite de Oliva",
+      "subtitle": "Recetas emblemáticas donde el AOVE marca la calidad del confitado y el sabor de la tortilla",
+      "viewRecipe": "Ver Receta"
+    }
+  },
+  "eggDetail": {
+    "categoryBadge": "🥚 Matriz Proteica y Emulsionante",
+    "heroTitle": "El Huevo (Gallus gallus domesticus)",
+    "breadcrumbs": {
+      "home": "Inicio",
+      "ingredients": "Ingredientes",
+      "egg": "Huevo"
+    },
+    "quickStats": {
+      "albumenCoagLabel": "Coagulación Clara",
+      "albumenCoagValue": "58 °C – 62 °C",
+      "yolkCoagLabel": "Coagulación Yema",
+      "yolkCoagValue": "65 °C – 68 °C",
+      "emulsionLabel": "Agente Emulsionante",
+      "emulsionValue": "Lecitina y Lipoproteínas",
+      "safetyLabel": "Umbral de Seguridad",
+      "safetyValue": "70°C por 2 minutos"
+    },
+    "ratios": {
+      "title": "Escuelas Gastronómicas y Proporciones",
+      "subtitle": "La relación huevo/patata según el estilo culinario y el nivel de jugosidad deseado",
+      "classic": {
+        "name": "Tortilla Clásica",
+        "badge": "Equilibrio",
+        "desc": "1 huevo por cada 100 g de patata cruda. Estructura uniforme, jugosidad estable y corte perfecto."
+      },
+      "betanzos": {
+        "name": "Estilo Betanzos",
+        "badge": "Predominio Yema",
+        "desc": "12 huevos por 350 g de patata. Interior muy fluido con un culi de yema untuoso e intenso."
+      },
+      "competition": {
+        "name": "Alta Competición",
+        "badge": "Cremosidad Extrema",
+        "desc": "12 huevos + yemas extra por 700 g de patata. Textura extremadamente cremosa con ligazones térmicas impecables."
+      }
+    },
+    "techniques": {
+      "title": "Técnica de Batido y Preparación",
+      "subtitle": "Factores mecánicos y térmicos que transforman la textura final",
+      "beating": {
+        "title": "El Batido Suave (Sin Espuma)",
+        "desc": "Mezclar suavemente sin incorporar aire para evitar una textura esponjosa tipo soufflé o bizcocho."
+      },
+      "unbeaten": {
+        "title": "El Método Betanzos (Sin Batir)",
+        "desc": "Cascar los huevos directamente sobre la patata caliente para iniciar la coagulación previa antes de la sartén."
+      },
+      "resting": {
+        "title": "La Regla del Reposo (3 a 5 min)",
+        "desc": "Reposar la mezcla patata-huevo a 60 °C – 70 °C para que el almidón absorba la yema y estabilice la emulsión."
+      }
+    },
+    "science": {
+      "title": "🛡️ Seguridad Alimentaria y Control Térmico",
+      "body": "Para tortillas poco cuajadas, el control térmico es esencial. Los estándares sanitarios fijan la reducción microbiológica segura de Salmonella en **70°C for 2 minutes** (o pasteurización equivalente a **63°C for 20 seconds**), con un límite máximo de **4 hours** de exposición a temperatura ambiente."
+    },
+    "recipes": {
+      "title": "Recetas Vinculadas con Huevo",
+      "subtitle": "Recetas destacadas que aprovechan la química y fluidez del huevo como matriz principal",
+      "viewRecipe": "Ver Receta"
+    }
+  },
+  "potatoDetail": {
+    "categoryBadge": "🥔 Ingrediente Estructural Base",
+    "heroTitle": "La Patata (Solanum tuberosum)",
+    "breadcrumbs": {
+      "home": "Inicio",
+      "ingredients": "Ingredientes",
+      "potato": "Patata"
+    },
+    "quickStats": {
+      "idealStarchLabel": "Almidón Ideal",
+      "idealStarchValue": "15% – 18% (Semifirme)",
+      "confitTempLabel": "Temp. Confitado",
+      "confitTempValue": "110 °C – 130 °C",
+      "oilAbsorptionLabel": "Absorción de Aceite",
+      "oilAbsorptionValue": "Baja-Moderada",
+      "gelatinizationLabel": "Punto Gelatinización",
+      "gelatinizationValue": "60 °C – 70 °C"
+    },
+    "cultivars": {
+      "title": "Comparativa de Cultivares de Patata",
+      "subtitle": "Análisis de materia seca, humedad y aptitud culinaria por variedad agrícola",
+      "monalisa": {
+        "name": "Monalisa",
+        "badge": "Cremosidad",
+        "desc": "Equilibrio idóneo entre almidón y agua. Ofrece una textura suave, cremosa e integrada tras un pochado lento a temperatura moderada."
+      },
+      "kennebec": {
+        "name": "Kennebec",
+        "badge": "Estilo Betanzos",
+        "desc": "Bajo contenido en agua y almidón medio. Proporciona bordes crujientes exteriores conservando un interior fundente para tortillas de alto cuajado fluido."
+      },
+      "agria": {
+        "name": "Agria",
+        "badge": "Baja Absorción",
+        "desc": "Elevada materia seca. Minimiza la absorción grasa durante el sofrito o la fritura intensa, garantizando una corteza dorada y crujiente."
+      }
+    },
+    "cuts": {
+      "title": "Geometría y Técnicas de Corte",
+      "subtitle": "Impacto de la forma de corte en la superficie de contacto y la liberación de almidón",
+      "panadera": {
+        "title": "Corte Panadera (3–5 mm)",
+        "desc": "Láminas uniformes que garantizan una transmisión térmica homogénea. Ideales para pochado suave sin desintegración estructural."
+      },
+      "chascado": {
+        "title": "Corte Chascado (Cascar)",
+        "desc": "Fracturar la patata al final del corte rompe las paredes celulares irregularmente, liberando almidón amilopectina para espesar el huevo."
+      },
+      "ultrafinas": {
+        "title": "Láminas Ultrafinas",
+        "desc": "Corte traslúcido para dorados relámpago a alta temperatura. Técnica clásica para tortillas de estilo Betanzos."
+      }
+    },
+    "science": {
+      "title": "🔬 La Regla del Reposo (3 a 5 minutos)",
+      "body": "Al mezclar la patata recién escurrita a 60 °C – 70 °C con el huevo batido, el calor residual desnaturaliza suavemente la ovalbúmina mientras los gránulos de almidón absorben la lecitina y yema, formando una emulsión uniforme y cremosa antes de la sartén."
+    },
+    "recipes": {
+      "title": "Recetas Vinculadas con Patata",
+      "subtitle": "Recetas tradicionales y de autor que destacan el uso técnico de la patata como base estructural",
+      "viewRecipe": "Ver Receta"
+    }
   }
 }

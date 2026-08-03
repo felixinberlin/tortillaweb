@@ -111,8 +111,8 @@ Entdecke alle Module des Kartoffel-Wissenssystems:
 
 ### Verknüpfte Tortilla-Rezepte
 
-- [Klassische traditionelle Tortilla](/de/recipes/clasica) — Ausgewogene Verkleisterung und Proteinmatrix.
-- [Tortilla nach Betanzos-Art](/de/recipes/betanzos) — Flüssige Proteindynamik.
+- [Klassische traditionelle Tortilla](/de/recipes/klassische-spanische-tortilla) — Ausgewogene Verkleisterung und Proteinmatrix.
+- [Tortilla nach Betanzos-Art](/de/recipes/betanzos-tortilla) — Flüssige Proteindynamik.
 
 ### Ergänzende Zutaten
 

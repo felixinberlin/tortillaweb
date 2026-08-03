@@ -1,5 +1,7 @@
 import React from 'react';
 import { Home, ChevronRight } from 'lucide-react';
+import { resolveBreadcrumbs } from '@/lib/navigation/breadcrumbs';
+import type { SupportedLocale } from '@/lib/routes';
 
 export interface BreadcrumbItem {
   name: string;
@@ -12,74 +14,12 @@ interface BreadcrumbsProps {
   items?: BreadcrumbItem[];
 }
 
-const segmentLabels: Record<string, Record<string, string>> = {
-  recipes: { es: 'Recetas', en: 'Recipes', de: 'Rezepte' },
-  facciones: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
-  factions: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
-  faktionen: { es: 'Facciones', en: 'Factions', de: 'Fraktionen' },
-  builder: { es: 'Creador DNA', en: 'Recipe Builder', de: 'Rezept-Rechner' },
-  comparador: { es: 'Comparador Nutricional', en: 'Recipe Comparator', de: 'Rezept-Vergleicher' },
-  laboratorio: { es: 'Laboratorio', en: 'Laboratory', de: 'Labor' },
-  ingredients: { es: 'Ingredientes', en: 'Ingredients', de: 'Zutaten' },
-  ingredientes: { es: 'Ingredientes', en: 'Ingredients', de: 'Zutaten' },
-  zutaten: { es: 'Ingredientes', en: 'Ingredients', de: 'Zutaten' },
-  techniques: { es: 'Técnicas', en: 'Techniques', de: 'Techniken' },
-  tecnicas: { es: 'Técnicas', en: 'Techniques', de: 'Techniken' },
-  techniken: { es: 'Técnicas', en: 'Techniques', de: 'Techniken' },
-  science: { es: 'Ciencia & Seguridad', en: 'Science & Safety', de: 'Wissenschaft & Sicherheit' },
-  history: { es: 'Historia', en: 'History', de: 'Geschichte' },
-  personas: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
-  people: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
-  personen: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
-  estilos: { es: 'Estilos Culinarios', en: 'Culinary Styles', de: 'Kulinarische Stile' },
-  styles: { es: 'Estilos Culinarios', en: 'Culinary Styles', de: 'Kulinarische Stile' },
-  stile: { es: 'Estilos Culinarios', en: 'Culinary Styles', de: 'Kulinarische Stile' },
-  restaurantes: { es: 'Restaurantes', en: 'Restaurants', de: 'Restaurants' },
-  restaurants: { es: 'Restaurantes', en: 'Restaurants', de: 'Restaurants' },
-  regiones: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
-  regions: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
-  regionen: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
-  records: { es: 'Récords', en: 'Records', de: 'Rekorde' },
-  enciclopedia: { es: 'Enciclopedia', en: 'Encyclopedia', de: 'Enzyklopädie' },
-  about: { es: 'Sobre el Proyecto', en: 'About', de: 'Über uns' },
-  contacto: { es: 'Contacto', en: 'Contact', de: 'Kontakt' },
-  contact: { es: 'Contacto', en: 'Contact', de: 'Kontakt' },
-  kontakt: { es: 'Contacto', en: 'Contact', de: 'Kontakt' },
-  encuestas: { es: 'Encuestas', en: 'Community Polls', de: 'Umfragen' },
-  tests: { es: 'Test de Lealtad', en: 'Loyalty Quiz', de: 'Fraktionstest' },
-
-  // Recipe slugs
-  betanzos: { es: 'Tortilla de Betanzos', en: 'Betanzos Omelette', de: 'Betanzos-Tortilla' },
-  clasica: { es: 'Clásica Purista', en: 'Classic Purist', de: 'Klassische Puristische' },
-  concebolla: { es: 'Con Cebolla Caramelizada', en: 'With Caramelized Onion', de: 'Mit Karamelisierten Zwiebeln' },
-  express: { es: 'Express con Chips', en: 'Express Chips Omelette', de: 'Express-Chips-Tortilla' },
-  paisana: { es: 'Paisana Tradicional', en: 'Traditional Country Omelette', de: 'Traditionelle Bauern-Tortilla' },
-  jamon: { es: 'Con Jamón Ibérico', en: 'With Iberian Ham', de: 'Mit Iberischem Schinken' },
-  vegana: { es: 'Vegana (Sin Huevo)', en: 'Vegan (Egg-Free)', de: 'Vegan (Ohne Ei)' },
-
-  // Factions slugs
-  puristas: { es: 'Los Puristas', en: 'The Purists', de: 'Die Puristen' },
-  concebollistas: { es: 'Los Concebollistas', en: 'Onion Faction', de: 'Die Zwiebel-Fraktion' },
-  pimientistas: { es: 'Los Pimientistas', en: 'Pepper Faction', de: 'Die Paprika-Fraktion' },
-  ajistas: { es: 'Los Ajistas', en: 'Garlic Faction', de: 'Die Knoblauch-Fraktion' },
-  'con-cosas': { es: "Los 'Con Cosas'", en: 'Modernist Faction', de: 'Moderne Variationen' },
-};
-
-function formatSegment(segment: string, locale: string): string {
-  if (segmentLabels[segment] && segmentLabels[segment][locale]) {
-    return segmentLabels[segment][locale];
-  }
-  return segment
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
-
 export default function Breadcrumbs({ lang = 'es', currentPath, items }: BreadcrumbsProps) {
+  const locale = (lang as SupportedLocale) || 'es';
   const path = currentPath || (typeof window !== 'undefined' ? window.location.pathname : '');
   const cleanPath = path.replace(/\/$/, '');
 
-  const homePaths = ['', `/${lang}`, '/es', '/en', '/de', '/'];
+  const homePaths = ['', `/${locale}`, '/es', '/en', '/de', '/'];
   if (homePaths.includes(cleanPath) && (!items || items.length === 0)) {
     return null;
   }
@@ -89,25 +29,7 @@ export default function Breadcrumbs({ lang = 'es', currentPath, items }: Breadcr
   if (items && items.length > 0) {
     computedItems = items;
   } else {
-    const parts = cleanPath.split('/').filter(Boolean);
-    if (parts.length > 0 && ['es', 'en', 'de'].includes(parts[0])) {
-      parts.shift();
-    }
-
-    const homeName = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
-    computedItems.push({
-      name: homeName,
-      url: `/${lang}`,
-    });
-
-    let currentAccPath = `/${lang}`;
-    parts.forEach((part) => {
-      currentAccPath += `/${part}`;
-      computedItems.push({
-        name: formatSegment(part, lang),
-        url: currentAccPath,
-      });
-    });
+    computedItems = resolveBreadcrumbs(path, locale);
   }
 
   return (

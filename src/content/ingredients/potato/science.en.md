@@ -111,8 +111,8 @@ Explore all modules in the encyclopedic potato knowledge system:
 
 ### Related tortilla recipes
 
-- [Classic Traditional Tortilla](/en/recipes/clasica) — Balanced gelatinization and egg protein matrix.
-- [Betanzos-Style Tortilla](/en/recipes/betanzos) — Fluid protein dynamics.
+- [Classic Traditional Tortilla](/en/recipes/classic-spanish-omelette) — Balanced gelatinization and egg protein matrix.
+- [Betanzos-Style Tortilla](/en/recipes/betanzos-style-spanish-omelette) — Fluid protein dynamics.
 
 ### Complementary ingredients
 
