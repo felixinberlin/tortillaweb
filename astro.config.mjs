@@ -3,9 +3,15 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+
+// https://astro.build/config
 export default defineConfig({
-  site: 'https://felixinberlin.github.io',
-  base: '/tortillaweb/',
+    site: isGitHubPages
+    ? 'https://felixinberlin.github.io'
+    : 'https://tortilladepatatas.org',
+
+  base: isGitHubPages ? '/tortillaweb/' : '/',
 
   integrations: [
     react(),
