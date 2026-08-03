@@ -229,35 +229,38 @@ const recipesWithBadges = await Promise.all(
 const pageTitle = isValidRoute ? `${title} | tortilladepatatas.org` : `404: ${title} | tortilladepatatas.org`;
 
 // SEO Schemas
-const currentUrl = ingredientArticle?.data.seo?.canonical
-  ? ingredientArticle.data.seo.canonical
-  : `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`;
+const currentUrl = isValidRoute
+  ? (ingredientArticle?.data.seo?.canonical
+      ? ingredientArticle.data.seo.canonical
+      : `${SITE_URL}/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`)
+  : undefined;
 
 const taxonomyTypeLabel = getTaxonomyTypeLabel(Astro.params.taxonomyType || taxonomyType, currentLang);
 
-const breadcrumbsList = [
+const breadcrumbsList = isValidRoute ? [
   { name: currentLang === 'de' ? 'Startseite' : currentLang === 'en' ? 'Home' : 'Inicio', url: `/${currentLang}` },
   { name: taxonomyTypeLabel, url: `/${currentLang}/${Astro.params.taxonomyType}` },
   { name: title, url: `/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}` },
-];
+] : [];
 
-const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbsList);
-const articleSchema = ingredientArticle ? generateArticleSchema({
+const breadcrumbSchema = isValidRoute ? generateBreadcrumbSchema(breadcrumbsList) : undefined;
+const articleSchema = isValidRoute ? (ingredientArticle ? generateArticleSchema({
   headline: title,
   description: description,
-  url: currentUrl,
+  url: currentUrl || `${SITE_URL}/${currentLang}`,
   image: ingredientArticle.data.image || '/images/ingredients/potato_editorial_card.jpg',
 }) : generateCollectionPageSchema({
   name: title,
   description: description,
-  url: currentUrl,
+  url: currentUrl || `${SITE_URL}/${currentLang}`,
   items: relatedRecipes.map((r) => ({
     name: r.title[currentLang as keyof typeof r.title] || r.title.es,
     url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
   })),
-});
+})) : undefined;
 
-const schemas = [breadcrumbSchema, articleSchema];
+const schemas = isValidRoute ? [breadcrumbSchema, articleSchema].filter(Boolean) : undefined;
+const pageHreflangs = isValidRoute ? customHreflangs : undefined;
 
 // Pillar Links for Ingredient Cluster (Potato, etc.)
 const currentSlug = Astro.params.slug || '';
@@ -325,7 +328,7 @@ const pillars = [
 ];
 ---
 
-<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={customHreflangs}>
+<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={pageHreflangs}>
   {!isValidRoute ? (
     <div class="container mx-auto px-4 py-24 text-center max-w-lg">
       <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">

@@ -287,5 +287,12 @@
       "typeRequired": "Por favor, selecciona el motivo de tu mensaje.",
       "messageRequired": "Por favor, escribe un mensaje."
     }
+  },
+  "notFound": {
+    "title": "404: Página no encontrada | tortilladepatatas.org",
+    "heading": "404",
+    "subheading": "Página no encontrada",
+    "description": "¡Vaya! Esta tortilla se nos ha dado la vuelta mal. La página que buscas no existe o ha sido movida.",
+    "homeButton": "Volver al inicio"
   }
 }
