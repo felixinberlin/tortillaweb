@@ -216,6 +216,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <div className="grid grid-cols-2 gap-4">
                 <button
                   type="button"
+                  aria-pressed={hasOnion}
                   onClick={() => setHasOnion(true)}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     hasOnion
@@ -233,6 +234,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
 
                 <button
                   type="button"
+                  aria-pressed={!hasOnion}
                   onClick={() => setHasOnion(false)}
                   className={`p-4 rounded-xl border text-left transition-all ${
                     !hasOnion
@@ -284,6 +286,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
                   <button
                     key={item.id}
                     type="button"
+                    aria-pressed={doneness === item.id}
                     onClick={() => setDoneness(item.id as any)}
                     className={`p-3.5 rounded-xl border text-left transition-all ${
                       doneness === item.id
@@ -313,6 +316,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
+                  aria-pressed={potatoCut === "pochada"}
                   onClick={() => setPotatoCut("pochada")}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     potatoCut === "pochada"
@@ -330,6 +334,7 @@ ${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
 
                 <button
                   type="button"
+                  aria-pressed={potatoCut === "crujiente"}
                   onClick={() => setPotatoCut("crujiente")}
                   className={`p-3.5 rounded-xl border text-left transition-all ${
                     potatoCut === "crujiente"
