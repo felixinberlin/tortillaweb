@@ -1,0 +1,25 @@
+{
+  "id": "ferran-adria",
+  "type": "person",
+  "contentId": "person.ferran-adria",
+  "slug": {
+    "es": "ferran-adria",
+    "en": "ferran-adria",
+    "de": "ferran-adria"
+  },
+  "title": {
+    "es": "Ferran Adrià",
+    "en": "Ferran Adrià",
+    "de": "Ferran Adrià"
+  },
+  "description": {
+    "es": "Chef revolucionario de elBulli y creador de la emblemática tortilla de patatas deconstruida en copa de martini (1995).",
+    "en": "Revolutionary chef of elBulli and creator of the iconic deconstructed potato tortilla in a martini glass (1995).",
+    "de": "Revolutionärer Küchenchef von elBulli und Schöpfer der kultigen dekonstruierten Kartoffeltortilla im Martiniglas (1995)."
+  },
+  "badge": {
+    "es": "Innovación",
+    "en": "Innovation",
+    "de": "Innovation"
+  }
+}

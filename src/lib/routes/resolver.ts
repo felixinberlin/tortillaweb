@@ -91,6 +91,9 @@ const ROUTE_SEGMENT_ALIASES: Record<string, RouteId> = {
   contacto: 'contact',
   contact: 'contact',
   kontakt: 'contact',
+  'aviso-legal': 'impressum',
+  impressum: 'impressum',
+  'legal-notice': 'impressum',
 };
 
 export function getRouteIdFromSlug(slugSegment: string, lang?: SupportedLocale): RouteId | undefined {
@@ -237,16 +240,24 @@ const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
   // Techniques
   'corte-chascado': { es: 'corte-chascado', en: 'potato-cutting', de: 'kartoffel-schneiden' },
   'potato-cutting': { es: 'corte-chascado', en: 'potato-cutting', de: 'kartoffel-schneiden' },
+  'cutting': { es: 'corte-chascado', en: 'potato-cutting', de: 'kartoffel-schneiden' },
   'confitado': { es: 'confitado', en: 'slow-poaching', de: 'langsam-pochieren' },
   'slow-poaching': { es: 'confitado', en: 'slow-poaching', de: 'langsam-pochieren' },
+  'slow-cooking': { es: 'confitado', en: 'slow-poaching', de: 'langsam-pochieren' },
   'fritura-crujiente': { es: 'fritura-crujiente', en: 'crispy-frying', de: 'knusprig-frittieren' },
   'crispy-frying': { es: 'fritura-crujiente', en: 'crispy-frying', de: 'knusprig-frittieren' },
+  'frying': { es: 'fritura-crujiente', en: 'crispy-frying', de: 'knusprig-frittieren' },
   'emulsion-caliente': { es: 'emulsion-caliente', en: 'warm-emulsion', de: 'warme-emulsion' },
   'warm-emulsion': { es: 'emulsion-caliente', en: 'warm-emulsion', de: 'warme-emulsion' },
+  'emulsion': { es: 'emulsion-caliente', en: 'warm-emulsion', de: 'warme-emulsion' },
   'coagulacion-proteica': { es: 'coagulacion-proteica', en: 'protein-coagulation', de: 'protein-gerinnung' },
   'protein-coagulation': { es: 'coagulacion-proteica', en: 'protein-coagulation', de: 'protein-gerinnung' },
+  'coagulation': { es: 'coagulacion-proteica', en: 'protein-coagulation', de: 'protein-gerinnung' },
   'deconstruccion': { es: 'deconstruccion', en: 'deconstruction', de: 'dekonstruktion' },
   'deconstruction': { es: 'deconstruccion', en: 'deconstruction', de: 'dekonstruktion' },
+  // People
+  'barat': { es: 'jose-manuel-barat', en: 'jose-manuel-barat', de: 'jose-manuel-barat' },
+  'jose-manuel-barat': { es: 'jose-manuel-barat', en: 'jose-manuel-barat', de: 'jose-manuel-barat' },
 };
 
 /**
@@ -255,6 +266,11 @@ const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
 export function resolveLegacyPath(rawPath: string, lang: SupportedLocale = 'es'): string {
   if (!rawPath || rawPath === '/' || rawPath === '') {
     return `/${lang}`;
+  }
+
+  // Replace [lang] placeholder if present
+  if (rawPath.includes('[lang]')) {
+    rawPath = rawPath.replace(/\[lang\]/g, lang);
   }
 
   // External URLs pass through directly

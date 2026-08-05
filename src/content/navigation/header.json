@@ -37,24 +37,6 @@
           }
         },
         {
-          "key": "estilos",
-          "href": "/estilos",
-          "label": {
-            "es": "Estilos",
-            "en": "Styles",
-            "de": "Stile"
-          }
-        },
-        {
-          "key": "personas",
-          "href": "/personas",
-          "label": {
-            "es": "Personas",
-            "en": "People",
-            "de": "Personen"
-          }
-        },
-        {
           "key": "ingredients",
           "href": "/ingredients",
           "label": {

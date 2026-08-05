@@ -93,6 +93,11 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'about', en: 'about', de: 'about' },
     label: { es: 'Sobre el Proyecto', en: 'About', de: 'Über uns' },
   },
+  impressum: {
+    id: 'impressum',
+    slug: { es: 'aviso-legal', en: 'impressum', de: 'impressum' },
+    label: { es: 'Aviso Legal e Impressum', en: 'Legal Notice & Impressum', de: 'Impressum & Rechtliches' },
+  },
   encuestas: {
     id: 'encuestas',
     slug: { es: 'encuestas', en: 'encuestas', de: 'encuestas' },

@@ -134,6 +134,23 @@ const historyCollection = defineCollection({
   }),
 });
 
+const scienceCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.md', 
+    base: './src/content/science',
+    generateId: ({ entry }) => entry.replace(/\.md$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    contentId: z.string().optional(),
+    lang: z.string().optional(),
+    locale: z.enum(['es', 'en', 'de']).optional(),
+    translationKey: z.string().optional(),
+    slug: z.string().optional(),
+  }),
+});
+
 const ingredientsCollection = defineCollection({
   loader: glob({ 
     pattern: '**/*.md', 
@@ -158,12 +175,39 @@ const ingredientsCollection = defineCollection({
   }),
 });
 
+const personsCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/persons',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    id: z.string(),
+    type: z.string().default('person'),
+    contentId: z.string().optional(),
+    translationKey: z.string().optional(),
+    slug: localizedStringSchema,
+    title: localizedStringSchema,
+    description: localizedStringSchema,
+    image: z.string().optional(),
+    icon: z.string().optional(),
+    badge: localizedStringSchema.optional(),
+    related: z.array(z.object({
+      type: z.string(),
+      id: z.string(),
+      relationship: z.string().optional(),
+    })).optional(),
+  }),
+});
+
 export const collections = {
   recipes: recipeCollection,
   taxonomies: taxonomyCollection,
+  persons: personsCollection,
   pages: pagesCollection,
   navigation: navigationCollection,
   settings: settingsCollection,
   history: historyCollection,
   ingredients: ingredientsCollection,
+  science: scienceCollection,
 };

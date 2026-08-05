@@ -18,6 +18,7 @@ export type RouteId =
   | 'builder'
   | 'contact'
   | 'about'
+  | 'impressum'
   | 'encuestas'
   | 'tests';
 

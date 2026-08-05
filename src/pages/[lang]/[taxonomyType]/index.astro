@@ -499,54 +499,7 @@ if (canonicalType === 'ingredient') {
     </div>
   )}
 
-  {canonicalType === 'person' && (
-    <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
-      <header class="text-center max-w-3xl mx-auto space-y-4">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
-          <ChefHat class="w-3.5 h-3.5" />
-          <span>{personasContent?.badge?.[currentLang] || 'Pioneros & Referentes'}</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground">
-          {personasContent?.title?.[currentLang] || 'Personajes Clave del Universo Tortilla'}
-        </h1>
-        <p class="text-base text-muted-foreground max-w-2xl mx-auto">
-          {personasContent?.subtitle?.[currentLang] || 'Chefs, divulgadores e historiadores que han marcado la historia de la tortilla.'}
-        </p>
-      </header>
-
-      {(personasContent?.categories || []).map((cat: any) => (
-        <section class="space-y-6">
-          <h2 class="text-2xl font-serif-heading font-bold border-b border-[#E8E2D5] pb-2 text-foreground">
-            {cat.title?.[currentLang] || cat.title?.es}
-          </h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {(cat.personas || []).map((person: any) => (
-              <Card class="card-notebook p-6 space-y-3 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center gap-3 mb-3">
-                    <img 
-                      src={person.image || '/images/personas/persona_placeholder.jpg'} 
-                      alt={person.name} 
-                      width="56"
-                      height="56"
-                      class="w-14 h-14 rounded-full object-cover border-2 border-[#E8E2D5]" 
-                    />
-                    <div>
-                      <h3 class="font-serif-heading font-bold text-lg text-foreground">{person.name}</h3>
-                      <span class="text-xs text-[#8D6E63] font-medium">{person.title}</span>
-                    </div>
-                  </div>
-                  <p class="text-xs text-muted-foreground leading-relaxed">{person.bio}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </section>
-      ))}
-    </div>
-  )}
-
-  {!['ingredient', 'faction', 'technique', 'style', 'region', 'person'].includes(canonicalType) && (
+  {!['ingredient', 'faction', 'technique', 'style'].includes(canonicalType) && (
     <div class="container mx-auto px-4 py-10 max-w-5xl space-y-8">
       <h1 class="text-3xl font-serif-heading font-bold text-foreground">{sectionLabel}</h1>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

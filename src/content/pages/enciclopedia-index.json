@@ -10,9 +10,9 @@
     "de": "Tortilla-Universum"
   },
   "subtitle": {
-    "es": "Compendio enciclopédico sobre la historia, estilos, personalidades, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.",
-    "en": "Encyclopedic compendium covering history, styles, key personalities, regional geography, ingredients, techniques, science, and records.",
-    "de": "Enzyklopädisches Kompendium zu Geschichte, Stilen, Persönlichkeiten, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden."
+    "es": "Compendio enciclopédico sobre la historia, personalidades, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.",
+    "en": "Encyclopedic compendium covering history, key personalities, regional geography, ingredients, techniques, science, and records.",
+    "de": "Enzyklopädisches Kompendium zu Geschichte, Persönlichkeiten, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden."
   },
   "sections": [
     {
@@ -29,36 +29,6 @@
         "de": "Von den ersten Aufzeichnungen im 18. Jahrhundert bis zur digitalen Delivery-Ära."
       },
       "icon": "History"
-    },
-    {
-      "id": "estilos",
-      "href": "/estilos",
-      "title": {
-        "es": "Estilos de Tortilla",
-        "en": "Tortilla Styles",
-        "de": "Tortilla-Stile"
-      },
-      "description": {
-        "es": "Estilo Betanzos, tortilla clásica cuajada, tortilla paisana y variantes tradicionales.",
-        "en": "Betanzos style, classic set omelette, paisana style, and traditional variations.",
-        "de": "Betanzos-Stil, klassische durchgebratene Tortilla, Landfrauen-Stil und traditionelle Varianten."
-      },
-      "icon": "Palette"
-    },
-    {
-      "id": "personas",
-      "href": "/personas",
-      "title": {
-        "es": "Personas & Referentes",
-        "en": "People & References",
-        "de": "Personen & Referenzen"
-      },
-      "description": {
-        "es": "Mentes y manos maestras: científicos como José Manuel Barat, pioneras populares como Pepa Miranda y chefs como José Andrés.",
-        "en": "Masterminds and hands: scientists like José Manuel Barat, traditional pioneers like Pepa Miranda, and chefs like José Andrés.",
-        "de": "Köpfe und Meisterhände: Wissenschaftler, Traditionsträger und Spitzenköche."
-      },
-      "icon": "Users"
     },
     {
       "id": "ingredientes",

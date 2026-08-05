@@ -5,9 +5,11 @@ const rawRecipes = Object.values(
   import.meta.glob('/src/content/recipes/*.json', { eager: true })
 ).map((mod: any) => (mod.default || mod) as Recipe);
 
-const rawTaxonomies = Object.values(
-  import.meta.glob('/src/content/taxonomies/**/*.json', { eager: true })
-).map((mod: any) => (mod.default || mod) as Taxonomy);
+const rawTaxonomies = [
+  ...Object.values(import.meta.glob('/src/content/taxonomies/**/*.json', { eager: true })),
+  ...Object.values(import.meta.glob('/src/content/persons/**/*.json', { eager: true })),
+  ...Object.values(import.meta.glob('/src/content/people/**/*.json', { eager: true })),
+].map((mod: any) => (mod.default || mod) as Taxonomy);
 
 export const TAXONOMY_ROUTING_MAP: Record<string, Record<string, string>> = {
   es: {

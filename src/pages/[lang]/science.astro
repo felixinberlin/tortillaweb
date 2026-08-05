@@ -2,9 +2,10 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShieldCheck, Flame, FlaskConical, AlertTriangle, Egg, ThermometerSnowflake, Sparkles } from 'lucide-react';
+import { ShieldCheck, FlaskConical, AlertTriangle, ListOrdered, ArrowUp, Sparkles, SlidersHorizontal, ChevronRight, Activity } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { getCollection, render } from 'astro:content';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -15,19 +16,26 @@ export function getStaticPaths() {
 const { lang = 'es' } = Astro.params;
 const t = getTranslations(lang);
 
-function formatSafetyText(text: string) {
-  if (!text) return '';
-  return text.replace(/(\*\*.*?\*\*)/g, (match) => {
-    return `<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE]/80 px-1 py-0.5 rounded">${match.slice(2, -2)}</strong>`;
-  });
+const allEntries = await getCollection('science');
+const currentEntry = allEntries.find((entry) => entry.data.lang === lang || entry.id.endsWith(`.${lang}`)) || allEntries[0];
+
+let Content: any = null;
+let headings: { depth: number; slug: string; text: string }[] = [];
+
+if (currentEntry) {
+  const rendered = await render(currentEntry);
+  Content = rendered.Content;
+  headings = rendered.headings;
 }
 
-const title = `${t('sciencePage.title')} - tortilladepatatas.org`;
-const description = t('sciencePage.subtitle');
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+const title = `${currentEntry?.data.title || t('sciencePage.title')} - tortilladepatatas.org`;
+const description = currentEntry?.data.description || t('sciencePage.subtitle');
 
 const articleSchema = generateArticleSchema({
-  headline: t("sciencePage.title", "La Físico-Química de la Tortilla de Patatas"),
-  description: t("sciencePage.subtitle", "Coagulación proteica, gelatinización de almidones y parámetros bactericidas estricto para garantizar seguridad y cremosidad."),
+  headline: currentEntry?.data.title || t("sciencePage.title", "La Físico-Química de la Tortilla de Patatas"),
+  description: currentEntry?.data.description || t("sciencePage.subtitle"),
   url: `/${lang}/science`,
 });
 
@@ -48,146 +56,197 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 ]);
 
 const schemas = [articleSchema, faqSchema, breadcrumbSchema];
+
+const sidebarLabels = {
+  es: {
+    tocTitle: 'Índice del Artículo',
+    labTitle: 'Laboratorio de Simulación',
+    labDesc: 'Experimenta con la velocidad de volteo (Umbral > 1,2 rad/s) y la potencia térmica.',
+    labLink: 'Abrir Laboratorio',
+    builderLink: 'Ir al Creador de Recetas',
+    safetyNotice: 'Normativa Oficial de Seguridad Alimentaria',
+  },
+  en: {
+    tocTitle: 'Table of Contents',
+    labTitle: 'Simulation Laboratory',
+    labDesc: 'Experiment with wrist flip velocity (Threshold > 1.2 rad/s) and thermal power.',
+    labLink: 'Open Laboratory',
+    builderLink: 'Go to Recipe Builder',
+    safetyNotice: 'Official Food Safety Rules',
+  },
+  de: {
+    tocTitle: 'Inhaltsverzeichnis',
+    labTitle: 'Simulationslabor',
+    labDesc: 'Experimentiere mit der Wendegeschwindigkeit (Schwelle > 1,2 rad/s) und der Heizleistung.',
+    labLink: 'Labor öffnen',
+    builderLink: 'Zum Rezept-Rechner',
+    safetyNotice: 'Offizielle Lebensmittelsicherheit',
+  }
+}[lang as 'es'|'en'|'de'] || {
+  tocTitle: 'Índice del Artículo',
+  labTitle: 'Laboratorio de Simulación',
+  labDesc: 'Experimenta con la velocidad de volteo (Umbral > 1,2 rad/s) y la potencia térmica.',
+  labLink: 'Abrir Laboratorio',
+  builderLink: 'Ir al Creador de Recetas',
+  safetyNotice: 'Normativa Oficial de Seguridad Alimentaria',
+};
 ---
 
 <Layout title={title} description={description} lang={lang} schema={schemas}>
-  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
-    <!-- Header -->
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl space-y-8">
+    
+    <!-- Header Hero Banner -->
     <div class="text-center max-w-3xl mx-auto space-y-3">
-      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#2E7D32]/10 text-[#2E7D32] border border-[#2E7D32]/30 inline-flex items-center gap-1.5 shadow-2xs">
+      <Badge variant="secondary" class="mb-1 px-3.5 py-1 text-xs font-bold bg-[#2E7D32]/10 text-[#2E7D32] border border-[#2E7D32]/30 inline-flex items-center gap-1.5 shadow-2xs">
         <FlaskConical class="w-3.5 h-3.5" />
         {t("sciencePage.badge", "Ciencia & Seguridad Alimentaria")}
       </Badge>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
-        {t("sciencePage.title", "La Físico-Química de la Tortilla")}
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground leading-tight">
+        {currentEntry?.data.title || t("sciencePage.title", "La Físico-Química de la Tortilla")}
       </h1>
       <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
-        {t("sciencePage.subtitle", "Coagulación proteica, gelatinización de almidones y parámetros bactericidas estricto para garantizar seguridad y cremosidad.")}
+        {currentEntry?.data.description || t("sciencePage.subtitle")}
       </p>
     </div>
 
-    <!-- Safety Banner Standard (Parchment & Green bactericidal accent) -->
+    <!-- Mandatory Food Safety Protocol Banner -->
     <Card class="card-notebook border-2 border-[#2E7D32]/50 bg-[#FCF9F2] shadow-md overflow-hidden">
       <CardHeader class="bg-[#2E7D32]/10 border-b border-[#2E7D32]/20 pb-3">
-        <div class="flex items-center gap-2.5 text-[#2E7D32]">
-          <ShieldCheck class="w-6 h-6 shrink-0" />
-          <CardTitle class="text-xl font-serif-heading font-bold">
-            {t("sciencePage.safetyTitle", "Estándar de Cocinado Bactericida")}
-          </CardTitle>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5 text-[#2E7D32]">
+            <ShieldCheck class="w-6 h-6 shrink-0" />
+            <CardTitle class="text-xl font-serif-heading font-bold">
+              {t("sciencePage.safetyTitle", "Estándar de Cocinado Bactericida (UPV / AESAN)")}
+            </CardTitle>
+          </div>
+          <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-[#2E7D32] text-white">
+            AESAN 2026
+          </span>
         </div>
       </CardHeader>
       <CardContent class="pt-5 space-y-4">
         <p class="text-foreground leading-relaxed text-sm md:text-base">
-          Para garantizar la eliminación total de patógenos como <em>Salmonella spp.</em> sin comprometer la textura, el estándar oficial de laboratorio exige alcanzar <strong>70°C for 2 minutes</strong> en el centro de la masa (o como umbral equivalente <strong>63°C for 20 seconds</strong>).
+          Para garantizar la inmovilización y destrucción completa de <em>Salmonella Enteritidis</em> sin alterar la untuosidad de la masa, el protocolo oficial exige alcanzar <strong>70°C for 2 minutes</strong> en el núcleo térmico (o alternativamente <strong>63°C for 20 seconds</strong> para centros cremosos de consumo inmediato).
         </p>
         <div class="p-4 rounded-xl bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-amber-950 text-xs sm:text-sm flex items-start gap-3">
           <AlertTriangle class="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
           <span>
-            <strong>Límite Temporal de Seguridad:</strong> Las tortillas con centro poco cuajado servidas a temperatura ambiente no deben superar las <strong>4 hours</strong> desde su elaboración.
+            <strong>Límite Temporal Estricto:</strong> Tortillas elaboradas con huevo fresco poco cuajado nunca deben exceder las <strong>4 hours</strong> expuestas a temperatura ambiente.
           </span>
         </div>
       </CardContent>
     </Card>
 
-    <!-- 4 Main Science Cards Grid -->
-    <div class="grid md:grid-cols-2 gap-6">
-      <!-- Card 1: Coagulación de Proteínas -->
-      <Card class="card-notebook p-2 sm:p-4">
-        <CardHeader class="pb-2">
-          <div class="flex items-center gap-3">
-            <div class="p-2.5 rounded-xl bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs">
-              <Egg class="w-5 h-5" />
-            </div>
-            <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
-              {t("sciencePage.card1.title", "Coagulación de Proteínas")}
-            </CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <p class="text-muted-foreground text-xs sm:text-sm leading-relaxed" set:html={formatSafetyText(t("sciencePage.card1.desc", ""))} />
-        </CardContent>
-      </Card>
+    <!-- Main Layout: Sidebar & Markdown Content -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Sidebar Navigation & Interactive Cards (4 cols on lg) -->
+      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-6 order-2 lg:order-1">
+        
+        <!-- Table of Contents Card -->
+        {tocHeadings.length > 0 && (
+          <Card class="card-notebook p-5 border-t-2 border-t-[#8D6E63]">
+            <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5]">
+              <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                <ListOrdered class="w-4 h-4 text-[#FFB800]" />
+                {sidebarLabels.tocTitle}
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="p-0 pt-3">
+              <nav class="space-y-1.5 max-h-[380px] overflow-y-auto pr-1 text-xs sm:text-sm">
+                {tocHeadings.map((h) => (
+                  <a
+                    href={`#${h.slug}`}
+                    class:list={[
+                      "block rounded-md py-1.5 px-2.5 transition-colors leading-snug hover:bg-[#F5E6BE]/60 hover:text-[#8D6E63]",
+                      h.depth === 2 ? "font-semibold text-foreground border-l-2 border-l-amber-300 pl-2.5" : "pl-6 text-muted-foreground"
+                    ]}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </CardContent>
+          </Card>
+        )}
 
-      <!-- Card 2: Gelatinización del Almidón -->
-      <Card class="card-notebook p-2 sm:p-4">
-        <CardHeader class="pb-2">
-          <div class="flex items-center gap-3">
-            <div class="p-2.5 rounded-xl bg-blue-100 text-blue-900 border border-blue-200 shadow-2xs">
-              <FlaskConical class="w-5 h-5" />
-            </div>
-            <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
-              {t("sciencePage.card2.title", "Gelatinización del Almidón")}
-            </CardTitle>
+        <!-- Interactive Lab Teaser Card -->
+        <Card class="card-notebook p-5 bg-gradient-to-br from-[#FCF9F2] to-[#F5E6BE]/40 border border-amber-300 space-y-3">
+          <div class="flex items-center gap-2 text-[#8D6E63]">
+            <Activity class="w-4 h-4 text-[#FFB800]" />
+            <h3 class="font-serif-heading font-bold text-sm text-foreground">{sidebarLabels.labTitle}</h3>
           </div>
-        </CardHeader>
-        <CardContent>
-          <p class="text-muted-foreground text-xs sm:text-sm leading-relaxed" set:html={formatSafetyText(t("sciencePage.card2.desc", ""))} />
-        </CardContent>
-      </Card>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            {sidebarLabels.labDesc}
+          </p>
+          <div class="pt-1 flex flex-col gap-2">
+            <a
+              href={`/${lang}/laboratorio`}
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#8D6E63] text-white text-xs font-bold hover:bg-[#6D4C41] transition-colors shadow-2xs"
+            >
+              <span>{sidebarLabels.labLink}</span>
+              <ChevronRight class="w-4 h-4" />
+            </a>
+            <a
+              href={`/${lang}/builder`}
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#F5E6BE] text-[#8D6E63] text-xs font-bold hover:bg-[#FFB800] hover:text-white transition-colors"
+            >
+              <span>{sidebarLabels.builderLink}</span>
+              <SlidersHorizontal class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </Card>
 
-      <!-- Card 3: Inactivación Térmica & Pasteurización -->
-      <Card class="card-notebook p-2 sm:p-4 border-l-4 border-l-[#2E7D32]">
-        <CardHeader class="pb-2">
-          <div class="flex items-center gap-3">
-            <div class="p-2.5 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300 shadow-2xs">
-              <ShieldCheck class="w-5 h-5 text-[#2E7D32]" />
-            </div>
-            <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
-              {t("sciencePage.card3.title", "Inactivación Térmica & Fuego")}
-            </CardTitle>
+        <!-- Thermal Summary Quick Reference -->
+        <Card class="card-notebook p-5 bg-[#FAF6EE] space-y-3">
+          <div class="flex items-center gap-2 text-[#8D6E63]">
+            <Sparkles class="w-4 h-4 text-[#FFB800]" />
+            <h3 class="font-serif-heading font-bold text-xs uppercase tracking-wider text-muted-foreground">
+              {sidebarLabels.safetyNotice}
+            </h3>
           </div>
-        </CardHeader>
-        <CardContent>
-          <p class="text-muted-foreground text-xs sm:text-sm leading-relaxed" set:html={formatSafetyText(t("sciencePage.card3.desc", ""))} />
-        </CardContent>
-      </Card>
+          <ul class="space-y-2 text-xs text-muted-foreground">
+            <li class="p-2 rounded bg-white border border-[#E8E2D5]">
+              <strong class="text-[#2E7D32]">70°C for 2 minutes</strong>: Inactivación bactericida total.
+            </li>
+            <li class="p-2 rounded bg-white border border-[#E8E2D5]">
+              <strong class="text-[#FF8A00]">63°C for 20 seconds</strong>: Pasteurización jugosa autorizada.
+            </li>
+            <li class="p-2 rounded bg-white border border-[#E8E2D5]">
+              <strong class="text-[#B00020]">4 hours</strong>: Límite máximo a temperatura ambiente.
+            </li>
+          </ul>
+        </Card>
 
-      <!-- Card 4: Gestión Microbiológica de Riesgos -->
-      <Card class="card-notebook p-2 sm:p-4 border-l-4 border-l-[#FF8A00]">
-        <CardHeader class="pb-2">
-          <div class="flex items-center gap-3">
-            <div class="p-2.5 rounded-xl bg-orange-100 text-orange-900 border border-orange-300 shadow-2xs">
-              <ThermometerSnowflake class="w-5 h-5 text-[#FF8A00]" />
+      </aside>
+
+      <!-- Article Prose Content Container (8 cols on lg) -->
+      <main class="lg:col-span-8 order-1 lg:order-2 space-y-6">
+        <article class="card-notebook p-6 sm:p-8 md:p-10 shadow-stacked-parchment bg-[#FDFBF7]">
+          {Content ? (
+            <div class="science-prose">
+              <Content />
             </div>
-            <CardTitle class="text-lg font-serif-heading font-bold text-foreground">
-              {t("sciencePage.card4.title", "Gestión Microbiológica de Riesgos")}
-            </CardTitle>
+          ) : (
+            <div class="p-8 text-center text-muted-foreground">
+              <p>No se pudo cargar el artículo científico.</p>
+            </div>
+          )}
+
+          <!-- Back to top & Citation Footer -->
+          <div class="pt-8 mt-10 border-t border-[#E8E2D5] flex items-center justify-between text-xs text-muted-foreground">
+            <span class="font-medium text-[#8D6E63]">tortilladepatatas.org — Cuaderno de Ciencia</span>
+            <a
+              href="#"
+              class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#F5E6BE] text-[#8D6E63] font-bold hover:bg-[#FFB800] hover:text-white transition-colors"
+            >
+              <span>Subir</span>
+              <ArrowUp class="w-3.5 h-3.5" />
+            </a>
           </div>
-        </CardHeader>
-        <CardContent>
-          <p class="text-muted-foreground text-xs sm:text-sm leading-relaxed" set:html={formatSafetyText(t("sciencePage.card4.desc", ""))} />
-        </CardContent>
-      </Card>
+        </article>
+      </main>
+
     </div>
-
-    <!-- Additional Thermal Thresholds Summary Card -->
-    <Card class="card-notebook p-6 bg-[#FAF6EE] space-y-4">
-      <div class="flex items-center gap-2">
-        <Sparkles class="w-5 h-5 text-[#FFB800]" />
-        <h3 class="font-serif-heading font-bold text-lg text-foreground">
-          {t("sciencePage.safetySectionTitle", "Garantía de Seguridad Alimentaria & Térmica")}
-        </h3>
-      </div>
-      <p class="text-xs sm:text-sm text-muted-foreground">
-        {t("sciencePage.safetySectionSub", "Los tres umbrales de procesamiento térmico para el control microbiológico:")}
-      </p>
-
-      <div class="grid sm:grid-cols-3 gap-4 pt-2">
-        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-1">
-          <span class="text-xs font-bold text-[#D32F2F] block">{t("sciencePage.levelPilotTitle", "Zona de Peligro Ambiental")}</span>
-          <p class="text-xs text-muted-foreground leading-relaxed" set:html={formatSafetyText(t("sciencePage.levelPilotDesc", ""))} />
-        </div>
-
-        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-1">
-          <span class="text-xs font-bold text-[#FF8A00] block">{t("sciencePage.levelMediumTitle", "Umbral de Seguridad Medio")}</span>
-          <p class="text-xs text-muted-foreground leading-relaxed" set:html={formatSafetyText(t("sciencePage.levelMediumDesc", ""))} />
-        </div>
-
-        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#2E7D32]/40 bg-[#2E7D32]/5 space-y-1">
-          <span class="text-xs font-bold text-[#2E7D32] block">{t("sciencePage.levelSafeTitle", "Estándar Bactericida Oro")}</span>
-          <p class="text-xs text-muted-foreground leading-relaxed" set:html={formatSafetyText(t("sciencePage.levelSafeDesc", ""))} />
-        </div>
-      </div>
-    </Card>
   </div>
 </Layout>

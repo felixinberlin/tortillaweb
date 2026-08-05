@@ -39,6 +39,7 @@ import { StepIngredients } from "./StepIngredients";
 import { StepInventory } from "./StepInventory";
 import { StepPreferences } from "./StepPreferences";
 import { TortillaProfileView } from "./TortillaProfileView";
+import { SelectedIngredientsBar } from "./SelectedIngredientsBar";
 
 interface BuilderAppProps {
   lang?: string;
@@ -54,9 +55,7 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
   const [eggSize, setEggSize] = useState<EggSize>("large");
   const [potatoesGrams, setPotatoesGrams] = useState<number>(600);
   const [oilStyle, setOilStyle] = useState<OilCookingStyle>("traditional");
-  const [extras, setExtras] = useState<{ id: string; quantity: number }[]>([
-    { id: "onion", quantity: 180 },
-  ]);
+  const [extras, setExtras] = useState<{ id: string; quantity: number }[]>([]);
   const [texture, setTexture] = useState<TextureStyle>("jugosa");
   const [potatoTechnique, setPotatoTechnique] = useState<PotatoTechnique>("pochada");
 
@@ -109,6 +108,10 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
       }
       return [...prev, { id, quantity }];
     });
+  };
+
+  const handleClearExtras = () => {
+    setExtras([]);
   };
 
   // Build domain object: TortillaConfiguration
@@ -235,6 +238,20 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
           <span>🍳 {isEs ? "Perfil Final" : isDe ? "Tortilla Profile" : "Tortilla Identity"}</span>
         </button>
       </div>
+
+      {/* Persistent Selected Ingredients Bar (Always visible in Creator) */}
+      <SelectedIngredientsBar
+        lang={lang}
+        eggs={eggs}
+        eggSize={eggSize}
+        potatoesGrams={potatoesGrams}
+        oilStyle={oilStyle}
+        extras={extras}
+        onUpdateExtra={handleUpdateExtra}
+        onClearExtras={handleClearExtras}
+        onSelectTab={setActiveTab}
+        activeTab={activeTab}
+      />
 
       {/* Main Tab Content Display */}
       <AnimatePresence mode="wait">

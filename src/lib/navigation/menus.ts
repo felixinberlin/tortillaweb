@@ -21,7 +21,7 @@ export const NAV_STRUCTURE = {
   },
   fundamentos: {
     title: { es: 'Fundamentos Culinarios', en: 'Culinary Fundamentals', de: 'Kulinarische Grundlagen' },
-    routeIds: ['ingredients', 'techniques', 'science', 'history', 'personas', 'estilos', 'factions'] as RouteId[],
+    routeIds: ['ingredients', 'techniques', 'science', 'history', 'estilos', 'factions'] as RouteId[],
   },
 };
 
@@ -32,7 +32,6 @@ export const FOOTER_ROUTE_IDS: RouteId[] = [
   'techniques',
   'science',
   'history',
-  'personas',
   'about',
   'contact',
 ];

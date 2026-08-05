@@ -1,0 +1,45 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ImpressumContent from '@/components/legal/ImpressumContent.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const isEs = currentLang === 'es';
+const isDe = currentLang === 'de';
+
+const pageTitle = isDe
+  ? 'Impressum & Rechtliche Hinweise - tortilladepatatas.org'
+  : isEs
+  ? 'Aviso Legal e Impressum - tortilladepatatas.org'
+  : 'Legal Notice & Impressum - tortilladepatatas.org';
+
+const pageDescription = isDe
+  ? 'Angaben gemäß § 5 TMG und § 18 MStV für tortilladepatatas.org — Betreiber, Kontaktdaten, Haftungsausschluss und Urheberrecht.'
+  : isEs
+  ? 'Información legal, datos identificativos (LSSI-CE / TMG) y condiciones de uso de tortilladepatatas.org.'
+  : 'Legal notice, company identification (LSSI-CE / TMG) and terms of use for tortilladepatatas.org.';
+
+const homeLabel = isDe ? 'Startseite' : isEs ? 'Inicio' : 'Home';
+const legalLabel = isDe ? 'Impressum' : isEs ? 'Aviso Legal e Impressum' : 'Legal Notice';
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: homeLabel, url: `/${currentLang}` },
+  { name: legalLabel, url: `/${currentLang}/${isEs ? 'aviso-legal' : 'impressum'}` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={schemas}>
+  <ImpressumContent lang={currentLang} />
+</Layout>

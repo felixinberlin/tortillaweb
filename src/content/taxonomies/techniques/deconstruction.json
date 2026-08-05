@@ -17,5 +17,12 @@
     "en": "Pioneered by Ferran Adrià using siphons, emulsions, or pre-cooked ingredients.",
     "de": "Von Ferran Adrià entwickelte Technik mit Siphons, Emulsionen oder Spezialzutaten."
   },
+  "related": [
+    {
+      "type": "person",
+      "id": "ferran-adria",
+      "relationship": "pioneer"
+    }
+  ],
   "icon": "Sparkles"
 }

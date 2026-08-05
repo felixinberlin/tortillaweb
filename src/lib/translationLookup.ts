@@ -111,6 +111,21 @@ export async function getTranslationLookup(): Promise<LookupResult> {
     console.error('Error loading history for translation lookup:', e);
   }
 
+  // 5. Science collection
+  try {
+    const scienceEntries = await getCollection('science');
+    for (const entry of scienceEntries) {
+      const key = entry.data.contentId || entry.data.translationKey || 'science.tortilla';
+      const lang: 'es' | 'en' | 'de' = (entry.data.locale || entry.data.lang || 'es') as any;
+      if (!translationMap[key]) translationMap[key] = {};
+      const url = `/${lang}/science`;
+      translationMap[key][lang] = url;
+      urlToKey[url] = key;
+    }
+  } catch (e) {
+    console.error('Error loading science for translation lookup:', e);
+  }
+
   cachedLookup = { translationMap, urlToKey };
   return cachedLookup;
 }

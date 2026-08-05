@@ -1,0 +1,253 @@
+---
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Scale, ShieldCheck, Mail, Phone, MapPin, Building2, BookOpen, AlertTriangle, Globe, Lock, ExternalLink } from 'lucide-react';
+
+interface Props {
+  lang: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const isEs = currentLang === 'es';
+const isDe = currentLang === 'de';
+---
+
+<div class="bg-notebook-grid min-h-screen pb-16">
+  <div class="container mx-auto px-4 py-8 md:py-14 max-w-4xl space-y-10">
+    
+    <!-- Hero Header -->
+    <div class="card-notebook p-6 sm:p-8 md:p-10 border-t-4 border-t-[#8D6E63] shadow-stacked-parchment text-center sm:text-left space-y-4">
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+        <Badge variant="secondary" class="px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+          <Scale class="w-3.5 h-3.5 text-[#FFB800]" />
+          {isDe ? 'Rechtliche Informationen' : isEs ? 'Información Legal & Transparencia' : 'Legal Information & Transparency'}
+        </Badge>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground leading-tight">
+        {isDe ? 'Impressum' : isEs ? 'Aviso Legal e Impressum' : 'Legal Notice & Impressum'}
+      </h1>
+
+      <p class="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed italic">
+        {isDe ? (
+          <>Angaben gemäß § 5 TMG (Telemediengesetz) und § 18 MStV (Medienstaatsvertrag) für die Online-Plattform <strong class="text-foreground">tortilladepatatas.org</strong>.</>
+        ) : isEs ? (
+          <>De conformidad con el artículo 10 de la Ley 34/2002 (LSSI-CE) en España y el § 5 de la Ley de Telemedios alemana (TMG), se detallan a continuación los datos identificativos y condiciones de uso de <strong class="text-foreground">tortilladepatatas.org</strong>.</>
+        ) : (
+          <>In accordance with Article 10 of Spanish Law 34/2002 (LSSI-CE) and § 5 of the German Telemedia Act (TMG), company details and legal terms for <strong class="text-foreground">tortilladepatatas.org</strong> are provided below.</>
+        )}
+      </p>
+    </div>
+
+    <!-- Food Safety & Thermal Compliance Disclaimer Box -->
+    <Card class="card-notebook border-2 border-[#2E7D32]/40 bg-[#FCF9F2] shadow-md overflow-hidden">
+      <CardHeader class="bg-[#2E7D32]/10 border-b border-[#2E7D32]/20 pb-3">
+        <div class="flex items-center gap-2.5 text-[#2E7D32]">
+          <ShieldCheck class="w-6 h-6 shrink-0" />
+          <CardTitle class="text-lg sm:text-xl font-serif-heading font-bold">
+            {isDe ? 'Kulinarischer & Gesundheitlicher Haftungsausschluss' : isEs ? 'Exención de Responsabilidad Sanitaria y Térmica' : 'Culinary & Food Safety Disclaimer'}
+          </CardTitle>
+        </div>
+      </CardHeader>
+      <CardContent class="pt-5 space-y-3 text-xs sm:text-sm leading-relaxed text-foreground">
+        <p>
+          {isDe ? (
+            <>Alle auf dieser Plattform veröffentlichten Rezepte, chemischen Parameter und Zubereitungsmethoden dienen ausschließlich der Information und der kulinarischen Bildung. Der Betreiber übernimmt keine Haftung für Schäden, die durch unsachgemäße Lebensmittelhygiene oder unzureichende Erhitzung entstehen.</>
+          ) : isEs ? (
+            <>Los contenidos sobre elaboración de recetas y parámetros térmicos (como la coagulación proteica del huevo) se ofrecen con fines informativos. El usuario es el único responsable de asegurar unas correctas prácticas de higiene y control térmico en su propia cocina.</>
+          ) : (
+            <>All recipes, chemical parameters, and preparation methods published on this platform are for educational and informational purposes only. The user remains solely responsible for food hygiene and thermal control in their kitchen.</>
+          )}
+        </p>
+        <div class="p-3.5 rounded-xl bg-[#2E7D32]/10 border border-[#2E7D32]/30 text-[#2E7D32] flex items-start gap-2.5">
+          <AlertTriangle class="w-4 h-4 text-[#2E7D32] shrink-0 mt-0.5" />
+          <span>
+            <strong>{isDe ? 'Bakterizider Sicherheitsstandard:' : isEs ? 'Estándar Bactericida Obligatorio:' : 'Bactericidal Safety Standard:'}</strong>{' '}
+            {isEs ? (
+              <>Para la eliminación completa de <em>Salmonella spp.</em>, se exige alcanzar <strong>70°C for 2 minutes</strong> en el centro de la masa (o <strong>63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong>4 hours</strong> a temperatura ambiente.</>
+            ) : isDe ? (
+              <>Zur Vernichtung von <em>Salmonella spp.</em> gilt der Goldstandard von <strong>70°C for 2 minutes</strong> (oder <strong>63°C for 20 seconds</strong>). Laufwarme Tortillas dürfen maximal <strong>4 hours</strong> bei Raumtemperatur verbleiben.</>
+            ) : (
+              <>To ensure complete destruction of <em>Salmonella spp.</em>, the standard requires <strong>70°C for 2 minutes</strong> at the core (or <strong>63°C for 20 seconds</strong>). Runny tortillas must not exceed <strong>4 hours</strong> at ambient temperature.</>
+            )}
+          </span>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Grid Sections -->
+    <div class="space-y-6">
+
+      <!-- 1. Operator Details -->
+      <Card class="card-notebook p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-3 text-[#8D6E63] pb-3 border-b border-[#E8E2D5]">
+          <Building2 class="w-6 h-6 text-[#FFB800]" />
+          <h2 class="text-xl font-serif-heading font-bold text-foreground">
+            {isDe ? '1. Angaben zum Betreiber (Website Operator)' : isEs ? '1. Datos Identificativos del Titular' : '1. Website Operator Details'}
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm text-foreground">
+          <div class="space-y-1.5 p-3.5 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5]">
+            <span class="text-xs text-muted-foreground font-semibold block uppercase tracking-wider">
+              {isDe ? 'Organisation & Rechtsform' : isEs ? 'Denominación Social & Forma Legal' : 'Organization & Legal Entity'}
+            </span>
+            <p class="font-bold text-foreground">Asociación Cultural "Archivo de la Tortilla de Patatas"</p>
+            <p class="text-xs text-muted-foreground">
+              {isDe ? 'Kulturverein spanischen Rechts (Asociación Cultural)' : isEs ? 'Asociación Cultural sin ánimo de lucro' : 'Non-profit Cultural Association'}
+            </p>
+          </div>
+
+          <div class="space-y-1.5 p-3.5 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5]">
+            <span class="text-xs text-muted-foreground font-semibold block uppercase tracking-wider">
+              {isDe ? 'Registrierung & Steuer-ID' : isEs ? 'NIF / Identificación Fiscal' : 'Tax ID & Registration'}
+            </span>
+            <p class="font-mono text-foreground font-semibold">G-XXXXXXXX</p>
+            <p class="text-xs text-muted-foreground">
+              {isDe ? 'In Gründung / Eintragung im Vereinsregister läuft' : isEs ? 'Asociación en proceso de inscripción formal' : 'In process of official association registration'}
+            </p>
+          </div>
+
+          <div class="space-y-1.5 p-3.5 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5]">
+            <div class="flex items-center gap-1.5 text-[#8D6E63]">
+              <MapPin class="w-4 h-4 text-[#FFB800]" />
+              <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {isDe ? 'Sitz der Vereinigung' : isEs ? 'Dirección de la Sede Social' : 'Registered Address'}
+              </span>
+            </div>
+            <p class="font-medium text-foreground">obdachlos in tiefer Brandenburg</p>
+          </div>
+
+          <div class="space-y-1.5 p-3.5 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5]">
+            <div class="flex items-center gap-1.5 text-[#8D6E63]">
+              <Mail class="w-4 h-4 text-[#FFB800]" />
+              <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {isDe ? 'Direkter Kontakt' : isEs ? 'Contacto Directo' : 'Direct Contact'}
+              </span>
+            </div>
+            <p class="font-medium text-foreground">
+              Email: <a href="mailto:contacto@tortilladepatatas.org" class="text-[#8D6E63] font-bold hover:underline">contacto@tortilladepatatas.org</a>
+            </p>
+            <p class="text-xs text-muted-foreground flex items-center gap-1">
+              <Phone class="w-3 h-3 inline" /> xxxx
+            </p>
+          </div>
+        </div>
+      </Card>
+
+      <!-- 2. Editorial Responsibility -->
+      <Card class="card-notebook p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-3 text-[#8D6E63] pb-3 border-b border-[#E8E2D5]">
+          <BookOpen class="w-6 h-6 text-[#FFB800]" />
+          <h2 class="text-xl font-serif-heading font-bold text-foreground">
+            {isDe ? '2. Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)' : isEs ? '2. Responsable del Contenido Editorial' : '2. Editorial Content Manager'}
+          </h2>
+        </div>
+
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          {isDe ? (
+            <>Verantwortlich für die journalistisch-redaktionell gestalteten Angebote dieser Plattform (Enzyklopädie, Rezeptanalysen, Laborberichte):</>
+          ) : isEs ? (
+            <>De acuerdo con el § 18, párrafo 2 del Tratado Estatal de Medios de Alemania (MStV) y la normativa editorial aplicable:</>
+          ) : (
+            <>Responsible for editorial and encyclopedic content (recipe analyses, historical guides, scientific reports):</>
+          )}
+        </p>
+
+        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2 text-xs sm:text-sm text-foreground">
+          <p class="font-bold text-[#8D6E63]">Dirección de Comunicación y Contenidos de tortilladepatatas.org</p>
+          <p>obdachlos in tiefer Brandenburg</p>
+          <p>
+            Email editorial: <a href="mailto:editorial@tortilladepatatas.org" class="text-[#8D6E63] font-bold hover:underline">editorial@tortilladepatatas.org</a>
+          </p>
+        </div>
+      </Card>
+
+      <!-- 3. Terms of Use & Liability -->
+      <Card class="card-notebook p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-3 text-[#8D6E63] pb-3 border-b border-[#E8E2D5]">
+          <Globe class="w-6 h-6 text-[#FFB800]" />
+          <h2 class="text-xl font-serif-heading font-bold text-foreground">
+            {isDe ? '3. Haftung für Inhalte & Externe Links' : isEs ? '3. Condiciones de Uso y Responsabilidad' : '3. Terms of Use & External Links'}
+          </h2>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+          <p>
+            {isDe ? (
+              <>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen. Haftung für Links zu externen Webseiten Dritter übernehmen wir nicht, da für deren Inhalte stets der jeweilige Anbieter verantwortlich ist.</>
+            ) : isEs ? (
+              <>El acceso y uso de este sitio web es libre y gratuito. Aunque la información histórica, técnica y gastronómica ha sido recopilada con el máximo rigor a partir de fuentes académicas, no se garantiza la ausencia total de errores tipográficos. Este sitio contiene enlaces a páginas de terceros de cuyos contenidos no nos hacemos responsables.</>
+            ) : (
+              <>Access to this website is free of charge. Although historical, technical, and gastronomic data are meticulously curated, no guarantee is given for absolute absence of typographical errors. External links lead to third-party content for which we assume no liability.</>
+            )}
+          </p>
+        </div>
+      </Card>
+
+      <!-- 4. Intellectual Property & Licenses -->
+      <Card class="card-notebook p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-3 text-[#8D6E63] pb-3 border-b border-[#E8E2D5]">
+          <Lock class="w-6 h-6 text-[#FFB800]" />
+          <h2 class="text-xl font-serif-heading font-bold text-foreground">
+            {isDe ? '4. Urheberrecht, Open-Source & Lizenzen' : isEs ? '4. Propiedad Intelectual y Licencias' : '4. Intellectual Property & Licenses'}
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
+            <span class="font-bold text-foreground block">{isDe ? 'Software-Quellcode (Code)' : isEs ? 'Código de la Plataforma (Software)' : 'Platform Source Code'}</span>
+            <p class="text-muted-foreground text-xs leading-relaxed">
+              {isDe ? (
+                <>Der Quellcode der Web-Anwendung ist Open-Source-Software unter der <strong class="text-foreground">MIT-Lizenz</strong>.</>
+              ) : isEs ? (
+                <>El código fuente de la aplicación es software libre distribuido bajo la <strong class="text-foreground">Licencia MIT</strong>.</>
+              ) : (
+                <>The application source code is open-source software distributed under the <strong class="text-foreground">MIT License</strong>.</>
+              )}
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] space-y-2">
+            <span class="font-bold text-foreground block">{isDe ? 'Redaktioneller Inhalt & Bilder' : isEs ? 'Contenidos Editoriales e Imágenes' : 'Editorial Content & Imagery'}</span>
+            <p class="text-muted-foreground text-xs leading-relaxed">
+              {isDe ? (
+                <>Texte der Enzyklopädie und historische Abhandlungen sind lizenziert unter <strong class="text-foreground">CC BY-NC-ND 4.0 International</strong> (Namensnennung - Nicht-kommerziell - Keine Bearbeitung).</>
+              ) : isEs ? (
+                <>Todos los contenidos de la enciclopedia y crónicas históricas están protegidos bajo <strong class="text-foreground">Creative Commons CC BY-NC-ND 4.0 Internacional</strong>.</>
+              ) : (
+                <>Encyclopedia texts and historical chronicles are protected under <strong class="text-foreground">Creative Commons CC BY-NC-ND 4.0 International</strong>.</>
+              )}
+            </p>
+          </div>
+        </div>
+      </Card>
+
+      <!-- 5. ODR Platform & Dispute Resolution -->
+      <Card class="card-notebook p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-3 text-[#8D6E63] pb-3 border-b border-[#E8E2D5]">
+          <ExternalLink class="w-6 h-6 text-[#FFB800]" />
+          <h2 class="text-xl font-serif-heading font-bold text-foreground">
+            {isDe ? '5. EU-Streitbeilegung (Online Dispute Resolution)' : isEs ? '5. Resolución de Litigios en Línea (ODR)' : '5. EU Dispute Resolution (ODR)'}
+          </h2>
+        </div>
+
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          {isDe ? (
+            <>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="text-[#8D6E63] font-bold hover:underline">https://ec.europa.eu/consumers/odr</a>. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</>
+          ) : isEs ? (
+            <>La Comisión Europea ofrece una plataforma para la resolución de litigios en línea en el siguiente enlace:{' '}
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="text-[#8D6E63] font-bold hover:underline">https://ec.europa.eu/consumers/odr</a>. No estamos obligados a participar en procedimientos de arbitraje de consumo.</>
+          ) : (
+            <>The European Commission provides an online dispute resolution (ODR) platform at:{' '}
+            <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" class="text-[#8D6E63] font-bold hover:underline">https://ec.europa.eu/consumers/odr</a>. We are not obligated to participate in consumer arbitration proceedings.</>
+          )}
+        </p>
+      </Card>
+
+    </div>
+  </div>
+</div>
