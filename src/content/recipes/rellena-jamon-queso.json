@@ -1,0 +1,175 @@
+{
+  "id": "rellena-jamon-queso",
+  "contentId": "recipe.rellena-jamon-queso",
+  "translationKey": "recipe-rellena-jamon-queso",
+  "slug": {
+    "es": "tortilla-rellena-jamon-queso",
+    "en": "stuffed-ham-cheese-spanish-omelette",
+    "de": "gefuellte-schinken-kaese-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Rellena Especial de Jamón y Queso",
+    "en": "Stuffed Ham & Cheese Spanish Omelette",
+    "de": "Gefüllte Spanische Tortilla mit Schinken & Käse"
+  },
+  "description": {
+    "es": "El gran clásico de las barras madrileñas: una tortilla alta y jugosa abierta por la mitad y cargada de queso fundido y jamón ibérico.",
+    "en": "The iconic Madrid bar favorite: a thick, tender tortilla sliced open and stuffed with melted cheese and cured Iberian ham.",
+    "de": "Der Klassiker der Madrider Bars: Eine saftige Tortilla, gefüllt mit geschmolzenem Käse und Iberico-Schinken."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "ingredient:cheese",
+    "ingredient:salt",
+    "region:madrid",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 6,
+  "image": "/images/recipes/rellena.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 700,
+      "unit": "g",
+      "notes": {
+        "es": "700g de patata para tortilla alta",
+        "en": "700g potatoes for thick tortilla",
+        "de": "700g Kartoffeln für eine hohe Tortilla"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 8,
+      "unit": "unit",
+      "notes": {
+        "es": "8 huevos grandes",
+        "en": "8 large eggs",
+        "de": "8 große Eier"
+      }
+    },
+    {
+      "id": "cheese",
+      "ingredientId": "cheese",
+      "name": {
+        "es": "Queso Havarti o Gouda Fundente",
+        "en": "Melting Cheese (Havarti or Gouda)",
+        "de": "Schmelzkäse (Havarti oder Gouda)"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "100g en lonchas",
+        "en": "100g sliced",
+        "de": "100g in Scheiben"
+      }
+    },
+    {
+      "id": "jamon",
+      "ingredientId": "jamon",
+      "name": {
+        "es": "Jamón de Cebo o Cocido",
+        "en": "Cured Iberian or Cooked Ham",
+        "de": "Iberico- oder Kochschinken"
+      },
+      "amount": 90,
+      "unit": "g",
+      "notes": {
+        "es": "90g en lonchas finas",
+        "en": "90g thinly sliced",
+        "de": "90g dünn geschnitten"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 180,
+      "unit": "ml",
+      "notes": {
+        "es": "180ml de aceite de oliva",
+        "en": "180ml olive oil",
+        "de": "180ml Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 7,
+      "unit": "g",
+      "notes": {
+        "es": "7g de sal marina",
+        "en": "7g sea salt",
+        "de": "7g Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Fritura y reposo de la patata", "en": "1. Frying & soaking potatoes", "de": "1. Kartoffeln braten & ziehen lassen" },
+      "text": {
+        "es": "Pela las patatas y fríelas a fuego medio hasta que estén muy tiernas y doradas. Bate los 8 huevos con la sal y mezcla con la patata caliente durante 5 minutos.",
+        "en": "Peel and fry potatoes over medium heat until tender and golden. Beat 8 eggs with salt and soak warm potatoes for 5 minutes.",
+        "de": "Kartoffeln braten bis sie weich sind. 8 Eier mit Salz verquirlen und warme Kartoffeln 5 Minuten darin ziehen lassen."
+      }
+    },
+    {
+      "step": { "es": "2. Elaboración de la tortilla base", "en": "2. Base tortilla cooking", "de": "2. Grund-Tortilla zubereiten" },
+      "text": {
+        "es": "Cuaja una tortilla gruesa en sartén honda durante 3 minutos por lado buscando un interior consistente. Deja templar 10 minutos.",
+        "en": "Cook a thick tortilla in a deep pan for 3 minutes per side. Let cool slightly for 10 minutes.",
+        "de": "Eine dicke Tortilla in einer tiefen Pfanne 3 Minuten pro Seite garen. 10 Minuten abkühlen lassen."
+      }
+    },
+    {
+      "step": { "es": "3. Relleno y gratinado", "en": "3. Slicing & stuffing", "de": "3. Aufschneiden & Füllen" },
+      "text": {
+        "es": "Con un cuchillo jamonero, abre la tortilla por la mitad como un bocadillo. Coloca una capa generosa de queso y jamón, cierra la tortilla y calienta 2 minutos en sartén tapada para fundir el queso. Mantén los parámetros de pasteurización de 70°C durante 2 minutos.",
+        "en": "Slice tortilla horizontally. Layer cheese and ham inside, close, and heat in covered pan for 2 minutes to melt cheese. Observe pasteurization standard of 70°C for 2 minutes.",
+        "de": "Tortilla waagerecht aufschneiden. Mit Käse und Schinken füllen, schließen und in der Pfanne 2 Minuten erwärmen. 70°C für 2 Minuten beachten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Bares de Barrio de Madrid",
+      "description": {
+        "es": "Especialidad icónica de las casas de comidas madrileñas.",
+        "en": "Iconic stuffed tortilla variant served across Madrid taverns.",
+        "de": "Ikonische gefüllte Tortilla-Variante der Madrider Tavernen."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

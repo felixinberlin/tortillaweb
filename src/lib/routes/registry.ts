@@ -52,10 +52,10 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     label: { es: 'Regiones', en: 'Regions', de: 'Regionen' },
     canonicalType: 'region',
   },
-  records: {
-    id: 'records',
-    slug: { es: 'records', en: 'records', de: 'records' },
-    label: { es: 'Récords', en: 'Records', de: 'Rekorde' },
+  trivia: {
+    id: 'trivia',
+    slug: { es: 'trivia', en: 'trivia', de: 'trivia' },
+    label: { es: 'Trivia & Curiosidades', en: 'Trivia & Curiosities', de: 'Trivia & Kurioses' },
   },
   estilos: {
     id: 'estilos',

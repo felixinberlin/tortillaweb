@@ -1,0 +1,24 @@
+{
+  "id": "rioja",
+  "type": "region",
+  "contentId": "region.rioja",
+  "slug": {
+    "es": "la-rioja",
+    "en": "la-rioja",
+    "de": "la-rioja"
+  },
+  "title": {
+    "es": "La Rioja",
+    "en": "La Rioja",
+    "de": "La Rioja"
+  },
+  "description": {
+    "es": "Región de gran tradición hortícola y vinícola, cuna del chorizo riojano y tortillas con carácter ahumado.",
+    "en": "Region famous for vegetables, wine, and robust paprika-spiced chorizo tortillas.",
+    "de": "Region bekannt für Gemüse, Wein und herzhafte Chorizo-Tortillas mit Paprika-Aroma."
+  },
+  "icon": "MapPin",
+  "related": [
+    { "type": "ingredient", "id": "chorizo", "relationship": "signature_ingredient" }
+  ]
+}

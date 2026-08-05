@@ -328,8 +328,8 @@ export async function getRelatedTaxonomies(
   const { type, id, raw } = parseEntityInput(entity);
   const taxonomies = await getAllTaxonomies();
   const results: RelatedLink[] = [];
-
   const matchedTaxonomyIds = new Set<string>();
+  const relationshipMap = new Map<string, string>();
 
   if (typeof raw === 'object') {
     if (raw.taxonomyIds && Array.isArray(raw.taxonomyIds)) {
@@ -344,6 +344,27 @@ export async function getRelatedTaxonomies(
         } else if (rel && rel.type && rel.id) {
           matchedTaxonomyIds.add(`${rel.type}:${rel.id}`);
           matchedTaxonomyIds.add(rel.id);
+          if (rel.relationship) {
+            relationshipMap.set(`${rel.type}:${rel.id}`, rel.relationship);
+            relationshipMap.set(rel.id, rel.relationship);
+          }
+        }
+      }
+    }
+  }
+
+  // Bi-directional lookup: find any taxonomy that references target (type:id or id) in its `related` array
+  for (const tax of taxonomies) {
+    if (tax.related && Array.isArray(tax.related)) {
+      for (const rel of tax.related) {
+        if (typeof rel === 'object' && rel.type === type && rel.id === id) {
+          const key = `${tax.type}:${tax.id}`;
+          matchedTaxonomyIds.add(key);
+          matchedTaxonomyIds.add(tax.id);
+          if (rel.relationship) {
+            relationshipMap.set(key, rel.relationship);
+            relationshipMap.set(tax.id, rel.relationship);
+          }
         }
       }
     }
@@ -379,6 +400,7 @@ export async function getRelatedTaxonomies(
       const titleStr = tax.title?.[lang] || tax.title?.es || tax.id;
       const descStr = tax.description?.[lang] || tax.description?.es || '';
       const url = routeResolver.urlFor({ type: tax.type, slug: tax.slug }, lang);
+      const relBadge = relationshipMap.get(fullTag) || relationshipMap.get(tax.id);
 
       results.push({
         id: tax.id,
@@ -387,6 +409,7 @@ export async function getRelatedTaxonomies(
         url,
         type: tax.type,
         image: tax.image,
+        badge: relBadge,
       });
     }
   }
@@ -448,6 +471,19 @@ export async function getRelatedKnowledgeForIngredient(
             relationship: rel.relationship,
           });
           seenIds.add(`technique:${found.id}`);
+        }
+      } else if (rel.type === 'region') {
+        const found = taxonomies.find((t) => t.id === rel.id && t.type === 'region');
+        if (found) {
+          items.push({
+            id: found.id,
+            type: 'region',
+            title: found.title?.[lang] || found.title?.es || found.id,
+            description: found.description?.[lang] || found.description?.es || '',
+            url: routeResolver.urlFor({ type: 'region', slug: found.slug }, lang),
+            relationship: rel.relationship,
+          });
+          seenIds.add(`region:${found.id}`);
         }
       } else if (rel.type === 'recipe') {
         const found = recipes.find((r) => r.id === rel.id);

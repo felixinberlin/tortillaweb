@@ -1,0 +1,176 @@
+{
+  "id": "setas-ajetes",
+  "contentId": "recipe.setas-ajetes",
+  "translationKey": "recipe-setas-ajetes",
+  "slug": {
+    "es": "tortilla-setas-ajetes",
+    "en": "wild-mushroom-tender-garlic-omelette",
+    "de": "waldpilze-knoblauch-tortilla"
+  },
+  "title": {
+    "es": "Tortilla de Boletus y Ajetes Tiernos",
+    "en": "Wild Mushroom & Tender Garlic Spanish Omelette",
+    "de": "Waldpilz- und Knoblauchsprossen-Tortilla"
+  },
+  "description": {
+    "es": "Aromas de monte y otoño: setas silvestres o boletus salteados con ajetes frescos mezclados con patata confitada y huevo meloso.",
+    "en": "Autumn forest flavors: wild boletus mushrooms sautéed with tender garlic shoots, soft confited potatoes, and custardy eggs.",
+    "de": "Herbstliche Waldaromen: Angeschwitzte Steinpilze mit Knoblauchsprossen, confierten Kartoffeln und cremigem Ei."
+  },
+  "taxonomyIds": [
+    "faction:ajistas",
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "ingredient:mushroom",
+    "ingredient:garlic",
+    "ingredient:salt",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/recipes/mushrooms.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g de patatas laminadas",
+        "en": "500g sliced potatoes",
+        "de": "500g geschnittene Kartoffeln"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos de corral",
+        "en": "6 farm eggs",
+        "de": "6 Bauernhof-Eier"
+      }
+    },
+    {
+      "id": "mushroom",
+      "ingredientId": "mushroom",
+      "name": {
+        "es": "Boletus o Setas Silvestres",
+        "en": "Boletus / Wild Mushrooms",
+        "de": "Steinpilze / Waldpilze"
+      },
+      "amount": 180,
+      "unit": "g",
+      "notes": {
+        "es": "180g de boletus edulis troceados",
+        "en": "180g chopped boletus mushrooms",
+        "de": "180g gehackte Steinpilze"
+      }
+    },
+    {
+      "id": "garlic",
+      "ingredientId": "garlic",
+      "name": {
+        "es": "Ajetes Tiernos",
+        "en": "Tender Garlic Shoots",
+        "de": "Knoblauchsprossen"
+      },
+      "amount": 80,
+      "unit": "g",
+      "notes": {
+        "es": "80g de ajetes frescos troceados",
+        "en": "80g fresh tender garlic shoots diced",
+        "de": "80g frische Knoblauchsprossen"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 140,
+      "unit": "ml",
+      "notes": {
+        "es": "140ml de AOVE",
+        "en": "140ml EVOO",
+        "de": "140ml Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "6g de sal marina",
+        "en": "6g sea salt",
+        "de": "6g Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Salteado previo de setas", "en": "1. Sautéing mushrooms & garlic", "de": "1. Pilze & Knoblauch anbraten" },
+      "text": {
+        "es": "En una sartén con un chorro de aceite, saltea a fuego vivo los boletus troceados y los ajetes durante 4 minutos para evaporar su agua y concentrar el sabor umami.",
+        "en": "Sauté chopped mushrooms and tender garlic shoots in a pan for 4 minutes over high heat to evaporate excess moisture and concentrate umami.",
+        "de": "Steinpilze und Knoblauchsprossen 4 Minuten scharf anbraten, um Feuchtigkeit zu verdampfen."
+      }
+    },
+    {
+      "step": { "es": "2. Confitado de la patata", "en": "2. Potato confit", "de": "2. Kartoffeln dünsten" },
+      "text": {
+        "es": "Confta las patatas laminadas en el resto del aceite de oliva durante 15 minutos hasta que estén muy suaves.",
+        "en": "Confit sliced potatoes in remaining olive oil for 15 minutes until soft.",
+        "de": "Kartoffeln 15 Minuten im Olivenöl weich dünsten."
+      }
+    },
+    {
+      "step": { "es": "3. Unión y cuajado meloso", "en": "3. Assembly & creamy sear", "de": "3. Mischen & sanftes Stocken" },
+      "text": {
+        "es": "Combina las patatas escurridas, el salteado de setas y los huevos batidos con sal. Deja reposar 4 minutos y cuaja a fuego suave 2 minutos por lado. Para seguridad bactericida garantizada, asegúrate de mantener 70°C durante 2 minutos.",
+        "en": "Fold drained potatoes and mushroom sauté into beaten eggs. Rest for 4 minutes and sear gently 2 minutes per side. Maintain 70°C for 2 minutes food safety threshold.",
+        "de": "Kartoffeln, Pilze und Eier vermengen. 4 Minuten ziehen lassen und 2 Minuten pro Seite garen. 70°C für 2 Minuten einhalten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "chef",
+      "name": "Cocina de Micología Española",
+      "description": {
+        "es": "Receta tradicional de la gastronomía micológica de montaña.",
+        "en": "Traditional mountain mushroom gastronomy recipe.",
+        "de": "Traditionelles Waldpilz-Rezept der Bergküche."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

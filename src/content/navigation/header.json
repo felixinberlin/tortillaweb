@@ -64,12 +64,12 @@
           }
         },
         {
-          "key": "records",
-          "href": "/records",
+          "key": "trivia",
+          "href": "/trivia",
           "label": {
-            "es": "Récords",
-            "en": "Records",
-            "de": "Rekorde"
+            "es": "Trivia & Curiosidades",
+            "en": "Trivia & Curiosities",
+            "de": "Trivia & Kurioses"
           }
         }
       ]
@@ -87,18 +87,9 @@
       "key": "about",
       "href": "/about",
       "label": {
-        "es": "Sobre nosotros",
-        "en": "About us",
-        "de": "Über uns"
-      }
-    },
-    {
-      "key": "contact",
-      "href": "/contacto",
-      "label": {
-        "es": "Contacto",
-        "en": "Contact",
-        "de": "Kontakt"
+        "es": "Sobre nosotros & Contacto",
+        "en": "About & Contact",
+        "de": "Über uns & Kontakt"
       }
     }
   ]

@@ -75,7 +75,7 @@ export default function Hero({ lang = "es" }: HeroProps) {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          <div className="aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl sm:rounded-3xl bg-amber-100 shadow-xl border border-border">
+          <div className="aspect-[16/9] sm:aspect-[4/3] lg:aspect-square max-h-[180px] sm:max-h-none overflow-hidden rounded-2xl sm:rounded-3xl bg-amber-100 shadow-xl border border-border">
             <img
               src="/images/hero.jpg"
               alt={t("hero.title")}

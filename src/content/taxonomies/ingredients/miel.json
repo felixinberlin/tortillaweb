@@ -1,0 +1,21 @@
+{
+  "id": "miel",
+  "type": "ingredient",
+  "contentId": "ingredient.miel",
+  "slug": {
+    "es": "miel",
+    "en": "honey",
+    "de": "honig"
+  },
+  "title": {
+    "es": "Miel de Flores",
+    "en": "Wildflower Honey",
+    "de": "Blütenhonig"
+  },
+  "description": {
+    "es": "Miel pura de azahar o milflores para contrastar la salinidad de los embutidos curados.",
+    "en": "Pure blossom honey to contrast cured, savory ingredients.",
+    "de": "Reiner Blütenhonig als Kontrast zu herzhaften, gepökelten Zutaten."
+  },
+  "icon": "Sparkles"
+}

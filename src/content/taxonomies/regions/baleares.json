@@ -1,0 +1,24 @@
+{
+  "id": "baleares",
+  "type": "region",
+  "contentId": "region.baleares",
+  "slug": {
+    "es": "baleares",
+    "en": "balearic-islands",
+    "de": "balearen"
+  },
+  "title": {
+    "es": "Islas Baleares",
+    "en": "Balearic Islands",
+    "de": "Balearen"
+  },
+  "description": {
+    "es": "Archipiélago mediterráneo famoso por la sobrasada artesana y combinaciones agridulces en tortilla.",
+    "en": "Mediterranean archipelago famous for artisanal sobrasada and sweet-savory tortillas.",
+    "de": "Mediterrane Inselgruppe, bekannt für handwerkliche Sobrasada und süß-herzhafte Tortillas."
+  },
+  "icon": "MapPin",
+  "related": [
+    { "type": "ingredient", "id": "sobrasada", "relationship": "signature_ingredient" }
+  ]
+}

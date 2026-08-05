@@ -224,7 +224,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                 }`}
               >
                 {faction.image && (
-                  <div className="h-44 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
+                  <div className="h-28 sm:h-44 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
                     <img
                       src={faction.image}
                       alt={factionTitle}

@@ -7,11 +7,9 @@ import {
   ChefHat,
   Flame,
   Scale,
-  Info,
   ExternalLink,
   BookOpen,
   GitCompare,
-  ArrowRight,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -38,11 +36,10 @@ export const TortillaProfileView: React.FC<TortillaProfileViewProps> = ({
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedRecipe, setCopiedRecipe] = useState(false);
 
-  const { calculatedProfile, ingredients, preferences } = config;
+  const { calculatedProfile, ingredients } = config;
 
   const eggIng = ingredients.find((i) => i.entityId === "egg");
   const potatoIng = ingredients.find((i) => i.entityId === "potato");
-  const oilIng = ingredients.find((i) => i.entityId === "oil");
   const extraIngs = ingredients.filter(
     (i) => i.entityId !== "egg" && i.entityId !== "potato" && i.entityId !== "oil"
   );

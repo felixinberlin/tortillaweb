@@ -210,6 +210,8 @@ const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
   'tortilla-clasica': { es: 'tortilla-clasica', en: 'classic-spanish-omelette', de: 'klassische-spanische-tortilla' },
   'betanzos': { es: 'tortilla-betanzos', en: 'betanzos-style-spanish-omelette', de: 'betanzos-tortilla' },
   'tortilla-betanzos': { es: 'tortilla-betanzos', en: 'betanzos-style-spanish-omelette', de: 'betanzos-tortilla' },
+  'betanzos-style-spanish-omelette': { es: 'tortilla-betanzos', en: 'betanzos-style-spanish-omelette', de: 'betanzos-tortilla' },
+  'betanzos-tortilla': { es: 'tortilla-betanzos', en: 'betanzos-style-spanish-omelette', de: 'betanzos-tortilla' },
   'express': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },
   'express-chips': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },
   'tortilla-express': { es: 'tortilla-express-patatas-chips', en: 'express-potato-chip-omelette', de: 'express-kartoffelchips-tortilla' },

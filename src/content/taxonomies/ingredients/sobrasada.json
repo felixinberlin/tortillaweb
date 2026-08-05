@@ -1,0 +1,24 @@
+{
+  "id": "sobrasada",
+  "type": "ingredient",
+  "contentId": "ingredient.sobrasada",
+  "slug": {
+    "es": "sobrasada",
+    "en": "sobrasada",
+    "de": "sobrasada"
+  },
+  "title": {
+    "es": "Sobrasada de Mallorca",
+    "en": "Majorcan Sobrasada",
+    "de": "Mallorquinische Sobrasada"
+  },
+  "description": {
+    "es": "Embutido curado balear de cerdo con pimentón que se funde entre las patatas calientes.",
+    "en": "Cured Balearic paprika pork spread that melts into the hot potato-egg matrix.",
+    "de": "Mallorquinische Streichwurst mit Paprika, die in der heißen Kartoffel-Ei-Masse schmilzt."
+  },
+  "icon": "Flame",
+  "related": [
+    { "type": "region", "id": "baleares", "relationship": "origin_region" }
+  ]
+}

@@ -10,7 +10,7 @@ export type RouteId =
   | 'history'
   | 'personas'
   | 'regiones'
-  | 'records'
+  | 'trivia'
   | 'estilos'
   | 'enciclopedia'
   | 'laboratorio'

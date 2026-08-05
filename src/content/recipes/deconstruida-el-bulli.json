@@ -1,0 +1,160 @@
+{
+  "id": "deconstruida-el-bulli",
+  "contentId": "recipe.deconstruida-el-bulli",
+  "translationKey": "recipe-deconstruida-el-bulli",
+  "slug": {
+    "es": "tortilla-deconstruida-el-bulli",
+    "en": "deconstructed-el-bulli-spanish-omelette",
+    "de": "dekonstruierte-el-bulli-tortilla"
+  },
+  "title": {
+    "es": "Tortilla de Patatas Deconstruida (Homenaje a El Bulli 1998)",
+    "en": "Deconstructed Spanish Omelette (El Bulli 1998 Tribute)",
+    "de": "Dekonstruierte Tortilla (El Bulli 1998 Homenage)"
+  },
+  "description": {
+    "es": "La célebre creación de Ferran Adrià servida en copa de martini: puré/espuma de patata caliente, mermelada de cebolla confitada y yema de huevo sabayón con aceite de oliva.",
+    "en": "Ferran Adrià's iconic 1998 creation served in a glass: potato foam, slow caramelized onion marmalade, and warm emulsified egg yolk.",
+    "de": "Ferran Adriàs ikonische Kreation von 1998 im Glas: Kartoffelschaum, Zwiebelmarmelade und warmes Eigelb."
+  },
+  "taxonomyIds": [
+    "faction:puristas",
+    "faction:concebollistas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:onion",
+    "ingredient:oil",
+    "ingredient:salt",
+    "technique:deconstruction",
+    "technique:emulsion",
+    "difficulty:medium"
+  ],
+  "time": 45,
+  "prepTimeMinutes": 20,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/deconstruida.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 400,
+      "unit": "g",
+      "notes": {
+        "es": "400g de patata para espuma o mouselina",
+        "en": "400g potatoes for warm potato mousse",
+        "de": "400g Kartoffeln für warmen Mousse"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Yema de Huevo",
+        "en": "Egg Yolk",
+        "de": "Eigelb"
+      },
+      "amount": 4,
+      "unit": "unit",
+      "notes": {
+        "es": "4 yemas de huevo campero a temperatura ambiente",
+        "en": "4 room-temperature egg yolks",
+        "de": "4 Eigelb bei Raumtemperatur"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla Caramelizada",
+        "en": "Caramelized Onion",
+        "de": "Karamesilisierte Zwiebel"
+      },
+      "amount": 200,
+      "unit": "g",
+      "notes": {
+        "es": "200g de cebolla pochada muy despacio",
+        "en": "200g slow caramelized onions",
+        "de": "200g langsam karamellisierte Zwiebeln"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 100,
+      "unit": "ml",
+      "notes": {
+        "es": "100ml de AOVE de intensidad alta",
+        "en": "100ml robust EVOO",
+        "de": "100ml hochwertiges Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal en Escamas",
+        "en": "Flaky Sea Salt",
+        "de": "Salzflocken"
+      },
+      "amount": 4,
+      "unit": "g",
+      "notes": {
+        "es": "4g de sal en escamas",
+        "en": "4g flaky sea salt",
+        "de": "4g Salzflocken"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Mermelada de cebolla confitada", "en": "1. Caramelized onion base", "de": "1. Zwiebelmarmelade" },
+      "text": {
+        "es": "Pocha la cebolla cortada fina en aceite de oliva durante 45 minutos a fuego muy suave hasta obtener una marmelada dorada y melosa. Coloca una cucharada en el fondo de una copa de cristal.",
+        "en": "Confit sliced onion over low heat for 45 minutes until golden and sweet. Spoon a layer into the bottom of a cocktail glass.",
+        "de": "Zwiebeln 45 Minuten langsam garen bis eine süße Marmelade entsteht. In ein Glas füllen."
+      }
+    },
+    {
+      "step": { "es": "2. Mousselina caliente de patata", "en": "2. Warm potato foam", "de": "2. Warmer Kartoffelschaum" },
+      "text": {
+        "es": "Coce las patatas y tritúralas con el aceite de confitar hasta lograr una mousselina suave y aireada. Mantén caliente a 65°C.",
+        "en": "Boil potatoes and whip with confit oil into a smooth, airy potato cream. Keep warm at 65°C.",
+        "de": "Kartoffeln kochen und mit Olivenöl zu einer cremig-luftigen Mousse aufschlagen. Bei 65°C warmhalten."
+      }
+    },
+    {
+      "step": { "es": "3. Montaje en copa y seguridad", "en": "3. Layering & food safety pasteurization", "de": "3. Schichten & Pasteurisierung" },
+      "text": {
+        "es": "Vierte la yema de huevo sobre la marmelada de cebolla y cubre con la espuma de patata caliente. La temperatura pasteurizadora del puré (mantenida a 70°C durante 2 minutos) atempera la yema creando una emulsión perfecta al hundir la cuchara.",
+        "en": "Layer yolk over onion and top with hot potato mousse. Thermal heat from mousse (held at 70°C for 2 minutes) gently pasteurizes yolk into a silky emulsion when spooned.",
+        "de": "Eigelb über die Zwiebeln geben und mit warmem Kartoffelschaum bedecken. Hitze (70°C für 2 Minuten) temperiert das Eigelb perfekt."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "chef",
+      "name": "El Bulli (Ferran Adrià, 1998)",
+      "description": {
+        "es": "La célebre deconstrucción en copa que revolucionó la alta cocina internacional.",
+        "en": "The famous glass deconstruction that revolutionized haute cuisine.",
+        "de": "Die berühmte Dekonstruktion im Glas, die die Haute Cuisine revolutionierte."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

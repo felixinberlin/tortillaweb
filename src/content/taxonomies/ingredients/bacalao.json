@@ -1,0 +1,21 @@
+{
+  "id": "bacalao",
+  "type": "ingredient",
+  "contentId": "ingredient.bacalao",
+  "slug": {
+    "es": "bacalao",
+    "en": "salt-cod",
+    "de": "klippfisch"
+  },
+  "title": {
+    "es": "Bacalao Desmigado",
+    "en": "Flaked Salt Cod",
+    "de": "Klippfisch-Flocken"
+  },
+  "description": {
+    "es": "Bacalao desalado y desmigado, ingrediente estrella de las tortillas de sidrería vascas.",
+    "en": "Desalted, flaked Atlantic cod, star ingredient of Basque cider house tortillas.",
+    "de": "Entsalzte Klippfisch-Flocken, Star-Zutat der baskischen Apfelwein-Tortillas."
+  },
+  "icon": "Fish"
+}

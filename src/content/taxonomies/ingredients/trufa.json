@@ -1,0 +1,21 @@
+{
+  "id": "trufa",
+  "type": "ingredient",
+  "contentId": "ingredient.trufa",
+  "slug": {
+    "es": "trufa",
+    "en": "truffle",
+    "de": "trueffel"
+  },
+  "title": {
+    "es": "Trufa Negra",
+    "en": "Black Truffle",
+    "de": "Schwarzer Trüffel"
+  },
+  "description": {
+    "es": "Crema o ralladura de trufa negra (Tuber melanosporum) para aportar una nota terrosa y aromática sofisticada.",
+    "en": "Black truffle paste or shavings (Tuber melanosporum) providing an elegant earthy aroma.",
+    "de": "Schwarze Trüffelpaste oder -späne (Tuber melanosporum) für ein erdiges, elegantes Aroma."
+  },
+  "icon": "Sparkles"
+}

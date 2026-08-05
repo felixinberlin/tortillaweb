@@ -1,0 +1,21 @@
+{
+  "id": "mushroom",
+  "type": "ingredient",
+  "contentId": "ingredient.mushroom",
+  "slug": {
+    "es": "setas",
+    "en": "mushrooms",
+    "de": "pilze"
+  },
+  "title": {
+    "es": "Setas y Boletus",
+    "en": "Wild Mushrooms",
+    "de": "Waldpilze"
+  },
+  "description": {
+    "es": "Boletus edulis o setas de cardo salteadas con ajo tierno para aportar aroma umami y textura silvestre.",
+    "en": "Sautéed wild mushrooms and tender garlic shoots adding umami and forest notes.",
+    "de": "Angeschwitzte Waldpilze und Knoblauchsprossen für feine Umami-Waldnoten."
+  },
+  "icon": "Sparkles"
+}

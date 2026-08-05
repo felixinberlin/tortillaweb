@@ -1,0 +1,21 @@
+{
+  "id": "cheese",
+  "type": "ingredient",
+  "contentId": "ingredient.cheese",
+  "slug": {
+    "es": "queso",
+    "en": "cheese",
+    "de": "kaese"
+  },
+  "title": {
+    "es": "Queso Curado o Fundente",
+    "en": "Aged or Melting Cheese",
+    "de": "Gereifter oder Schmelzkäse"
+  },
+  "description": {
+    "es": "Quesos artesanales (Manchego, Cabrales o fundente) que aportan untuosidad y notas salinas.",
+    "en": "Artisanal Spanish cheeses bringing creaminess and savory depth.",
+    "de": "Handwerklicher spanischer Käse für Cremigkeit und schmackhafte Tiefe."
+  },
+  "icon": "Flame"
+}

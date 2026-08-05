@@ -49,7 +49,7 @@ export default function PotatoIngredientDetail({
 
         {/* Hero Card */}
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD1] shadow-sm bg-[#FFF7EA]">
-          <div className="relative h-64 sm:h-80 md:h-[360px] w-full overflow-hidden bg-[#F5E6BE]">
+          <div className="relative h-32 sm:h-64 md:h-80 lg:h-[320px] max-h-[35vh] w-full overflow-hidden bg-[#F5E6BE]">
             <img
               src="/images/ingredients/potato_editorial_card.jpg"
               alt={t('potatoDetail.heroTitle', 'La Patata (Solanum tuberosum)')}

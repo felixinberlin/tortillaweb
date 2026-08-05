@@ -47,7 +47,7 @@ export default function EggIngredientDetail({
         </nav>
 
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD1] shadow-sm bg-[#FFF7EA]">
-          <div className="relative h-64 sm:h-80 md:h-[360px] w-full overflow-hidden bg-[#F5E6BE]">
+          <div className="relative h-32 sm:h-64 md:h-80 lg:h-[320px] max-h-[35vh] w-full overflow-hidden bg-[#F5E6BE]">
             <img
               src="/images/ingredients/egg_editorial_card.jpg"
               alt={t('eggDetail.heroTitle', 'El Huevo (Gallus gallus domesticus)')}
@@ -285,7 +285,7 @@ export default function EggIngredientDetail({
                     className="bg-white rounded-2xl border border-[#E8DFD1] overflow-hidden hover:border-[#D89B32] transition-all duration-200 flex flex-col justify-between shadow-xs group"
                   >
                     <div>
-                      <div className="h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8DFD1]">
+                      <div className="h-28 sm:h-44 md:h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8DFD1]">
                         <img
                           src={r.image || '/images/clasica.jpg'}
                           alt={recipeTitle}

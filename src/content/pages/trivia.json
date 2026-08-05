@@ -1,0 +1,83 @@
+{
+  "badge": {
+    "es": "Compendio de Sabiduría & Curiosidades",
+    "en": "Compendium of Wisdom & Curiosities",
+    "de": "Kompendium des Wissens & Kurioses"
+  },
+  "title": {
+    "es": "Trivia & Curiosidades del Universo Tortilla",
+    "en": "Trivia & Curiosities of the Tortilla Universe",
+    "de": "Trivia & Kuriositäten des Tortilla-Universums"
+  },
+  "subtitle": {
+    "es": "Explora hechos sorprendentes, mitos de facciones, combinaciones de ingredientes regionales (como el chorizo riojano o la sobrasada balear), verdades de la ciencia alimentaria y récords monumentales.",
+    "en": "Explore surprising facts, faction myths, regional ingredient pairs (like Riojan chorizo or Balearic sobrasada), food science truths, and monumental feats.",
+    "de": "Faszinierende Fakten, Mythen, regionale Zutaten-Kombinationen, Lebensmittelwissenschaft und historische Rekorde."
+  },
+  "extraTrivia": [
+    {
+      "id": "record-vitoria",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "La Tortilla Gigante de Vitoria (2014)",
+        "en": "Vitoria's Giant Tortilla (2014)",
+        "de": "Die Riesen-Tortilla von Vitoria (2014)"
+      },
+      "fact": {
+        "es": "En 2014 en Vitoria-Gasteiz se elaboró una tortilla monumental usando 1.600 kg de patatas, 16.000 huevos, 150 litros de aceite de oliva y una sartén especial de 5 metros de diámetro.",
+        "en": "In 2014 in Vitoria-Gasteiz, a monumental tortilla was prepared using 1,600 kg of potatoes, 16,000 eggs, 150 liters of olive oil, and a custom 5-meter pan.",
+        "de": "2014 wurde in Vitoria-Gasteiz eine monumentale Tortilla aus 1.600 kg Kartoffeln, 16.000 Eiern und 150 Litern Olivenöl in einer 5-Meter-Pfanne gebraten."
+      },
+      "source": "Guinness & Gastronomía Vasca"
+    },
+    {
+      "id": "rioja-chorizo-rule",
+      "category": "regions",
+      "icon": "Flame",
+      "title": {
+        "es": "La Rioja: Cuna del Chorizo con Guindilla",
+        "en": "La Rioja: Home of Spicy Chorizo Omelettes",
+        "de": "La Rioja: Wiege der Chorizo-Peperoni-Tortilla"
+      },
+      "fact": {
+        "es": "En La Rioja existe una regla de oro gastronómica: el chorizo riojano de pimentón se sofríe primero con ajo y guindilla para infusionar la grasa que después confitará las patatas.",
+        "en": "In La Rioja, a golden rule prevails: Riojan paprika chorizo is first sautéed with garlic and chili so its spiced fat infuses the potatoes during poaching.",
+        "de": "In La Rioja gilt: Die Paprikawurst wird zuerst mit Knoblauch und Peperoni angebraten, damit ihr Würzöl die Kartoffeln durchzieht."
+      },
+      "source": "Tradición Riojana"
+    },
+    {
+      "id": "cis-survey-70",
+      "category": "factions",
+      "icon": "Heart",
+      "title": {
+        "es": "El 70,4% de los Españoles son Concebollistas",
+        "en": "70.4% of Spaniards are Onion Lovers",
+        "de": "70,4% der Spanier bevorzugen Zwiebeln"
+      },
+      "fact": {
+        "es": "Según el Barómetro del Centro de Investigaciones Sociológicas (CIS), más del 70% de la población defiende que la tortilla de patata debe llevar cebolla caramelizada.",
+        "en": "According to CIS official surveys, over 70% of Spanish citizens assert that Spanish omelette must include caramelized onions.",
+        "de": "Laut CIS-Umfragen stimmen über 70% der spanischen Bevölkerung dafür, dass Zwiebeln in die Tortilla gehören."
+      },
+      "source": "Barómetro CIS"
+    },
+    {
+      "id": "bactericidal-70-2",
+      "category": "science",
+      "icon": "ShieldCheck",
+      "title": {
+        "es": "Seguridad Alimentaria: La Regla Térmica Sagrada",
+        "en": "Food Safety: The Sacred Thermal Rule",
+        "de": "Lebensmittelsicherheit: Die thermische Regel"
+      },
+      "fact": {
+        "es": "Para inactivar por completo bacterias gramnegativas como Salmonella enterica, el núcleo térmico de la tortilla debe alcanzar y mantener **70°C for 2 minutes** (o **63°C for 20 seconds**).",
+        "en": "To completely eliminate pathogens like Salmonella enterica, the thermal core must reach and maintain **70°C for 2 minutes** (or **63°C for 20 seconds**).",
+        "de": "Um Salmonellen abzutöten, muss der Kern der Tortilla mindestens **70°C for 2 minutes** (oder **63°C for 20 seconds**) halten."
+      },
+      "source": "EFSA & AESAN Safety Mandates"
+    }
+  ]
+}

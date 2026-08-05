@@ -1,0 +1,24 @@
+{
+  "id": "chorizo",
+  "type": "ingredient",
+  "contentId": "ingredient.chorizo",
+  "slug": {
+    "es": "chorizo",
+    "en": "chorizo",
+    "de": "chorizo"
+  },
+  "title": {
+    "es": "Chorizo Riojano",
+    "en": "Riojan Chorizo",
+    "de": "Chorizo-Wurst"
+  },
+  "description": {
+    "es": "Chorizo curado o fresco salteado que tiñe el aceite de tonos rojizos y aroma ahumado a pimentón.",
+    "en": "Cured or fresh spicy paprika sausage that infuses the oil with smoky warmth.",
+    "de": "Aromatische Paprikawurst, die das Öl mit rauchiger Note und roter Farbe anreichert."
+  },
+  "icon": "Flame",
+  "related": [
+    { "type": "region", "id": "rioja", "relationship": "origin_region" }
+  ]
+}

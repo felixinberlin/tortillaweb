@@ -98,7 +98,7 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
 
         {/* Portrait Image if present */}
         {persona.imageUrl && (
-          <div className="relative w-full h-48 overflow-hidden rounded-xl mb-4 border border-amber-200/80 shadow-2xs group-hover:shadow-md transition-all">
+          <div className="relative w-full h-28 sm:h-44 overflow-hidden rounded-xl mb-4 border border-amber-200/80 shadow-2xs group-hover:shadow-md transition-all">
             <img
               src={persona.imageUrl}
               alt={persona.name}

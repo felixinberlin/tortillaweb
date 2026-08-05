@@ -1,21 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import "@/i18n/config";
-import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Sparkles,
-  ChefHat,
   GitCompare,
-  Globe,
   ArrowRight,
-  Info,
-  Check,
-  Utensils,
-  Flame,
-  Scale,
   X,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -31,7 +22,6 @@ import {
   parseConfigurationFromUrl,
 } from "@/domain/builder/configCalculator";
 import { generateRecipe } from "@/domain/builder/generateRecipe";
-import { normalizeRecipe } from "@/domain/tortilla-dna/normalizeRecipe";
 import { compareRecipes } from "@/domain/tortilla-dna/compareRecipes";
 import { getReferenceRecipes } from "@/domain/recipes/referenceRecipes";
 
@@ -46,7 +36,6 @@ interface BuilderAppProps {
 }
 
 export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
-  const { t } = useTranslation(undefined, { lng: lang });
   const isEs = lang.startsWith("es");
   const isDe = lang.startsWith("de");
 
@@ -148,10 +137,6 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
   const userRecipe = useMemo(() => {
     return generateRecipe({ config: tortillaConfig });
   }, [tortillaConfig]);
-
-  const userDna = useMemo(() => {
-    return normalizeRecipe(userRecipe);
-  }, [userRecipe]);
 
   const referenceRecipes = useMemo(() => getReferenceRecipes(), []);
   const selectedRefRecipe = useMemo(() => {

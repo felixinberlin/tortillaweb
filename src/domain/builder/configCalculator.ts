@@ -7,7 +7,7 @@ import type {
   EggSize,
   CalculatedProfile,
 } from "./types";
-import { OPTIONAL_INGREDIENTS, getIngredientModifier } from "./ingredientRegistry";
+import { getIngredientModifier } from "./ingredientRegistry";
 
 export interface CreateConfigOptions {
   eggs?: number;

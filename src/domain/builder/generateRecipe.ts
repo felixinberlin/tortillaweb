@@ -17,11 +17,9 @@ export function generateRecipe(options: BuilderOptions): Recipe {
     const { calculatedProfile, preferences } = config;
 
     const eggIng = config.ingredients.find((i) => i.entityId === "egg");
-    const potatoIng = config.ingredients.find((i) => i.entityId === "potato");
     const hasOnion = config.ingredients.some((i) => i.entityId === "onion" && i.quantity > 0);
 
     const eggCount = eggIng?.quantity || 6;
-    const potatoGrams = potatoIng?.quantity || 600;
 
     const finalTextureMap: Record<string, RecipeTechnique["finalTexture"]> = {
       betanzos: "runny",

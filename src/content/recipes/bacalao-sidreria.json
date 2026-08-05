@@ -1,0 +1,168 @@
+{
+  "id": "bacalao-sidreria",
+  "contentId": "recipe.bacalao-sidreria",
+  "translationKey": "recipe-bacalao-sidreria",
+  "slug": {
+    "es": "tortilla-bacalao-sidreria",
+    "en": "cider-house-salt-cod-tortilla",
+    "de": "klippfisch-tortilla-sidreria"
+  },
+  "title": {
+    "es": "Tortilla de Bacalao Estilo Sidrería",
+    "en": "Basque Cider House Salt Cod Tortilla",
+    "de": "Baskische Apfelwein-Tortilla mit Klippfisch"
+  },
+  "description": {
+    "es": "El clásico plato estelar de las sidrerías vascas: bacalao desalado desmigado, pimientos verdes pochados, cebolla y huevo jugoso.",
+    "en": "The iconic Basque cider house classic: desalted flaked cod, poached green peppers, caramelized onions, and juicy eggs.",
+    "de": "Der Klassiker der baskischen Apfelweinlokale: entsalzter Klippfisch, grüne Paprika, Zwiebeln und saftiges Ei."
+  },
+  "taxonomyIds": [
+    "faction:pimientistas",
+    "faction:con-cosas",
+    "ingredient:bacalao",
+    "ingredient:cherryPepper",
+    "ingredient:onion",
+    "ingredient:egg",
+    "ingredient:oil",
+    "region:donostia",
+    "technique:frying",
+    "difficulty:medium"
+  ],
+  "time": 30,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 15,
+  "yieldServings": 4,
+  "image": "/images/recipes/bacalao.jpg",
+  "ingredients": [
+    {
+      "id": "bacalao",
+      "ingredientId": "bacalao",
+      "name": {
+        "es": "Bacalao Desalado",
+        "en": "Desalted Salt Cod",
+        "de": "Entsalzter Klippfisch"
+      },
+      "amount": 250,
+      "unit": "g",
+      "notes": {
+        "es": "250g de bacalao desalado en migas finas",
+        "en": "250g desalted cod broken into flakes",
+        "de": "250g entsalzter Klippfisch in feinen Flocken"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos frescos",
+        "en": "6 fresh eggs",
+        "de": "6 frische Eier"
+      }
+    },
+    {
+      "id": "cherryPepper",
+      "ingredientId": "cherryPepper",
+      "name": {
+        "es": "Pimiento Verde",
+        "en": "Green Italian Pepper",
+        "de": "Grüner Paprika"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "2 pimientos verdes italianos cortados en juliana",
+        "en": "2 green peppers sliced into julienne",
+        "de": "2 in Streifen geschnittene grüne Paprika"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "1 cebolla dulce picada fina",
+        "en": "1 finely diced sweet onion",
+        "de": "1 fein gewürfelte süße Zwiebel"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 100,
+      "unit": "ml",
+      "notes": {
+        "es": "100ml de AOVE",
+        "en": "100ml EVOO",
+        "de": "100ml Olivenöl"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Pochado de verduras", "en": "1. Vegetable poaching", "de": "1. Gemüse dünsten" },
+      "text": {
+        "es": "Pocha la cebolla picada y los pimientos verdes en aceite de oliva a fuego lento durante 10 minutos hasta que estén muy tiernos y caramelizados.",
+        "en": "Poach chopped onion and green peppers in olive oil over gentle heat for 10 minutes until soft and translucent.",
+        "de": "Zwiebeln und grüne Paprika 10 Minuten in Olivenöl sanft dünsten, bis sie sehr weich sind."
+      }
+    },
+    {
+      "step": { "es": "2. Salteado del bacalao", "en": "2. Sautéing salt cod", "de": "2. Klippfisch anbraten" },
+      "text": {
+        "es": "Añade el bacalao desmigado a las verduras pochadas y saltea a fuego vivo durante 2 minutos hasta que cambie de color sin secarse.",
+        "en": "Add flaked cod to the soft vegetables and sauté over high heat for 2 minutes until just cooked through.",
+        "de": "Klippfisch-Flocken zum Gemüse geben und 2 Minuten bei hoher Hitze anbraten."
+      }
+    },
+    {
+      "step": { "es": "3. Mezclado y jugosidad", "en": "3. Mixing & creamiess", "de": "3. Verquirlen und Saftigkeit" },
+      "text": {
+        "es": "Bate los huevos en un bol (sin añadir sal adicional, pues el bacalao aporta su punto salino). Mezcla el salteado con el huevo batido.",
+        "en": "Whisk eggs in a bowl without extra salt (cod provides natural seasoning). Fold hot cod and pepper mix into beaten eggs.",
+        "de": "Eier in einer Schüssel verquirlen (kein extra Salz nötig). Die warme Fisch-Gemüse-Mischung unterrühren."
+      }
+    },
+    {
+      "step": { "es": "4. Cuajado corto", "en": "4. Quick sear", "de": "4. Schnelles Stocken" },
+      "text": {
+        "es": "Cuaja en sartén muy caliente 1 minuto por cada lado, dejando el interior meloso. Asegura la norma sanitaria alcanzando 70°C durante 2 minutos si se almacena.",
+        "en": "Sear in a hot pan for 1 minute per side leaving a creamy interior. Keep food safety standards of 70°C for 2 minutes if preserving.",
+        "de": "In der heißen Pfanne 1 Minute pro Seite garen, damit das Innere cremig bleibt. Bei Aufbewahrung 70°C für 2 Minuten einhalten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Tradición Sagardotegi de Gipuzkoa",
+      "description": {
+        "es": "Receta ancestral del menú de sidrería vasco.",
+        "en": "Ancestral recipe from traditional Basque cider menu.",
+        "de": "Traditionelles Rezept aus dem baskischen Apfelweinlokal-Menü."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

@@ -76,19 +76,19 @@
       "icon": "Microscope"
     },
     {
-      "id": "records",
-      "href": "/records",
+      "id": "trivia",
+      "href": "/trivia",
       "title": {
-        "es": "Récords & Hitos",
-        "en": "Records & Milestones",
-        "de": "Rekorde & Meilensteine"
+        "es": "Trivia & Curiosidades",
+        "en": "Trivia & Curiosities",
+        "de": "Trivia & Kurioses"
       },
       "description": {
-        "es": "Las tortillas más grandes del mundo, récords Guinness, velocidad de volteo y concursos de culto.",
-        "en": "World's largest tortillas, Guinness records, flipping speed, and legendary competitions.",
-        "de": "Die größten Tortillas der Welt, Guinness-Rekorde und legendäre Wettbewerbe."
+        "es": "Curiosidades, datos fascinantes y secretos extraídos de las taxonomías de todo el Universo Tortilla.",
+        "en": "Fascinating facts, trivia, and secrets extracted from all taxonomies across the Tortilla Universe.",
+        "de": "Faszinierende Fakten, Trivia und Geheimnisse aus allen Taxonomien des Tortilla-Universums."
       },
-      "icon": "Trophy"
+      "icon": "HelpCircle"
     }
   ]
 }

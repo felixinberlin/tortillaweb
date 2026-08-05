@@ -1,0 +1,183 @@
+{
+  "id": "trufa-queso",
+  "contentId": "recipe.trufa-queso",
+  "translationKey": "recipe-trufa-queso",
+  "slug": {
+    "es": "tortilla-trufada-queso",
+    "en": "truffled-cheese-spanish-omelette",
+    "de": "trueffel-kaese-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Trufada con Queso Curado",
+    "en": "Truffled Spanish Omelette with Aged Cheese",
+    "de": "Trüffel-Tortilla mit gereiftem Käse"
+  },
+  "description": {
+    "es": "Una elevación gastronómica de la receta tradicional: patatas confitadas, huevos camperos, crema de trufa negra y queso curado fundente.",
+    "en": "A gourmet elevation of the classic: slow-confited potatoes, free-range eggs, black truffle cream, and melting aged cheese.",
+    "de": "Eine kulinarische Veredelung des Klassikers: confierte Kartoffeln, Freilandeier, schwarze Trüffelcreme und schmelzender Käse."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "ingredient:trufa",
+    "ingredient:cheese",
+    "ingredient:salt",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/recipes/truffle.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g de patata Monalisa cortada fina",
+        "en": "500g Monalisa potatoes, thinly sliced",
+        "de": "500g feingeschnittene Monalisa-Kartoffeln"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos camperos frescos",
+        "en": "6 fresh free-range eggs",
+        "de": "6 frische Freilandeier"
+      }
+    },
+    {
+      "id": "trufa",
+      "ingredientId": "trufa",
+      "name": {
+        "es": "Trufa Negra",
+        "en": "Black Truffle Paste",
+        "de": "Schwarze Trüffelpaste"
+      },
+      "amount": 25,
+      "unit": "g",
+      "notes": {
+        "es": "25g de salsa o pasta de trufa negra pura",
+        "en": "25g pure black truffle paste or salsa",
+        "de": "25g reine schwarze Trüffelpaste"
+      }
+    },
+    {
+      "id": "cheese",
+      "ingredientId": "cheese",
+      "name": {
+        "es": "Queso Curado Fundente",
+        "en": "Aged Melting Cheese",
+        "de": "Gereifter Schmelzkäse"
+      },
+      "amount": 80,
+      "unit": "g",
+      "notes": {
+        "es": "80g de queso Manchego curado laminado fino",
+        "en": "80g thinly sliced aged Manchego cheese",
+        "de": "80g dünn geschnittener gereifter Manchego-Käse"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml de aceite de oliva suave",
+        "en": "150ml mild extra virgin olive oil",
+        "de": "150ml mildes natives Olivenöl extra"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal Marina",
+        "en": "Sea Salt",
+        "de": "Meersalz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "6g de sal marina fina",
+        "en": "6g fine sea salt",
+        "de": "6g feines Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Confitado de la patata", "en": "1. Potato confit", "de": "1. Kartoffeln confieren" },
+      "text": {
+        "es": "Pela y lamina la patata en rodajas finas. Confítala en aceite de oliva a fuego medio-bajo (120°C) durante 15 minutos hasta que esté bien tierna sin dorar. Escurre el exceso de aceite.",
+        "en": "Peel and slice potatoes thinly. Confit in olive oil over medium-low heat (120°C) for 15 minutes until tender without browning. Drain excess oil.",
+        "de": "Kartoffeln schälen und dünn schneiden. In Olivenöl bei mittlerer bis niedriger Hitze (120°C) 15 Minuten confieren, bis sie weich sind. Öl abgießen."
+      }
+    },
+    {
+      "step": { "es": "2. Mezcla aromática con trufa", "en": "2. Truffle aroma fold", "de": "2. Trüffel-Mischung" },
+      "text": {
+        "es": "Bate los huevos ligeramente con la sal y añade la pasta de trufa negra mezclando suavemente. Incorpora la patata confitada tibia y deja reposar 5 minutos para empapar la masa.",
+        "en": "Whisk eggs gently with salt and fold in black truffle paste. Add warm confited potatoes and let rest for 5 minutes so starch absorbs the truffle egg matrix.",
+        "de": "Eier leicht mit Salz verquirlen und Trüffelpaste unterheben. Warme Kartoffeln hinzugeben und 5 Minuten ziehen lassen."
+      }
+    },
+    {
+      "step": { "es": "3. Cuajado y capa de queso", "en": "3. Cooking and cheese layer", "de": "3. Stocken & Käseschicht" },
+      "text": {
+        "es": "Calienta una sartén antiadherente con un hilo de aceite. Vierte la mitad de la mezcla, coloca las láminas de queso curado en el centro sin tocar los bordes, y cubre con el resto de la masa.",
+        "en": "Heat a non-stick pan with a drizzle of oil. Pour half the mixture, place cheese slices in the center away from edges, and cover with remaining mixture.",
+        "de": "Antihaftpfanne erhitzen. Die Hälfte der Masse hineingeben, Käsescheiben mittig auflegen und mit der restlichen Masse bedecken."
+      }
+    },
+    {
+      "step": { "es": "4. Volteo y seguridad alimentaria", "en": "4. Flipping and food safety", "de": "4. Wenden und Lebensmittelsicherheit" },
+      "text": {
+        "es": "Cocina durante 2 minutos por lado a fuego medio. Para máxima seguridad alimentaria y coagulación completa del centro trufado, mantén la masa a 70°C durante 2 minutos.",
+        "en": "Cook for 2 minutes per side over medium heat. For food safety and pasteurization of the center, maintain 70°C for 2 minutes.",
+        "de": "2 Minuten pro Seite garen. Für Lebensmittelsicherheit halten Sie im Kern 70°C für 2 Minuten ein."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "chef",
+      "name": "Alta Gastronomía Ibérica",
+      "description": {
+        "es": "Técnica de maridaje de micología y quesos artesanos en tortilla.",
+        "en": "Truffle and artisanal cheese pairing in Spanish tortilla.",
+        "de": "Trüffel- und Käsekombination in der spanischen Tortilla."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

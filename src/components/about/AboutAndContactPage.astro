@@ -1,0 +1,119 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ContactForm from '@/components/contact/ContactForm';
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import { ChefHat, Globe, Heart, ShieldCheck, Sparkles, BookOpen, Mail } from 'lucide-react';
+import { getTranslations } from '@/lib/i18n';
+import { generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+
+interface Props {
+  lang: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = getTranslations(lang);
+
+const title = `${t('nav.aboutAndContact', 'Sobre Nosotros & Contacto')} - tortilladepatatas.org`;
+const description = `${t('footer.brandDesc')} - ${t('contact.subtitle', 'Formulario de contacto para consultas, sugerencias y colaboraciones.')}`;
+
+const homeLabel = lang === 'de' ? 'Startseite' : lang === 'en' ? 'Home' : 'Inicio';
+
+const orgSchema = generateOrganizationSchema();
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: homeLabel, url: `/${lang}` },
+  { name: t('nav.aboutAndContact', 'Sobre Nosotros & Contacto'), url: `/${lang}/about` }
+]);
+
+const schemas = [orgSchema, breadcrumbSchema];
+---
+
+<Layout title={title} description={description} lang={lang} schema={schemas}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-12">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="mb-2 px-3.5 py-1 text-xs font-bold bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] inline-flex items-center gap-1.5 shadow-2xs">
+        <ChefHat class="w-3.5 h-3.5 text-[#FFB800]" />
+        <span>{t("nav.aboutAndContact", "Sobre Nosotros & Contacto")}</span>
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground">
+        tortilladepatatas.org
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {t("footer.brandDesc", "La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.")}
+      </p>
+    </div>
+
+    <!-- Main Manifesto Card (Sobre Nosotros) -->
+    <Card class="card-notebook p-6 md:p-10 space-y-6">
+      <div class="flex items-center gap-3 text-[#8D6E63]">
+        <BookOpen class="w-7 h-7 text-[#FFB800]" />
+        <h2 class="text-2xl font-serif-heading font-bold">{t("aboutPage.missionTitle", "Nuestra Misión Enciclopédica")}</h2>
+      </div>
+
+      <p class="text-foreground leading-relaxed text-sm md:text-base">
+        <strong>tortilladepatatas.org</strong> {t("aboutPage.missionDesc", "es un proyecto independiente de divulgación gastronómica y científica. Nacemos con el propósito de ofrecer un recurso universal, accesible y riguroso sobre la preparación, historia, sociología y físico-química de la tortilla de patatas.")}
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 pt-6 border-t border-[#E8E2D5]">
+        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] shadow-2xs">
+          <Globe class="w-6 h-6 text-[#8D6E63] mb-2" />
+          <h3 class="font-serif-heading font-bold text-sm mb-1">{lang === 'de' ? 'Open Access & SEO' : lang === 'en' ? 'Open Access & SEO' : 'Acceso Abierto & SEO'}</h3>
+          <p class="text-xs text-muted-foreground">
+            {t("aboutPage.websiteDesc", "Páginas HTML ultrarrápidas y optimizadas para buscadores en español, inglés y alemán.")}
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] shadow-2xs">
+          <ShieldCheck class="w-6 h-6 text-[#2E7D32] mb-2" />
+          <h3 class="font-serif-heading font-bold text-sm mb-1">{lang === 'de' ? 'Wissenschaftliche Präzision' : lang === 'en' ? 'Scientific Rigor' : 'Rigor Científico'}</h3>
+          <p class="text-xs text-muted-foreground">
+            {lang === 'de' ? 'Validierte mikrobiologische Sicherheitsparameter (' : lang === 'en' ? 'Validated microbiological safety parameters (' : 'Parámetros microbiológicos validados ('}<strong>70°C for 2 minutes</strong>{lang === 'de' ? ') für Lebensmittelsicherheit.' : lang === 'en' ? ') for food safety.' : ') para la seguridad alimentaria.'}
+          </p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] shadow-2xs">
+          <Sparkles class="w-6 h-6 text-[#FF8A00] mb-2" />
+          <h3 class="font-serif-heading font-bold text-sm mb-1">{lang === 'de' ? 'Kultur & Tools' : lang === 'en' ? 'Culture & Tools' : 'Cultura & Herramientas'}</h3>
+          <p class="text-xs text-muted-foreground">
+            {lang === 'de' ? 'Interaktiver Simulator zur Anpassung der Zutaten nach Personenzahl und Vorlieben.' : lang === 'en' ? 'Interactive simulator to adapt exact ingredient quantities for guests and preferences.' : 'Simulador interactivo para adaptar ingredientes exactos según comensales y preferencias.'}
+          </p>
+        </div>
+      </div>
+    </Card>
+
+    <!-- External App Link -->
+    <div class="card-notebook p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="p-3 rounded-xl bg-[#F5E6BE] text-[#8D6E63] shrink-0 border border-amber-300">
+          <Heart class="w-6 h-6 text-red-500 fill-red-500" />
+        </div>
+        <div>
+          <h3 class="font-serif-heading font-bold text-base text-foreground">
+            Tortilla Creator Web App
+          </h3>
+          <p class="text-xs text-muted-foreground mt-0.5">
+            {lang === 'de' ? 'Entdecken Sie die offizielle Web-App auf' : lang === 'en' ? 'Explore the official application at' : 'Explora la aplicación oficial en'} <a href="https://tortilladepatatas.de/" target="_blank" rel="noopener noreferrer" class="text-[#8D6E63] underline font-semibold">tortilladepatatas.de</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="space-y-6 pt-4 border-t border-[#E8E2D5]">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <div class="inline-flex items-center justify-center p-2.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-[#E8E2D5] mb-1">
+          <Mail class="w-5 h-5 text-[#FFB800]" />
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-serif-heading font-extrabold tracking-tight text-foreground">
+          {t("contact.title", "Contacto & Consultas")}
+        </h2>
+        <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+          {t("contact.subtitle", "¿Tienes alguna duda sobre la enciclopedia, sugerencias de recetas o quieres colaborar?")}
+        </p>
+      </div>
+
+      <ContactForm lang={lang} currentPath={Astro.url.pathname} client:load />
+    </section>
+  </div>
+</Layout>

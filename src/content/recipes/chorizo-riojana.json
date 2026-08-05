@@ -1,0 +1,177 @@
+{
+  "id": "chorizo-riojana",
+  "contentId": "recipe.chorizo-riojana",
+  "translationKey": "recipe-chorizo-riojana",
+  "slug": {
+    "es": "tortilla-chorizo-riojana",
+    "en": "riojan-chorizo-spanish-omelette",
+    "de": "chorizo-tortilla-riojana"
+  },
+  "title": {
+    "es": "Tortilla con Chorizo Riojano y Guindilla",
+    "en": "Riojan Spicy Chorizo Spanish Omelette",
+    "de": "Riojanische Chorizo-Tortilla mit Peperoni"
+  },
+  "description": {
+    "es": "Una receta de campo intensa y sabrosa: patata, huevo, chorizo de la Rioja salteado y un toque aromático de ajo y guindilla.",
+    "en": "A vibrant country style tortilla: potatoes, eggs, sautéed Riojan chorizo, and a touch of garlic and mild chili.",
+    "de": "Ein herzhaftes Landrezept: Kartoffeln, Eier, angebratene Rioja-Chorizo und eine feine Knoblauch-Peperoni-Note."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "faction:ajistas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "ingredient:chorizo",
+    "ingredient:garlic",
+    "ingredient:salt",
+    "region:rioja",
+    "technique:frying",
+    "difficulty:easy"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/chorizo.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "600g de patata chascada",
+        "en": "600g cracked potatoes",
+        "de": "600g vorgekochte/gebrochene Kartoffeln"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos de gallina",
+        "en": "6 hen eggs",
+        "de": "6 Hühnereier"
+      }
+    },
+    {
+      "id": "chorizo",
+      "ingredientId": "chorizo",
+      "name": {
+        "es": "Chorizo Riojano",
+        "en": "Riojan Chorizo Sausage",
+        "de": "Rioja-Chorizo"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "100g de chorizo riojano cortado en rodajas o dados",
+        "en": "100g Riojan chorizo diced or sliced",
+        "de": "100g Rioja-Chorizo in Würfeln oder Scheiben"
+      }
+    },
+    {
+      "id": "garlic",
+      "ingredientId": "garlic",
+      "name": {
+        "es": "Ajo",
+        "en": "Garlic",
+        "de": "Knoblauch"
+      },
+      "amount": 2,
+      "unit": "unit",
+      "notes": {
+        "es": "2 dientes de ajo picados",
+        "en": "2 cloves garlic minced",
+        "de": "2 Zehen Knoblauch gehackt"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml para confitar patatas y chorizo",
+        "en": "150ml for frying potatoes and chorizo",
+        "de": "150ml zum Frittieren"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "5g de sal marina",
+        "en": "5g sea salt",
+        "de": "5g Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Salteado del chorizo y ajos", "en": "1. Sautéing chorizo & garlic", "de": "1. Chorizo & Knoblauch anbraten" },
+      "text": {
+        "es": "En la sartén con el aceite de oliva, fríe ligeramente los ajos picados y el chorizo durante 3 minutos para que suelte su pimentón y aroma en el aceite.",
+        "en": "Sauté minced garlic and diced chorizo in olive oil for 3 minutes so paprika oil infuses the fat.",
+        "de": "Knoblauch und Chorizo 3 Minuten in Olivenöl anbraten, damit das Paprikaöl freigesetzt wird."
+      }
+    },
+    {
+      "step": { "es": "2. Confitado con patata", "en": "2. Frying potatoes in spicy oil", "de": "2. Kartoffeln im Würzöl garen" },
+      "text": {
+        "es": "Añade las patatas cortadas finas al aceite perfumado con chorizo y cocina a fuego medio durante 15 minutos hasta que estén bien blandas.",
+        "en": "Add sliced potatoes to the chorizo-infused oil and cook over medium heat for 15 minutes until tender.",
+        "de": "Kartoffeln ins gewürzte Öl geben und bei mittlerer Hitze 15 Minuten weich garen."
+      }
+    },
+    {
+      "step": { "es": "3. Mezclado y cuajado", "en": "3. Egg soak & final sear", "de": "3. Mischen & Stocken" },
+      "text": {
+        "es": "Bate los huevos con la sal, añade las patatas y chorizo escurridos, reposa 5 minutos y cuaja 2 minutos por lado. Para garantizar la seguridad bactericida del huevo mantén 70°C durante 2 minutos.",
+        "en": "Beat eggs with salt, add drained potato-chorizo mix, soak for 5 minutes, then sear 2 minutes per side. For food safety, maintain 70°C for 2 minutes.",
+        "de": "Eier verquirlen, Kartoffel-Chorizo-Mischung 5 Minuten ziehen lassen, dann 2 Minuten pro Seite braten. 70°C für 2 Minuten sicherstellen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Gastronomía Tradicional de La Rioja",
+      "description": {
+        "es": "Receta rústica riojana de los almuerzos de vendimia.",
+        "en": "Rustic Riojan recipe traditional during wine harvest lunches.",
+        "de": "Rustikales riojanisches Rezept zur Weinernte."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

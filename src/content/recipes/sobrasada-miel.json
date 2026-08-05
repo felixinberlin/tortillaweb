@@ -1,0 +1,176 @@
+{
+  "id": "sobrasada-miel",
+  "contentId": "recipe.sobrasada-miel",
+  "translationKey": "recipe-sobrasada-miel",
+  "slug": {
+    "es": "tortilla-sobrasada-miel",
+    "en": "sobrasada-honey-spanish-omelette",
+    "de": "sobrasada-honig-tortilla"
+  },
+  "title": {
+    "es": "Tortilla con Sobrasada de Mallorca y Miel",
+    "en": "Balearic Sobrasada & Honey Spanish Omelette",
+    "de": "Mallorquinische Sobrasada-Honig-Tortilla"
+  },
+  "description": {
+    "es": "Un deslumbrante contraste balear de sabores: patata pochada, sobrasada de cerdo negro fundida y un suave hilo de miel pura.",
+    "en": "A stunning Balearic contrast of flavors: poached potatoes, melted black pork sobrasada, and a drizzle of pure honey.",
+    "de": "Ein faszinierender mallorquinischer Geschmackskontrast: confierte Kartoffeln, schmelzende Sobrasada und ein Hauch reiner Honig."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "ingredient:sobrasada",
+    "ingredient:miel",
+    "ingredient:salt",
+    "region:baleares",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/sobrasada.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 550,
+      "unit": "g",
+      "notes": {
+        "es": "550g de patata de freír",
+        "en": "550g frying potatoes",
+        "de": "550g Frittierkartoffeln"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos frescos",
+        "en": "6 fresh eggs",
+        "de": "6 frische Eier"
+      }
+    },
+    {
+      "id": "sobrasada",
+      "ingredientId": "sobrasada",
+      "name": {
+        "es": "Sobrasada de Mallorca",
+        "en": "Majorcan Sobrasada",
+        "de": "Mallorquinische Sobrasada"
+      },
+      "amount": 90,
+      "unit": "g",
+      "notes": {
+        "es": "90g de sobrasada artesanal desmenuzada",
+        "en": "90g artisanal sobrasada crumbled",
+        "de": "90g handwerkliche Sobrasada zerbröckelt"
+      }
+    },
+    {
+      "id": "miel",
+      "ingredientId": "miel",
+      "name": {
+        "es": "Miel de Flores",
+        "en": "Wildflower Honey",
+        "de": "Blütenhonig"
+      },
+      "amount": 15,
+      "unit": "ml",
+      "notes": {
+        "es": "1 cucharada de miel pura",
+        "en": "1 tablespoon pure honey",
+        "de": "1 Esslöffel reiner Honig"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml para confitar patatas",
+        "en": "150ml for potato confit",
+        "de": "150ml zum Kartoffeln confieren"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "5g de sal marina",
+        "en": "5g sea salt",
+        "de": "5g Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": { "es": "1. Confitado de la patata", "en": "1. Potato confit", "de": "1. Kartoffeln dünsten" },
+      "text": {
+        "es": "Corta la patata en láminas finas y confítala en el aceite de oliva a fuego suave durante 18 minutos hasta que esté blanda.",
+        "en": "Slice potatoes thinly and confit in olive oil over low heat for 18 minutes until tender.",
+        "de": "Kartoffeln in dünne Scheiben schneiden und in Olivenöl bei niedriger Hitze 18 Minuten garen."
+      }
+    },
+    {
+      "step": { "es": "2. Integración de la sobrasada", "en": "2. Sobrasada integration", "de": "2. Sobrasada einrühren" },
+      "text": {
+        "es": "Bate los huevos con la sal. Agrega la patata caliente escurrida y desmenuza los pellizcos de sobrasada por encima para que comiencen a fundirse con el calor residual.",
+        "en": "Beat eggs with salt. Fold in warm drained potatoes and scatter crumbled sobrasada so it melts into the warm egg matrix.",
+        "de": "Eier mit Salz verquirlen. Warme Kartoffeln und zerbröckelte Sobrasada unterrühren."
+      }
+    },
+    {
+      "step": { "es": "3. Cuajado y toque de miel", "en": "3. Cooking and honey finish", "de": "3. Garen & Honig-Finish" },
+      "text": {
+        "es": "Cuaja la tortilla en sartén antiadherente 2 minutos por lado. Al emplatar, riega la superficie con un fino hilo de miel pura de flores. Asegura una temperatura bactericida de 70°C durante 2 minutos.",
+        "en": "Sear tortilla for 2 minutes per side. Upon plating, drizzle top with wildflower honey. Ensure food safety standard of 70°C for 2 minutes.",
+        "de": "Tortilla 2 Minuten pro Seite braten. Vor dem Servieren mit Honig beträufeln. Kern sicherstellen bei 70°C für 2 Minuten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Recetario Balear Tradicional",
+      "description": {
+        "es": "Cocina fusión de ingredientes tradicionales de las Islas Baleares.",
+        "en": "Balearic island fusion recipe with traditional ingredients.",
+        "de": "Mallorquinische Rezeptvariante mit traditionellen Zutaten."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

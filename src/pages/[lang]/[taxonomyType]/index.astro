@@ -243,7 +243,7 @@ if (canonicalType === 'ingredient') {
 
       <!-- Hero Flatlay Image Banner -->
       <div class="relative rounded-2xl overflow-hidden border border-[#E8E2D5] shadow-sm max-w-5xl mx-auto">
-        <div class="aspect-21/9 w-full max-h-[380px] overflow-hidden relative">
+        <div class="relative w-full h-28 sm:h-56 md:h-72 max-h-[320px] overflow-hidden rounded-2xl">
           <img
             src="/images/ingredients/ingredient_flatlay_hero.jpg"
             alt="Ingredientes de la Tortilla de Patatas - Flatlay"
@@ -286,7 +286,7 @@ if (canonicalType === 'ingredient') {
               <a href={url} key={item.key} class="group block hover:no-underline">
                 <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
                   <div>
-                    <div class="h-48 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                    <div class="h-28 sm:h-44 md:h-48 w-full overflow-hidden relative border-b border-[#E8E2D5]">
                       <img
                         src={item.image}
                         alt={t(`ingredientsPage.${item.key}.title`, item.key)}
@@ -364,7 +364,7 @@ if (canonicalType === 'ingredient') {
               <a href={url} key={item.key} class="group block hover:no-underline">
                 <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
                   <div>
-                    <div class="h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
+                    <div class="h-24 sm:h-40 md:h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
                       <img
                         src={item.image}
                         alt={t(`ingredientsPage.${item.key}.title`, item.key)}
