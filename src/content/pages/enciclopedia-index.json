@@ -10,9 +10,9 @@
     "de": "Tortilla-Universum"
   },
   "subtitle": {
-    "es": "Compendio enciclopédico sobre la historia, estilos, personalidades, restaurantes, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.",
-    "en": "Encyclopedic compendium covering history, styles, key personalities, culinary temples, regional geography, ingredients, techniques, science, and records.",
-    "de": "Enzyklopädisches Kompendium zu Geschichte, Stilen, Persönlichkeiten, Restaurants, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden."
+    "es": "Compendio enciclopédico sobre la historia, estilos, personalidades, geografía, ingredientes, técnicas, ciencia y récords de la tortilla.",
+    "en": "Encyclopedic compendium covering history, styles, key personalities, regional geography, ingredients, techniques, science, and records.",
+    "de": "Enzyklopädisches Kompendium zu Geschichte, Stilen, Persönlichkeiten, regionaler Geografie, Zutaten, Techniken, Wissenschaft und Rekorden."
   },
   "sections": [
     {
@@ -59,36 +59,6 @@
         "de": "Köpfe und Meisterhände: Wissenschaftler, Traditionsträger und Spitzenköche."
       },
       "icon": "Users"
-    },
-    {
-      "id": "restaurantes",
-      "href": "/restaurantes",
-      "title": {
-        "es": "Restaurantes & Templos",
-        "en": "Restaurants & Temples",
-        "de": "Restaurants & Tempel"
-      },
-      "description": {
-        "es": "Guía de los establecimientos icónicos: Casa Dani, La Penela, O Pote, Kasino de Lesaka y barras de culto.",
-        "en": "Guide to iconic establishments: Casa Dani, La Penela, O Pote, Kasino de Lesaka, and cult bars.",
-        "de": "Führer zu den ikonischsten Lokalen und Kult-Bars."
-      },
-      "icon": "Utensils"
-    },
-    {
-      "id": "regiones",
-      "href": "/regiones",
-      "title": {
-        "es": "Geografía & Regiones",
-        "en": "Geography & Regions",
-        "de": "Geografie & Regionen"
-      },
-      "description": {
-        "es": "Recorrido por las identidades regionales: Galicia (Betanzos), País Vasco, Madrid, Navarra y Andalucía.",
-        "en": "A journey through regional identities: Galicia (Betanzos), Basque Country, Madrid, Navarra, and Andalusia.",
-        "de": "Eine Reise durch die regionalen Identitäten Spaniens."
-      },
-      "icon": "MapPin"
     },
     {
       "id": "ingredientes",

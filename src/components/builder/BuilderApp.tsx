@@ -1,31 +1,44 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import "@/i18n/config";
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
-import { 
-  Users, 
-  Flame, 
-  Sparkles, 
-  ChefHat, 
-  Copy, 
-  Check, 
-  Timer, 
-  Scale, 
-  Info,
-  CircleDot,
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Sparkles,
+  ChefHat,
+  GitCompare,
   Globe,
-  ExternalLink,
   ArrowRight,
-  GitCompare
+  Info,
+  Check,
+  Utensils,
+  Flame,
+  Scale,
+  X,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+
+import type {
+  EggSize,
+  OilCookingStyle,
+  TextureStyle,
+  PotatoTechnique,
+} from "@/domain/builder/types";
+import {
+  createTortillaConfiguration,
+  serializeConfigurationToUrl,
+  parseConfigurationFromUrl,
+} from "@/domain/builder/configCalculator";
 import { generateRecipe } from "@/domain/builder/generateRecipe";
 import { normalizeRecipe } from "@/domain/tortilla-dna/normalizeRecipe";
 import { compareRecipes } from "@/domain/tortilla-dna/compareRecipes";
 import { getReferenceRecipes } from "@/domain/recipes/referenceRecipes";
-import type { LocalizedString } from "@/domain/tortilla-dna/types";
+
+import { StepIngredients } from "./StepIngredients";
+import { StepInventory } from "./StepInventory";
+import { StepPreferences } from "./StepPreferences";
+import { TortillaProfileView } from "./TortillaProfileView";
 
 interface BuilderAppProps {
   lang?: string;
@@ -33,618 +46,400 @@ interface BuilderAppProps {
 
 export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
   const { t } = useTranslation(undefined, { lng: lang });
+  const isEs = lang.startsWith("es");
+  const isDe = lang.startsWith("de");
 
-  // State options
-  const [diners, setDiners] = useState<number>(4);
-  const [hasOnion, setHasOnion] = useState<boolean>(true);
-  const [doneness, setDoneness] = useState<"betanzos" | "jugosa" | "cuajada">("jugosa");
-  const [potatoCut, setPotatoCut] = useState<"pochada" | "crujiente">("pochada");
-  const [copied, setCopied] = useState<boolean>(false);
-  
-  // Reference recipe for comparator
-  const referenceRecipes = useMemo(() => getReferenceRecipes(), []);
+  // State
+  const [eggs, setEggs] = useState<number>(6);
+  const [eggSize, setEggSize] = useState<EggSize>("large");
+  const [potatoesGrams, setPotatoesGrams] = useState<number>(600);
+  const [oilStyle, setOilStyle] = useState<OilCookingStyle>("traditional");
+  const [extras, setExtras] = useState<{ id: string; quantity: number }[]>([
+    { id: "onion", quantity: 180 },
+  ]);
+  const [texture, setTexture] = useState<TextureStyle>("jugosa");
+  const [potatoTechnique, setPotatoTechnique] = useState<PotatoTechnique>("pochada");
+
+  const [activeTab, setActiveTab] = useState<"step1" | "step2" | "step3" | "identity">("step1");
+  const [showComparator, setShowComparator] = useState<boolean>(false);
   const [selectedRefId, setSelectedRefId] = useState<string>("betanzos");
 
-  // 1. Generate full domain Recipe object from builder choices
-  const userRecipe = useMemo(() => {
-    return generateRecipe({
-      diners,
-      hasOnion,
-      doneness,
-      potatoCut,
-    });
-  }, [diners, hasOnion, doneness, potatoCut]);
+  // Load configuration from URL query search parameters on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const searchParams = new URLSearchParams(window.location.search);
+      const parsed = parseConfigurationFromUrl(searchParams);
 
-  // 2. Normalize generated recipe into Tortilla DNA profile
+      if (parsed.eggs) setEggs(parsed.eggs);
+      if (parsed.eggSize) setEggSize(parsed.eggSize);
+      if (parsed.potatoesGrams) setPotatoesGrams(parsed.potatoesGrams);
+      if (parsed.oilStyle) setOilStyle(parsed.oilStyle);
+      if (parsed.texture) setTexture(parsed.texture);
+      if (parsed.potatoTechnique) setPotatoTechnique(parsed.potatoTechnique);
+      if (parsed.extras) setExtras(parsed.extras);
+    }
+  }, []);
+
+  // Update URL search parameters live
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const queryString = serializeConfigurationToUrl({
+        eggs,
+        eggSize,
+        potatoesGrams,
+        oilStyle,
+        texture,
+        potatoTechnique,
+        extras,
+      });
+      const newUrl = `${window.location.pathname}?${queryString}`;
+      window.history.replaceState({}, "", newUrl);
+    }
+  }, [eggs, eggSize, potatoesGrams, oilStyle, texture, potatoTechnique, extras]);
+
+  // Handle adding / removing extra ingredients from fridge inventory
+  const handleUpdateExtra = (id: string, quantity: number) => {
+    setExtras((prev) => {
+      const exists = prev.find((e) => e.id === id);
+      if (quantity <= 0) {
+        return prev.filter((e) => e.id !== id);
+      }
+      if (exists) {
+        return prev.map((e) => (e.id === id ? { ...e, quantity } : e));
+      }
+      return [...prev, { id, quantity }];
+    });
+  };
+
+  // Build domain object: TortillaConfiguration
+  const tortillaConfig = useMemo(() => {
+    return createTortillaConfiguration({
+      eggs,
+      eggSize,
+      potatoesGrams,
+      oilStyle,
+      texture,
+      potatoTechnique,
+      extras,
+    });
+  }, [eggs, eggSize, potatoesGrams, oilStyle, texture, potatoTechnique, extras]);
+
+  // Shareable URL
+  const shareUrl = useMemo(() => {
+    if (typeof window !== "undefined") {
+      const queryString = serializeConfigurationToUrl({
+        eggs,
+        eggSize,
+        potatoesGrams,
+        oilStyle,
+        texture,
+        potatoTechnique,
+        extras,
+      });
+      return `${window.location.origin}${window.location.pathname}?${queryString}`;
+    }
+    return "";
+  }, [eggs, eggSize, potatoesGrams, oilStyle, texture, potatoTechnique, extras]);
+
+  // Domain Recipe object for DNA Comparator
+  const userRecipe = useMemo(() => {
+    return generateRecipe({ config: tortillaConfig });
+  }, [tortillaConfig]);
+
   const userDna = useMemo(() => {
     return normalizeRecipe(userRecipe);
   }, [userRecipe]);
 
-  // 3. Find selected reference recipe
+  const referenceRecipes = useMemo(() => getReferenceRecipes(), []);
   const selectedRefRecipe = useMemo(() => {
     return referenceRecipes.find((r) => r.id === selectedRefId) || referenceRecipes[0];
   }, [referenceRecipes, selectedRefId]);
 
-  // 4. Compare user custom recipe against reference recipe
   const comparison = useMemo(() => {
     if (!userRecipe || !selectedRefRecipe) return null;
     return compareRecipes(userRecipe, selectedRefRecipe);
   }, [userRecipe, selectedRefRecipe]);
 
-  const { panSizeCm } = userRecipe;
-  const eggCount = userRecipe.ingredients.find((i) => i.ingredientId === "egg")?.amount || 0;
-  const potatoGrams = userRecipe.ingredients.find((i) => i.ingredientId === "potato")?.amount || 0;
-  const onionGrams = userRecipe.ingredients.find((i) => i.ingredientId === "onion")?.amount || 0;
-  const saltGrams = userRecipe.ingredients.find((i) => i.ingredientId === "salt")?.amount || 0;
-  const oilUsed = userRecipe.oilUsage?.cookingAmount || 0;
-  const oilAbsorbed = userRecipe.oilUsage?.estimatedAbsorbedAmount || 0;
-
-  function getLocalizedText(str: string | LocalizedString | undefined): string {
-    if (!str) return "";
-    if (typeof str === "object") {
-      return str[lang as "es" | "en" | "de"] || str.es || str.en || "";
-    }
-    return str;
-  }
-
-  const handleCopyRecipe = () => {
-    const text = lang.startsWith("de") ?
-      `🍳 Meine Tortilla (${diners} Personen)
-- ${eggCount} große Eier
-- ${potatoGrams}g Kartoffeln
-${hasOnion ? `- ${onionGrams}g süße Zwiebeln` : "- Ohne Zwiebeln"}
-- ${oilUsed}ml Olivenöl zum Frittieren (${oilAbsorbed}ml aufgenommen)
-- ${saltGrams}g Salz
-- Empfohlene Pfannengröße: ${panSizeCm}cm
-- Garstufe: ${doneness === "betanzos" ? "Betanzos-Stil" : doneness === "jugosa" ? "Cremige Mitte" : "Fest durchgegart"}`
-      : lang.startsWith("es") ?
-      `🍳 Mi Receta de Tortilla de Patatas (${diners} personas)
-- ${eggCount} huevos grandes
-- ${potatoGrams}g de patatas Monalisa
-${hasOnion ? `- ${onionGrams}g de cebolla dulce` : "- Sin cebolla"}
-- ${oilUsed}ml de AOVE para pochar (${oilAbsorbed}ml absorbidos)
-- ${saltGrams}g de sal
-- Sartén recomendada: ${panSizeCm}cm
-- Punto: ${doneness === "betanzos" ? "Estilo Betanzos" : doneness === "jugosa" ? "Cremosa / En su punto" : "Cuajada firme"}`
-      : `🍳 My Spanish Tortilla Recipe (${diners} servings)
-- ${eggCount} large eggs
-- ${potatoGrams}g Monalisa potatoes
-${hasOnion ? `- ${onionGrams}g sweet onion` : "- No onion"}
-- ${oilUsed}ml EVOO for frying (${oilAbsorbed}ml absorbed)
-- ${saltGrams}g salt
-- Recommended pan size: ${panSizeCm}cm
-- Doneness: ${doneness === "betanzos" ? "Betanzos style" : doneness === "jugosa" ? "Medium creamy center" : "Well done / Firm"}`;
-
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
+    <div className="container mx-auto px-4 py-10 max-w-6xl">
       {/* Header */}
-      <div className="text-center mb-8 max-w-3xl mx-auto">
-        <Badge variant="secondary" className="mb-4 px-3 py-1 text-sm font-medium bg-amber-100 text-amber-900 border-amber-200">
-          <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" />
-          {t("builder.badge", "Constructor Interactivo & Tortilla DNA")}
+      <div className="text-center mb-10 max-w-3xl mx-auto space-y-3">
+        <Badge variant="secondary" className="px-3.5 py-1 text-xs font-bold bg-amber-100 text-amber-950 border-amber-300">
+          <Sparkles className="w-3.5 h-3.5 mr-1.5 inline text-amber-600" />
+          {isEs ? "Motor de Creación de Nevera a Tortilla" : isDe ? "Kühlschrank-zu-Tortilla Rechner" : "Fridge-to-Tortilla Creation Engine"}
         </Badge>
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
-          {t("builder.title", "Crea tu propia tortilla")}
+        <h1 className="text-4xl md:text-5xl font-black tracking-tight text-stone-900">
+          {isEs ? "¿Qué ingredientes tienes?" : isDe ? "Welche Zutaten haben Sie?" : "What ingredients do you have?"}
         </h1>
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          {t("builder.subtitle", "Ajusta comensales, elige tu técnica favorita y obtén las proporciones exactas para una tortilla perfecta.")}
+        <p className="text-base md:text-lg text-stone-600 leading-relaxed">
+          {isEs
+            ? "Olvídate de recetas fijas. Selecciona lo que tienes en la nevera y crea una tortilla personalizada con técnica y proporciones ideales."
+            : isDe
+            ? "Vergessen Sie starre Rezepte. Wählen Sie Ihre Zutaten aus dem Kühlschrank und erstellen Sie Ihre individuelle Tortilla."
+            : "Forget rigid recipes. Choose what's in your fridge and craft a personalized tortilla with custom technique and DNA profile."}
         </p>
       </div>
 
-      {/* External Creator Link Banner */}
-      <div className="bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-amber-500/15 border-2 border-amber-500/40 rounded-2xl p-5 mb-10 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3.5">
-          <div className="p-3 rounded-xl bg-amber-500 text-white font-bold shrink-0 shadow-2xs">
-            <Globe className="w-6 h-6" />
-          </div>
-          <div>
-            <h3 className="font-bold text-base sm:text-lg text-foreground flex items-center gap-2 flex-wrap">
-              <span>Tortilla Creator Web App</span>
-              <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300">
-                tortilladepatatas.de
-              </Badge>
-            </h3>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
-              {t("builder.appDesc", "Accede a la aplicación interactiva Tortilla Creator en https://tortilladepatatas.de/ para personalizar y calcular tu receta.")}
-            </p>
-          </div>
-        </div>
-        <a
-          href="https://tortilladepatatas.de/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shrink-0 w-full sm:w-auto"
+      {/* Navigation Tabs Header */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-8 bg-stone-200/80 p-1.5 rounded-2xl max-w-3xl mx-auto shadow-2xs">
+        <button
+          type="button"
+          onClick={() => setActiveTab("step1")}
+          className={`flex-1 min-w-[130px] py-2.5 px-4 rounded-xl font-bold text-xs md:text-sm transition-all text-center flex items-center justify-center gap-2 ${
+            activeTab === "step1"
+              ? "bg-white text-stone-900 shadow-sm"
+              : "text-stone-600 hover:text-stone-900"
+          }`}
         >
-          <Button className="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-xs gap-2">
-            <span>{t("builder.openApp", "Abrir Tortilla Creator")}</span>
-            <ExternalLink className="w-4 h-4" />
-          </Button>
-        </a>
+          <span>🥚 1. {isEs ? "Base" : isDe ? "Basis" : "Core Base"}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveTab("step2")}
+          className={`flex-1 min-w-[130px] py-2.5 px-4 rounded-xl font-bold text-xs md:text-sm transition-all text-center flex items-center justify-center gap-2 ${
+            activeTab === "step2"
+              ? "bg-white text-stone-900 shadow-sm"
+              : "text-stone-600 hover:text-stone-900"
+          }`}
+        >
+          <span>🥗 2. {isEs ? "Nevera" : isDe ? "Zutaten" : "Fridge"}</span>
+          {extras.filter((e) => e.quantity > 0).length > 0 && (
+            <Badge className="bg-amber-600 text-white text-3xs px-1.5 py-0">
+              {extras.filter((e) => e.quantity > 0).length}
+            </Badge>
+          )}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveTab("step3")}
+          className={`flex-1 min-w-[130px] py-2.5 px-4 rounded-xl font-bold text-xs md:text-sm transition-all text-center flex items-center justify-center gap-2 ${
+            activeTab === "step3"
+              ? "bg-white text-stone-900 shadow-sm"
+              : "text-stone-600 hover:text-stone-900"
+          }`}
+        >
+          <span>✨ 3. {isEs ? "Técnica" : isDe ? "Technik" : "Technique"}</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setActiveTab("identity")}
+          className={`flex-1 min-w-[140px] py-2.5 px-4 rounded-xl font-extrabold text-xs md:text-sm transition-all text-center flex items-center justify-center gap-2 ${
+            activeTab === "identity"
+              ? "bg-amber-600 text-white shadow-sm"
+              : "bg-amber-100 text-amber-950 hover:bg-amber-200"
+          }`}
+        >
+          <span>🍳 {isEs ? "Perfil Final" : isDe ? "Tortilla Profile" : "Tortilla Identity"}</span>
+        </button>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-8 items-start">
-        {/* Controls Column */}
-        <div className="lg:col-span-7 space-y-6">
-          {/* Diners selector */}
-          <Card className="border border-border shadow-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl flex items-center gap-2">
-                <Users className="w-5 h-5 text-amber-600" />
-                {t("builder.dinersQuestion", "¿Para cuántas personas?")}
-              </CardTitle>
-              <CardDescription>
-                {t("builder.dinersDesc", "Calcularemos la sartén y las cantidades según el número de comensales.")}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-3">
-                {[2, 4, 6, 8].map((num) => (
-                  <Button
-                    key={num}
-                    variant={diners === num ? "default" : "outline"}
-                    className={`flex-1 h-12 text-base font-semibold transition-all ${
-                      diners === num ? "bg-amber-600 hover:bg-amber-700 text-white shadow" : ""
-                    }`}
-                    onClick={() => setDiners(num)}
-                  >
-                    {num} {t("builder.servings", "pers.")}
-                  </Button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Onion Debate */}
-          <Card className="border border-border shadow-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl flex items-center justify-between">
-                <span className="flex items-center gap-2">
-                  <ChefHat className="w-5 h-5 text-amber-600" />
-                  {t("builder.onionDebate", "El debate del siglo: ¿Con o sin cebolla?")}
-                </span>
-                <Badge variant={hasOnion ? "default" : "secondary"} className={hasOnion ? "bg-amber-600" : ""}>
-                  {hasOnion ? t("builder.withOnion", "Con cebolla") : t("builder.noOnion", "Sin cebolla")}
-                </Badge>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-4">
-                <button
-                  type="button"
-                  onClick={() => setHasOnion(true)}
-                  className={`p-4 rounded-xl border text-left transition-all ${
-                    hasOnion
-                      ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
-                      : "border-border hover:border-muted-foreground/30"
-                  }`}
-                >
-                  <div className="font-semibold text-foreground text-base mb-1">
-                    🧅 {t("builder.concebollista", "Con Cebolla (Concebollista)")}
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {t("builder.concebollistaDesc", "Aporta dulzor, jugosidad y un toque caramelizado irresistible.")}
-                  </p>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setHasOnion(false)}
-                  className={`p-4 rounded-xl border text-left transition-all ${
-                    !hasOnion
-                      ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
-                      : "border-border hover:border-muted-foreground/30"
-                  }`}
-                >
-                  <div className="font-semibold text-foreground text-base mb-1">
-                    🥔 {t("builder.sincebollista", "Sin Cebolla (Sincebollista)")}
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {t("builder.sincebollistaDesc", "Sabor puro a huevo fresco y patata dorada en aceite de oliva.")}
-                  </p>
-                </button>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Doneness level */}
-          <Card className="border border-border shadow-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl flex items-center gap-2">
-                <Flame className="w-5 h-5 text-amber-600" />
-                {t("builder.donenessTitle", "Punto de cuajado")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-3">
-                {[
-                  {
-                    id: "betanzos",
-                    title: t("builder.betanzosTitle", "Estilo Betanzos"),
-                    desc: t("builder.betanzosDesc", "Muy jugosa, el huevo corre al cortar."),
-                    icon: "💧"
-                  },
-                  {
-                    id: "jugosa",
-                    title: t("builder.jugosaTitle", "En su punto"),
-                    desc: t("builder.jugosaDesc", "Interior cremoso y bordes sellados."),
-                    icon: "✨"
-                  },
-                  {
-                    id: "cuajada",
-                    title: t("builder.cuajadaTitle", "Cuajada firme"),
-                    desc: t("builder.cuajadaDesc", "Ideal para llevar a excursiones o bocadillos."),
-                    icon: "🥪"
-                  }
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setDoneness(item.id as any)}
-                    className={`p-3.5 rounded-xl border text-left transition-all ${
-                      doneness === item.id
-                        ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
-                        : "border-border hover:border-muted-foreground/30"
-                    }`}
-                  >
-                    <div className="font-semibold text-foreground text-sm flex items-center gap-1.5 mb-1">
-                      <span>{item.icon}</span> {item.title}
-                    </div>
-                    <p className="text-xs text-muted-foreground">{item.desc}</p>
-                  </button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Potato technique */}
-          <Card className="border border-border shadow-sm">
-            <CardHeader className="pb-4">
-              <CardTitle className="text-xl flex items-center gap-2">
-                <Scale className="w-5 h-5 text-amber-600" />
-                {t("builder.potatoCutTitle", "Corte de la patata")}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => setPotatoCut("pochada")}
-                  className={`p-3.5 rounded-xl border text-left transition-all ${
-                    potatoCut === "pochada"
-                      ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
-                      : "border-border hover:border-muted-foreground/30"
-                  }`}
-                >
-                  <div className="font-semibold text-sm mb-1">
-                    🍳 {t("builder.pochadaTitle", "Pochada tradicional")}
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {t("builder.pochadaDesc", "Fuego lento a 140°C para que quede blanda y melosa.")}
-                  </p>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setPotatoCut("crujiente")}
-                  className={`p-3.5 rounded-xl border text-left transition-all ${
-                    potatoCut === "crujiente"
-                      ? "border-amber-600 bg-amber-50/50 dark:bg-amber-950/20 ring-2 ring-amber-600/30"
-                      : "border-border hover:border-muted-foreground/30"
-                  }`}
-                >
-                  <div className="font-semibold text-sm mb-1">
-                    🔥 {t("builder.crujienteTitle", "Toque crujiente")}
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    {t("builder.crujienteDesc", "Un toque final de fuego fuerte para dorar las esquinas.")}
-                  </p>
-                </button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Results & Interactive Recipe Card Column */}
-        <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-8">
+      {/* Main Tab Content Display */}
+      <AnimatePresence mode="wait">
+        {activeTab === "step1" && (
           <motion.div
-            key={`${diners}-${hasOnion}-${doneness}-${potatoCut}`}
-            initial={{ opacity: 0.8, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
+            key="step1"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
+            className="space-y-6"
           >
-            <Card className="border-2 border-amber-500/30 bg-gradient-to-br from-amber-50/40 via-background to-background dark:from-amber-950/20 shadow-xl overflow-hidden">
-              <CardHeader className="bg-amber-500/10 border-b border-amber-500/20 pb-4">
-                <div className="flex items-center justify-between">
-                  <Badge className="bg-amber-600 hover:bg-amber-700 text-white font-medium">
-                    {diners} {t("builder.dinersTag", "Comensales")} • {panSizeCm} cm
-                  </Badge>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={handleCopyRecipe}
-                    className="h-8 gap-1.5 text-xs bg-background/80 hover:bg-background"
-                  >
-                    {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    {copied ? t("builder.copied", "¡Copiada!") : t("builder.copyRecipe", "Copiar receta")}
-                  </Button>
-                </div>
-                <CardTitle className="text-2xl pt-2 text-foreground font-extrabold">
-                  {t("builder.recipeCardTitle", "Tu Ficha de Ingredientes")}
-                </CardTitle>
-              </CardHeader>
+            <StepIngredients
+              lang={lang}
+              eggs={eggs}
+              setEggs={setEggs}
+              eggSize={eggSize}
+              setEggSize={setEggSize}
+              potatoesGrams={potatoesGrams}
+              setPotatoesGrams={setPotatoesGrams}
+              oilStyle={oilStyle}
+              setOilStyle={setOilStyle}
+              estimatedFryingOil={tortillaConfig.calculatedProfile.estimatedFryingOilMl}
+              estimatedAbsorbedOil={tortillaConfig.calculatedProfile.estimatedAbsorbedOilMl}
+              potatoUnits={tortillaConfig.calculatedProfile.potatoUnits}
+            />
 
-              <CardContent className="pt-6 space-y-6">
-                {/* Ingredients Grid */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
-                    <span className="text-2xl font-bold text-amber-600 block">{eggCount}</span>
-                    <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                      🥚 {t("builder.eggsLabel", "Huevos L / XL")}
-                    </span>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
-                    <span className="text-2xl font-bold text-amber-600 block">{potatoGrams} g</span>
-                    <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                      🥔 {t("builder.potatoesLabel", "Patatas Monalisa")}
-                    </span>
-                  </div>
-
-                  {hasOnion && (
-                    <div className="p-3 rounded-lg bg-card border border-border shadow-2xs">
-                      <span className="text-2xl font-bold text-amber-600 block">{onionGrams} g</span>
-                      <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
-                        🧅 {t("builder.onionLabel", "Cebolla dulce")}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Oil usage display with separated cooking oil vs absorbed oil */}
-                  <div className="p-3 rounded-lg bg-card border border-border shadow-2xs col-span-2 sm:col-span-1">
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-2xl font-bold text-amber-600 block">{oilAbsorbed} ml</span>
-                      <span className="text-[11px] text-muted-foreground font-semibold">({oilUsed} ml en sartén)</span>
-                    </div>
-                    <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider block mt-1">
-                      🫒 {t("builder.oilLabel", "AOVE (Absorbido)")}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Tortilla DNA Profile Summary */}
-                <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/60 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-amber-900 dark:text-amber-200 uppercase tracking-wider flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                      Perfil ADN de tu receta
-                    </span>
-                    <Badge variant="outline" className="text-[10px] bg-amber-100 text-amber-900 border-amber-300">
-                      Normalizado / 1 huevo
-                    </Badge>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-xs pt-1">
-                    <div className="bg-white/80 dark:bg-background/80 p-2 rounded-md border border-amber-200/40">
-                      <span className="text-muted-foreground text-[10px] block">Patata por huevo</span>
-                      <span className="font-bold text-foreground">{userDna.ratios.potato?.quantity}g / huevo</span>
-                      <span className="text-[10px] text-amber-700 dark:text-amber-400 block font-medium">
-                        ({userDna.classification.potatoIntensityLabel})
-                      </span>
-                    </div>
-
-                    <div className="bg-white/80 dark:bg-background/80 p-2 rounded-md border border-amber-200/40">
-                      <span className="text-muted-foreground text-[10px] block">Aceite absorbido</span>
-                      <span className="font-bold text-foreground">{userDna.ratios.oil?.quantity}ml / huevo</span>
-                      <span className="text-[10px] text-amber-700 dark:text-amber-400 block font-medium">
-                        ({userDna.classification.oilIntensityLabel})
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pro Tips & Times */}
-                <div className="space-y-3 pt-2">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-900 dark:text-amber-200 text-xs font-medium">
-                    <Timer className="w-4 h-4 shrink-0 text-amber-600" />
-                    <span>
-                      {t("builder.estimatedTime", "Tiempo estimado: ~25-30 min")} | {t("builder.heatPerSide", "Fuego en sartén:")}{" "}
-                      {doneness === "betanzos"
-                        ? t("builder.heatBetanzos", "Fuerte 30 seg/lado")
-                        : doneness === "jugosa"
-                        ? t("builder.heatJugosa", "Medio-Alto 1.5 min/lado")
-                        : t("builder.heatCuajada", "Medio-Bajo 3 min/lado")}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-900 dark:text-blue-200 text-xs font-medium">
-                    <Info className="w-4 h-4 shrink-0 text-blue-600" />
-                    <span>
-                      {t("builder.proTip", "Truco Pro: Tras freír la patata, mézclala caliente con el huevo batido y déjala reposar 5 minutos antes de cuajar.")}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Step List */}
-                <div className="space-y-2 border-t border-border pt-4">
-                  <h4 className="text-sm font-bold text-foreground flex items-center gap-1.5">
-                    <CircleDot className="w-4 h-4 text-amber-600" />
-                    {t("builder.keyStepsTitle", "Pasos clave de elaboración")}
-                  </h4>
-                  <ol className="text-xs text-muted-foreground space-y-2 pl-4 list-decimal">
-                    <li>
-                      {t("builder.step1", "Pela y corta las patatas en láminas finas e desiguales (chascar).")}
-                    </li>
-                    {hasOnion && (
-                      <li>
-                        {t("builder.step2Onion", "Pica la cebolla y póchala junto a la patata en abundante aceite de oliva virgen extra.")}
-                      </li>
-                    )}
-                    <li>
-                      {t("builder.step3", "Bate los huevos sin espumar demasiado y añade una pizca generosa de sal.")}
-                    </li>
-                    <li>
-                      {t("builder.step4", `Cuaja en sartén de ${panSizeCm}cm antiadherente bien caliente con unas gotas de aceite.`)}
-                    </li>
-                  </ol>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="flex justify-end pt-4">
+              <Button
+                onClick={() => setActiveTab("step2")}
+                className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm"
+              >
+                {isEs ? "Paso 2: Añadir Ingredientes" : "Step 2: Add Ingredients"}
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </motion.div>
-        </div>
-      </div>
-
-      {/* Interactive DNA Comparator Section */}
-      <div className="mt-16 pt-10 border-t border-border space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-amber-500/10 p-6 rounded-2xl border border-amber-500/20">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <GitCompare className="w-5 h-5 text-amber-600" />
-              <h2 className="text-2xl font-extrabold text-foreground">
-                Compara tu tortilla personalizada con referencias icónicas
-              </h2>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Compara matemáticamente las proporciones normalizadas por huevo de tu receta contra tortillas famosas.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider shrink-0">
-              Comparar con:
-            </label>
-            <select
-              value={selectedRefId}
-              onChange={(e) => setSelectedRefId(e.target.value)}
-              className="px-3 py-2 rounded-xl bg-background border border-border text-sm font-bold text-foreground focus:outline-hidden focus:ring-2 focus:ring-amber-500"
-            >
-              {referenceRecipes.map((r) => (
-                <option key={r.id} value={r.id}>
-                  {getLocalizedText(r.title || r.recipeName || r.name)}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        {/* Comparison Result Table */}
-        {comparison && (
-          <div className="grid md:grid-cols-12 gap-6 items-start">
-            {/* Comparison Details */}
-            <div className="md:col-span-8 bg-card rounded-2xl border border-border overflow-hidden shadow-xs">
-              <div className="p-4 bg-amber-500/10 border-b border-amber-500/20 flex items-center justify-between">
-                <h3 className="font-bold text-sm text-foreground flex items-center gap-2">
-                  <span>Tu Receta ({userRecipe.servings} pers.)</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-amber-700 dark:text-amber-400">
-                    {getLocalizedText(selectedRefRecipe.title || selectedRefRecipe.recipeName)}
-                  </span>
-                </h3>
-                <Badge variant="outline" className="text-xs bg-amber-100 text-amber-900 border-amber-300 font-bold">
-                  Proporción por 1 Huevo
-                </Badge>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs sm:text-sm">
-                  <thead>
-                    <tr className="border-b border-border bg-muted/40 text-muted-foreground">
-                      <th className="p-3 font-bold uppercase text-[11px]">Ingrediente</th>
-                      <th className="p-3 font-bold uppercase text-[11px]">Tu receta (/huevo)</th>
-                      <th className="p-3 font-bold uppercase text-[11px]">Referencia (/huevo)</th>
-                      <th className="p-3 font-bold uppercase text-[11px]">Diferencia</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border">
-                    {comparison.ingredients.map((item) => {
-                      const isDiffPositive = item.difference > 0;
-                      return (
-                        <tr key={item.ingredientId} className="hover:bg-muted/20 transition-colors">
-                          <td className="p-3 font-semibold text-foreground capitalize">
-                            {getLocalizedText(item.name)}
-                          </td>
-                          <td className="p-3 font-mono font-bold text-foreground">
-                            {item.recipeAValue} {item.unit}
-                          </td>
-                          <td className="p-3 font-mono font-bold text-foreground">
-                            {item.recipeBValue} {item.unit}
-                          </td>
-                          <td className="p-3 font-mono">
-                            {item.difference === 0 ? (
-                              <span className="text-muted-foreground text-xs font-normal">Igual (0%)</span>
-                            ) : (
-                              <span
-                                className={`inline-flex items-center gap-1 font-bold px-2 py-0.5 rounded-full text-xs ${
-                                  isDiffPositive
-                                    ? "bg-amber-100 text-amber-900 border border-amber-300"
-                                    : "bg-emerald-100 text-emerald-900 border border-emerald-300"
-                                }`}
-                              >
-                                {isDiffPositive ? `+${item.difference}` : item.difference} {item.unit}{" "}
-                                ({isDiffPositive ? `+${item.percentageDifference}%` : `${item.percentageDifference}%`})
-                              </span>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Side-by-side DNA Profile Tags */}
-            <div className="md:col-span-4 bg-amber-50/50 dark:bg-amber-950/20 p-5 rounded-2xl border border-amber-200/60 space-y-4">
-              <h4 className="font-bold text-sm text-foreground flex items-center gap-2 border-b border-amber-200/60 pb-2">
-                <Sparkles className="w-4 h-4 text-amber-600" />
-                Comparativa de Clasificación
-              </h4>
-
-              <div className="space-y-3 text-xs">
-                <div>
-                  <span className="text-muted-foreground font-medium block">Intensidad de Patata:</span>
-                  <div className="flex items-center gap-2 mt-0.5 font-bold">
-                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.potatoIntensity.a}</span>
-                    <span className="text-muted-foreground">vs</span>
-                    <span className="text-foreground">{comparison.profile.potatoIntensity.b}</span>
-                  </div>
-                </div>
-
-                <div>
-                  <span className="text-muted-foreground font-medium block">Aporte de Aceite:</span>
-                  <div className="flex items-center gap-2 mt-0.5 font-bold">
-                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.oilIntensity.a}</span>
-                    <span className="text-muted-foreground">vs</span>
-                    <span className="text-foreground">{comparison.profile.oilIntensity.b}</span>
-                  </div>
-                </div>
-
-                <div>
-                  <span className="text-muted-foreground font-medium block">Presencia de Cebolla:</span>
-                  <div className="flex items-center gap-2 mt-0.5 font-bold">
-                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.onionPresence.a}</span>
-                    <span className="text-muted-foreground">vs</span>
-                    <span className="text-foreground">{comparison.profile.onionPresence.b}</span>
-                  </div>
-                </div>
-
-                <div>
-                  <span className="text-muted-foreground font-medium block">Dominancia del Huevo:</span>
-                  <div className="flex items-center gap-2 mt-0.5 font-bold">
-                    <span className="text-amber-800 dark:text-amber-300">{comparison.profile.eggDominance.a}</span>
-                    <span className="text-muted-foreground">vs</span>
-                    <span className="text-foreground">{comparison.profile.eggDominance.b}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         )}
-      </div>
+
+        {activeTab === "step2" && (
+          <motion.div
+            key="step2"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="space-y-6"
+          >
+            <StepInventory
+              lang={lang}
+              extras={extras}
+              onUpdateExtra={handleUpdateExtra}
+            />
+
+            <div className="flex justify-between items-center pt-4">
+              <Button
+                variant="outline"
+                onClick={() => setActiveTab("step1")}
+                className="border-stone-300 font-bold px-5 py-2 text-sm"
+              >
+                {isEs ? "Anterior" : "Previous"}
+              </Button>
+              <Button
+                onClick={() => setActiveTab("step3")}
+                className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm"
+              >
+                {isEs ? "Paso 3: Preferencias de Técnica" : "Step 3: Preferences"}
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === "step3" && (
+          <motion.div
+            key="step3"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="space-y-6"
+          >
+            <StepPreferences
+              lang={lang}
+              texture={texture}
+              setTexture={setTexture}
+              potatoTechnique={potatoTechnique}
+              setPotatoTechnique={setPotatoTechnique}
+            />
+
+            <div className="flex justify-between items-center pt-4">
+              <Button
+                variant="outline"
+                onClick={() => setActiveTab("step2")}
+                className="border-stone-300 font-bold px-5 py-2 text-sm"
+              >
+                {isEs ? "Anterior" : "Previous"}
+              </Button>
+              <Button
+                onClick={() => setActiveTab("identity")}
+                className="bg-amber-600 hover:bg-amber-700 text-white font-extrabold px-8 py-3 rounded-xl text-base shadow-md"
+              >
+                {isEs ? "Generar Perfil Final" : "Generate Tortilla Identity"}
+                <Sparkles className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === "identity" && (
+          <motion.div
+            key="identity"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="space-y-6"
+          >
+            <TortillaProfileView
+              lang={lang}
+              config={tortillaConfig}
+              shareUrl={shareUrl}
+              onOpenComparator={() => setShowComparator(true)}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* DNA Comparator Modal / Section */}
+      {showComparator && (
+        <div className="fixed inset-0 bg-stone-900/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-3xl w-full border-2 border-stone-300 shadow-xl p-6 relative my-8">
+            <button
+              type="button"
+              onClick={() => setShowComparator(false)}
+              className="absolute top-4 right-4 text-stone-500 hover:text-stone-900 bg-stone-100 p-2 rounded-full"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2 mb-4">
+              <GitCompare className="w-6 h-6 text-amber-600" />
+              <h3 className="text-2xl font-black text-stone-900">
+                {isEs ? "Comparador de Tortilla DNA" : "Tortilla DNA Benchmark"}
+              </h3>
+            </div>
+
+            <p className="text-xs text-stone-600 mb-6">
+              {isEs
+                ? "Compara tu receta generada contra referentes icónicos como la Tortilla de Betanzos o la Clásica con Cebolla:"
+                : "Benchmark your custom tortilla ratios against iconic reference recipes:"}
+            </p>
+
+            {/* Select reference recipe */}
+            <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+              {referenceRecipes.map((r) => (
+                <button
+                  key={r.id}
+                  type="button"
+                  onClick={() => setSelectedRefId(r.id)}
+                  className={`px-3.5 py-1.5 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
+                    selectedRefId === r.id
+                      ? "bg-amber-600 text-white shadow-xs"
+                      : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                  }`}
+                >
+                  {r.title[isEs ? "es" : "en"] || r.id}
+                </button>
+              ))}
+            </div>
+
+            {/* Comparison Details Grid */}
+            {comparison && (
+              <div className="grid grid-cols-2 gap-4 text-xs bg-amber-50/60 p-4 rounded-xl border border-amber-200">
+                <div className="space-y-2">
+                  <h4 className="font-extrabold text-amber-900 uppercase">
+                    {isEs ? "Tu Tortilla Personalizada" : "Your Custom Omelette"}
+                  </h4>
+                  <p>🥚 Huevos: <strong>{comparison.recipeA.eggCount}</strong></p>
+                  <p>🥔 Patata/Huevo: <strong>{comparison.dnaComparison.potatoDifference.recipeA}g</strong></p>
+                  <p>🫒 Aceite/Huevo: <strong>{comparison.dnaComparison.oilDifference.recipeA}ml</strong></p>
+                </div>
+
+                <div className="space-y-2 border-l border-amber-200 pl-4">
+                  <h4 className="font-extrabold text-stone-900 uppercase">
+                    {selectedRefRecipe.title[isEs ? "es" : "en"]}
+                  </h4>
+                  <p>🥚 Huevos: <strong>{comparison.recipeB.eggCount}</strong></p>
+                  <p>🥔 Patata/Huevo: <strong>{comparison.dnaComparison.potatoDifference.recipeB}g</strong></p>
+                  <p>🫒 Aceite/Huevo: <strong>{comparison.dnaComparison.oilDifference.recipeB}ml</strong></p>
+                </div>
+              </div>
+            )}
+
+            <div className="mt-6 text-right">
+              <Button
+                onClick={() => setShowComparator(false)}
+                className="bg-stone-800 hover:bg-stone-900 text-white font-bold px-5 py-2 text-xs"
+              >
+                {isEs ? "Cerrar" : "Close"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

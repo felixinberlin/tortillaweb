@@ -55,24 +55,6 @@
           }
         },
         {
-          "key": "restaurantes",
-          "href": "/restaurantes",
-          "label": {
-            "es": "Restaurantes",
-            "en": "Restaurants",
-            "de": "Restaurants"
-          }
-        },
-        {
-          "key": "regiones",
-          "href": "/regiones",
-          "label": {
-            "es": "Regiones",
-            "en": "Regions",
-            "de": "Regionen"
-          }
-        },
-        {
           "key": "ingredients",
           "href": "/ingredients",
           "label": {

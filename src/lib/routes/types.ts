@@ -9,7 +9,6 @@ export type RouteId =
   | 'science'
   | 'history'
   | 'personas'
-  | 'restaurantes'
   | 'regiones'
   | 'records'
   | 'estilos'
@@ -28,7 +27,6 @@ export type CanonicalType =
   | 'ingredient'
   | 'technique'
   | 'person'
-  | 'restaurant'
   | 'region'
   | 'style';
 

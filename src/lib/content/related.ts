@@ -331,28 +331,49 @@ export async function getRelatedTaxonomies(
 
   const matchedTaxonomyIds = new Set<string>();
 
-  if (typeof raw === 'object' && raw.taxonomyIds && Array.isArray(raw.taxonomyIds)) {
-    for (const tag of raw.taxonomyIds) {
-      matchedTaxonomyIds.add(tag);
+  if (typeof raw === 'object') {
+    if (raw.taxonomyIds && Array.isArray(raw.taxonomyIds)) {
+      for (const tag of raw.taxonomyIds) {
+        matchedTaxonomyIds.add(tag);
+      }
     }
-  } else if (type === 'ingredient') {
-    const recipes = await getAllRecipes();
-    for (const r of recipes) {
-      const containsTarget =
-        r.taxonomyIds?.includes(`ingredient:${id}`) ||
-        r.ingredients?.some((ing) => ing.ingredientId === id || ing.id === id);
-
-      if (containsTarget) {
-        r.taxonomyIds?.forEach((tag) => {
-          if (!tag.startsWith('ingredient:')) {
-            matchedTaxonomyIds.add(tag);
-          }
-        });
+    if (raw.related && Array.isArray(raw.related)) {
+      for (const rel of raw.related) {
+        if (typeof rel === 'string') {
+          matchedTaxonomyIds.add(rel);
+        } else if (rel && rel.type && rel.id) {
+          matchedTaxonomyIds.add(`${rel.type}:${rel.id}`);
+          matchedTaxonomyIds.add(rel.id);
+        }
       }
     }
   }
 
+  // Cross-reference recipes to find co-occurring taxonomies (for ingredients, regions, styles, factions, etc.)
+  const recipes = await getAllRecipes();
+  const targetTag = `${type}:${id}`;
+  for (const r of recipes) {
+    const containsTarget =
+      r.taxonomyIds?.includes(targetTag) ||
+      r.taxonomyIds?.includes(id) ||
+      (type === 'ingredient' && r.ingredients?.some((ing) => ing.ingredientId === id || ing.id === id));
+
+    if (containsTarget) {
+      r.taxonomyIds?.forEach((tag) => {
+        if (type === 'ingredient' && tag.startsWith('ingredient:')) {
+          return;
+        }
+        if (tag !== targetTag && tag !== `${type}:${id}`) {
+          matchedTaxonomyIds.add(tag);
+        }
+      });
+    }
+  }
+
   for (const tax of taxonomies) {
+    if (type === 'ingredient' && tax.type === 'ingredient') {
+      continue;
+    }
     const fullTag = `${tax.type}:${tax.id}`;
     if ((matchedTaxonomyIds.has(fullTag) || matchedTaxonomyIds.has(tax.id)) && !(tax.type === type && tax.id === id)) {
       const titleStr = tax.title?.[lang] || tax.title?.es || tax.id;

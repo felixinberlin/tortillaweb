@@ -1,0 +1,21 @@
+{
+  "id": "madrid",
+  "type": "region",
+  "contentId": "region.madrid",
+  "slug": {
+    "es": "madrid",
+    "en": "madrid",
+    "de": "madrid"
+  },
+  "title": {
+    "es": "Comunidad de Madrid",
+    "en": "Madrid Region",
+    "de": "Region Madrid"
+  },
+  "description": {
+    "es": "Epicentro de la tortilla de patatas con cebolla caramelizada, tortillas de barra y templos gastronómicos icónicos.",
+    "en": "Capital of caramelized onion omelettes, traditional bar counter slices, and iconic culinary temples.",
+    "de": "Zentrum der Tortilla mit karamellisierten Zwiebeln, Bar-Klassikern und kultigen kulinarischen Tempeln."
+  },
+  "icon": "Building"
+}

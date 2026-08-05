@@ -46,12 +46,6 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     label: { es: 'Personajes', en: 'People & Chefs', de: 'Persönlichkeiten' },
     canonicalType: 'person',
   },
-  restaurantes: {
-    id: 'restaurantes',
-    slug: { es: 'restaurantes', en: 'restaurants', de: 'restaurants' },
-    label: { es: 'Restaurantes', en: 'Restaurants', de: 'Restaurants' },
-    canonicalType: 'restaurant',
-  },
   regiones: {
     id: 'regiones',
     slug: { es: 'regiones', en: 'regions', de: 'regionen' },

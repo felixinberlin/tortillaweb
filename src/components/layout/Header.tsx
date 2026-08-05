@@ -46,7 +46,6 @@ const iconMap: Record<string, any> = {
   history: History,
   estilos: Palette,
   personas: Users,
-  restaurantes: Utensils,
   regiones: MapPin,
   ingredients: Egg,
   techniques: Flame,

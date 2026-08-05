@@ -84,8 +84,6 @@ const ROUTE_SEGMENT_ALIASES: Record<string, RouteId> = {
   personas: 'personas',
   people: 'personas',
   personen: 'personas',
-  restaurantes: 'restaurantes',
-  restaurants: 'restaurantes',
   regiones: 'regiones',
   regions: 'regiones',
   regionen: 'regiones',

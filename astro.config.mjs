@@ -8,7 +8,7 @@ const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 // https://astro.build/config
 export default defineConfig({
     site: isGitHubPages
-    ? 'https://felixinberlin.github.io'
+    ? 'https://felixinberlin.github.io/tortillaweb/'
     : 'https://tortilladepatatas.org',
 
   base: isGitHubPages ? '/tortillaweb/' : '/',

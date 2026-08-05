@@ -628,6 +628,50 @@ const pillars = [
         </div>
       )}
     </section>
+
+    <!-- RELATED TAXONOMIES & CATEGORIES -->
+    {relatedTaxonomies.length > 0 && (
+      <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">
+        <h2 class="text-xl sm:text-2xl font-serif-heading font-bold text-[#292521]">
+          {currentLang === 'en' ? 'Related Concepts & Taxonomies' : currentLang === 'de' ? 'Verwandte Konzepte & Taxonomien' : 'Conceptos y Categorías Relacionadas'}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {relatedTaxonomies.map((tax) => (
+            <a href={tax.url} class="card-notebook p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-[#FFB800] transition-colors flex items-start gap-3 group">
+              <div class="p-2 rounded-lg bg-[#F5E6BE] text-[#8D6E63] shrink-0 border border-amber-300">
+                <Sparkles class="w-4 h-4" />
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-[#8D6E63] bg-[#F5E6BE] px-2 py-0.5 rounded-full border border-amber-300">
+                    {tax.type}
+                  </span>
+                  <h3 class="font-bold text-sm text-[#292521] group-hover:text-[#8D6E63] transition-colors">{tax.title}</h3>
+                </div>
+                {tax.description && <p class="text-xs text-muted-foreground line-clamp-2 leading-relaxed">{tax.description}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- RELATED ARTICLES -->
+    {relatedArticles.length > 0 && (
+      <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">
+        <h2 class="text-xl sm:text-2xl font-serif-heading font-bold text-[#292521]">
+          {currentLang === 'en' ? 'Related Articles & Monographs' : currentLang === 'de' ? 'Verwandte Artikel & Monografien' : 'Artículos y Monografías Relacionadas'}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {relatedArticles.map((art) => (
+            <a href={art.url} class="card-notebook p-4 rounded-xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-[#FFB800] transition-colors space-y-1.5 group">
+              <h3 class="font-bold text-sm text-[#292521] group-hover:text-[#8D6E63] transition-colors">{art.title}</h3>
+              {art.description && <p class="text-xs text-muted-foreground line-clamp-2">{art.description}</p>}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
   )}
 </Layout>

@@ -1,0 +1,21 @@
+{
+  "id": "extremadura",
+  "type": "region",
+  "contentId": "region.extremadura",
+  "slug": {
+    "es": "extremadura",
+    "en": "extremadura",
+    "de": "extremadura"
+  },
+  "title": {
+    "es": "Extremadura",
+    "en": "Extremadura",
+    "de": "Extremadura"
+  },
+  "description": {
+    "es": "Tierra histórica vinculada a las primeras referencias documentadas del guiso de patata y huevo en Villanueva de la Serena (1798).",
+    "en": "Historical origin region linked to the earliest documented records of potato and egg dishes in Villanueva de la Serena (1798).",
+    "de": "Historische Ursprungsregion der ersten dokumentierten Erwähnung von Kartoffel-Ei-Gerichten in Villanueva de la Serena (1798)."
+  },
+  "icon": "History"
+}
