@@ -48,9 +48,6 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
               <h3 className="font-serif-heading font-bold text-lg text-white tracking-tight m-0">
                 tortilladepatatas.org
               </h3>
-              <p className="font-script text-sm text-[#FFB800]/90 -mt-0.5 m-0">
-                {t("footer.subtitle", "Gastronomía, Tradición & Ciencia Culinaria")}
-              </p>
             </div>
           </div>
 
@@ -75,7 +72,6 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
               { path: "/techniques", label: t("nav.techniques", "Técnicas & Volteado") },
               { path: "/science", label: t("nav.science", "Ciencia & Seguridad Alimentaria") },
               { path: "/history", label: t("nav.history", "Historia & Cronología 1767-2025") },
-              { path: "/personas", label: t("nav.personas", "Personas & Creadores") },
               { path: "/about", label: t("nav.about", "Sobre Nosotros") },
               { path: "/contacto", label: t("nav.contact", "Contacto & Consultas") },
             ].map((item) => (
@@ -133,12 +129,12 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
       {/* Footer Bottom Bar */}
       <div className="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-[#8D6E63]/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#E8E2D5]/70 text-center sm:text-left">
         <p>
-          &copy; {new Date().getFullYear()} tortilladepatatas.org. {t("footer.rights", "Todos los derechos reservados.")}
+          2026 tortilladepatatas.org. {t("footer.rights", "Ningún derecho reservado.")}
         </p>
         <p className="flex items-center justify-center gap-1.5 font-medium">
           <span>{t("footer.craftedWith", "Hecho con")}</span>
           <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline" />
-          <span>{t("footer.forGastronomy", "para los amantes de la gastronomía y la ciencia culinaria.")}</span>
+          <span>{t("footer.forGastronomy", "para los amantes de la tortilla de patatas.")}</span>
         </p>
       </div>
     </footer>
