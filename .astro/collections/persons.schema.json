@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "default": "person",
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "translationKey": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "image": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ]
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "description"
+  ]
+}
