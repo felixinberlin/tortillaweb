@@ -313,7 +313,11 @@ ${shareUrl}`;
               <h4 className="text-xs font-extrabold text-stone-500 uppercase tracking-wider mb-1">
                 🍳 {isEs ? "Estructura & Corte" : "Structure & Slice"}
               </h4>
-              <p className="text-xs text-stone-700">{calculatedProfile.structureNote}</p>
+              <p className="text-xs text-stone-700">
+                {typeof calculatedProfile.structureNote === "object"
+                  ? calculatedProfile.structureNote[isEs ? "es" : isDe ? "de" : "en"] || calculatedProfile.structureNote.es
+                  : calculatedProfile.structureNote}
+              </p>
             </div>
           </CardContent>
         </Card>

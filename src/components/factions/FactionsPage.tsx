@@ -214,7 +214,7 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
             const factionDogma = faction.dogma ? (faction.dogma[currentLang as keyof typeof faction.dogma] || faction.dogma.es) : undefined;
             const factionBadge = faction.badge ? (faction.badge[currentLang as keyof typeof faction.badge] || faction.badge.es) : undefined;
             const keyIngredient = faction.keyIngredient ? (faction.keyIngredient[currentLang as keyof typeof faction.keyIngredient] || faction.keyIngredient.es) : undefined;
-            const factionUrl = getContentUrl(faction, (currentLang as SupportedLocale) || 'es');
+            const factionUrl = getContentUrl({ ...faction, type: faction.type as any }, (currentLang as SupportedLocale) || 'es');
 
             return (
               <article

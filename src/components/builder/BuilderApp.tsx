@@ -390,24 +390,27 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
 
             {/* Select reference recipe */}
             <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-              {referenceRecipes.map((r) => (
-                <button
-                  key={r.id}
-                  type="button"
-                  onClick={() => setSelectedRefId(r.id)}
-                  className={`px-3.5 py-1.5 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
-                    selectedRefId === r.id
-                      ? "bg-amber-600 text-white shadow-xs"
-                      : "bg-stone-100 text-stone-700 hover:bg-stone-200"
-                  }`}
-                >
-                  {r.title[isEs ? "es" : "en"] || r.id}
-                </button>
-              ))}
+              {referenceRecipes.map((r) => {
+                const titleStr = typeof r.title === "string" ? r.title : (r.title?.[isEs ? "es" : "en"] || r.id);
+                return (
+                  <button
+                    key={r.id}
+                    type="button"
+                    onClick={() => setSelectedRefId(r.id || "")}
+                    className={`px-3.5 py-1.5 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
+                      selectedRefId === r.id
+                        ? "bg-amber-600 text-white shadow-xs"
+                        : "bg-stone-100 text-stone-700 hover:bg-stone-200"
+                    }`}
+                  >
+                    {titleStr}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Comparison Details Grid */}
-            {comparison && (
+            {comparison && selectedRefRecipe && (
               <div className="grid grid-cols-2 gap-4 text-xs bg-amber-50/60 p-4 rounded-xl border border-amber-200">
                 <div className="space-y-2">
                   <h4 className="font-extrabold text-amber-900 uppercase">
@@ -420,7 +423,7 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
 
                 <div className="space-y-2 border-l border-amber-200 pl-4">
                   <h4 className="font-extrabold text-stone-900 uppercase">
-                    {selectedRefRecipe.title[isEs ? "es" : "en"]}
+                    {typeof selectedRefRecipe.title === "string" ? selectedRefRecipe.title : (selectedRefRecipe.title?.[isEs ? "es" : "en"] || selectedRefRecipe.id)}
                   </h4>
                   <p>🥚 Huevos: <strong>{comparison.recipeB.eggCount}</strong></p>
                   <p>🥔 Patata/Huevo: <strong>{comparison.dnaComparison.potatoDifference.recipeB}g</strong></p>

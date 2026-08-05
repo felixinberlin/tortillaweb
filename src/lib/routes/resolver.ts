@@ -4,6 +4,7 @@ import type {
   RouteId, 
   CanonicalType, 
   ContentEntity,
+  NavigationTarget,
   RouteResolution 
 } from './types';
 
