@@ -244,6 +244,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
                     type="button"
                     onClick={() => setSearchQuery("")}
                     className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                    aria-label={isEs ? "Limpiar búsqueda" : "Clear search"}
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
