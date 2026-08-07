@@ -126,6 +126,7 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
                 type="button"
                 onClick={() => setSearchQuery("")}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                aria-label={isEs ? "Borrar búsqueda" : "Clear search"}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -226,6 +227,7 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
                               onUpdateExtra(item.ingredientId, newQty < item.minQuantity ? 0 : newQty);
                             }}
                             title={isEs ? "Reducir cantidad" : "Decrease quantity"}
+                            aria-label={isEs ? `Reducir cantidad de ${name}` : `Decrease quantity of ${name}`}
                           >
                             <Minus className="w-3 h-3" />
                           </Button>
@@ -241,6 +243,7 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
                               onUpdateExtra(item.ingredientId, newQty);
                             }}
                             title={isEs ? "Aumentar cantidad" : "Increase quantity"}
+                            aria-label={isEs ? `Aumentar cantidad de ${name}` : `Increase quantity of ${name}`}
                           >
                             <Plus className="w-3 h-3" />
                           </Button>
@@ -250,6 +253,7 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
                             className="h-7 w-7 p-0 text-red-600 hover:text-red-800 hover:bg-red-50 ml-1"
                             onClick={() => onUpdateExtra(item.ingredientId, 0)}
                             title={isEs ? "Desactivar / Quitar" : "Deactivate / Remove"}
+                            aria-label={isEs ? `Quitar ${name}` : `Remove ${name}`}
                           >
                             <X className="w-3.5 h-3.5" />
                           </Button>
