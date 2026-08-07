@@ -109,6 +109,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
               onClick={onClearExtras}
               className="text-2xs font-bold text-amber-900 hover:text-red-700 hover:bg-amber-200/50 h-7 px-2.5 rounded-lg flex items-center gap-1"
               title={isEs ? "Eliminar todos los ingredientes extra" : "Remove all extra ingredients"}
+              aria-label={isEs ? "Eliminar todos los ingredientes extra" : "Remove all extra ingredients"}
             >
               <Trash2 className="w-3 h-3" />
               {isEs ? "Quitar extras" : isDe ? "Extras entfernen" : "Clear extras"}
@@ -118,6 +119,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
           <Button
             variant="ghost"
             size="sm"
+            aria-label={isEs ? (isExpanded ? "Ocultar panel" : "Mostrar panel") : (isExpanded ? "Collapse panel" : "Expand panel")}
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-stone-600 hover:text-stone-900 h-7 w-7 p-0 rounded-lg"
           >
@@ -196,6 +198,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-600 text-white border border-amber-700 shadow-2xs group transition-all hover:bg-red-700 hover:border-red-800 cursor-pointer"
                     onClick={() => onUpdateExtra(ex.id, 0)}
                     title={isEs ? "Haz clic para desactivar / quitar de la lista" : "Click to deactivate / remove from list"}
+                    aria-label={isEs ? `Desactivar ${name}` : `Deactivate ${name}`}
                   >
                     <span>✨</span>
                     <span>{name}</span>
@@ -244,6 +247,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
                     type="button"
                     onClick={() => setSearchQuery("")}
                     className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                    aria-label={isEs ? "Borrar búsqueda" : "Clear search"}
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
