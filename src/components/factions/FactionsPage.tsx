@@ -13,7 +13,6 @@ import {
   ChefHat, 
   ExternalLink, 
   BarChart3, 
-  ShieldAlert,
   Award
 } from "lucide-react";
 import type { Taxonomy } from "@/types/taxonomy";
@@ -48,8 +47,6 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
     ajistas: 5,
     "con-cosas": 5
   };
-
-  const safetyNoteText = pageData.safetyNote?.[currentLang] || "Recordatorio de Seguridad e Higiene: Para garantizar un cuajado seguro frente a Salmonella, el estándar bactericida exige alcanzar **70°C durante 2 minutos** o cocinar el huevo pasteurizado a **63°C durante 20 segundos**. Consume en menos de **4 horas** a temperatura ambiente o mantén refrigerada por debajo de **8°C**.";
 
   // Local state for interactive poll with localStorage persistence
   const [selectedFaction, setSelectedFaction] = useState<string | null>(null);
@@ -127,23 +124,6 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
       default:
         return "bg-amber-100 text-amber-900 border-amber-300";
     }
-  };
-
-  const renderFormattedSafety = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part, i) => {
-      if (part.startsWith("**") && part.endsWith("**")) {
-        return (
-          <strong
-            key={i}
-            className="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1.5 py-0.5 rounded border border-amber-300/60"
-          >
-            {part.slice(2, -2)}
-          </strong>
-        );
-      }
-      return part;
-    });
   };
 
   return (
@@ -394,16 +374,6 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
               <span>{votedMsg}</span>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* SAFETY NOTE */}
-      <section className="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs max-w-4xl mx-auto">
-        <div className="flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-          <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-            <p className="font-sans">{renderFormattedSafety(safetyNoteText)}</p>
-          </div>
         </div>
       </section>
     </div>

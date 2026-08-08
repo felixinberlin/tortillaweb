@@ -269,7 +269,7 @@
     "emailPlaceholder": "ihre@email.de",
     "typeLabel": "Grund der Anfrage",
     "typeOptions": {
-      "help": "Ich brauche Hilfe",
+      "help": "Cool! Ich möchte helfen!",
       "question": "Ich habe eine Frage",
       "thanks": "Ihr seid die Besten!",
       "other": "Sonstiges"

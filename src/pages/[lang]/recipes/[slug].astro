@@ -249,16 +249,6 @@ const relatedTaxonomies = (isValidRoute && recipe) ? await getRelatedTaxonomies(
         </main>
       </div>
 
-      <!-- BACTERICIDAL SAFETY WARNING -->
-      <section class="card-notebook p-5 sm:p-6 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] shadow-xs">
-        <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-          <Shield class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-          <p class="font-sans">
-            Estándar Bactericida: Alcanzar <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">70°C durante 2 minutos</strong> o cocinar a <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">63°C durante 20 segundos</strong>. Consumir en menos de <strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">4 horas</strong> a temperatura ambiente o refrigerar a &lt;<strong class="font-bold text-[#8D6E63] bg-[#F5E6BE] px-1 py-0.5 rounded">8°C</strong>.
-          </p>
-        </div>
-      </section>
-
       <!-- RELATED INGREDIENTS & VARIATIONS -->
       {relatedIngredients.length > 0 && (
         <section class="space-y-4 pt-6 border-t border-[#E8E2D5]">

@@ -269,7 +269,7 @@
     "emailPlaceholder": "you@example.com",
     "typeLabel": "Message reason",
     "typeOptions": {
-      "help": "I need help",
+      "help": "Cool! I want to help!",
       "question": "I have a question",
       "thanks": "You are the best!",
       "other": "Other"

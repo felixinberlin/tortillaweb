@@ -3,9 +3,8 @@ import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { supportedLanguages } from '@/lib/i18n';
 import { generateBreadcrumbSchema } from '@/lib/seo';
-import { getAllTaxonomies, TAXONOMY_TYPE_LABELS } from '@/lib/taxonomy';
-import { routeResolver } from '@/lib/routes';
-import { HelpCircle, Sparkles, ShieldCheck, MapPin, Heart, Flame, Egg, Users, Trophy, BookOpen, ArrowRight } from 'lucide-react';
+import TriviaGallery from '@/components/trivia/TriviaGallery';
+import { HelpCircle, ShieldCheck, MapPin, Clock } from 'lucide-react';
 
 export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -20,71 +19,11 @@ const pagesCollection = await getCollection('pages');
 const triviaEntry = pagesCollection.find((p) => p.id === 'trivia' || p.id.includes('trivia'));
 const pageData = triviaEntry ? triviaEntry.data : null;
 
-const badge = pageData?.badge?.[currentLang] || 'Trivia & Curiosidades';
-const title = pageData?.title?.[currentLang] || 'Trivia del Universo Tortilla';
-const subtitle = pageData?.subtitle?.[currentLang] || 'Explora datos fascinantes y secretos de taxonomías.';
-const extraTrivia = pageData?.extraTrivia || [];
+const badge = pageData?.badge?.[currentLang] || (currentLang === 'en' ? 'Compendium of Myths & Verifications' : currentLang === 'de' ? 'Kompendium der Mythen & Fakten' : 'Compendio de Mitos & Verificaciones');
+const title = pageData?.title?.[currentLang] || (currentLang === 'en' ? 'Trivia & Archive of Proved vs Unproved Facts' : currentLang === 'de' ? 'Trivia & Archiv bewiesener Fakten vs Mythen' : 'Trivia & Registro de Hechos Probados vs Mitos');
+const subtitle = pageData?.subtitle?.[currentLang] || (currentLang === 'en' ? 'Explore historical truths, urban legends, iconic comics like Mortadelo, and giant records. Each entry includes verification status (Proved vs Unproved).' : currentLang === 'de' ? 'Entdecke historische Wahrheiten, Mythen, berühmte Comics wie Mortadelo und Riesen-Rekorde.' : 'Explora verdades históricas, mitos populares, cómics icónicos como Mortadelo y récords monumentales de tortillas. Cada entrada cuenta con estado de verificación (Probado vs No Probado).');
 
-const allTaxonomies = await getAllTaxonomies();
-
-// Map taxonomy icon names to Lucide icon concepts
-function getCategoryIcon(type: string) {
-  switch (type) {
-    case 'ingredient': return Egg;
-    case 'region': return MapPin;
-    case 'faction': return Heart;
-    case 'technique': return Flame;
-    case 'person': return Users;
-    case 'style': return BookOpen;
-    default: return Sparkles;
-  }
-}
-
-// Build list of taxonomy-driven trivia cards
-const taxonomyTriviaCards = allTaxonomies.map((tax) => {
-  const taxTitle = tax.title?.[currentLang] || tax.title?.es || tax.id;
-  const taxDesc = tax.description?.[currentLang] || tax.description?.es || '';
-  const taxBadge = tax.badge?.[currentLang] || tax.badge?.es || TAXONOMY_TYPE_LABELS[tax.type]?.[currentLang] || tax.type;
-  const taxDogma = tax.dogma?.[currentLang] || tax.dogma?.es;
-  const url = routeResolver.urlFor({ type: tax.type, slug: tax.slug }, currentLang);
-
-  let extraNote = '';
-  if (tax.related && Array.isArray(tax.related) && tax.related.length > 0) {
-    const relStrings = tax.related.map((r: any) => {
-      if (r.relationship === 'origin_region') return currentLang === 'en' ? 'Origin Region' : currentLang === 'de' ? 'Herkunftsregion' : 'Región de Origen';
-      if (r.relationship === 'signature_ingredient') return currentLang === 'en' ? 'Signature Ingredient' : currentLang === 'de' ? 'Typische Zutat' : 'Ingrediente Emblemático';
-      return r.relationship || r.id;
-    });
-    extraNote = relStrings.join(', ');
-  }
-
-  return {
-    id: `tax-${tax.type}-${tax.id}`,
-    type: tax.type,
-    title: taxTitle,
-    description: taxDesc,
-    badge: taxBadge,
-    dogma: taxDogma,
-    extraNote,
-    url,
-    icon: getCategoryIcon(tax.type),
-  };
-});
-
-// Build extra trivia items
-const extraTriviaCards = extraTrivia.map((item: any) => ({
-  id: item.id,
-  type: item.category || 'records',
-  title: item.title?.[currentLang] || item.title?.es || item.id,
-  description: item.fact?.[currentLang] || item.fact?.es || '',
-  badge: item.source || (currentLang === 'en' ? 'Trivia Fact' : currentLang === 'de' ? 'Trivia Fakt' : 'Curiosidad Destacada'),
-  dogma: null,
-  extraNote: '',
-  url: null,
-  icon: item.category === 'records' ? Trophy : item.category === 'science' ? ShieldCheck : Sparkles,
-}));
-
-const allTriviaCards = [...extraTriviaCards, ...taxonomyTriviaCards];
+const factsList = pageData?.facts || pageData?.extraTrivia || [];
 
 const pageTitle = `${title} | tortilladepatatas.org`;
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -92,8 +31,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Enciclopedia', url: `/${currentLang}/enciclopedia` },
   { name: title, url: `/${currentLang}/trivia` },
 ]);
-
-const labelCategoryAll = currentLang === 'en' ? 'Todas' : currentLang === 'de' ? 'Alle' : 'Todas las Curiosidades';
 ---
 
 <Layout title={pageTitle} description={subtitle} lang={currentLang} schema={[breadcrumbSchema]}>
@@ -115,17 +52,21 @@ const labelCategoryAll = currentLang === 'en' ? 'Todas' : currentLang === 'de' ?
     </header>
 
     <!-- Highlights Banner / Regional Rules -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="card-notebook p-6 rounded-2xl bg-[#FFFDF9] border border-[#E8E2D5] border-l-4 border-l-[#FFB800] space-y-3 shadow-xs">
         <div class="flex items-center gap-2 text-xs font-extrabold text-amber-900 uppercase tracking-wider">
           <MapPin class="w-4 h-4 text-[#FFB800]" />
-          <span>{currentLang === 'en' ? 'Riojan Golden Rule' : currentLang === 'de' ? 'Riojanische Goldene Regel' : 'Regla de Oro Riojana'}</span>
+          <span>{currentLang === 'en' ? 'Comic Legend vs Gastronomy' : currentLang === 'de' ? 'Comic-Legende vs Gastronomie' : 'Mito del Cómics vs Gastronomía'}</span>
         </div>
         <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
-          {currentLang === 'en' ? 'Chorizo & Mild Chili' : currentLang === 'de' ? 'Chorizo & Knoblauch-Peperoni' : 'Tortilla con Chorizo Riojano y Ajo'}
+          {currentLang === 'en' ? 'Mortadelo & Potato Skins' : currentLang === 'de' ? 'Mortadelo & Kartoffelschalen' : 'Mortadelo y la Piel de Patata'}
         </h3>
         <p class="text-sm text-foreground/80 leading-relaxed font-sans">
-          En La Rioja y sus pueblos tradicionales, el chorizo picante o con pimentón dulce se sofríe primero con ajos laminados para liberar su aceite rojo perfumado, que luego confita las patatas.
+          {currentLang === 'en'
+            ? 'In classic Mortadelo y Filemón comics by Ibáñez, Mortadelo famously threw peeled potatoes away and fried raw skins for his boss. A comic gag classified as Unproved Myth.'
+            : currentLang === 'de'
+            ? 'In den bekannten Comics von Francisco Ibáñez briet Mortadelo rohe Schalen für seinen Chef. Ein heiterer Comic-Mythos.'
+            : 'En los cómics de Francisco Ibáñez, Mortadelo tiraba la patata y freía únicamente las peladuras para el Súper. Un clásico gag humorístico clasificado como Mito No Probado.'}
         </p>
       </div>
 
@@ -138,79 +79,51 @@ const labelCategoryAll = currentLang === 'en' ? 'Todas' : currentLang === 'de' ?
           {currentLang === 'en' ? 'Bactericidal Heat Standard' : currentLang === 'de' ? 'Bakterizide Hitze-Regel' : 'Protocolo Bactericida'}
         </h3>
         <p class="text-sm text-foreground/80 leading-relaxed font-sans">
-          Cualquier receta o trivia científica exige garantizar **70°C for 2 minutes** (o **63°C for 20 seconds**) en el centro de la tortilla para pasteurizar el huevo sin perder melosidad.
+          {currentLang === 'es' ? (
+            <>Toda receta o trivia científica exige garantizar <strong class="font-bold">70°C durante 2 minutos</strong> (o <strong class="font-bold">63°C durante 20 segundos</strong>) en el centro de la tortilla para pasteurizar el huevo sin perder melosidad.</>
+          ) : currentLang === 'de' ? (
+            <>Standard zur Bakterienabtötung: <strong class="font-bold">70°C für 2 Minuten</strong> (oder <strong class="font-bold">63°C für 20 Sekunden</strong>) im Kern.</>
+          ) : (
+            <>Bactericidal safety standard requiring <strong class="font-bold">70°C for 2 minutes</strong> (or <strong class="font-bold">63°C for 20 seconds</strong>) at the thermal core.</>
+          )}
+        </p>
+      </div>
+
+      <div class="card-notebook p-6 rounded-2xl bg-[#FFFDF9] border border-[#E8E2D5] border-l-4 border-l-[#D32F2F] space-y-3 shadow-xs">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-[#D32F2F] uppercase tracking-wider">
+          <Clock class="w-4 h-4 text-[#D32F2F]" />
+          <span>{currentLang === 'en' ? 'Ambient Limit' : currentLang === 'de' ? 'Umgebungsgrenze' : 'Límite de Exposición'}</span>
+        </div>
+        <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
+          {currentLang === 'en' ? '4-Hour Maximum Rule' : currentLang === 'de' ? '4-Stunden-Regel' : 'Regla de las 4 Horas'}
+        </h3>
+        <p class="text-sm text-foreground/80 leading-relaxed font-sans">
+          {currentLang === 'es' ? (
+            <>Las tortillas poco cuajadas elaboradas con huevo fresco servidas a temperatura ambiente deben consumirse en un plazo máximo de <strong class="font-bold">4 horas</strong> para evitar proliferación bacteriana.</>
+          ) : currentLang === 'de' ? (
+            <>Saftige Tortillas mit frischem Ei dürfen bei Raumtemperatur maximal <strong class="font-bold">4 Stunden</strong> aufbewahrt werden.</>
+          ) : (
+            <>Runny tortillas made with fresh egg left at room temperature must be eaten within <strong class="font-bold">4 hours</strong> max.</>
+          )}
         </p>
       </div>
     </section>
 
-    <!-- Trivia Grid -->
-    <section class="space-y-6">
-      <div class="flex items-center justify-between border-b border-[#E8E2D5] pb-4">
-        <h2 class="text-2xl font-serif-heading font-bold text-[#292521] flex items-center gap-2">
-          <Sparkles class="w-5 h-5 text-[#FFB800]" />
-          <span>{labelCategoryAll}</span>
-        </h2>
-        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-[#FAF6EE] border border-[#E8E2D5] text-[#8D6E63]">
-          {allTriviaCards.length} {currentLang === 'en' ? 'Trivia Items' : currentLang === 'de' ? 'Einträge' : 'Curiosidades'}
-        </span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {allTriviaCards.map((card) => {
-          const IconComp = card.icon;
-          return (
-            <article class="card-notebook p-6 rounded-2xl bg-[#FCF9F2] border border-[#E8E2D5] hover:border-amber-400 transition-all flex flex-col justify-between space-y-4 shadow-xs group">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between gap-2">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#F5E6BE] text-[#8D6E63] text-[11px] font-bold">
-                    <IconComp class="w-3.5 h-3.5 shrink-0" />
-                    <span>{card.badge}</span>
-                  </span>
-                  {card.extraNote && (
-                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded">
-                      {card.extraNote}
-                    </span>
-                  )}
-                </div>
-
-                <h3 class="text-xl font-serif-heading font-bold text-[#292521] group-hover:text-amber-900 transition-colors">
-                  {card.title}
-                </h3>
-
-                <p class="text-sm text-foreground/80 leading-relaxed font-sans">
-                  {card.description}
-                </p>
-
-                {card.dogma && (
-                  <div class="p-3 rounded-xl bg-[#FFFDF9] border-l-2 border-l-[#FFB800] border border-[#E8E2D5] text-xs font-medium text-amber-950 italic">
-                    "{card.dogma}"
-                  </div>
-                )}
-              </div>
-
-              {card.url && (
-                <div class="pt-2 border-t border-[#E8E2D5]/60 flex items-center justify-end">
-                  <a
-                    href={card.url}
-                    class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] hover:text-amber-900 transition-colors"
-                  >
-                    <span>{currentLang === 'en' ? 'Explore Details' : currentLang === 'de' ? 'Mehr erfahren' : 'Ver Ficha Completa'}</span>
-                    <ArrowRight class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              )}
-            </article>
-          );
-        })}
-      </div>
-    </section>
+    <!-- Interactive Data-Driven Trivia Gallery -->
+    <TriviaGallery client:load facts={factsList} currentLang={currentLang} />
 
     <!-- Safety Footer Note -->
     <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
       <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
         <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
         <p>
-          En la ciencia de la tortilla de patata, incluso las curiosidades más antiguas respetan la seguridad alimentaria moderna: el centro térmico debe mantenerse a **70°C for 2 minutes** (o **63°C for 20 seconds**) para eliminar patógenos y permitir un servicio seguro y delicioso.
+          {currentLang === 'es' ? (
+            <>En la ciencia de la tortilla de patata, incluso las curiosidades más antiguas respetan la seguridad alimentaria moderna: el centro térmico debe mantenerse a <strong class="font-bold">70°C durante 2 minutos</strong> (o <strong class="font-bold">63°C durante 20 segundos</strong>) para eliminar patógenos y limitar el tiempo a temperatura ambiente a <strong class="font-bold">4 horas</strong>.</>
+          ) : currentLang === 'de' ? (
+            <>Sicherheitsstandard: Der Kern muss <strong class="font-bold">70°C für 2 Minuten</strong> (oder <strong class="font-bold">63°C für 20 Sekunden</strong>) halten, maximal <strong class="font-bold">4 Stunden</strong> ungekühlt.</>
+          ) : (
+            <>Safety standard: Thermal core must sustain <strong class="font-bold">70°C for 2 minutes</strong> (or <strong class="font-bold">63°C for 20 seconds</strong>), max <strong class="font-bold">4 hours</strong> unrefrigerated.</>
+          )}
         </p>
       </div>
     </section>

@@ -148,7 +148,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
               })}
             </select>
             <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
-              <span>{translations.eggCount}: <strong>{profileA.eggCount} huevos</strong></span>
+              <span>{translations.eggCount}: <strong>{profileA.eggCount} {lang === 'es' ? 'huevos' : lang === 'de' ? 'Eier' : 'eggs'}</strong></span>
               <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-bold text-[10px]">
                 {profileA.classification.potatoIntensityLabel}
               </span>
@@ -175,7 +175,7 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
               })}
             </select>
             <div className="text-[11px] text-muted-foreground flex items-center justify-between px-1">
-              <span>{translations.eggCount}: <strong>{profileB.eggCount} huevos</strong></span>
+              <span>{translations.eggCount}: <strong>{profileB.eggCount} {lang === 'es' ? 'huevos' : lang === 'de' ? 'Eier' : 'eggs'}</strong></span>
               <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-900 border border-blue-300 font-bold text-[10px]">
                 {profileB.classification.potatoIntensityLabel}
               </span>

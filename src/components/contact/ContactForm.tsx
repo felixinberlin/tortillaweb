@@ -49,7 +49,7 @@ const fallbackTranslations = {
     emailPlaceholder: 'tu@email.com',
     typeLabel: 'Motivo del mensaje',
     typeOptions: {
-      help: 'Necesito ayuda',
+      help: '¡Genial! ¡Quiero ayudar!',
       question: 'Tengo una pregunta',
       thanks: '¡Sois los mejores!',
       other: 'Otro asunto'
@@ -80,7 +80,7 @@ const fallbackTranslations = {
     emailPlaceholder: 'you@example.com',
     typeLabel: 'Message reason',
     typeOptions: {
-      help: 'I need help',
+      help: 'Cool! I want to help!',
       question: 'I have a question',
       thanks: 'You are the best!',
       other: 'Other'
@@ -111,7 +111,7 @@ const fallbackTranslations = {
     emailPlaceholder: 'ihre@email.de',
     typeLabel: 'Grund der Anfrage',
     typeOptions: {
-      help: 'Ich brauche Hilfe',
+      help: 'Cool! Ich möchte helfen!',
       question: 'Ich habe eine Frage',
       thanks: 'Ihr seid die Besten!',
       other: 'Sonstiges'

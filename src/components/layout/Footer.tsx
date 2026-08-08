@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "@/i18n/config";
-import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight } from "lucide-react";
+import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 
@@ -105,19 +105,44 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
 
         {/* Food Safety Notice Card */}
         <div className="space-y-3">
-          <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-2">
-            <h4 className="font-bold text-sm text-[#FFB800] flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#FFB800]" />
-              <span>{t("footer.safetyTitle", "Estándar de Seguridad Bactericida")}</span>
-            </h4>
+          <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs space-y-3">
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-21773"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block shrink-0 rounded-lg overflow-hidden border border-amber-500/30 hover:border-[#FFB800] transition-colors"
+                title="BOE Real Decreto 1021/2022"
+              >
+                <img
+                  src="/images/normativa-1021-2022.jpg"
+                  alt="Normativa Colectividades Real Decreto 1021/2022"
+                  className="w-14 h-14 object-cover hover:scale-105 transition-transform duration-200"
+                  referrerPolicy="no-referrer"
+                />
+              </a>
+              <div className="space-y-1">
+                <h4 className="font-bold text-sm text-[#FFB800] flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-[#FFB800] shrink-0" />
+                  <span>{t("footer.safetyTitle", "Estándar de Seguridad Bactericida")}</span>
+                </h4>
+                <a
+                  href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-21773"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-mono text-[11px] text-[#FFB800] hover:underline font-semibold"
+                >
+                  <span>{t("footer.safetyNorm", "Normativa Colectividades Real Decreto 1021/2022")}</span>
+                  <ExternalLink className="w-3 h-3 shrink-0" />
+                </a>
+              </div>
+            </div>
 
-            <p className="text-[#E8E2D5]/80 leading-relaxed">
-              Para garantizar la inocuidad microbiológica y la destrucción de <i>Salmonella spp.</i>, el estándar de cocinado bactericida exige alcanzar <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">70°C for 2 minutes</strong> (o <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">63°C for 20 seconds</strong> como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de <strong className="font-bold text-[#FFB800] bg-amber-500/10 px-1 py-0.5 rounded">4 hours</strong> a temperatura ambiente.
-            </p>
-
-            <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/60">
-              <span className="font-mono">{t("footer.safetyNorm", "Normativa Colectividades Real Decreto 1021/2022")}</span>
-              <a href={getLocalizedHref('/science')} className="font-bold text-[#FFB800] hover:underline flex items-center gap-1">
+            <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/70">
+              <span className="font-mono text-amber-200/90 font-bold">
+                {lang === 'es' ? '70°C durante 2 min / 63°C durante 20s' : '70°C for 2 minutes / 63°C for 20s'}
+              </span>
+              <a href={getLocalizedHref('/science')} className="font-bold text-[#FFB800] hover:underline flex items-center gap-1 ml-auto">
                 <span>{t("footer.viewReport", "Ver Informe")}</span>
                 <BookOpen className="w-3 h-3" />
               </a>

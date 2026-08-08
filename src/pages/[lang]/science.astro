@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShieldCheck, FlaskConical, AlertTriangle, ListOrdered, ArrowUp, Sparkles, SlidersHorizontal, ChevronRight, Activity } from 'lucide-react';
+import { ShieldCheck, FlaskConical, AlertTriangle, ListOrdered, ArrowUp, Sparkles, SlidersHorizontal, ChevronRight, Activity, ExternalLink } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import { getCollection, render } from 'astro:content';
@@ -112,27 +112,60 @@ const sidebarLabels = {
     <!-- Mandatory Food Safety Protocol Banner -->
     <Card class="card-notebook border-2 border-[#2E7D32]/50 bg-[#FCF9F2] shadow-md overflow-hidden">
       <CardHeader class="bg-[#2E7D32]/10 border-b border-[#2E7D32]/20 pb-3">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div class="flex items-center gap-2.5 text-[#2E7D32]">
             <ShieldCheck class="w-6 h-6 shrink-0" />
             <CardTitle class="text-xl font-serif-heading font-bold">
-              {t("sciencePage.safetyTitle", "Estándar de Cocinado Bactericida (UPV / AESAN)")}
+              {t("sciencePage.safetyTitle", "Estándar de Cocinado Bactericida (RD 1021/2022)")}
             </CardTitle>
           </div>
-          <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-[#2E7D32] text-white">
-            AESAN 2026
-          </span>
+          <a
+            href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-21773"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#2E7D32] text-white text-xs font-bold hover:bg-[#1B5E20] transition-colors self-start sm:self-auto shadow-2xs"
+          >
+            <span>Documento Oficial BOE</span>
+            <ExternalLink class="w-3.5 h-3.5" />
+          </a>
         </div>
       </CardHeader>
       <CardContent class="pt-5 space-y-4">
-        <p class="text-foreground leading-relaxed text-sm md:text-base">
-          Para garantizar la inmovilización y destrucción completa de <em>Salmonella Enteritidis</em> sin alterar la untuosidad de la masa, el protocolo oficial exige alcanzar <strong>70°C for 2 minutes</strong> en el núcleo térmico (o alternativamente <strong>63°C for 20 seconds</strong> para centros cremosos de consumo inmediato).
-        </p>
-        <div class="p-4 rounded-xl bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-amber-950 text-xs sm:text-sm flex items-start gap-3">
-          <AlertTriangle class="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
-          <span>
-            <strong>Límite Temporal Estricto:</strong> Tortillas elaboradas con huevo fresco poco cuajado nunca deben exceder las <strong>4 hours</strong> expuestas a temperatura ambiente.
-          </span>
+        <div class="grid md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-8 space-y-3">
+            <p class="text-foreground leading-relaxed text-sm md:text-base">
+              Para garantizar la inmovilización y destrucción completa de <em>Salmonella Enteritidis</em> sin alterar la untuosidad de la masa, el protocolo oficial del <strong>Real Decreto 1021/2022</strong> exige alcanzar <strong>70°C for 2 minutes</strong> en el núcleo térmico (o alternativamente <strong>63°C for 20 seconds</strong> para centros cremosos de consumo inmediato).
+            </p>
+            <div class="p-3.5 rounded-xl bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-amber-950 text-xs sm:text-sm flex items-start gap-3">
+              <AlertTriangle class="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
+              <span>
+                <strong>Límite Temporal Estricto:</strong> Tortillas elaboradas con huevo fresco poco cuajado nunca deben exceder las <strong>4 hours</strong> expuestas a temperatura ambiente.
+              </span>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 flex flex-col items-center justify-center space-y-2">
+            <a
+              href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-21773"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative block rounded-xl overflow-hidden border-2 border-[#2E7D32]/30 shadow-sm hover:border-[#2E7D32] transition-colors max-w-[220px]"
+              title="Real Decreto 1021/2022 BOE"
+            >
+              <img
+                src="/images/normativa-1021-2022.jpg"
+                alt="Normativa Colectividades Real Decreto 1021/2022"
+                class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                referrerPolicy="no-referrer"
+              />
+              <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-end p-2">
+                <span class="text-[10px] font-bold text-white bg-[#2E7D32] px-2 py-0.5 rounded shadow-2xs flex items-center gap-1">
+                  <span>Ver BOE RD 1021/2022</span>
+                  <ExternalLink class="w-2.5 h-2.5" />
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
       </CardContent>
     </Card>
@@ -195,27 +228,6 @@ const sidebarLabels = {
               <SlidersHorizontal class="w-3.5 h-3.5" />
             </a>
           </div>
-        </Card>
-
-        <!-- Thermal Summary Quick Reference -->
-        <Card class="card-notebook p-5 bg-[#FAF6EE] space-y-3">
-          <div class="flex items-center gap-2 text-[#8D6E63]">
-            <Sparkles class="w-4 h-4 text-[#FFB800]" />
-            <h3 class="font-serif-heading font-bold text-xs uppercase tracking-wider text-muted-foreground">
-              {sidebarLabels.safetyNotice}
-            </h3>
-          </div>
-          <ul class="space-y-2 text-xs text-muted-foreground">
-            <li class="p-2 rounded bg-white border border-[#E8E2D5]">
-              <strong class="text-[#2E7D32]">70°C for 2 minutes</strong>: Inactivación bactericida total.
-            </li>
-            <li class="p-2 rounded bg-white border border-[#E8E2D5]">
-              <strong class="text-[#FF8A00]">63°C for 20 seconds</strong>: Pasteurización jugosa autorizada.
-            </li>
-            <li class="p-2 rounded bg-white border border-[#E8E2D5]">
-              <strong class="text-[#B00020]">4 hours</strong>: Límite máximo a temperatura ambiente.
-            </li>
-          </ul>
         </Card>
 
       </aside>

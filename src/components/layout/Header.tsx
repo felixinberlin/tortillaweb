@@ -250,7 +250,7 @@ export default function Header({
                 <a
                   key={language.code}
                   href={getLangUrl(language.code)}
-                  className={`lang-btn text-[10px] sm:text-[11px] font-bold px-1.5 sm:px-2 py-0.5 rounded transition-all ${
+                  className={`lang-btn text-xs font-bold px-2.5 py-1.5 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-md transition-all ${
                     active
                       ? "bg-white text-[#8D6E63] shadow-2xs"
                       : "text-muted-foreground hover:text-foreground"
@@ -455,7 +455,15 @@ export default function Header({
               {/* Safety Seal in Mobile Drawer */}
               <div className="p-2.5 rounded-xl bg-[#2E7D32]/10 border border-[#2E7D32]/25 text-[#2E7D32] text-xs font-bold flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
-                <span>Estándar bactericida: <strong>70°C for 2 minutes</strong></span>
+                <span>
+                  {lang === 'es' ? (
+                    <>Estándar bactericida: <strong className="font-bold">70°C durante 2 minutos</strong></>
+                  ) : lang === 'de' ? (
+                    <>Bakterizider Standard: <strong className="font-bold">70°C für 2 Minuten</strong></>
+                  ) : (
+                    <>Bactericidal standard: <strong className="font-bold">70°C for 2 minutes</strong></>
+                  )}
+                </span>
               </div>
 
               {/* Language Selector in Drawer */}

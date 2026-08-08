@@ -6,7 +6,6 @@ import {
   Flame, 
   Droplet, 
   Thermometer, 
-  ShieldCheck, 
   ChevronRight, 
   Utensils, 
   Scissors, 
@@ -328,47 +327,6 @@ export default function TechniquesPage({ lang = 'es' }: TechniquesPageProps) {
             : 'From the first crack when cutting the potato to the decisive flip in the pan, every technique shapes the final texture, setting, and character of the authentic Spanish omelette.'}
         </p>
       </header>
-
-      {/* 2. BACTERICIDAL & SAFETY CALLOUT BANNER */}
-      <div className="bg-[#FFF7EA] border-2 border-[#FFB800] rounded-2xl p-6 sm:p-8 shadow-xs space-y-3 relative overflow-hidden">
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-[#2E7D32] text-white shadow-xs">
-            <ShieldCheck className="w-6 h-6" />
-          </div>
-          <div>
-            <h2 className="text-lg font-serif font-bold text-[#292521]">
-              {currentLang === 'es'
-                ? 'Estándar Microbiológico y Seguridad Alimentaria (RD 1021/2022)'
-                : currentLang === 'de'
-                ? 'Mikrobiologischer Standard & Lebensmittelsicherheit (RD 1021/2022)'
-                : 'Microbiological Standard & Food Safety (RD 1021/2022)'}
-            </h2>
-            <p className="text-xs text-[#8D6E63] font-semibold">
-              {currentLang === 'es'
-                ? 'Control obligatorio de tiempo y temperatura para tortillas de patata'
-                : currentLang === 'de'
-                ? 'Pflichtkontrolle von Zeit und Temperatur für Tortillas'
-                : 'Mandatory time and temperature control for Spanish omelettes'}
-            </p>
-          </div>
-        </div>
-
-        <p className="text-xs sm:text-sm text-[#292521] leading-relaxed pl-0 sm:pl-12">
-          {currentLang === 'es' ? (
-            <>
-              Toda técnica culinaria debe garantizar el cuajado térmico seguro. El umbral bactericida de inactivación de Salmonella exige alcanzar los <strong>70°C por 2 minutos</strong> (cuajado estándar completo) o mantener <strong>63°C por 20 segundos</strong> en el centro térmico. La exposición a temperatura ambiente nunca debe superar las <strong>4 horas</strong>; de lo contrario, debe conservarse refrigerada a menos de <strong>8°C</strong>.
-            </>
-          ) : currentLang === 'de' ? (
-            <>
-              Jede Kochtechnik muss ein sicheres thermisches Stocken gewährleisten. Der bakterizide Schwellenwert zur Inaktivierung von Salmonellen erfordert <strong>70°C for 2 minutes</strong> (vollständiges Durchgaren) oder <strong>63°C for 20 seconds</strong> im Kern. Die Aufbewahrungszeit bei Raumtemperatur darf <strong>4 hours</strong> nicht überschreiten (ansonsten unter <strong>8°C</strong> kühlen).
-            </>
-          ) : (
-            <>
-              Every culinary technique must ensure safe thermal coagulation. The bactericidal threshold for Salmonella destruction requires reaching <strong>70°C for 2 minutes</strong> (standard full setting) or <strong>63°C for 20 seconds</strong> at the thermal core. Display at room temperature must never exceed <strong>4 hours</strong>, or be stored refrigerated below <strong>8°C</strong>.
-            </>
-          )}
-        </p>
-      </div>
 
       {/* 3. QUICK NAVIGATION TABS */}
       <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#E8DFD1]">
