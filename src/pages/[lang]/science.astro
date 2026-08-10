@@ -6,6 +6,8 @@ import { ShieldCheck, FlaskConical, AlertTriangle, ListOrdered, ArrowUp, Sparkle
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import { getCollection, render } from 'astro:content';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -260,5 +262,12 @@ const sidebarLabels = {
       </main>
 
     </div>
+
+    {/* Interconnected Knowledge Base Node */}
+    <InterconnectedKnowledgeHub lang={lang} currentPath={`/${lang}/science`} client:visible />
+
+    <!-- Linear Guided Culinary Journey -->
+    <CulinaryJourneyProgress lang={lang} currentStepPath={`/${lang}/science`} client:visible />
+
   </div>
 </Layout>

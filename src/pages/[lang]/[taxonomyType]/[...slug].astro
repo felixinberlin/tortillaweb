@@ -1,8 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import RecipeImage from '@/components/recipes/RecipeImage';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+import Clever404View from '@/components/navigation/Clever404View.tsx';
 import PotatoIngredientDetail from '@/components/ingredients/PotatoIngredientDetail';
 import EggIngredientDetail from '@/components/ingredients/EggIngredientDetail';
 import OliveOilIngredientDetail from '@/components/ingredients/OliveOilIngredientDetail';
+import GarlicIngredientDetail from '@/components/ingredients/GarlicIngredientDetail';
 import { 
   TAXONOMY_ROUTING_MAP, 
   getAllTaxonomies, 
@@ -277,6 +282,10 @@ const isIngredientCluster = Boolean(isValidRoute && ingredientKey && (ingredient
 const isPotatoCluster = Boolean(isIngredientCluster && ingredientKey === 'potato');
 const isEggCluster = Boolean(isIngredientCluster && ingredientKey === 'egg');
 const isOilCluster = Boolean(isIngredientCluster && (ingredientKey === 'oil' || ingredientKey === 'olive-oil'));
+const isGarlicCluster = Boolean(
+  (isIngredientCluster && (ingredientKey === 'garlic' || ingredientKey === 'ajo' || ingredientKey === 'knoblauch')) ||
+  (taxonomy?.id === 'garlic' || currentSlug === 'garlic' || currentSlug === 'ajo' || currentSlug === 'knoblauch')
+);
 
 const mainGuideGroup = ingredientKey ? allIngredientGroups?.[ingredientKey] : undefined;
 const mainPotatoUrl = mainGuideGroup && mainGuideGroup[currentLang]
@@ -305,6 +314,10 @@ const isMainOilPage = Boolean(
       ? Astro.params.slug === mainGuideGroup[currentLang].slug
       : (currentSlug === 'oil' || currentSlug === 'aceite-de-oliva' || currentSlug === 'olive-oil' || currentSlug === 'olivenoel')
   )
+);
+
+const isMainGarlicPage = Boolean(
+  isGarlicCluster || currentSlug === 'garlic' || currentSlug === 'ajo' || currentSlug === 'knoblauch' || taxonomy?.id === 'garlic'
 );
 
 const getPillarUrl = (pillarSuffix: string) => {
@@ -356,24 +369,16 @@ const pillars = [
 
 <Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} canonical={currentUrl} customHreflangs={pageHreflangs}>
   {!isValidRoute ? (
-    <div class="container mx-auto px-4 py-24 text-center max-w-lg">
-      <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
-        <ChefHat class="w-10 h-10" />
-      </div>
-      <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
-      <p class="text-base sm:text-lg text-muted-foreground mb-8">
-        {currentLang === 'en' 
-          ? 'The requested ingredient or taxonomy topic could not be found.' 
-          : currentLang === 'de' 
-          ? 'Die angeforderte Zutat oder Taxonomie konnte nicht gefunden werden.' 
-          : 'El ingrediente o concepto solicitado no existe en nuestro catálogo.'}
-      </p>
-      <a href={`/${currentLang}`}>
-        <button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm">
-          {currentLang === 'en' ? 'Back to Home' : currentLang === 'de' ? 'Zurück zur Startseite' : 'Volver al inicio'}
-        </button>
-      </a>
+    <div class="container mx-auto px-4 py-8">
+      <Clever404View lang={currentLang} requestedPath={Astro.url.pathname} client:load />
     </div>
+  ) : isMainGarlicPage ? (
+    <GarlicIngredientDetail
+      lang={currentLang}
+      relatedRecipes={relatedRecipes}
+      relatedKnowledge={relatedKnowledge}
+      client:load
+    />
   ) : isMainOilPage ? (
     <OliveOilIngredientDetail
       lang={currentLang}
@@ -586,17 +591,15 @@ const pillars = [
               <article class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-200 flex flex-col justify-between group">
                 <div>
                   <div class="h-28 sm:h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
-                    <img
-                      src={r.image || '/images/clasica.jpg'}
-                      alt={recipeTitle}
-                      width="600"
-                      height="400"
-                      loading="lazy"
-                      decoding="async"
-                      referrerPolicy="no-referrer"
-                      class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    <RecipeImage
+                      client:visible
+                      src={r.image}
+                      title={recipeTitle}
+                      ingredients={r.ingredients}
+                      taxonomyIds={r.taxonomyIds}
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-30 pointer-events-none" />
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                       <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#FFB800] text-[#292521] border border-amber-300 shadow-2xs">
                         {r.prepTimeMinutes + r.cookTimeMinutes} min
@@ -672,6 +675,12 @@ const pillars = [
         </div>
       </section>
     )}
+
+    {/* Interconnected Knowledge Base Node */}
+    <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/${Astro.params.taxonomyType}/${Astro.params.slug}`} client:visible />
+
+    <!-- Linear Guided Culinary Journey -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/${Astro.params.taxonomyType}`} client:visible />
   </div>
   )}
 </Layout>

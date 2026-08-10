@@ -108,4 +108,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'tests', en: 'tests', de: 'tests' },
     label: { es: 'Test de Lealtad', en: 'Loyalty Quiz', de: 'Fraktionstest' },
   },
+  triviaGame: {
+    id: 'triviaGame',
+    slug: { es: 'juego-trivia', en: 'trivia-game', de: 'trivia-spiel' },
+    label: { es: 'Juego de Trivia', en: 'Trivia Game', de: 'Trivia-Spiel' },
+  },
 };

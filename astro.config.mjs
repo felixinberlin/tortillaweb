@@ -3,16 +3,12 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
-const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
-
 // https://astro.build/config
 export default defineConfig({
-    site: isGitHubPages
-    ? 'https://felixinberlin.github.io/tortillaweb/'
-    : 'https://tortilladepatatas.org',
-
-  base: isGitHubPages ? '/tortillaweb/' : '/',
-
+  devToolbar: {
+    enabled: false,
+  },
+  site: 'https://tortilladepatatas.org',
   integrations: [
     react(),
     sitemap({
@@ -26,7 +22,6 @@ export default defineConfig({
       },
     }),
   ],
-
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -35,7 +30,6 @@ export default defineConfig({
       },
     },
   },
-
   server: {
     host: '0.0.0.0',
     port: 3000,

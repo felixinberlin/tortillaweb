@@ -71,6 +71,15 @@
             "en": "Trivia & Curiosities",
             "de": "Trivia & Kurioses"
           }
+        },
+        {
+          "key": "triviaGame",
+          "href": "/juego-trivia",
+          "label": {
+            "es": "Juego de Trivia 🎮",
+            "en": "Trivia Game 🎮",
+            "de": "Trivia-Spiel 🎮"
+          }
         }
       ]
     },

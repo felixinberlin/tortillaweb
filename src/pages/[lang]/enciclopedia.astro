@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
-import { generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { generateBreadcrumbSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
 import { 
   Library, 
   History, 
@@ -56,9 +56,21 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Inicio', url: `/${currentLang}` },
   { name: title, url: `/${currentLang}/enciclopedia` },
 ]);
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description: subtitle,
+  url: `${SITE_URL}/${currentLang}/enciclopedia`,
+  items: sections.map((sec) => ({
+    name: sec.title,
+    url: `${SITE_URL}${sec.href}`,
+  })),
+});
+
+const schemas = [breadcrumbSchema, collectionSchema];
 ---
 
-<Layout title={pageTitle} description={subtitle} lang={currentLang} schema={[breadcrumbSchema]}>
+<Layout title={pageTitle} description={subtitle} lang={currentLang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
     <!-- HERO HEADER -->
     <header class="text-center max-w-3xl mx-auto space-y-4">

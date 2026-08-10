@@ -2,8 +2,9 @@
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { supportedLanguages } from '@/lib/i18n';
-import { generateBreadcrumbSchema } from '@/lib/seo';
+import { generateBreadcrumbSchema, generateFAQSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
 import TriviaGallery from '@/components/trivia/TriviaGallery';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import { HelpCircle, ShieldCheck, MapPin, Clock } from 'lucide-react';
 
 export async function getStaticPaths() {
@@ -16,14 +17,18 @@ const { lang = 'es' } = Astro.params;
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
 
 const pagesCollection = await getCollection('pages');
-const triviaEntry = pagesCollection.find((p) => p.id === 'trivia' || p.id.includes('trivia'));
+const triviaEntry = pagesCollection.find((p) => p.id === 'trivia');
+const triviaCategoryEntries = pagesCollection.filter((p) => p.id.startsWith('trivia-') || p.id.startsWith('trivia/'));
 const pageData = triviaEntry ? triviaEntry.data : null;
 
 const badge = pageData?.badge?.[currentLang] || (currentLang === 'en' ? 'Compendium of Myths & Verifications' : currentLang === 'de' ? 'Kompendium der Mythen & Fakten' : 'Compendio de Mitos & Verificaciones');
 const title = pageData?.title?.[currentLang] || (currentLang === 'en' ? 'Trivia & Archive of Proved vs Unproved Facts' : currentLang === 'de' ? 'Trivia & Archiv bewiesener Fakten vs Mythen' : 'Trivia & Registro de Hechos Probados vs Mitos');
 const subtitle = pageData?.subtitle?.[currentLang] || (currentLang === 'en' ? 'Explore historical truths, urban legends, iconic comics like Mortadelo, and giant records. Each entry includes verification status (Proved vs Unproved).' : currentLang === 'de' ? 'Entdecke historische Wahrheiten, Mythen, berühmte Comics wie Mortadelo und Riesen-Rekorde.' : 'Explora verdades históricas, mitos populares, cómics icónicos como Mortadelo y récords monumentales de tortillas. Cada entrada cuenta con estado de verificación (Probado vs No Probado).');
 
-const factsList = pageData?.facts || pageData?.extraTrivia || [];
+let factsList = pageData?.facts || pageData?.extraTrivia || [];
+if (!factsList || factsList.length === 0) {
+  factsList = triviaCategoryEntries.flatMap((cat) => cat.data?.facts || []);
+}
 
 const pageTitle = `${title} | tortilladepatatas.org`;
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -31,9 +36,29 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Enciclopedia', url: `/${currentLang}/enciclopedia` },
   { name: title, url: `/${currentLang}/trivia` },
 ]);
+
+const faqItems = (factsList || []).slice(0, 10).map((f: any) => {
+  const q = f.title?.[currentLang] || f.title?.es || f.claim || '';
+  const a = f.description?.[currentLang] || f.description?.es || f.evidence || '';
+  return { question: q, answer: a };
+}).filter((item: any) => item.question && item.answer);
+
+const faqSchema = faqItems.length > 0 ? generateFAQSchema(faqItems) : undefined;
+
+const collectionSchema = generateCollectionPageSchema({
+  name: title,
+  description: subtitle,
+  url: `${SITE_URL}/${currentLang}/trivia`,
+  items: (factsList || []).slice(0, 20).map((f: any, idx: number) => ({
+    name: f.title?.[currentLang] || f.title?.es || `Fact #${idx + 1}`,
+    url: `${SITE_URL}/${currentLang}/trivia#fact-${f.id || idx}`,
+  })),
+});
+
+const schemas = [breadcrumbSchema, collectionSchema, faqSchema].filter(Boolean);
 ---
 
-<Layout title={pageTitle} description={subtitle} lang={currentLang} schema={[breadcrumbSchema]}>
+<Layout title={pageTitle} description={subtitle} lang={currentLang} schema={schemas}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
     <!-- Header -->
     <header class="text-center max-w-3xl mx-auto space-y-4">
@@ -50,6 +75,32 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         {subtitle}
       </p>
     </header>
+
+    <!-- Interactive Trivia Game CTA Banner -->
+    <section class="card-notebook p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#FFFDF9] via-[#FFF9EA] to-[#FFFDF9] border-2 border-[#FFB800] shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFB800] text-stone-950 text-xs font-black uppercase tracking-wider">
+          <span>🎮 Modo Juego</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-serif-heading font-black text-[#292521]">
+          {currentLang === 'en' ? 'Put Your Knowledge to the Test!' : currentLang === 'de' ? 'Teste dein Wissen im Spiel!' : '¿Cuánto sabes de la Tortilla de Patatas?'}
+        </h2>
+        <p class="text-sm text-foreground/80 max-w-xl font-sans leading-relaxed">
+          {currentLang === 'en'
+            ? 'Play our interactive trivia game with 3 difficulty levels, topic filters, and 3-choice questions. Share your score and challenge your friends!'
+            : currentLang === 'de'
+            ? 'Spiele unser interaktives Trivia-Spiel mit 3 Leveln, Themenfiltern und 3 Antwortmöglichkeiten. Teile dein Ergebnis!'
+            : 'Juega a nuestro desafío interactivo con 3 niveles de dificultad, filtros por tema y preguntas de 3 opciones. ¡Comparte tu puntuación y desafía a tus amigos!'}
+        </p>
+      </div>
+      <a
+        href={`/${currentLang}/trivia`}
+        class="px-8 py-4 rounded-xl bg-[#292521] hover:bg-stone-800 text-white font-serif-heading font-bold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer"
+      >
+        <span>{currentLang === 'en' ? 'Play Trivia Game' : currentLang === 'de' ? 'Spiel starten' : 'Jugar Desafío de Trivia'}</span>
+        <span class="text-[#FFB800]">→</span>
+      </a>
+    </section>
 
     <!-- Highlights Banner / Regional Rules -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -127,5 +178,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         </p>
       </div>
     </section>
+
+    <!-- Linear Guided Culinary Journey -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/trivia`} client:visible />
   </div>
 </Layout>

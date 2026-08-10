@@ -8,14 +8,26 @@
     "de": "knoblauch"
   },
   "title": {
-    "es": "Ajo Aromatizante",
-    "en": "Garlic Infusion",
-    "de": "Aromatischer Knoblauch"
+    "es": "Ajo en la Tortilla: Aromatizante vs Mezcla Directa",
+    "en": "Garlic in Tortilla: Infusion vs Direct Mix",
+    "de": "Knoblauch in der Tortilla: Aromatisierung vs. Direkte Mischung"
   },
   "description": {
-    "es": "Diente de ajo frito brevemente en el aceite para infundir un perfume sutil sin amargar.",
-    "en": "Garlic clove briefly fried in oil to infuse a subtle background perfume.",
-    "de": "Kurz im Öl angebratene Knoblauchzehe für ein feines Aroma im Hintergrund."
+    "es": "El debate del ajo separa a dos grandes escuelas: la Infusión del Aceite (perfumar el virgen extra y retirar el diente) frente al Ajo Picado o Ajetes incorporados al huevo y la patata.",
+    "en": "The garlic debate splits two culinary schools: Oil Infusion (perfuming EVOO and removing the clove) vs Direct Mix (leaving minced garlic or green garlic in the egg and potato mix).",
+    "de": "Die Knoblauch-Debatte teilt zwei große Schulen: Öl-Aromatisierung (Natives Olivenöl perfümieren und Zehe entfernen) vs. direkte Mischung aus gehacktem Knoblauch oder Frühlingsknoblauch in der Ei-Kartoffel-Masse."
   },
-  "icon": "Sparkles"
+  "icon": "Sparkles",
+  "culinaryNotes": {
+    "infusionMethod": {
+      "es": "Técnica de infusión a 130°C: Un diente de ajo 'golpeado' se dora levemente en el aceite de oliva virgen extra durante 60 segundos antes de pochar la patata. Aporta alicina esterificada sin acidez ni digestiones pesadas.",
+      "en": "Infusion method at 130°C: A crushed garlic clove is gently browned in EVOO for 60 seconds before cooking the potatoes. Infuses esterified allicin without harsh acidity.",
+      "de": "Infusionsmethode bei 130°C: Eine leicht andrängte Knoblauchzehe wird 60 Sekunden lang im Olivenöl golden angebraten, bevor die Kartoffeln hinzugefügt werden."
+    },
+    "directMixMethod": {
+      "es": "Técnica de picado fino / Ajetes: Ajo laminado o ajetes tiernos rehogados e integrados directamente en el baño de huevo con las patatas calientes para potenciar el carácter umami.",
+      "en": "Direct minced / Tender garlic method: Sliced garlic or green garlic sautéed and folded directly into the egg bath alongside hot potatoes to boost umami.",
+      "de": "Direkte Mischung / Frühlingsknoblauch: Fein geschnittener Knoblauch oder sautierter junger Knoblauch wird direkt mit den heißen Kartoffeln in die Eiermasse gegeben."
+    }
+  }
 }

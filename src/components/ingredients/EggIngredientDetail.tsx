@@ -4,6 +4,8 @@ import LocalizedLink from '@/components/navigation/LocalizedLink';
 import RelatedKnowledgeSection, { type RelatedKnowledgeItem } from '@/components/ingredients/RelatedKnowledgeSection';
 import { Thermometer, ShieldAlert, Droplet, Flame, Clock } from 'lucide-react';
 
+import RecipeImage from '@/components/recipes/RecipeImage';
+
 export interface EggIngredientDetailProps {
   lang?: 'es' | 'en' | 'de' | string;
   relatedRecipes?: Array<{
@@ -105,7 +107,7 @@ export default function EggIngredientDetail({
                   <span>{t('eggDetail.quickStats.safetyLabel', 'Umbral de Seguridad')}</span>
                 </div>
                 <span className="font-extrabold text-[#D32F2F] mt-1 text-sm sm:text-base">
-                  {t('eggDetail.quickStats.safetyValue', '70°C por 2 minutos')}
+                  {t('eggDetail.quickStats.safetyValue', currentLang === 'es' ? 'Tratamiento Seguro' : currentLang === 'de' ? 'Sicherheitsstandard' : 'Safe Pasteurization')}
                 </span>
               </div>
             </div>
@@ -286,15 +288,14 @@ export default function EggIngredientDetail({
                   >
                     <div>
                       <div className="h-28 sm:h-44 md:h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8DFD1]">
-                        <img
-                          src={r.image || '/images/clasica.jpg'}
-                          alt={recipeTitle}
+                        <RecipeImage
+                          src={r.image}
+                          title={recipeTitle}
+                          ingredients={r.ingredients}
+                          taxonomyIds={r.taxonomyIds}
                           className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                          decoding="async"
-                          referrerPolicy="no-referrer"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-30 pointer-events-none" />
                         <div className="absolute top-3 left-3 bg-[#FFB800] text-[#292521] text-[11px] font-extrabold px-2.5 py-1 rounded-full font-sans uppercase tracking-wider shadow-2xs">
                           {badgeLabel}
                         </div>
@@ -328,6 +329,101 @@ export default function EggIngredientDetail({
             </div>
           );
         })()}
+      </section>
+
+      {/* INTERCONNECTED CULINARY ECOSYSTEM LINKS */}
+      <section className="bg-[#FAF6EE] rounded-3xl border-2 border-[#FFB800] p-6 sm:p-8 space-y-6 shadow-sm">
+        <div className="flex items-center justify-between border-b border-[#E8DFD1] pb-4 flex-wrap gap-2">
+          <div>
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#8D6E63] flex items-center gap-1.5">
+              <Thermometer className="w-4 h-4 text-[#FFB800]" />
+              {currentLang === 'es' ? 'Ecosistema Culinario Interconectado' : currentLang === 'de' ? 'Vernetztes Kulinarisches Ökosystem' : 'Interconnected Culinary Ecosystem'}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#292521] mt-1">
+              {currentLang === 'es' ? 'Navegación Cruzada de la Tortilla de Patatas' : currentLang === 'de' ? 'Querverbindungen im Tortilla-Universum' : 'Cross-Links Across the Omelette Universe'}
+            </h2>
+          </div>
+          <LocalizedLink
+            to={`/${currentLang}/builder`}
+            className="px-4 py-2 rounded-xl bg-[#FFB800] text-[#1C1917] font-bold text-xs hover:bg-[#E0A200] transition-colors shadow-2xs"
+          >
+            {currentLang === 'es' ? '🛠️ Abrir Constructor' : currentLang === 'de' ? '🛠️ Baukasten öffnen' : '🛠️ Open Builder'}
+          </LocalizedLink>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <LocalizedLink
+            to={`/${currentLang}/ingredientes/potato`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">🥔</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'La Patata (Estructura)' : currentLang === 'de' ? 'Die Kartoffel' : 'The Potato'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Variedades de pochado y almidón.' : currentLang === 'de' ? 'Kartoffelsorten & Stärke.' : 'Poaching varieties & starch.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Ver Ficha →' : 'View Detail →'}
+            </span>
+          </LocalizedLink>
+
+          <LocalizedLink
+            to={`/${currentLang}/ingredientes/olive-oil`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">🫒</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'Aceite de Oliva Virgen Extra' : currentLang === 'de' ? 'Olivenöl Extra' : 'Extra Virgin Olive Oil'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Transferencia de calor y perfumado.' : currentLang === 'de' ? 'Wärmeübertragung & Aroma.' : 'Heat transfer & fragrance.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Ver Ficha →' : 'View Detail →'}
+            </span>
+          </LocalizedLink>
+
+          <LocalizedLink
+            to={`/${currentLang}/ingredientes/garlic`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">🧄</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'Ajo Confitado & Infusión' : currentLang === 'de' ? 'Knoblauch-Aroma' : 'Confit Garlic & Infusion'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Técnica de infusión a 80°C.' : currentLang === 'de' ? 'Infusionstechnik bei 80°C.' : '80°C oil infusion technique.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Ver Ficha →' : 'View Detail →'}
+            </span>
+          </LocalizedLink>
+
+          <LocalizedLink
+            to={`/${currentLang}/facciones`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">⚔️</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'Facciones & Votaciones' : currentLang === 'de' ? 'Fraktionen & Umfragen' : 'Factions & Voting'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Debates sobre cuajado y cebolla.' : currentLang === 'de' ? 'Debatte über Gerinnungsgrad.' : 'Debates on doneness & onion.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Explorar Facciones →' : 'Explore Factions →'}
+            </span>
+          </LocalizedLink>
+        </div>
       </section>
 
       {/* TECHNIQUES MANUAL QUICK LINK */}

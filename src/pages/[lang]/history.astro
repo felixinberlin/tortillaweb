@@ -4,6 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Calendar, Clock, MapPin, Quote, Sparkles, ChevronRight, User, ListOrdered, History as HistoryIcon, Award, Scale } from 'lucide-react';
 import { getCollection, render } from 'astro:content';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
 import { supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
@@ -307,6 +309,13 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
         </main>
 
       </div>
+
+      {/* Interconnected Knowledge Base Node */}
+      <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/history`} client:visible />
+
+      <!-- Linear Guided Culinary Journey -->
+      <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/history`} client:visible />
+
     </div>
   </div>
 </Layout>

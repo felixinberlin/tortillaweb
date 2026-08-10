@@ -20,7 +20,8 @@ export type RouteId =
   | 'about'
   | 'impressum'
   | 'encuestas'
-  | 'tests';
+  | 'tests'
+  | 'triviaGame';
 
 export type CanonicalType =
   | 'recipe'

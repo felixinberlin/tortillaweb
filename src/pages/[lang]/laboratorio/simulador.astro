@@ -1,0 +1,59 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import TortillaWorldstateSimulator from '@/components/laboratorio/TortillaWorldstateSimulator';
+import { Sparkles } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'en'
+  ? 'Tortilla Worldstate & Action Simulator | Laboratorio'
+  : currentLang === 'de'
+  ? 'Tortilla-Weltzustand & Aktion-Simulator | Laboratorium'
+  : 'Simulador & Estado del Mundo de la Tortilla | Laboratorio';
+
+const pageDescription = currentLang === 'en'
+  ? 'Send real-time actions to the omelette (Dance, Express Disappointment, Flip) or run terminal CLI commands. Persistent worldstate.'
+  : currentLang === 'de'
+  ? 'Interaktiver Weltzustand der Tortilla: Sende Aktionen (Tanzen, Enttäuschung zeigen) oder nutze die CLI.'
+  : 'Envía acciones en tiempo real a la tortilla (Bailar, Mostrar Decepción, Voltear) o ejecuta comandos en la terminal CLI. Estado persistente.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  { name: 'Simulador', url: `/${currentLang}/laboratorio/simulador` },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+    <!-- Header Banner -->
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <Sparkles className="w-4 h-4 text-[#8D6E63]" />
+        <span>{currentLang === 'en' ? 'Interactive Worldstate Engine' : currentLang === 'de' ? 'Interaktive Weltzustands-Engine' : 'Motor Interactivo de Estado del Mundo'}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-serif-heading font-extrabold text-[#292521] leading-tight">
+        {currentLang === 'en' ? 'Tortilla Worldstate Simulator' : currentLang === 'de' ? 'Tortilla-Weltzustand-Simulator' : 'Simulador & Estado del Mundo de la Tortilla'}
+      </h1>
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+        {currentLang === 'en'
+          ? 'Interact with the Omelette using action buttons (Dance, Express Disappointment, Flip, Check Core 70°C) or command-line CLI tool. Your actions persist in local worldstate.'
+          : currentLang === 'de'
+          ? 'Interagiere mit der Tortilla über Buttons (Tanzen, Enttäuschung zeigen, Wenden) oder die CLI-Konsole. Gespeichert im Weltzustand.'
+          : 'Interactúa con la tortilla mediante botones de acción (Bailar, Mostrar Decepción, Voltear, Verificar Núcleo 70°C) o consola CLI. Se guarda en el estado del mundo.'}
+      </p>
+    </header>
+
+    <!-- React Simulator Component -->
+    <TortillaWorldstateSimulator client:load currentLang={currentLang} />
+  </div>
+</Layout>

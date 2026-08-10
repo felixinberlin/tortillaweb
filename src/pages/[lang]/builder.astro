@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import BuilderApp from '@/components/builder/BuilderApp';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
@@ -33,7 +34,7 @@ const recipeSchema = generateRecipeSchema({
     { step: 'Ajustar Comensales', text: 'Seleccionar el número de raciones e insumos deseados en la calculadora.' },
     { step: 'Confitar Patatas', text: 'Freír patatas cortadas finas a temperatura media en abundante AOVE.' },
     { step: 'Mezclar con Huevo', text: 'Integrar patatas con huevo batido y sal.' },
-    { step: 'Cuajar con Seguridad', text: 'Cuajar manteniendo centro cremoso respetando el estándar 70°C por 2 minutos.' }
+    { step: 'Cuajar con Seguridad', text: 'Cuajar manteniendo el centro cremoso y punto de cocción deseado de forma higiénica y segura.' }
   ]
 });
 
@@ -46,5 +47,8 @@ const schemas = [recipeSchema, breadcrumbSchema];
 ---
 
 <Layout title={title} description={description} lang={lang} schema={schemas}>
-  <BuilderApp client:load lang={lang} />
+  <div class="container mx-auto px-4 max-w-7xl">
+    <BuilderApp client:only="react" lang={lang} />
+    <CulinaryJourneyProgress lang={lang} currentStepPath={`/${lang}/builder`} client:load />
+  </div>
 </Layout>

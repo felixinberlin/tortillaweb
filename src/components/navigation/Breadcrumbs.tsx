@@ -35,9 +35,9 @@ export default function Breadcrumbs({ lang = 'es', currentPath, items }: Breadcr
   return (
     <nav
       aria-label="Breadcrumb"
-      className="breadcrumbs-nav border-b border-[#E8E2D5] bg-[#FAF6EE]/95 backdrop-blur-xs py-2 px-4 sm:px-6 w-full shadow-2xs"
+      className="breadcrumbs-nav border-b border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE]/95 dark:bg-[#262220]/95 backdrop-blur-xs py-2 px-4 sm:px-6 w-full shadow-2xs"
     >
-      <div className="max-w-7xl mx-auto flex items-center gap-1.5 text-xs text-foreground/80 font-medium overflow-x-auto no-scrollbar py-0.5">
+      <div className="max-w-7xl mx-auto flex items-center gap-1.5 text-xs text-foreground/80 dark:text-[#F5E6BE]/80 font-medium overflow-x-auto no-scrollbar py-0.5">
         {computedItems.map((item, index) => {
           const isLast = index === computedItems.length - 1;
           const isHome = index === 0;
@@ -45,20 +45,20 @@ export default function Breadcrumbs({ lang = 'es', currentPath, items }: Breadcr
           return (
             <React.Fragment key={item.url + index}>
               {index > 0 && (
-                <ChevronRight className="w-3.5 h-3.5 text-[#8D6E63]/40 shrink-0 select-none" aria-hidden="true" />
+                <ChevronRight className="w-3.5 h-3.5 text-[#8D6E63]/40 dark:text-[#FFB800]/40 shrink-0 select-none" aria-hidden="true" />
               )}
               {isLast ? (
                 <span
                   aria-current="page"
-                  className="inline-flex items-center gap-1.5 bg-[#F5E6BE] text-[#4A3B32] font-bold px-2.5 py-0.5 rounded-md border border-[#8D6E63]/25 shadow-2xs shrink-0 whitespace-nowrap"
+                  className="inline-flex items-center gap-1.5 bg-[#F5E6BE] dark:bg-[#3D332A] text-[#4A3B32] dark:text-[#F5E6BE] font-bold px-2.5 py-0.5 rounded-md border border-[#8D6E63]/25 dark:border-[#FFB800]/30 shadow-2xs shrink-0 whitespace-nowrap"
                 >
-                  {isHome && <Home className="w-3.5 h-3.5 text-[#8D6E63]" />}
+                  {isHome && <Home className="w-3.5 h-3.5 text-[#8D6E63] dark:text-[#FFB800]" />}
                   <span>{item.name}</span>
                 </span>
               ) : (
                 <a
                   href={item.url}
-                  className="inline-flex items-center gap-1 text-[#8D6E63] hover:text-[#4A3B32] hover:bg-[#F5E6BE]/60 px-1.5 py-0.5 rounded transition-colors shrink-0 whitespace-nowrap font-medium"
+                  className="inline-flex items-center gap-1 text-[#8D6E63] dark:text-[#FFB800] hover:text-[#4A3B32] dark:hover:text-white hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A] px-1.5 py-0.5 rounded transition-colors shrink-0 whitespace-nowrap font-medium"
                 >
                   {isHome && <Home className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />}
                   <span>{item.name}</span>

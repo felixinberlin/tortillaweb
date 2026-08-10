@@ -25,7 +25,9 @@ import {
   Trophy,
   ChevronDown,
   Mail,
-  HelpCircle
+  HelpCircle,
+  Sun,
+  Moon
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import headerNavData from "@/content/navigation/header.json";
@@ -87,14 +89,39 @@ export default function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [clientPath, setClientPath] = useState("");
   const [openSubmenu, setOpenSubmenu] = useState<string | null>("universo");
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   const { t } = useTranslation(undefined, { lng: lang });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       setClientPath(window.location.pathname);
+      const isDark = document.documentElement.classList.contains("dark") ||
+        (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+        localStorage.getItem("theme") === "dark";
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+        setTheme("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        setTheme("light");
+      }
     }
   }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    if (typeof window !== "undefined") {
+      if (nextTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+    }
+  };
 
   const activePath = propPath || clientPath;
 
@@ -129,7 +156,7 @@ export default function Header({
   }
 
   return (
-    <header className="site-header border-t-4 border-[#FFB800] bg-[#FCF9F2]/95 backdrop-blur-md sticky top-0 z-50 shadow-xs border-b border-[#E8E2D5]">
+    <header className="site-header border-t-4 border-[#FFB800] bg-[#FCF9F2]/95 dark:bg-[#1C1917]/95 backdrop-blur-md sticky top-0 z-50 shadow-xs border-b border-[#E8E2D5] dark:border-[#3D352E]">
       {/* Top Header Row */}
       <div className="header-container max-w-7xl mx-auto px-4 h-14 sm:h-18 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo */}
@@ -141,23 +168,23 @@ export default function Header({
             <ChefHat className="h-4 w-4 sm:h-5 sm:w-5" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif-heading font-black text-sm sm:text-lg text-foreground tracking-tight leading-tight group-hover:text-amber-900 transition-colors">
+            <span className="font-serif-heading font-black text-sm sm:text-lg text-foreground dark:text-[#F5E6BE] tracking-tight leading-tight group-hover:text-amber-600 transition-colors">
               tortilladepatatas.org
             </span>
-            <span className="font-script text-[10px] sm:text-xs text-amber-800/90 -mt-0.5 hidden xs:block">
+            <span className="font-script text-[10px] sm:text-xs text-amber-800/90 dark:text-[#FFB800] -mt-0.5 hidden xs:block">
               Cuaderno & Ciencia Culinaria
             </span>
           </div>
         </a>
 
         {/* Desktop Main Navigation (lg and above) */}
-        <nav className="hidden lg:flex items-center gap-1 bg-[#FAF6EE] p-1 rounded-xl border border-[#E8E2D5] shadow-2xs" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center gap-1 bg-[#FAF6EE] dark:bg-[#262220] p-1 rounded-xl border border-[#E8E2D5] dark:border-[#3D352E] shadow-2xs" aria-label="Main Navigation">
           <a
             href={getLocalizedHref("/")}
             className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
               isLinkActive("/")
                 ? "bg-[#8D6E63] text-white shadow-2xs"
-                : "text-foreground/80 hover:text-foreground hover:bg-[#F5E6BE]/60"
+                : "text-foreground/80 dark:text-[#F5E6BE]/80 hover:text-foreground dark:hover:text-white hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A]"
             }`}
           >
             <Home className="w-3.5 h-3.5" />
@@ -177,7 +204,7 @@ export default function Header({
                     className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
                       active || hasActiveChild
                         ? "bg-[#8D6E63] text-white shadow-2xs"
-                        : "text-foreground/80 hover:text-foreground hover:bg-[#F5E6BE]/60"
+                        : "text-foreground/80 dark:text-[#F5E6BE]/80 hover:text-foreground dark:hover:text-white hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A]"
                     }`}
                   >
                     <IconComponent className="w-3.5 h-3.5" />
@@ -187,8 +214,8 @@ export default function Header({
 
                   {/* Dropdown Menu */}
                   <div className="absolute left-0 top-full pt-1.5 hidden group-hover:block z-50 min-w-[220px]">
-                    <div className="bg-[#FCF9F2] border border-[#E8E2D5] rounded-xl shadow-xl p-2 space-y-0.5">
-                      <div className="px-2.5 py-1 text-[10px] font-bold text-amber-800 uppercase tracking-wider border-b border-[#E8E2D5]/60 mb-1">
+                    <div className="bg-[#FCF9F2] dark:bg-[#262220] border border-[#E8E2D5] dark:border-[#3D352E] rounded-xl shadow-xl p-2 space-y-0.5">
+                      <div className="px-2.5 py-1 text-[10px] font-bold text-amber-800 dark:text-[#FFB800] uppercase tracking-wider border-b border-[#E8E2D5]/60 dark:border-[#3D352E] mb-1">
                         {labelText}
                       </div>
                       {item.children.map((child: any) => {
@@ -202,7 +229,7 @@ export default function Header({
                             className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-2 ${
                               childActive
                                 ? "bg-[#8D6E63] text-white"
-                                : "text-foreground/80 hover:text-foreground hover:bg-[#F5E6BE]"
+                                : "text-foreground/80 dark:text-[#F5E6BE]/80 hover:text-foreground dark:hover:text-white hover:bg-[#F5E6BE] dark:hover:bg-[#3D332A]"
                             }`}
                           >
                             <ChildIcon className="w-3.5 h-3.5 shrink-0 opacity-80" />
@@ -223,7 +250,7 @@ export default function Header({
                 className={`px-2.5 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 shrink-0 ${
                   active
                     ? "bg-[#8D6E63] text-white shadow-2xs"
-                    : "text-foreground/80 hover:text-foreground hover:bg-[#F5E6BE]/60"
+                    : "text-foreground/80 dark:text-[#F5E6BE]/80 hover:text-foreground dark:hover:text-white hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A]"
                 }`}
               >
                 <IconComponent className="w-3.5 h-3.5" />
@@ -236,13 +263,24 @@ export default function Header({
         {/* Header Right Controls */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {/* Safety Seal Badge (Extra large screens) */}
-          <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/25 text-[#2E7D32] text-[11px] font-bold shadow-2xs">
+          <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#2E7D32]/10 dark:bg-[#2E7D32]/25 border border-[#2E7D32]/25 dark:border-[#2E7D32]/40 text-[#2E7D32] dark:text-[#81C784] text-[11px] font-bold shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span><strong>70°C for 2 min</strong></span>
+            <span><strong>Seguridad Culinaria</strong></span>
           </div>
 
+          {/* Theme Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-1.5 sm:p-2 rounded-lg border border-[#E8E2D5] dark:border-[#3D352E] bg-[#F3EFE6] dark:bg-[#28231F] text-[#8D6E63] dark:text-[#FFB800] hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
+            aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"}
+            title={theme === "dark" ? "Modo Claro" : "Modo Oscuro"}
+          >
+            {theme === "dark" ? <Sun className="w-4 h-4 text-[#FFB800]" /> : <Moon className="w-4 h-4 text-[#8D6E63]" />}
+          </button>
+
           {/* Language Switcher */}
-          <div className="language-switcher flex items-center gap-0.5 bg-[#F3EFE6] p-0.5 sm:p-1 rounded-lg border border-[#E8E2D5]" role="region" aria-label="Language Selector">
+          <div className="language-switcher flex items-center gap-0.5 bg-[#F3EFE6] dark:bg-[#28231F] p-0.5 sm:p-1 rounded-lg border border-[#E8E2D5] dark:border-[#3D352E]" role="region" aria-label="Language Selector">
             <Languages className="h-3.5 w-3.5 text-muted-foreground ml-1 mr-0.5 hidden md:block" />
             {languages.map((language) => {
               const active = lang === language.code;
@@ -252,8 +290,8 @@ export default function Header({
                   href={getLangUrl(language.code)}
                   className={`lang-btn text-xs font-bold px-2.5 py-1.5 min-h-[36px] min-w-[36px] flex items-center justify-center rounded-md transition-all ${
                     active
-                      ? "bg-white text-[#8D6E63] shadow-2xs"
-                      : "text-muted-foreground hover:text-foreground"
+                      ? "bg-white dark:bg-[#8D6E63] text-[#8D6E63] dark:text-white shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground dark:hover:text-white"
                   }`}
                   aria-pressed={active}
                 >
@@ -266,9 +304,9 @@ export default function Header({
           {/* Constructor CTA Button (Desktop only) */}
           <a
             href={getLocalizedHref('/builder')}
-            className="hidden md:inline-flex bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold text-xs shadow-2xs border border-[#8D6E63] items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors"
+            className="hidden md:inline-flex bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] font-bold text-xs shadow-2xs border border-[#8D6E63] dark:border-[#FFB800] items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#FFB800]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#FFB800] dark:text-[#1C1917]" />
             <span>{t("hero.buildButton", "Crear Tortilla")}</span>
           </a>
 
@@ -276,7 +314,7 @@ export default function Header({
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-1.5 sm:p-2 border border-[#E8E2D5] bg-[#FAF6EE] text-foreground rounded-lg hover:bg-[#F5E6BE]/60 cursor-pointer"
+            className="lg:hidden p-1.5 sm:p-2 border border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE] dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE] rounded-lg hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A] cursor-pointer"
             aria-label="Toggle Navigation Menu"
           >
             <Menu className="h-5 w-5" />
@@ -285,13 +323,13 @@ export default function Header({
       </div>
 
       {/* 2-Row / Flex-Wrap Quick Nav Strip on Mobile & Medium Screens */}
-      <div className="lg:hidden border-t border-[#E8E2D5] bg-[#FAF6EE]/95 px-2 py-2 flex flex-wrap items-center justify-center sm:justify-start gap-1 sm:gap-1.5 max-w-full shadow-inner">
+      <div className="lg:hidden border-t border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE]/95 dark:bg-[#262220]/95 px-2 py-2 flex flex-wrap items-center justify-center sm:justify-start gap-1 sm:gap-1.5 max-w-full shadow-inner">
         <a
           href={getLocalizedHref("/")}
           className={`px-2 py-1 text-[11px] font-bold rounded-md transition-all flex items-center gap-1 shrink-0 ${
             isLinkActive("/")
               ? "bg-[#8D6E63] text-white shadow-2xs"
-              : "bg-white/90 text-foreground/80 hover:bg-[#F5E6BE]/80 border border-[#E8E2D5]"
+              : "bg-white/90 dark:bg-[#1C1917]/90 text-foreground/80 dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/80 border border-[#E8E2D5] dark:border-[#3D352E]"
           }`}
         >
           <Home className="w-3 h-3" />
@@ -308,7 +346,7 @@ export default function Header({
               className={`px-2 py-1 text-[11px] font-bold rounded-md transition-all flex items-center gap-1 shrink-0 ${
                 active
                   ? "bg-[#8D6E63] text-white shadow-2xs"
-                  : "bg-white/90 text-foreground/80 hover:bg-[#F5E6BE]/80 border border-[#E8E2D5]"
+                  : "bg-white/90 dark:bg-[#1C1917]/90 text-foreground/80 dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/80 border border-[#E8E2D5] dark:border-[#3D352E]"
               }`}
             >
               <IconComponent className="w-3 h-3" />
@@ -321,31 +359,31 @@ export default function Header({
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex justify-end"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-end"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div 
-            className="w-full max-w-xs bg-[#FCF9F2] h-full p-5 border-l border-[#E8E2D5] flex flex-col justify-between overflow-y-auto shadow-2xl"
+            className="w-full max-w-xs bg-[#FCF9F2] dark:bg-[#1C1917] h-full p-5 border-l border-[#E8E2D5] dark:border-[#3D352E] flex flex-col justify-between overflow-y-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-[#E8E2D5]">
+              <div className="flex items-center justify-between pb-4 border-b border-[#E8E2D5] dark:border-[#3D352E]">
                 <div className="flex items-center gap-2.5">
                   <div className="p-1.5 rounded-xl bg-[#FFB800] text-[#4A3B32] shadow-2xs border border-amber-400">
                     <ChefHat className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-serif-heading font-extrabold text-base text-foreground">
+                    <h3 className="font-serif-heading font-extrabold text-base text-foreground dark:text-[#F5E6BE]">
                       tortilladepatatas.org
                     </h3>
-                    <p className="font-script text-xs text-amber-800">
+                    <p className="font-script text-xs text-amber-800 dark:text-[#FFB800]">
                       Cuaderno & Ciencia Culinaria
                     </p>
                   </div>
                 </div>
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1 rounded-lg hover:bg-amber-100 text-foreground cursor-pointer"
+                  className="p-1 rounded-lg hover:bg-amber-100 dark:hover:bg-[#2E2824] text-foreground dark:text-[#F5E6BE] cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -358,7 +396,7 @@ export default function Header({
                   className={`text-sm font-bold px-3 py-2 rounded-xl transition-all flex items-center justify-between ${
                     isLinkActive("/")
                       ? "bg-[#8D6E63] text-white shadow-2xs"
-                      : "text-foreground hover:bg-[#F5E6BE]/60"
+                      : "text-foreground dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/60 dark:hover:bg-[#28231F]"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
@@ -380,7 +418,7 @@ export default function Header({
                           className={`flex items-center justify-between px-3 py-2 rounded-xl transition-all ${
                             active
                               ? "bg-[#8D6E63] text-white shadow-2xs"
-                              : "bg-[#F5E6BE]/40 text-foreground hover:bg-[#F5E6BE]/70"
+                              : "bg-[#F5E6BE]/40 dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/70"
                           }`}
                         >
                           <a
@@ -393,7 +431,7 @@ export default function Header({
                           <button
                             type="button"
                             onClick={() => setOpenSubmenu(isSubOpen ? null : item.key)}
-                            className="p-1 text-xs text-amber-900 cursor-pointer"
+                            className="p-1 text-xs text-amber-900 dark:text-[#FFB800] cursor-pointer"
                             aria-label="Toggle submenu"
                           >
                             <ChevronDown className={`w-4 h-4 transition-transform ${isSubOpen ? "rotate-180" : ""}`} />
@@ -413,7 +451,7 @@ export default function Header({
                                   className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-all flex items-center justify-between ${
                                     childActive
                                       ? "bg-[#8D6E63] text-white shadow-2xs"
-                                      : "text-foreground hover:bg-[#F5E6BE]/60"
+                                      : "text-foreground dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/60 dark:hover:bg-[#28231F]"
                                   }`}
                                 >
                                   <div className="flex items-center gap-2">
@@ -437,7 +475,7 @@ export default function Header({
                       className={`text-sm font-bold px-3 py-2 rounded-xl transition-all flex items-center justify-between ${
                         active
                           ? "bg-[#8D6E63] text-white shadow-2xs"
-                          : "text-foreground hover:bg-[#F5E6BE]/60"
+                          : "text-foreground dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/60 dark:hover:bg-[#28231F]"
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
@@ -451,25 +489,59 @@ export default function Header({
               </nav>
             </div>
 
-            <div className="space-y-3 pt-4 border-t border-[#E8E2D5]">
+            <div className="space-y-3 pt-4 border-t border-[#E8E2D5] dark:border-[#3D352E]">
               {/* Safety Seal in Mobile Drawer */}
-              <div className="p-2.5 rounded-xl bg-[#2E7D32]/10 border border-[#2E7D32]/25 text-[#2E7D32] text-xs font-bold flex items-center gap-2">
+              <div className="p-2.5 rounded-xl bg-[#2E7D32]/10 dark:bg-[#2E7D32]/20 border border-[#2E7D32]/25 dark:border-[#2E7D32]/40 text-[#2E7D32] dark:text-[#81C784] text-xs font-bold flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
                 <span>
                   {lang === 'es' ? (
-                    <>Estándar bactericida: <strong className="font-bold">70°C durante 2 minutos</strong></>
+                    <>Garantía Culinaria: <strong className="font-bold">Huevo Fresco y Seguro</strong></>
                   ) : lang === 'de' ? (
-                    <>Bakterizider Standard: <strong className="font-bold">70°C für 2 Minuten</strong></>
+                    <>Sicherheitsgarantie: <strong className="font-bold">Frisches & Sicheres Ei</strong></>
                   ) : (
-                    <>Bactericidal standard: <strong className="font-bold">70°C for 2 minutes</strong></>
+                    <>Culinary Safety: <strong className="font-bold">Fresh & Safe Eggs</strong></>
                   )}
                 </span>
+              </div>
+
+              {/* Theme Switcher in Drawer */}
+              <div>
+                <div className="flex items-center gap-1.5 mb-1.5 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                  {theme === "dark" ? <Moon className="h-3.5 w-3.5 text-[#FFB800]" /> : <Sun className="h-3.5 w-3.5 text-amber-700" />}
+                  <span>Modo Visual / Appearance</span>
+                </div>
+                <div className="flex gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => { if (theme !== "light") toggleTheme(); }}
+                    className={`flex-1 text-center text-xs font-bold py-1.5 rounded-lg border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      theme === "light"
+                        ? "bg-[#8D6E63] text-white border-[#8D6E63]"
+                        : "border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE] dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE]"
+                    }`}
+                  >
+                    <Sun className="w-3.5 h-3.5" />
+                    <span>Claro</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { if (theme !== "dark") toggleTheme(); }}
+                    className={`flex-1 text-center text-xs font-bold py-1.5 rounded-lg border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      theme === "dark"
+                        ? "bg-[#FFB800] text-[#1C1917] border-[#FFB800]"
+                        : "border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE] dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE]"
+                    }`}
+                  >
+                    <Moon className="w-3.5 h-3.5" />
+                    <span>Oscuro</span>
+                  </button>
+                </div>
               </div>
 
               {/* Language Selector in Drawer */}
               <div>
                 <div className="flex items-center gap-1.5 mb-1.5 text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
-                  <Languages className="h-3.5 w-3.5 text-amber-700" />
+                  <Languages className="h-3.5 w-3.5 text-amber-700 dark:text-[#FFB800]" />
                   <span>Idioma / Language</span>
                 </div>
                 <div className="flex gap-1.5">
@@ -481,8 +553,8 @@ export default function Header({
                         href={getLangUrl(language.code)}
                         className={`flex-1 text-center text-xs font-bold py-1.5 rounded-lg border transition-all ${
                           active
-                            ? "bg-[#8D6E63] text-white border-[#8D6E63]"
-                            : "border-[#E8E2D5] bg-[#FAF6EE] text-foreground hover:bg-[#F5E6BE]/60"
+                            ? "bg-[#8D6E63] dark:bg-[#FFB800] text-white dark:text-[#1C1917] border-[#8D6E63] dark:border-[#FFB800]"
+                            : "border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE] dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE] hover:bg-[#F5E6BE]/60"
                         }`}
                       >
                         {language.label}
@@ -494,9 +566,9 @@ export default function Header({
 
               <a
                 href={getLocalizedHref('/builder')}
-                className="w-full bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold py-2.5 px-4 rounded-xl shadow-2xs flex items-center justify-center gap-2 text-xs sm:text-sm"
+                className="w-full bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:text-[#1C1917] font-bold py-2.5 px-4 rounded-xl shadow-2xs flex items-center justify-center gap-2 text-xs sm:text-sm"
               >
-                <Sparkles className="w-4 h-4 text-[#FFB800]" />
+                <Sparkles className="w-4 h-4 text-[#FFB800] dark:text-[#1C1917]" />
                 <span>{t("hero.buildButton", "Crear Tortilla")}</span>
               </a>
             </div>

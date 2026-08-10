@@ -141,7 +141,7 @@
     }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-image: radial-gradient(#E8E2D5 0.75px, transparent 0.75px);
+    background-image: radial-gradient(var(--border) 0.75px, transparent 0.75px);
     background-size: 20px 20px;
     overflow-x: clip;
     width: 100%;
@@ -163,37 +163,56 @@
 
 /* Notebook Graph Paper / Parchment Overlay */
 .bg-notebook-grid {
-  background-color: #FCF9F2;
-  background-image: linear-gradient(to right, rgba(141, 110, 99, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(141, 110, 99, 0.05) 1px, transparent 1px);
+  background-color: var(--background);
+  background-image: linear-gradient(to right, rgba(141, 110, 99, 0.08) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(141, 110, 99, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
+.dark .bg-notebook-grid {
+  background-color: var(--background);
+  background-image: linear-gradient(to right, rgba(255, 184, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 184, 0, 0.05) 1px, transparent 1px);
+}
+
 .bg-parchment {
-  background-color: #FDFBF7;
-  border: 1px solid #E8E2D5;
+  background-color: var(--card);
+  border: 1px solid var(--border);
 }
 
 /* Stacked Parchment Elevation */
 .shadow-stacked-parchment {
   box-shadow: 0 4px 6px -1px rgba(74, 59, 50, 0.06), 
               0 2px 4px -1px rgba(74, 59, 50, 0.04),
-              0 0 0 1px rgba(232, 226, 213, 0.8),
+              0 0 0 1px var(--border),
               0 8px 16px -4px rgba(74, 59, 50, 0.08);
 }
 
+.dark .shadow-stacked-parchment {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4),
+              0 0 0 1px var(--border);
+}
+
 .card-notebook {
-  background-color: #FFFFFF;
+  background-color: var(--card);
   border-radius: 12px;
-  border: 1px solid #E8E2D5;
+  border: 1px solid var(--border);
   box-shadow: 0 4px 12px rgba(141, 110, 99, 0.08);
   position: relative;
   transition: all 0.2s ease-in-out;
 }
 
+.dark .card-notebook {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
 .card-notebook:hover {
   box-shadow: 0 8px 20px rgba(141, 110, 99, 0.12);
   transform: translateY(-2px);
+}
+
+.dark .card-notebook:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 /* Chef Tip Handwritten Annotation */
@@ -208,11 +227,23 @@
   border-radius: 0 8px 8px 0;
 }
 
+.dark .chef-note {
+  color: #F5E6BE;
+  background-color: #2D241C;
+  border-left: 3px solid #FFB800;
+}
+
 /* Safety Indicators according to Design System */
 .safety-safe {
   color: #2E7D32;
   background-color: rgba(46, 125, 50, 0.1);
   border: 1px solid rgba(46, 125, 50, 0.25);
+}
+
+.dark .safety-safe {
+  color: #81C784;
+  background-color: rgba(46, 125, 50, 0.2);
+  border: 1px solid rgba(129, 199, 132, 0.3);
 }
 
 .safety-warning {
@@ -221,16 +252,28 @@
   border: 1px solid rgba(255, 193, 7, 0.35);
 }
 
+.dark .safety-warning {
+  color: #FFD54F;
+  background-color: rgba(255, 193, 7, 0.2);
+  border: 1px solid rgba(255, 213, 79, 0.35);
+}
+
 .safety-danger {
   color: #B00020;
   background-color: rgba(176, 0, 32, 0.1);
   border: 1px solid rgba(176, 0, 32, 0.25);
 }
 
+.dark .safety-danger {
+  color: #FF8A80;
+  background-color: rgba(211, 47, 47, 0.25);
+  border: 1px solid rgba(255, 138, 128, 0.35);
+}
+
 /* History & Science Article Typography & Prose Styling */
 .history-prose,
 .science-prose {
-  color: #374151;
+  color: var(--foreground);
   font-size: 1.025rem;
   line-height: 1.85;
 }
@@ -245,11 +288,11 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.75rem;
   font-weight: 800;
-  color: #27272a;
+  color: var(--foreground);
   margin-top: 2.75rem;
   margin-bottom: 1.25rem;
   padding-bottom: 0.6rem;
-  border-bottom: 2px solid #F5E6BE;
+  border-bottom: 2px solid var(--border);
   scroll-margin-top: 6rem;
 }
 
@@ -258,7 +301,7 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.35rem;
   font-weight: 700;
-  color: #8D6E63;
+  color: #FFB800;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   scroll-margin-top: 6rem;
@@ -269,7 +312,7 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.15rem;
   font-weight: 700;
-  color: #374151;
+  color: var(--foreground);
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
@@ -277,7 +320,8 @@
 .history-prose p,
 .science-prose p {
   margin-bottom: 1.25rem;
-  color: #4b5563;
+  color: var(--foreground);
+  opacity: 0.9;
   font-size: 1.025rem;
   line-height: 1.85;
 }
@@ -309,7 +353,7 @@
 .science-prose ul li {
   position: relative;
   padding-left: 1.75rem;
-  color: #374151;
+  color: var(--foreground);
 }
 
 .history-prose ul li::before,
@@ -327,15 +371,15 @@
 .science-prose hr {
   border: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, #E8E2D5, #FFB800, #E8E2D5, transparent);
+  background: linear-gradient(to right, transparent, var(--border), #FFB800, var(--border), transparent);
   margin: 2.75rem 0;
 }
 
 .history-prose strong,
 .science-prose strong {
   font-weight: 700;
-  color: #8D6E63;
-  background-color: rgba(245, 230, 190, 0.5);
+  color: var(--foreground);
+  background-color: rgba(255, 184, 0, 0.18);
   padding: 0.1rem 0.35rem;
   border-radius: 4px;
 }
@@ -343,7 +387,7 @@
 .history-prose em,
 .science-prose em {
   font-style: italic;
-  color: #4b5563;
+  opacity: 0.85;
 }
 
 .history-prose a,
@@ -374,6 +418,14 @@
   box-shadow: 0 2px 8px rgba(141, 110, 99, 0.05);
 }
 
+.dark .history-prose blockquote,
+.dark .science-prose blockquote {
+  color: #F5E6BE;
+  background-color: #2D241C;
+  border-left: 4px solid #FFB800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* Markdown Table Styling */
 .history-prose table,
 .science-prose table {
@@ -381,31 +433,31 @@
   border-collapse: separate;
   border-spacing: 0;
   margin: 2rem 0;
-  background-color: #FCF9F2;
-  border: 1px solid #E8E2D5;
+  background-color: var(--card);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(141, 110, 99, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .history-prose th,
 .science-prose th {
-  background-color: #F5E6BE;
-  color: #8D6E63;
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700;
   font-size: 0.95rem;
   text-align: left;
   padding: 0.85rem 1rem;
-  border-bottom: 2px solid #E8E2D5;
+  border-bottom: 2px solid var(--border);
 }
 
 .history-prose td,
 .science-prose td {
   padding: 0.85rem 1rem;
   font-size: 0.9rem;
-  color: #4b5563;
-  border-bottom: 1px solid #E8E2D5;
+  color: var(--foreground);
+  border-bottom: 1px solid var(--border);
   line-height: 1.6;
 }
 
@@ -416,156 +468,5 @@
 
 .history-prose tr:nth-child(even),
 .science-prose tr:nth-child(even) {
-  background-color: rgba(245, 230, 190, 0.2);
-}
-
-/* Science Article Typography & Prose Styling */
-.science-prose {
-  color: #374151;
-  font-size: 1.025rem;
-  line-height: 1.85;
-}
-
-.science-prose h1 {
-  display: none;
-}
-
-.science-prose h2 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #27272a;
-  margin-top: 2.75rem;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 2px solid #F5E6BE;
-  scroll-margin-top: 6rem;
-}
-
-.science-prose h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #8D6E63;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  scroll-margin-top: 6rem;
-}
-
-.science-prose h4 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #27272a;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.science-prose p {
-  margin-bottom: 1.25rem;
-  color: #4b5563;
-  font-size: 1.025rem;
-  line-height: 1.85;
-}
-
-.science-prose ul, .science-prose ol {
-  margin-top: 1rem;
-  margin-bottom: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.science-prose ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.science-prose ul li {
-  position: relative;
-  padding-left: 1.75rem;
-  color: #374151;
-}
-
-.science-prose ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0.5rem;
-  top: -0.1rem;
-  color: #FFB800;
-  font-weight: bold;
-  font-size: 1.4rem;
-}
-
-.science-prose ol {
-  padding-left: 1.5rem;
-  list-style-type: decimal;
-}
-
-.science-prose ol li {
-  color: #374151;
-  padding-left: 0.35rem;
-}
-
-.science-prose hr {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #E8E2D5, #FFB800, #E8E2D5, transparent);
-  margin: 2.75rem 0;
-}
-
-.science-prose strong {
-  font-weight: 700;
-  color: #8D6E63;
-  background-color: rgba(245, 230, 190, 0.5);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-}
-
-.science-prose em {
-  font-style: italic;
-  color: #4b5563;
-}
-
-.science-prose a {
-  color: #8D6E63;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: #FFB800;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
-}
-
-.science-prose a:hover {
-  color: #00A3FF;
-  text-decoration-color: #00A3FF;
-}
-
-.science-prose table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  border: 1px solid #E8E2D5;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.science-prose th {
-  background-color: #F5E6BE;
-  color: #8D6E63;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 700;
-  text-align: left;
-  padding: 0.75rem 1rem;
-  border-bottom: 2px solid #E8E2D5;
-}
-
-.science-prose td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #E8E2D5;
-  font-size: 0.95rem;
-}
-
-.science-prose tr:nth-child(even) {
-  background-color: #FCF9F2;
+  background-color: rgba(255, 184, 0, 0.05);
 }

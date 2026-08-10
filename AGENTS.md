@@ -1,6 +1,6 @@
 # Project Guidelines & Design System
 
-All agentic contributions to `tortilladepatatas.org` must strictly adhere to the project design system guidelines saved in `docs/DESIGN_SYSTEM.md` (originating from Google Doc `https://docs.google.com/document/d/1X-GEDt4_7o-mPwLejDBgc2q2ARxF4OIMsyE6bHYKaQA/edit?usp=sharing`).
+All agentic contributions to `tortilladepatatas.org` must strictly adhere to the project design system guidelines saved in `docu/DESIGN_SYSTEM.md` (originating from Google Doc `https://docs.google.com/document/d/1X-GEDt4_7o-mPwLejDBgc2q2ARxF4OIMsyE6bHYKaQA/edit?usp=sharing`).
 
 ## Key Requirements:
 1. **Design Aesthetic**: Skeuomorphic-Modernist "Kitchen Notebook" fusion (Parchment textures, notebook card edges, stacked parchment shadows).

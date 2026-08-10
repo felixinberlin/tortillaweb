@@ -1,12 +1,16 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import RecipeImage from '@/components/recipes/RecipeImage';
 import LocalizedLink from '@/components/navigation/LocalizedLink';
+import Clever404View from '@/components/navigation/Clever404View.tsx';
 import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateRecipeSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
 import { Clock, Users, BookOpen, ExternalLink, Shield, ChefHat } from 'lucide-react';
 import { assertEntityExists } from '@/lib/routing/assertEntity';
 import { getRelatedRecipes, getRelatedIngredients, getRelatedTaxonomies } from '@/lib/content/related';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
 
 export async function getStaticPaths() {
   const recipes = await getAllRecipes();
@@ -115,22 +119,8 @@ const relatedTaxonomies = (isValidRoute && recipe) ? await getRelatedTaxonomies(
 
 <Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} customHreflangs={recipeHreflangs} canonical={currentUrl}>
   {!isValidRoute || !recipe ? (
-    <div class="container mx-auto px-4 py-24 text-center max-w-lg">
-      <div class="p-4 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-inner">
-        <ChefHat class="w-10 h-10" />
-      </div>
-      <h1 class="text-4xl font-black text-foreground mb-3 font-serif-heading">404</h1>
-      <h2 class="text-xl font-bold text-foreground mb-2 font-serif-heading">
-        {t("notFound.subheading", "Receta no encontrada")}
-      </h2>
-      <p class="text-base sm:text-lg text-muted-foreground mb-8">
-        {t("notFound.description", "La receta solicitada no existe o ha sido movida.")}
-      </p>
-      <LocalizedLink to="/">
-        <button class="bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors shadow-sm inline-flex items-center gap-2">
-          <span>{t("notFound.homeButton", "Volver al inicio")}</span>
-        </button>
-      </LocalizedLink>
+    <div class="container mx-auto px-4 py-8">
+      <Clever404View lang={currentLang} requestedPath={Astro.url.pathname} client:load />
     </div>
   ) : (
     <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
@@ -193,15 +183,13 @@ const relatedTaxonomies = (isValidRoute && recipe) ? await getRelatedTaxonomies(
 
       <!-- RECIPE HERO IMAGE -->
       <div class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE] h-32 sm:h-64 md:h-80 max-h-[35vh] relative shadow-xs">
-        <img
-          src={recipe.image || '/images/clasica.jpg'}
-          alt={title}
-          width="1200"
-          height="800"
-          loading="eager"
-          decoding="async"
-          referrerPolicy="no-referrer"
-          class="w-full h-full object-cover"
+        <RecipeImage
+          client:load
+          src={recipe.image}
+          title={title}
+          ingredients={recipe.ingredients}
+          taxonomyIds={recipe.taxonomyIds}
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -284,6 +272,12 @@ const relatedTaxonomies = (isValidRoute && recipe) ? await getRelatedTaxonomies(
           </div>
         </section>
       )}
+
+      {/* Interconnected Knowledge Base Node */}
+      <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/recipes/${Astro.params.slug}`} client:visible />
+
+      <!-- Linear Guided Culinary Journey -->
+      <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/recipes`} client:visible />
     </div>
   )}
 </Layout>

@@ -1,0 +1,25 @@
+{
+  "id": "style-vasca",
+  "type": "style",
+  "contentId": "style.vasca",
+  "slug": {
+    "es": "estilo-vasco",
+    "en": "basque-style",
+    "de": "baskischer-stil"
+  },
+  "title": {
+    "es": "Estilo Vasco / Pintxo",
+    "en": "Basque Style / Pintxo Bar",
+    "de": "Baskischer Stil / Pintxo-Bar"
+  },
+  "description": {
+    "es": "Tortilla alta, bien cuajada exteriormente pero cremosa en el centro, frecuentemente rellena con piperrada, pimientos o bacalao.",
+    "en": "Tall omelette, well set on the outside with a creamy interior, often filled with piperrade, peppers, or cod.",
+    "de": "Hohe Tortilla, außen fest gestockt, innen cremig, oft gefüllt mit Piperrade, Paprika oder Kabeljau."
+  },
+  "badge": {
+    "es": "Consistente & Cremosa",
+    "en": "Hearty & Creamy",
+    "de": "Cremig & Herzhaft"
+  }
+}

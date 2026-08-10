@@ -304,6 +304,101 @@ export default function PotatoIngredientDetail({
         </div>
       </section>
 
+      {/* 5. INTERCONNECTED CULINARY ECOSYSTEM LINKS */}
+      <section className="bg-[#FAF6EE] rounded-3xl border-2 border-[#FFB800] p-6 sm:p-8 space-y-6 shadow-sm">
+        <div className="flex items-center justify-between border-b border-[#E8DFD1] pb-4 flex-wrap gap-2">
+          <div>
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#8D6E63] flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-[#FFB800]" />
+              {currentLang === 'es' ? 'Ecosistema Culinario Interconectado' : currentLang === 'de' ? 'Vernetztes Kulinarisches Ökosystem' : 'Interconnected Culinary Ecosystem'}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#292521] mt-1">
+              {currentLang === 'es' ? 'Navegación Cruzada de la Tortilla de Patatas' : currentLang === 'de' ? 'Querverbindungen im Tortilla-Universum' : 'Cross-Links Across the Omelette Universe'}
+            </h2>
+          </div>
+          <LocalizedLink
+            to={`/${currentLang}/builder`}
+            className="px-4 py-2 rounded-xl bg-[#FFB800] text-[#1C1917] font-bold text-xs hover:bg-[#E0A200] transition-colors shadow-2xs"
+          >
+            {currentLang === 'es' ? '🛠️ Abrir Constructor' : currentLang === 'de' ? '🛠️ Baukasten öffnen' : '🛠️ Open Builder'}
+          </LocalizedLink>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <LocalizedLink
+            to={`/${currentLang}/ingredientes/egg`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">🥚</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'El Huevo (Albúmina y Yema)' : currentLang === 'de' ? 'Das Ei' : 'The Egg'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Coagulación y lecitina emulsionante.' : currentLang === 'de' ? 'Gerinnung & Lecithin-Emulsion.' : 'Coagulation & yolk emulsification.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Ver Ficha →' : 'View Detail →'}
+            </span>
+          </LocalizedLink>
+
+          <LocalizedLink
+            to={`/${currentLang}/ingredientes/olive-oil`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">🫒</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'Aceite de Oliva Virgen Extra' : currentLang === 'de' ? 'Olivenöl Extra' : 'Extra Virgin Olive Oil'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Medio térmico para pochado lento a 120°C.' : currentLang === 'de' ? 'Medium für langsames Confitieren.' : 'Thermal medium for slow 120°C poaching.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Ver Ficha →' : 'View Detail →'}
+            </span>
+          </LocalizedLink>
+
+          <LocalizedLink
+            to={`/${currentLang}/ingredientes/garlic`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">🧄</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'Ajo Confitado & Infusión' : currentLang === 'de' ? 'Knoblauch-Aroma' : 'Confit Garlic & Infusion'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Aromatización en aceite de oliva a 80°C.' : currentLang === 'de' ? 'Öl-Aromatisierung bei 80°C.' : 'Oil aromatization at 80°C.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Ver Ficha →' : 'View Detail →'}
+            </span>
+          </LocalizedLink>
+
+          <LocalizedLink
+            to={`/${currentLang}/facciones`}
+            className="p-4 rounded-2xl bg-white border border-[#E8DFD1] hover:border-[#FFB800] transition-all group shadow-2xs hover:scale-102 flex flex-col justify-between"
+          >
+            <div>
+              <span className="text-2xl mb-2 block">⚔️</span>
+              <h3 className="font-serif font-bold text-sm text-[#292521] group-hover:text-[#8D6E63]">
+                {currentLang === 'es' ? 'Facciones & Votaciones' : currentLang === 'de' ? 'Fraktionen & Umfragen' : 'Factions & Voting'}
+              </h3>
+              <p className="text-xs text-[#8D6E63] mt-1">
+                {currentLang === 'es' ? 'Debates históricos: cebollismo vs sincebollismo.' : currentLang === 'de' ? 'Der große Streit: mit oder ohne Zwiebel.' : 'Historical debate: onion vs non-onion.'}
+              </p>
+            </div>
+            <span className="text-[11px] font-bold text-[#FFB800] mt-3 block group-hover:underline">
+              {currentLang === 'es' ? 'Explorar Facciones →' : 'Explore Factions →'}
+            </span>
+          </LocalizedLink>
+        </div>
+      </section>
+
       {/* 6. RELATED KNOWLEDGE BASE GRAPH SECTION */}
       <RelatedKnowledgeSection lang={currentLang} items={relatedKnowledge} />
     </article>

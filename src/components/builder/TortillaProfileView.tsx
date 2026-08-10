@@ -355,12 +355,13 @@ ${shareUrl}`;
             {isEs ? "Conexiones con el Grafo de Conocimiento" : "Knowledge Graph Connections"}
           </CardTitle>
         </CardHeader>
-        <CardContent className="p-6">
-          <p className="text-xs text-stone-600 mb-4">
+        <CardContent className="p-6 space-y-4">
+          <p className="text-xs text-stone-600">
             {isEs
-              ? "Explora las fichas de conocimiento detalladas de los ingredientes presentes en tu receta:"
-              : "Explore knowledge monographs for the ingredients in your custom tortilla:"}
+              ? "Explora las fichas de conocimiento detalladas y herramientas interconectadas para esta receta:"
+              : "Explore detailed knowledge monographs and interconnected tools for this recipe:"}
           </p>
+
           <div className="flex flex-wrap gap-2">
             {ingredients.map((ing) => {
               const url = getTaxonomyUrl(ing.entityId);
@@ -379,6 +380,36 @@ ${shareUrl}`;
                 </a>
               );
             })}
+
+            <a
+              href={isEs ? "/es/science" : isDe ? "/de/science" : "/en/science"}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-950 font-semibold text-xs transition-all shadow-2xs"
+            >
+              <span>🔬 {isEs ? "Guía de Seguridad & Ciencia" : "Safety & Science Guide"}</span>
+              <ExternalLink className="w-3 h-3 text-emerald-700" />
+            </a>
+
+            <a
+              href={isEs ? "/es/laboratorio/comparador" : isDe ? "/de/laboratorio/comparador" : "/en/laboratorio/comparador"}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-300 bg-sky-50 hover:bg-sky-100 text-sky-950 font-semibold text-xs transition-all shadow-2xs"
+            >
+              <span>📊 {isEs ? "Comparador de Estilos" : "Style Comparator"}</span>
+              <ExternalLink className="w-3 h-3 text-sky-700" />
+            </a>
+
+            <a
+              href={isEs ? "/es/factions" : isDe ? "/de/factions" : "/en/factions"}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-orange-300 bg-orange-50 hover:bg-orange-100 text-orange-950 font-semibold text-xs transition-all shadow-2xs"
+            >
+              <span>🏛️ {isEs ? "Facciones & Debates" : "Factions & Debate"}</span>
+              <ExternalLink className="w-3 h-3 text-orange-700" />
+            </a>
           </div>
         </CardContent>
       </Card>

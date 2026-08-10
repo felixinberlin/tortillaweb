@@ -1,0 +1,25 @@
+{
+  "id": "style-vanguardia",
+  "type": "style",
+  "contentId": "style.vanguardia",
+  "slug": {
+    "es": "estilo-vanguardia",
+    "en": "modernist-style",
+    "de": "modernistischer-stil"
+  },
+  "title": {
+    "es": "Estilo Vanguardia / Desestructurada",
+    "en": "Modernist / Deconstructed Style",
+    "de": "Avantgarde / Dekonstruierter Stil"
+  },
+  "description": {
+    "es": "Sifones de espuma de patata, yemas a baja temperatura y aceites perfumados, técnica acuñada por Ferran Adrià en El Bulli.",
+    "en": "Potato foam siphons, low-temperature egg yolks, and infused oils pioneered by Ferran Adrià at El Bulli.",
+    "de": "Kartoffelschaum-Siphons, Niedertemperatur-Eigelb und aromatisiertes Öl, erfunden von Ferran Adrià im El Bulli."
+  },
+  "badge": {
+    "es": "Técnica Molecular",
+    "en": "Molecular Technique",
+    "de": "Molekulare Technik"
+  }
+}

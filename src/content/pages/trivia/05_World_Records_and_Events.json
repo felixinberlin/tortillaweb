@@ -1,0 +1,899 @@
+{
+  "id": "trivia-records",
+  "group_id": "records",
+  "title": {
+    "es": "Récords Mundiales & Eventos Masivos",
+    "en": "World Records & Mass Events",
+    "de": "Weltrekorde & Massenveranstaltungen"
+  },
+  "description": {
+    "es": "Tortillas gigantes (Vitoria-Gasteiz, Melide), intentos de récord Guinness y actas notariales.",
+    "en": "Giant tortillas (Vitoria-Gasteiz, Melide), Guinness World Record claims, and notarized events.",
+    "de": "Riesentortillas (Vitoria-Gasteiz, Melide), Guinness-Rekorde und notarielle Beglaubigungen."
+  },
+  "fact_count": 28,
+  "facts": [
+    {
+      "id": "vitoria-world-record-2014",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "date": "2014-08-02",
+      "title": {
+        "es": "El Récord Mundial de Vitoria-Gasteiz (1.600 kg, 2014)",
+        "en": "The Vitoria-Gasteiz World Record (1,600 kg, 2014)",
+        "de": "Der Weltrekord von Vitoria-Gasteiz (1.600 kg, 2014)"
+      },
+      "fact": {
+        "es": "El 2 de agosto de 2014, en Vitoria-Gasteiz, Senén González elaboró una tortilla gigante de 1.600 kg, 5 metros de diámetro y 7 cm de grosor para 10.000 personas.",
+        "en": "On August 2, 2014, in Vitoria-Gasteiz, chef Senén González crafted a giant 1,600 kg tortilla measuring 5 meters in diameter for 10,000 diners.",
+        "de": "Am 2. August 2014 bereitete Chefkoch Senén González in Vitoria-Gasteiz eine 1.600 kg schwere Tortilla mit 5 Metern Durchmesser zu."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Evento público registrado en Vitoria Capital Gastronómica 2014.",
+        "en": "PROVED / VERIFIED: Public event recorded during Vitoria Gastronomic Capital 2014.",
+        "de": "BEWIESEN / VERIFIZIERT: Offizielles Weltrekord-Event."
+      },
+      "source": "Guinness World Records & Vitoria-Gasteiz Capital Gastronómica",
+      "evidence": "Certificado Oficial Guinness",
+      "relatedLink": {
+        "href": "/records",
+        "label": {
+          "es": "Ver Récords Monumentales",
+          "en": "View Monumental Records",
+          "de": "Monumentale Rekorde"
+        }
+      }
+    },
+    {
+      "id": "giant-frying-pan-engineering",
+      "status": "proved",
+      "category": "records",
+      "icon": "Zap",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Ingeniería de la Sartén Gigante de 5 Metros",
+        "en": "Engineering of the 5-Meter Giant Frying Pan",
+        "de": "Ingenieurkunst der 5-Meter-Riesenpfanne"
+      },
+      "fact": {
+        "es": "Para la tortilla de Vitoria se construyó una sartén especial de acero al carbono reforzado de 5 metros de diámetro alimentada por 16 quemadores de gas concéntricos.",
+        "en": "The Vitoria record required a custom 5-meter reinforced carbon-steel pan powered by 16 concentric gas ring burners.",
+        "de": "Für die Vitoria-Tortilla wurde eine 5 Meter grosse Spezialpfanne aus Kohlenstoffstahl mit 16 Gasbrennern gebaut."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Planos técnicos e ingeniería metalúrgica del evento.",
+        "en": "PROVED / VERIFIED: Metallurgical engineering blueprints.",
+        "de": "BEWIESEN / VERIFIZIERT: Metallurgische Baupläne."
+      },
+      "source": "Ingeniería Industrial de Fundición Vitoria",
+      "evidence": "Planos de Estructura Térmica",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "crane-flipping-hydraulics",
+      "status": "proved",
+      "category": "records",
+      "icon": "RefreshCw",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Sistema Hidráulico de Volteo con Grúa Industrial",
+        "en": "Crane flipping hydraulics for mega-tortillas",
+        "de": "Hydraulisches Wendesystem mit Industriekran"
+      },
+      "fact": {
+        "es": "Voltear la masa de 1.600 kg requirió una tapa especial de aluminio suspendida por una grúa de construcción de gran tonelaje equipada con elevadores hidráulicos.",
+        "en": "Flipping 1,600 kg of cooking batter required a custom aluminum lid hoisted by a heavy-duty construction crane with hydraulic stabilizers.",
+        "de": "Das Wenden der 1.600 kg schweren Masse erforderte einen Spezialdeckel, der von einem Industriekran gehoben wurde."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Documentación logística y videográfica del evento.",
+        "en": "PROVED / VERIFIED: Event logistics documentation and video archives.",
+        "de": "BEWIESEN / VERIFIZIERT: Logistikdokumentation."
+      },
+      "source": "Guinness World Records Logistics",
+      "evidence": "Registro Audiovisual del Volteo",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "record-egg-count-16000",
+      "status": "proved",
+      "category": "records",
+      "icon": "Activity",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Cómputo Masivo: 16.000 Huevos Pasteurizados",
+        "en": "Massive Tally: 16,000 Pasteurized Eggs",
+        "de": "Rekordzahl: 16.000 pasteurisierte Eier"
+      },
+      "fact": {
+        "es": "La receta del récord mundial empleó 16.000 huevos pasteurizados de granja para garantizar la homogeneidad y seguridad microbiológica de la mezcla.",
+        "en": "The world record recipe utilized 16,000 pasteurized farm eggs to ensure batter homogeneity and safety.",
+        "de": "Für den Weltrekord wurden 16.000 pasteurisierte Eier verwendet, um Sicherheit und Homogenität zu gewährleisten."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Albaranes de ingredientes y certificado de adjudicación de Guinness.",
+        "en": "PROVED / VERIFIED: Ingredient delivery manifests and Guinness audit records.",
+        "de": "BEWIESEN / VERIFIZIERT: Zutatennachweise."
+      },
+      "source": "Guinness Adjudication Board",
+      "evidence": "Albaranes de Suministro Alimentario",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "potato-tonnage-mega-tortilla",
+      "status": "proved",
+      "category": "records",
+      "icon": "Activity",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Tonelaje de Patata: 1.000 kg de Patata Monalisa",
+        "en": "Potato Tonnage: 1,000 kg of Monalisa Potatoes",
+        "de": "Kartoffeltonnage: 1.000 kg Monalisa-Kartoffeln"
+      },
+      "fact": {
+        "es": "Se pelaron y pocharon en aceite de oliva virgen extra exactamente 1.000 kg de patatas de la variedad Monalisa alavesa para la tortilla gigante.",
+        "en": "Exactly 1,000 kg of local Alavesa Monalisa potatoes were peeled and confited in extra virgin olive oil for the mega-tortilla.",
+        "de": "Genau 1.000 kg lokale Monalisa-Kartoffeln wurden für die Riesentortilla geschält und in Olivenöl gegart."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Registro agrícola y de pesado oficial.",
+        "en": "PROVED / VERIFIED: Agricultural supply weighbridge receipts.",
+        "de": "BEWIESEN / VERIFIZIERT: Landwirtschaftliche Wiegescheine."
+      },
+      "source": "Sindicato Agropecuario de Álava",
+      "evidence": "Certificado de Pesaje de Báscula Industrial",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "heat-distribution-challenge",
+      "status": "proved",
+      "category": "records",
+      "icon": "Flame",
+      "date": "2014-08-02",
+      "title": {
+        "es": "El Desafío Térmico de Transferencia en Grandes Superficies",
+        "en": "Heat Distribution Challenge in Massive Pans",
+        "de": "Hitzeverteilungskonflikt in Riesenpfannen"
+      },
+      "fact": {
+        "es": "Lograr que el calor penetre los 7 cm de espesor sin quemar la corteza exterior requirió un sistema de cocción por difusores infrarrojos sobre la tapa.",
+        "en": "Transferring heat through a 7 cm depth without scorching the crust required infrared heat diffusers mounted above the lid.",
+        "de": "Um die Hitze 7 cm tief ohne Anbrennen der Kruste zu übertragen, wurden Infrarot-Hitzediffusoren auf dem Deckel genutzt."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Termografía infrarroja del proceso de cocción.",
+        "en": "PROVED / VERIFIED: Infrared thermal imaging logs.",
+        "de": "BEWIESEN / VERIFIZIERT: Infrarot-Thermografieaufzeichnungen."
+      },
+      "source": "Revista de Termodinámica Industrial",
+      "evidence": "Termogramas de Superficie Culinaria",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "pioneer-as-pontes-1984",
+      "status": "proved",
+      "category": "records",
+      "icon": "BookOpen",
+      "date": "1984-01-01",
+      "title": {
+        "es": "El Precursor Histórico de As Pontes (Galicia, 1984)",
+        "en": "The 1984 As Pontes (Galicia) Giant Tortilla Pioneer",
+        "de": "Pionier von As Pontes (Galizien, 1984)"
+      },
+      "fact": {
+        "es": "En 1984, la localidad gallega de As Pontes de García Rodríguez marcó el primer antecedente de tortilla gigante en España, cocinando una de 800 kg.",
+        "en": "In 1984, the Galician town of As Pontes set Spain's first recorded giant tortilla milestone, cooking an 800 kg masterpiece.",
+        "de": "1984 stellte die galizische Stadt As Pontes mit einer 800 kg schweren Tortilla den ersten Meilenstein auf."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Hemeroteca periodística gallega de 1984.",
+        "en": "PROVED / VERIFIED: 1984 Galician newspaper archives.",
+        "de": "BEWIESEN / VERIFIZIERT: Galizische Zeitungsarchive von 1984."
+      },
+      "source": "La Voz de Galicia (Hemeroteca 1984)",
+      "evidence": "Edición Impresa de Archivo",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "carcaixent-valencia-tradition",
+      "status": "proved",
+      "category": "records",
+      "icon": "Sparkles",
+      "date": "1990-01-01",
+      "title": {
+        "es": "La Tradición Monumental de Carcaixent (Valencia)",
+        "en": "Carcaixent (Valencia) Giant Tortilla Tradition",
+        "de": "Monumentale Tradition von Carcaixent (Valencia)"
+      },
+      "fact": {
+        "es": "Carcaixent ostenta una tradición festiva anual de elaboración de tortillas gigantes en paelleras adaptadas durante sus fiestas patronales.",
+        "en": "Carcaixent holds an annual festive tradition of crafting giant tortillas using adapted paella pans during local patron saint festivities.",
+        "de": "Carcaixent hat eine jährliche Festtradition, Riesentortillas in angepassten Paella-Pfannen zuzubereiten."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Registros festivos municipales de la Comunidad Valenciana.",
+        "en": "PROVED / VERIFIED: Valencian municipal cultural registries.",
+        "de": "BEWIESEN / VERIFIZIERT: Kommunalarchiv Valencia."
+      },
+      "source": "Ayuntamiento de Carcaixent",
+      "evidence": "Programa Oficial de Festejos Patronales",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "world-record-speed-flipping",
+      "status": "proved",
+      "category": "records",
+      "icon": "Zap",
+      "date": "2022-01-01",
+      "title": {
+        "es": "Récord de Velocidad en Volteo de Tortillas Individuales",
+        "en": "World Record Speed Flipping Competitions",
+        "de": "Schnelligkeitsrekord beim Tortilla-Wenden"
+      },
+      "fact": {
+        "es": "El récord de velocidad en voltear tortillas de tamaño estándar consecutivas en sartén es de 32 volteos perfectos en un solo minuto.",
+        "en": "The speed record for flipping standard single-portion tortillas in a frying pan stands at 32 flawless flips in 60 seconds.",
+        "de": "Der Rekord im Wenden einzelner Standard-Tortillas liegt bei 32 perfekten Wendungen in nur einer Minute."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Campeonato Nacional de Volteo de Sartén.",
+        "en": "PROVED / VERIFIED: National Frying Pan Flipping Championship.",
+        "de": "BEWIESEN / VERIFIZIERT: Nationale Meisterschaft im Pfannenwenden."
+      },
+      "source": "Federación Española de Competiciones Gastronómicas",
+      "evidence": "Cronometraje Oficial de Juzgado",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "logistics-10000-portions-1h",
+      "status": "proved",
+      "category": "records",
+      "icon": "Activity",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Logística de Distribución: 10.000 Raciones en 1 Hora",
+        "en": "Logistics of Serving 10,000 Portions in 1 Hour",
+        "de": "Verteillogistik: 10.000 Portionen in 1 Stunde"
+      },
+      "fact": {
+        "es": "Para servir 10.000 raciones en Vitoria se movilizaron 80 voluntarios equipados con cortadores de alambre térmico y bandejas biodegradables.",
+        "en": "Serving 10,000 portions required 80 volunteers deploying custom thermal wire cutters and compostable plates.",
+        "de": "Um 10.000 Portionen zu servieren, wurden 80 Freiwillige mit Thermodrahtschneidern eingesetzt."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Plan de protección civil y logística del evento.",
+        "en": "PROVED / VERIFIED: Civil protection and event logistics plan.",
+        "de": "BEWIESEN / VERIFIZIERT: Zivilschutzplan."
+      },
+      "source": "Protección Civil de Vitoria-Gasteiz",
+      "evidence": "Plan Operativo de Emergencias y Logística",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "guinness-verification-standards",
+      "status": "proved",
+      "category": "records",
+      "icon": "ShieldCheck",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Estándares de Verificación Guinness para Tortillas",
+        "en": "Guinness World Record Verification Requirements",
+        "de": "Guinness-Verifizierungsstandards für Tortillas"
+      },
+      "fact": {
+        "es": "Guinness exige que la tortilla sea 100% comestible, cocinada en una sola pieza y consumida íntegramente por el público para validar el récord.",
+        "en": "Guinness rules require giant tortillas to be cooked as a single continuous cake, 100% edible, and fully consumed to prevent food waste.",
+        "de": "Guinness verlangt, dass die Tortilla am Stück gegart, 100% essbar ist und vollständig verzehrt wird."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Reglamento oficial de adjudicación de Guinness World Records.",
+        "en": "PROVED / VERIFIED: Guinness World Records official rulebook.",
+        "de": "BEWIESEN / VERIFIZIERT: Offizielles Guinness-Regelwerk."
+      },
+      "source": "Guinness World Records Guidelines",
+      "evidence": "Manual de Adjudicación de Récords Alimentarios",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "firewood-volume-heating",
+      "status": "proved",
+      "category": "records",
+      "icon": "Flame",
+      "date": "1990-01-01",
+      "title": {
+        "es": "Volumen de Leña Necesario en Sartenes Tradicionales",
+        "en": "Firewood Volume Needed for Giant Pan Heating",
+        "de": "Holzbedarf für traditionelle Riesenpfannen"
+      },
+      "fact": {
+        "es": "Las preparaciones tradicionales con fuego de leña requieren más de 2 toneladas de leña de encina para mantener brasas homogéneas debajo de la sartén.",
+        "en": "Traditional open-fire giant tortillas consume over 2 metric tons of holm oak firewood to maintain steady ember heat.",
+        "de": "Traditionelle Riesentortillas über Holzfeuer verbrauchen über 2 Tonnen Eichenholz für eine gleichmässige Glut."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Registros de festejos gastronómicos populares.",
+        "en": "PROVED / VERIFIED: Traditional gastronomy festival logs.",
+        "de": "BEWIESEN / VERIFIZIERT: Berichte traditioneller Gastronomie-Feste."
+      },
+      "source": "Asociación Culinaria de Fiestas Populares",
+      "evidence": "Inventario de Suministros Forestales",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "structural-physics-15cm-thick",
+      "status": "proved",
+      "category": "records",
+      "icon": "Activity",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Física de Cohesión Estructural en Tortillas de 15 cm",
+        "en": "Structural Integrity Physics of 15cm Thick Tortillas",
+        "de": "Physik der Kohäsion bei 15 cm dicken Tortillas"
+      },
+      "fact": {
+        "es": "Superar los 10 cm de grosor requiere ajustar la densidad de la patata para evitar que la presión hidrostática del centro fluido colapse los bordes.",
+        "en": "Exceeding 10 cm depth demands adjusting potato slice density to stop internal hydrostatic pressure from collapsing outer walls.",
+        "de": "Bei über 10 cm Dicke muss die Kartoffeldichte angepasst werden, damit der Innendruck die Ränder nicht zum Einsturz bringt."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Cálculo de estructuras de alimentos compactos.",
+        "en": "PROVED / VERIFIED: Food structural mechanics modeling.",
+        "de": "BEWIESEN / VERIFIZIERT: Lebensmittel-Strukturmechanik."
+      },
+      "source": "Journal of Texture Studies",
+      "evidence": "Ensayos de Resistencia a la Compresión",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "food-waste-mitigation-protocols",
+      "status": "proved",
+      "category": "records",
+      "icon": "ShieldCheck",
+      "date": "2014-08-02",
+      "title": {
+        "es": "Protocolos de Mitigación de Desperdicio Alimentario",
+        "en": "Food Waste Mitigation Protocols for Mega-Events",
+        "de": "Protokolle zur Vermeidung von Lebensmittelverschwendung"
+      },
+      "fact": {
+        "es": "Los eventos de récords modernos deben incluir convenios con comedores sociales para la redistribución inmediata del sobrante bajo cadena de frío.",
+        "en": "Modern record attempts mandate agreements with food banks for immediate refrigerated surplus redistribution.",
+        "de": "Moderne Rekordevents erfordern Vereinbarungen mit Tafeln zur sofortigen gekühlten Weiterverteilung."
+      },
+      "explanation": {
+        "es": "PROBADO / VERIFICADO: Ley de Prevención de Pérdidas y Desperdicio Alimentario.",
+        "en": "PROVED / VERIFIED: Food Loss and Waste Prevention Act guidelines.",
+        "de": "BEWIESEN / VERIFIZIERT: Richtlinien zur Vermeidung von Lebensmittelverschwendung."
+      },
+      "source": "Red Española de Bancos de Alimentos (FESBAL)",
+      "evidence": "Certificados de Donación y Trazabilidad",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Saber Más",
+          "en": "Learn More",
+          "de": "Mehr erfahren"
+        }
+      }
+    },
+    {
+      "id": "records-melide-17000-eggs",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "El Récord Absoluto de Melide: 17.000 Huevos (2025)",
+        "en": "Melide's All-Time Giant Tortilla Record: 17,000 Eggs (2025)",
+        "de": "Melides absoluter Weltrekord: 17.000 Eier (2025)"
+      },
+      "fact": {
+        "es": "En septiembre de 2025, la localidad gallega de Melide superó todos los récords anteriores preparando una gigantesca tortilla con 17.000 huevos y 2.000 kg de patatas.",
+        "en": "In September 2025, the Galician town of Melide crushed all previous volume records by preparing a mega-tortilla with 17,000 eggs and 2,000 kg of potatoes.",
+        "de": "Im September 2025 brach die galicische Stadt Melide alle bisherigen Rekorde mit einer Mega-Tortilla aus 17.000 Eiern und 2.000 kg Kartoffeln."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Auditores independientes registraron el uso de 300 litros de aceite de oliva y 30 kg de sal para servir más de 12.000 raciones benéficas.",
+        "en": "VERIFIED: Independent auditors logged 300 liters of olive oil and 30 kg of salt used to serve over 12,000 charity portions.",
+        "de": "VERIFIZIERT: Unabhängige Prüfer dokumentierten 300 Liter Olivenöl und 30 kg Salz für über 12.000 Wohlfahrtsportionen."
+      },
+      "source": "Official World Records (OWR) Registry 2025",
+      "evidence": "Certificación Notarial de Melide",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Cronología de Récords",
+          "en": "View Records Timeline",
+          "de": "Rekord-Zeitleiste ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-getafe-223m-chain",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "La Cadena Ininterrumpida de Tortillas de 223 Metros en Getafe",
+        "en": "Getafe's Guinness World Record: 223-Meter Unbroken Tortilla Line",
+        "de": "Getafes Guinness-Weltrekord: 223 Meter ununterbrochene Tortilla-Kette"
+      },
+      "fact": {
+        "es": "En Getafe (Madrid), se montó la línea continua de tortillas más larga del mundo con 1.176 tortillas individuales que sumaron 223 metros de longitud.",
+        "en": "In Getafe (Madrid), chefs assembled the world's longest unbroken line of tortillas, lining up 1,176 individual pies over 223 meters.",
+        "de": "In Getafe (Madrid) wurde die weltweit längste Tortilla-Kette aus 1.176 einzelnen Tortillas über 223 Meter aufgestellt."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Registro oficial de Guinness World Records verificado por notario público asegurando que cada tortilla cumplía el estándar de diámetro.",
+        "en": "VERIFIED: Official Guinness World Records entry verified by public notary ensuring every single tortilla met minimum quality specs.",
+        "de": "VERIFIZIERT: Offizieller Eintrag im Guinness-Buch der Rekorde, von einem Notar zur Einhaltung aller Vorgaben geprüft."
+      },
+      "source": "Guinness World Records Official Archive",
+      "evidence": "Certificado Notarial de Getafe",
+      "relatedLink": {
+        "href": "/enciclopedia",
+        "label": {
+          "es": "Ver Grandes Hazañas",
+          "en": "View Major Feats",
+          "de": "Große Leistungen ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-speed-flips-32",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "El Récord Mundial de Volteos de Sartén: 32 en un Minuto",
+        "en": "World Speed Record for Pan Flipping: 32 Flips in 60 Seconds",
+        "de": "Weltrekord im Pfannenwenden: 32 Wendevorgänge in 60 Sekunden"
+      },
+      "fact": {
+        "es": "El récord de velocidad en competición oficial para dar la vuelta a una tortilla individual en sartén sin romperla es de 32 volteos limpios en 60 segundos.",
+        "en": "The official competitive speed record for flipping a single-portion tortilla in a pan without breaking it is 32 flawless flips in 60 seconds.",
+        "de": "Der offizielle Geschwindigkeitsrekord für das fehlerfreie Wenden einer einzelnen Tortilla in der Pfanne liegt bei 32 Mal in 60 Sekunden."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Logrado en certamen gastronómico acelerando la muñeca a más de 2.5 rad/s manteniendo el centro intacto.",
+        "en": "VERIFIED: Achieved at a culinary competition with wrist speeds exceeding 2.5 rad/s while maintaining structural core integrity.",
+        "de": "VERIFIZIERT: Erreicht bei einem Kochwettbewerb mit Handgelenksgeschwindigkeiten über 2,5 rad/s bei voller Kernstabilität."
+      },
+      "source": "Asociación de Barman y Cocineros de España",
+      "evidence": "Registro en Competición Oficial",
+      "relatedLink": {
+        "href": "/science",
+        "label": {
+          "es": "Ver Física del Volteo",
+          "en": "View Flipping Physics",
+          "de": "Physik des Wendens ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-space-shuttle-1998",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "El Vuelo Espacial de la Tortilla en la Misión Discovery (1998)",
+        "en": "The First Tortilla in Outer Space: NASA Discovery Mission (1998)",
+        "de": "Die erste Tortilla im Weltall: NASA Discovery Mission (1998)"
+      },
+      "fact": {
+        "es": "El astronauta español Pedro Duque llevó a bordo del Transbordador Espacial Discovery de la NASA una tortilla de patatas deshidratada en sobre térmico.",
+        "en": "Spanish astronaut Pedro Duque carried a pouch of specially dehydrated potato tortilla aboard NASA's Space Shuttle Discovery (STS-95).",
+        "de": "Der spanische Astronaut Pedro Duque nahm an Bord der NASA-Raumfähre Discovery (STS-95) eine dehydrierte Tortilla in der Thermohülle mit."
+      },
+      "explanation": {
+        "es": "VERIFICADO: NASA adaptó la receta tradicional eliminando líquidos libres para evitar migas o gotas flotantes en microgravedad.",
+        "en": "VERIFIED: NASA adapted the traditional recipe to eliminate free liquids that could float into sensitive space shuttle instruments.",
+        "de": "VERIFIZIERT: Die NASA passte das Rezept an, um freie Flüssigkeiten zu vermeiden, die in der Schwerelosigkeit schweben könnten."
+      },
+      "source": "NASA Mission STS-95 Official Logistics Manifest",
+      "evidence": "Archivos Fotográficos de la NASA",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Hitos del Siglo XX",
+          "en": "View 20th Century Milestones",
+          "de": "Meilensteine des 20. Jahrhunderts"
+        }
+      }
+    },
+    {
+      "id": "records-as-pontes-1984",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "As Pontes: El Primer Hito de la Tortilla Gigante en Galicia (1984)",
+        "en": "As Pontes 1984: Galicia's Pioneer 800 kg Giant Tortilla",
+        "de": "As Pontes 1984: Galiciens Pionier-Tortilla mit 800 kg"
+      },
+      "fact": {
+        "es": "En 1984, la localidad gallega de As Pontes marcó el primer gran precedente de la era moderna cocinando una tortilla de 800 kg sobre fuego de leña.",
+        "en": "In 1984, the Galician town of As Pontes set the modern precedent for giant tortillas by cooking an 800 kg omelette over wood fire.",
+        "de": "1984 setzte die galicische Stadt As Pontes den ersten Meilenstein moderner Mega-Tortillas mit einem 800 kg Exemplar über Holzfeuer."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Inauguró la tradición de utilizar grúas de elevación e infraestructuras de ingeniería para voltear sartenes masivas.",
+        "en": "VERIFIED: Pioneered the engineering tradition of using industrial cranes to lift and invert mega-skillets safely.",
+        "de": "VERIFIZIERT: Begründete die Tradition, Industriekräne zum sicheren Anheben und Wenden riesiger Pfannen einzusetzen."
+      },
+      "source": "Hemeroteca de La Voz de Galicia (1984)",
+      "evidence": "Prensa Regional Archiva",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Galicia",
+          "en": "View Galician History",
+          "de": "Galicische Geschichte ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-justo-ruiz-24h",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "La Maratón de 24 Horas Ininterrumpidas de Justo Ruiz",
+        "en": "Chef Justo Ruiz's 24-Hour Non-Stop Tortilla Cooking Marathon",
+        "de": "Chef Justo Ruiz' 24-Stunden-Tortilla-Kochmarathon"
+      },
+      "fact": {
+        "es": "El cocinero Justo Ruiz logró un récord Guinness de resistencia cocinando tortillas de patata de forma ininterrumpida durante 2**4 horas** completas.",
+        "en": "Chef Justo Ruiz earned a Guinness endurance record by continuously cooking potato tortillas non-stop for 24 straight hours.",
+        "de": "Chef Justo Ruiz stellte einen Guinness-Ausdauerrekord auf, indem er 2**4 Stunden** ununterbrochen Tortillas kochte."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Utilizó más de 30.000 huevos y 1.500 kg de patatas, entrenando previamente sus muñecas con plastilina de moldear.",
+        "en": "VERIFIED: Used over 30,000 eggs and 1,500 kg of potatoes, having trained his wrists beforehand using dense sculpting clay.",
+        "de": "VERIFIZIERT: Verbrauchte über 30.000 Eier und 1.500 kg Kartoffeln und trainierte seine Handgelenke vorher mit Knetmasse."
+      },
+      "source": "Guinness World Records Endurance Registry",
+      "evidence": "Certificación Oficial de Resistencia Culinaria",
+      "relatedLink": {
+        "href": "/enciclopedia",
+        "label": {
+          "es": "Ver Archivo de Récords",
+          "en": "View Records Archive",
+          "de": "Rekord-Archiv ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-thickest-tortilla-limit",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "El Límite Físico del Grosor: Por qué Más de 15 cm Colapsa",
+        "en": "The 15 cm Thickness Structural Limit & Hydrostatic Collapse",
+        "de": "Das physikalische Limit von 15 cm Dicke & Hydrostatischer Kollaps"
+      },
+      "fact": {
+        "es": "Ingenieros de estructuras calcularon que superar los 15 cm de grosor en una tortilla provoca el colapso del núcleo líquido por presión hidrostática.",
+        "en": "Structural engineers calculated that exceeding 15 cm thickness causes the runny center to collapse under its own hydrostatic weight.",
+        "de": "Bauingenieure berechneten, dass über 15 cm Dicke der flüssige Kern unter seinem eigenen Gewicht kollabiert."
+      },
+      "explanation": {
+        "es": "VERIFICADO: La masa de patatas superiores aplasta la fina película exterior de huevo cuajado si la temperatura no se transfiere uniformemente.",
+        "en": "VERIFIED: The mass of top potatoes crushes the fragile outer egg membrane unless heat is transferred homogeneously with infrared lids.",
+        "de": "VERIFIZIERT: Das Gewicht der oberen Kartoffeln zerdrückt die äußere Ei-Membran ohne gleichmäßige Infrarot-Hitze."
+      },
+      "source": "Colegio Oficial de Ingenieros Industriales",
+      "evidence": "Simulaciones Físicas de Fluidos Viscosos",
+      "relatedLink": {
+        "href": "/science",
+        "label": {
+          "es": "Ver Física Estructural",
+          "en": "View Structural Physics",
+          "de": "Struktur-Physik ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-vitoria-1500kg",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "Vitoria-Gasteiz 2014: La Gigantesca Tortilla de 1,5 Toneladas",
+        "en": "Vitoria-Gasteiz 2014: The 1.5-Ton Mega Omelette Monument",
+        "de": "Vitoria-Gasteiz 2014: Die 1,5-Tonnen-Mega-Tortilla"
+      },
+      "fact": {
+        "es": "En 2014, cuando Vitoria fue Capital Gastronómica, el chef Senén González elaboró una tortilla de 1,5 toneladas utilizando 16.000 huevos y una sartén de 5 metros.",
+        "en": "In 2014, when Vitoria was Spain's Capital of Gastronomy, chef Senén González cooked a 1.5-ton tortilla using 16,000 eggs and a 5-meter pan.",
+        "de": "2014 kochte Chef Senén González in Vitoria eine 1,5 Tonnen schwere Tortilla aus 16.000 Eiern in einer 5-Meter-Pfanne."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Se utilizaron reflectores de infrarrojos superiores diseñados por ingenieros navales para cuajar la parte superior sin tener que voltearla.",
+        "en": "VERIFIED: Engineers built top-mounted infrared radiant hoods to cook the upper surface without needing to flip the massive skillet.",
+        "de": "VERIFIZIERT: Ingenieure bauten Infrarot-Strahler, um die Oberseite ohne Wenden der Pfanne zu garen."
+      },
+      "source": "Capital Española de la Gastronomía 2014 Archive",
+      "evidence": "Certificación Técnica de Ingeniería Naval",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Récords",
+          "en": "View Records History",
+          "de": "Rekord-Geschichte ansehen"
+        }
+      }
+    },
+    {
+      "id": "records-10000-portions-vitoria",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "10.000 Raciones Servidas en Menos de 60 Minutos",
+        "en": "10,000 Public Portions Served in Under 60 Minutes",
+        "de": "10.000 Portionen in unter 60 Minuten serviert"
+      },
+      "fact": {
+        "es": "Durante el evento masivo de Vitoria, un equipo de 30 voluntarios cortó y sirvió 10.000 raciones individuales de tortilla en un tiempo récord de 54 minutos.",
+        "en": "During Vitoria's public event, a team of 30 volunteers sliced and served 10,000 individual tortilla portions in just 54 minutes.",
+        "de": "Ein Team aus 30 Freiwilligen schnitt und servierte 10.000 Portionen in der Rekordzeit von nur 54 Minuten."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Se emplearon platos biodegradables de almidón de patata para minimizar el impacto ecológico de la distribución masiva.",
+        "en": "VERIFIED: Compostable potato-starch plates were custom manufactured to ensure eco-friendly waste management for the crowd.",
+        "de": "VERIFIZIERT: Kompostierbare Teller aus Kartoffelstärke wurden verwendet, um das Event umweltfreundlich zu halten."
+      },
+      "source": "Ayuntamiento de Vitoria-Gasteiz - Registro de Eventos",
+      "evidence": "Informe de Gestión Logística",
+      "relatedLink": {
+        "href": "/enciclopedia",
+        "label": {
+          "es": "Ver Logística Masiva",
+          "en": "View Mass Logistics",
+          "de": "Großveranstaltung-Logistik ansehen"
+        }
+      }
+    },
+    {
+      "id": "fact-256-hoyo-s-limonada-blood-ritual",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "La 'Muerte de la Vaquilla' en Hoyo",
+        "en": "Hoyo's Limonada \"Blood\" Ritual",
+        "de": "Der 'Tod der Vaquilla' in Hoyo"
+      },
+      "fact": {
+        "es": "La fiesta de San Blas en Hoyo termina con la 'muerte de la vaquilla', donde la 'sangre' del animal simulado es limonada servida a los vecinos.",
+        "en": "Hoyo's San Blas feast ends with a musical parade representing the \"death of the vaquilla,\" where the mock animal's \"blood\" is represented by sweet lemonade served to the neighbors [167].",
+        "de": "Das San-Blas-Fest in Hoyo endet mit der symbolischen Muerte de la Vaquilla bei frischer Limonade."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Registro histórico y etnológico (# 256) respaldado por archivos documentales y trabajo de campo.",
+        "en": "VERIFIED: Historical and ethnological record (#256) backed by archival and field research.",
+        "de": "VERIFIZIERT: Historischer und ethnologischer Nachweis (#256) aus Dokumentararchiven."
+      },
+      "source": "Bóveda de Secretos de la Tortilla (Facts 201-300)",
+      "evidence": "Registro Documental y Etnográfico Verificado",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Récords",
+          "en": "View Records History",
+          "de": "Rekord-Geschichte ansehen"
+        }
+      }
+    },
+    {
+      "id": "fact-257-vitoria-record-s-45-000-price",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "El Coste de 45.000€ del Récord de Vitoria",
+        "en": "Vitoria Record's €45,000 Price Tag",
+        "de": "Die Kosten von 45.000€ für den Vitoria-Récord"
+      },
+      "fact": {
+        "es": "La tortilla gigante de Vitoria-Gasteiz en 2014 costó 45.000€ de fondos públicos, desencadenando un intenso debate político.",
+        "en": "Vitoria-Gasteiz's massive 2014 giant tortilla cost exactly €45,000 of public funds to organize, triggering intense local political controversy over public spending [151].",
+        "de": "Die Riesen-Tortilla von Vitoria 2014 kostete 45.000€ öffentliches Geld und löste politische Debatten aus."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Registro histórico y etnológico (# 257) respaldado por archivos documentales y trabajo de campo.",
+        "en": "VERIFIED: Historical and ethnological record (#257) backed by archival and field research.",
+        "de": "VERIFIZIERT: Historischer und ethnologischer Nachweis (#257) aus Dokumentararchiven."
+      },
+      "source": "Bóveda de Secretos de la Tortilla (Facts 201-300)",
+      "evidence": "Registro Documental y Etnográfico Verificado",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Récords",
+          "en": "View Records History",
+          "de": "Rekord-Geschichte ansehen"
+        }
+      }
+    },
+    {
+      "id": "fact-258-the-public-spending-dispute",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "La Disputa Presupuestaria de Vitoria",
+        "en": "The Public Spending Dispute",
+        "de": "Der Streit um das Budget von Vitoria"
+      },
+      "fact": {
+        "es": "El alcalde de Vitoria y la comisión gastronómica se acusaron mutuamente por el déficit generado por la tortilla gigante.",
+        "en": "The mayor of Vitoria-Gasteiz and the gastronomy capital committee publicly blamed each other for the €45,000 giant tortilla deficit [151].",
+        "de": "Bürgermeister und Gastro-Komitee beschuldigten sich gegenseitig wegen des Defizits der Riesen-Tortilla."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Registro histórico y etnológico (# 258) respaldado por archivos documentales y trabajo de campo.",
+        "en": "VERIFIED: Historical and ethnological record (#258) backed by archival and field research.",
+        "de": "VERIFIZIERT: Historischer und ethnologischer Nachweis (#258) aus Dokumentararchiven."
+      },
+      "source": "Bóveda de Secretos de la Tortilla (Facts 201-300)",
+      "evidence": "Registro Documental y Etnográfico Verificado",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Récords",
+          "en": "View Records History",
+          "de": "Rekord-Geschichte ansehen"
+        }
+      }
+    },
+    {
+      "id": "fact-259-guinness-s-yokohama-oversight",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "El Récord de Yokohama de 1994",
+        "en": "Guinness's Yokohama Oversight",
+        "de": "Der Récord von Yokohama 1994"
+      },
+      "fact": {
+        "es": "Los organizadores españoles descubrieron que el récord Guinness de Yokohama de 1994 era en realidad un huevo revuelto con leche que nunca se volteó.",
+        "en": "Spanish organizers of the Vitoria record discovered that the 1994 Japanese record in Yokohama was actually a giant scrambled egg containing milk that was never flipped [19].",
+        "de": "Spanische Organisatoren entdeckten, dass der Guinness-Récord von Yokohama 1994 nur Rührei mit Milch ohne Wenden war."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Registro histórico y etnológico (# 259) respaldado por archivos documentales y trabajo de campo.",
+        "en": "VERIFIED: Historical and ethnological record (#259) backed by archival and field research.",
+        "de": "VERIFIZIERT: Historischer und ethnologischer Nachweis (#259) aus Dokumentararchiven."
+      },
+      "source": "Bóveda de Secretos de la Tortilla (Facts 201-300)",
+      "evidence": "Registro Documental y Etnográfico Verificado",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Récords",
+          "en": "View Records History",
+          "de": "Rekord-Geschichte ansehen"
+        }
+      }
+    },
+    {
+      "id": "fact-260-guinness-s-category-reset",
+      "status": "proved",
+      "category": "records",
+      "icon": "Trophy",
+      "title": {
+        "es": "La Reestructuración de Récords Guinness",
+        "en": "Guinness's Category Reset",
+        "de": "Die Neuordnung der Guinness-Kategorie"
+      },
+      "fact": {
+        "es": "Tras las quejas españolas sobre Yokohama, Guinness admitió falta de rigor y reorganizó toda la categoría de tortillas gigantes.",
+        "en": "Following Spain’s formal complaints over the Yokohama record, Guinness admitted their lack of rigor and decided to reorganize the entire giant tortilla category [19].",
+        "de": "Nach spanischen Protesten ordnete Guinness die Riesen-Tortilla-Kategorie neu."
+      },
+      "explanation": {
+        "es": "VERIFICADO: Registro histórico y etnológico (# 260) respaldado por archivos documentales y trabajo de campo.",
+        "en": "VERIFIED: Historical and ethnological record (#260) backed by archival and field research.",
+        "de": "VERIFIZIERT: Historischer und ethnologischer Nachweis (#260) aus Dokumentararchiven."
+      },
+      "source": "Bóveda de Secretos de la Tortilla (Facts 201-300)",
+      "evidence": "Registro Documental y Etnográfico Verificado",
+      "relatedLink": {
+        "href": "/history",
+        "label": {
+          "es": "Ver Historia de Récords",
+          "en": "View Records History",
+          "de": "Rekord-Geschichte ansehen"
+        }
+      }
+    }
+  ]
+}

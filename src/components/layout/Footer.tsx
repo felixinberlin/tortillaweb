@@ -140,7 +140,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
 
             <div className="pt-2 border-t border-amber-500/20 flex items-center justify-between text-[11px] text-[#E8E2D5]/70">
               <span className="font-mono text-amber-200/90 font-bold">
-                {lang === 'es' ? '70°C durante 2 min / 63°C durante 20s' : '70°C for 2 minutes / 63°C for 20s'}
+                {lang === 'es' ? 'Tratamiento Térmico Higiénico Integrado' : 'Integrated Hygienic Heat Safety'}
               </span>
               <a href={getLocalizedHref('/science')} className="font-bold text-[#FFB800] hover:underline flex items-center gap-1 ml-auto">
                 <span>{t("footer.viewReport", "Ver Informe")}</span>

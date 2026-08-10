@@ -3,6 +3,7 @@ import '@/index.css';
 import Header from '@/components/layout/Header.tsx';
 import Footer from '@/components/layout/Footer.tsx';
 import Breadcrumbs, { type BreadcrumbItem } from '@/components/navigation/Breadcrumbs.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
 import { getCanonicalUrl, SITE_URL } from '@/lib/seo';
 import { getTranslationLookup, findTranslationURL } from '@/lib/translationLookup';
 
@@ -66,10 +67,25 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     
+    <!-- Dark Mode Initializer (FOUC Prevention) -->
+    <script is:inline>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Title & SEO Meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, 70°C 2 minutos" />
+    <meta name="keywords" content="tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, cuajado perfecto" />
     <meta name="author" content="tortilladepatatas.org" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -153,7 +169,10 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
     </main>
 
     {showFooter && (
-      <Footer lang={lang} currentPath={Astro.url.pathname} client:load />
+      <>
+        <InterconnectedKnowledgeHub lang={lang} currentPath={Astro.url.pathname} client:visible />
+        <Footer lang={lang} currentPath={Astro.url.pathname} client:load />
+      </>
     )}
 
     <!-- Cookie Consent Banner -->

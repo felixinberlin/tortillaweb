@@ -85,7 +85,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
     all: currentLang === 'en' ? 'All Facts' : currentLang === 'de' ? 'Alle Fakten' : 'Todas las Curiosidades',
     proved: currentLang === 'en' ? 'Proved / Verified' : currentLang === 'de' ? 'Bewiesen' : 'Probados / Verificados',
     unproved: currentLang === 'en' ? 'Unproved / Myths' : currentLang === 'de' ? 'Mitos & Unbewiesen' : 'No Probados / Mitos',
-    searchPlaceholder: currentLang === 'en' ? 'Search 200 trivia facts (e.g. Mortadelo, Vitoria, 1817, Betanzos, 70°C)...' : currentLang === 'de' ? 'Suche 200 Fakten (z.B. Mortadelo, Vitoria, 1817, Betanzos, 70°C)...' : 'Buscar en los 200 datos (ej. Mortadelo, Vitoria, 1817, Betanzos, 70°C)...',
+    searchPlaceholder: currentLang === 'en' ? `Search ${facts.length} trivia facts (e.g. Mortadelo, Vitoria, 1817, Betanzos, 70°C)...` : currentLang === 'de' ? `Suche ${facts.length} Fakten (z.B. Mortadelo, Vitoria, 1817, Betanzos, 70°C)...` : `Buscar en los ${facts.length} datos (ej. Mortadelo, Vitoria, 1817, Betanzos, 70°C)...`,
     verifiedLabel: currentLang === 'en' ? 'VERIFIED FACT' : currentLang === 'de' ? 'BEWIESENE TATSACHE' : 'HECHO PROBADO',
     unverifiedLabel: currentLang === 'en' ? 'MYTH / UNPROVED' : currentLang === 'de' ? 'UNBEWIESEN / MYTHOS' : 'MITO / NO PROBADO',
     sourceLabel: currentLang === 'en' ? 'Source' : currentLang === 'de' ? 'Quelle' : 'Fuente',
@@ -101,7 +101,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
     sortByLabel: currentLang === 'en' ? 'Sort by:' : currentLang === 'de' ? 'Sortieren:' : 'Ordenar por:',
     resetFilters: currentLang === 'en' ? 'Reset all filters' : currentLang === 'de' ? 'Alle Filter zurücksetzen' : 'Restablecer filtros',
     sortOptions: {
-      default: currentLang === 'en' ? 'Default Order (#1 - #200)' : currentLang === 'de' ? 'Standardreihenfolge (#1 - #200)' : 'Orden Predeterminado (#1 - #200)',
+      default: currentLang === 'en' ? `Default Order (#1 - #${facts.length})` : currentLang === 'de' ? `Standardreihenfolge (#1 - #${facts.length})` : `Orden Predeterminado (#1 - #${facts.length})`,
       title: currentLang === 'en' ? 'Title (A - Z)' : currentLang === 'de' ? 'Titel (A - Z)' : 'Título (A - Z)',
       'proved-first': currentLang === 'en' ? 'Proved First' : currentLang === 'de' ? 'Zuerst Bewiesene' : 'Probados Primero',
       likes: currentLang === 'en' ? 'Most Liked' : currentLang === 'de' ? 'Beliebteste' : 'Más Valorados',

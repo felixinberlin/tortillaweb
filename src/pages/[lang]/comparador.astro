@@ -4,6 +4,7 @@ import { supportedLanguages } from '@/lib/i18n';
 import { generateBreadcrumbSchema } from '@/lib/seo';
 import { getAllRecipes } from '@/lib/taxonomy';
 import { RecipeComparator } from '@/components/comparator/RecipeComparator';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import { Scale, ShieldCheck } from 'lucide-react';
 
 export async function getStaticPaths() {
@@ -39,7 +40,7 @@ const stylesSummary = [
     onion: 'Opcional (cebolla pochada)',
     potatoCut: 'Láminas pochadas en aceite de oliva',
     tempTarget: '68°C - 70°C en centro',
-    safetyNote: 'Cumple fácilmente los 70°C for 2 minutes.'
+    safetyNote: 'Alcanza el punto óptimo de cuajado y seguridad sanitaria.'
   },
   {
     name: 'Estilo Vasco / Bar',
@@ -123,6 +124,9 @@ const stylesSummary = [
         </p>
       </div>
     </section>
+
+    <!-- Linear Guided Culinary Journey -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/comparador`} client:visible />
   </div>
 </Layout>
 

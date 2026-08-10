@@ -2,10 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import RecipeImage from '@/components/recipes/RecipeImage';
 import LocalizedLink from '@/components/navigation/LocalizedLink';
 import { BookOpen, Sparkles, Clock, ExternalLink } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
-import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { generateRecipeSchema, generateBreadcrumbSchema, generateCollectionPageSchema, SITE_URL } from '@/lib/seo';
 import { getAllRecipes, resolveRecipeBadges } from '@/lib/taxonomy';
 
 export function getStaticPaths() {
@@ -52,9 +53,19 @@ const recipeSchemas = recipes.map((r) => {
       { step: 'Cortar patatas', text: 'Pelar y cortar las patatas en láminas finas.' },
       { step: 'Confitar patatas', text: 'Confitar en aceite de oliva a fuego medio-bajo (130-140°C).' },
       { step: 'Mezclar con huevo', text: 'Batir los huevos con la sal y agregar las patatas.' },
-      { step: 'Cuajar y voltear', text: 'Cuajar a fuego fuerte 1 minuto por cada lado (70°C for 2 minutes).' }
+      { step: 'Cuajar y voltear', text: 'Cuajar a fuego suave-medio hasta lograr el punto de cremosidad ideal.' }
     ]
   });
+});
+
+const collectionSchema = generateCollectionPageSchema({
+  name: t('recipes.title'),
+  description: t('recipes.subtitle'),
+  url: `${SITE_URL}/${currentLang}/recipes`,
+  items: recipes.map((r) => ({
+    name: r.title[currentLang as keyof typeof r.title] || r.title.es,
+    url: `${SITE_URL}/${currentLang}/recipes/${r.slug[currentLang as keyof typeof r.slug] || r.slug.es}`,
+  })),
 });
 
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -62,7 +73,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: t('recipes.title'), url: `/${currentLang}/recipes` }
 ]);
 
-const schemas = [...recipeSchemas, breadcrumbSchema];
+const schemas = [collectionSchema, breadcrumbSchema, ...recipeSchemas];
 ---
 
 <Layout title={title} description={description} lang={currentLang} schema={schemas}>
@@ -90,15 +101,13 @@ const schemas = [...recipeSchemas, breadcrumbSchema];
           <article key={r.id} class="card-notebook overflow-hidden rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] transition-all duration-300 flex flex-col justify-between group">
             <div>
               <div class="h-28 sm:h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8E2D5]">
-                <img
-                  src={r.image || '/images/clasica.jpg'}
-                  alt={rTitle}
-                  width="600"
-                  height="400"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                  class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                <RecipeImage
+                  client:visible
+                  src={r.image}
+                  title={rTitle}
+                  ingredients={r.ingredients}
+                  taxonomyIds={r.taxonomyIds}
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div class="absolute top-3 right-3 bg-[#FCF9F2]/90 border border-[#E8E2D5] text-[#8D6E63] text-[11px] font-bold px-2.5 py-1 rounded-full shadow-2xs flex items-center gap-1">
                   <Clock class="w-3 h-3 text-[#FFB800]" />
