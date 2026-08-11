@@ -3,7 +3,7 @@ import LocalizedLink from '@/components/navigation/LocalizedLink';
 import RelatedKnowledgeSection, { type RelatedKnowledgeItem } from '@/components/ingredients/RelatedKnowledgeSection';
 import { Sparkles, Flame, Droplet, ShieldAlert, Clock, Utensils, Award } from 'lucide-react';
 
-import RecipeImage from '@/components/recipes/RecipeImage';
+import RecipeImage, { type IngredientSummary } from '@/components/recipes/RecipeImage';
 
 export interface GarlicIngredientDetailProps {
   lang?: 'es' | 'en' | 'de' | string;
@@ -15,6 +15,8 @@ export interface GarlicIngredientDetailProps {
     image?: string;
     prepTimeMinutes: number;
     cookTimeMinutes: number;
+    ingredients?: (string | IngredientSummary)[];
+    taxonomyIds?: string[];
   }>;
   relatedKnowledge?: RelatedKnowledgeItem[];
 }

@@ -12,6 +12,7 @@ import {
 import {
   dispatchWorldStateAction,
   executeCliCommand,
+  loadWorldState,
   type WorldState,
 } from '../../lib/worldstate/worldstateStore';
 
