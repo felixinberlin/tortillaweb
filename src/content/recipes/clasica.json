@@ -30,7 +30,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/clasica.jpg",
+  "image": "/images/recipes/clasica.jpg",
   "ingredients": [
     {
       "id": "potato",

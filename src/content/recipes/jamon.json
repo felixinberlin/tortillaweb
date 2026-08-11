@@ -30,7 +30,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/jamon.jpg",
+  "image": "/images/recipes/jamon.jpg",
   "ingredients": [
     {
       "id": "potato",

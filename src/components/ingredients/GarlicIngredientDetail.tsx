@@ -57,7 +57,7 @@ export default function GarlicIngredientDetail({
               referrerPolicy="no-referrer"
               onError={(e) => {
                 // Fallback image if local path is missing
-                e.currentTarget.src = "/images/clasica.jpg";
+                e.currentTarget.src = "/images/recipes/clasica.jpg";
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end p-6 sm:p-10">

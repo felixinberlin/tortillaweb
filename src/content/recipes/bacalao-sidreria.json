@@ -33,7 +33,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 15,
   "yieldServings": 4,
-  "image": "/images/bacalao.jpg",
+  "image": "/images/recipes/bacalao.jpg",
   "ingredients": [
     {
       "id": "bacalao",

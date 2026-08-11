@@ -104,7 +104,7 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
               alt={persona.name}
               referrerPolicy="no-referrer"
               onError={(e) => {
-                e.currentTarget.src = "/images/clasica.jpg";
+                e.currentTarget.src = "/images/recipes/clasica.jpg";
               }}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
