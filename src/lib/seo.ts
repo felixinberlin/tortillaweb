@@ -55,7 +55,6 @@ export function generateOrganizationSchema() {
       'Gastronomía Española',
       'Seguridad Alimentaria Culinaria',
       'Pasteurización y Seguridad del Huevo',
-      'Salmonella Inactivation 70°C for 2 minutes',
     ],
   };
 }
@@ -103,7 +102,7 @@ export interface RecipeSchemaInput {
 }
 
 export function generateRecipeSchema(data: RecipeSchemaInput) {
-  const imagePath = data.image || '/images/recipes/clasica.jpg';
+  const imagePath = data.image || '/images/clasica.jpg';
   const fullImage = imagePath.startsWith('http')
     ? imagePath
     : `${SITE_URL}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
@@ -126,7 +125,7 @@ export function generateRecipeSchema(data: RecipeSchemaInput) {
     recipeYield: `${data.yieldServings} raciones`,
     recipeCategory: data.category || 'Main Course',
     recipeCuisine: data.cuisine || 'Spanish',
-    keywords: 'tortilla de patatas, Spanish omelette, tortilla española, receta tradicional, cuajado perfecto, 70°C for 2 minutes',
+    keywords: 'tortilla de patatas, Spanish omelette, tortilla española, receta tradicional, cuajado perfecto',
     recipeIngredient: data.ingredients,
     recipeInstructions: data.instructions.map((inst, index) => ({
       '@type': 'HowToStep',
@@ -236,7 +235,7 @@ export function generateHowToSchema(data: {
 }) {
   const fullImage = data.image
     ? (data.image.startsWith('http') ? data.image : `${SITE_URL}${data.image.startsWith('/') ? data.image : `/${data.image}`}`)
-    : `${SITE_URL}/images/recipes/clasica.jpg`;
+    : `${SITE_URL}/images/clasica.jpg`;
 
   return {
     '@context': 'https://schema.org',

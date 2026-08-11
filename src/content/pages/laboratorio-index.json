@@ -84,9 +84,9 @@
         "de": "Weltzustand & Aktion-Simulator"
       },
       "description": {
-        "es": "Envía acciones directas a la tortilla (Bailar, Mostrar Decepción, Voltear, Verificar Núcleo 70°C) o usa la consola CLI. Todo se guarda de forma persistente.",
-        "en": "Send direct actions to the omelette (Dance, Express Disappointment, Flip, Check Core 70°C) or run CLI terminal commands. Persisted in worldstate.",
-        "de": "Sende Aktionen an die Tortilla (Tanzen, Enttäuschung zeigen, Wenden) oder nutze die CLI."
+        "es": "Consola interactiva y simulador en tiempo real alojado en tortilladepatatas.de (en construcción activa, ¡puedes probarlo en vivo!).",
+        "en": "Interactive real-time simulator hosted on tortilladepatatas.de (under construction, testable live!).",
+        "de": "Interaktiver Echtzeit-Simulator auf tortilladepatatas.de (im Aufbau, jetzt live testen!)."
       },
       "icon": "Sparkles"
     }

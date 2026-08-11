@@ -8,11 +8,11 @@ import {
   History,
   Zap,
   CheckCircle2,
+  ExternalLink,
 } from 'lucide-react';
 import {
   dispatchWorldStateAction,
   executeCliCommand,
-  loadWorldState,
   type WorldState,
 } from '../../lib/worldstate/worldstateStore';
 
@@ -119,6 +119,32 @@ export default function TortillaWorldstateSimulator({ currentLang = 'es' }: Simu
 
       {/* HEADER SECTION */}
       <div className="card-notebook p-6 sm:p-8 rounded-3xl bg-[#FFFDF9] border border-[#E8E2D5] space-y-6 shadow-sm">
+        
+        {/* Callout Link to tortilladepatatas.de */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border-2 border-[#FFB800] text-center space-y-3 shadow-xs">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB800] text-[#1C1917] text-xs font-extrabold uppercase tracking-wider">
+            <span>🚧 En Construcción - ¡Pruébalo en Vivo!</span>
+          </div>
+          <p className="text-xs sm:text-sm text-stone-800 dark:text-[#F5E6BE] font-medium max-w-xl mx-auto leading-relaxed">
+            {currentLang === 'en'
+              ? 'The main Tortilla Worldstate Simulator engine is hosted on tortilladepatatas.de. It is under active construction, but open for live testing!'
+              : currentLang === 'de'
+              ? 'Der Haupt-Weltzustand-Simulator wird auf tortilladepatatas.de gehostet. Er befindet sich im Aufbau, steht aber bereits zum Testen bereit!'
+              : 'El motor principal del Simulador y Estado del Mundo en tiempo real está alojado en tortilladepatatas.de. ¡Está en construcción activa pero ya lo puedes probar en vivo!'}
+          </p>
+          <div>
+            <a
+              href="https://tortilladepatatas.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#8D6E63] hover:bg-[#73564B] text-white font-extrabold text-xs sm:text-sm shadow-md transition-all hover:scale-105"
+            >
+              <span>{currentLang === 'en' ? 'Test Simulator on tortilladepatatas.de' : currentLang === 'de' ? 'Simulator auf tortilladepatatas.de testen' : 'Probar Simulador en tortilladepatatas.de 🚀'}</span>
+              <ExternalLink className="w-4 h-4 text-white" />
+            </a>
+          </div>
+        </div>
+
         <div className="text-center space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-black shadow-2xs">
             <Sparkles className="w-4 h-4 text-[#8D6E63]" />

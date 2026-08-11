@@ -4,7 +4,7 @@ import LocalizedLink from '@/components/navigation/LocalizedLink';
 import RelatedKnowledgeSection, { type RelatedKnowledgeItem } from '@/components/ingredients/RelatedKnowledgeSection';
 import { Thermometer, ShieldAlert, Droplet, Flame, Clock } from 'lucide-react';
 
-import RecipeImage, { type IngredientSummary } from '@/components/recipes/RecipeImage';
+import RecipeImage from '@/components/recipes/RecipeImage';
 
 export interface EggIngredientDetailProps {
   lang?: 'es' | 'en' | 'de' | string;
@@ -16,8 +16,6 @@ export interface EggIngredientDetailProps {
     image?: string;
     prepTimeMinutes: number;
     cookTimeMinutes: number;
-    ingredients?: (string | IngredientSummary)[];
-    taxonomyIds?: string[];
   }>;
   relatedKnowledge?: RelatedKnowledgeItem[];
 }

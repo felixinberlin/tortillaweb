@@ -3,7 +3,7 @@ import LocalizedLink from '@/components/navigation/LocalizedLink';
 import RelatedKnowledgeSection, { type RelatedKnowledgeItem } from '@/components/ingredients/RelatedKnowledgeSection';
 import { Sparkles, Flame, Droplet, ShieldAlert, Clock, Utensils, Award } from 'lucide-react';
 
-import RecipeImage, { type IngredientSummary } from '@/components/recipes/RecipeImage';
+import RecipeImage from '@/components/recipes/RecipeImage';
 
 export interface GarlicIngredientDetailProps {
   lang?: 'es' | 'en' | 'de' | string;
@@ -15,8 +15,6 @@ export interface GarlicIngredientDetailProps {
     image?: string;
     prepTimeMinutes: number;
     cookTimeMinutes: number;
-    ingredients?: (string | IngredientSummary)[];
-    taxonomyIds?: string[];
   }>;
   relatedKnowledge?: RelatedKnowledgeItem[];
 }
@@ -57,7 +55,7 @@ export default function GarlicIngredientDetail({
               referrerPolicy="no-referrer"
               onError={(e) => {
                 // Fallback image if local path is missing
-                e.currentTarget.src = "/images/recipes/clasica.jpg";
+                e.currentTarget.src = "/images/clasica.jpg";
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end p-6 sm:p-10">

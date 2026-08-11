@@ -36,7 +36,7 @@
   "prepTimeMinutes": 20,
   "cookTimeMinutes": 30,
   "yieldServings": 4,
-  "image": "/images/recipes/paisana.jpg",
+  "image": "/images/paisana.jpg",
   "ingredients": [
     {
       "id": "potato",

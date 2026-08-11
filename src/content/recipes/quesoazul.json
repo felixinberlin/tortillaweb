@@ -29,7 +29,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/recipes/quesoazul.jpg",
+  "image": "/images/quesoazul.jpg",
   "ingredients": [
     {
       "id": "potato",
