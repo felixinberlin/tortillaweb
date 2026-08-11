@@ -74,7 +74,9 @@ src/
 tests/            # Vitest specs: builderMath, builderIntegration, recipes, taxonomy, factionsData,
                   # tortillaDna, comparator, i18n, seo, safetyRules, contentIntegrity
 docs/             # Architecture.md / Arquitectura.md (ES), DESIGN_SYSTEM.md, ROUTING_ARCHITECTURE.md,
-                  # taxonomy-driven-content-model.md, Roadmap.md, Security.md, SEO.md, Idea.md, research/
+                  # taxonomy-driven-content-model.md, Roadmap.md, Security.md, SEO.md, Idea.md, research/,
+                  # AGENT_LEARNINGS.md (dated log of empirical gotchas found while working here —
+                  # append to it, don't just re-derive the same surprises next session)
 ```
 
 Loose files at repo root (`egg.es.md`, `egg.en.md`, `egg.de.md`, `personas.txt`,
