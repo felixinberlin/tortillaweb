@@ -55,6 +55,7 @@ export function generateOrganizationSchema() {
       'Gastronomía Española',
       'Seguridad Alimentaria Culinaria',
       'Pasteurización y Seguridad del Huevo',
+      'Salmonella Inactivation 70°C for 2 minutes',
     ],
   };
 }
@@ -125,7 +126,7 @@ export function generateRecipeSchema(data: RecipeSchemaInput) {
     recipeYield: `${data.yieldServings} raciones`,
     recipeCategory: data.category || 'Main Course',
     recipeCuisine: data.cuisine || 'Spanish',
-    keywords: 'tortilla de patatas, Spanish omelette, tortilla española, receta tradicional, cuajado perfecto',
+    keywords: 'tortilla de patatas, Spanish omelette, tortilla española, receta tradicional, cuajado perfecto, 70°C for 2 minutes',
     recipeIngredient: data.ingredients,
     recipeInstructions: data.instructions.map((inst, index) => ({
       '@type': 'HowToStep',
