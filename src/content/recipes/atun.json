@@ -29,7 +29,7 @@
   "prepTimeMinutes": 10,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/con-atun.jpg",
+  "image": "/images/recipes/con-atun.jpg",
   "ingredients": [
     {
       "id": "potato",

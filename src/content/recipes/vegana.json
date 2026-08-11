@@ -35,7 +35,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/vegana.png",
+  "image": "/images/recipes/vegana.png",
   "ingredients": [    
     {
       "id": "potato",
