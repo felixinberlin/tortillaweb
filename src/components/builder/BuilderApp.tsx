@@ -373,6 +373,7 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
               type="button"
               onClick={() => setShowComparator(false)}
               className="absolute top-4 right-4 text-stone-500 hover:text-stone-900 bg-stone-100 p-2 rounded-full"
+              aria-label={isEs ? "Cerrar modal" : isDe ? "Modal schließen" : "Close modal"}
             >
               <X className="w-5 h-5" />
             </button>
