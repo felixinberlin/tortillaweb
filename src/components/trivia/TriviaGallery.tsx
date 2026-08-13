@@ -280,6 +280,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               onClick={() => setSearchQuery('')}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-stone-100 transition-colors"
               title="Clear search"
+              aria-label="Clear search"
             >
               <X className="w-4 h-4" />
             </button>
@@ -389,19 +390,25 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               {searchQuery && (
                 <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold flex items-center gap-1">
                   "{searchQuery}"
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setSearchQuery('')} />
+                  <button onClick={() => setSearchQuery('')} aria-label="Remove filter">
+                    <X className="w-3 h-3 cursor-pointer" />
+                  </button>
                 </span>
               )}
               {selectedCategory !== 'all' && (
                 <span className="px-2.5 py-1 rounded-lg bg-stone-200 text-stone-900 font-bold flex items-center gap-1">
                   {t.categories[selectedCategory as keyof typeof t.categories] || selectedCategory}
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedCategory('all')} />
+                  <button onClick={() => setSelectedCategory('all')} aria-label="Remove filter">
+                    <X className="w-3 h-3 cursor-pointer" />
+                  </button>
                 </span>
               )}
               {statusFilter !== 'all' && (
                 <span className="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-900 font-bold flex items-center gap-1">
                   {statusFilter === 'proved' ? t.proved : t.unproved}
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setStatusFilter('all')} />
+                  <button onClick={() => setStatusFilter('all')} aria-label="Remove filter">
+                    <X className="w-3 h-3 cursor-pointer" />
+                  </button>
                 </span>
               )}
             </div>
@@ -409,6 +416,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
             <button
               onClick={resetAllFilters}
               className="text-xs font-extrabold text-[#D32F2F] hover:underline flex items-center gap-1 cursor-pointer"
+              aria-label={t.resetFilters}
             >
               <X className="w-3.5 h-3.5" />
               <span>{t.resetFilters}</span>
