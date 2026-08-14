@@ -125,7 +125,8 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700 cursor-pointer"
+                aria-label="Clear search"
               >
                 <X className="w-4 h-4" />
               </button>
