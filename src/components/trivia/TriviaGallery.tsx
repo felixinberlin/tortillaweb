@@ -389,19 +389,40 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               {searchQuery && (
                 <span className="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold flex items-center gap-1">
                   "{searchQuery}"
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setSearchQuery('')} />
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    aria-label="Remove search filter"
+                    className="p-0.5 rounded-sm hover:bg-amber-200/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-900 transition-colors cursor-pointer"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
                 </span>
               )}
               {selectedCategory !== 'all' && (
                 <span className="px-2.5 py-1 rounded-lg bg-stone-200 text-stone-900 font-bold flex items-center gap-1">
                   {t.categories[selectedCategory as keyof typeof t.categories] || selectedCategory}
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setSelectedCategory('all')} />
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCategory('all')}
+                    aria-label="Remove category filter"
+                    className="p-0.5 rounded-sm hover:bg-stone-300/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 transition-colors cursor-pointer"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
                 </span>
               )}
               {statusFilter !== 'all' && (
                 <span className="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-900 font-bold flex items-center gap-1">
                   {statusFilter === 'proved' ? t.proved : t.unproved}
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setStatusFilter('all')} />
+                  <button
+                    type="button"
+                    onClick={() => setStatusFilter('all')}
+                    aria-label="Remove status filter"
+                    className="p-0.5 rounded-sm hover:bg-emerald-200/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-900 transition-colors cursor-pointer"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
                 </span>
               )}
             </div>
