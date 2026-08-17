@@ -120,6 +120,8 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
             size="sm"
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-stone-600 hover:text-stone-900 h-7 w-7 p-0 rounded-lg"
+            aria-expanded={isExpanded}
+            aria-label={isExpanded ? (isEs ? "Contraer" : isDe ? "Einklappen" : "Collapse") : (isEs ? "Expandir" : isDe ? "Ausklappen" : "Expand")}
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </Button>
@@ -244,6 +246,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
                     type="button"
                     onClick={() => setSearchQuery("")}
                     className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                    aria-label={isEs ? "Borrar búsqueda" : isDe ? "Suche löschen" : "Clear search"}
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
