@@ -278,8 +278,9 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-stone-100 transition-colors"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-stone-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800]"
               title="Clear search"
+              aria-label="Clear search"
             >
               <X className="w-4 h-4" />
             </button>
@@ -592,8 +593,9 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
 
                     <button
                       onClick={() => handleShare(titleText)}
-                      className="inline-flex items-center gap-1 px-2.5 py-1.5 text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[36px]"
+                      className="inline-flex items-center gap-1 px-2.5 py-1.5 text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[36px] rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800]"
                       title="Compartir"
+                      aria-label="Compartir"
                     >
                       <Share2 className="w-3.5 h-3.5" />
                     </button>
@@ -619,8 +621,9 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
             <button
               onClick={() => handlePageChange(1)}
               disabled={safeCurrentPage === 1}
-              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800]"
               title="First Page"
+              aria-label="First Page"
             >
               <ChevronsLeft className="w-4 h-4" />
             </button>
@@ -629,8 +632,9 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
             <button
               onClick={() => handlePageChange(safeCurrentPage - 1)}
               disabled={safeCurrentPage === 1}
-              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800]"
               title="Previous Page"
+              aria-label="Previous Page"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -665,8 +669,9 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
             <button
               onClick={() => handlePageChange(safeCurrentPage + 1)}
               disabled={safeCurrentPage === totalPages}
-              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800]"
               title="Next Page"
+              aria-label="Next Page"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -675,8 +680,9 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
             <button
               onClick={() => handlePageChange(totalPages)}
               disabled={safeCurrentPage === totalPages}
-              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB800]"
               title="Last Page"
+              aria-label="Last Page"
             >
               <ChevronsRight className="w-4 h-4" />
             </button>
