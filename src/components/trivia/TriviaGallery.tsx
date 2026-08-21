@@ -280,6 +280,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               onClick={() => setSearchQuery('')}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-stone-100 transition-colors"
               title="Clear search"
+              aria-label="Clear search"
             >
               <X className="w-4 h-4" />
             </button>
@@ -621,6 +622,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === 1}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="First Page"
+              aria-label="First Page"
             >
               <ChevronsLeft className="w-4 h-4" />
             </button>
@@ -631,6 +633,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === 1}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Previous Page"
+              aria-label="Previous Page"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -667,6 +670,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === totalPages}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Next Page"
+              aria-label="Next Page"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -677,6 +681,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === totalPages}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Last Page"
+              aria-label="Last Page"
             >
               <ChevronsRight className="w-4 h-4" />
             </button>
