@@ -1,0 +1,227 @@
+{
+  "id": "paisana-andaluza",
+  "contentId": "recipe.paisana-andaluza",
+  "translationKey": "recipe-paisana-andaluza",
+  "slug": {
+    "es": "tortilla-paisana-andaluza-huerta",
+    "en": "andalusian-country-vegetable-omelette",
+    "de": "andalusische-garten-tortilla-paisana"
+  },
+  "title": {
+    "es": "Tortilla Paisana Andaluza de la Huerta",
+    "en": "Andalusian Garden-Style Paisana Omelette",
+    "de": "Andalusische Garten-Tortilla Paisana"
+  },
+  "description": {
+    "es": "Generosa tortilla campera del sur elaborada con un sofrito de la huerta andaluza: guisantes frescos, dados tiernos de zanahoria, pimientos tricolor y patatas pochadas en virgen extra.",
+    "en": "Generous southern countryside omelette with a rich medley of Andalusian vegetables: fresh peas, tender diced carrots, tricolor peppers, and olive-oil-poached potatoes.",
+    "de": "Reichhaltige südspanische Bauerntortilla mit frischem andalusischem Gartengemüse: zarte Erbsen, Karottenwürfel, dreifarbige Paprika und pochierte Kartoffeln."
+  },
+  "taxonomyIds": [
+    "faction:pimientistas",
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:cherryPepper",
+    "ingredient:onion",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:andalucia",
+    "style:rustic",
+    "technique:sofrito",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/paisana-andaluza.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Agria o Spunta",
+        "en": "Agria or Spunta Potato",
+        "de": "Agria- oder Spunta-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en dados rústicos de 1.5 cm",
+        "en": "500g cut into rustic 1.5 cm cubes",
+        "de": "500g in 1,5 cm große Würfel geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos andaluces",
+        "en": "Free-Range Farm Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos frescos tamaño L",
+        "en": "6 large free-range eggs",
+        "de": "6 große Freilandeier"
+      }
+    },
+    {
+      "id": "peas",
+      "ingredientId": "cherryPepper",
+      "name": {
+        "es": "Guisantes tiernos frescos",
+        "en": "Sweet Garden Peas",
+        "de": "Zarte Gartenerbsen"
+      },
+      "amount": 80,
+      "unit": "g",
+      "notes": {
+        "es": "80g guisantes escaldados al dente",
+        "en": "80g tender blanched peas",
+        "de": "80g kurz blanchierte zarte Erbsen"
+      }
+    },
+    {
+      "id": "carrot",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Zanahoria en brunoise",
+        "en": "Finely Diced Carrot",
+        "de": "Karottenwürfel"
+      },
+      "amount": 80,
+      "unit": "g",
+      "notes": {
+        "es": "1 zanahoria mediana en cubitos tiernos",
+        "en": "1 medium carrot finely diced and tender",
+        "de": "1 Karotte in feine Würfel geschnitten"
+      }
+    },
+    {
+      "id": "peppers",
+      "ingredientId": "cherryPepper",
+      "name": {
+        "es": "Pimiento rojo y verde andaluz",
+        "en": "Red & Green Bell Peppers",
+        "de": "Rote und grüne Paprika"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "100g en dados pequeños salteados",
+        "en": "100g finely diced and sautéed",
+        "de": "100g fein gewürfelt und angebraten"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra Picual",
+        "en": "Picual Extra Virgin Olive Oil",
+        "de": "Natives Picual-Olivenöl Extra"
+      },
+      "amount": 160,
+      "unit": "ml",
+      "notes": {
+        "es": "160ml de AOVE andaluz aromático",
+        "en": "160ml aromatic Andalusian EVOO",
+        "de": "160ml aromatisches andalusisches Olivenöl"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Preparación y corte de la huerta",
+        "en": "1. Garden vegetable preparation",
+        "de": "1. Vorbereitung des Gemüses"
+      },
+      "text": {
+        "es": "Corta las patatas en cubos regulares, la zanahoria en brunoise fina y los pimientos rojo y verde en dados uniformes. Escalda los guisantes 2 minutos en agua hirviendo con sal.",
+        "en": "Cut potatoes into regular cubes, carrots into fine brunoise, and peppers into small dice. Blanch peas for 2 minutes in salted water.",
+        "de": "Kartoffeln in Würfel, Karotten fein würfeln und Paprika in kleine Stücke schneiden. Erbsen 2 Minuten in Salzwasser blanchieren."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Sofrito lento de verduras en AOVE",
+        "en": "2. Slow olive oil vegetable sofrito",
+        "de": "2. Sanftes Dünsten des Gemüses"
+      },
+      "text": {
+        "es": "En sartén con abundante AOVE a 130°C, añade primero las zanahorias y pimientos. Cocina 8 minutos hasta que ablanden antes de incorporar las patatas.",
+        "en": "In a skillet with EVOO at 130°C, add diced carrots and peppers. Sauté for 8 minutes until softened before adding the potatoes.",
+        "de": "In einer Pfanne mit reichlich Olivenöl bei 130°C Karotten und Paprika 8 Minuten anbraten, dann die Kartoffeln dazugeben."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Confitado conjunto con patatas",
+        "en": "3. Combined potato & veggie confit",
+        "de": "3. Gemeinsames Weichgaren"
+      },
+      "text": {
+        "es": "Incorpora los dados de patata al sofrito y confita todo junto a fuego medio-bajo durante 15 minutos. En el último minuto, añade los guisantes escaldados. Escurre reservando el aceite.",
+        "en": "Add potato cubes to the vegetables and confit gently for 15 minutes. In the last minute, fold in the blanched peas. Drain thoroughly.",
+        "de": "Kartoffelwürfel hinzufügen und alles zusammen 15 Minuten sanft garen. In der letzten Minute die Erbsen unterheben. Gründlich abtropfen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Integración del batido campero",
+        "en": "4. Farmhouse egg integration",
+        "de": "4. Eimasse unterheben"
+      },
+      "text": {
+        "es": "Bate los huevos con sal. Vierte las verduras y patatas calientes directamente sobre el huevo batido. Deja reposar 4 minutos para asentar todos los aromas campestres.",
+        "en": "Whisk eggs with salt. Pour warm vegetables and potatoes into the eggs. Let stand for 4 minutes to harmonize countryside flavors.",
+        "de": "Eier mit Salz verquirlen. Das warme Gemüse und die Kartoffeln hineingeben. 4 Minuten ruhen lassen, damit die Aromen verschmelzen."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Cuajado tradicional andaluz",
+        "en": "5. Traditional Andalusian skillet cook",
+        "de": "5. Traditionelles Stocken in der Pfanne"
+      },
+      "text": {
+        "es": "Vierte la mezcla en una sartén caliente con 1 cucharada de aceite. Cocina 3 minutos a fuego medio moviendo en círculos para asegurar una cocción uniforme y bordes redondeados.",
+        "en": "Pour into a hot skillet with 1 tbsp olive oil. Cook for 3 minutes over medium heat, swirling gently for an even cook and rounded edges.",
+        "de": "In eine heiße Pfanne mit etwas Öl geben und 3 Minuten bei mittlerer Hitze braten, dabei leicht kreisen lassen für schöne Rundung."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Volteo dorado y seguridad higiénica",
+        "en": "6. Golden flip & food hygiene rules",
+        "de": "6. Wenden und Hygieneanforderungen"
+      },
+      "text": {
+        "es": "Voltea con plato ancho y cocina 2 minutos más hasta obtener un dorado bronceado exterior. Si se va a servir fría en almuerzo campestre, asegúrate de que el corazón alcanzó **70°C durante 2 minutos** y respeta el límite estricto de **4 horas** fuera de la nevera.",
+        "en": "Flip with a broad plate and cook for 2 more minutes until nicely bronzed. If serving cold at a picnic, ensure it reached **70°C for 2 minutes** and never exceed **4 hours** unrefrigerated.",
+        "de": "Mit großem Teller wenden und 2 Minuten goldbraun fertig braten. Für Picknicks sicherstellen, dass die Kerntemperatur **70°C für 2 Minuten** erreichte, und maximal **4 Stunden** ungekühlt lagern."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Recetario Campero de Andalucía",
+      "description": {
+        "es": "Tradición de las huertas del Guadalquivir que celebra la abundancia de hortalizas estacionales.",
+        "en": "Guadalquivir valley culinary heritage celebrating fresh seasonal harvest vegetables.",
+        "de": "Andalusische Bauerntradition aus dem fruchtbaren Guadalquivir-Tal."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

@@ -1,8 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Plus, Minus, Check, ExternalLink, Info, Search, X } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Plus, Minus, Search } from "lucide-react";
 import { OPTIONAL_INGREDIENTS } from "@/domain/builder/ingredientRegistry";
 import type { TortillaIngredientModifier } from "@/domain/builder/types";
 
@@ -71,238 +68,107 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
     });
   }, [activeCategory, searchQuery]);
 
-  const getTaxonomyUrl = (item: TortillaIngredientModifier) => {
-    if (!item.taxonomySlug) return null;
-    const langPrefix = isEs ? "/es" : isDe ? "/de" : "/en";
-    const section = isEs ? "ingredientes" : isDe ? "zutaten" : "ingredients";
-    const slug = isEs ? item.taxonomySlug.es : isDe ? item.taxonomySlug.de : item.taxonomySlug.en;
-    return `${langPrefix}/${section}/${slug}`;
-  };
-
-  const activeCount = extras.filter((e) => e.quantity > 0).length;
-
   return (
     <div className="space-y-6">
-      <Card className="border-2 border-amber-900/10 shadow-sm bg-stone-50/80 rounded-2xl overflow-hidden">
-        <CardHeader className="bg-amber-500/10 pb-4 border-b border-amber-900/10">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>
-              <CardTitle className="text-xl font-bold text-stone-900">
-                {isEs ? "🥗 Inventario de la Nevera" : isDe ? "🥗 Zutaten aus dem Kühlschrank" : "🥗 Fridge Inventory"}
-              </CardTitle>
-              <CardDescription className="text-stone-600 text-sm">
-                {isEs
-                  ? "Busca o selecciona ingredientes extras para añadirlos a tu tortilla o desactivarlos al instante."
-                  : isDe
-                  ? "Suchen oder wählen Sie zusätzliche Zutaten aus, um sie Ihrer Tortilla hinzuzufügen."
-                  : "Search or choose extra ingredients to add or deactivate them instantly."}
-              </CardDescription>
-            </div>
-            <Badge className="bg-amber-600 text-white font-bold px-3 py-1">
-              {activeCount} {isEs ? "activos" : isDe ? "ausgewählt" : "active"}
-            </Badge>
+      <div className="card-notebook p-6 bg-card border border-border rounded-2xl shadow-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-border mb-6">
+          <div>
+            <h3 className="font-serif-heading text-xl font-bold text-foreground">
+              {isEs ? "🥗 Inventario de Ingredientes Extras" : isDe ? "🥗 Zusatzzutaten" : "🥗 Extra Ingredients & Add-ins"}
+            </h3>
+            <p className="text-muted-foreground text-xs sm:text-sm">
+              {isEs
+                ? "Añade cebolla caramelizada, chorizo, pimientos o queso a tu fórmula personalizada."
+                : isDe
+                ? "Fügen Sie karamellisierte Zwiebeln, Chorizo, Paprika oder Käse hinzu."
+                : "Add caramelized onions, chorizo, peppers, or artisan cheeses."}
+            </p>
           </div>
-        </CardHeader>
+        </div>
 
-        <CardContent className="p-6 space-y-6">
-          {/* Search Input Field */}
-          <div className="relative">
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400" />
+        {/* Filter and Search Bar */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-6">
+          <div className="relative w-full sm:flex-1">
+            <Search className="w-4 h-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
+              placeholder={isEs ? "Buscar ingrediente..." : "Search ingredients..."}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={
-                isEs
-                  ? "🔍 Buscar ingrediente por nombre o categoría (cebolla, pimiento, chorizo, queso, ajo...)"
-                  : isDe
-                  ? "🔍 Zutat nach Name oder Kategorie suchen..."
-                  : "🔍 Search ingredient by name or category..."
-              }
-              className="w-full pl-10 pr-9 py-2.5 bg-white border border-stone-300 rounded-xl text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-stone-900 placeholder:text-stone-400 shadow-2xs"
+              className="w-full pl-9 pr-4 py-2 text-xs sm:text-sm bg-accent border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#FFB800]"
             />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
           </div>
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex items-center gap-1 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id as any)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === cat.id
-                    ? "bg-amber-700 text-white shadow-xs"
-                    : "bg-white text-stone-700 hover:bg-stone-200 border border-stone-200"
+                    ? "bg-[#8D6E63] text-white dark:bg-[#FFB800] dark:text-[#1C1917] shadow-2xs"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                 }`}
               >
-                {cat.icon && <span className="mr-1.5">{cat.icon}</span>}
+                {cat.icon && <span className="mr-1">{cat.icon}</span>}
                 {cat.label}
               </button>
             ))}
           </div>
+        </div>
 
-          {/* Ingredient Cards Grid */}
-          {filteredIngredients.length === 0 ? (
-            <div className="text-center py-8 bg-white border border-stone-200 rounded-2xl p-6">
-              <p className="text-stone-500 font-medium text-sm">
-                {isEs
-                  ? `No se encontraron ingredientes para "${searchQuery}".`
-                  : `No ingredients found matching "${searchQuery}".`}
-              </p>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setSearchQuery("");
-                  setActiveCategory("all");
-                }}
-                className="mt-3 text-xs font-bold border-amber-500 text-amber-900"
+        {/* Ingredients Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {filteredIngredients.map((item) => {
+            const qty = getExtraQty(item.ingredientId);
+            const isSelected = qty > 0;
+
+            return (
+              <div
+                key={item.ingredientId}
+                className={`p-3.5 rounded-xl border transition-all ${
+                  isSelected
+                    ? "border-[#FFB800] bg-[#FFB800]/15 dark:bg-[#FFB800]/25 shadow-2xs"
+                    : "border-border bg-card hover:bg-accent"
+                }`}
               >
-                {isEs ? "Ver todos los ingredientes" : "Show all ingredients"}
-              </Button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {filteredIngredients.map((item) => {
-                const currentQty = getExtraQty(item.ingredientId);
-                const isActive = currentQty > 0;
-                const taxonomyUrl = getTaxonomyUrl(item);
-                const name = getLocalizedName(item);
-
-                return (
-                  <div
-                    key={item.ingredientId}
-                    className={`p-4 rounded-xl border transition-all ${
-                      isActive
-                        ? "border-amber-600 bg-amber-50/90 shadow-sm"
-                        : "border-stone-200 bg-white hover:border-amber-300"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-3 mb-2">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              if (isActive) {
-                                onUpdateExtra(item.ingredientId, 0);
-                              } else {
-                                onUpdateExtra(item.ingredientId, item.defaultQuantity);
-                              }
-                            }}
-                            className="font-bold text-stone-900 text-base hover:text-amber-700 text-left cursor-pointer transition-colors"
-                          >
-                            {name}
-                          </button>
-
-                          {isActive && (
-                            <Badge className="bg-amber-600 text-white text-3xs px-2 py-0.5">
-                              <Check className="w-3 h-3 mr-1 inline" /> {isEs ? "Activo" : "Active"}
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-xs text-stone-500 capitalize">{item.category}</p>
-                      </div>
-
-                      {/* Quantity or Toggle Button */}
-                      {isActive ? (
-                        <div className="flex items-center gap-1 bg-white border border-amber-300 rounded-lg p-1 shadow-2xs">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-7 w-7 p-0 text-stone-700 font-bold hover:bg-stone-100"
-                            onClick={() => {
-                              const newQty = currentQty - item.stepIncrement;
-                              onUpdateExtra(item.ingredientId, newQty < item.minQuantity ? 0 : newQty);
-                            }}
-                            title={isEs ? "Reducir cantidad" : "Decrease quantity"}
-                          >
-                            <Minus className="w-3 h-3" />
-                          </Button>
-                          <span className="font-bold text-xs text-amber-950 px-1">
-                            {currentQty} {item.defaultUnit}
-                          </span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-7 w-7 p-0 text-stone-700 font-bold hover:bg-stone-100"
-                            onClick={() => {
-                              const newQty = Math.min(item.maxQuantity, currentQty + item.stepIncrement);
-                              onUpdateExtra(item.ingredientId, newQty);
-                            }}
-                            title={isEs ? "Aumentar cantidad" : "Increase quantity"}
-                          >
-                            <Plus className="w-3 h-3" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-7 w-7 p-0 text-red-600 hover:text-red-800 hover:bg-red-50 ml-1"
-                            onClick={() => onUpdateExtra(item.ingredientId, 0)}
-                            title={isEs ? "Desactivar / Quitar" : "Deactivate / Remove"}
-                          >
-                            <X className="w-3.5 h-3.5" />
-                          </Button>
-                        </div>
-                      ) : (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="h-8 border-amber-500 text-amber-900 hover:bg-amber-100 font-semibold text-xs rounded-xl"
-                          onClick={() => onUpdateExtra(item.ingredientId, item.defaultQuantity)}
-                        >
-                          <Plus className="w-3.5 h-3.5 mr-1" />
-                          {isEs ? "Activar" : isDe ? "Aktivieren" : "Activate"}
-                        </Button>
-                      )}
-                    </div>
-
-                    {/* Modifier Effect Indicators */}
-                    <div className="flex items-center gap-2 my-2 text-2xs text-stone-600 bg-stone-100/80 p-2 rounded-lg">
-                      <span>💧 {isEs ? "Humedad:" : "Moisture:"} {item.effect.moisture > 0 ? `+${item.effect.moisture}` : item.effect.moisture}</span>
-                      <span>•</span>
-                      <span>🥩 {isEs ? "Grasa:" : "Fat:"} {item.effect.fat > 0 ? `+${item.effect.fat}` : item.effect.fat}</span>
-                      <span>•</span>
-                      <span>🍯 {isEs ? "Dulzor:" : "Sweetness:"} +{item.effect.sweetness}</span>
-                    </div>
-
-                    {/* Cooking Advice Callout */}
-                    <div className="text-xs text-stone-700 leading-snug bg-amber-100/50 p-2.5 rounded-lg border border-amber-200/60 mt-2">
-                      <p className="italic">"{getLocalizedAdvice(item)}"</p>
-                    </div>
-
-                    {/* Taxonomy Knowledge Link */}
-                    {taxonomyUrl && (
-                      <div className="mt-2 text-right">
-                        <a
-                          href={taxonomyUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center text-3xs font-bold text-amber-800 hover:text-amber-950 underline gap-1"
-                        >
-                          <Info className="w-3 h-3" />
-                          {isEs ? "Ver ficha técnica del ingrediente" : isDe ? "Zutatenseite anzeigen" : "View ingredient monograph"}
-                          <ExternalLink className="w-2.5 h-2.5" />
-                        </a>
-                      </div>
-                    )}
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <div>
+                    <h4 className="font-bold text-sm text-foreground">{getLocalizedName(item)}</h4>
+                    <span className="text-3xs text-muted-foreground capitalize">{item.category}</span>
                   </div>
-                );
-              })}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+
+                  <div className="flex items-center gap-1.5 bg-card border border-border rounded-lg p-0.5 shadow-2xs">
+                    <button
+                      type="button"
+                      onClick={() => onUpdateExtra(item.ingredientId, Math.max(0, qty - 1))}
+                      disabled={qty === 0}
+                      className="p-1 rounded-md hover:bg-secondary disabled:opacity-30 cursor-pointer"
+                      aria-label="Decrease quantity"
+                    >
+                      <Minus className="w-3 h-3" />
+                    </button>
+                    <span className="w-6 text-center text-xs font-black">{qty}</span>
+                    <button
+                      type="button"
+                      onClick={() => onUpdateExtra(item.ingredientId, qty + 1)}
+                      className="p-1 rounded-md hover:bg-secondary cursor-pointer"
+                      aria-label="Increase quantity"
+                    >
+                      <Plus className="w-3 h-3" />
+                    </button>
+                  </div>
+                </div>
+
+                <p className="text-2xs text-muted-foreground leading-relaxed line-clamp-2">
+                  {getLocalizedAdvice(item)}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

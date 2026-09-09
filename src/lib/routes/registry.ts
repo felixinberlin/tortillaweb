@@ -113,4 +113,27 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'juego-trivia', en: 'trivia-game', de: 'trivia-spiel' },
     label: { es: 'Juego de Trivia', en: 'Trivia Game', de: 'Trivia-Spiel' },
   },
+  guides: {
+    id: 'guides',
+    slug: { es: 'guias', en: 'guides', de: 'anleitungen' },
+    label: { es: 'Guías & Masterclasses', en: 'Guides & Masterclasses', de: 'Anleitungen & Meisterklassen' },
+    canonicalType: 'guide',
+  },
+  videos: {
+    id: 'videos',
+    slug: { es: 'videos', en: 'videos', de: 'videos' },
+    label: { es: 'Vídeos & Masterclasses', en: 'Videos & Masterclasses', de: 'Videos & Meisterklassen' },
+    canonicalType: 'guide',
+  },
+  utensilios: {
+    id: 'utensilios',
+    slug: { es: 'utensilios', en: 'utensils', de: 'utensilien' },
+    label: { es: 'Utensilios & Menaje', en: 'Kitchen Tools & Gear', de: 'Küchen-Utensilien' },
+    canonicalType: 'guide',
+  },
+  tienda: {
+    id: 'tienda',
+    slug: { es: 'tienda', en: 'tienda', de: 'tienda' },
+    label: { es: 'Equipamiento & Tienda', en: 'Equipment & Shop', de: 'Ausrüstung & Shop' },
+  },
 };

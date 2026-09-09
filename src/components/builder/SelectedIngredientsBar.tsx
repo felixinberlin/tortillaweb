@@ -1,17 +1,22 @@
 import React, { useState, useMemo } from "react";
 import { Trash2, ChevronDown, ChevronUp, SlidersHorizontal, Plus } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { getIngredientModifier } from "@/domain/builder/ingredientRegistry";
-import type { EggSize, OilCookingStyle, TortillaIngredientModifier } from "@/domain/builder/types";
+import type {
+  EggSize,
+  OilCookingStyle,
+  PotatoVariety,
+  PotatoCutStyle,
+  TortillaIngredientModifier,
+} from "@/domain/builder/types";
 
 interface SelectedIngredientsBarProps {
   lang: string;
   eggs: number;
   eggSize: EggSize;
   potatoesGrams: number;
-  oilStyle: OilCookingStyle;
+  potatoVariety?: PotatoVariety;
+  potatoCut?: PotatoCutStyle;
+  oilStyle?: OilCookingStyle;
   extras: { id: string; quantity: number }[];
   onUpdateExtra: (id: string, quantity: number) => void;
   onClearExtras: () => void;
@@ -24,7 +29,8 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
   eggs,
   eggSize,
   potatoesGrams,
-  oilStyle,
+  potatoVariety = "monalisa",
+  potatoCut = "panadera",
   extras,
   onUpdateExtra,
   onClearExtras,
@@ -50,156 +56,138 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
   const totalIngredientsCount = 3 + activeExtras.length; // 3 base (eggs, potatoes, oil) + extras
 
   return (
-    <Card className="border-2 border-amber-900/15 shadow-md bg-stone-50/95 backdrop-blur-xs rounded-2xl overflow-hidden mb-8 transition-all">
+    <div className="card-notebook bg-card border border-border rounded-2xl shadow-xs overflow-hidden mb-8 transition-all">
       {/* Top Title & Header Bar */}
-      <div className="bg-amber-100/70 border-b border-amber-900/10 px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div className="bg-accent border-b border-border px-4 py-3 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="p-1.5 rounded-lg bg-amber-500 text-white shadow-2xs">
+          <div className="p-1.5 rounded-lg bg-[#FFB800] text-[#1C1917] shadow-2xs font-bold">
             <SlidersHorizontal className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-extrabold text-stone-900 text-sm md:text-base leading-none">
+              <h3 className="font-extrabold text-foreground text-sm md:text-base leading-none">
                 {isEs ? "Ingredientes Seleccionados" : isDe ? "Ausgewählte Zutaten" : "Selected Ingredients"}
               </h3>
-              <Badge className="bg-amber-600 text-white font-black text-xs px-2 py-0.5 rounded-full">
+              <span className="bg-[#FFB800] text-[#1C1917] font-black text-xs px-2 py-0.5 rounded-full">
                 {totalIngredientsCount}
-              </Badge>
+              </span>
             </div>
-            <p className="text-2xs text-stone-600 mt-0.5">
+            <p className="text-2xs text-muted-foreground mt-0.5">
               {isEs
-                ? "Resumen en tiempo real. Haz clic en un ingrediente para editarlo o eliminarlo."
+                ? "Resumen en tiempo real. Modifica ingredientes o pulsa para ajustar proporciones."
                 : isDe
-                ? "Echtzeit-Übersicht. Klicken Sie auf eine Zutat, um sie zu bearbeiten."
-                : "Real-time summary. Click any ingredient to edit or remove it."}
+                ? "Echtzeit-Übersicht Ihrer Rezeptur."
+                : "Real-time summary of your recipe components."}
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
           {activeExtras.length > 0 && (
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
+              type="button"
               onClick={onClearExtras}
-              className="text-2xs font-bold text-amber-900 hover:text-red-700 hover:bg-amber-200/50 h-7 px-2.5 rounded-lg flex items-center gap-1"
+              className="text-2xs font-bold text-destructive hover:bg-destructive/10 h-7 px-2.5 rounded-lg flex items-center gap-1 cursor-pointer transition-colors"
               title={isEs ? "Eliminar todos los ingredientes extra" : "Remove all extra ingredients"}
             >
               <Trash2 className="w-3 h-3" />
-              {isEs ? "Quitar extras" : isDe ? "Extras entfernen" : "Clear extras"}
-            </Button>
+              <span>{isEs ? "Quitar extras" : isDe ? "Extras entfernen" : "Clear extras"}</span>
+            </button>
           )}
 
-          <Button
-            variant="ghost"
-            size="sm"
+          <button
+            type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-stone-600 hover:text-stone-900 h-7 w-7 p-0 rounded-lg"
+            className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary cursor-pointer transition-colors"
+            aria-label={isExpanded ? "Collapse ingredients bar" : "Expand ingredients bar"}
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </Button>
+          </button>
         </div>
       </div>
 
-      {/* Main Body */}
+      {/* Expandable Content Area */}
       {isExpanded && (
-        <CardContent className="p-4 space-y-4">
-          {/* Active Ingredients Area */}
-          <div className="space-y-2">
-            <span className="text-3xs font-extrabold text-stone-500 uppercase tracking-wider block">
-              {isEs ? "Ingredientes en tu receta actual:" : isDe ? "Aktuelle Zutaten:" : "Current Recipe Ingredients:"}
-            </span>
-
-            <div className="flex flex-wrap items-center gap-2">
-              {/* Base Item 1: Eggs */}
+        <div className="p-4 bg-card">
+          <div className="flex flex-wrap items-center gap-2">
+            {/* 1. Base Huevos */}
+            <div className="inline-flex items-center gap-1.5 bg-accent border border-border px-3 py-1.5 rounded-xl text-xs">
+              <span className="text-base">🥚</span>
+              <span className="font-extrabold text-foreground">
+                {eggs} {isEs ? "Huevos" : "Eggs"} ({eggSize.toUpperCase()})
+              </span>
               <button
                 type="button"
                 onClick={() => onSelectTab("step1")}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border shadow-2xs ${
-                  activeTab === "step1"
-                    ? "bg-amber-200 border-amber-400 text-amber-950"
-                    : "bg-white border-stone-200 text-stone-800 hover:border-amber-300"
-                }`}
-                title={isEs ? "Haz clic para editar la base" : "Click to edit base"}
+                className="text-3xs font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline ml-1 cursor-pointer"
               >
-                <span>🥚</span>
-                <span>{eggs} {isEs ? "Huevos" : isDe ? "Eier" : "Eggs"} ({eggSize.toUpperCase()})</span>
-                <span className="text-3xs text-amber-800 font-normal">({isEs ? "Base" : "Base"})</span>
+                {isEs ? "ajustar" : "edit"}
               </button>
-
-              {/* Base Item 2: Potatoes */}
-              <button
-                type="button"
-                onClick={() => onSelectTab("step1")}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border shadow-2xs ${
-                  activeTab === "step1"
-                    ? "bg-amber-200 border-amber-400 text-amber-950"
-                    : "bg-white border-stone-200 text-stone-800 hover:border-amber-300"
-                }`}
-                title={isEs ? "Haz clic para editar la base" : "Click to edit base"}
-              >
-                <span>🥔</span>
-                <span>{potatoesGrams}g {isEs ? "Patatas" : isDe ? "Kartoffeln" : "Potatoes"}</span>
-                <span className="text-3xs text-amber-800 font-normal">({isEs ? "Base" : "Base"})</span>
-              </button>
-
-              {/* Base Item 3: Oil */}
-              <button
-                type="button"
-                onClick={() => onSelectTab("step1")}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border shadow-2xs ${
-                  activeTab === "step1"
-                    ? "bg-amber-200 border-amber-400 text-amber-950"
-                    : "bg-white border-stone-200 text-stone-800 hover:border-amber-300"
-                }`}
-                title={isEs ? "Haz clic para editar la base" : "Click to edit base"}
-              >
-                <span>🫒</span>
-                <span>{isEs ? "Aceite" : isDe ? "Öl" : "Oil"} ({oilStyle})</span>
-                <span className="text-3xs text-amber-800 font-normal">({isEs ? "Base" : "Base"})</span>
-              </button>
-
-              {/* Active Extra Ingredients Pills (Clickable to remove!) */}
-              {activeExtras.map((ex) => {
-                const mod = getIngredientModifier(ex.id);
-                const name = mod ? getLocalizedName(mod) : ex.id;
-                const unit = mod?.defaultUnit || "g";
-
-                return (
-                  <div
-                    key={ex.id}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-600 text-white border border-amber-700 shadow-2xs group transition-all hover:bg-red-700 hover:border-red-800 cursor-pointer"
-                    onClick={() => onUpdateExtra(ex.id, 0)}
-                    title={isEs ? "Haz clic para desactivar / quitar de la lista" : "Click to deactivate / remove from list"}
-                  >
-                    <span>✨</span>
-                    <span>{name}</span>
-                    <span className="bg-amber-800/80 group-hover:bg-red-900/80 px-1.5 py-0.5 rounded-md text-3xs font-mono">
-                      {ex.quantity}{unit}
-                    </span>
-                    <span className="ml-1 text-amber-200 group-hover:text-white font-extrabold text-sm leading-none">
-                      ×
-                    </span>
-                  </div>
-                );
-              })}
-
-              {/* Button to go to Step 2 Nevera */}
-              {activeTab !== "step2" && (
-                <button
-                  type="button"
-                  onClick={() => onSelectTab("step2")}
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-100 text-amber-950 border border-amber-300 hover:bg-amber-200 transition-all shadow-2xs"
-                >
-                  <Plus className="w-3.5 h-3.5 text-amber-700" />
-                  <span>{isEs ? "Añadir ingrediente de la nevera" : isDe ? "Zutat hinzufügen" : "Add fridge ingredient"}</span>
-                </button>
-              )}
             </div>
+
+            {/* 2. Base Patatas */}
+            <div className="inline-flex items-center gap-1.5 bg-accent border border-border px-3 py-1.5 rounded-xl text-xs">
+              <span className="text-base">🥔</span>
+              <span className="font-extrabold text-foreground">
+                {potatoesGrams}g ({potatoVariety} - {potatoCut})
+              </span>
+              <button
+                type="button"
+                onClick={() => onSelectTab("step1")}
+                className="text-3xs font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline ml-1 cursor-pointer"
+              >
+                {isEs ? "ajustar" : "edit"}
+              </button>
+            </div>
+
+            {/* 3. Base Aceite */}
+            <div className="inline-flex items-center gap-1.5 bg-accent border border-border px-3 py-1.5 rounded-xl text-xs">
+              <span className="text-base">🫒</span>
+              <span className="font-extrabold text-foreground">
+                {isEs ? "AOVE Fritura" : "EVOO"}
+              </span>
+            </div>
+
+            {/* Active Extras */}
+            {activeExtras.map((extra) => {
+              const modifier = getIngredientModifier(extra.id);
+              if (!modifier) return null;
+              const name = getLocalizedName(modifier);
+
+              return (
+                <div
+                  key={extra.id}
+                  className="inline-flex items-center gap-1.5 bg-[#FFB800]/15 dark:bg-[#FFB800]/25 border border-[#FFB800]/40 px-3 py-1.5 rounded-xl text-xs"
+                >
+                  <span className="font-extrabold text-foreground">
+                    {extra.quantity}× {name}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => onUpdateExtra(extra.id, 0)}
+                    className="text-muted-foreground hover:text-destructive ml-1 cursor-pointer"
+                    title={isEs ? "Quitar ingrediente" : "Remove ingredient"}
+                  >
+                    ×
+                  </button>
+                </div>
+              );
+            })}
+
+            {/* Add more button */}
+            {activeTab !== "step2" && (
+              <button
+                type="button"
+                onClick={() => onSelectTab("step2")}
+                className="inline-flex items-center gap-1 border border-dashed border-border px-2.5 py-1.5 rounded-xl text-xs text-muted-foreground hover:text-foreground hover:border-[#FFB800] transition-colors cursor-pointer"
+              >
+                <Plus className="w-3 h-3" />
+                <span>{isEs ? "Añadir más" : "Add more"}</span>
+              </button>
+            )}
           </div>
-        </CardContent>
+        </div>
       )}
-    </Card>
+    </div>
   );
 };
-

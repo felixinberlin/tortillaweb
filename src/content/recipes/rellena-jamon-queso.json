@@ -151,9 +151,9 @@
     {
       "step": { "es": "3. Relleno y gratinado", "en": "3. Slicing & stuffing", "de": "3. Aufschneiden & Füllen" },
       "text": {
-        "es": "Con un cuchillo jamonero, abre la tortilla por la mitad como un bocadillo. Coloca una capa generosa de queso y jamón, cierra la tortilla y calienta 2 minutos en sartén tapada para fundir el queso. Mantén los parámetros de pasteurización de 70°C durante 2 minutos.",
-        "en": "Slice tortilla horizontally. Layer cheese and ham inside, close, and heat in covered pan for 2 minutes to melt cheese. Observe pasteurization standard of 70°C for 2 minutes.",
-        "de": "Tortilla waagerecht aufschneiden. Mit Käse und Schinken füllen, schließen und in der Pfanne 2 Minuten erwärmen. 70°C für 2 Minuten beachten."
+        "es": "Con un cuchillo jamonero, abre la tortilla por la mitad como un bocadillo. Coloca una capa generosa de queso y jamón, cierra la tortilla y calienta 2 minutos en sartén tapada para fundir el queso. Mantén los parámetros de pasteurización de **70°C durante 2 minutos**.",
+        "en": "Slice tortilla horizontally. Layer cheese and ham inside, close, and heat in covered pan for 2 minutes to melt cheese. Observe pasteurization standard of **70°C for 2 minutes**.",
+        "de": "Tortilla waagerecht aufschneiden. Mit Käse und Schinken füllen, schließen und in der Pfanne 2 Minuten erwärmen. **70°C für 2 Minuten** beachten."
       }
     }
   ],

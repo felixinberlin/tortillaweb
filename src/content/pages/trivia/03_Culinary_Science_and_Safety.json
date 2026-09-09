@@ -43,7 +43,8 @@
           "en": "View Science",
           "de": "Wissenschaft"
         }
-      }
+      },
+      "sourceUrl": "https://digital.csic.es/"
     },
     {
       "id": "maillard-reaction-140c",
@@ -75,7 +76,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://pubs.acs.org/journal/jafcau"
     },
     {
       "id": "solanine-alkaloid-green",
@@ -107,7 +109,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "starch-retrogradation-24h",
@@ -139,7 +142,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://pubs.acs.org/journal/jafcau"
     },
     {
       "id": "specific-heat-oil-water",
@@ -171,7 +175,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://digital.csic.es/"
     },
     {
       "id": "emulsion-principle-lecithin",
@@ -203,7 +208,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://digital.csic.es/"
     },
     {
       "id": "osmotic-presalting-15min",
@@ -235,7 +241,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=pre-salado%20osm%C3%B3tico%20y%20desnaturalizaci%C3%B3n%20prot%C3%A9ica%20(15%20min)"
     },
     {
       "id": "viscosity-modulation-starch",
@@ -267,7 +274,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=modulaci%C3%B3n%20de%20viscosidad%20con%20agua%20de%20almid%C3%B3n"
     },
     {
       "id": "mufa-thermal-stability",
@@ -299,7 +307,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=estabilidad%20t%C3%A9rmica%20de%20los%20%C3%A1cidos%20grasos%20monoinsaturados"
     },
     {
       "id": "thermal-inertia-cast-iron",
@@ -331,7 +340,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=inercia%20t%C3%A9rmica%3A%20hierro%20fundido%20vs%20aluminio"
     },
     {
       "id": "protein-coagulation-window",
@@ -363,7 +373,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ventana%20t%C3%A9rmica%20de%20coagulaci%C3%B3n%20(**63%C2%B0c**%20clara%20vs%2065%C2%B0c%20yema)"
     },
     {
       "id": "slow-poaching-cell-wall",
@@ -395,7 +406,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=pochado%20lento%20y%20rotura%20de%20paredes%20celulares%20de%20la%20patata"
     },
     {
       "id": "caramelization-vs-maillard-onion",
@@ -427,7 +439,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://pubs.acs.org/journal/jafcau"
     },
     {
       "id": "acrylamide-control-175c",
@@ -459,7 +472,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://www.efsa.europa.eu/en/topics/topic/foodborne-zoonotic-diseases"
     },
     {
       "id": "syneresis-prevention-75c",
@@ -491,7 +505,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=prevenci%C3%B3n%20de%20sineresis%20por%20sobre-cocci%C3%B3n%20(%3E75%C2%B0c)"
     },
     {
       "id": "amylose-amylopectin-ratio",
@@ -523,7 +538,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ratio%20amilosa-amilopectina%20en%20variedades%20de%20patata"
     },
     {
       "id": "moisture-retention-cover",
@@ -555,7 +571,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=retenci%C3%B3n%20de%20humedad%20mediante%20tapa%20f%C3%ADsicamente%20sellada"
     },
     {
       "id": "steam-expansion-flip-physics",
@@ -587,7 +604,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=f%C3%ADsica%20de%20la%20expansi%C3%B3n%20de%20vapor%20durante%20el%20vuelco"
     },
     {
       "id": "lipid-oxidation-reused-oil",
@@ -619,7 +637,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://digital.csic.es/"
     },
     {
       "id": "ph-adjustment-egg-white",
@@ -651,7 +670,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ajuste%20de%20ph%20e%20impacto%20en%20la%20red%20del%20co%C3%A1gulo"
     },
     {
       "id": "cold-water-enzymatic-browning",
@@ -683,7 +703,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=inhibici%C3%B3n%20del%20pardeamiento%20enzim%C3%A1tico%20por%20inmersi%C3%B3n"
     },
     {
       "id": "acoustic-resonance-seasoning",
@@ -715,7 +736,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=resonancia%20ac%C3%BAstica%20de%20la%20sart%C3%A9n%20y%20antiadherencia"
     },
     {
       "id": "density-gradient-separation",
@@ -747,7 +769,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=gradiente%20de%20densidad%20en%20la%20mezcla%20huevo-patata"
     },
     {
       "id": "latent-heat-vaporization-flip",
@@ -779,7 +802,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=calor%20latente%20de%20vaporizaci%C3%B3n%20en%20el%20volteo%20culinario"
     },
     {
       "id": "cross-linking-protein-bonds",
@@ -811,7 +835,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=enlaces%20cruzados%20e%20interacciones%20hidrof%C3%B3bicas"
     },
     {
       "id": "pasteurization-gold-standard",
@@ -843,7 +868,8 @@
           "en": "View Safety Rules",
           "de": "Sicherheitsregeln"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "danger-zone-thresholds",
@@ -875,7 +901,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://www.boe.es/"
     },
     {
       "id": "salmonella-enteritidis-mechanisms",
@@ -907,7 +934,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "logarithmic-bacterial-growth",
@@ -939,7 +967,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=cin%C3%A9tica%20de%20crecimiento%20logar%C3%ADtmico%20bacteriano%20a%20temperatura%20ambiente"
     },
     {
       "id": "refrigeration-stabilization-8c",
@@ -971,7 +1000,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "commercial-liquid-egg-regulations",
@@ -1003,7 +1033,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=reglamentaci%C3%B3n%20de%20huevo%20l%C3%ADquido%20pasteurizado%20(ovo-productos)"
     },
     {
       "id": "reheating-safety-74c",
@@ -1035,7 +1066,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=protocolos%20de%20recalentamiento%20seguro%20(%3E74%C2%B0c)"
     },
     {
       "id": "potato-soil-cross-contamination",
@@ -1067,7 +1099,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=contaminaci%C3%B3n%20cruzada%20por%20residuos%20de%20tierra%20en%20patata"
     },
     {
       "id": "acidification-safety-margins",
@@ -1099,7 +1132,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=m%C3%A1rgenes%20de%20seguridad%20por%20acidificaci%C3%B3n%20(ph%20%3C%204.6)"
     },
     {
       "id": "spore-forming-bacillus-cereus",
@@ -1131,7 +1165,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=riesgos%20de%20bacillus%20cereus%20esporulado%20en%20almid%C3%B3n%20de%20patata"
     },
     {
       "id": "cold-chain-catering-logistics",
@@ -1163,7 +1198,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=integridad%20de%20cadena%20de%20fr%C3%ADo%20en%20catering%20y%20food%20trucks"
     },
     {
       "id": "eggshell-sanitization-protocols",
@@ -1195,7 +1231,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=protocolos%20de%20desinfecci%C3%B3n%20superficial%20de%20c%C3%A1scaras"
     },
     {
       "id": "histamine-accumulation-ambient",
@@ -1227,7 +1264,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=acumulaci%C3%B3n%20de%20histamina%20por%20almacenamiento%20prolongado"
     },
     {
       "id": "inspection-audits-spanish-hospitality",
@@ -1259,7 +1297,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=inspecciones%20sanitarias%20y%20protocolos%20sanitaristas%20bares"
     },
     {
       "id": "perception-vs-risk-runny-tortilla",
@@ -1291,7 +1330,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=percepci%C3%B3n%20del%20consumidor%20vs%20riesgo%20microbiol%C3%B3gico%20real"
     },
     {
       "id": "vitoria-salmonella-outbreak",
@@ -1323,7 +1363,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse"
         }
-      }
+      },
+      "sourceUrl": "https://www.vitoria-gasteiz.org/gastronomia"
     },
     {
       "id": "the-nightshade-stigma-101",
@@ -1355,7 +1396,8 @@
           "en": "View Ingredient Guide",
           "de": "Zutaten-Leitfaden"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20estigma%20de%20las%20solan%C3%A1ceas%20(1537)"
     },
     {
       "id": "aristocratic-flowers-102",
@@ -1387,7 +1429,8 @@
           "en": "Explore Botanical History",
           "de": "Botanische Geschichte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=flores%20aristocr%C3%A1ticas%20de%20patata"
     },
     {
       "id": "the-linguistic-mix-up-103",
@@ -1419,7 +1462,8 @@
           "en": "Read about the Potato",
           "de": "Über die Kartoffel lesen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20confuso%20origen%20ling%C3%BC%C3%ADstico%20de%20'patata'"
     },
     {
       "id": "andalusian-papas-104",
@@ -1451,7 +1495,8 @@
           "en": "Explore Regional Variations",
           "de": "Regionale Varianten"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%20'papas'%20de%20andaluc%C3%ADa%20y%20canarias"
     },
     {
       "id": "monalisa-profile-105",
@@ -1483,7 +1528,8 @@
           "en": "View Monalisa Spec Sheet",
           "de": "Monalisa-Datenblatt"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=perfil%20t%C3%A9cnico%20de%20la%20patata%20monalisa"
     },
     {
       "id": "kennebec-profile-106",
@@ -1515,7 +1561,8 @@
           "en": "View Betanzos Recipe",
           "de": "Rezept im Betanzos-Stil"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=perfil%20t%C3%A9cnico%20de%20la%20patata%20kennebec"
     },
     {
       "id": "agria-dry-farming-benefit-107",
@@ -1547,7 +1594,8 @@
           "en": "Compare Potato Varieties",
           "de": "Kartoffelsorten vergleichen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ventaja%20de%20la%20patata%20agria%20de%20secano"
     },
     {
       "id": "the-starch-retrogradation-warning-108",
@@ -1579,7 +1627,8 @@
           "en": "View Starch Chemistry",
           "de": "Stärke-Chemie ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=peligro%20de%20retrogradaci%C3%B3n%20del%20almid%C3%B3n"
     },
     {
       "id": "avoiding-the-slicer-rinse-109",
@@ -1611,7 +1660,8 @@
           "en": "View Slicing Techniques",
           "de": "Schnitt-Techniken"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=error%20de%20lavar%20las%20patatas%20cortadas"
     },
     {
       "id": "the-cold-oil-gradual-start-110",
@@ -1643,7 +1693,8 @@
           "en": "Learn Perfect Confit",
           "de": "Perfektes Confitieren lernen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=inicio%20lento%20en%20aceite%20fr%C3%ADo"
     },
     {
       "id": "the-chascado-fracture-benefit-111",
@@ -1675,7 +1726,8 @@
           "en": "View Cracking Technique",
           "de": "Brech-Technik ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=beneficio%20del%20'chascado'%20irregular"
     },
     {
       "id": "spatula-pressure-failure-112",
@@ -1707,7 +1759,8 @@
           "en": "View Flipping Physics",
           "de": "Physik des Wendens"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20fallo%20de%20presi%C3%B3n%20de%20la%20esp%C3%A1tula"
     },
     {
       "id": "the-12-egg-betanzos-formula-113",
@@ -1739,7 +1792,8 @@
           "en": "View Betanzos Recipe",
           "de": "Betanzos-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://turismo.betanzos.es/gastronomia/tortilla-de-betanzos/"
     },
     {
       "id": "acrylamide-prevention-114",
@@ -1771,7 +1825,8 @@
           "en": "View Health & Safety Guide",
           "de": "Gesundheits- & Sicherheitsleitfaden"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=prevenci%C3%B3n%20de%20acrilamida%20y%20acrole%C3%ADna"
     },
     {
       "id": "the-osmotic-firmness-shift-115",
@@ -1803,7 +1858,8 @@
           "en": "View Seasoning Techniques",
           "de": "Würz-Techniken"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=firmesa%20osm%C3%B3tica%20por%20salado%20previo"
     },
     {
       "id": "the-steam-cushion-effect-116",
@@ -1835,7 +1891,8 @@
           "en": "View Confit Thermodynamics",
           "de": "Thermodynamik des Confitierens"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=efecto%20colch%C3%B3n%20de%20vapor%20interno"
     },
     {
       "id": "why-older-eggs-spread-better-117",
@@ -1867,7 +1924,8 @@
           "en": "View Egg Spec Sheet",
           "de": "Ei-Spezifikation"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=fluidez%20de%20huevos%20menos%20frescos"
     },
     {
       "id": "yukon-gold-suitability-118",
@@ -1899,7 +1957,8 @@
           "en": "View Global Potato Substitutes",
           "de": "Globale Kartoffel-Alternativen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=idoneidad%20de%20la%20variedad%20yukon%20gold"
     },
     {
       "id": "albumen-denaturation-mechanics-121",
@@ -1931,7 +1990,8 @@
           "en": "View Egg Physics",
           "de": "Physik des Eis"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=termodin%C3%A1mica%20de%20denaturaci%C3%B3n%20de%20la%20clara"
     },
     {
       "id": "yolk-coagulation-sweet-spot-122",
@@ -1963,7 +2023,8 @@
           "en": "View Coagulation Points",
           "de": "Gerinnungspunkte ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ventana%20t%C3%A9rmica%20de%20coagulaci%C3%B3n%20de%20la%20yema"
     },
     {
       "id": "the-syneresis-ruin-123",
@@ -1995,7 +2056,8 @@
           "en": "View **70°C for 2 minutes** Rule",
           "de": "**70°C für 2 Minuten** Regel"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20desastre%20de%20la%20sin%C3%A9resis%20proteica"
     },
     {
       "id": "starch-gelatinization-temperature-124",
@@ -2027,7 +2089,8 @@
           "en": "View Starch Chemistry",
           "de": "Stärke-Chemie"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=temperatura%20de%20gelatinizaci%C3%B3n%20del%20almid%C3%B3n"
     },
     {
       "id": "amylose-structural-firmness-125",
@@ -2059,7 +2122,8 @@
           "en": "View Starch Types",
           "de": "Stärkearten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=firmitud%20estructural%20de%20la%20amilosa"
     },
     {
       "id": "amylopectin-binding-viscosity-126",
@@ -2091,7 +2155,8 @@
           "en": "View Culinary Emulsions",
           "de": "Kulinarische Emulsionen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=viscosidad%20ligante%20de%20la%20amilopectina"
     },
     {
       "id": "the-non-newtonian-boundary-127",
@@ -2123,7 +2188,8 @@
           "en": "View Flipping Technique",
           "de": "Wende-Technik"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=l%C3%ADmite%20fluido%20no%20newtoniano%20(25%20cp)"
     },
     {
       "id": "plate-dampening-hack-128",
@@ -2155,7 +2221,8 @@
           "en": "View Kitchen Hacks",
           "de": "Küchen-Tricks"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=truco%20del%20plato%20humedecido%20para%20voltear"
     },
     {
       "id": "the-1-2-rad-sec-centripetal-boundary-129",
@@ -2187,7 +2254,8 @@
           "en": "View Flipping Physics",
           "de": "Physik des Wendens"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=l%C3%ADmite%20centr%C3%ADpeto%20de%201%2C2%20rad%2Fs%20en%20el%20giro"
     },
     {
       "id": "the-sacred-rest-pre-emulsion-130",
@@ -2219,7 +2287,8 @@
           "en": "View Resting Step-by-Step",
           "de": "Ruhephasen-Anleitung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20sagrado%20reposo%20de%20patata%20y%20huevo"
     },
     {
       "id": "why-you-must-avoid-whisking-131",
@@ -2251,7 +2320,8 @@
           "en": "View Beating Technique",
           "de": "Schlag-Technik"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=por%20qu%C3%A9%20nunca%20debes%20batir%20en%20exceso"
     },
     {
       "id": "no-milk-or-cream-132",
@@ -2283,7 +2353,8 @@
           "en": "View Golden Rules",
           "de": "Goldene Regeln"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=prohibici%C3%B3n%20de%20leche%20o%20nata"
     },
     {
       "id": "the-double-domain-strategy-133",
@@ -2315,7 +2386,8 @@
           "en": "Learn about the .org Mission",
           "de": "Über die .org Mission"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=estrategia%20de%20doble%20dominio%20(.org%20vs%20.de)"
     },
     {
       "id": "slower-inversion-failure-rate-134",
@@ -2347,7 +2419,8 @@
           "en": "View Lab Analysis",
           "de": "Laboranalyse ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=tasa%20de%20fallo%20en%20giro%20lento%20de%20sart%C3%A9n"
     },
     {
       "id": "the-yolk-lecithin-emulsion-135",
@@ -2379,7 +2452,8 @@
           "en": "View Egg Biochemistry",
           "de": "Biochemie des Eis"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20emulsi%C3%B3n%20coloidal%20de%20lecitina%20de%20yema"
     },
     {
       "id": "the-maillard-reaction-threshold-136",
@@ -2411,7 +2485,8 @@
           "en": "View Chemical Reactions",
           "de": "Chemische Reaktionen"
         }
-      }
+      },
+      "sourceUrl": "https://pubs.acs.org/journal/jafcau"
     },
     {
       "id": "the-5s-20s-10s-formula-139",
@@ -2443,7 +2518,8 @@
           "en": "View O Pote Technique",
           "de": "O Pote Technik"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20f%C3%B3rmula%205s-20s-10s%20de%20o%20pote"
     },
     {
       "id": "the-egg-temperature-rule-140",
@@ -2475,7 +2551,8 @@
           "en": "View Ingredient Prep",
           "de": "Zutatenvorbereitung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20regla%20de%20la%20temperatura%20del%20huevo"
     },
     {
       "id": "evoo-smoke-point-myth-141",
@@ -2507,7 +2584,8 @@
           "en": "View Oil Guide",
           "de": "Öl-Leitfaden"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20mito%20del%20punto%20de%20humo%20del%20aove"
     },
     {
       "id": "the-165-c-smoke-point-drop-142",
@@ -2539,7 +2617,8 @@
           "en": "View Oil Safety",
           "de": "Ölsicherheit"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ca%C3%ADda%20del%20punto%20de%20humo%20a%20165%C2%B0c"
     },
     {
       "id": "arbequina-varietal-choice-143",
@@ -2571,7 +2650,8 @@
           "en": "Compare Oil Varieties",
           "de": "Ölsorten vergleichen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=elecci%C3%B3n%20de%20la%20variedad%20arbequina"
     },
     {
       "id": "double-oil-technique-144",
@@ -2603,7 +2683,8 @@
           "en": "View Frying Techniques",
           "de": "Frittier-Techniken"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=t%C3%A9cnica%20profesional%20de%20doble%20aceite"
     },
     {
       "id": "the-hojiblanca-alternative-145",
@@ -2635,7 +2716,8 @@
           "en": "View EVOO Types",
           "de": "AOVE-Arten"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20alternativa%20del%20aceite%20hojiblanca"
     },
     {
       "id": "the-non-stick-service-life-146",
@@ -2667,7 +2749,8 @@
           "en": "View Utensil Care",
           "de": "Pflege von Küchengeräten"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=vida%20%C3%BAtil%20de%20sartenes%20antiadherentes"
     },
     {
       "id": "the-thermal-mass-requirement-147",
@@ -2699,7 +2782,8 @@
           "en": "Pan Selection Guide",
           "de": "Pfannenauswahl-Leitfaden"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=requisito%20de%20inercia%20t%C3%A9rmica%20en%20sart%C3%A9n"
     },
     {
       "id": "curdling-on-thin-pans-148",
@@ -2731,7 +2815,8 @@
           "en": "View Pan Comparison",
           "de": "Pfannen-Vergleich"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=peligro%20de%20quemado%20en%20sartenes%20finas"
     },
     {
       "id": "polyphenol-degradation-149",
@@ -2763,7 +2848,8 @@
           "en": "View Nutrition Science",
           "de": "Ernährungswissenschaft"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=degradaci%C3%B3n%20de%20polifenoles%20a%20%3E180%C2%B0c"
     },
     {
       "id": "the-oil-straining-rule-150",
@@ -2795,7 +2881,8 @@
           "en": "View Oil Management",
           "de": "Öl-Verwaltung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20regla%20del%20colado%20y%20reutilizaci%C3%B3n%20del%20aceite"
     },
     {
       "id": "garlic-thermal-degradation-151",
@@ -2827,7 +2914,8 @@
           "en": "View Aromatics & Ingredients",
           "de": "Aromen & Zutaten"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=degradaci%C3%B3n%20t%C3%A9rmica%20del%20ajo"
     },
     {
       "id": "potato-egg-mass-balance-155",
@@ -2859,7 +2947,8 @@
           "en": "View Ratio Calculator",
           "de": "Proportionsrechner"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=equilibrio%20de%20masa%20patata-huevo"
     },
     {
       "id": "the-25-cp-viscosity-limit-156",
@@ -2891,7 +2980,8 @@
           "en": "View Fluid Dynamics",
           "de": "Strömungsdynamik"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=l%C3%ADmite%20de%20viscosidad%20de%2025%20cp%20para%20volteado"
     },
     {
       "id": "monalisa-de-segovia-157",
@@ -2923,7 +3013,8 @@
           "en": "View Potato Origins",
           "de": "Kartoffelherkunft"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20patata%20monalisa%20de%20segovia"
     },
     {
       "id": "the-90-second-inversion-pause-158",
@@ -2955,7 +3046,8 @@
           "en": "View Cooking Steps",
           "de": "Kochschritte ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20pausa%20de%20reposo%20de%2090%20segundos"
     },
     {
       "id": "the-maillard-frying-tempo-159",
@@ -2987,7 +3079,8 @@
           "en": "View Frying Thermodynamics",
           "de": "Frittier-Thermodynamik"
         }
-      }
+      },
+      "sourceUrl": "https://pubs.acs.org/journal/jafcau"
     },
     {
       "id": "dabiz-mu-oz-extreme-texture-160",
@@ -3019,7 +3112,8 @@
           "en": "View Pasteurization Rules",
           "de": "Pasteurisierungsregeln"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=textura%20extrema%20de%20dabiz%20mu%C3%B1oz"
     },
     {
       "id": "the-salmonella-enterica-vector-161",
@@ -3051,7 +3145,8 @@
           "en": "View Salmonella Prevention",
           "de": "Salmonellen-Prävention"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "the-37-c-growth-peak-162",
@@ -3083,7 +3178,8 @@
           "en": "View Thermal Danger Zones",
           "de": "Thermische Gefahrenzonen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=pico%20de%20crecimiento%20bacteriano%20a%2037%C2%B0c"
     },
     {
       "id": "the-70-c-for-2-minutes-rule-163",
@@ -3115,7 +3211,8 @@
           "en": "View Official Safety Protocol",
           "de": "Offizielles Sicherheitsprotokoll"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20regla%20de%20oro%3A%20**70%C2%B0c%20durante%202%20minutos**"
     },
     {
       "id": "the-63-c-for-20-seconds-compromise-164",
@@ -3147,7 +3244,8 @@
           "en": "View Temperature Standard",
           "de": "Temperaturnorm ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20compromiso%20sanitario%3A%20**63%C2%B0c%20durante%2020%20segundos**"
     },
     {
       "id": "the-4-hour-room-temperature-limit-165",
@@ -3179,7 +3277,8 @@
           "en": "View **4-Hour** Rule",
           "de": "**4-Stunden**-Regel ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20l%C3%ADmite%20m%C3%A1ximo%20de%20**4%20horas**%20a%20temperatura%20ambiente"
     },
     {
       "id": "the-4-c-refrigeration-limit-166",
@@ -3211,7 +3310,8 @@
           "en": "View Leftover Storage",
           "de": "Aufbewahrung von Resten"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20l%C3%ADmite%20de%20refrigeraci%C3%B3n%20a%20%3C8%C2%B0c%20%2F%204%C2%B0c"
     },
     {
       "id": "stainless-steel-resilience-167",
@@ -3243,7 +3343,8 @@
           "en": "View Kitchen Sanitation",
           "de": "Küchenhygiene"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "porous-wood-cut-groove-hazard-168",
@@ -3275,7 +3376,8 @@
           "en": "View Utensil Sanitization",
           "de": "Utensilien-Desinfektion"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=riesgo%20sanitario%20de%20tablas%20de%20madera"
     },
     {
       "id": "plastic-biofilm-hazard-169",
@@ -3307,7 +3409,8 @@
           "en": "View Sanitization Guide",
           "de": "Desinfektionsleitung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=biofilms%20bacterianos%20en%20pl%C3%A1sticos"
     },
     {
       "id": "the-batch-cooking-danger-zone-170",
@@ -3339,7 +3442,8 @@
           "en": "View Rapid Cooling Methods",
           "de": "Schnellkühlmethoden"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=peligro%20en%20el%20'batch%20cooking'%20de%20tortilla"
     },
     {
       "id": "spanish-royal-decree-1021-2022-171",
@@ -3371,7 +3475,8 @@
           "en": "View Catering Law 2022",
           "de": "Gastronomiegesetz 2022"
         }
-      }
+      },
+      "sourceUrl": "https://www.boe.es/"
     },
     {
       "id": "the-casa-dani-outbreak-2023-172",
@@ -3403,7 +3508,8 @@
           "en": "View Real Case Studies",
           "de": "Fallstudien ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20brote%20de%20casa%20dani%20en%20madrid%20(2023)"
     },
     {
       "id": "the-trasan-fest-outbreak-2025-173",
@@ -3435,7 +3541,8 @@
           "en": "View Cold Chain Protocol",
           "de": "Kühlketten-Protokoll"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20brote%20del%20trasan%20fest%20en%20galicia%20(2025)"
     },
     {
       "id": "the-danger-of-washing-shells-174",
@@ -3467,7 +3574,8 @@
           "en": "View Egg Handling Rules",
           "de": "Eier-Handhabung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=peligro%20fatal%20de%20lavar%20la%20c%C3%A1scara%20del%20huevo"
     },
     {
       "id": "the-safe-acidification-hack-175",
@@ -3499,7 +3607,8 @@
           "en": "View Safe Acidification",
           "de": "Sichere Säuerung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=truco%20de%20acidificaci%C3%B3n%20segura%20con%20lim%C3%B3n"
     },
     {
       "id": "cysteine-desulfhydration-off-flavor-176",
@@ -3531,7 +3640,8 @@
           "en": "View Leftover Chemistry",
           "de": "Chemie von Resten"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=desulfidraci%C3%B3n%20de%20la%20ciste%C3%ADna%20y%20mal%20olor"
     },
     {
       "id": "the-parchment-barrier-rule-177",
@@ -3563,7 +3673,8 @@
           "en": "View Safe Packaging",
           "de": "Sichere Verpackung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=regla%20del%20papel%20vegetal%20en%20farteras"
     },
     {
       "id": "reheating-skillet-method-178",
@@ -3595,7 +3706,8 @@
           "en": "View Reheating Guide",
           "de": "Aufwärm-Anleitung"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=m%C3%A9todo%20correcto%20de%20recalentado%20en%20sart%C3%A9n"
     },
     {
       "id": "modernbert-32k-yarn-scaling-179",
@@ -3627,7 +3739,8 @@
           "en": "View SemanticCite Lab",
           "de": "SemanticCite Labor"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=auditor%C3%ADa%20ia%20semanticcite%20(modernbert%2032k)"
     },
     {
       "id": "cross-entropy-vs-focal-loss-180",
@@ -3659,7 +3772,8 @@
           "en": "View Scientific Methodology",
           "de": "Wissenschaftliche Methodik"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=ajuste%20de%20p%C3%A9rdida%20en%20modelos%20de%20verificaci%C3%B3n"
     },
     {
       "id": "safety-salmonella-37c",
@@ -3690,7 +3804,8 @@
           "en": "View Food Safety Rules",
           "de": "Lebensmittelsicherheit ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     },
     {
       "id": "safety-lemon-acidification",
@@ -3721,7 +3836,8 @@
           "en": "View Egg Chemistry",
           "de": "Ei-Chemie ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20hack%20cient%C3%ADfico%20del%20chorro%20de%20lim%C3%B3n%20en%20el%20huevo%20batido"
     },
     {
       "id": "safety-cysteine-gray-discoloration",
@@ -3752,7 +3868,8 @@
           "en": "View Chemical Reactions",
           "de": "Chemische Reaktionen ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20anillo%20gris%20del%20huevo%20viejo%3A%20ciste%C3%ADna%20y%20sulfuro%20de%20hierro"
     },
     {
       "id": "safety-parchment-barrier-storage",
@@ -3783,7 +3900,8 @@
           "en": "View Safe Storage",
           "de": "Sichere Aufbewahrung ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.efsa.europa.eu/en/topics/topic/foodborne-zoonotic-diseases"
     },
     {
       "id": "safety-cross-contamination-bowl",
@@ -3814,7 +3932,8 @@
           "en": "View Hygiene Guide",
           "de": "Hygiene-Ratgeber ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20peligro%20del%20taz%C3%B3n%20%C3%BAnico%20para%20patatas%20crudas%20y%20huevo"
     },
     {
       "id": "safety-washing-eggs-danger",
@@ -3845,7 +3964,8 @@
           "en": "View Egg Structure",
           "de": "Ei-Struktur ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=por%20qu%C3%A9%20lavar%20los%20huevos%20con%20agua%20elimina%20la%20cut%C3%ADcula%20protectora"
     },
     {
       "id": "safety-royal-decree-1021",
@@ -3876,7 +3996,8 @@
           "en": "View Catering Laws",
           "de": "Gastronomie-Gesetze ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.boe.es/"
     },
     {
       "id": "safety-refrigeration-8c",
@@ -3907,7 +4028,8 @@
           "en": "View Cold Storage Guide",
           "de": "Kühl-Ratgeber ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.aesan.gob.es/AESAN/web/seguridad_alimentaria/subdetalle/salmonella.htm"
     }
   ]
 }

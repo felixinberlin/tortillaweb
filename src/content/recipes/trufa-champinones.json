@@ -1,0 +1,226 @@
+{
+  "id": "trufa-champinones",
+  "contentId": "recipe.trufa-champinones",
+  "translationKey": "recipe-trufa-champinones",
+  "slug": {
+    "es": "tortilla-madrilena-trufa-champinones",
+    "en": "madrid-truffle-portobello-mushroom-omelette",
+    "de": "madrider-trueffel-champignon-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Madrileña de Trufa Negra y Champiñones Portobello",
+    "en": "Madrid Black Truffle & Portobello Mushroom Tortilla",
+    "de": "Madrider Trüffel- und Portobello-Tortilla"
+  },
+  "description": {
+    "es": "Elegante variante gastronómica castellana que une champiñones Portobello salteados al fuego vivo, patatas tiernas, huevos camperos y unas gotas de aceite de trufa negra aromática.",
+    "en": "Elegant Castilian gourmet variation pairing high-heat sautéed Portobello mushrooms, tender potatoes, free-range eggs, and aromatic black truffle essence.",
+    "de": "Elegante kastilische Gourmet-Tortilla mit scharf angebratenen Portobello-Pilzen, zarten Kartoffeln, Freilandeiern und aromatischem schwarzem Trüffelöl."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:mushroom",
+    "ingredient:trufa",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:madrid",
+    "style:gourmet",
+    "technique:sofrito",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 30,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/recipes/trufa-champinones.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Monalisa",
+        "en": "Monalisa Potato",
+        "de": "Monalisa-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en láminas finas",
+        "en": "500g thinly sliced",
+        "de": "500g in dünne Scheiben geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos frescos",
+        "en": "Fresh Free-Range Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos frescos tamaño L",
+        "en": "6 large free-range eggs",
+        "de": "6 große Freilandeier"
+      }
+    },
+    {
+      "id": "mushrooms",
+      "ingredientId": "mushroom",
+      "name": {
+        "es": "Champiñones Portobello frescos",
+        "en": "Fresh Portobello Mushrooms",
+        "de": "Frische Portobello-Champignons"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "150g laminados y salteados a fuego vivo",
+        "en": "150g sliced and seared over high heat",
+        "de": "150g in Scheiben geschnitten und scharf angebraten"
+      }
+    },
+    {
+      "id": "truffle_oil",
+      "ingredientId": "trufa",
+      "name": {
+        "es": "Aceite infusionado de trufa negra",
+        "en": "Black Truffle Infused Olive Oil",
+        "de": "Schwarzes Trüffel-Olivenöl"
+      },
+      "amount": 10,
+      "unit": "ml",
+      "notes": {
+        "es": "1 cucharadita de aceite de trufa negra de alta calidad",
+        "en": "1 tsp premium black truffle infused oil",
+        "de": "1 TL hochwertiges schwarzes Trüffelöl"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml de AOVE para confitar",
+        "en": "150ml EVOO for slow confit",
+        "de": "150ml Olivenöl zum sanften Garen"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal en escamas",
+        "en": "Flaky Sea Salt",
+        "de": "Meersalzflocken"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "Sal en escamas al gusto",
+        "en": "Flaky salt to taste",
+        "de": "Meersalzflocken nach Geschmack"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Salteado rápido de Portobello",
+        "en": "1. High-heat Portobello sauté",
+        "de": "1. Scharfes Anbraten der Portobello-Pilze"
+      },
+      "text": {
+        "es": "Limpia y lamina los champiñones Portobello. Saltea en sartén con un chorrito de AOVE a fuego muy vivo durante 3 minutos hasta que caramelicen y evaporen su agua sin ablandarse.",
+        "en": "Clean and slice Portobellos. Sauté in a hot pan with a splash of EVOO over high heat for 3 minutes until caramelized and moisture is evaporated.",
+        "de": "Portobellos putzen und in Scheiben schneiden. In einer heißen Pfanne mit etwas Olivenöl 3 Minuten scharf anbraten, bis sie braun und aromatisch sind."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Confitado de patatas a baja temperatura",
+        "en": "2. Low-temperature potato confit",
+        "de": "2. Sanftes Pochieren der Kartoffeln"
+      },
+      "text": {
+        "es": "Corta las patatas en láminas finas y confítalas en AOVE a 130-140°C durante 15 minutos hasta que queden melosas y tiernas.",
+        "en": "Slice potatoes thinly and confit in EVOO at 130-140°C for 15 minutes until soft, buttery, and fully cooked.",
+        "de": "Kartoffeln in dünne Scheiben schneiden und in Olivenöl bei 130-140°C 15 Minuten butterweich pochieren."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Infusión aromática con trufa",
+        "en": "3. Truffle aroma infusion",
+        "de": "3. Aromatisierung mit Trüffelöl"
+      },
+      "text": {
+        "es": "Bate los 6 huevos con sal. Añade las gotas de aceite de trufa negra directamente al huevo batido, batiendo suavemente para emulsionar el perfume fúngico.",
+        "en": "Whisk 6 eggs with salt. Add black truffle oil directly into beaten eggs, swirling lightly to distribute its aromatic notes.",
+        "de": "6 Eier mit Salz verquirlen. Das Trüffelöl direkt unter das verquirlte Ei rühren, um das feine Aroma gleichmäßig zu verteilen."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Ensamblaje en caliente y reposo",
+        "en": "4. Warm assembly & bowl rest",
+        "de": "4. Warmes Vermengen und Ruhen"
+      },
+      "text": {
+        "es": "Escurre las patatas y mézclalas de inmediato con los champiñones salteados y el huevo trufado. Deja reposar 2 minutos para que el calor active la trufa.",
+        "en": "Drain hot potatoes and fold immediately with sautéed mushrooms and truffled egg mixture. Let rest 2 minutes so heat blooms the truffle.",
+        "de": "Heiße Kartoffeln abtropfen lassen und sofort mit den gebratenen Pilzen und der Trüffeleimasse vermengen. 2 Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Cuajado gourmet jugoso",
+        "en": "5. Gourmet juicy skillet sear",
+        "de": "5. Saftiges Gourmet-Braten"
+      },
+      "text": {
+        "es": "Cocina en sartén antiadherente caliente durante 90 segundos por cada lado a fuego medio, manteniendo el centro sedoso y aterciopelado.",
+        "en": "Cook in a hot non-stick pan for 90 seconds per side over medium heat, keeping the center velvety and creamy.",
+        "de": "In einer heißen beschichteten Pfanne bei mittlerer Hitze 90 Sekunden pro Seite braten, sodass der Kern saftig-weich bleibt."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Servicio y seguridad sanitaria",
+        "en": "6. Plating & safety standard",
+        "de": "6. Servieren und Sicherheitsstandard"
+      },
+      "text": {
+        "es": "Sirve con unas escamas de sal adicionales. Si no se va a consumir al momento, asegúrate de mantenerla a **70°C durante 2 minutos** y respeta el margen de seguridad de **4 horas** como máximo a temperatura ambiente.",
+        "en": "Serve topped with flaky sea salt. If storing, ensure food safety criteria of **70°C for 2 minutes** and never leave beyond **4 hours** at room temperature.",
+        "de": "Mit einigen Meersalzflocken garniert servieren. Bei späterem Verzehr **70°C für 2 Minuten** gewährleisten und maximal **4 Stunden** bei Raumtemperatur belassen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Bistronomía Madrileña Contemporánea",
+      "description": {
+        "es": "Técnica de los locales de moda de la capital que ennoblecen la tortilla con hongos y aromas silvestres.",
+        "en": "Contemporary Madrid bistronomy celebrating local mushrooms and delicate truffle aromatics.",
+        "de": "Moderne Madrider Bistronomie mit edlen Pilzen und feinem Trüffelaroma."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

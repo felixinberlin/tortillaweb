@@ -1,0 +1,22 @@
+{
+  "id": "entrevista-abuela-maria",
+  "title": {
+    "es": "Sabiduría Ancestral: El Legado y Corte a Mano de la Abuela María",
+    "en": "Ancestral Wisdom: The Legacy and Hand-Cut Technique of Abuela María",
+    "de": "Überliefertes Wissen: Das Erbe und der Handschnitt von Abuela María"
+  },
+  "description": {
+    "es": "Recuerdos culinarios, la intuición del chisporroteo del aceite y por qué el reposo de la patata con el huevo batido es el secreto familiar mejor guardado.",
+    "en": "Culinary memories, listening to the oil sizzle, and why letting hot potatoes soak in beaten egg is the family's best-kept secret.",
+    "de": "Kulinarische Erinnerungen, das Gehör für das richtige Zischen im Öl und das Geheimnis des Vorquellens der Kartoffeln im Ei."
+  },
+  "thumbnailUrl": "/images/personas/pepa-miranda.jpg",
+  "duration": 1260,
+  "lang": "es",
+  "category": "interview",
+  "relatedRecipeIds": [
+    "clasica",
+    "concebolla"
+  ],
+  "publishedAt": "2026-04-20T16:00:00Z"
+}

@@ -1,9 +1,24 @@
+import type { TortillaConfiguration } from '@/domain/builder/types';
+import { getIngredientModifier } from '@/domain/builder/ingredientRegistry';
+import {
+  translateToRecipeSchema,
+  type TranslatorConfig,
+} from './translator';
+
 export interface BreadcrumbItem {
   name: string;
   url: string;
 }
 
 export const SITE_URL = 'https://tortilladepatatas.org';
+
+const SITE_TRANSLATOR_CONFIG: TranslatorConfig = {
+  baseUrl: SITE_URL,
+  siteName: 'tortilladepatatas.org',
+  defaultAuthorName: 'tortilladepatatas.org',
+  defaultAuthorUrl: SITE_URL,
+  defaultLanguage: 'es',
+};
 
 export function getCanonicalUrl(pathname: string): string {
   const cleanPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
@@ -87,6 +102,22 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
+export {
+  createRecipeSchema,
+  formatIsoDuration,
+  parseIsoDuration,
+  validateRecipeSchema as validateRecipeSchemaStructure,
+  type RecipeSchemaOptions,
+  type RecipeJsonLd,
+} from './seo/recipeSchema';
+
+export {
+  generateProductSchema,
+  generateCourseSchema,
+  generateOfferCatalogSchema,
+  type ProductSchemaOptions,
+} from './seo/productSchema';
+
 export interface RecipeSchemaInput {
   name: string;
   description: string;
@@ -99,41 +130,95 @@ export interface RecipeSchemaInput {
   instructions: { step: string; text: string }[];
   category?: string;
   cuisine?: string;
+  url?: string;
 }
 
 export function generateRecipeSchema(data: RecipeSchemaInput) {
-  const imagePath = data.image || '/images/recipes/clasica.jpg';
-  const fullImage = imagePath.startsWith('http')
-    ? imagePath
-    : `${SITE_URL}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`;
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Recipe',
-    name: data.name,
-    description: data.description,
-    image: [fullImage],
-    author: {
-      '@type': 'Organization',
-      name: data.authorName || 'tortilladepatatas.org',
-      url: SITE_URL,
+  return translateToRecipeSchema(
+    {
+      name: data.name,
+      description: data.description,
+      image: data.image || '/images/recipes/clasica.jpg',
+      prepTimeMinutes: data.prepTimeMinutes,
+      cookTimeMinutes: data.cookTimeMinutes,
+      yieldServings: data.yieldServings,
+      authorName: data.authorName || 'tortilladepatatas.org',
+      ingredients: data.ingredients,
+      instructions: data.instructions,
+      category: data.category || 'Main Course',
+      cuisine: data.cuisine || 'Spanish',
+      keywords: ['tortilla de patatas', 'Spanish omelette', 'tortilla española', 'receta tradicional', 'cuajado perfecto'],
+      url: data.url,
     },
-    datePublished: '2026-01-01',
-    prepTime: `PT${data.prepTimeMinutes}M`,
-    cookTime: `PT${data.cookTimeMinutes}M`,
-    totalTime: `PT${data.prepTimeMinutes + data.cookTimeMinutes}M`,
-    recipeYield: `${data.yieldServings} raciones`,
-    recipeCategory: data.category || 'Main Course',
-    recipeCuisine: data.cuisine || 'Spanish',
-    keywords: 'tortilla de patatas, Spanish omelette, tortilla española, receta tradicional, cuajado perfecto',
-    recipeIngredient: data.ingredients,
-    recipeInstructions: data.instructions.map((inst, index) => ({
-      '@type': 'HowToStep',
-      position: index + 1,
-      name: inst.step,
-      text: inst.text,
-    })),
-  };
+    SITE_TRANSLATOR_CONFIG
+  );
+}
+
+export function createUserRecipeSchema(config: TortillaConfiguration, lang: string = 'es', currentUrl?: string) {
+  const isEs = lang.startsWith('es');
+  const isDe = lang.startsWith('de');
+  const langKey = isEs ? 'es' : isDe ? 'de' : 'en';
+
+  const { calculatedProfile, ingredients, preferences } = config;
+
+  const formattedIngredients: string[] = [];
+
+  for (const ing of ingredients) {
+    if (ing.entityId === 'egg') {
+      const sizeLabel = ing.size ? ing.size.toUpperCase() : 'L';
+      const label = isEs ? `Huevos (${sizeLabel})` : isDe ? `Eier (${sizeLabel})` : `Eggs (${sizeLabel})`;
+      formattedIngredients.push(`${ing.quantity} ${label}`);
+    } else if (ing.entityId === 'potato') {
+      const label = isEs ? `Patatas (≈${calculatedProfile.potatoUnits} unidades)` : isDe ? `Kartoffeln (≈${calculatedProfile.potatoUnits} Stk)` : `Potatoes (≈${calculatedProfile.potatoUnits} units)`;
+      formattedIngredients.push(`${ing.quantity}g ${label}`);
+    } else if (ing.entityId === 'oil') {
+      const label = isEs ? 'Aceite de Oliva Virgen Extra (absorbido)' : isDe ? 'Natives Olivenöl Extra (aufgenommen)' : 'Extra Virgin Olive Oil (absorbed)';
+      formattedIngredients.push(`${calculatedProfile.estimatedAbsorbedOilMl}ml ${label}`);
+    } else {
+      const mod = getIngredientModifier(ing.entityId);
+      const name = mod ? mod.name[langKey] : ing.entityId;
+      formattedIngredients.push(`${ing.quantity}${ing.unit} ${name}`);
+    }
+  }
+
+  if (!ingredients.some(i => i.entityId === 'salt')) {
+    const eggCount = ingredients.find(i => i.entityId === 'egg')?.quantity || 6;
+    const saltGrams = Math.max(1, Math.round(eggCount * 0.8));
+    const saltName = isEs ? 'Sal' : isDe ? 'Salz' : 'Salt';
+    formattedIngredients.push(`${saltGrams}g ${saltName}`);
+  }
+
+  const adviceList = calculatedProfile.cookingAdvice[langKey] || calculatedProfile.cookingAdvice.es || [];
+  const instructions = adviceList.map((stepText, idx) => ({
+    step: `${isEs ? 'Paso' : isDe ? 'Schritt' : 'Step'} ${idx + 1}`,
+    text: stepText,
+  }));
+
+  const name = isEs
+    ? `Tortilla Personalizada (${calculatedProfile.estimatedServings} raciones)`
+    : isDe
+    ? `Eigene Tortilla (${calculatedProfile.estimatedServings} Portionen)`
+    : `Custom Spanish Omelette (${calculatedProfile.estimatedServings} servings)`;
+
+  const ratioCat = calculatedProfile.ratioCategory[langKey] || calculatedProfile.ratioCategory.es || '';
+  const description = isEs
+    ? `Receta de tortilla de patatas personalizada creada con la calculadora de proporciones. ${ratioCat}. Sartén recomendada: ${calculatedProfile.recommendedPanSizeCm} cm. Textura: ${preferences.texture}, técnica: ${preferences.potatoTechnique}.`
+    : isDe
+    ? `Individuelles Spanisches Tortilla-Rezept. ${ratioCat}. Empfohlene Pfannengröße: ${calculatedProfile.recommendedPanSizeCm} cm. Textur: ${preferences.texture}, Technik: ${preferences.potatoTechnique}.`
+    : `Custom Spanish omelette recipe generated with ratio calculator. ${ratioCat}. Recommended pan: ${calculatedProfile.recommendedPanSizeCm} cm. Texture: ${preferences.texture}, technique: ${preferences.potatoTechnique}.`;
+
+  return generateRecipeSchema({
+    name,
+    description,
+    image: '/images/recipes/clasica.jpg',
+    prepTimeMinutes: 15,
+    cookTimeMinutes: 20,
+    yieldServings: calculatedProfile.estimatedServings || 4,
+    authorName: 'tortilladepatatas.org - Tortilla Creator',
+    ingredients: formattedIngredients,
+    instructions,
+    url: currentUrl,
+  });
 }
 
 export function generateArticleSchema(data: {

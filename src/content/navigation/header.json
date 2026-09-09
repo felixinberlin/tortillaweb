@@ -80,6 +80,33 @@
             "en": "Trivia Game 🎮",
             "de": "Trivia-Spiel 🎮"
           }
+        },
+        {
+          "key": "videos",
+          "href": "/videos",
+          "label": {
+            "es": "Vídeos & Masterclasses 🎬",
+            "en": "Videos & Masterclasses 🎬",
+            "de": "Videos & Meisterklassen 🎬"
+          }
+        },
+        {
+          "key": "authenticity",
+          "href": "/autenticidad",
+          "label": {
+            "es": "Autenticidad & Fuentes 🛡️",
+            "en": "Authenticity & Sources 🛡️",
+            "de": "Authentizität & Quellen 🛡️"
+          }
+        },
+        {
+          "key": "humor",
+          "href": "/humor",
+          "label": {
+            "es": "Humor & Oráculo 🎭",
+            "en": "Humor & Oracle 🎭",
+            "de": "Humor & Orakel 🎭"
+          }
         }
       ]
     },
@@ -90,7 +117,63 @@
         "es": "Laboratorio",
         "en": "Laboratory",
         "de": "Labor"
-      }
+      },
+      "children": [
+        {
+          "key": "builder",
+          "href": "/builder",
+          "label": {
+            "es": "Constructor ADN 🧬",
+            "en": "DNA Builder 🧬",
+            "de": "DNA-Baukasten 🧬"
+          }
+        },
+        {
+          "key": "comparador",
+          "href": "/comparador",
+          "label": {
+            "es": "Comparador de Estilos ⚖️",
+            "en": "Style Comparator ⚖️",
+            "de": "Stil-Vergleicher ⚖️"
+          }
+        },
+        {
+          "key": "club",
+          "href": "/club",
+          "label": {
+            "es": "Club & Carnet Oficial 🪪",
+            "en": "Club & Passport 🪪",
+            "de": "Club & Pass 🪪"
+          }
+        },
+        {
+          "key": "escandallo",
+          "href": "/escandallo",
+          "label": {
+            "es": "Escandallos & Costes HORECA",
+            "en": "Recipe Costing HORECA",
+            "de": "Gastronomie-Kostenrechner"
+          }
+        },
+        {
+          "key": "encuestas",
+          "href": "/encuestas",
+          "label": {
+            "es": "Encuestas & Plebiscitos 🗳️",
+            "en": "Polls & Debates 🗳️",
+            "de": "Umfragen & Debatten 🗳️"
+          }
+        },
+        {
+          "key": "tests",
+          "href": "/tests",
+          "label": {
+            "es": "Test de Ortodoxia ❓",
+            "en": "Orthodoxy Test ❓",
+            "de": "Orthodoxie-Test ❓"
+          }
+        }
+      ]
     },
     {
       "key": "about",

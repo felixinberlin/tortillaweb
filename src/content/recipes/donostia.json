@@ -1,0 +1,207 @@
+{
+  "id": "donostia",
+  "contentId": "recipe.donostia",
+  "translationKey": "recipe-donostia",
+  "slug": {
+    "es": "tortilla-de-donostia",
+    "en": "donostia-basque-omelette",
+    "de": "donostia-baskische-tortilla"
+  },
+  "title": {
+    "es": "Tortilla de Donostia",
+    "en": "Donostia-Style Basque Omelette",
+    "de": "Donostia-Tortilla nach Baskischer Art"
+  },
+  "description": {
+    "es": "Emblemática tortilla donostiarra de la Parte Vieja: patatas cortadas en láminas finísimas, huevos camperos con yema extra melosa y un sellado relámpago a fuego vivo.",
+    "en": "Iconic San Sebastián Old Town omelette: paper-thin potato slices, extra-runny free-range eggs with an added yolk, and a lightning-fast high-heat sear.",
+    "de": "Ikonische Tortilla aus der Altstadt von San Sebastián: hauchdünne Kartoffelscheiben, herrlich flüssiges Eigelb mit extra Dotter und scharfes kurzes Anbraten."
+  },
+  "taxonomyIds": [
+    "faction:puristas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:donostia",
+    "style:juicy",
+    "technique:frying",
+    "difficulty:medium"
+  ],
+  "time": 25,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 15,
+  "yieldServings": 4,
+  "image": "/images/recipes/donostia.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Kennebec o Monalisa",
+        "en": "Kennebec or Monalisa Potato",
+        "de": "Kennebec- oder Monalisa-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en láminas finísimas de 1mm",
+        "en": "500g sliced paper-thin (1mm)",
+        "de": "500g in hauchdünne Scheiben (1mm) geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos frescos",
+        "en": "Fresh Free-Range Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 8,
+      "unit": "unit",
+      "notes": {
+        "es": "8 huevos camperos de gallinas en libertad",
+        "en": "8 large pasture-raised eggs",
+        "de": "8 große Freilandeier"
+      }
+    },
+    {
+      "id": "egg_yolk",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Yema de huevo campera extra",
+        "en": "Extra Free-Range Egg Yolk",
+        "de": "Zusätzliches Eigelb"
+      },
+      "amount": 1,
+      "unit": "unit",
+      "notes": {
+        "es": "1 yema adicional para máxima untuosidad donostiarra",
+        "en": "1 extra yolk for signature Donostia richness",
+        "de": "1 zusätzliches Eigelb für maximale Cremigkeit"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 200,
+      "unit": "ml",
+      "notes": {
+        "es": "200ml de AOVE para fritura viva",
+        "en": "200ml EVOO for rapid high-heat frying",
+        "de": "200ml Olivenöl zum scharfen Frittieren"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal marina fina",
+        "en": "Fine Sea Salt",
+        "de": "Feines Meersalz"
+      },
+      "amount": 6,
+      "unit": "g",
+      "notes": {
+        "es": "6g de sal marina pura",
+        "en": "6g pure sea salt",
+        "de": "6g reines Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Corte ultrafino de la patata",
+        "en": "1. Ultra-thin potato slicing",
+        "de": "1. Hauchdünnes Schneiden der Kartoffeln"
+      },
+      "text": {
+        "es": "Pela las patatas y córtalas con mandolina en láminas finísimas de 1 mm. Este corte garantiza una rápida transmisión térmica y bordes crujientes.",
+        "en": "Peel the potatoes and slice them paper-thin (1 mm) using a mandoline. This ensures rapid heat transfer and crispy golden edges.",
+        "de": "Kartoffeln schälen und mit dem Gemüsehobel in hauchdünne Scheiben (1 mm) schneiden für schnellen Garprozess und knusprige Ränder."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Fritura viva a alta temperatura",
+        "en": "2. High-heat flash frying",
+        "de": "2. Scharfes Frittieren bei hoher Hitze"
+      },
+      "text": {
+        "es": "Calienta el aceite de oliva a 170°C. Introduce las patatas por tandas para que se doren rápidamente por el exterior mientras el interior queda tierno.",
+        "en": "Heat olive oil to 170°C. Fry potatoes in batches so they develop crispy blistered edges while remaining tender inside.",
+        "de": "Olivenöl auf 170°C erhitzen. Kartoffeln portionsweise frittieren, sodass sie außen goldgelb knusprig und innen zart werden."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Batido aireado con yema extra",
+        "en": "3. Aerated egg blend with extra yolk",
+        "de": "3. Verquirlen mit extra Eigelb"
+      },
+      "text": {
+        "es": "En un bol amplio, bate los 8 huevos junto con la yema extra y la sal marina. Bate con tenedor justo hasta romper las claras sin espumar en exceso.",
+        "en": "In a wide bowl, whisk 8 whole eggs with the extra yolk and fine sea salt just until blended without whipping excessive foam.",
+        "de": "In einer Schüssel 8 Eier mit dem zusätzlichen Eigelb und Meersalz kurz mit der Gabel verquirlen, ohne zu viel Schaum zu erzeugen."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Integración y reposo térmico",
+        "en": "4. Warm thermal rest & folding",
+        "de": "4. Warmes Unterheben und Ruhen"
+      },
+      "text": {
+        "es": "Escurre las patatas recién salidas de la sartén e incorpóralas inmediatamente al huevo caliente. Deja reposar la mezcla 2 minutos para que el almidón libere su emulsión.",
+        "en": "Drain hot potatoes and transfer immediately into beaten eggs. Let rest for 2 minutes allowing starches to build a luscious emulsion.",
+        "de": "Heiße abgetropfte Kartoffeln direkt ins Ei geben. Die Mischung 2 Minuten ruhen lassen, damit die Stärke bindet."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Sellado relámpago donostiarra",
+        "en": "5. High-heat Donostia sear",
+        "de": "5. Blitzschnelles scharfes Anbraten"
+      },
+      "text": {
+        "es": "En una sartén antiadherente bien caliente con una cucharada de aceite humeante, vierte la mezcla. Remueve con espátula 15 segundos formando pliegues exteriores.",
+        "en": "In a searing hot non-stick skillet with a sheen of hot oil, pour the mixture. Vigorously swirl for 15 seconds forming outer folds.",
+        "de": "In einer sehr heißen beschichteten Pfanne mit einem Schuss heißem Öl die Masse hineingeben und 15 Sekunden schwenken."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Volteo y seguridad alimentaria",
+        "en": "6. Flip, serve and food safety",
+        "de": "6. Wenden, Servieren und Lebensmittelsicherheit"
+      },
+      "text": {
+        "es": "Voltea con plato plano y dora el otro lado sólo 30 segundos. Sirve de inmediato con el centro fluido. Para seguridad en consumo diferido, mantén la temperatura a **70°C durante 2 minutos** y no dejes a temperatura ambiente más de **4 horas**.",
+        "en": "Flip with a flat plate and cook the reverse side for only 30 seconds. Serve immediately runny. If storing, ensure **70°C for 2 minutes** and never leave at room temperature past **4 hours**.",
+        "de": "Mit flachem Teller wenden und die Unterseite nur 30 Sekunden bräunen. Sofort saftig servieren. Bei Aufbewahrung **70°C für 2 Minuten** einhalten und maximal **4 Stunden** bei Raumtemperatur belassen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Tradición de Pintxos de Donostia - San Sebastián",
+      "description": {
+        "es": "Estilo emblemático de la Parte Vieja donostiarra caracterizado por patata fina y sellado vivo.",
+        "en": "Emblematic San Sebastián Old Town bar style with ultra-thin potato and searing heat.",
+        "de": "Berühmter Pintxo-Stil aus San Sebastián mit hauchdünnen Kartoffeln und flüssigem Kern."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

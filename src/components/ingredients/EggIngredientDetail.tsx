@@ -53,6 +53,10 @@ export default function EggIngredientDetail({
             <img
               src="/images/ingredients/egg_editorial_card.jpg"
               alt={t('eggDetail.heroTitle', 'El Huevo (Gallus gallus domesticus)')}
+              width={1200}
+              height={675}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />

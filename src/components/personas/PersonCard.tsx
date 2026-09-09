@@ -102,6 +102,10 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
             <img
               src={persona.imageUrl}
               alt={persona.name}
+              width={400}
+              height={300}
+              loading="lazy"
+              decoding="async"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 e.currentTarget.src = "/images/recipes/clasica.jpg";

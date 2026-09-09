@@ -1,0 +1,41 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { AuthenticityVerifier } from '@/components/authenticity/AuthenticityVerifier';
+import { ShieldCheck, BookOpen, Award, FileText } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Verificador de Autenticidad, Fuentes & Proveniencia | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Quellenverzeichnis & Authentizitätsprüfung | tortilladepatatas.org'
+  : 'Authenticity Verifier & Primary Sources Archive | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Archivo de transparencia y proveniencia científica e histórica de tortilladepatatas.org. Consulta manuscritos de 1798, cinéticas de inactivación bacteriana y actas de campeonato.'
+  : currentLang === 'de'
+  ? 'Wissenschaftliche und historische Quellenprüfung, Manuskripte aus 1798 und offizielle Lebensmittelsicherheits-Protokolle.'
+  : 'Transparency and data provenance archive: verified 1798 manuscripts, microbiological thermal kinetics, and national championship jury records.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Universo Tortilla', url: `/${currentLang}/enciclopedia` },
+  { name: 'Autenticidad & Fuentes', url: `/${currentLang}/autenticidad` },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-6xl space-y-10">
+    <!-- Authenticity & Provenance Verifier -->
+    <AuthenticityVerifier client:load lang={currentLang} />
+  </div>
+</Layout>

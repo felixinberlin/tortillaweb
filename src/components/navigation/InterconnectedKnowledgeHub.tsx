@@ -8,7 +8,9 @@ import {
   HelpCircle, 
   ShieldCheck, 
   ArrowRight,
-  Compass
+  Compass,
+  BookOpen,
+  Utensils
 } from "lucide-react";
 import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 
@@ -76,6 +78,42 @@ export default function InterconnectedKnowledgeHub({ lang = "es", currentPath = 
       description: lang === "es" ? "Reglas térmicas bactericidas y prevención de Salmonella." : lang === "de" ? "Thermische Sicherheitsstandards und Vermeidung von Salmonellen." : "Bactericidal core thermal rules and Salmonella prevention science.",
       icon: ShieldCheck,
       color: "border-[#D32F2F] bg-[#D32F2F]/10 text-[#D32F2F] dark:text-[#FF8A80]",
+    },
+    {
+      id: "guides",
+      path: "/guias",
+      title: lang === "es" ? "Guías & Masterclasses" : lang === "de" ? "Meisterklassen & Guides" : "Guides & Masterclasses",
+      badge: lang === "es" ? "Artículos Tutoriales" : lang === "de" ? "Tutorial-Artikel" : "Tutorial Deep Dives",
+      description: lang === "es" ? "9 guías técnicas sobre física del volteo, almidón, Betanzos, posguerra, confitado y debates." : lang === "de" ? "9 Meisterklassen zu Physik des Wendens, Stärkechemie, Betanzos, Nachkriegszeit und Confit." : "9 technical deep-dives on flip physics, potato starch, Betanzos fluid dynamics, post-war history, and confit.",
+      icon: BookOpen,
+      color: "border-[#8D6E63] bg-[#8D6E63]/10 text-[#8D6E63] dark:text-[#FFB800]",
+    },
+    {
+      id: "escandallo",
+      path: "/escandallo",
+      title: lang === "es" ? "Calculadora de Escandallo" : lang === "de" ? "HORECA Kalkulator" : "HORECA Cost Calculator",
+      badge: lang === "es" ? "Herramienta Profesional" : lang === "de" ? "Profis & Gastronomie" : "Professional Tool",
+      description: lang === "es" ? "Cálculo de coste de ración, mermas de patata, AOVE y margen de explotación." : lang === "de" ? "Portionskosten, Garverluste, Ölverbrauch und Gastronomie-Margen kalkulieren." : "Portion costing, potato peeling loss, olive oil absorption, and bar margin analytics.",
+      icon: Scale,
+      color: "border-[#00A3FF] bg-[#00A3FF]/10 text-[#0077B6] dark:text-[#00A3FF]",
+    },
+    {
+      id: "utensilios",
+      path: "/utensilios",
+      title: lang === "es" ? "Utensilios & Menaje" : lang === "de" ? "Küchen-Utensilien" : "Kitchen Tools & Gear",
+      badge: lang === "es" ? "Física & Menaje" : lang === "de" ? "Physik & Werkzeuge" : "Physics & Gear",
+      description: lang === "es" ? "Sartenes dobles, vuelvetortillas, peladores y mandolinas analizados sin patrocinio." : lang === "de" ? "Wende-Doppelpfannen, Wendeteller, Sparschäler und Mandolinen unabhängig analysiert." : "Double-hinged pans, ceramic turners, peelers, and mandolines tested with independent physics.",
+      icon: Utensils,
+      color: "border-[#FFB800] bg-[#FFB800]/10 text-[#8D6E63] dark:text-[#FFB800]",
+    },
+    {
+      id: "humor",
+      path: "/humor",
+      title: lang === "es" ? "Humor & Oráculo" : lang === "de" ? "Humor & Orakel" : "Humor & Oracle",
+      badge: lang === "es" ? "Cultura Castiza" : lang === "de" ? "Bar-Kultur" : "Tavern Culture",
+      description: lang === "es" ? "Generador de excusas para vuelcos fallidos y test detector de sacrilegios." : lang === "de" ? "Ausreden-Generator für Pfannen-Missgeschicke und Ketzerei-Detektor." : "Excuse generator for ruined pan flips and sacrilege detector quiz.",
+      icon: Sparkles,
+      color: "border-[#FFB800] bg-[#FFB800]/10 text-[#FFB800]",
     },
   ];
 

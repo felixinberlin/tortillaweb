@@ -1,0 +1,224 @@
+{
+  "id": "jamon-queso-extremadura",
+  "contentId": "recipe.jamon-queso-extremadura",
+  "translationKey": "recipe-jamon-queso-extremadura",
+  "slug": {
+    "es": "tortilla-extremena-jamon-iberico-queso",
+    "en": "extremaduran-iberico-ham-aged-cheese-omelette",
+    "de": "extremadura-tortilla-iberico-schinken-kaese"
+  },
+  "title": {
+    "es": "Tortilla Extremeña de Jamón Ibérico de Bellota y Queso Curado",
+    "en": "Extremaduran Acorn-Fed Ibérico Ham & Aged Cheese Tortilla",
+    "de": "Extremadura-Tortilla mit Iberico-Schinken und gereiftem Schafskäse"
+  },
+  "description": {
+    "es": "Homenaje a la dehesa extremeña con virutas de jamón ibérico de bellota 100%, láminas finas de queso curado de oveja fundente en el corazón, patatas pochadas y huevos camperos.",
+    "en": "A tribute to the Extremaduran dehesa with 100% acorn-fed Ibérico ham shavings, melting aged sheep's milk cheese ribbons, olive-oil poached potatoes, and farm eggs.",
+    "de": "Hommage an die Dehesa von Extremadura mit 100% Eichel-Ibérico-Schinken, schmelzendem gereiftem Schafskäse, zarten Kartoffeln und Freilandeiern."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:jamon",
+    "ingredient:cheese",
+    "ingredient:oil",
+    "region:extremadura",
+    "style:gourmet",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 30,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/recipes/jamon-queso-extremadura.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Agria o Monalisa",
+        "en": "Agria or Monalisa Potato",
+        "de": "Agria- oder Monalisa-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en láminas finas",
+        "en": "500g thinly sliced",
+        "de": "500g in dünne Scheiben geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos frescos",
+        "en": "Fresh Free-Range Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos camperos tamaño L",
+        "en": "6 large free-range eggs",
+        "de": "6 große Freilandeier"
+      }
+    },
+    {
+      "id": "jamon",
+      "ingredientId": "jamon",
+      "name": {
+        "es": "Jamón ibérico de bellota D.O. Dehesa de Extremadura",
+        "en": "100% Acorn-Fed Ibérico Ham DOP",
+        "de": "100% Bellota-Ibérico-Schinken D.O."
+      },
+      "amount": 70,
+      "unit": "g",
+      "notes": {
+        "es": "70g en virutas finas con su grasa entreverada",
+        "en": "70g thin shavings with marbled fat",
+        "de": "70g feine Späne mit edlem Fettmarmor"
+      }
+    },
+    {
+      "id": "cheese",
+      "ingredientId": "cheese",
+      "name": {
+        "es": "Queso curado de oveja de Extremadura",
+        "en": "Aged Extremaduran Sheep's Cheese",
+        "de": "Gereifter extremadurischer Schafskäse"
+      },
+      "amount": 60,
+      "unit": "g",
+      "notes": {
+        "es": "60g en lascas finas o dados pequeños",
+        "en": "60g thinly shaved or finely cubed",
+        "de": "60g in feinen Spänen oder kleinen Würfeln"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra Manzanilla Cacereña",
+        "en": "Manzanilla Cacereña Extra Virgin Olive Oil",
+        "de": "Natives Manzanilla Cacereña Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml de AOVE extremeño",
+        "en": "150ml premium Extremaduran EVOO",
+        "de": "150ml hochwertiges extremadarisches Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal marina",
+        "en": "Sea Salt",
+        "de": "Meersalz"
+      },
+      "amount": 4,
+      "unit": "g",
+      "notes": {
+        "es": "Sal moderada considerando el curado del jamón y queso",
+        "en": "Moderate salt accounting for seasoned ham & cheese",
+        "de" : "Mäßig Salz wegen der Würze von Schinken und Käse"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Confitado de patatas en AOVE Manzanilla",
+        "en": "1. Poaching potatoes in EVOO",
+        "de": "1. Kartoffeln in Olivenöl pochieren"
+      },
+      "text": {
+        "es": "Pela y corta las patatas en láminas finas. Confítalas en AOVE a 130-140°C durante 15 minutos hasta que estén tiernas y jugosas. Escurre bien.",
+        "en": "Peel and thinly slice potatoes. Confit in EVOO at 130-140°C for 15 minutes until soft and succulent. Drain thoroughly.",
+        "de": "Kartoffeln schälen und in dünne Scheiben schneiden. In Olivenöl bei 130-140°C 15 Minuten weich und saftig pochieren. Gründlich abtropfen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Atemperado de jamón y queso de oveja",
+        "en": "2. Tempering ham & aged cheese",
+        "de": "2. Schinken und Käse temperieren"
+      },
+      "text": {
+        "es": "Corta el queso curado en láminas finas y ten el jamón ibérico a temperatura ambiente (22°C) para que la grasa de bellota esté brillante y translúcida.",
+        "en": "Shave the aged cheese thinly and ensure the Ibérico ham is at room temperature (22°C) so its natural acorn fat is glossy and aromatic.",
+        "de": "Käse in feine Scheiben hobeln und den Ibérico-Schinken auf Raumtemperatur (22°C) bringen, damit das feine Fett glänzt."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Batido e integración del calor",
+        "en": "3. Egg whisking & thermal integration",
+        "de": "3. Eier verquirlen und untermengen"
+      },
+      "text": {
+        "es": "Bate los 6 huevos con una pizca ligera de sal. Incorpora las patatas calientes y la mitad del jamón y queso, dejando que el calor residual empiece a fundir el queso.",
+        "en": "Whisk 6 eggs with a pinch of salt. Fold in hot potatoes and half of the ham and cheese, allowing the residual heat to start melting the cheese.",
+        "de": "6 Eier mit einer Prise Salz verquirlen. Die heißen Kartoffeln sowie die Hälfte des Schinkens und Käses unterheben, sodass der Käse leicht anschmilzt."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Reposo para emulsionar los jugos",
+        "en": "4. Resting & flavor distribution",
+        "de": "4. Ruhen lassen für optimale Bindung"
+      },
+      "text": {
+        "es": "Deja reposar la mezcla 3 minutos en el bol para que los almidones y las grasas ibéricas se unan en una masa cremosa y aromática.",
+        "en": "Let mixture rest in the bowl for 3 minutes so starches and rich Ibérico fats form a cohesive, savory emulsion.",
+        "de": "Die Mischung 3 Minuten in der Schüssel ruhen lassen, damit Stärke und edle Schinkenaromen eine saftige Emulsion bilden."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Relleno central y cuajado en sartén",
+        "en": "5. Core layering & skillet cook",
+        "de": "5. Schichten und Stocken in der Pfanne"
+      },
+      "text": {
+        "es": "Vierte la mitad de la masa en la sartén caliente, coloca el resto del queso y jamón en el centro y cubre con el resto de la masa. Cocina 2 minutos a fuego medio.",
+        "en": "Pour half the mixture into hot pan, place the remaining cheese and ham in the center, then top with remaining mix. Cook 2 minutes over medium heat.",
+        "de": "Hälfte der Masse in die heiße Pfanne geben, restlichen Käse und Schinken mittig einlegen, mit übriger Masse bedecken und 2 Minuten braten."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Volteo dorado y directrices de conservación",
+        "en": "6. Golden flip & food safety standard",
+        "de": "6. Wenden und Hygienehinweise"
+      },
+      "text": {
+        "es": "Voltea con plato plano y dora el otro lado 1 minuto y medio, logrando un centro de queso fundido. Para conservar, respeta la pauta sanitaria de **70°C durante 2 minutos** y no superes las **4 horas** a temperatura ambiente.",
+        "en": "Flip with a flat plate and cook 1.5 minutes more, ensuring a molten cheese center. If preserving, adhere to safety heating of **70°C for 2 minutes** and never exceed **4 hours** at room temperature.",
+        "de": "Mit dem Teller wenden und 1,5 Minuten fertig braten für einen herrlich geschmolzenen Käsekern. Bei Aufbewahrung **70°C für 2 Minuten** einhalten und maximal **4 Stunden** bei Raumtemperatur belassen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Tradición Gastronómica de la Dehesa de Extremadura",
+      "description": {
+        "es": "Homenaje a los productos estrella de la dehesa: cerdo ibérico de bellota y quesos de oveja autóctonos.",
+        "en": "Tribute to iconic dehesa produce: acorn-fed Ibérico pork and artisan sheep's milk cheeses.",
+        "de": "Traditionelle Rezeptur der extremadurischen Dehesa mit bestem Schinken und Schafskäse."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

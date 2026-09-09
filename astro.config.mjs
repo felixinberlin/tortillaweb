@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
+      filter: (page) => !page.includes('/tienda') && !page.includes('/shop'),
       i18n: {
         defaultLocale: 'es',
         locales: {

@@ -1,0 +1,56 @@
+{
+  "id": "elena-berlin",
+  "type": "person",
+  "contentId": "person.elena-berlin",
+  "name": "Elena Gómez",
+  "region": "diaspora",
+  "role": {
+    "es": "Cocinera en el Extranjero & Embajadora Cultural",
+    "en": "Diaspora Cook & Cultural Ambassador",
+    "de": "Expat-Köchin & Kulturbotschafterin"
+  },
+  "specialty": "Tortilla de la Diáspora & Adaptación de Patatas Centroeuropeas",
+  "slug": {
+    "es": "elena-berlin",
+    "en": "elena-berlin",
+    "de": "elena-berlin"
+  },
+  "title": {
+    "es": "Elena Gómez",
+    "en": "Elena Gómez",
+    "de": "Elena Gómez"
+  },
+  "description": {
+    "es": "Emigrante madrileña en Berlín, fundadora de encuentros gastronómicos donde enseña a crear tortillas perfectas con ingredientes locales alemanes.",
+    "en": "Madrid-born expat in Berlin, founder of culinary gatherings teaching how to craft authentic tortillas using local German market produce.",
+    "de": "In Berlin lebende Madrilenin und Gründerin kulinarischer Workshops, in denen sie zeigt, wie man mit lokalen deutschen Zutaten authentische Tortillas zaubert."
+  },
+  "bio": {
+    "es": "Ingeniera de software y apasionada divulgadora gastronómica, se mudó a Kreuzberg en 2015. Sus talleres comunitarios de tortilla son famosos por resolver con rigor científico el desafío de seleccionar patatas 'festkochend' y aceites adecuados fuera de España.",
+    "en": "Software engineer and devoted food educator who moved to Kreuzberg in 2015. Her community workshops are renowned for scientifically solving the puzzle of German 'festkochend' potatoes and oil selection abroad.",
+    "de": "Software-Ingenieurin und leidenschaftliche Food-Aktivistin, die 2015 nach Kreuzberg zog. Ihre Tortilla-Workshops sind bekannt für praxisnahe Tipps zur Wahl der richtigen vorwiegend festkochenden Kartoffeln in Mitteleuropa."
+  },
+  "quote": {
+    "es": "Voltear una tortilla a dos mil kilómetros de casa no es solo cocinar: es tender un puente de calor, aroma y nostalgia hacia nuestras raíces.",
+    "en": "Flipping a tortilla two thousand kilometers from home is more than cooking: it is casting a bridge of warmth, aroma, and nostalgia to our roots.",
+    "de": "Zweitausend Kilometer von zu Hause eine Tortilla zu wenden ist nicht nur Kochen: Es ist eine Brücke aus Wärme, Duft und Heimat."
+  },
+  "dogma": {
+    "es": "Adaptabilidad inteligente: entender el almidón de la patata local para recrear el sabor de casa en cualquier rincón del mundo.",
+    "en": "Intelligent adaptability: understanding local potato starch physics to recreate the taste of home anywhere on earth.",
+    "de": "Kluge Anpassung: Die Stärke lokaler Kartoffeln verstehen, um den Geschmack der Heimat überall auf der Welt zu erwecken."
+  },
+  "favoriteRecipe": "express",
+  "story": "/es/personas/elena-berlin",
+  "image": "/images/personas/elena.jpg",
+  "badge": {
+    "es": "Diáspora & Cultura",
+    "en": "Diaspora & Heritage",
+    "de": "Diaspora & Kultur"
+  },
+  "related": [
+    { "type": "faction", "id": "concebollistas" },
+    { "type": "recipe", "id": "express" },
+    { "type": "region", "id": "madrid" }
+  ]
+}

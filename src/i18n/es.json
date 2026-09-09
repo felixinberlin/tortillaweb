@@ -11,7 +11,14 @@
     "about": "Sobre nosotros",
     "contact": "Contacto",
     "aboutAndContact": "Sobre Nosotros & Contacto",
-    "impressum": "Aviso Legal e Impressum"
+    "impressum": "Aviso Legal e Impressum",
+    "videos": "Vídeos",
+    "humor": "Humor & Oráculo",
+    "club": "Club & Carnet",
+    "autenticidad": "Autenticidad & Fuentes",
+    "escandallo": "Calculadora de Escandallo",
+    "utensilios": "Utensilios & Menaje de Cocina",
+    "tienda": "Equipamiento & Tienda Gourmet"
   },
   "hero": {
     "badge": "La enciclopedia de la tortilla española",
@@ -202,11 +209,11 @@
     "title": "Sobre Tortilla de Patatas",
     "subtitle": "Un proyecto dedicado a divulgar, preservar y perfeccionar el icono gastronómico español por excelencia.",
     "storyTitle": "El Origen de un Ícono",
-    "storyP1": "Aunque la leyenda popular atribuye la invención de la tortilla al general carlista Tomás de Zumalacárregui en Navarra hacia 1817 como un alimento nutritivo y barato para sus tropas, documentos históricos recientes la sitúan en Villanueva de la Serena (Badajoz) a finales del siglo XVIII (1798).",
+    "storyP1": "Aunque la tradición popular atribuía erróneamente el origen al general Tomás de Zumalacárregui en 1835 (sitio de Bilbao) o al Memorial navarro de 1817, la investigación histórica del CSIC demostró que la primera referencia documentada data de 1798 en Villanueva de la Serena (Badajoz), ideada por Joseph de Tena Godoy y el Marqués de Robledo.",
     "storyP2": "Hoy en día, la tortilla de patatas trasciende fronteras: es el plato más representativo de las barras de bares en toda España, presente desde el desayuno hasta la cena.",
     "missionTitle": "Nuestra Misión",
     "missionDesc": "tortilladepatatas.org nace para unir a la comunidad amante de la gastronomía, documentar las técnicas tradicionales y ofrecer herramientas interactivas como nuestro constructor de proporciones exactas.",
-    "websiteDesc": "Un sitio web rápido, bilingüe y accesible para todos los amantes de la cocina casera tradicional."
+    "websiteDesc": "Un sitio web rápido, trilingüe y accesible para todos los amantes de la cocina casera tradicional."
   },
   "error": {
     "title": "Esta tortilla se ha dado la vuelta...",
@@ -411,7 +418,7 @@
     },
     "science": {
       "title": "🛡️ Seguridad Alimentaria y Control Térmico",
-      "body": "Para tortillas poco cuajadas, el control térmico es esencial. Los estándares sanitarios fijan la reducción microbiológica segura de Salmonella en **70°C for 2 minutes** (o pasteurización equivalente a **63°C for 20 seconds**), con un límite máximo de **4 hours** de exposición a temperatura ambiente."
+      "body": "Para tortillas poco cuajadas, el control térmico es esencial. Los estándares sanitarios fijan la reducción microbiológica segura de Salmonella en **70°C durante 2 minutos** (o pasteurización equivalente a **63°C durante 20 segundos**), con un límite máximo de **4 horas** de exposición a temperatura ambiente."
     },
     "recipes": {
       "title": "Recetas Vinculadas con Huevo",
@@ -481,5 +488,25 @@
       "subtitle": "Recetas tradicionales y de autor que destacan el uso técnico de la patata como base estructural",
       "viewRecipe": "Ver Receta"
     }
+  },
+  "videosPage": {
+    "badge": "Videoteca & Clases Magistrales",
+    "title": "Videoteca Culinaria & Documentales",
+    "subtitle": "Técnicas en vídeo, entrevistas exclusivas, historia documental y ciencia de la tortilla.",
+    "allCategories": "Todas las categorías",
+    "technique": "Técnicas",
+    "interview": "Entrevistas",
+    "history": "Historia",
+    "science": "Ciencia",
+    "searchPlaceholder": "Buscar tutoriales, técnicas o personajes...",
+    "watchVideo": "Ver vídeo",
+    "comingSoon": "Próximamente",
+    "inProduction": "En producción",
+    "duration": "Duración",
+    "relatedRecipes": "Recetas vinculadas",
+    "noResults": "No se encontraron vídeos con estos criterios.",
+    "modalTitle": "Estreno Audiovisual en Preparación",
+    "modalDesc": "Estamos editando y produciendo este contenido en calidad 4K con chefs y sabios de la cocina tradicional.",
+    "close": "Cerrar"
   }
 }

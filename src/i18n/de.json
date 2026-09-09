@@ -11,7 +11,14 @@
     "about": "Über uns",
     "contact": "Kontakt",
     "aboutAndContact": "Über uns & Kontakt",
-    "impressum": "Impressum & Rechtliches"
+    "impressum": "Impressum & Rechtliches",
+    "videos": "Videos",
+    "humor": "Humor & Orakel",
+    "club": "Club & Pass",
+    "autenticidad": "Authentizität & Quellen",
+    "escandallo": "HORECA Kalkulator",
+    "utensilios": "Küchen-Utensilien & Menage",
+    "tienda": "Ausrüstung & Meister-Shop"
   },
   "hero": {
     "badge": "Die Enzyklopädie der spanischen Tortilla",
@@ -201,8 +208,8 @@
     "badge": "Geschichte & Kultur",
     "title": "Über Tortilla de Patatas",
     "subtitle": "Ein Projekt zur Dokumentation, Verbreitung und Perfektionierung von Spaniens kulinarischem Aushängeschild.",
-    "storyTitle": "Die Geschichte eines Icons",
-    "storyP1": "Während Legenden die Erfindung General Tomás de Zumalacárregui in Navarra um 1817 zuschreiben, belegen historische Dokumente den Ursprung in Villanueva de la Serena bereits im Jahr 1798.",
+    "storyTitle": "Die Geschichte einer kulinarischen Ikone",
+    "storyP1": "Während volkstümliche Mythen die Erfindung fälschlicherweise General Tomás de Zumalacárregui im Jahr 1835 (Belagerung von Bilbao) oder dem Memorial von Navarra (1817) zuschrieben, belegen CSIC-Dokumente zweifelsfrei, dass die älteste schriftliche Erwähnung aus dem Jahr 1798 in Villanueva de la Serena (Badajoz) von Joseph de Tena Godoy und dem Marqués de Robledo stammt.",
     "storyP2": "Heute ist die Tortilla de Patatas überall beliebt: Sie prägt die spanische Tapas-Kultur vom Frühstück bis zum Abendessen.",
     "missionTitle": "Unsere Mission",
     "missionDesc": "tortilladepatatas.org verbindet Liebhaber der spanischen Küche, dokumentiert traditionelle Techniken und bietet interaktive Baukasten-Tools.",
@@ -411,7 +418,7 @@
     },
     "science": {
       "title": "🛡️ Lebensmittelsicherheit & Temperaturkontrolle",
-      "body": "Bei flüssigem Kern ist Temperaturkontrolle entscheidend. Hygiene-Standards fordern zur Abtötung von Salmonellen **70°C for 2 minutes** (oder Pasteurisation bei **63°C for 20 seconds**), bei maximal **4 hours** Lagerung bei Raumtemperatur."
+      "body": "Bei flüssigem Kern ist Temperaturkontrolle entscheidend. Hygiene-Standards fordern zur Abtötung von Salmonellen **70°C für 2 Minuten** (oder Pasteurisation bei **63°C für 20 Sekunden**), bei maximal **4 Stunden** Lagerung bei Raumtemperatur."
     },
     "recipes": {
       "title": "Rezepte mit Ei",
@@ -481,5 +488,25 @@
       "subtitle": "Klassische und moderne Rezepte mit der Kartoffel als strukturellem Hauptbestandteil",
       "viewRecipe": "Rezept ansehen"
     }
+  },
+  "videosPage": {
+    "badge": "Audiovisuell & Meisterklassen",
+    "title": "Kulinarische Videothek & Dokumentationen",
+    "subtitle": "Video-Technikanleitungen, exklusive Interviews, Dokumentargeschichte und Tortilla-Wissenschaft.",
+    "allCategories": "Alle Kategorien",
+    "technique": "Techniken",
+    "interview": "Interviews",
+    "history": "Geschichte",
+    "science": "Wissenschaft",
+    "searchPlaceholder": "Tutorials, Techniken oder Persönlichkeiten suchen...",
+    "watchVideo": "Video ansehen",
+    "comingSoon": "Demnächst",
+    "inProduction": "In Produktion",
+    "duration": "Dauer",
+    "relatedRecipes": "Verwandte Rezepte",
+    "noResults": "Keine Videos für diese Kriterien gefunden.",
+    "modalTitle": "Audiovisuelle Premiere in Vorbereitung",
+    "modalDesc": "Wir produzieren diesen Inhalt derzeit in brillanter 4K-Qualität mit Spitzenköchen und traditionsreichen Kochlegenden.",
+    "close": "Schließen"
   }
 }

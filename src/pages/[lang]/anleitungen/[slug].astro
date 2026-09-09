@@ -1,0 +1,266 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { 
+  BookOpen, 
+  Clock, 
+  ShieldCheck, 
+  ListOrdered, 
+  ArrowLeft, 
+  ArrowUp, 
+  ChefHat, 
+  Flame, 
+  Scale, 
+  FlaskConical, 
+  Sparkles, 
+  ChevronRight,
+  ExternalLink,
+  AlertTriangle
+} from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { getCollection, render } from 'astro:content';
+import LocalizedLink from '@/components/navigation/LocalizedLink';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  const languages = supportedLanguages;
+  const paths = [];
+
+  for (const lang of languages) {
+    for (const guide of guides) {
+      const guideLang = guide.data.lang || (guide.id.includes('.en') ? 'en' : guide.id.includes('.de') ? 'de' : 'es');
+      if (guideLang === lang) {
+        const slug = guide.data.slug || guide.id.replace(/\.[a-z]{2}$/, '');
+        paths.push({
+          params: {
+            lang,
+            slug,
+          },
+          props: {
+            guide,
+            lang,
+          },
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { guide, lang } = Astro.props;
+const currentLang = (lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+let Content: any = null;
+let headings: { depth: number; slug: string; text: string }[] = [];
+
+if (guide) {
+  const rendered = await render(guide);
+  Content = rendered.Content;
+  headings = rendered.headings;
+}
+
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+const title = `${guide?.data.title || 'Anleitung'} - tortilladepatatas.org`;
+const description = guide?.data.description || 'Ausführliche Meisterklasse zur spanischen Tortilla de Patatas';
+
+const articleSchema = generateArticleSchema({
+  headline: guide?.data.title || 'Meisterklasse',
+  description,
+  url: `/${currentLang}/anleitungen/${guide?.data.slug || guide?.id}`,
+  image: guide?.data.image,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Startseite', url: `/${currentLang}` },
+  { name: currentLang === 'es' ? 'Guías' : currentLang === 'de' ? 'Anleitungen' : 'Guides', url: `/${currentLang}/anleitungen` },
+  { name: guide?.data.title || 'Meisterklasse', url: `/${currentLang}/anleitungen/${guide?.data.slug || guide?.id}` },
+]);
+---
+
+<Layout title={title} description={description} lang={currentLang} schema={[articleSchema, breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl space-y-8">
+    
+    <!-- Back to Guides navigation -->
+    <div class="flex items-center justify-between">
+      <LocalizedLink
+        to="/guias"
+        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F5E6BE]/60 dark:bg-[#2A2420] text-[#8D6E63] dark:text-[#F5E6BE] text-xs font-bold hover:bg-[#FFB800] hover:text-black transition-colors"
+      >
+        <ArrowLeft class="w-3.5 h-3.5" />
+        <span>{currentLang === 'es' ? 'Volver a todas las Guías' : currentLang === 'de' ? 'Zurück zu allen Anleitungen' : 'Back to all Guides'}</span>
+      </LocalizedLink>
+
+      {guide.data.readTimeMinutes && (
+        <div class="inline-flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
+          <Clock class="w-3.5 h-3.5 text-[#FFB800]" />
+          <span>{guide.data.readTimeMinutes} Min. Lesezeit</span>
+        </div>
+      )}
+    </div>
+
+    <!-- Header Hero Banner -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Badge variant="secondary" class="px-3.5 py-1 text-xs font-bold bg-[#FFB800]/15 text-[#8D6E63] border border-[#FFB800]/40 inline-flex items-center gap-1.5 shadow-2xs">
+        <ChefHat class="w-3.5 h-3.5 text-[#FFB800]" />
+        <span>{guide.data.category ? guide.data.category.toUpperCase() : 'MEISTERKLASSE'}</span>
+      </Badge>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground leading-tight">
+        {guide?.data.title}
+      </h1>
+
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {guide?.data.description}
+      </p>
+    </div>
+
+    <!-- Mandatory Food Safety Protocol Banner -->
+    <Card class="card-notebook border-2 border-[#2E7D32]/50 bg-[#FCF9F2] dark:bg-[#1A1715] shadow-md overflow-hidden">
+      <CardHeader class="bg-[#2E7D32]/10 border-b border-[#2E7D32]/20 pb-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 text-[#2E7D32]">
+            <ShieldCheck class="w-6 h-6 shrink-0" />
+            <CardTitle class="text-xl font-serif-heading font-bold">
+              {currentLang === 'es' ? 'Estándar Sanitario Oficial (RD 1021/2022)' : currentLang === 'de' ? 'Hygienestandard (RD 1021/2022)' : 'Official Food Safety Standard (RD 1021/2022)'}
+            </CardTitle>
+          </div>
+          <a
+            href="https://www.boe.es/buscar/act.php?id=BOE-A-2022-21773"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#2E7D32] text-white text-xs font-bold hover:bg-[#1B5E20] transition-colors self-start sm:self-auto shadow-2xs"
+          >
+            <span>Offizieller Standard</span>
+            <ExternalLink class="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </CardHeader>
+      <CardContent class="pt-5 space-y-4">
+        <p class="text-foreground leading-relaxed text-sm md:text-base">
+          {currentLang === 'es'
+            ? 'Para garantizar la completa destrucción de Salmonella enterica sin alterar la jugosidad de la masa, el protocolo oficial exige alcanzar 70°C durante 2 minutos en el núcleo térmico (o el baremo de 63°C durante 20 segundos para consumo doméstico inmediato).'
+            : currentLang === 'de'
+            ? 'Zur sicheren Abtötung von Salmonella enterica muss der Kern 70°C für 2 Minuten (oder alternativ 63°C für 20 Sekunden bei saftigen Varianten für den Sofortverzehr) erreichen.'
+            : 'To ensure complete elimination of Salmonella enterica while preserving luscious texture, official health standards require 70°C for 2 minutes (or 63°C for 20 seconds for immediate home eating).'}
+        </p>
+        <div class="p-3.5 rounded-xl bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-amber-950 dark:text-amber-200 text-xs sm:text-sm flex items-start gap-3">
+          <AlertTriangle class="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
+          <span>
+            <strong>{currentLang === 'es' ? 'Límite Temporal Estricto:' : currentLang === 'de' ? 'Strikte Raumtemperaturgrenze:' : 'Strict Ambient Limit:'}</strong> {currentLang === 'es' ? 'Toda tortilla mantenida a temperatura ambiente no debe exceder jamás las 4 horas de exposición.' : currentLang === 'de' ? 'Bei Raumtemperatur gelagerte Tortilla darf niemals länger als 4 Stunden offen stehen.' : 'Cooked tortilla left at room temperature must never exceed 4 hours of exposure.'}
+          </span>
+        </div>
+      </CardContent>
+    </Card>
+
+    <!-- Main Layout: Sidebar & Content -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Sticky Table of Contents (4 cols on lg) -->
+      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-6 order-2 lg:order-1">
+        {tocHeadings.length > 0 && (
+          <Card class="card-notebook p-5 border-t-2 border-t-[#8D6E63] dark:bg-[#201D1A]">
+            <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5] dark:border-[#3D352E]">
+              <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                <ListOrdered class="w-4 h-4 text-[#FFB800]" />
+                <span>{currentLang === 'es' ? 'Índice de la Masterclass' : currentLang === 'de' ? 'Inhaltsverzeichnis' : 'Masterclass Index'}</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent class="p-0 pt-3">
+              <nav class="space-y-1.5 max-h-[380px] overflow-y-auto pr-1 text-xs sm:text-sm">
+                {tocHeadings.map((h) => (
+                  <a
+                    href={`#${h.slug}`}
+                    class:list={[
+                      "block rounded-md py-1.5 px-2.5 transition-colors leading-snug hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D352E] hover:text-[#8D6E63] dark:hover:text-[#FFB800]",
+                      h.depth === 2 ? "font-semibold text-foreground border-l-2 border-l-amber-400 pl-2.5" : "pl-6 text-muted-foreground"
+                    ]}
+                  >
+                    {h.text}
+                  </a>
+                ))}
+              </nav>
+            </CardContent>
+          </Card>
+        )}
+
+        <!-- Quick Links Hub -->
+        <Card class="card-notebook p-5 bg-[#FCF9F2] dark:bg-[#201D1A] border border-amber-300 dark:border-[#3D352E] space-y-3">
+          <div class="flex items-center gap-2 text-[#8D6E63] dark:text-[#FFB800]">
+            <Sparkles class="w-4 h-4 text-[#FFB800]" />
+            <h2 class="font-serif-heading font-bold text-sm text-foreground">
+              {currentLang === 'es' ? 'Herramientas y Recetas' : currentLang === 'de' ? 'Tools & Rezepte' : 'Tools & Recipes'}
+            </h2>
+          </div>
+          <p class="text-xs text-muted-foreground leading-relaxed">
+            {currentLang === 'es' ? 'Aplica lo aprendido calculando proporciones exactas o simulando el volteo en la sartén.' : currentLang === 'de' ? 'Wende das Gelernte an: Berechne Mengenangaben oder simuliere das Wenden.' : 'Apply what you learned by calculating exact ratios or testing pan flips.'}
+          </p>
+          <div class="pt-1 flex flex-col gap-2">
+            <LocalizedLink
+              to="/recipes/tortilla-clasica"
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#8D6E63] text-white text-xs font-bold hover:bg-[#6D4C41] transition-colors shadow-2xs"
+            >
+              <span>{currentLang === 'es' ? 'Ver Ficha de Receta' : currentLang === 'de' ? 'Rezeptkarte öffnen' : 'View Recipe Card'}</span>
+              <ChevronRight class="w-4 h-4" />
+            </LocalizedLink>
+            <LocalizedLink
+              to="/builder"
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#F5E6BE] dark:bg-[#2A2420] text-[#8D6E63] dark:text-[#F5E6BE] text-xs font-bold hover:bg-[#FFB800] hover:text-black transition-colors"
+            >
+              <span>{currentLang === 'es' ? 'Calculadora de Ratios' : currentLang === 'de' ? 'Mengen-Rechner' : 'Ratio Calculator'}</span>
+              <ChevronRight class="w-3.5 h-3.5" />
+            </LocalizedLink>
+            <LocalizedLink
+              to="/laboratorio"
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#00A3FF]/15 text-[#0077B6] dark:text-[#00A3FF] text-xs font-bold hover:bg-[#00A3FF]/25 transition-colors"
+            >
+              <span>{currentLang === 'es' ? 'Laboratorio Físico' : currentLang === 'de' ? 'Physiklabor' : 'Physics Lab'}</span>
+              <FlaskConical class="w-3.5 h-3.5" />
+            </LocalizedLink>
+          </div>
+        </Card>
+      </aside>
+
+      <!-- Markdown Prose Article Container (8 cols on lg) -->
+      <main class="lg:col-span-8 order-1 lg:order-2 space-y-6">
+        <article class="card-notebook p-6 sm:p-8 md:p-10 shadow-stacked-parchment bg-[#FDFBF7] dark:bg-[#201D1A]">
+          {Content ? (
+            <div class="science-prose prose prose-amber max-w-none dark:prose-invert">
+              <Content />
+            </div>
+          ) : (
+            <div class="p-8 text-center text-muted-foreground">
+              <p>No se pudo cargar el contenido de la guía.</p>
+            </div>
+          )}
+
+          <!-- Footer Navigation & Back to top -->
+          <div class="pt-8 mt-10 border-t border-[#E8E2D5] dark:border-[#3D352E] flex items-center justify-between text-xs text-muted-foreground">
+            <span class="font-medium text-[#8D6E63] dark:text-[#FFB800]">tortilladepatatas.org — Meisterklasse Notizbuch</span>
+            <a
+              href="#"
+              class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#F5E6BE] dark:bg-[#2A2420] text-[#8D6E63] dark:text-[#F5E6BE] font-bold hover:bg-[#FFB800] hover:text-black transition-colors"
+            >
+              <span>{currentLang === 'es' ? 'Subir' : currentLang === 'de' ? 'Nach oben' : 'Back to top'}</span>
+              <ArrowUp class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </article>
+      </main>
+
+    </div>
+
+    <!-- Interconnected Knowledge Hub -->
+    <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/anleitungen/${guide?.data.slug || guide?.id}`} client:visible />
+
+    <!-- Guided Culinary Journey Progress -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/anleitungen/${guide?.data.slug || guide?.id}`} client:visible />
+
+  </div>
+</Layout>

@@ -1,0 +1,22 @@
+{
+  "id": "entrevista-chef-estrella",
+  "title": {
+    "es": "Conversaciones de Fuego: Secretos de la Alta Cocina con el Chef Enrique",
+    "en": "Conversations of Fire: Haute Cuisine Secrets with Chef Enrique",
+    "de": "Feuergespräche: Geheimnisse der Spitzenküche mit Chef Enrique"
+  },
+  "description": {
+    "es": "Entrevista exclusiva sobre la termodinámica del huevo campero, el curado de sartenes de hierro y la búsqueda del centro cremoso.",
+    "en": "Exclusive interview on free-range egg thermodynamics, cast-iron pan seasoning, and crafting the creamy center.",
+    "de": "Exklusives Interview über die Thermodynamik von Landeiern, Gusseisenpflege und den perfekten cremigen Kern."
+  },
+  "thumbnailUrl": "/images/personas/alejandro.jpg",
+  "duration": 1440,
+  "lang": "es",
+  "category": "interview",
+  "relatedRecipeIds": [
+    "betanzos",
+    "trufa-champinones"
+  ],
+  "publishedAt": "2026-04-15T18:00:00Z"
+}

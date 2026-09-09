@@ -10,7 +10,8 @@ import {
   Vote, 
   HelpCircle, 
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Award
 } from 'lucide-react';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 
@@ -37,7 +38,9 @@ const iconComponents: Record<string, any> = {
   Sparkles,
   Scale,
   Vote,
-  HelpCircle
+  HelpCircle,
+  ShieldCheck,
+  Award,
 };
 
 const sections = (content?.sections || []).map((sec: any) => ({
@@ -71,16 +74,16 @@ const schemas = [breadcrumbSchema, collectionSchema];
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
     <!-- HERO HEADER -->
     <header class="text-center max-w-3xl mx-auto space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
-        <FlaskConical class="w-3.5 h-3.5" />
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/30 text-xs font-bold shadow-2xs">
+        <FlaskConical class="w-3.5 h-3.5 text-[#FFB800]" />
         <span>{badge}</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-[#292521] tracking-tight leading-tight">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground tracking-tight leading-tight">
         {title}
       </h1>
 
-      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
         {subtitle}
       </p>
     </header>
@@ -90,26 +93,26 @@ const schemas = [breadcrumbSchema, collectionSchema];
       {sections.map(({ href, title: secTitle, description: secDesc, Icon }) => (
         <a
           href={href}
-          class="card-notebook p-6 md:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] hover:border-[#FFB800] hover:shadow-md transition-all duration-200 group flex flex-col justify-between"
+          class="card-notebook p-6 md:p-8 rounded-2xl border border-border bg-card hover:border-[#FFB800] hover:shadow-md transition-all duration-200 group flex flex-col justify-between"
         >
           <div class="space-y-4">
-            <div class="p-3 rounded-2xl bg-[#FFB800]/20 text-[#8D6E63] w-fit border border-amber-300/50 group-hover:scale-110 transition-transform">
-              <Icon class="w-7 h-7 text-[#8D6E63]" />
+            <div class="p-3 rounded-2xl bg-[#FFB800]/15 dark:bg-[#FFB800]/25 text-[#8D6E63] dark:text-[#FFB800] w-fit border border-[#FFB800]/30 group-hover:scale-110 transition-transform">
+              <Icon class="w-7 h-7" />
             </div>
 
             <div class="space-y-2">
-              <h2 class="text-2xl font-serif-heading font-bold text-[#292521] group-hover:text-[#8D6E63] transition-colors">
+              <h2 class="text-2xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] dark:group-hover:text-[#FFB800] transition-colors">
                 {secTitle}
               </h2>
 
-              <p class="text-sm text-foreground/80 leading-relaxed">
+              <p class="text-sm text-muted-foreground leading-relaxed">
                 {secDesc}
               </p>
             </div>
           </div>
 
-          <div class="pt-6 flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] group-hover:text-[#292521] transition-colors">
-            <span>Abrir Herramienta</span>
+          <div class="pt-6 flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] group-hover:translate-x-0.5 transition-all">
+            <span>{currentLang === 'en' ? 'Open Tool' : currentLang === 'de' ? 'Werkzeug öffnen' : 'Abrir Herramienta'}</span>
             <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </a>

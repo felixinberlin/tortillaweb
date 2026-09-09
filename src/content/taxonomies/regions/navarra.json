@@ -1,0 +1,21 @@
+{
+  "id": "navarra",
+  "type": "region",
+  "contentId": "region.navarra",
+  "slug": {
+    "es": "navarra",
+    "en": "navarre",
+    "de": "navarra"
+  },
+  "title": {
+    "es": "Navarra",
+    "en": "Navarre",
+    "de": "Navarra"
+  },
+  "description": {
+    "es": "Tierra de verduras de excelencia mundial como los pimientos del piquillo de Lodosa, ajetes y espárragos.",
+    "en": "Land of world-class garden produce including Lodosa piquillo peppers, young garlic, and asparagus.",
+    "de": "Land erstklassigen Gemüses wie Lodosa-Piquillo-Paprika, jungem Knoblauch und Spargel."
+  },
+  "icon": "Shield"
+}

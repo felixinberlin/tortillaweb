@@ -208,6 +208,10 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                     <img
                       src={faction.image}
                       alt={factionTitle}
+                      width={600}
+                      height={400}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                       referrerPolicy="no-referrer"
                     />

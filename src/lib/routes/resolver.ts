@@ -76,6 +76,7 @@ const ROUTE_SEGMENT_ALIASES: Record<string, RouteId> = {
   facciones: 'factions',
   factions: 'factions',
   faktionen: 'factions',
+  fraktionen: 'factions',
   ciencia: 'science',
   science: 'science',
   wissenschaft: 'science',
@@ -94,6 +95,11 @@ const ROUTE_SEGMENT_ALIASES: Record<string, RouteId> = {
   'aviso-legal': 'impressum',
   impressum: 'impressum',
   'legal-notice': 'impressum',
+  guias: 'guides',
+  guides: 'guides',
+  anleitungen: 'guides',
+  videos: 'videos',
+  video: 'videos',
 };
 
 export function getRouteIdFromSlug(slugSegment: string, lang?: SupportedLocale): RouteId | undefined {
@@ -225,6 +231,14 @@ const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
   'quesoazul': { es: 'tortilla-queso-azul', en: 'blue-cheese-spanish-omelette', de: 'blauschimmelkaese-spanische-tortilla' },
   'vegana': { es: 'tortilla-de-patatas-vegana-sin-gluten', en: 'vegan-gluten-free-spanish-omelette', de: 'vegane-glutenfreie-spanische-tortilla' },
   'vegan': { es: 'tortilla-de-patatas-vegana-sin-gluten', en: 'vegan-gluten-free-spanish-omelette', de: 'vegane-glutenfreie-spanische-tortilla' },
+  'donostia': { es: 'tortilla-de-donostia', en: 'donostia-basque-omelette', de: 'donostia-baskische-tortilla' },
+  'betanzos-pimenton': { es: 'tortilla-betanzos-pimenton-chorizo', en: 'galician-betanzos-paprika-chorizo-omelette', de: 'galicische-betanzos-tortilla-paprika-chorizo' },
+  'piquillo-catalana': { es: 'tortilla-catalana-pimientos-piquillo', en: 'catalan-roasted-piquillo-pepper-omelette', de: 'katalanische-piquillo-paprika-tortilla' },
+  'paisana-andaluza': { es: 'tortilla-paisana-andaluza-huerta', en: 'andalusian-country-vegetable-omelette', de: 'andalusische-garten-tortilla-paisana' },
+  'trufa-champinones': { es: 'tortilla-madrilena-trufa-champinones', en: 'madrid-truffle-portobello-mushroom-omelette', de: 'madrider-trueffel-champignon-tortilla' },
+  'sobrasada-mallorquina': { es: 'tortilla-mallorquina-sobrasada-romero', en: 'mallorcan-sobrasada-rosemary-omelette', de: 'mallorquinische-sobrasada-rosmarin-tortilla' },
+  'jamon-queso-extremadura': { es: 'tortilla-extremena-jamon-iberico-queso', en: 'extremaduran-iberico-ham-aged-cheese-omelette', de: 'extremadura-tortilla-iberico-schinken-kaese' },
+  'piquillo-jamon-navarra': { es: 'tortilla-navarra-pimientos-piquillo-jamon', en: 'navarrese-lodosa-piquillo-pepper-iberico-ham-omelette', de: 'navarra-piquillo-paprika-iberico-schinken-tortilla' },
   // Ingredients
   'potato': { es: 'patata', en: 'potato', de: 'kartoffel' },
   'patata': { es: 'patata', en: 'potato', de: 'kartoffel' },
@@ -233,6 +247,7 @@ const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
   'huevo': { es: 'huevo', en: 'egg', de: 'ei' },
   'ei': { es: 'huevo', en: 'egg', de: 'ei' },
   'oil': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
+  'aceite-oliva': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
   'aceite-de-oliva': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
   'olive-oil': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
   'olivenoel': { es: 'aceite-de-oliva', en: 'olive-oil', de: 'olivenoel' },
@@ -257,9 +272,67 @@ const KNOWN_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
   'coagulation': { es: 'coagulacion-proteica', en: 'protein-coagulation', de: 'protein-gerinnung' },
   'deconstruccion': { es: 'deconstruccion', en: 'deconstruction', de: 'dekonstruktion' },
   'deconstruction': { es: 'deconstruccion', en: 'deconstruction', de: 'dekonstruktion' },
+  // Factions
+  'concebollistas': { es: 'concebollistas', en: 'onion-lovers', de: 'zwiebelliebhaber' },
+  'onion-lovers': { es: 'concebollistas', en: 'onion-lovers', de: 'zwiebelliebhaber' },
+  'zwiebelliebhaber': { es: 'concebollistas', en: 'onion-lovers', de: 'zwiebelliebhaber' },
+  'puristas': { es: 'puristas', en: 'purists', de: 'puristen' },
+  'sincebollistas': { es: 'puristas', en: 'purists', de: 'puristen' },
+  'purists': { es: 'puristas', en: 'purists', de: 'puristen' },
+  'puristen': { es: 'puristas', en: 'purists', de: 'puristen' },
+  'ajistas': { es: 'ajistas', en: 'garlic-lovers', de: 'knoblauchliebhaber' },
+  'pimientistas': { es: 'pimientistas', en: 'pepper-lovers', de: 'paprika-fraktion' },
+  'pepper-lovers': { es: 'pimientistas', en: 'pepper-lovers', de: 'paprika-fraktion' },
+  'paprika-fraktion': { es: 'pimientistas', en: 'pepper-lovers', de: 'paprika-fraktion' },
+  'paprikaliebhaber': { es: 'pimientistas', en: 'pepper-lovers', de: 'paprika-fraktion' },
+  'con-cosas': { es: 'con-cosas', en: 'experimentalists', de: 'experimentelle' },
   // People
   'barat': { es: 'jose-manuel-barat', en: 'jose-manuel-barat', de: 'jose-manuel-barat' },
   'jose-manuel-barat': { es: 'jose-manuel-barat', en: 'jose-manuel-barat', de: 'jose-manuel-barat' },
+  'abuela-maria': { es: 'abuela-maria', en: 'abuela-maria', de: 'abuela-maria' },
+  'chef-enrique': { es: 'chef-enrique', en: 'chef-enrique', de: 'chef-enrique' },
+  'pepe-madrid': { es: 'pepe-madrid', en: 'pepe-madrid', de: 'pepe-madrid' },
+  'rosa-maria': { es: 'rosa-maria', en: 'rosa-maria', de: 'rosa-maria' },
+  'javier-sevilla': { es: 'javier-sevilla', en: 'javier-sevilla', de: 'javier-sevilla' },
+  'elena-berlin': { es: 'elena-berlin', en: 'elena-berlin', de: 'elena-berlin' },
+  // Guides
+  'tortilla-clasica-masterclass': { es: 'tortilla-clasica-masterclass', en: 'classic-tortilla-masterclass', de: 'klassische-tortilla-meisterklasse' },
+  'classic-tortilla-masterclass': { es: 'tortilla-clasica-masterclass', en: 'classic-tortilla-masterclass', de: 'klassische-tortilla-meisterklasse' },
+  'klassische-tortilla-meisterklasse': { es: 'tortilla-clasica-masterclass', en: 'classic-tortilla-masterclass', de: 'klassische-tortilla-meisterklasse' },
+  'confit-tecnica-lenta': { es: 'confit-tecnica-lenta', en: 'confit-technique-low-slow', de: 'confit-technik-schonend-garen' },
+  'confit-technique-low-slow': { es: 'confit-tecnica-lenta', en: 'confit-technique-low-slow', de: 'confit-technik-schonend-garen' },
+  'confit-technik-schonend-garen': { es: 'confit-tecnica-lenta', en: 'confit-technique-low-slow', de: 'confit-technik-schonend-garen' },
+  'tortilla-expres-20-minutos': { es: 'tortilla-expres-20-minutos', en: 'express-tortilla-20-minute-method', de: 'express-tortilla-20-minuten-methode' },
+  'express-tortilla-20-minute-method': { es: 'tortilla-expres-20-minutos', en: 'express-tortilla-20-minute-method', de: 'express-tortilla-20-minuten-methode' },
+  'express-tortilla-20-minuten-methode': { es: 'tortilla-expres-20-minutos', en: 'express-tortilla-20-minute-method', de: 'express-tortilla-20-minuten-methode' },
+  'masterclass-cebolla-caramelizada': { es: 'masterclass-cebolla-caramelizada', en: 'concebollista-caramelized-onion-masterclass', de: 'concebollista-karamellisierte-zwiebel-meisterklasse' },
+  'concebollista-caramelized-onion-masterclass': { es: 'masterclass-cebolla-caramelizada', en: 'concebollista-caramelized-onion-masterclass', de: 'concebollista-karamellisierte-zwiebel-meisterklasse' },
+  'concebollista-karamellisierte-zwiebel-meisterklasse': { es: 'masterclass-cebolla-caramelizada', en: 'concebollista-caramelized-onion-masterclass', de: 'concebollista-karamellisierte-zwiebel-meisterklasse' },
+  'debate-cebolla-ciencia-sabor': { es: 'debate-cebolla-ciencia-sabor', en: 'onion-debate-resolved-science-taste', de: 'zwiebel-debatte-geloest-wissenschaft-geschmack' },
+  'onion-debate-resolved-science-taste': { es: 'debate-cebolla-ciencia-sabor', en: 'onion-debate-resolved-science-taste', de: 'zwiebel-debatte-geloest-wissenschaft-geschmack' },
+  'zwiebel-debatte-geloest-wissenschaft-geschmack': { es: 'debate-cebolla-ciencia-sabor', en: 'onion-debate-resolved-science-taste', de: 'zwiebel-debatte-geloest-wissenschaft-geschmack' },
+};
+
+const REGION_ENTITY_SLUGS: Record<string, Record<SupportedLocale, string>> = {
+  'andalucia': { es: 'andalucia', en: 'andalusia', de: 'andalusien' },
+  'andalusia': { es: 'andalucia', en: 'andalusia', de: 'andalusien' },
+  'andalusien': { es: 'andalucia', en: 'andalusia', de: 'andalusien' },
+  'baleares': { es: 'baleares', en: 'balearic-islands', de: 'balearen' },
+  'balearic-islands': { es: 'baleares', en: 'balearic-islands', de: 'balearen' },
+  'balearen': { es: 'baleares', en: 'balearic-islands', de: 'balearen' },
+  'betanzos': { es: 'betanzos', en: 'betanzos', de: 'betanzos' },
+  'cataluna': { es: 'cataluna', en: 'catalonia', de: 'katalonien' },
+  'catalonia': { es: 'cataluna', en: 'catalonia', de: 'katalonien' },
+  'katalonien': { es: 'cataluna', en: 'catalonia', de: 'katalonien' },
+  'donostia': { es: 'donostia', en: 'donostia', de: 'donostia' },
+  'extremadura': { es: 'extremadura', en: 'extremadura', de: 'extremadura' },
+  'galicia': { es: 'galicia', en: 'galicia', de: 'galicien' },
+  'galicien': { es: 'galicia', en: 'galicia', de: 'galicien' },
+  'madrid': { es: 'madrid', en: 'madrid', de: 'madrid' },
+  'navarra': { es: 'navarra', en: 'navarre', de: 'navarra' },
+  'navarre': { es: 'navarra', en: 'navarre', de: 'navarra' },
+  'rioja': { es: 'la-rioja', en: 'la-rioja', de: 'la-rioja' },
+  'la-rioja': { es: 'la-rioja', en: 'la-rioja', de: 'la-rioja' },
 };
 
 /**
@@ -289,7 +362,12 @@ export function resolveLegacyPath(rawPath: string, lang: SupportedLocale = 'es')
   if (resolution.routeId) {
     const baseUrl = getRouteUrl(resolution.routeId, lang);
     if (resolution.slug) {
-      const mappedSlug = KNOWN_ENTITY_SLUGS[resolution.slug]?.[lang] || resolution.slug;
+      let mappedSlug: string;
+      if (resolution.canonicalType === 'region') {
+        mappedSlug = REGION_ENTITY_SLUGS[resolution.slug]?.[lang] || resolution.slug;
+      } else {
+        mappedSlug = KNOWN_ENTITY_SLUGS[resolution.slug]?.[lang] || resolution.slug;
+      }
       return `${baseUrl}/${mappedSlug}`.replace(/\/+/g, '/');
     }
     return baseUrl;

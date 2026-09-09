@@ -1,0 +1,56 @@
+{
+  "id": "abuela-maria",
+  "type": "person",
+  "contentId": "person.abuela-maria",
+  "name": "Abuela María",
+  "region": "navarra",
+  "role": {
+    "es": "Cocinera Tradicional & Guardiana del Saber Familiar",
+    "en": "Traditional Home Cook & Keeper of Family Technique",
+    "de": "Traditionelle Hausköchin & Hüterin des Familienwissens"
+  },
+  "specialty": "Puristas & Confitado lento en aceite de oliva virgen extra",
+  "slug": {
+    "es": "abuela-maria",
+    "en": "abuela-maria",
+    "de": "abuela-maria"
+  },
+  "title": {
+    "es": "Abuela María",
+    "en": "Abuela María",
+    "de": "Abuela María"
+  },
+  "description": {
+    "es": "Cocinera tradicional de Navarra, defensora acérrima de la tortilla purista sin cebolla, cuajada al punto con patata Kennebec y huevos de corral.",
+    "en": "Traditional home cook from Navarre, staunch defender of the purist onion-free tortilla, cooked gently with Kennebec potatoes and free-range eggs.",
+    "de": "Traditionelle Hausköchin aus Navarra, unerschütterliche Verfechterin der puristischen Tortilla ohne Zwiebeln, schonend gegart mit Kennebec-Kartoffeln und Eiern aus Freilandhaltung."
+  },
+  "bio": {
+    "es": "Nacida en el valle del Baztán en 1942, María aprendió a voltear tortillas a los ocho años en la cocina de leña de su abuela. Custodia más de medio siglo de técnica tradicional transmitida por vía oral sin balanzas ni termómetros.",
+    "en": "Born in the Baztan Valley in 1942, María learned to flip tortillas at age eight over her grandmother's wood stove. She safeguards over half a century of culinary heritage passed down through generations without scales or thermometers.",
+    "de": "Geboren 1942 im Baztán-Tal, lernte María mit acht Jahren am Holzherd ihrer Großmutter Tortillas zu wenden. Sie bewahrt über ein halbes Jahrhundert gelebter Küchentradition, weitergegeben ohne Waagen oder Thermometer."
+  },
+  "quote": {
+    "es": "La patata y el huevo tienen su propia voz; quien les añade adornos innecesarios es porque desconfía de la calidad de su tierra.",
+    "en": "The potato and the egg have their own voice; anyone who adds unnecessary garnishes simply lacks faith in the quality of their ingredients.",
+    "de": "Kartoffel und Ei haben ihre eigene Stimme; wer unnötige Zutaten hinzufügt, vertraut nicht auf die Qualität seiner Erde."
+  },
+  "dogma": {
+    "es": "Patata de montaña, huevo fresco de corral y aceite limpio. El resto es ruido.",
+    "en": "Mountain potatoes, fresh farm eggs, and pure olive oil. Everything else is distraction.",
+    "de": "Bergkartoffeln, frische Landeier und reines Olivenöl. Alles andere ist überflüssig."
+  },
+  "favoriteRecipe": "clasica",
+  "story": "/es/personas/abuela-maria",
+  "image": "/images/personas/cocineras.jpg",
+  "badge": {
+    "es": "Tradición Navarra",
+    "en": "Navarre Heritage",
+    "de": "Navarra-Tradition"
+  },
+  "related": [
+    { "type": "faction", "id": "puristas" },
+    { "type": "recipe", "id": "clasica" },
+    { "type": "region", "id": "navarra" }
+  ]
+}

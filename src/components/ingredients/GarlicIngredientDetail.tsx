@@ -49,8 +49,12 @@ export default function GarlicIngredientDetail({
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD1] shadow-sm bg-[#FFF7EA]">
           <div className="relative h-44 sm:h-64 md:h-80 lg:h-[320px] max-h-[40vh] w-full overflow-hidden bg-[#8D6E63]/20">
             <img
-              src="/images/ingredients/garlic.jpg"
+              src="/images/ingredients/garlic_editorial_card.jpg"
               alt={garlicText}
+              width={1200}
+              height={675}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
               onError={(e) => {

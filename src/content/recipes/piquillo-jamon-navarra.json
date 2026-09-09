@@ -1,0 +1,227 @@
+{
+  "id": "piquillo-jamon-navarra",
+  "contentId": "recipe.piquillo-jamon-navarra",
+  "translationKey": "recipe-piquillo-jamon-navarra",
+  "slug": {
+    "es": "tortilla-navarra-pimientos-piquillo-jamon",
+    "en": "navarrese-lodosa-piquillo-pepper-iberico-ham-omelette",
+    "de": "navarra-piquillo-paprika-iberico-schinken-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Navarra de Pimientos del Piquillo de Lodosa y Jamón Ibérico",
+    "en": "Navarrese Lodosa Piquillo Pepper & Ibérico Ham Tortilla",
+    "de": "Navarra-Tortilla mit Lodosa-Piquillo-Paprika und Iberico-Schinken"
+  },
+  "description": {
+    "es": "El gran clásico de la huerta navarra con pimientos del piquillo de Lodosa D.O. caramelizados lentamente y salteados con crujientes virutas de jamón ibérico, patatas pochadas y huevos camperos.",
+    "en": "The iconic Navarrese specialty combining slowly caramelized Lodosa D.O. piquillo peppers with crispy Ibérico ham ribbons, tender potatoes, and free-range eggs.",
+    "de": "Der Klassiker aus Navarra mit langsam karamellisierten Lodosa-Piquillo-Paprika, knusprigen Ibérico-Schinkenstreifen, zarten Kartoffeln und Freilandeiern."
+  },
+  "taxonomyIds": [
+    "faction:pimientistas",
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:cherryPepper",
+    "ingredient:jamon",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:navarra",
+    "style:rustic",
+    "technique:confit",
+    "technique:sofrito",
+    "difficulty:medium"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/piquillo-jamon-navarra.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Monalisa o Kennebec",
+        "en": "Monalisa or Kennebec Potato",
+        "de": "Monalisa- oder Kennebec-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en láminas finas",
+        "en": "500g thinly sliced",
+        "de": "500g in dünne Scheiben geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos frescos",
+        "en": "Fresh Free-Range Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos frescos tamaño L",
+        "en": "6 large free-range eggs",
+        "de": "6 große Freilandeier"
+      }
+    },
+    {
+      "id": "piquillo",
+      "ingredientId": "cherryPepper",
+      "name": {
+        "es": "Pimientos del Piquillo de Lodosa D.O.P.",
+        "en": "Lodosa DOP Roasted Piquillo Peppers",
+        "de": "Lodosa D.O.P. geröstete Piquillo-Paprika"
+      },
+      "amount": 100,
+      "unit": "g",
+      "notes": {
+        "es": "100g en tiras anchas caramelizadas a fuego suave",
+        "en": "100g wide strips gently caramelized",
+        "de": "100g in Streifen geschnitten und sanft karamellisiert"
+      }
+    },
+    {
+      "id": "jamon",
+      "ingredientId": "jamon",
+      "name": {
+        "es": "Jamón ibérico en taquitos y virutas",
+        "en": "Ibérico Ham Cubes & Shavings",
+        "de": "Ibérico-Schinkenwürfel"
+      },
+      "amount": 60,
+      "unit": "g",
+      "notes": {
+        "es": "60g ligeramente salteados",
+        "en": "60g lightly sautéed",
+        "de": "60g kurz angebraten"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra D.O.P. Navarra",
+        "en": "Navarra DOP Extra Virgin Olive Oil",
+        "de": "Natives Navarra D.O.P. Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml de AOVE de Navarra",
+        "en": "150ml premium Navarra EVOO",
+        "de": "150ml feines Navarra-Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal marina",
+        "en": "Sea Salt",
+        "de": "Meersalz"
+      },
+      "amount": 4,
+      "unit": "g",
+      "notes": {
+        "es": "Sal al gusto moderando por el jamón",
+        "en": "Salt adjusted for cured ham",
+        "de": "Salz nach Geschmack (Schinkensalzgehalt beachten)"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Confitado de los pimientos de Lodosa",
+        "en": "1. Lodosa piquillo confit",
+        "de": "1. Sanftes Garen der Lodosa-Piquillos"
+      },
+      "text": {
+        "es": "Corta los pimientos del piquillo de Lodosa en tiras anchas. Confítalos en una sartén con 2 cucharadas de AOVE a fuego muy suave durante 10 minutos hasta que suelten su jugo almibarado característico.",
+        "en": "Cut Lodosa piquillo peppers into wide strips. Confit in a pan with 2 tbsp EVOO over very low heat for 10 minutes until silky and releasing their syrupy juices.",
+        "de": "Lodosa-Piquillos in breite Streifen schneiden und in einer Pfanne mit 2 EL Olivenöl 10 Minuten bei milder Hitze sanft schmoren, bis sie wunderbar aromatisch sind."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Salteado rápido del jamón ibérico",
+        "en": "2. Quick Ibérico ham sear",
+        "de": "2. Kurzes Anbraten des Schinkens"
+      },
+      "text": {
+        "es": "Añade los taquitos de jamón ibérico a la sartén de los pimientos durante el último minuto para que su grasa se funda e infusione el sofrito sin resecarse.",
+        "en": "Add Ibérico ham cubes to the pepper pan during the final minute so its fat renders and seasons the peppers without drying out.",
+        "de": "Schinkenwürfel in der letzten Minute zu den Piquillos geben, sodass das aromatische Fett schmilzt, ohne dass der Schinken trocken wird."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Confitado de patatas en AOVE navarro",
+        "en": "3. Potato confit in Navarra EVOO",
+        "de": "3. Kartoffeln in Olivenöl confieren"
+      },
+      "text": {
+        "es": "Pela y lamina las patatas finas. Confítalas en AOVE a 135°C durante 15 minutos hasta que queden completamente tiernas. Escurre con cuidado.",
+        "en": "Peel and slice potatoes. Confit in olive oil at 135°C for 15 minutes until meltingly soft. Drain carefully.",
+        "de": "Kartoffeln schälen, in feine Scheiben schneiden und bei 135°C 15 Minuten in Olivenöl butterweich garen. Vorsichtig abtropfen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Mezcla envolvente y reposo térmico",
+        "en": "4. Folding mixture and thermal rest",
+        "de": "4. Vorsichtiges Unterheben und Ruhen"
+      },
+      "text": {
+        "es": "Bate los 6 huevos con sal. Añade las patatas calientes y el sofrito de piquillos con jamón ibérico. Remueve suavemente y deja reposar 3 minutos para que los jugos se integren.",
+        "en": "Whisk 6 eggs with salt. Fold in the hot potatoes and the warm piquillo-ham sauté. Stir gently and allow 3 minutes of rest for complete flavor absorption.",
+        "de": "6 Eier mit Salz verquirlen. Heiße Kartoffeln und das Piquillo-Schinken-Gemisch unterheben. Sanft verrühren und 3 Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Cuajado navarro en sartén caliente",
+        "en": "5. Navarrese skillet cook",
+        "de": "5. Traditionelles Braten in der Pfanne"
+      },
+      "text": {
+        "es": "Vierte en la sartén antiadherente caliente. Cocina 2 minutos a fuego medio redondeando la silueta con la espátula para lograr una textura melosa.",
+        "en": "Pour into hot skillet. Cook for 2 minutes over medium heat shaping the outer perimeter with a spatula to maintain a creamy center.",
+        "de": "In die heiße Pfanne geben und 2 Minuten bei mittlerer Hitze braten, dabei die Ränder formen für saftige Konsistenz."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Volteo final y normas de seguridad alimentaria",
+        "en": "6. Flip and food safety guidelines",
+        "de": "6. Wenden und Hygienehinweise"
+      },
+      "text": {
+        "es": "Voltea con plato y dora 1 minuto y medio más por el otro lado. Si se destina a aperitivo en barra, respeta estrictamente la directriz de seguridad alimentaria de **70°C durante 2 minutos** y un máximo de **4 horas** a temperatura ambiente.",
+        "en": "Flip with a plate and cook for 1.5 minutes more. If serving as a bar pintxo, strictly adhere to food safety standards of **70°C for 2 minutes** and maximum **4 hours** at ambient temperature.",
+        "de": "Mit dem Teller wenden und 1,5 Minuten fertig braten. Bei Bar-Präsentation die Hygieneanforderung von **70°C für 2 Minuten** und maximal **4 Stunden** bei Raumtemperatur strikt einhalten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Gastronomía de la Ribera de Navarra",
+      "description": {
+        "es": "Receta emblemática de los asadores y tabernas navarras que marida los pimientos de Lodosa con el jamón ibérico.",
+        "en": "Iconic Navarrese tavern dish pairing sweet Lodosa piquillos with savory cured Ibérico ham.",
+        "de": "Traditionelles Rezept aus Navarra mit süßlichen Lodosa-Piquillos und herzhaftem Ibérico-Schinken."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

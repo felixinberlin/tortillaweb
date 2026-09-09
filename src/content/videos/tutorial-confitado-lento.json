@@ -1,0 +1,22 @@
+{
+  "id": "tutorial-confitado-lento",
+  "title": {
+    "es": "Técnica de Confitado: Pochado a Baja Temperatura en Aceite de Oliva",
+    "en": "Confit Technique: Low-Temperature Poaching in Extra Virgin Olive Oil",
+    "de": "Confit-Technik: Sanftes Pochieren bei niedriger Temperatur in Olivenöl"
+  },
+  "description": {
+    "es": "Guía paso a paso sobre cómo pochar patatas a 130°C–140°C para gelatinizar el almidón sin dorar en exceso.",
+    "en": "Step-by-step guide on poaching potatoes at 130°C–140°C to gelatinize starch without browning.",
+    "de": "Schritt-für-Schritt-Anleitung zum Garen der Kartoffeln bei 130°C–140°C für zarten Schmelz ohne Bräunung."
+  },
+  "thumbnailUrl": "/images/recipes/donostia.jpg",
+  "duration": 920,
+  "lang": "es",
+  "category": "technique",
+  "relatedRecipeIds": [
+    "concebolla",
+    "paisana"
+  ],
+  "publishedAt": "2026-04-05T11:00:00Z"
+}

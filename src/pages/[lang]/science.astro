@@ -2,10 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ShieldCheck, FlaskConical, AlertTriangle, ListOrdered, ArrowUp, Sparkles, SlidersHorizontal, ChevronRight, Activity, ExternalLink } from 'lucide-react';
+import { ShieldCheck, FlaskConical, AlertTriangle, ListOrdered, ArrowUp, SlidersHorizontal, ChevronRight, Activity, ExternalLink } from 'lucide-react';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import { getCollection, render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
 
@@ -99,7 +100,7 @@ const sidebarLabels = {
     
     <!-- Header Hero Banner -->
     <div class="text-center max-w-3xl mx-auto space-y-3">
-      <Badge variant="secondary" class="mb-1 px-3.5 py-1 text-xs font-bold bg-[#2E7D32]/10 text-[#2E7D32] border border-[#2E7D32]/30 inline-flex items-center gap-1.5 shadow-2xs">
+      <Badge variant="secondary" class="mb-1 px-3.5 py-1 text-xs font-bold bg-[#2E7D32]/10 dark:bg-[#2E7D32]/25 text-[#2E7D32] dark:text-[#81C784] border border-[#2E7D32]/30 inline-flex items-center gap-1.5 shadow-2xs">
         <FlaskConical class="w-3.5 h-3.5" />
         {t("sciencePage.badge", "Ciencia & Seguridad Alimentaria")}
       </Badge>
@@ -112,12 +113,12 @@ const sidebarLabels = {
     </div>
 
     <!-- Mandatory Food Safety Protocol Banner -->
-    <Card class="card-notebook border-2 border-[#2E7D32]/50 bg-[#FCF9F2] shadow-md overflow-hidden">
-      <CardHeader class="bg-[#2E7D32]/10 border-b border-[#2E7D32]/20 pb-3">
+    <Card class="card-notebook border-2 border-[#2E7D32]/50 bg-card shadow-md overflow-hidden">
+      <CardHeader class="bg-[#2E7D32]/10 dark:bg-[#2E7D32]/20 border-b border-[#2E7D32]/20 pb-3">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div class="flex items-center gap-2.5 text-[#2E7D32]">
+          <div class="flex items-center gap-2.5 text-[#2E7D32] dark:text-[#81C784]">
             <ShieldCheck class="w-6 h-6 shrink-0" />
-            <CardTitle class="text-xl font-serif-heading font-bold">
+            <CardTitle class="text-xl font-serif-heading font-bold text-foreground">
               {t("sciencePage.safetyTitle", "Estándar de Cocinado Bactericida (RD 1021/2022)")}
             </CardTitle>
           </div>
@@ -136,12 +137,12 @@ const sidebarLabels = {
         <div class="grid md:grid-cols-12 gap-6 items-center">
           <div class="md:col-span-8 space-y-3">
             <p class="text-foreground leading-relaxed text-sm md:text-base">
-              Para garantizar la inmovilización y destrucción completa de <em>Salmonella Enteritidis</em> sin alterar la untuosidad de la masa, el protocolo oficial del <strong>Real Decreto 1021/2022</strong> exige alcanzar <strong>70°C for 2 minutes</strong> en el núcleo térmico (o alternativamente <strong>63°C for 20 seconds</strong> para centros cremosos de consumo inmediato).
+              Para garantizar la inmovilización y destrucción completa de <em>Salmonella Enteritidis</em> sin alterar la untuosidad de la masa, el protocolo oficial del <strong>Real Decreto 1021/2022</strong> exige alcanzar <strong class="font-bold text-foreground">70°C durante 2 minutos</strong> en el núcleo térmico (o alternativamente <strong class="font-bold text-foreground">63°C durante 20 segundos</strong> para centros cremosos de consumo inmediato).
             </p>
-            <div class="p-3.5 rounded-xl bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-amber-950 text-xs sm:text-sm flex items-start gap-3">
+            <div class="p-3.5 rounded-xl bg-[#FF8A00]/10 dark:bg-[#FF8A00]/20 border border-[#FF8A00]/30 text-foreground text-xs sm:text-sm flex items-start gap-3">
               <AlertTriangle class="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
               <span>
-                <strong>Límite Temporal Estricto:</strong> Tortillas elaboradas con huevo fresco poco cuajado nunca deben exceder las <strong>4 hours</strong> expuestas a temperatura ambiente.
+                <strong class="text-foreground">Límite Temporal Estricto:</strong> Tortillas elaboradas con huevo fresco poco cuajado nunca deben exceder las <strong class="text-foreground font-bold">4 horas</strong> expuestas a temperatura ambiente.
               </span>
             </div>
           </div>
@@ -154,11 +155,14 @@ const sidebarLabels = {
               class="group relative block rounded-xl overflow-hidden border-2 border-[#2E7D32]/30 shadow-sm hover:border-[#2E7D32] transition-colors max-w-[220px]"
               title="Real Decreto 1021/2022 BOE"
             >
-              <img
+              <Picture
                 src="/images/normativa-1021-2022.jpg"
+                width={220}
+                height={311}
+                formats={['avif', 'webp']}
+                widths={[220, 440]}
                 alt="Normativa Colectividades Real Decreto 1021/2022"
                 class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                referrerPolicy="no-referrer"
               />
               <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-end p-2">
                 <span class="text-[10px] font-bold text-white bg-[#2E7D32] px-2 py-0.5 rounded shadow-2xs flex items-center gap-1">
@@ -180,8 +184,8 @@ const sidebarLabels = {
         
         <!-- Table of Contents Card -->
         {tocHeadings.length > 0 && (
-          <Card class="card-notebook p-5 border-t-2 border-t-[#8D6E63]">
-            <CardHeader class="p-0 pb-3 border-b border-[#E8E2D5]">
+          <Card class="card-notebook p-5 border-t-2 border-t-[#8D6E63] dark:border-t-[#FFB800] bg-card">
+            <CardHeader class="p-0 pb-3 border-b border-border">
               <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
                 <ListOrdered class="w-4 h-4 text-[#FFB800]" />
                 {sidebarLabels.tocTitle}
@@ -193,8 +197,8 @@ const sidebarLabels = {
                   <a
                     href={`#${h.slug}`}
                     class:list={[
-                      "block rounded-md py-1.5 px-2.5 transition-colors leading-snug hover:bg-[#F5E6BE]/60 hover:text-[#8D6E63]",
-                      h.depth === 2 ? "font-semibold text-foreground border-l-2 border-l-amber-300 pl-2.5" : "pl-6 text-muted-foreground"
+                      "block rounded-md py-1.5 px-2.5 transition-colors leading-snug hover:bg-accent hover:text-[#8D6E63] dark:hover:text-[#FFB800]",
+                      h.depth === 2 ? "font-semibold text-foreground border-l-2 border-l-[#FFB800] pl-2.5" : "pl-6 text-muted-foreground"
                     ]}
                   >
                     {h.text}
@@ -206,8 +210,8 @@ const sidebarLabels = {
         )}
 
         <!-- Interactive Lab Teaser Card -->
-        <Card class="card-notebook p-5 bg-gradient-to-br from-[#FCF9F2] to-[#F5E6BE]/40 border border-amber-300 space-y-3">
-          <div class="flex items-center gap-2 text-[#8D6E63]">
+        <Card class="card-notebook p-5 bg-accent border border-border space-y-3">
+          <div class="flex items-center gap-2 text-foreground">
             <Activity class="w-4 h-4 text-[#FFB800]" />
             <h3 class="font-serif-heading font-bold text-sm text-foreground">{sidebarLabels.labTitle}</h3>
           </div>
@@ -217,17 +221,17 @@ const sidebarLabels = {
           <div class="pt-1 flex flex-col gap-2">
             <a
               href={`/${lang}/laboratorio`}
-              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#8D6E63] text-white text-xs font-bold hover:bg-[#6D4C41] transition-colors shadow-2xs"
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] text-xs font-bold transition-colors shadow-2xs"
             >
               <span>{sidebarLabels.labLink}</span>
               <ChevronRight class="w-4 h-4" />
             </a>
             <a
               href={`/${lang}/builder`}
-              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-[#F5E6BE] text-[#8D6E63] text-xs font-bold hover:bg-[#FFB800] hover:text-white transition-colors"
+              class="inline-flex items-center justify-between px-3 py-2 rounded-lg bg-card border border-border text-foreground hover:bg-secondary text-xs font-bold transition-colors"
             >
               <span>{sidebarLabels.builderLink}</span>
-              <SlidersHorizontal class="w-3.5 h-3.5" />
+              <SlidersHorizontal class="w-3.5 h-3.5 text-[#FFB800]" />
             </a>
           </div>
         </Card>
@@ -236,7 +240,7 @@ const sidebarLabels = {
 
       <!-- Article Prose Content Container (8 cols on lg) -->
       <main class="lg:col-span-8 order-1 lg:order-2 space-y-6">
-        <article class="card-notebook p-6 sm:p-8 md:p-10 shadow-stacked-parchment bg-[#FDFBF7]">
+        <article class="card-notebook p-6 sm:p-8 md:p-10 shadow-stacked-parchment bg-card">
           {Content ? (
             <div class="science-prose">
               <Content />
@@ -248,11 +252,11 @@ const sidebarLabels = {
           )}
 
           <!-- Back to top & Citation Footer -->
-          <div class="pt-8 mt-10 border-t border-[#E8E2D5] flex items-center justify-between text-xs text-muted-foreground">
-            <span class="font-medium text-[#8D6E63]">tortilladepatatas.org — Cuaderno de Ciencia</span>
+          <div class="pt-8 mt-10 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+            <span class="font-medium text-foreground">tortilladepatatas.org — Cuaderno de Ciencia</span>
             <a
               href="#"
-              class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#F5E6BE] text-[#8D6E63] font-bold hover:bg-[#FFB800] hover:text-white transition-colors"
+              class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-accent text-foreground font-bold hover:bg-[#FFB800] hover:text-[#1C1917] transition-colors"
             >
               <span>Subir</span>
               <ArrowUp class="w-3.5 h-3.5" />

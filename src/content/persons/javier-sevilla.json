@@ -1,0 +1,56 @@
+{
+  "id": "javier-sevilla",
+  "type": "person",
+  "contentId": "person.javier-sevilla",
+  "name": "Javier Brenes",
+  "region": "andalucia",
+  "role": {
+    "es": "Cocinero Creativo Andaluz & Maestro Aceitero",
+    "en": "Andalusian Creative Cook & Olive Oil Connoisseur",
+    "de": "Kreativkoch aus Andalusien & Olivenöl-Experte"
+  },
+  "specialty": "Pimientismo Andaluz & Fritura en Aceite de Oliva Virgen Extra Picual",
+  "slug": {
+    "es": "javier-sevilla",
+    "en": "javier-sevilla",
+    "de": "javier-sevilla"
+  },
+  "title": {
+    "es": "Javier Brenes",
+    "en": "Javier Brenes",
+    "de": "Javier Brenes"
+  },
+  "description": {
+    "es": "Cocinero sevillano apasionado del AOVE y defensor de la tortilla campera con pimientos verdes y rojos asados al carbón.",
+    "en": "Seville chef and EVOO advocate defending the Andalusian country-style tortilla infused with charcoal-roasted green and red peppers.",
+    "de": "Sevillanischer Koch und AOVE-Verfechter, der die andalusische Tortilla Campera mit holzkohlegegrillten Paprikaschoten zelebriert."
+  },
+  "bio": {
+    "es": "Creció entre los huertos fértiles del Guadalquivir y las almazaras centenarias de Jaén. Defiende que el alma de una gran tortilla reside en la elección de un virgen extra temprano de cosecha fresca y pimientos asados a fuego lento.",
+    "en": "Raised amidst the fertile Guadalquivir orchards and historic Jaén olive mills. He champions that a tortilla's true soul lies in early-harvest virgin olive oil and crisp field peppers slow-roasted over embers.",
+    "de": "Aufgewachsen zwischen den Gemüsegärten des Guadalquivir und den traditionellen Ölmühlen von Jaén. Er lehrt, dass die Seele der Tortilla im frischen Olivenöl der Frühernte und langsam geröstetem Gemüse liegt."
+  },
+  "quote": {
+    "es": "El pimiento confitado en AOVE aporta una nota dulce y ahumada que abraza al huevo como el sol de mediodía en los olivares de Jaén.",
+    "en": "Sweet peppers slow-confit in EVOO bring a smoky brightness that cradles the egg like the midday sun over Jaén olive groves.",
+    "de": "Sanft in nativem Olivenöl geschmorter Paprika bringt eine fruchtig-rauchige Note, die das Ei wie die andalusische Mittagssonne umhüllt."
+  },
+  "dogma": {
+    "es": "AOVE Picual en abundancia, patata tierna, pimiento asado a la leña y huevo de gallina campera.",
+    "en": "Abundant Picual EVOO, tender potatoes, wood-roasted peppers, and pastured country eggs.",
+    "de": "Reichlich Picual-Olivenöl, zarte Kartoffeln, holzgeröstete Paprika und Eier aus Freilandhaltung."
+  },
+  "favoriteRecipe": "paisana-andaluza",
+  "story": "/es/personas/javier-sevilla",
+  "image": "/images/personas/nueno.jpg",
+  "badge": {
+    "es": "Innovación Andaluza",
+    "en": "Andalusian Twist",
+    "de": "Andalusische Innovation"
+  },
+  "related": [
+    { "type": "faction", "id": "pimientistas" },
+    { "type": "recipe", "id": "paisana-andaluza" },
+    { "type": "region", "id": "andalucia" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "galicia",
+  "type": "region",
+  "contentId": "region.galicia",
+  "slug": {
+    "es": "galicia",
+    "en": "galicia",
+    "de": "galicien"
+  },
+  "title": {
+    "es": "Galicia",
+    "en": "Galicia",
+    "de": "Galicien"
+  },
+  "description": {
+    "es": "Tierra de patatas Kennebec con I.G.P., huevos de aldea de yema vibrante y la legendaria tradición de Betanzos.",
+    "en": "Land of PGI Kennebec potatoes, vibrant free-range eggs, and legendary Betanzos tortilla craftsmanship.",
+    "de": "Land der g.g.A. Kennebec-Kartoffeln, intensiv gelber Freilandeier und meisterhafter Betanzos-Tradition."
+  },
+  "icon": "MapPin"
+}

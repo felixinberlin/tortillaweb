@@ -1,0 +1,68 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { ProCostCalculator } from '@/components/pro/ProCostCalculator';
+import { Store, TrendingUp, ShieldCheck, FileSpreadsheet } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Calculadora de Escandallos, Costes y Rentabilidad de Tortilla | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Deckungsbeitrag- & Kostenrechner für Gastronomie | tortilladepatatas.org'
+  : 'Tortilla Recipe Costing & Margin Calculator for Hospitality | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Herramienta profesional de escandallos para bares, restaurantes y catering. Calcula el Food Cost %, margen bruto por pincho, punto de equilibrio y costes de materia prima.'
+  : currentLang === 'de'
+  ? 'Professioneller Deckungsbeitrags- und Kostenrechner für Gastronomie, Bars und Catering.'
+  : 'Professional recipe costing, yield, and gross margin calculator for bars, restaurants, and catering.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  { name: 'Escandallos & Costes', url: `/${currentLang}/escandallo` },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-6xl space-y-10">
+    <!-- Interactive Calculator -->
+    <ProCostCalculator client:load lang={currentLang} />
+
+    <!-- HORECA Professional Best Practices Banner -->
+    <section class="card-notebook p-6 sm:p-8 bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-transparent border-2 border-[#00A3FF]/40 rounded-3xl shadow-stacked-parchment flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 max-w-2xl">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00A3FF]/15 text-[#00A3FF] text-xs font-bold border border-[#00A3FF]/30">
+          💼 {currentLang === 'es' ? 'Optimización de Mermas & Menaje' : currentLang === 'de' ? 'Schwund- & Küchenoptimierung' : 'Waste Optimization & Tools'}
+        </span>
+        <h2 class="text-xl sm:text-2xl font-bold font-serif-heading text-foreground">
+          {currentLang === 'es' ? '¿Cómo reducir la merma de patata y aceite en cocina profesional?' : currentLang === 'de' ? 'Wie man Kartoffelschwund und Ölverlust minimiert?' : 'How to minimize potato waste and oil loss in commercial kitchens?'}
+        </h2>
+        <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          {currentLang === 'es'
+            ? 'El uso de peladores en Y con cuchilla pivotante reduce la pérdida de pulpa al 4% frente al 15% del cuchillo, y el filtrado por malla retiene el aceite reutilizable sin elevar la acidez.'
+            : currentLang === 'de'
+            ? 'Präzisions-Y-Schäler senken den Schalenverlust auf 4 % (gegenüber 15 % mit Messern), und Feinmaschen-Siebe schonen das Frittieröl.'
+            : 'Using swivel Y-peelers reduces potato loss to 4% compared to 15% with knives, and fine-mesh skimming preserves reusable oil quality.'}
+        </p>
+      </div>
+
+      <a
+        href={`/${currentLang}/utensilios`}
+        class="inline-flex items-center gap-2 px-6 py-3 bg-[#00A3FF] hover:bg-[#008ECC] text-white font-bold text-sm rounded-xl shadow-md transition-all shrink-0"
+      >
+        <TrendingUp class="w-4 h-4" />
+        <span>{currentLang === 'es' ? 'Guía de Menaje & Pelado' : currentLang === 'de' ? 'Schäl- & Werkzeug-Guide' : 'Kitchen Tools Guide'}</span>
+      </a>
+    </section>
+  </div>
+</Layout>

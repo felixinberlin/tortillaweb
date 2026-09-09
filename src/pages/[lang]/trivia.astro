@@ -62,30 +62,30 @@ const schemas = [breadcrumbSchema, collectionSchema, faqSchema].filter(Boolean);
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
     <!-- Header -->
     <header class="text-center max-w-3xl mx-auto space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
-        <HelpCircle class="w-4 h-4 text-[#8D6E63]" />
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/35 text-xs font-bold shadow-2xs">
+        <HelpCircle class="w-4 h-4 text-[#FFB800]" />
         <span>{badge}</span>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-serif-heading font-extrabold text-[#292521] leading-tight">
+      <h1 class="text-3xl sm:text-5xl font-serif-heading font-extrabold text-foreground leading-tight">
         {title}
       </h1>
 
-      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
         {subtitle}
       </p>
     </header>
 
     <!-- Interactive Trivia Game CTA Banner -->
-    <section class="card-notebook p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#FFFDF9] via-[#FFF9EA] to-[#FFFDF9] border-2 border-[#FFB800] shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+    <section class="card-notebook p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-card via-accent to-card border-2 border-[#FFB800] shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="space-y-2 text-center md:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFB800] text-stone-950 text-xs font-black uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFB800] text-[#1C1917] text-xs font-black uppercase tracking-wider">
           <span>🎮 Modo Juego</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-serif-heading font-black text-[#292521]">
+        <h2 class="text-2xl sm:text-3xl font-serif-heading font-black text-foreground">
           {currentLang === 'en' ? 'Put Your Knowledge to the Test!' : currentLang === 'de' ? 'Teste dein Wissen im Spiel!' : '¿Cuánto sabes de la Tortilla de Patatas?'}
         </h2>
-        <p class="text-sm text-foreground/80 max-w-xl font-sans leading-relaxed">
+        <p class="text-sm text-muted-foreground max-w-xl font-sans leading-relaxed">
           {currentLang === 'en'
             ? 'Play our interactive trivia game with 3 difficulty levels, topic filters, and 3-choice questions. Share your score and challenge your friends!'
             : currentLang === 'de'
@@ -94,25 +94,25 @@ const schemas = [breadcrumbSchema, collectionSchema, faqSchema].filter(Boolean);
         </p>
       </div>
       <a
-        href={`/${currentLang}/trivia`}
-        class="px-8 py-4 rounded-xl bg-[#292521] hover:bg-stone-800 text-white font-serif-heading font-bold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer"
+        href={`/${currentLang}/tests`}
+        class="px-8 py-4 rounded-xl bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] font-serif-heading font-bold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-3 shrink-0 cursor-pointer"
       >
         <span>{currentLang === 'en' ? 'Play Trivia Game' : currentLang === 'de' ? 'Spiel starten' : 'Jugar Desafío de Trivia'}</span>
-        <span class="text-[#FFB800]">→</span>
+        <span class="text-[#FFB800] dark:text-[#1C1917]">→</span>
       </a>
     </section>
 
     <!-- Highlights Banner / Regional Rules -->
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="card-notebook p-6 rounded-2xl bg-[#FFFDF9] border border-[#E8E2D5] border-l-4 border-l-[#FFB800] space-y-3 shadow-xs">
-        <div class="flex items-center gap-2 text-xs font-extrabold text-amber-900 uppercase tracking-wider">
+      <div class="card-notebook p-6 rounded-2xl bg-card border border-border border-l-4 border-l-[#FFB800] space-y-3 shadow-xs">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-[#8D6E63] dark:text-[#FFB800] uppercase tracking-wider">
           <MapPin class="w-4 h-4 text-[#FFB800]" />
-          <span>{currentLang === 'en' ? 'Comic Legend vs Gastronomy' : currentLang === 'de' ? 'Comic-Legende vs Gastronomie' : 'Mito del Cómics vs Gastronomía'}</span>
+          <span>{currentLang === 'en' ? 'Comic Legend vs Gastronomy' : currentLang === 'de' ? 'Comic-Legende vs Gastronomie' : 'Mito del Cómic vs Gastronomía'}</span>
         </div>
-        <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
+        <h3 class="text-xl font-serif-heading font-bold text-foreground">
           {currentLang === 'en' ? 'Mortadelo & Potato Skins' : currentLang === 'de' ? 'Mortadelo & Kartoffelschalen' : 'Mortadelo y la Piel de Patata'}
         </h3>
-        <p class="text-sm text-foreground/80 leading-relaxed font-sans">
+        <p class="text-sm text-muted-foreground leading-relaxed font-sans">
           {currentLang === 'en'
             ? 'In classic Mortadelo y Filemón comics by Ibáñez, Mortadelo famously threw peeled potatoes away and fried raw skins for his boss. A comic gag classified as Unproved Myth.'
             : currentLang === 'de'
@@ -121,40 +121,40 @@ const schemas = [breadcrumbSchema, collectionSchema, faqSchema].filter(Boolean);
         </p>
       </div>
 
-      <div class="card-notebook p-6 rounded-2xl bg-[#FFFDF9] border border-[#E8E2D5] border-l-4 border-l-[#2E7D32] space-y-3 shadow-xs">
-        <div class="flex items-center gap-2 text-xs font-extrabold text-[#2E7D32] uppercase tracking-wider">
+      <div class="card-notebook p-6 rounded-2xl bg-card border border-border border-l-4 border-l-[#2E7D32] space-y-3 shadow-xs">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-[#2E7D32] dark:text-[#81C784] uppercase tracking-wider">
           <ShieldCheck class="w-4 h-4 text-[#2E7D32]" />
           <span>{currentLang === 'en' ? 'Food Safety Metric' : currentLang === 'de' ? 'Mikrobiologischer Standard' : 'Estándar Térmico Garantizado'}</span>
         </div>
-        <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
+        <h3 class="text-xl font-serif-heading font-bold text-foreground">
           {currentLang === 'en' ? 'Bactericidal Heat Standard' : currentLang === 'de' ? 'Bakterizide Hitze-Regel' : 'Protocolo Bactericida'}
         </h3>
-        <p class="text-sm text-foreground/80 leading-relaxed font-sans">
+        <p class="text-sm text-muted-foreground leading-relaxed font-sans">
           {currentLang === 'es' ? (
-            <>Toda receta o trivia científica exige garantizar <strong class="font-bold">70°C durante 2 minutos</strong> (o <strong class="font-bold">63°C durante 20 segundos</strong>) en el centro de la tortilla para pasteurizar el huevo sin perder melosidad.</>
+            <>Toda receta o trivia científica exige garantizar <strong class="font-bold text-foreground">70°C durante 2 minutos</strong> (o <strong class="font-bold text-foreground">63°C durante 20 segundos</strong>) en el centro de la tortilla para pasteurizar el huevo sin perder melosidad.</>
           ) : currentLang === 'de' ? (
-            <>Standard zur Bakterienabtötung: <strong class="font-bold">70°C für 2 Minuten</strong> (oder <strong class="font-bold">63°C für 20 Sekunden</strong>) im Kern.</>
+            <>Standard zur Bakterienabtötung: <strong class="font-bold text-foreground">70°C für 2 Minuten</strong> (oder <strong class="font-bold text-foreground">63°C für 20 Sekunden</strong>) im Kern.</>
           ) : (
-            <>Bactericidal safety standard requiring <strong class="font-bold">70°C for 2 minutes</strong> (or <strong class="font-bold">63°C for 20 seconds</strong>) at the thermal core.</>
+            <>Bactericidal safety standard requiring <strong class="font-bold text-foreground">70°C for 2 minutes</strong> (or <strong class="font-bold text-foreground">63°C for 20 seconds</strong>) at the thermal core.</>
           )}
         </p>
       </div>
 
-      <div class="card-notebook p-6 rounded-2xl bg-[#FFFDF9] border border-[#E8E2D5] border-l-4 border-l-[#D32F2F] space-y-3 shadow-xs">
-        <div class="flex items-center gap-2 text-xs font-extrabold text-[#D32F2F] uppercase tracking-wider">
+      <div class="card-notebook p-6 rounded-2xl bg-card border border-border border-l-4 border-l-[#D32F2F] space-y-3 shadow-xs">
+        <div class="flex items-center gap-2 text-xs font-extrabold text-[#D32F2F] dark:text-[#FF8A80] uppercase tracking-wider">
           <Clock class="w-4 h-4 text-[#D32F2F]" />
           <span>{currentLang === 'en' ? 'Ambient Limit' : currentLang === 'de' ? 'Umgebungsgrenze' : 'Límite de Exposición'}</span>
         </div>
-        <h3 class="text-xl font-serif-heading font-bold text-[#292521]">
+        <h3 class="text-xl font-serif-heading font-bold text-foreground">
           {currentLang === 'en' ? '4-Hour Maximum Rule' : currentLang === 'de' ? '4-Stunden-Regel' : 'Regla de las 4 Horas'}
         </h3>
-        <p class="text-sm text-foreground/80 leading-relaxed font-sans">
+        <p class="text-sm text-muted-foreground leading-relaxed font-sans">
           {currentLang === 'es' ? (
-            <>Las tortillas poco cuajadas elaboradas con huevo fresco servidas a temperatura ambiente deben consumirse en un plazo máximo de <strong class="font-bold">4 horas</strong> para evitar proliferación bacteriana.</>
+            <>Las tortillas poco cuajadas elaboradas con huevo fresco servidas a temperatura ambiente deben consumirse en un plazo máximo de <strong class="font-bold text-foreground">4 horas</strong> para evitar proliferación bacteriana.</>
           ) : currentLang === 'de' ? (
-            <>Saftige Tortillas mit frischem Ei dürfen bei Raumtemperatur maximal <strong class="font-bold">4 Stunden</strong> aufbewahrt werden.</>
+            <>Saftige Tortillas mit frischem Ei dürfen bei Raumtemperatur maximal <strong class="font-bold text-foreground">4 Stunden</strong> aufbewahrt werden.</>
           ) : (
-            <>Runny tortillas made with fresh egg left at room temperature must be eaten within <strong class="font-bold">4 hours</strong> max.</>
+            <>Runny tortillas made with fresh egg left at room temperature must be eaten within <strong class="font-bold text-foreground">4 hours</strong> max.</>
           )}
         </p>
       </div>
@@ -164,16 +164,16 @@ const schemas = [breadcrumbSchema, collectionSchema, faqSchema].filter(Boolean);
     <TriviaGallery client:load facts={factsList} currentLang={currentLang} />
 
     <!-- Safety Footer Note -->
-    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
+    <section class="card-notebook p-5 rounded-2xl bg-accent border-l-4 border-l-[#2E7D32] border border-border">
       <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
         <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
         <p>
           {currentLang === 'es' ? (
-            <>En la ciencia de la tortilla de patata, incluso las curiosidades más antiguas respetan la seguridad alimentaria moderna: el centro térmico debe mantenerse a <strong class="font-bold">70°C durante 2 minutos</strong> (o <strong class="font-bold">63°C durante 20 segundos</strong>) para eliminar patógenos y limitar el tiempo a temperatura ambiente a <strong class="font-bold">4 horas</strong>.</>
+            <>En la ciencia de la tortilla de patata, incluso las curiosidades más antiguas respetan la seguridad alimentaria moderna: el centro térmico debe mantenerse a <strong class="font-bold text-foreground">70°C durante 2 minutos</strong> (o <strong class="font-bold text-foreground">63°C durante 20 segundos</strong>) para eliminar patógenos y limitar el tiempo a temperatura ambiente a <strong class="font-bold text-foreground">4 horas</strong>.</>
           ) : currentLang === 'de' ? (
-            <>Sicherheitsstandard: Der Kern muss <strong class="font-bold">70°C für 2 Minuten</strong> (oder <strong class="font-bold">63°C für 20 Sekunden</strong>) halten, maximal <strong class="font-bold">4 Stunden</strong> ungekühlt.</>
+            <>Sicherheitsstandard: Der Kern muss <strong class="font-bold text-foreground">70°C für 2 Minuten</strong> (oder <strong class="font-bold text-foreground">63°C für 20 Sekunden</strong>) halten, maximal <strong class="font-bold text-foreground">4 Stunden</strong> ungekühlt.</>
           ) : (
-            <>Safety standard: Thermal core must sustain <strong class="font-bold">70°C for 2 minutes</strong> (or <strong class="font-bold">63°C for 20 seconds</strong>), max <strong class="font-bold">4 hours</strong> unrefrigerated.</>
+            <>Safety standard: Thermal core must sustain <strong class="font-bold text-foreground">70°C for 2 minutes</strong> (or <strong class="font-bold text-foreground">63°C for 20 seconds</strong>), max <strong class="font-bold text-foreground">4 hours</strong> unrefrigerated.</>
           )}
         </p>
       </div>

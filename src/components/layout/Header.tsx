@@ -27,9 +27,17 @@ import {
   Mail,
   HelpCircle,
   Sun,
-  Moon
+  Moon,
+  Video,
+  Scale,
+  Laugh,
+  Award,
+  Vote,
+  Dna,
+  ShoppingBag,
+  Utensils
 } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { getTranslations } from "@/lib/i18n";
 import headerNavData from "@/content/navigation/header.json";
 
 interface HeaderProps {
@@ -55,6 +63,17 @@ const iconMap: Record<string, any> = {
   trivia: HelpCircle,
   records: Trophy,
   laboratory: FlaskConical,
+  builder: Dna,
+  comparador: Scale,
+  encuestas: Vote,
+  tests: HelpCircle,
+  authenticity: ShieldCheck,
+  escandallo: Scale,
+  humor: Laugh,
+  club: Award,
+  videos: Video,
+  utensilios: Utensils,
+  tienda: ShoppingBag,
   about: Info,
   contact: Mail,
 };
@@ -91,7 +110,7 @@ export default function Header({
   const [openSubmenu, setOpenSubmenu] = useState<string | null>("universo");
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
-  const { t } = useTranslation(undefined, { lng: lang });
+  const t = getTranslations(lang);
 
   useEffect(() => {
     if (typeof window !== "undefined") {

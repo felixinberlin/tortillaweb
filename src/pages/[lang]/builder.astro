@@ -3,7 +3,8 @@ import Layout from '@/layouts/Layout.astro';
 import BuilderApp from '@/components/builder/BuilderApp';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
-import { generateRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { createUserRecipeSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import { parseConfigurationFromUrl, createTortillaConfiguration } from '@/domain/builder/configCalculator';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -17,26 +18,11 @@ const t = getTranslations(lang);
 const title = `${t('builder.title')} - tortilladepatatas.org`;
 const description = t('builder.subtitle');
 
-const recipeSchema = generateRecipeSchema({
-  name: t('builder.title'),
-  description: t('builder.subtitle'),
-  image: '/images/recipes/clasica.jpg',
-  prepTimeMinutes: 15,
-  cookTimeMinutes: 20,
-  yieldServings: 4,
-  ingredients: [
-    'Patatas Monalisa / Agria',
-    'Huevos camperos frescos',
-    'Aceite de Oliva Virgen Extra',
-    'Sal fina'
-  ],
-  instructions: [
-    { step: 'Ajustar Comensales', text: 'Seleccionar el número de raciones e insumos deseados en la calculadora.' },
-    { step: 'Confitar Patatas', text: 'Freír patatas cortadas finas a temperatura media en abundante AOVE.' },
-    { step: 'Mezclar con Huevo', text: 'Integrar patatas con huevo batido y sal.' },
-    { step: 'Cuajar con Seguridad', text: 'Cuajar manteniendo el centro cremoso y punto de cocción deseado de forma higiénica y segura.' }
-  ]
-});
+const parsedConfig = parseConfigurationFromUrl(Astro.url.searchParams);
+const tortillaConfig = createTortillaConfiguration(parsedConfig);
+const currentUrl = `${Astro.url.pathname}${Astro.url.search}`;
+
+const recipeSchema = createUserRecipeSchema(tortillaConfig, lang, currentUrl);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Inicio', url: `/${lang}` },
@@ -48,7 +34,7 @@ const schemas = [recipeSchema, breadcrumbSchema];
 
 <Layout title={title} description={description} lang={lang} schema={schemas}>
   <div class="container mx-auto px-4 max-w-7xl">
-    <BuilderApp client:only="react" lang={lang} />
+    <BuilderApp client:load lang={lang} />
     <CulinaryJourneyProgress lang={lang} currentStepPath={`/${lang}/builder`} client:load />
   </div>
 </Layout>

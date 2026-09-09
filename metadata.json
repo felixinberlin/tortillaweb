@@ -1,6 +1,6 @@
 {
   "name": "Tortilla de Patatas",
-  "description": "Spanish potato omelette web application and custom tortilla builder.",
+  "description": "The definitive encyclopedia, recipe builder, and culinary science guide for the Spanish Tortilla de Patatas.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

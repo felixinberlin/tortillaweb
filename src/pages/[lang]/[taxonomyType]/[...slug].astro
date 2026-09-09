@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Picture } from 'astro:assets';
 import RecipeImage from '@/components/recipes/RecipeImage';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
@@ -11,6 +12,7 @@ import GarlicIngredientDetail from '@/components/ingredients/GarlicIngredientDet
 import { 
   TAXONOMY_ROUTING_MAP, 
   getAllTaxonomies, 
+  getAllRecipes,
   getRecipesForTaxonomy, 
   resolveRecipeBadges,
   getTaxonomyTypeLabel,
@@ -36,6 +38,7 @@ import {
 export async function getStaticPaths() {
   const taxonomies = await getAllTaxonomies();
   const ingredientEntries = await getCollection('ingredients');
+  const storyEntries = await getCollection('stories');
   const languages = supportedLanguages;
   
   const pathMap = new Map<string, any>();
@@ -72,7 +75,7 @@ export async function getStaticPaths() {
     };
   }
 
-  // 2. Base Taxonomy routes (e.g., /en/factions/purists, /en/ingredients/potato)
+  // 2. Base Taxonomy routes (e.g., /en/factions/purists, /en/ingredients/potato, /en/personas/abuela-maria)
   for (const lang of languages) {
     const routeMap = TAXONOMY_ROUTING_MAP[lang] || TAXONOMY_ROUTING_MAP['es'];
     
@@ -86,6 +89,13 @@ export async function getStaticPaths() {
         // Check if there is an ingredient article matching this taxonomy
         const group = translationGroups.get(tax.id);
         const ingredientArticle = group && group[lang] ? group[lang].entry : null;
+
+        // Check if there is a companion story matching this persona taxonomy
+        const matchingStory = storyEntries.find(
+          (s) => s.data.personId === tax.id && (s.data.lang === lang || s.data.locale === lang)
+        ) || storyEntries.find(
+          (s) => s.data.personId === tax.id && (s.data.lang === 'es' || s.data.locale === 'es')
+        );
 
         const customHreflangs = languages.map(l => {
           const lRouteSegment = (TAXONOMY_ROUTING_MAP[l] || TAXONOMY_ROUTING_MAP['es'])[tax.type];
@@ -110,6 +120,7 @@ export async function getStaticPaths() {
             taxonomy: tax,
             lang,
             ingredientArticle,
+            storyArticle: matchingStory || null,
             customHreflangs,
             translationGroup: group || null,
             allIngredientGroups: Object.fromEntries(translationGroups.entries()),
@@ -193,17 +204,20 @@ export async function getStaticPaths() {
   return Array.from(pathMap.values());
 }
 
-const { taxonomy, lang, ingredientArticle, customHreflangs, translationGroup, allIngredientGroups } = Astro.props;
+const { taxonomy, lang, ingredientArticle, storyArticle, customHreflangs, translationGroup, allIngredientGroups } = Astro.props;
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
 const t = getTranslations(currentLang);
 
 // Validate content entity existence - sets Astro.response.status = 404 when invalid
-const isValidRoute = assertRouteEntities(Astro.response, taxonomy, ingredientArticle);
+const isValidRoute = assertRouteEntities(Astro.response, taxonomy, ingredientArticle || storyArticle);
 
-// If an ingredient article exists and route is valid, render its rich content
+// If an ingredient article or companion story exists and route is valid, render its rich content
 let Content = null;
 if (isValidRoute && ingredientArticle) {
   const rendered = await render(ingredientArticle);
+  Content = rendered.Content;
+} else if (isValidRoute && storyArticle) {
+  const rendered = await render(storyArticle);
   Content = rendered.Content;
 }
 
@@ -211,18 +225,33 @@ if (isValidRoute && ingredientArticle) {
 const title = isValidRoute
   ? (ingredientArticle 
       ? ingredientArticle.data.title 
-      : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : ''))
+      : (storyArticle
+          ? storyArticle.data.title
+          : (taxonomy ? (taxonomy.title[currentLang as keyof typeof taxonomy.title] || taxonomy.title.es) : '')))
   : (currentLang === 'en' ? 'Page Not Found' : currentLang === 'de' ? 'Seite nicht gefunden' : 'Página no encontrada');
 
 const description = isValidRoute
   ? (ingredientArticle
       ? ingredientArticle.data.description
-      : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : ''))
+      : (storyArticle
+          ? storyArticle.data.description
+          : (taxonomy ? (taxonomy.description[currentLang as keyof typeof taxonomy.description] || taxonomy.description.es) : '')))
   : (currentLang === 'en' ? 'The requested page could not be found.' : currentLang === 'de' ? 'Die angeforderte Seite konnte nicht gefunden werden.' : 'La página solicitada no existe.');
 
 const dogma = taxonomy?.dogma ? (taxonomy.dogma[currentLang as keyof typeof taxonomy.dogma] || taxonomy.dogma.es) : undefined;
 const badgeText = taxonomy?.badge ? (taxonomy.badge[currentLang as keyof typeof taxonomy.badge] || taxonomy.badge.es) : undefined;
 const keyIngredient = taxonomy?.keyIngredient ? (taxonomy.keyIngredient[currentLang as keyof typeof taxonomy.keyIngredient] || taxonomy.keyIngredient.es) : undefined;
+
+// Persona specific fields
+const taxAny = taxonomy as any;
+const isPerson = taxonomy?.type === 'person';
+const personaRole = taxAny?.role ? (typeof taxAny.role === 'object' ? (taxAny.role[currentLang] || taxAny.role.es) : taxAny.role) : undefined;
+const personaSpecialty = taxAny?.specialty ? (typeof taxAny.specialty === 'object' ? (taxAny.specialty[currentLang] || taxAny.specialty.es) : taxAny.specialty) : undefined;
+const personaBio = taxAny?.bio ? (taxAny.bio[currentLang] || taxAny.bio.es) : undefined;
+const personaQuote = taxAny?.quote ? (taxAny.quote[currentLang] || taxAny.quote.es) : undefined;
+const favoriteRecipeId = taxAny?.favoriteRecipe;
+const allRecipesList = favoriteRecipeId ? await getAllRecipes() : [];
+const favoriteRecipe = favoriteRecipeId ? allRecipesList.find((r) => r.id === favoriteRecipeId) : null;
 
 // Load related recipes, articles, taxonomies, and knowledge base dynamically
 const taxonomyId = taxonomy ? taxonomy.id : ingredientArticle?.data.ingredient;
@@ -431,11 +460,14 @@ const pillars = [
     <!-- HERO HEADER -->
     <div class="space-y-6">
       <div class="relative w-full h-32 sm:h-64 md:h-80 lg:h-[380px] max-h-[35vh] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2D5] shadow-md bg-[#F5E6BE] group">
-        <img
+        <Picture
           src={ingredientArticle?.data.image || taxonomy?.image || "/images/ingredients/potato_editorial_card.jpg"}
+          width={1200}
+          height={675}
+          formats={['avif', 'webp']}
+          widths={[600, 900, 1200]}
           alt={title}
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          referrerPolicy="no-referrer"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex items-end p-6 sm:p-10">
           <div class="text-white space-y-3 max-w-3xl">
@@ -446,6 +478,11 @@ const pillars = [
             <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif-heading font-extrabold text-white drop-shadow-md tracking-tight leading-none">
               {title}
             </h1>
+            {isPerson && personaRole && (
+              <p class="text-amber-200 text-sm sm:text-base font-semibold">
+                {personaRole}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -455,13 +492,88 @@ const pillars = [
           {description}
         </p>
 
-        {keyIngredient && (
-          <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE] px-3.5 py-1.5 rounded-full border border-amber-300 shadow-2xs">
-            <span>{currentLang === 'en' ? 'Key Element:' : currentLang === 'de' ? 'Schlüsselelement:' : 'Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
-          </div>
-        )}
+        <div class="flex flex-wrap items-center justify-center gap-2 pt-1">
+          {keyIngredient && (
+            <div class="inline-block text-xs font-semibold text-[#8D6E63] bg-[#F5E6BE] px-3.5 py-1.5 rounded-full border border-amber-300 shadow-2xs">
+              <span>{currentLang === 'en' ? 'Key Element:' : currentLang === 'de' ? 'Schlüsselelement:' : 'Elemento Clave:'}</span> <strong>{keyIngredient}</strong>
+            </div>
+          )}
+
+          {isPerson && personaSpecialty && (
+            <div class="inline-block text-xs font-semibold text-[#292521] bg-[#FFB800]/20 px-3.5 py-1.5 rounded-full border border-[#FFB800]/50 shadow-2xs">
+              <span>{currentLang === 'en' ? 'Specialty:' : currentLang === 'de' ? 'Spezialität:' : 'Especialidad:'}</span> <strong>{personaSpecialty}</strong>
+            </div>
+          )}
+        </div>
       </header>
     </div>
+
+    <!-- PERSONA BIO & QUOTE & FAVORITE RECIPE SHOWCASE -->
+    {isPerson && (
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 space-y-6">
+          {personaBio && (
+            <div class="card-notebook p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] shadow-xs space-y-3">
+              <h2 class="text-lg font-serif-heading font-bold text-[#292521] flex items-center gap-2 border-b border-[#E8E2D5] pb-2">
+                <ChefHat class="w-5 h-5 text-[#FFB800]" />
+                <span>{currentLang === 'en' ? 'Profile & Background' : currentLang === 'de' ? 'Profil & Werdegang' : 'Perfil y Trayectoria'}</span>
+              </h2>
+              <p class="text-sm sm:text-base text-foreground/90 leading-relaxed font-sans">
+                {personaBio}
+              </p>
+            </div>
+          )}
+
+          {personaQuote && (
+            <div class="card-notebook p-6 rounded-2xl border-l-4 border-l-[#FFB800] bg-[#FFFBF0] border border-[#E8E2D5] shadow-xs space-y-2">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#8D6E63]">
+                {currentLang === 'en' ? 'Personal Philosophy' : currentLang === 'de' ? 'Persönliche Philosophie' : 'Filosofía Personal'}
+              </span>
+              <blockquote class="text-base sm:text-lg font-serif-heading italic text-[#292521] leading-relaxed">
+                &ldquo;{personaQuote}&rdquo;
+              </blockquote>
+            </div>
+          )}
+        </div>
+
+        {favoriteRecipe && (
+          <aside class="card-notebook p-6 rounded-2xl border border-[#E8E2D5] bg-[#F5E6BE]/60 shadow-xs space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider bg-[#FFB800] text-[#292521] px-3 py-1 rounded-full shadow-2xs">
+                <Sparkles class="w-3.5 h-3.5" />
+                <span>{currentLang === 'en' ? 'Favorite Recipe' : currentLang === 'de' ? 'Lieblingsrezept' : 'Receta Favorita'}</span>
+              </span>
+
+              <div class="rounded-xl overflow-hidden border border-[#E8E2D5] aspect-video">
+                <Picture
+                  src={favoriteRecipe.image || "/images/recipes/clasica.jpg"}
+                  width={400}
+                  height={225}
+                  formats={['avif', 'webp']}
+                  alt={favoriteRecipe.title[currentLang as keyof typeof favoriteRecipe.title] || favoriteRecipe.title.es}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+
+              <h3 class="font-serif-heading font-bold text-base text-[#292521]">
+                {favoriteRecipe.title[currentLang as keyof typeof favoriteRecipe.title] || favoriteRecipe.title.es}
+              </h3>
+
+              <p class="text-xs text-foreground/80 line-clamp-3">
+                {favoriteRecipe.description[currentLang as keyof typeof favoriteRecipe.description] || favoriteRecipe.description.es}
+              </p>
+            </div>
+
+            <a
+              href={`/${currentLang}/recipes/${favoriteRecipe.slug[currentLang as keyof typeof favoriteRecipe.slug] || favoriteRecipe.slug.es}`}
+              class="w-full text-center py-2.5 px-4 rounded-xl bg-[#FFB800] hover:bg-amber-400 text-[#292521] font-bold text-xs shadow-xs transition-colors"
+            >
+              {currentLang === 'en' ? 'View Recipe' : currentLang === 'de' ? 'Rezept ansehen' : 'Ver Receta'} →
+            </a>
+          </aside>
+        )}
+      </section>
+    )}
 
     <!-- POTATO PILLARS SUB-MONOGRAPHS NAV (IF POTATO CLUSTER) -->
     {isPotatoCluster && (

@@ -53,6 +53,10 @@ export default function OliveOilIngredientDetail({
             <img
               src="/images/ingredients/olive_oil_editorial_card.jpg"
               alt={t('oilDetail.heroTitle', 'Aceite de Oliva (Olea europaea)')}
+              width={1200}
+              height={675}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />

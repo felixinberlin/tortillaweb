@@ -1,0 +1,44 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { TortillaPassport } from '@/components/club/TortillaPassport';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Club Oficial de la Tortilla & Carnet Digital de Tortillólogo | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Offizieller Tortilla-Club & Digitaler Mitgliedsausweis | tortilladepatatas.org'
+  : 'Official Tortilla Club & Digital Member Passport | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Únete al Club Oficial de la Tortilla de Patatas. Genera en 10 segundos tu carnet digital acreditado, elige tu título gastronómico y comparte tu pasión.'
+  : currentLang === 'de'
+  ? 'Werde Teil des offiziellen Tortilla-Clubs. Erstelle in 10 Sekunden deinen digitalen Mitgliedspass mit kulinarischem Titel.'
+  : 'Join the Official Spanish Tortilla Club. Create your customized digital member passport with culinary title in 10 seconds.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'es' ? 'Laboratorio' : currentLang === 'de' ? 'Labor' : 'Laboratory', url: `/${currentLang}/laboratorio` },
+  { name: currentLang === 'es' ? 'Club & Carnet' : currentLang === 'de' ? 'Club & Pass' : 'Club & Passport', url: `/${currentLang}/club` },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-4xl space-y-12">
+    <!-- Tortilla Passport Component -->
+    <TortillaPassport client:load lang={currentLang} />
+
+    <!-- Linear Culinary Progress -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/club`} client:visible />
+  </div>
+</Layout>

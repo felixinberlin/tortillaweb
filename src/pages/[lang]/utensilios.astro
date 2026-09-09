@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages, getTranslations } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/lib/seo';
+import { KitchenToolsEncyclopedia } from '@/components/tools/KitchenToolsEncyclopedia';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+const pageTitle = currentLang === 'es'
+  ? 'Utensilios de Cocina para Tortilla de Patatas: Peladores, Sartenes Dobles y Menaje Esencial | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Küchenutensilien für Tortilla de Patatas: Sparschäler, Doppelpfannen & Profi-Ausrüstung | tortilladepatatas.org'
+  : 'Kitchen Tools for Spanish Omelette: Potato Peelers, Double Pans & Essential Gear | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Análisis científico e independiente de herramientas para tortilla de patatas: ¿cuál es el mejor pelador de patatas? ¿merecen la pena las sartenes dobles volteadoras? Diámetros, materiales y termodinámica.'
+  : currentLang === 'de'
+  ? 'Unabhängige Analyse von Küchenwerkzeugen für spanische Tortilla: Welcher Kartoffelschäler ist der beste? Lohnen sich Doppel-Wendipfannen? Material- und Größenvergleich.'
+  : 'Scientific and independent guide to Spanish tortilla tools: the best potato peeler, dual flip pan mechanics, skillet materials, and sizing proportions.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Utensilios & Menaje', url: `/${currentLang}/utensilios` },
+]);
+
+const articleSchema = generateArticleSchema({
+  headline: pageTitle,
+  description: pageDescription,
+  url: `/${currentLang}/utensilios`,
+  datePublished: '2025-01-15',
+});
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema, articleSchema]}>
+  <main class="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
+    <KitchenToolsEncyclopedia client:load lang={currentLang} />
+  </main>
+</Layout>

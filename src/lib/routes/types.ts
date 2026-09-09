@@ -21,7 +21,11 @@ export type RouteId =
   | 'impressum'
   | 'encuestas'
   | 'tests'
-  | 'triviaGame';
+  | 'triviaGame'
+  | 'guides'
+  | 'videos'
+  | 'utensilios'
+  | 'tienda';
 
 export type CanonicalType =
   | 'recipe'
@@ -30,7 +34,8 @@ export type CanonicalType =
   | 'technique'
   | 'person'
   | 'region'
-  | 'style';
+  | 'style'
+  | 'guide';
 
 export type NavigationTarget =
   | { routeId: RouteId; entity?: never; to?: never; href?: never; key?: never }

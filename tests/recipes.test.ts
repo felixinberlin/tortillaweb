@@ -68,4 +68,26 @@ describe('Recipe Helper Utilities & Structured Ingredients', () => {
     const ratioMissing = calculateIngredientRatio(sampleRecipe, 'potato', 'onion', 'en');
     expect(ratioMissing).toBe('N/A');
   });
+
+  it('should scale ingredients accurately for 2, 4, 6, and 8 diners based on a 4-person base', () => {
+    const baseServings = 4;
+    const baseEggs = 6;
+    const basePotato = 600;
+
+    // 4 people (1x)
+    expect((baseEggs * 4) / baseServings).toBe(6);
+    expect((basePotato * 4) / baseServings).toBe(600);
+
+    // 2 people (0.5x)
+    expect((baseEggs * 2) / baseServings).toBe(3);
+    expect((basePotato * 2) / baseServings).toBe(300);
+
+    // 6 people (1.5x)
+    expect((baseEggs * 6) / baseServings).toBe(9);
+    expect((basePotato * 6) / baseServings).toBe(900);
+
+    // 8 people (2x)
+    expect((baseEggs * 8) / baseServings).toBe(12);
+    expect((basePotato * 8) / baseServings).toBe(1200);
+  });
 });

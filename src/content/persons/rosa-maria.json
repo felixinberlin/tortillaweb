@@ -1,0 +1,56 @@
+{
+  "id": "rosa-maria",
+  "type": "person",
+  "contentId": "person.rosa-maria",
+  "name": "Rosa María Morales",
+  "region": "cataluna",
+  "role": {
+    "es": "Historiadora Gastronómica, Crítica & Ensayista",
+    "en": "Culinary Historian, Critic & Essayist",
+    "de": "Kulinarische Historikerin, Kritikerin & Essayistin"
+  },
+  "specialty": "Antropología Culinaria & Cartografía de Facciones",
+  "slug": {
+    "es": "rosa-maria",
+    "en": "rosa-maria",
+    "de": "rosa-maria"
+  },
+  "title": {
+    "es": "Rosa María Morales",
+    "en": "Rosa María Morales",
+    "de": "Rosa María Morales"
+  },
+  "description": {
+    "es": "Investigadora y escritora barcelonesa, autora de referencia sobre los orígenes de la tortilla y analista sociológica de las facciones gastronómicas en España.",
+    "en": "Barcelona-based researcher and writer, foremost authority on the historical origins of the tortilla and sociological analyst of Spain's culinary factions.",
+    "de": "Forscherin und Autorin aus Barcelona, führende Expertin für die Ursprünge der Tortilla und soziologische Analystin der spanischen kulinarischen Fraktionen."
+  },
+  "bio": {
+    "es": "Doctora en Historia Contemporánea por la Universidad de Barcelona y colaboradora habitual en suplementos gastronómicos internacionales. Ha documentado manuscritos del siglo XVIII en archivos de toda la península, rastreando cómo un plato de necesidad rural se convirtió en símbolo nacional.",
+    "en": "PhD in Contemporary History from the University of Barcelona and contributor to international food journals. She has documented 18th-century agrarian manuscripts across the Iberian peninsula, tracing how a rural subsistence dish became a national icon.",
+    "de": "Promovierte Historikerin an der Universität Barcelona und Autorin internationaler Gastronomiepublikationen. Sie erforscht historische Agrarmanuskripte des 18. Jahrhunderts und verfolgt, wie ein ländliches Notgericht zum Nationalsymbol aufstieg."
+  },
+  "quote": {
+    "es": "La tortilla no es únicamente un plato: es un espejo sociológico donde España proyecta sus debates sobre identidad, memoria y pureza.",
+    "en": "The tortilla is not merely a dish: it is a sociological mirror in which Spain reflects its endless debates on identity, memory, and authenticity.",
+    "de": "Die Tortilla ist nicht nur ein Gericht: Sie ist ein soziologischer Spiegel, in dem Spanien seine Debatten über Identität, Erinnerung und Authentizität austrägt."
+  },
+  "dogma": {
+    "es": "Comprender la tortilla exige leer las cosechas, los archivos notariales y el pulso social de cada época.",
+    "en": "Understanding the tortilla requires reading the harvests, notarial archives, and the social pulse of each era.",
+    "de": "Die Tortilla zu verstehen bedeutet, Ernten, historische Archive und den gesellschaftlichen Puls jeder Epoche zu entschlüsseln."
+  },
+  "favoriteRecipe": "piquillo-catalana",
+  "story": "/es/personas/rosa-maria",
+  "image": "/images/personas/cris.jpg",
+  "badge": {
+    "es": "Investigación Histórica",
+    "en": "Historical Research",
+    "de": "Historische Forschung"
+  },
+  "related": [
+    { "type": "faction", "id": "concebollistas" },
+    { "type": "recipe", "id": "piquillo-catalana" },
+    { "type": "region", "id": "cataluna" }
+  ]
+}

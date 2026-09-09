@@ -43,7 +43,8 @@
           "en": "View Faction Debate",
           "de": "Fraktionsdebatte"
         }
-      }
+      },
+      "sourceUrl": "https://www.cis.es/"
     },
     {
       "id": "faction-jugosa-vs-cuajada",
@@ -75,7 +76,8 @@
           "en": "View Faction Debate",
           "de": "Fraktionsdebatte"
         }
-      }
+      },
+      "sourceUrl": "https://www.cehe.es/"
     },
     {
       "id": "faction-cut-triangles-vs-squares",
@@ -107,7 +109,8 @@
           "en": "View Faction Debate",
           "de": "Fraktionsdebatte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=facciones%20de%20corte%3A%20tri%C3%A1ngulos%20(taco)%20vs%20cuadrados%20(pintxo)"
     },
     {
       "id": "faction-temperature-warm-vs-ambient",
@@ -139,7 +142,8 @@
           "en": "View Faction Debate",
           "de": "Fraktionsdebatte"
         }
-      }
+      },
+      "sourceUrl": "https://realacademiadegastronomia.com/"
     },
     {
       "id": "faction-bread-hogaza-vs-tomate",
@@ -171,7 +175,8 @@
           "en": "View Faction Debate",
           "de": "Fraktionsdebatte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=acompa%C3%B1amiento%20de%20pan%3A%20pan%20de%20hogaza%20vs%20pan%20con%20tomate"
     },
     {
       "id": "faction-salt-timing",
@@ -202,7 +207,8 @@
           "en": "View Egg & Oil Science",
           "de": "Zur Wissenschaft von Ei & Öl"
         }
-      }
+      },
+      "sourceUrl": "https://digital.csic.es/"
     },
     {
       "id": "faction-mandoline-vs-knife",
@@ -233,7 +239,8 @@
           "en": "View Betanzos Recipe",
           "de": "Zur Betanzos-Rezeptur"
         }
-      }
+      },
+      "sourceUrl": "https://turismo.betanzos.es/gastronomia/tortilla-de-betanzos/"
     },
     {
       "id": "faction-mayo-topping",
@@ -264,7 +271,8 @@
           "en": "Vote in the Poll",
           "de": "In der Umfrage abstimmen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=mayonesa%20sobre%20la%20tortilla%3A%20%C2%BFpecado%20o%20delicia%20gastro%3F"
     },
     {
       "id": "faction-bocadillo-bread-rub",
@@ -295,7 +303,8 @@
           "en": "Explore Catalan Tradition",
           "de": "Katalanische Tradition erkunden"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20pan%20del%20bocadillo%3A%20con%20tomate%20restregado%20vs.%20pan%20seco"
     },
     {
       "id": "faction-pan-flip-hardware",
@@ -326,7 +335,8 @@
           "en": "View Flipping Physics",
           "de": "Physik des Wendens ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20arte%20del%20volteo%3A%20plato%20cer%C3%A1mico%20vs.%20sart%C3%A9n%20doble"
     },
     {
       "id": "faction-potato-variety-agria",
@@ -357,7 +367,8 @@
           "en": "Potato Variety Guide",
           "de": "Kartoffelsorten-Ratgeber"
         }
-      }
+      },
+      "sourceUrl": "https://www.turismo.gal/que-facer/gastronomia"
     },
     {
       "id": "faction-garlic-rub-pan",
@@ -388,7 +399,8 @@
           "en": "View Aromatics Technique",
           "de": "Aromatisierungstechnik ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20truco%20secreto%20del%20diente%20de%20ajo%20en%20la%20sart%C3%A9n%20caliente"
     },
     {
       "id": "faction-egg-beating-style",
@@ -419,7 +431,8 @@
           "en": "View Egg Science",
           "de": "Zur Eier-Wissenschaft"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=batido%20de%20huevos%3A%20tenedor%20suave%20vs.%20espuma%20con%20varillas"
     },
     {
       "id": "faction-resting-time-premix",
@@ -450,7 +463,8 @@
           "en": "View Heat Reactions",
           "de": "Hitze-Reaktionen ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.esmadrid.com/gastronomia-madrid"
     },
     {
       "id": "faction-pan-material-steel",
@@ -481,7 +495,8 @@
           "en": "View Utensil Science",
           "de": "Zur Küchengeräte-Wissenschaft"
         }
-      }
+      },
+      "sourceUrl": "https://www.cehe.es/"
     },
     {
       "id": "faction-onion-cut-style",
@@ -512,7 +527,8 @@
           "en": "View Poaching Technique",
           "de": "Pochier-Technik ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.esmadrid.com/gastronomia-madrid"
     },
     {
       "id": "faction-peppers-green-vs-red",
@@ -543,7 +559,8 @@
           "en": "View Tortilla Factions",
           "de": "Tortilla-Fraktionen ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.navarra.es/es/gobierno-de-navarra/archivo-general"
     },
     {
       "id": "faction-parsley-garnish-rule",
@@ -574,7 +591,8 @@
           "en": "View Cider House Recipe",
           "de": "Cider-Haus-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=perejil%20fresco%20picado%3A%20%C2%BFtoque%20vasco%20o%20sacrilegio%20visual%3F"
     },
     {
       "id": "faction-deep-fry-vs-confit",
@@ -605,7 +623,8 @@
           "en": "View Frying Science",
           "de": "Frittier-Wissenschaft ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=fritura%20crujiente%20a%20alta%20temperatura%20vs.%20confitado%20lento%20en%20aceite"
     },
     {
       "id": "faction-stuffed-ham-cheese",
@@ -636,7 +655,8 @@
           "en": "View Cafeteria Variations",
           "de": "Kantine-Varianten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.esmadrid.com/gastronomia-madrid"
     },
     {
       "id": "faction-onion-pre-sauté",
@@ -667,7 +687,8 @@
           "en": "View Caramelization Reaction",
           "de": "Karamellisierungs-Reaktion ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=caramelizar%20cebolla%20durante%202%20horas%20vs.%20fritura%20conjunta"
     },
     {
       "id": "faction-warm-rest-in-pan",
@@ -698,7 +719,8 @@
           "en": "View Sensory Analysis",
           "de": "Sensorik-Analyse ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=servir%20hirviendo%20de%20la%20sart%C3%A9n%20vs.%20reposo%20de%2030%20minutos"
     },
     {
       "id": "fact-261-mariscal-soult-s-cookbook-thef",
@@ -729,7 +751,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20robo%20del%20recetario%20por%20el%20mariscal%20soult"
     },
     {
       "id": "fact-262-the-trofeo-tescoma-national-ch",
@@ -760,7 +783,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20campeonato%20nacional%20trofeo%20tescoma"
     },
     {
       "id": "fact-263-zaragoza-s-liga-de-la-tortilla",
@@ -791,7 +815,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20liga%20de%20la%20tortilla%20de%20zaragoza"
     },
     {
       "id": "fact-264-sandoval-s-august-competition",
@@ -822,7 +847,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20concurso%20estival%20de%20sandoval%20de%20la%20reina"
     },
     {
       "id": "fact-265-melide-s-salomonic-onion-divid",
@@ -853,7 +879,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20divisi%C3%B3n%20salom%C3%B3nica%20de%20cebolla%20en%20melide"
     },
     {
       "id": "fact-266-melide-s-12-000-charity-portio",
@@ -884,7 +911,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%2012.000%20raciones%20solidarias%20de%20melide"
     },
     {
       "id": "fact-267-getafe-s-individual-notary-che",
@@ -915,7 +943,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20verificaci%C3%B3n%20notarial%20de%20getafe"
     },
     {
       "id": "fact-268-the-cis-onions-sentiment",
@@ -946,7 +975,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20estudio%20sociol%C3%B3gico%20del%20cis%20(70%2C4%25%20concebollistas)"
     },
     {
       "id": "fact-269-the-basque-pimientista-blend",
@@ -977,7 +1007,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20facci%C3%B3n%20'pimientista'%20del%20pa%C3%ADs%20vasco"
     },
     {
       "id": "fact-270-oscar-vidal-s-garlic-over-onio",
@@ -1008,7 +1039,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=%C3%B3scar%20vidal%20y%20el%20toque%20de%20ajo%20sin%20cebolla"
     },
     {
       "id": "fact-271-angel-le-n-s-garlic-and-parsle",
@@ -1039,7 +1071,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=%C3%A1ngel%20le%C3%B3n%3A%20'%C2%A1siempre%20con%20ajo%20y%20perejil!'"
     },
     {
       "id": "fact-272-the-19th-century-tortilla-del",
@@ -1070,7 +1103,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20'tortilla%20del%20enga%C3%B1o'%20del%20siglo%20xix"
     },
     {
       "id": "fact-273-the-sincebollista-cleanliness",
@@ -1101,7 +1135,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20argumento%20t%C3%A9cnico%20sincebollista"
     },
     {
       "id": "fact-274-ferran-adri-s-tortilla-with",
@@ -1132,7 +1167,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20taxonom%C3%ADa%20doble%20de%20ferran%20adri%C3%A0"
     },
     {
       "id": "fact-275-teresa-cuerda-s-ingredient-sel",
@@ -1163,7 +1199,8 @@
           "en": "View Factions & Debates",
           "de": "Fraktionen & Debatten ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20variaci%C3%B3n%20t%C3%A9rmica%20del%20huevo%20en%20casa%20dani"
     }
   ]
 }

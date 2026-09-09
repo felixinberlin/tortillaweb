@@ -1,0 +1,68 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import {
+  generateBreadcrumbSchema,
+  generateOfferCatalogSchema,
+  generateCourseSchema,
+  generateProductSchema,
+} from '@/lib/seo';
+import { EquipmentStore } from '@/components/shop/EquipmentStore';
+import { EQUIPMENT_ITEMS } from '@/data/equipmentData';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Arsenal, Equipamiento & Tienda Gourmet de la Tortilla de Patatas | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Ausrüstung, Pfannen & Meister-Shop | tortilladepatatas.org'
+  : 'Kitchen Equipment, Pans & Master Omelette Shop | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Las mejores sartenes de hierro curado (De Buyer), sartenes volteadoras dobles, mandolinas japonesas, termómetros y el libro oficial de la tortilla española.'
+  : currentLang === 'de'
+  ? 'Die besten Eisenpfannen, Doppel-Wendipfannen, japanische Mandolinen, Einstich-Thermometer und das offizielle Tortilla-Buch.'
+  : 'The finest seasoned iron skillets, dual flip pans, Japanese mandolines, instant probe thermometers, and the official Spanish omelette master book.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'es' ? 'Equipamiento & Tienda' : currentLang === 'de' ? 'Ausrüstung & Shop' : 'Equipment & Shop', url: `/${currentLang}/tienda` },
+]);
+
+const catalogSchema = generateOfferCatalogSchema(EQUIPMENT_ITEMS, currentLang);
+const courseSchema = generateCourseSchema({
+  name: currentLang === 'es' ? 'Masterclass Digital: El Gran Libro de la Tortilla de Patatas' : 'Digital Masterclass: The Definitive Spanish Omelette Guide',
+  description: '180 páginas de ciencia culinaria, 25 recetas secretas y 12 vídeos en 4K.',
+  price: 19.90,
+  lang: currentLang,
+});
+
+const topProductSchemas = EQUIPMENT_ITEMS.slice(0, 3).map((item) =>
+  generateProductSchema(item, { lang: currentLang })
+);
+
+const allSchemas = [
+  breadcrumbSchema,
+  catalogSchema,
+  courseSchema,
+  ...topProductSchemas,
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  lang={currentLang}
+  schema={allSchemas}
+>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
+    <EquipmentStore client:load lang={currentLang} />
+  </div>
+</Layout>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useDeferredValue } from 'react';
 import {
   HelpCircle,
   CheckCircle2,
@@ -24,7 +24,8 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-  ArrowUpDown
+  ArrowUpDown,
+  ExternalLink
 } from 'lucide-react';
 
 export interface TriviaFact {
@@ -37,6 +38,7 @@ export interface TriviaFact {
   fact: { es: string; en: string; de: string };
   explanation: { es: string; en: string; de: string };
   source?: string;
+  sourceUrl?: string;
   evidence?: string;
   relatedLink?: {
     href: string;
@@ -163,62 +165,69 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
     return counts;
   }, [facts]);
 
+  // Deferred Search Query for fluid typing without main thread blocking on 10,000+ items
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+
+  // Pre-computed search strings map for ultra-fast filtering across 10,000+ items
+  const indexedFacts = useMemo(() => {
+    return facts.map((fact) => {
+      const searchKey = `${fact.title[currentLang] || fact.title.es || ''} ${fact.fact[currentLang] || fact.fact.es || ''} ${fact.explanation[currentLang] || fact.explanation.es || ''} ${fact.source || ''} ${fact.evidence || ''} ${fact.id}`.toLowerCase();
+      const titleLower = (fact.title[currentLang] || fact.title.es || '').toLowerCase();
+      return { fact, searchKey, titleLower };
+    });
+  }, [facts, currentLang]);
+
   // Filtered & Sorted Facts
   const filteredFacts = useMemo(() => {
-    let result = facts.filter(item => {
+    const query = deferredSearchQuery.toLowerCase().trim();
+
+    let result = indexedFacts.filter(({ fact, searchKey }) => {
       // Filter by Proved/Unproved Status
-      if (statusFilter === 'proved' && item.status !== 'proved') return false;
-      if (statusFilter === 'unproved' && item.status !== 'unproved') return false;
+      if (statusFilter === 'proved' && fact.status !== 'proved') return false;
+      if (statusFilter === 'unproved' && fact.status !== 'unproved') return false;
 
       // Filter by Category
-      if (selectedCategory !== 'all' && item.category !== selectedCategory) return false;
+      if (selectedCategory !== 'all' && fact.category !== selectedCategory) return false;
 
       // Filter by Search Query
-      if (searchQuery.trim() !== '') {
-        const q = searchQuery.toLowerCase().trim();
-        const titleText = (item.title[currentLang] || item.title.es || '').toLowerCase();
-        const factText = (item.fact[currentLang] || item.fact.es || '').toLowerCase();
-        const explanationText = (item.explanation[currentLang] || item.explanation.es || '').toLowerCase();
-        const sourceText = (item.source || '').toLowerCase();
-        const evidenceText = (item.evidence || '').toLowerCase();
-        const idText = (item.id || '').toLowerCase();
-        
-        return (
-          titleText.includes(q) ||
-          factText.includes(q) ||
-          explanationText.includes(q) ||
-          sourceText.includes(q) ||
-          evidenceText.includes(q) ||
-          idText.includes(q)
-        );
-      }
+      if (query !== '' && !searchKey.includes(query)) return false;
 
       return true;
     });
 
     // Sorting
     if (sortBy === 'title') {
-      result = [...result].sort((a, b) => {
-        const titleA = (a.title[currentLang] || a.title.es).toLowerCase();
-        const titleB = (b.title[currentLang] || b.title.es).toLowerCase();
-        return titleA.localeCompare(titleB);
-      });
+      result = [...result].sort((a, b) => a.titleLower.localeCompare(b.titleLower));
     } else if (sortBy === 'proved-first') {
       result = [...result].sort((a, b) => {
-        if (a.status === 'proved' && b.status !== 'proved') return -1;
-        if (a.status !== 'proved' && b.status === 'proved') return 1;
+        if (a.fact.status === 'proved' && b.fact.status !== 'proved') return -1;
+        if (a.fact.status !== 'proved' && b.fact.status === 'proved') return 1;
         return 0;
       });
     } else if (sortBy === 'likes') {
-      result = [...result].sort((a, b) => (likes[b.id] || 0) - (likes[a.id] || 0));
+      result = [...result].sort((a, b) => (likes[b.fact.id] || 0) - (likes[a.fact.id] || 0));
     }
 
-    return result;
-  }, [facts, statusFilter, selectedCategory, searchQuery, sortBy, likes, currentLang]);
+    return result.map((item) => item.fact);
+  }, [indexedFacts, statusFilter, selectedCategory, deferredSearchQuery, sortBy, likes]);
 
   // Pagination Math
   const totalPages = Math.max(1, Math.ceil(filteredFacts.length / pageSize));
   const safeCurrentPage = Math.min(currentPage, totalPages);
+
+  // O(1) Memory Page Window Generation (Optimized for 10,000+ facts / thousands of pages)
+  const visiblePageNumbers = useMemo(() => {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+    const set = new Set<number>();
+    set.add(1);
+    set.add(totalPages);
+    for (let p = Math.max(1, safeCurrentPage - 2); p <= Math.min(totalPages, safeCurrentPage + 2); p++) {
+      set.add(p);
+    }
+    return Array.from(set).sort((a, b) => a - b);
+  }, [totalPages, safeCurrentPage]);
 
   const paginatedFacts = useMemo(() => {
     const startIndex = (safeCurrentPage - 1) * pageSize;
@@ -518,11 +527,25 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
                     {factText}
                   </p>
 
-                  {/* Source Metadata */}
+                  {/* Source Metadata & Real Internet Link */}
                   {item.source && (
-                    <div className="text-[11px] font-bold text-[#8D6E63] flex items-center gap-1.5 pt-1">
-                      <BookOpen className="w-3.5 h-3.5 shrink-0" />
-                      <span>{t.sourceLabel}: {item.source}</span>
+                    <div className="space-y-1.5 pt-1">
+                      <div className="text-[11px] font-bold text-[#8D6E63] flex items-center gap-1.5">
+                        <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                        <span>{t.sourceLabel}: {item.source}</span>
+                      </div>
+                      {item.sourceUrl && (
+                        <a
+                          href={item.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FAF6EE] hover:bg-[#FFB800]/20 border border-[#E8E2D5] hover:border-[#FFB800] text-xs font-bold text-[#8D6E63] hover:text-amber-950 transition-all cursor-pointer w-fit"
+                          title={currentLang === 'en' ? 'Verify external source' : currentLang === 'de' ? 'Quelle im Web prüfen' : 'Verificar fuente en la web'}
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 text-[#FFB800] shrink-0" />
+                          <span>{currentLang === 'en' ? 'Verify Source 🔗' : currentLang === 'de' ? 'Quelle Prüfen 🔗' : 'Verificar Fuente en la Web 🔗'}</span>
+                        </a>
+                      )}
                     </div>
                   )}
 
@@ -637,9 +660,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
 
             {/* Page Numbers */}
             <div className="flex items-center gap-1 px-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1)
-                .filter(p => p === 1 || p === totalPages || Math.abs(p - safeCurrentPage) <= 2)
-                .map((p, idx, array) => {
+              {visiblePageNumbers.map((p, idx, array) => {
                   const prevPageNum = array[idx - 1];
                   const showEllipsis = prevPageNum && p - prevPageNum > 1;
 

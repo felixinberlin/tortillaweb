@@ -1,0 +1,21 @@
+{
+  "id": "documental-origenes-villanueva",
+  "title": {
+    "es": "Las Raíces del Mito: De Villanueva de la Serena (1798) a las Guerras Carlistas",
+    "en": "Roots of the Myth: From Villanueva de la Serena (1798) to the Carlist Wars",
+    "de": "Die Wurzeln des Mythos: Von Villanueva de la Serena (1798) zu den Karlistenkriegen"
+  },
+  "description": {
+    "es": "Documental histórico que investiga los primeros documentos manuscritos sobre la invención de la tortilla de patatas por Joseph de Tena Godoy y el General Zumalacárregui.",
+    "en": "Historical documentary investigating the earliest handwritten records of the potato omelette by Joseph de Tena Godoy and General Zumalacárregui.",
+    "de": "Historische Dokumentation über die frühesten handschriftlichen Belege der Kartoffeltortilla von Joseph de Tena Godoy und General Zumalacárregui."
+  },
+  "thumbnailUrl": "/images/personas/barat.jpg",
+  "duration": 1680,
+  "lang": "es",
+  "category": "history",
+  "relatedRecipeIds": [
+    "clasica"
+  ],
+  "publishedAt": "2026-04-25T12:00:00Z"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "tutorial-tecnica-clasica",
+  "title": {
+    "es": "Masterclass: El Volteo Perfecto y la Técnica Clásica",
+    "en": "Masterclass: The Perfect Flip and Classic Technique",
+    "de": "Meisterklasse: Das perfekte Wenden und die klassische Technik"
+  },
+  "description": {
+    "es": "Aprende el movimiento de muñeca exacto (velocidad angular > 1,2 rad/s), el grosor de patata ideal y el control térmico de la sartén.",
+    "en": "Learn the exact wrist flick (angular velocity > 1.2 rad/s), ideal potato thickness, and pan thermal management.",
+    "de": "Lerne die exakte Handgelenksbewegung (Winkelgeschwindigkeit > 1,2 rad/s), die ideale Kartoffeldicke und Wärmeregulierung."
+  },
+  "thumbnailUrl": "/images/recipes/clasica.jpg",
+  "duration": 780,
+  "lang": "es",
+  "category": "technique",
+  "relatedRecipeIds": [
+    "clasica",
+    "concebolla"
+  ],
+  "publishedAt": "2026-04-01T10:00:00Z"
+}

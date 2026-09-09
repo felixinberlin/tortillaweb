@@ -3,8 +3,15 @@ import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/home/Hero';
 import FeatureGrid from '@/components/home/FeatureGrid';
 import BuilderTeaser from '@/components/home/BuilderTeaser';
+import AuthorityStatsBanner from '@/components/home/AuthorityStatsBanner';
+import KitchenToolsTeaser from '@/components/home/KitchenToolsTeaser';
+import NewsletterLeadMagnet from '@/components/home/NewsletterLeadMagnet';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
-import { generateWebSiteSchema, generateOrganizationSchema, generateBreadcrumbSchema } from '@/lib/seo';
+import {
+  generateWebSiteSchema,
+  generateOrganizationSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/seo';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -13,22 +20,35 @@ export function getStaticPaths() {
 }
 
 const { lang = 'es' } = Astro.params;
-const t = getTranslations(lang);
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
 
-const title = `${t('hero.title')} - tortilladepatatas.org`;
-const description = t('hero.subtitle');
+const title = currentLang === 'es'
+  ? 'Tortilla de Patatas: La Enciclopedia, Ciencia, Recetas & Menaje Culinario'
+  : currentLang === 'de'
+  ? 'Tortilla de Patatas: Die Enzyklopädie, Wissenschaft & Küchenwerkzeuge'
+  : 'Spanish Omelette (Tortilla de Patatas): Science, Master Recipes & Culinary Tools';
+
+const description = currentLang === 'es'
+  ? 'La mayor autoridad mundial en tortilla de patatas: recetas tradicionales, ciencia del cuajado a 70°C, termodinámica de la patata, guía de peladores, sartenes dobles y calculadoras maestras.'
+  : currentLang === 'de'
+  ? 'Die weltweite Referenz für spanische Tortilla: Traditionsrezepte, 70°C Thermosicherheit, Sparschäler-Vergleich, Doppelpfannen und exakte Mengenkalkulation.'
+  : 'The world reference encyclopedia on Spanish tortilla: authentic recipes, 70°C thermal food safety science, potato peeler guides, double flip pans, and ratio calculators.';
 
 const schemas = [
   generateWebSiteSchema(),
   generateOrganizationSchema(),
   generateBreadcrumbSchema([
-    { name: 'Inicio', url: `/${lang}` }
-  ])
+    { name: 'Inicio', url: `/${currentLang}` }
+  ]),
 ];
 ---
 
-<Layout title={title} description={description} lang={lang} schema={schemas}>
-  <Hero lang={lang} client:load />
-  <FeatureGrid lang={lang} client:load />
-  <BuilderTeaser lang={lang} client:load />
+<Layout title={title} description={description} lang={currentLang} schema={schemas}>
+  <Hero lang={currentLang} client:load />
+  <AuthorityStatsBanner lang={currentLang} client:load />
+  <FeatureGrid lang={currentLang} client:load />
+  <KitchenToolsTeaser lang={currentLang} client:load />
+  <BuilderTeaser lang={currentLang} client:load />
+  <NewsletterLeadMagnet lang={currentLang} client:load />
 </Layout>

@@ -24,61 +24,61 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 <Layout title={pageTitle} description="Cuestionarios y test de lealtad a facciones" lang={currentLang} schema={[breadcrumbSchema]}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-12">
     <header class="text-center max-w-3xl mx-auto space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
-        <HelpCircle class="w-3.5 h-3.5" />
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/30 text-xs font-bold shadow-2xs">
+        <HelpCircle class="w-3.5 h-3.5 text-[#FFB800]" />
         <span>Cuestionario de Ortodoxia</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-[#292521]">
+      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-foreground">
         Test de Afinidad y Lealtad a Facciones
       </h1>
 
-      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed">
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
         Responde a las preguntas clave para determinar matemáticamente a qué facción perteneces.
       </p>
     </header>
 
-    <div class="card-notebook p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] space-y-6">
+    <div class="card-notebook p-6 sm:p-8 rounded-2xl border border-border bg-card space-y-6">
       <div class="space-y-4 text-sm sm:text-base">
-        <h2 class="text-xl font-serif-heading font-bold text-[#292521]">¿Cómo funciona la asignación de facción?</h2>
-        <p class="text-foreground/80 leading-relaxed">
+        <h2 class="text-xl font-serif-heading font-bold text-foreground">¿Cómo funciona la asignación de facción?</h2>
+        <p class="text-muted-foreground leading-relaxed">
           Evaluamos tus preferencias sobre 4 ejes fundamentales:
         </p>
         <ul class="space-y-2">
-          <li class="flex items-center gap-2 text-foreground/90 font-medium">
-            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+          <li class="flex items-center gap-2 text-foreground font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63] dark:text-[#FFB800]" />
             <span>Presencia o ausencia estricta de cebolla (Concebollista vs Purista)</span>
           </li>
-          <li class="flex items-center gap-2 text-foreground/90 font-medium">
-            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+          <li class="flex items-center gap-2 text-foreground font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63] dark:text-[#FFB800]" />
             <span>Ajo o pimiento verde en el sofrito (Ajista / Pimientista)</span>
           </li>
-          <li class="flex items-center gap-2 text-foreground/90 font-medium">
-            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
+          <li class="flex items-center gap-2 text-foreground font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63] dark:text-[#FFB800]" />
             <span>Incorporación de ingredientes no canónicos como chorizo o queso (Con Cosas)</span>
           </li>
-          <li class="flex items-center gap-2 text-foreground/90 font-medium">
-            <CheckCircle2 class="w-4 h-4 text-[#8D6E63]" />
-            <span>Respeto al estándar higiénico de <strong>70°C for 2 minutes</strong></span>
+          <li class="flex items-center gap-2 text-foreground font-medium">
+            <CheckCircle2 class="w-4 h-4 text-[#8D6E63] dark:text-[#FFB800]" />
+            <span>Respeto al estándar higiénico de <strong class="font-bold text-foreground">70°C for 2 minutes</strong></span>
           </li>
         </ul>
       </div>
 
-      <div class="pt-4 border-t border-[#E8E2D5] text-center">
+      <div class="pt-4 border-t border-border text-center">
         <a
           href={`/${currentLang}/facciones`}
-          class="inline-flex items-center gap-2 bg-[#8D6E63] hover:bg-[#73564B] text-white font-bold px-6 py-3 rounded-xl shadow-2xs transition-colors"
+          class="inline-flex items-center gap-2 bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] font-bold px-6 py-3 rounded-xl shadow-2xs transition-colors"
         >
           <span>Ir al Hub de Facciones & Votar</span>
         </a>
       </div>
     </div>
 
-    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+    <section class="card-notebook p-5 rounded-2xl bg-accent border-l-4 border-l-[#2E7D32] border border-border">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground">
         <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
         <p>
-          Cualquiera que sea tu facción, el protocolo sanitario exige mantener la seguridad alimentaria alcanzando **70°C for 2 minutes** o **63°C for 20 seconds**, consumiendo antes de **4 hours** a temperatura ambiente.
+          Cualquiera que sea tu facción, el protocolo sanitario exige mantener la seguridad alimentaria alcanzando <strong class="font-bold">70°C for 2 minutes</strong> o <strong class="font-bold">63°C for 20 seconds</strong>, consumiendo antes de <strong class="font-bold">4 hours</strong> a temperatura ambiente.
         </p>
       </div>
     </section>

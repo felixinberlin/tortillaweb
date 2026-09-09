@@ -72,6 +72,127 @@
         "de"
       ]
     },
+    "name": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "role": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "es": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            },
+            "de": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "es",
+            "en",
+            "de"
+          ]
+        }
+      ]
+    },
+    "specialty": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "es": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            },
+            "de": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "es",
+            "en",
+            "de"
+          ]
+        }
+      ]
+    },
+    "bio": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "quote": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "dogma": {
+      "type": "object",
+      "properties": {
+        "es": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "de": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "es",
+        "en",
+        "de"
+      ]
+    },
+    "favoriteRecipe": {
+      "type": "string"
+    },
+    "story": {
+      "type": "string"
+    },
     "image": {
       "type": "string"
     },

@@ -1,45 +1,74 @@
 @use 'variables' as *;
 
-// Notebook Card Elevation
+// Cozy Notebook Card Elevation & Surface
 @mixin notebook-card {
-  background-color: $bg-card;
-  border-radius: 12px;
-  border: 1px solid $border-notebook;
-  box-shadow: 0 4px 12px rgba(141, 110, 99, 0.08);
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(74, 59, 50, 0.06), 0 1px 3px rgba(74, 59, 50, 0.04);
   position: relative;
-  transition: all 0.25s ease-in-out;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease;
 
   &:hover {
-    box-shadow: 0 8px 20px rgba(141, 110, 99, 0.14);
+    box-shadow: 0 8px 24px rgba(74, 59, 50, 0.1), 0 2px 6px rgba(74, 59, 50, 0.06);
+    border-color: rgba(255, 184, 0, 0.45);
     transform: translateY(-2px);
+  }
+
+  // Specular top highlight in dark mode for cast-iron depth
+  :global(.dark) & {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    &:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 184, 0, 0.15);
+      border-color: rgba(255, 184, 0, 0.5);
+    }
   }
 }
 
-// Stacked Parchment Depth
+// Stacked Parchment Depth (Oma's Recipe Stack)
 @mixin stacked-parchment {
-  background-color: $bg-parchment;
-  border: 1px solid $border-notebook;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(74, 59, 50, 0.06), 
-              0 2px 4px -1px rgba(74, 59, 50, 0.04),
-              0 0 0 1px rgba(232, 226, 213, 0.8),
-              0 8px 16px -4px rgba(74, 59, 50, 0.08);
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(74, 59, 50, 0.05), 
+              0 2px 4px -1px rgba(74, 59, 50, 0.03),
+              0 0 0 1px var(--border),
+              0 10px 20px -4px rgba(74, 59, 50, 0.07);
+
+  :global(.dark) & {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45),
+                0 0 0 1px var(--border),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
 }
 
-// Chef Note Annotation
+// Oma's Secret Kitchen Note (Handwritten Script Annotation)
 @mixin chef-note {
   font-family: $font-script-handwritten;
   font-size: 1.25rem;
-  line-height: 1.35;
-  color: #3D2C1E;
-  background-color: #FFF8E7;
+  line-height: 1.4;
+  color: var(--foreground);
+  background-color: var(--accent);
   border-left: 4px solid $color-yolk-gold;
-  padding: 0.875rem 1.25rem;
-  border-radius: 0 10px 10px 0;
-  box-shadow: 0 2px 8px rgba(255, 184, 0, 0.12);
+  padding: 1rem 1.25rem;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 2px 10px rgba(255, 184, 0, 0.08);
+  position: relative;
+
+  :global(.dark) & {
+    background-color: rgba(58, 47, 34, 0.7);
+    color: #FAF0D9;
+    border-left: 4px solid $color-yolk-gold;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+  }
 }
 
-// Safety Badge Status Mixin
+// Safety Badge Status Mixin (Gold Standard: 70°C for 2 minutes)
 @mixin safety-badge($status) {
   display: inline-flex;
   align-items: center;
@@ -48,19 +77,53 @@
   font-weight: 700;
   padding: 0.25rem 0.625rem;
   border-radius: 9999px;
+  transition: all 0.2s ease;
 
   @if $status == 'danger' {
-    color: $color-risk-danger;
-    background-color: rgba(176, 0, 32, 0.1);
+    color: #B00020;
+    background-color: rgba(176, 0, 32, 0.09);
     border: 1px solid rgba(176, 0, 32, 0.25);
+
+    :global(.dark) & {
+      color: #FF8A80;
+      background-color: rgba(211, 47, 47, 0.22);
+      border: 1px solid rgba(255, 138, 128, 0.35);
+    }
   } @else if $status == 'warning' {
     color: #8D6000;
-    background-color: rgba(255, 193, 7, 0.18);
+    background-color: rgba(255, 193, 7, 0.16);
     border: 1px solid rgba(255, 193, 7, 0.35);
+
+    :global(.dark) & {
+      color: #FFD54F;
+      background-color: rgba(255, 193, 7, 0.2);
+      border: 1px solid rgba(255, 213, 79, 0.35);
+    }
   } @else if $status == 'safe' {
-    color: $color-risk-safe;
+    color: #2E7D32;
     background-color: rgba(46, 125, 50, 0.1);
     border: 1px solid rgba(46, 125, 50, 0.25);
+
+    :global(.dark) & {
+      color: #81C784;
+      background-color: rgba(46, 125, 50, 0.22);
+      border: 1px solid rgba(129, 199, 132, 0.35);
+    }
+  }
+}
+
+// Tactile Button Hover & Press Animation
+@mixin tactile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+
+  &:active {
+    transform: scale(0.97);
   }
 }
 

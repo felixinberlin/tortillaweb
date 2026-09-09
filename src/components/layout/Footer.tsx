@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "@/i18n/config";
 import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight, ExternalLink } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { getTranslations } from "@/lib/i18n";
 import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 
 interface FooterProps {
@@ -12,7 +12,7 @@ interface FooterProps {
 export default function Footer({ lang = "es", currentPath: propPath }: FooterProps) {
   const [clientPath, setClientPath] = useState("");
 
-  const { t } = useTranslation(undefined, { lng: lang });
+  const t = getTranslations(lang);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -68,6 +68,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
             {[
               { path: "/recipes", label: t("nav.recipes", "Recetas de la Gastronomía") },
               { path: "/builder", label: t("nav.builder", "Constructor Interactivo") },
+              { path: "/utensilios", label: t("nav.utensilios", "Utensilios & Menaje de Cocina") },
               { path: "/ingredients", label: t("nav.ingredients", "Ingredientes & Proporciones") },
               { path: "/techniques", label: t("nav.techniques", "Técnicas & Volteado") },
               { path: "/science", label: t("nav.science", "Ciencia & Seguridad Alimentaria") },
@@ -117,6 +118,10 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
                 <img
                   src="/images/normativa-1021-2022.jpg"
                   alt="Normativa Colectividades Real Decreto 1021/2022"
+                  width={56}
+                  height={56}
+                  loading="lazy"
+                  decoding="async"
                   className="w-14 h-14 object-cover hover:scale-105 transition-transform duration-200"
                   referrerPolicy="no-referrer"
                 />

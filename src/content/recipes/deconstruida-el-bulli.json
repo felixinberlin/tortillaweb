@@ -136,9 +136,9 @@
     {
       "step": { "es": "3. Montaje en copa y seguridad", "en": "3. Layering & food safety pasteurization", "de": "3. Schichten & Pasteurisierung" },
       "text": {
-        "es": "Vierte la yema de huevo sobre la marmelada de cebolla y cubre con la espuma de patata caliente. La temperatura pasteurizadora del puré (mantenida a 70°C durante 2 minutos) atempera la yema creando una emulsión perfecta al hundir la cuchara.",
-        "en": "Layer yolk over onion and top with hot potato mousse. Thermal heat from mousse (held at 70°C for 2 minutes) gently pasteurizes yolk into a silky emulsion when spooned.",
-        "de": "Eigelb über die Zwiebeln geben und mit warmem Kartoffelschaum bedecken. Hitze (70°C für 2 Minuten) temperiert das Eigelb perfekt."
+        "es": "Vierte la yema de huevo sobre la marmelada de cebolla y cubre con la espuma de patata caliente. La temperatura pasteurizadora del puré (mantenida a **70°C durante 2 minutos**) atempera la yema creando una emulsión perfecta al hundir la cuchara.",
+        "en": "Layer yolk over onion and top with hot potato mousse. Thermal heat from mousse (held at **70°C for 2 minutes**) gently pasteurizes yolk into a silky emulsion when spooned.",
+        "de": "Eigelb über die Zwiebeln geben und mit warmem Kartoffelschaum bedecken. Hitze (**70°C für 2 Minuten**) temperiert das Eigelb perfekt."
       }
     }
   ],

@@ -1,0 +1,56 @@
+{
+  "id": "chef-enrique",
+  "type": "person",
+  "contentId": "person.chef-enrique",
+  "name": "Chef Enrique",
+  "region": "pais-vasco",
+  "role": {
+    "es": "Chef de Alta Cocina & Investigador Gastronómico",
+    "en": "Michelin-Starred Chef & Culinary Researcher",
+    "de": "Sternekoch & Gastronomischer Forscher"
+  },
+  "specialty": "Concebollismo Modernista & Confitado Termocontrolado a 68°C",
+  "slug": {
+    "es": "chef-enrique",
+    "en": "chef-enrique",
+    "de": "chef-enrique"
+  },
+  "title": {
+    "es": "Chef Enrique",
+    "en": "Chef Enrique",
+    "de": "Chef Enrique"
+  },
+  "description": {
+    "es": "Pionero de la nueva cocina vasca en San Sebastián, creador de una técnica de doble caramelización lenta de cebolla dulce y cuajado termocontrolado a 68°C.",
+    "en": "Pioneer of modern Basque cuisine in San Sebastián, creator of a slow dual-caramelization sweet onion technique and precise 68°C coagulation.",
+    "de": "Pionier der modernen baskischen Küche in San Sebastián, Entwickler einer schonenden Doppel-Karamellisierung von Süßzwiebeln und 68°C-Garung."
+  },
+  "bio": {
+    "es": "Formado en las cocinas más prestigiosas de Guipúzcoa y Lyon, Enrique lidera un restaurante galardonado en San Sebastián donde la tortilla es reverenciada como una obra cumbre de precisión molecular y equilibrio de azúcares.",
+    "en": "Trained in top kitchens across Gipuzkoa and Lyon, Enrique heads an acclaimed restaurant in San Sebastián where the tortilla is treated as a pinnacle of molecular precision and sugar equilibrium.",
+    "de": "Ausgebildet in den Spitzenküchen von Gipuzkoa und Lyon, leitet Enrique ein prämiertes Restaurant in San Sebastián, in dem die Tortilla als Höhepunkt molekularer Präzision und Zuckerbalance gefeiert wird."
+  },
+  "quote": {
+    "es": "La cebolla no es una distracción; es la llave enzimática que transforma el almidón de la patata en una sinfonía de umami y jugosidad.",
+    "en": "The onion is not a distraction; it is the enzymatic key that transforms potato starch into a symphony of umami and juiciness.",
+    "de": "Die Zwiebel ist keine Ablenkung; sie ist der enzymatische Schlüssel, der Kartoffelstärke in eine Symphonie aus Umami und Saftigkeit verwandelt."
+  },
+  "dogma": {
+    "es": "Ciencia térmica, cebolla caramelizada durante noventa minutos y cuajado milimétrico en sartén templada.",
+    "en": "Thermal physics, ninety-minute caramelized onions, and millimetric coagulation in a calibrated pan.",
+    "de": "Thermische Präzision, neunzig Minuten karamellisierte Zwiebeln und millimetergenaues Stocken."
+  },
+  "favoriteRecipe": "donostia",
+  "story": "/es/personas/chef-enrique",
+  "image": "/images/personas/alejandro.jpg",
+  "badge": {
+    "es": "Alta Cocina Vasca",
+    "en": "Basque Haute Cuisine",
+    "de": "Baskische Spitzenküche"
+  },
+  "related": [
+    { "type": "faction", "id": "concebollistas" },
+    { "type": "recipe", "id": "donostia" },
+    { "type": "region", "id": "pais-vasco" }
+  ]
+}

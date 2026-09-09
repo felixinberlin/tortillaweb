@@ -134,7 +134,7 @@
       }
     },
     {
-      "step": { "es": "3. Mezclado y jugosidad", "en": "3. Mixing & creamiess", "de": "3. Verquirlen und Saftigkeit" },
+      "step": { "es": "3. Mezclado y jugosidad", "en": "3. Mixing & creaminess", "de": "3. Verquirlen und Saftigkeit" },
       "text": {
         "es": "Bate los huevos en un bol (sin añadir sal adicional, pues el bacalao aporta su punto salino). Mezcla el salteado con el huevo batido.",
         "en": "Whisk eggs in a bowl without extra salt (cod provides natural seasoning). Fold hot cod and pepper mix into beaten eggs.",
@@ -144,9 +144,9 @@
     {
       "step": { "es": "4. Cuajado corto", "en": "4. Quick sear", "de": "4. Schnelles Stocken" },
       "text": {
-        "es": "Cuaja en sartén muy caliente 1 minuto por cada lado, dejando el interior meloso. Asegura la norma sanitaria alcanzando 70°C durante 2 minutos si se almacena.",
-        "en": "Sear in a hot pan for 1 minute per side leaving a creamy interior. Keep food safety standards of 70°C for 2 minutes if preserving.",
-        "de": "In der heißen Pfanne 1 Minute pro Seite garen, damit das Innere cremig bleibt. Bei Aufbewahrung 70°C für 2 Minuten einhalten."
+        "es": "Cuaja en sartén muy caliente 1 minuto por cada lado, dejando el interior meloso. Asegura la norma sanitaria alcanzando **70°C durante 2 minutos** si se almacena.",
+        "en": "Sear in a hot pan for 1 minute per side leaving a creamy interior. Keep food safety standards of **70°C for 2 minutes** if preserving.",
+        "de": "In der heißen Pfanne 1 Minute pro Seite garen, damit das Innere cremig bleibt. Bei Aufbewahrung **70°C für 2 Minuten** einhalten."
       }
     }
   ],

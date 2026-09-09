@@ -1,0 +1,21 @@
+{
+  "id": "tutorial-tortilla-express",
+  "title": {
+    "es": "Tortilla Express: Hidratación con Patatas Chips en 10 Minutos",
+    "en": "Express Tortilla: Potato Chip Hydration Method in 10 Minutes",
+    "de": "Express-Tortilla: Kartoffelchips-Hydratisierung in 10 Minuten"
+  },
+  "description": {
+    "es": "La fórmula vanguardista inspirada en Ferran Adrià para una tortilla de emergencia impecable usando patatas chips de alta calidad.",
+    "en": "The avant-garde formula inspired by Ferran Adrià for an impeccable quick omelette using high-grade potato chips.",
+    "de": "Die von Ferran Adrià inspirierte Avantgarde-Methode für eine schnelle Tortilla mit hochwertigen Kartoffelchips."
+  },
+  "thumbnailUrl": "/images/recipes/chips.jpg",
+  "duration": 480,
+  "lang": "es",
+  "category": "technique",
+  "relatedRecipeIds": [
+    "express"
+  ],
+  "publishedAt": "2026-04-10T14:30:00Z"
+}

@@ -1,0 +1,49 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import TortillaSvgStudio from '@/components/laboratory/TortillaSvgStudio';
+import { Sparkles, Image as ImageIcon } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'en'
+  ? 'Tortilla SVG Generator & Culinary Vector Studio | Laboratorio'
+  : currentLang === 'de'
+  ? 'Tortilla SVG-Generator & Vektor-Studio | Laboratorium'
+  : 'Generador SVG de Tortilla & Estudio Vectorial | Laboratorio';
+
+const pageDescription = currentLang === 'en'
+  ? 'Generate high-fidelity parametric SVG illustrations for any Spanish tortilla based on doneness, egg yolk physics, cut style, and ingredients.'
+  : currentLang === 'de'
+  ? 'Erstelle parametrische SVG-Vektorillustrationen für spanische Tortillas basierend auf Garstufe, Schnittform und Zutaten.'
+  : 'Genera ilustraciones vectoriales SVG paramétricas de alta definición para cualquier tortilla de patatas según su punto de cuajado, corte de patata e ingredientes.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  {
+    name: currentLang === 'en' ? 'Home' : currentLang === 'de' ? 'Startseite' : 'Inicio',
+    url: `/${currentLang}`,
+  },
+  {
+    name: currentLang === 'en' ? 'Laboratory' : currentLang === 'de' ? 'Laboratorium' : 'Laboratorio',
+    url: `/${currentLang}/laboratorio`,
+  },
+  {
+    name: currentLang === 'en' ? 'SVG Generator' : currentLang === 'de' ? 'SVG-Generator' : 'Generador SVG',
+    url: `/${currentLang}/laboratorio/svg-generator`,
+  },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
+    <TortillaSvgStudio client:load lang={currentLang} />
+  </div>
+</Layout>

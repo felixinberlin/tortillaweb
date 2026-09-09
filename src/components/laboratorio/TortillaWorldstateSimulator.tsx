@@ -11,6 +11,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import {
+  loadWorldState,
   dispatchWorldStateAction,
   executeCliCommand,
   type WorldState,

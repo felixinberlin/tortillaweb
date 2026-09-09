@@ -1,0 +1,201 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { BookOpen, Clock, ShieldCheck, Flame, ChevronRight, Sparkles, ChefHat, Scale, Zap, Info } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateCollectionPageSchema } from '@/lib/seo';
+import { getCollection } from 'astro:content';
+import LocalizedLink from '@/components/navigation/LocalizedLink';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'en' || lang === 'de') ? lang : 'es';
+const t = getTranslations(currentLang);
+
+const allGuides = await getCollection('guides');
+const localizedGuides = allGuides.filter((entry) => {
+  return entry.data.lang === currentLang || entry.id.endsWith(`.${currentLang}`);
+});
+
+// Category Icons and colors map
+const categoryMeta: Record<string, { label: string; icon: any; color: string }> = {
+  masterclass: {
+    label: currentLang === 'es' ? 'Masterclass Purista' : currentLang === 'de' ? 'Puristen-Meisterklasse' : 'Purist Masterclass',
+    icon: ChefHat,
+    color: 'bg-[#FFB800]/15 text-[#8D6E63] border-[#FFB800]/40',
+  },
+  technique: {
+    label: currentLang === 'es' ? 'Técnica de Precisión' : currentLang === 'de' ? 'Präzisionstechnik' : 'Precision Technique',
+    icon: Flame,
+    color: 'bg-[#00A3FF]/15 text-[#0077B6] border-[#00A3FF]/40',
+  },
+  science: {
+    label: currentLang === 'es' ? 'Ciencia & Bioquímica' : currentLang === 'de' ? 'Wissenschaft & Biochemie' : 'Science & Biochemistry',
+    icon: Sparkles,
+    color: 'bg-[#10B981]/15 text-[#059669] border-[#10B981]/40',
+  },
+  history: {
+    label: currentLang === 'es' ? 'Crónica Histórica' : currentLang === 'de' ? 'Historische Chronik' : 'Historical Chronicle',
+    icon: BookOpen,
+    color: 'bg-[#8D6E63]/15 text-[#5D4037] border-[#8D6E63]/40',
+  },
+  debate: {
+    label: currentLang === 'es' ? 'Debate & Sociología' : currentLang === 'de' ? 'Debatte & Soziologie' : 'Debate & Culture',
+    icon: Scale,
+    color: 'bg-[#FF8A00]/15 text-[#D97706] border-[#FF8A00]/40',
+  },
+};
+
+const guideCount = localizedGuides.length;
+
+const title = currentLang === 'es'
+  ? 'Guías y Masterclasses de la Tortilla de Patatas - tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Meisterklassen & Schritt-für-Schritt-Anleitungen - tortilladepatatas.org'
+  : 'Tortilla de Patatas Masterclass & Technique Guides - tortilladepatatas.org';
+
+const description = currentLang === 'es'
+  ? `Colección de ${guideCount} guías magistrales y tutoriales a fondo: física del volteo, almidones de patata, fenómeno Betanzos, tortilla de posguerra, confitado a baja temperatura y resolución científica de debates.`
+  : currentLang === 'de'
+  ? `Sammlung von ${guideCount} ausführlichen Meisterklassen: Physik des Wendens, Kartoffelstärke, Betanzos-Phänomen, Nachkriegs-Tortilla, sanftes Niedrigtemperatur-Confit und wissenschaftliche Debatten.`
+  : `Collection of ${guideCount} comprehensive tutorial-grade masterclasses: Physics of the flip, potato starch chemistry, the Betanzos phenomenon, post-war survival cooking, low & slow confit, and culinary science.`;
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Guías', url: `/${currentLang}/guias` }
+]);
+
+const collectionSchema = generateCollectionPageSchema({
+  title,
+  description,
+  url: `/${currentLang}/guias`,
+  items: localizedGuides.map((g) => ({
+    title: g.data.title,
+    url: `/${currentLang}/guias/${g.data.slug || g.id}`,
+    image: g.data.image,
+  }))
+});
+---
+
+<Layout title={title} description={description} lang={currentLang} schema={[breadcrumbSchema, collectionSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl space-y-10">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Badge variant="secondary" class="px-3.5 py-1 text-xs font-bold bg-[#FFB800]/15 text-[#8D6E63] border border-[#FFB800]/40 inline-flex items-center gap-1.5 shadow-2xs">
+        <BookOpen class="w-3.5 h-3.5 text-[#FFB800]" />
+        {currentLang === 'es' ? 'Artículos Tutoriales de Alta Cocina' : currentLang === 'de' ? 'Ausführliche Tutorial-Meisterklassen' : 'Tutorial-Grade Masterclasses'}
+      </Badge>
+      
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold tracking-tight text-foreground leading-tight">
+        {currentLang === 'es' ? 'Guías Magistrales de la Tortilla' : currentLang === 'de' ? 'Meisterklassen der Tortilla de Patatas' : 'Tortilla Masterclasses & Deep Dives'}
+      </h1>
+      
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {description}
+      </p>
+    </div>
+
+    <!-- Mandatory Food Safety Banner -->
+    <div class="p-4 sm:p-5 rounded-2xl bg-[#FCF9F2] dark:bg-[#1A1715] border-2 border-[#2E7D32]/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex items-start sm:items-center gap-3">
+        <div class="p-2 rounded-xl bg-[#2E7D32]/10 text-[#2E7D32] shrink-0">
+          <ShieldCheck class="w-6 h-6" />
+        </div>
+        <div>
+          <h2 class="font-serif-heading font-bold text-sm sm:text-base text-foreground">
+            {currentLang === 'es' ? 'Estándar Sanitario Oficial (RD 1021/2022)' : currentLang === 'de' ? 'Offizieller Hygienestandard (RD 1021/2022)' : 'Official Food Safety Protocol (RD 1021/2022)'}
+          </h2>
+          <p class="text-xs sm:text-sm text-muted-foreground mt-0.5">
+            {currentLang === 'es'
+              ? 'Todas nuestras guías integran el estándar de seguridad de 70°C durante 2 minutos (o 63°C durante 20 segundos) y el límite de 4 horas a temperatura ambiente.'
+              : currentLang === 'de'
+              ? 'Alle Leitfäden basieren auf dem Sicherheitsstandard von 70°C für 2 Minuten (oder 63°C für 20 Sekunden) und maximal 4 Stunden bei Raumtemperatur.'
+              : 'All guides adhere to the golden food safety protocol: 70°C for 2 minutes (or 63°C for 20 seconds) with a strict 4-hour ambient room limit.'}
+          </p>
+        </div>
+      </div>
+      <LocalizedLink
+        to="/science"
+        class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#2E7D32] text-white text-xs font-bold hover:bg-[#1B5E20] transition-colors shrink-0 shadow-2xs"
+      >
+        <span>{currentLang === 'es' ? 'Ver Protocolo Científico' : currentLang === 'de' ? 'Wissenschafts-Protokoll' : 'View Safety Science'}</span>
+        <ChevronRight class="w-3.5 h-3.5" />
+      </LocalizedLink>
+    </div>
+
+    <!-- Guides Cards Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {localizedGuides.map((guide) => {
+        const catKey = guide.data.category || 'technique';
+        const meta = categoryMeta[catKey] || categoryMeta.technique;
+        const IconComponent = meta.icon;
+        const slugStr = guide.data.slug || guide.id.replace(/\.[a-z]{2}$/, '');
+        const targetPath = `/guias/${slugStr}`;
+
+        return (
+          <article class="card-notebook group flex flex-col justify-between bg-[#FDFBF7] dark:bg-[#201D1A] border-2 border-[#E8E2D5] dark:border-[#3D352E] rounded-2xl overflow-hidden hover:border-[#FFB800] dark:hover:border-[#FFB800] transition-all duration-300 shadow-stacked-parchment hover:-translate-y-1">
+            <div class="p-6 sm:p-7 space-y-4">
+              
+              <!-- Header Badges -->
+              <div class="flex items-center justify-between gap-2">
+                <Badge variant="outline" class={`px-2.5 py-1 text-xs font-bold rounded-lg border ${meta.color} flex items-center gap-1.5`}>
+                  <IconComponent class="w-3.5 h-3.5" />
+                  <span>{meta.label}</span>
+                </Badge>
+
+                {guide.data.readTimeMinutes && (
+                  <div class="flex items-center gap-1 text-xs font-medium text-muted-foreground">
+                    <Clock class="w-3.5 h-3.5 text-[#8D6E63]" />
+                    <span>{guide.data.readTimeMinutes} min</span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Title -->
+              <h2 class="text-xl sm:text-2xl font-serif-heading font-extrabold text-foreground group-hover:text-[#8D6E63] dark:group-hover:text-[#FFB800] transition-colors leading-snug">
+                <LocalizedLink to={targetPath}>
+                  {guide.data.title}
+                </LocalizedLink>
+              </h2>
+
+              <!-- Description -->
+              <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                {guide.data.description}
+              </p>
+            </div>
+
+            <!-- Footer CTA -->
+            <div class="px-6 py-4 bg-[#F5E6BE]/20 dark:bg-[#2A2420] border-t border-[#E8E2D5] dark:border-[#3D352E] flex items-center justify-between">
+              <span class="text-xs font-bold text-[#8D6E63] dark:text-[#F5E6BE]">
+                {currentLang === 'es' ? 'Leer Masterclass' : currentLang === 'de' ? 'Meisterklasse lesen' : 'Read Masterclass'}
+              </span>
+              <LocalizedLink
+                to={targetPath}
+                class="w-8 h-8 rounded-full bg-[#8D6E63] text-white flex items-center justify-center group-hover:bg-[#FFB800] group-hover:text-black transition-colors shadow-2xs"
+                aria-label={`Leer ${guide.data.title}`}
+              >
+                <ChevronRight class="w-4 h-4" />
+              </LocalizedLink>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Interconnected Knowledge Hub -->
+    <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/guias`} client:visible />
+
+    <!-- Guided Journey Tracker -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/guias`} client:visible />
+
+  </div>
+</Layout>

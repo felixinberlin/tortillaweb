@@ -1,0 +1,103 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Film, ArrowLeft } from 'lucide-react';
+import { getTranslations, supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/lib/seo';
+import { getCollection } from 'astro:content';
+import VideoGrid from '@/components/videos/VideoGrid.tsx';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+// Fetch videos collection
+const videoEntries = await getCollection('videos');
+const videoItems = videoEntries.map((v) => ({
+  id: v.data.id,
+  title: v.data.title,
+  description: v.data.description,
+  videoId: v.data.videoId,
+  thumbnailUrl: v.data.thumbnailUrl,
+  duration: v.data.duration,
+  lang: v.data.lang,
+  category: v.data.category,
+  relatedRecipeIds: v.data.relatedRecipeIds,
+  publishedAt: v.data.publishedAt,
+}));
+
+const pageTitles = {
+  es: "Laboratorio Audiovisual & Técnicas en Vídeo",
+  en: "Audiovisual Laboratory & Video Techniques",
+  de: "Audiovisuelles Labor & Video-Techniken",
+};
+
+const title = `${pageTitles[currentLang]} - tortilladepatatas.org`;
+const description = "Videoteca experimental, análisis cinético de volteo y técnicas de laboratorio de la tortilla de patatas.";
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: currentLang === 'en' ? 'Home' : currentLang === 'de' ? 'Startseite' : 'Inicio', url: `/${currentLang}` },
+  { name: currentLang === 'en' ? 'Laboratory' : currentLang === 'de' ? 'Labor' : 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  { name: pageTitles[currentLang], url: `/${currentLang}/laboratorio/videos` }
+]);
+
+const articleSchema = generateArticleSchema({
+  headline: pageTitles[currentLang],
+  description,
+  url: `/${currentLang}/laboratorio/videos`,
+});
+
+const schemas = [breadcrumbSchema, articleSchema];
+---
+
+<Layout title={title} description={description} lang={currentLang} schema={schemas}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl space-y-8">
+    
+    <div class="flex items-center gap-2">
+      <a
+        href={`/${currentLang}/laboratorio`}
+        class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] hover:text-[#6D4C41] dark:text-[#FFB800] transition-colors"
+      >
+        <ArrowLeft class="w-3.5 h-3.5" />
+        <span>{currentLang === 'en' ? 'Back to Laboratory' : currentLang === 'de' ? 'Zurück zum Labor' : 'Volver al Laboratorio'}</span>
+      </a>
+    </div>
+
+    <!-- Header Hero -->
+    <header class="text-center max-w-3xl mx-auto space-y-3">
+      <Badge variant="secondary" class="px-3.5 py-1 text-xs font-bold bg-[#FFB800]/15 text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/30 inline-flex items-center gap-1.5 shadow-2xs">
+        <Film class="w-3.5 h-3.5" />
+        <span>Laboratorio Audiovisual 4K</span>
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-black tracking-tight text-foreground dark:text-[#F5E6BE]">
+        {pageTitles[currentLang]}
+      </h1>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+        {currentLang === 'en' 
+          ? 'Experimental footage, slow-motion wrist flips, and food safety video masterclasses.'
+          : currentLang === 'de'
+          ? 'Experimentelle Aufnahmen, Zeitlupen-Wendung und mikrobiologische Video-Meisterklassen.'
+          : 'Grabaciones experimentales, volteo en cámara lenta y masterclasses de seguridad e inocuidad alimentaria.'}
+      </p>
+    </header>
+
+    <!-- Interactive Video Grid -->
+    <section>
+      <VideoGrid videos={videoItems} lang={currentLang} client:load />
+    </section>
+
+    {/* Interconnected Knowledge Base Node */}
+    <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/laboratorio/videos`} client:visible />
+
+    <!-- Guided Culinary Journey Navigation -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/laboratorio/videos`} client:visible />
+
+  </div>
+</Layout>

@@ -152,9 +152,9 @@
     {
       "step": { "es": "3. Cuajado y toque de miel", "en": "3. Cooking and honey finish", "de": "3. Garen & Honig-Finish" },
       "text": {
-        "es": "Cuaja la tortilla en sartén antiadherente 2 minutos por lado. Al emplatar, riega la superficie con un fino hilo de miel pura de flores. Asegura una temperatura bactericida de 70°C durante 2 minutos.",
-        "en": "Sear tortilla for 2 minutes per side. Upon plating, drizzle top with wildflower honey. Ensure food safety standard of 70°C for 2 minutes.",
-        "de": "Tortilla 2 Minuten pro Seite braten. Vor dem Servieren mit Honig beträufeln. Kern sicherstellen bei 70°C für 2 Minuten."
+        "es": "Cuaja la tortilla en sartén antiadherente 2 minutos por lado. Al emplatar, riega la superficie con un fino hilo de miel pura de flores. Asegura una temperatura bactericida de **70°C durante 2 minutos**.",
+        "en": "Sear tortilla for 2 minutes per side. Upon plating, drizzle top with wildflower honey. Ensure food safety standard of **70°C for 2 minutes**.",
+        "de": "Tortilla 2 Minuten pro Seite braten. Vor dem Servieren mit Honig beträufeln. Kern sicherstellen bei **70°C für 2 Minuten**."
       }
     }
   ],

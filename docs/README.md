@@ -17,6 +17,7 @@ The documentation is organized into two primary categories: **Project Documentat
 | **[Security.md](./Security.md)** | Security posture, static site isolation, client input validation, Sentry monitoring plan, and food safety policy. |
 | **[SEO.md](./SEO.md)** | Search Engine Optimization (SEO) & i18n strategy (hreflang, JSON-LD schemas, sitemaps, Open Graph). |
 | **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** | "Kitchen Notebook" design system, brand colors, typography, and skeuomorphic visual guidelines. |
+| **[TESTING.md](./TESTING.md)** | Automated testing strategy, test suite catalog, culinary food safety rules, and verification procedures. |
 | **[taxonomy-driven-content-model.md](./taxonomy-driven-content-model.md)** | Specification of content collections and taxonomy tagging model. |
 | **[License.md](./License.md)** | Open source licensing (MIT License for software, CC BY 4.0 for culinary research). |
 

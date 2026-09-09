@@ -2,11 +2,13 @@
 @use '../mixins' as *;
 
 .site-header {
-  background-color: $bg-notebook;
-  border-bottom: 1px solid $border-notebook;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 50;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 
   .header-container {
     max-width: 1280px;
@@ -25,22 +27,23 @@
     font-family: $font-serif-heading;
     font-weight: 800;
     font-size: 1.25rem;
-    color: #4A3B32;
+    color: var(--foreground);
     text-decoration: none;
     transition: color 0.2s;
 
     &:hover {
-      color: $color-onion-umber;
+      color: $color-yolk-gold;
     }
 
     .brand-icon {
       padding: 0.375rem;
-      border-radius: 8px;
-      background-color: rgba(255, 184, 0, 0.15);
+      border-radius: 10px;
+      background-color: rgba(255, 184, 0, 0.18);
       color: $color-yolk-gold;
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid rgba(255, 184, 0, 0.3);
     }
   }
 
@@ -57,42 +60,20 @@
       padding: 0.5rem 0.875rem;
       font-size: 0.875rem;
       font-weight: 600;
-      color: $text-primary;
+      color: var(--foreground);
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 6px;
-      transition: all 0.2s;
+      transition: all 0.18s ease;
 
-      &:hover, &.active {
-        color: #4A3B32;
-        background-color: $color-potato-cream;
+      &:hover {
+        background-color: var(--accent);
+        color: var(--foreground);
       }
-    }
-  }
 
-  .language-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    background-color: #F3EFE6;
-    padding: 0.25rem;
-    border-radius: 8px;
-    border: 1px solid $border-notebook;
-
-    .lang-btn {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      border-radius: 4px;
-      border: none;
-      background: transparent;
-      color: $text-secondary;
-      cursor: pointer;
-      transition: all 0.2s;
-
-      &.is-active {
-        background-color: $bg-card;
-        color: $color-onion-umber;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      &.active {
+        background-color: var(--secondary);
+        color: var(--secondary-foreground);
+        font-weight: 700;
       }
     }
   }

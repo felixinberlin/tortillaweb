@@ -1,0 +1,228 @@
+{
+  "id": "piquillo-catalana",
+  "contentId": "recipe.piquillo-catalana",
+  "translationKey": "recipe-piquillo-catalana",
+  "slug": {
+    "es": "tortilla-catalana-pimientos-piquillo",
+    "en": "catalan-roasted-piquillo-pepper-omelette",
+    "de": "katalanische-piquillo-paprika-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Catalana con Pimientos del Piquillo y Ajo Suave",
+    "en": "Catalan Omelette with Roasted Piquillo Peppers & Garlic",
+    "de": "Katalanische Tortilla mit Piquillo-Paprika und Knoblauch"
+  },
+  "description": {
+    "es": "Receta mediterránea con tiras de pimiento del piquillo asado a la leña, cebolla dulce de Figueres caramelizada y un sutil toque de ajo confitado en aceite arbequina.",
+    "en": "Mediterranean recipe featuring wood-roasted piquillo pepper ribbons, sweet Figueres caramelized onions, and subtly confited garlic in arbequina olive oil.",
+    "de": "Mediterranes Rezept mit holzgerösteten Piquillo-Paprikastreifen, karamellisierten Figueres-Zwiebeln und sanft confiertem Knoblauch in Arbequina-Öl."
+  },
+  "taxonomyIds": [
+    "faction:pimientistas",
+    "faction:concebollistas",
+    "faction:ajistas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:cherryPepper",
+    "ingredient:onion",
+    "ingredient:garlic",
+    "ingredient:oil",
+    "region:cataluna",
+    "style:rustic",
+    "technique:sofrito",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 35,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/recipes/piquillo-catalana.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Monalisa",
+        "en": "Monalisa Potato",
+        "de": "Monalisa-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en medias lunas finas",
+        "en": "500g cut into thin half-moons",
+        "de": "500g in dünne Halbmonde geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos frescos",
+        "en": "Fresh Free-Range Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos frescos tamaño L",
+        "en": "6 large free-range eggs",
+        "de": "6 große Freilandeier"
+      }
+    },
+    {
+      "id": "piquillo",
+      "ingredientId": "cherryPepper",
+      "name": {
+        "es": "Pimientos del Piquillo asados",
+        "en": "Roasted Piquillo Peppers",
+        "de": "Geröstete Piquillo-Paprika"
+      },
+      "amount": 120,
+      "unit": "g",
+      "notes": {
+        "es": "120g en tiras finas bien escurridas",
+        "en": "120g sliced in thin drained strips",
+        "de": "120g in feine abgetropfte Streifen geschnitten"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla dulce de Figueres",
+        "en": "Sweet Figueres Onion",
+        "de": "Süße Figueres-Zwiebel"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "1 cebolla dulce en juliana fina",
+        "en": "1 sweet onion sliced in thin julienne",
+        "de": "1 süße Zwiebel in feine Streifen geschnitten"
+      }
+    },
+    {
+      "id": "garlic",
+      "ingredientId": "garlic",
+      "name": {
+        "es": "Ajo morado laminado",
+        "en": "Sliced Purple Garlic",
+        "de": "Laminierter Knoblauch"
+      },
+      "amount": 2,
+      "unit": "unit",
+      "notes": {
+        "es": "2 dientes de ajo cortados en láminas transparentes",
+        "en": "2 cloves thinly sliced for subtle aroma",
+        "de": "2 Zehen in feine Scheiben geschnitten"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra Arbequina",
+        "en": "Arbequina Extra Virgin Olive Oil",
+        "de": "Natives Arbequina-Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml de AOVE Arbequina frutado",
+        "en": "150ml delicate fruity Arbequina EVOO",
+        "de": "150ml mild-fruchtiges Arbequina-Olivenöl"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Confitado de cebolla y ajo suave",
+        "en": "1. Gentle onion & garlic confit",
+        "de": "1. Sanftes Dünsten von Zwiebeln und Knoblauch"
+      },
+      "text": {
+        "es": "En una sartén con AOVE a fuego bajo (120°C), pocha la cebolla en juliana y las láminas de ajo durante 15 minutos hasta que adquieran un tono dorado translúcido y dulce sin tostarse.",
+        "en": "In a skillet with EVOO at low heat (120°C), poach julienned onions and garlic slices for 15 minutes until soft, sweet, and golden.",
+        "de": "In einer Pfanne mit Olivenöl bei schwacher Hitze Zwiebeln und Knoblauch 15 Minuten dünsten, bis sie süßlich und weich sind."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Salteado caramelizado de piquillos",
+        "en": "2. Sautéing roasted piquillos",
+        "de": "2. Anbraten der Piquillo-Streifen"
+      },
+      "text": {
+        "es": "Incorpora las tiras de pimiento del piquillo al sofrito y saltea a fuego medio durante 3 minutos para concentrar sus jugos y caramelizar los azúcares naturales.",
+        "en": "Add the piquillo pepper strips to the sofrito and sauté over medium heat for 3 minutes to concentrate their natural sweet juices.",
+        "de": "Piquillo-Paprikastreifen dazugeben und 3 Minuten bei mittlerer Hitze anbraten, um das Aroma zu intensivieren."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Pochado tradicional de patata",
+        "en": "3. Traditional potato poaching",
+        "de": "3. Schonendes Garen der Kartoffeln"
+      },
+      "text": {
+        "es": "Pocha las patatas en AOVE caliente a 140°C hasta que estén tiernas y cedan suavemente al tacto del tenedor. Escurre bien.",
+        "en": "Poach potatoes in olive oil at 140°C until tender and soft when pressed with a fork. Drain thoroughly.",
+        "de": "Kartoffeln in Olivenöl bei 140°C pochieren, bis sie schön weich sind. Gründlich abtropfen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Mezcla envolvente y sazonado",
+        "en": "4. Folding and egg blending",
+        "de": "4. Eimischung und Unterheben"
+      },
+      "text": {
+        "es": "Bate los 6 huevos con sal. Añade las patatas calientes, la cebolla, el ajo y los pimientos salteados. Mezcla con movimientos suaves y reposa 3 minutos.",
+        "en": "Whisk 6 eggs with salt. Fold in the hot potatoes, caramelized onion, garlic, and sautéed piquillos. Let rest for 3 minutes.",
+        "de": "6 Eier mit Salz verquirlen. Die warmen Kartoffeln, Zwiebeln, Knoblauch und Piquillos sanft unterheben und 3 Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Cuajado a fuego medio-suave",
+        "en": "5. Medium-low pan cooking",
+        "de": "5. Sanftes Stocken in der Pfanne"
+      },
+      "text": {
+        "es": "Calienta la sartén con un hilo de aceite, vierte la preparación y redondea los bordes durante 2 minutos a fuego medio para crear una estructura jugosa y firme.",
+        "en": "Heat skillet with a sheen of oil, pour in the mixture, and shape edges for 2 minutes over medium-low heat to build a creamy structure.",
+        "de": "Pfanne mit etwas Öl erhitzen, Masse hineingeben und 2 Minuten bei mittlerer Hitze anbraten, dabei die Ränder runden."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Volteo final y control de temperatura",
+        "en": "6. Final flip and food safety protocol",
+        "de": "6. Wenden und Hygienehinweise"
+      },
+      "text": {
+        "es": "Da la vuelta con plato y cocina 1 minuto y medio más por el otro lado. Si se reserva para aperitivo o pícnic, recuerda respetar la normativa de mantenerla a **70°C durante 2 minutos** o refrigerar inmediatamente sin exceder las **4 horas** a temperatura ambiente.",
+        "en": "Flip with a plate and cook for 1.5 minutes more. If preserving for later, ensure safety by reaching **70°C for 2 minutes** or refrigerating promptly without exceeding **4 hours** at room temperature.",
+        "de": "Mit dem Teller wenden und 1,5 Minuten fertig garen. Bei späterem Verzehr **70°C für 2 Minuten** gewährleisten und maximal **4 Stunden** bei Zimmertemperatur stehen lassen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Recetario Tradicional Catalán y Mediterráneo",
+      "description": {
+        "es": "Elaboración clásica de la costa catalana con verduras de huerta y aceite arbequina.",
+        "en": "Classic Catalan coast preparation with garden produce and arbequina olive oil.",
+        "de": "Klassische Zubereitung der katalanischen Küste mit Gartengemüse und Arbequina-Öl."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

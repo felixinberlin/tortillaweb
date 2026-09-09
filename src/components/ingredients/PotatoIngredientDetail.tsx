@@ -53,6 +53,10 @@ export default function PotatoIngredientDetail({
             <img
               src="/images/ingredients/potato_editorial_card.jpg"
               alt={t('potatoDetail.heroTitle', 'La Patata (Solanum tuberosum)')}
+              width={1200}
+              height={675}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />

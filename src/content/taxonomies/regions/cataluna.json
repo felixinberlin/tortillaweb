@@ -1,0 +1,21 @@
+{
+  "id": "cataluna",
+  "type": "region",
+  "contentId": "region.cataluna",
+  "slug": {
+    "es": "cataluna",
+    "en": "catalonia",
+    "de": "katalonien"
+  },
+  "title": {
+    "es": "Cataluña",
+    "en": "Catalonia",
+    "de": "Katalonien"
+  },
+  "description": {
+    "es": "Rica tradición mediterránea que combina verduras de la huerta, aceite arbequina y sofritos lentos.",
+    "en": "Rich Mediterranean tradition combining garden vegetables, arbequina olive oil, and gentle sofritos.",
+    "de": "Reiche mediterrane Tradition mit Gartengemüse, Arbequina-Olivenöl und schonendem Dünsten."
+  },
+  "icon": "Flame"
+}

@@ -151,6 +151,14 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
     <slot name="head" />
   </head>
   <body class="bg-background text-foreground font-sans antialiased min-h-screen flex flex-col">
+    <!-- Accessible Skip to Main Content Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#FFB800] focus:text-[#1C1917] focus:font-bold focus:rounded-lg focus:shadow-lg focus:outline-hidden"
+    >
+      {lang === 'es' ? 'Saltar al contenido principal' : lang === 'de' ? 'Zum Hauptinhalt springen' : 'Skip to main content'}
+    </a>
+
     {showHeader && (
       <>
         <Header

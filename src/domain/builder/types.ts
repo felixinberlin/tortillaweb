@@ -2,6 +2,9 @@ export type TextureStyle = "betanzos" | "jugosa" | "cuajada" | "runny" | "creamy
 export type PotatoTechnique = "pochada" | "crujiente" | "hybrid" | "traditional" | "crispy";
 export type OilCookingStyle = "minimal" | "traditional" | "generous";
 export type EggSize = "small" | "medium" | "large" | "xl";
+export type PotatoVariety = "monalisa" | "kennebec" | "agria" | "red_pontiac" | "spunta";
+export type PotatoCutStyle = "panadera" | "chascada" | "ultrafina" | "dados";
+export type FryingTemperatureProfile = "confit_soft" | "traditional_medium" | "crispy_high" | "double_stage";
 
 export interface TortillaIngredientInput {
   entityId: string;
@@ -47,6 +50,29 @@ export interface CalculatedProfile {
   estimatedFryingOilMl: number;
   estimatedAbsorbedOilMl: number;
   potatoUnits: number;         // 1 unit = 100g
+  potatoVariety: PotatoVariety;
+  potatoCut: PotatoCutStyle;
+  fryingTempProfile: FryingTemperatureProfile;
+  estimatedPotatoCookingTimeMin: {
+    min: number;
+    max: number;
+    formatted: { es: string; en: string; de: string };
+  };
+  recommendedFryingTempC: {
+    degreesMin: number;
+    degreesMax: number;
+    formatted: { es: string; en: string; de: string };
+  };
+  starchBehaviorNote: {
+    es: string;
+    en: string;
+    de: string;
+  };
+  potatoTextureImpact: {
+    es: string;
+    en: string;
+    de: string;
+  };
   ratioCategory: {
     es: string;
     en: string;
@@ -79,6 +105,9 @@ export interface TortillaConfiguration {
   preferences: {
     texture?: TextureStyle;
     potatoTechnique?: PotatoTechnique;
+    potatoVariety?: PotatoVariety;
+    potatoCut?: PotatoCutStyle;
+    fryingTempProfile?: FryingTemperatureProfile;
   };
   calculatedProfile: CalculatedProfile;
 }

@@ -12,6 +12,15 @@ import {
   generateCollectionPageSchema,
   SITE_URL,
 } from '../src/lib/seo';
+import {
+  createRecipeSchema,
+  validateRecipeSchema,
+  formatIsoDuration,
+  parseIsoDuration,
+} from '../src/lib/seo/recipeSchema';
+import clasicaRecipe from '../src/content/recipes/clasica.json';
+import betanzosRecipe from '../src/content/recipes/betanzos.json';
+import cebollaRecipe from '../src/content/recipes/concebolla.json';
 
 describe('SEO & Schema Generator Unit Tests', () => {
   it('should generate correct canonical URLs', () => {
@@ -42,7 +51,7 @@ describe('SEO & Schema Generator Unit Tests', () => {
     const org = generateOrganizationSchema();
     expect(org['@type']).toBe('Organization');
     expect(org.name).toBe('tortilladepatatas.org');
-    expect(org.knowsAbout).toContain('Salmonella Inactivation 70°C for 2 minutes');
+    expect(org.knowsAbout).toContain('Pasteurización y Seguridad del Huevo');
   });
 
   it('should generate WebSite schema with multilingual indicators', () => {
@@ -67,6 +76,7 @@ describe('SEO & Schema Generator Unit Tests', () => {
     const recipeSchema = generateRecipeSchema({
       name: 'Tortilla Clásica de Patatas',
       description: 'Receta tradicional con patatas pochadas y cuajado suave.',
+      image: '/images/recipes/clasica.jpg',
       ingredients: ['6 huevos L', '800g patatas Monalisa', 'Salt'],
       instructions: [{ step: 'Paso 1', text: 'Pelar y cortar patatas.' }],
       prepTimeMinutes: 20,
@@ -79,7 +89,88 @@ describe('SEO & Schema Generator Unit Tests', () => {
     expect(recipeSchema.cookTime).toBe('PT25M');
     expect(recipeSchema.totalTime).toBe('PT45M');
     expect(recipeSchema.recipeYield).toBe('4 raciones');
-    expect(recipeSchema.keywords).toContain('70°C for 2 minutes');
+    expect(recipeSchema.keywords).toContain('cuajado perfecto');
+  });
+
+  describe('createRecipeSchema (Issue #8 - Schema.org JSON-LD for Recipes)', () => {
+    it('should generate valid Schema.org/Recipe JSON-LD for Tortilla Clásica (Spanish)', () => {
+      const schema = createRecipeSchema(clasicaRecipe, { lang: 'es' });
+      expect(schema['@context']).toBe('https://schema.org');
+      expect(schema['@type']).toBe('Recipe');
+      expect(schema.name).toBe('Tortilla Clásica sin Cebolla');
+      expect(schema.description).toContain('patata, huevo, aceite y sal');
+      expect(schema.prepTime).toBe('PT15M');
+      expect(schema.cookTime).toBe('PT25M');
+      expect(schema.totalTime).toBe('PT40M');
+      expect(schema.recipeYield).toBe('4 raciones');
+      expect(schema.yieldCount).toBe('4');
+      expect(schema.recipeCategory).toBe('Plato principal');
+      expect(schema.recipeCuisine).toBe('Española');
+      expect(schema.image[0]).toBe('https://tortilladepatatas.org/images/recipes/clasica.jpg');
+      expect(schema.recipeIngredient.length).toBeGreaterThan(0);
+      expect(schema.recipeInstructions.length).toBeGreaterThan(0);
+      expect(schema.recipeInstructions[0]['@type']).toBe('HowToStep');
+      expect(schema.recipeInstructions[0].name).toBe('Cortar las patatas');
+
+      const validation = validateRecipeSchema(schema);
+      expect(validation.valid).toBe(true);
+      expect(validation.errors).toHaveLength(0);
+    });
+
+    it('should generate valid multilingual Schema.org/Recipe JSON-LD for Tortilla de Betanzos (English & German)', () => {
+      const schemaEn = createRecipeSchema(betanzosRecipe, { lang: 'en' });
+      expect(schemaEn.name).toBe('Runny Betanzos-Style Spanish Omelette');
+      expect(schemaEn.recipeYield).toBe('4 servings');
+      expect(schemaEn.recipeCategory).toBe('Main Course');
+      expect(schemaEn.recipeCuisine).toBe('Spanish');
+      expect(schemaEn.inLanguage).toBe('en');
+      expect(schemaEn.url).toContain('/en/recipes/betanzos-style-spanish-omelette');
+
+      const valEn = validateRecipeSchema(schemaEn);
+      expect(valEn.valid).toBe(true);
+
+      const schemaDe = createRecipeSchema(betanzosRecipe, { lang: 'de' });
+      expect(schemaDe.name).toBe('Saftige Betanzos-Tortilla');
+      expect(schemaDe.recipeYield).toBe('4 Portionen');
+      expect(schemaDe.recipeCategory).toBe('Hauptgericht');
+      expect(schemaDe.recipeCuisine).toBe('Spanisch');
+      expect(schemaDe.inLanguage).toBe('de');
+      expect(schemaDe.url).toContain('/de/recipes/betanzos-tortilla');
+
+      const valDe = validateRecipeSchema(schemaDe);
+      expect(valDe.valid).toBe(true);
+    });
+
+    it('should generate valid Schema.org/Recipe JSON-LD with optional rating and nutrition for Tortilla con Cebolla', () => {
+      const schema = createRecipeSchema(cebollaRecipe, {
+        lang: 'es',
+        calories: '320 kcal',
+        rating: {
+          ratingValue: 4.95,
+          reviewCount: 230,
+        },
+      });
+
+      expect(schema.name).toBe('Tortilla Clásica con Cebolla');
+      expect(schema.nutrition?.calories).toBe('320 kcal');
+      expect(schema.aggregateRating?.ratingValue).toBe(4.95);
+      expect(schema.aggregateRating?.reviewCount).toBe(230);
+      expect(schema.aggregateRating?.bestRating).toBe(5);
+
+      const validation = validateRecipeSchema(schema);
+      expect(validation.valid).toBe(true);
+    });
+
+    it('should correctly format and parse ISO durations', () => {
+      expect(formatIsoDuration(15)).toBe('PT15M');
+      expect(formatIsoDuration(60)).toBe('PT1H');
+      expect(formatIsoDuration(75)).toBe('PT1H15M');
+      expect(formatIsoDuration(0)).toBe('PT0M');
+
+      expect(parseIsoDuration('PT15M')).toBe(15);
+      expect(parseIsoDuration('PT1H')).toBe(60);
+      expect(parseIsoDuration('PT1H15M')).toBe(75);
+    });
   });
 
   it('should generate Article, Person, FAQ and CollectionPage schemas', () => {

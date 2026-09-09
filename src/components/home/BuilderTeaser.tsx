@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "@/i18n/config";
 import { ArrowRight, ChefHat, Sparkles, Users, ShieldCheck, Flame } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { getTranslations } from "@/lib/i18n";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import { Button } from "@/components/ui/button";
 
@@ -10,7 +10,7 @@ interface BuilderTeaserProps {
 }
 
 export default function BuilderTeaser({ lang = "es" }: BuilderTeaserProps) {
-  const { t } = useTranslation(undefined, { lng: lang });
+  const t = getTranslations(lang);
   const [diners, setDiners] = useState<number>(4);
   const [hasOnion, setHasOnion] = useState<boolean>(true);
 

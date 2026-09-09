@@ -43,7 +43,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://dle.rae.es/tortilla"
     },
     {
       "id": "seville-cartujana-convent",
@@ -75,7 +76,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20conexi%C3%B3n%20conventual%20sevillana%20y%20la%20tortilla%20cartujana"
     },
     {
       "id": "betanzos-style-hallmarks",
@@ -107,7 +109,8 @@
           "en": "View Regional Factions",
           "de": "Regionale Fraktionen"
         }
-      }
+      },
+      "sourceUrl": "https://turismo.betanzos.es/gastronomia/tortilla-de-betanzos/"
     },
     {
       "id": "basque-country-style",
@@ -139,7 +142,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20estilo%20pa%C3%ADs%20vasco%3A%20gruesa%2C%20cuajada%20y%20cebolla%20obligatoria"
     },
     {
       "id": "madrid-style-juicy",
@@ -171,7 +175,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://www.esmadrid.com/gastronomia-madrid"
     },
     {
       "id": "cordobesa-style-deep-fried",
@@ -203,7 +208,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20estilo%20cordob%C3%A9s%3A%20patata%20en%20dados%20fritos%20y%20estructura%20alta"
     },
     {
       "id": "santander-stuffed-style",
@@ -235,7 +241,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://www.cehe.es/"
     },
     {
       "id": "gallega-chorizo-grelos",
@@ -267,7 +274,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://www.turismo.gal/que-facer/gastronomia"
     },
     {
       "id": "majorcan-sobrasada-style",
@@ -299,7 +307,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20estilo%20mallorqu%C3%ADn%20con%20sobrasada%20y%20boniato"
     },
     {
       "id": "lamancha-pimentos-manchego",
@@ -331,7 +340,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20estilo%20manchego%20con%20pimientos%20y%20queso%20manchego"
     },
     {
       "id": "catalan-botifarra-beans",
@@ -363,7 +373,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20variante%20catalana%20con%20botifarra%20y%20mongetes"
     },
     {
       "id": "navarrese-boletus-asparagus",
@@ -395,7 +406,8 @@
           "en": "View Regional Recipes",
           "de": "Regionale Rezepte"
         }
-      }
+      },
+      "sourceUrl": "https://www.navarra.es/es/gobierno-de-navarra/archivo-general"
     },
     {
       "id": "the-riojan-chorizo-confit-152",
@@ -427,7 +439,8 @@
           "en": "View Riojan Style",
           "de": "Rioja-Stil ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20confitado%20riojano%20con%20chorizo"
     },
     {
       "id": "the-bar-n-stor-pimiento-poach-153",
@@ -459,7 +472,8 @@
           "en": "View Bar Néstor Recipe",
           "de": "Bar Néstor Rezept"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20pochado%20con%20pimiento%20del%20bar%20n%C3%A9stor"
     },
     {
       "id": "vitoria-s-arr-niz-oil-154",
@@ -491,7 +505,8 @@
           "en": "View Historical Records",
           "de": "Historische Rekorde"
         }
-      }
+      },
+      "sourceUrl": "https://www.vitoria-gasteiz.org/gastronomia"
     },
     {
       "id": "the-sacromonte-offal-tradition-192",
@@ -523,7 +538,8 @@
           "en": "View Andalusian Traditions",
           "de": "Andalusische Traditionen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20del%20sacromonte%20granadino"
     },
     {
       "id": "the-betanzos-anti-onion-law-200",
@@ -555,7 +571,8 @@
           "en": "View Official Betanzos Rules",
           "de": "Offizielle Betanzos-Regeln"
         }
-      }
+      },
+      "sourceUrl": "https://turismo.betanzos.es/gastronomia/tortilla-de-betanzos/"
     },
     {
       "id": "region-betanzos-padrino-rules",
@@ -586,7 +603,8 @@
           "en": "View Official Betanzos Recipe",
           "de": "Offizielles Betanzos-Rezept"
         }
-      }
+      },
+      "sourceUrl": "https://turismo.betanzos.es/gastronomia/tortilla-de-betanzos/"
     },
     {
       "id": "region-madrid-bocadillo-calle",
@@ -617,7 +635,8 @@
           "en": "View Madrid History",
           "de": "Geschichte Madrids ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.esmadrid.com/gastronomia-madrid"
     },
     {
       "id": "region-san-sebastian-pintxo-bars",
@@ -648,7 +667,8 @@
           "en": "View Basque Recipe",
           "de": "Baskisches Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20era%20dorada%20del%20pintxo%20de%20tortilla%20en%20san%20sebasti%C3%A1n"
     },
     {
       "id": "region-cordoba-giant-taverns",
@@ -679,7 +699,8 @@
           "en": "View Andalusian Tradition",
           "de": "Andalusische Tradition ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%20monumentales%20tortillas%20de%2010%20kg%20de%20c%C3%B3rdoba"
     },
     {
       "id": "region-rioja-chorizo-confit",
@@ -710,7 +731,8 @@
           "en": "View Riojan Recipe",
           "de": "Rioja-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20riojana%20y%20el%20aceite%20rojo%20de%20piment%C3%B3n"
     },
     {
       "id": "region-mallorca-sobrasada-honey",
@@ -741,7 +763,8 @@
           "en": "View Balearic Recipe",
           "de": "Balearen-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20balear%20de%20sobrasada%20y%20miel%20de%20silvestre"
     },
     {
       "id": "region-galicia-grelos-turnip",
@@ -772,7 +795,8 @@
           "en": "View Turnip Greens Recipe",
           "de": "Stängelkohl-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.turismo.gal/que-facer/gastronomia"
     },
     {
       "id": "region-asturias-cabrales-blue",
@@ -803,7 +827,8 @@
           "en": "View Asturian Recipe",
           "de": "Asturisches Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20asturiana%20con%20queso%20cabrales%20fundido"
     },
     {
       "id": "region-burgos-morcilla-rice",
@@ -834,7 +859,8 @@
           "en": "View Blood Sausage Recipe",
           "de": "Morcilla-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20castellana%20con%20morcilla%20de%20burgos"
     },
     {
       "id": "region-fuenlabrada-dia-tortilla",
@@ -865,7 +891,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.ayto-fuenlabrada.es/servicios/cultura/"
     },
     {
       "id": "region-canaries-sweet-potato",
@@ -896,7 +923,8 @@
           "en": "View Island Tradition",
           "de": "Insel-Tradition ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20canaria%20de%20boniato%20y%20papa%20bonita"
     },
     {
       "id": "region-sacromonte-granada",
@@ -927,7 +955,8 @@
           "en": "View Sacromonte Recipe",
           "de": "Sacromonte-Rezept ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20famosa%20tortilla%20del%20sacromonte%20en%20granada"
     },
     {
       "id": "fact-201-sanchidri-n-s-six-egg-standard",
@@ -958,7 +987,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20est%C3%A1ndar%20de%20seis%20huevos%20en%20sanchidri%C3%A1n"
     },
     {
       "id": "fact-202-sanchidri-n-s-day-of-leftovers",
@@ -989,7 +1019,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20d%C3%ADa%20de%20las%20sobras%20de%20sanchidri%C3%A1n"
     },
     {
       "id": "fact-203-vivero-s-coastal-picnics",
@@ -1020,7 +1051,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=los%20picnics%20costeros%20de%20viveiro"
     },
     {
       "id": "fact-204-talarrubias-s-communal-sharing",
@@ -1051,7 +1083,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20reparto%20comunal%20de%20talarrubias"
     },
     {
       "id": "fact-205-sandoval-s-summer-reunion",
@@ -1082,7 +1115,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20reencuentro%20estival%20de%20sandoval"
     },
     {
       "id": "fact-206-peraleda-s-easter-kid-chops",
@@ -1113,7 +1147,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=chuletillas%20de%20cabrito%20y%20tortilla%20en%20peraleda"
     },
     {
       "id": "fact-207-galera-s-fat-thursday-kickoff",
@@ -1144,7 +1179,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20jueves%20lardero%20de%20galera"
     },
     {
       "id": "fact-208-azuqueca-s-school-standstill",
@@ -1175,7 +1211,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=par%C3%B3n%20escolar%20en%20azuqueca%20de%20henares"
     },
     {
       "id": "fact-209-torija-s-winter-fuel-omelette",
@@ -1206,7 +1243,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tortilla%20de%20invierno%20de%20torija"
     },
     {
       "id": "fact-210-the-checkered-napkin-prestige",
@@ -1237,7 +1275,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20prestigio%20de%20la%20servilleta%20de%20cuadros"
     },
     {
       "id": "fact-211-torija-s-citrus-giant",
@@ -1268,7 +1307,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20naranja%20gigante%20de%20torija"
     },
     {
       "id": "fact-212-torija-s-shared-salad-pool",
@@ -1299,7 +1339,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20'escote'%20de%20ensaladas%20en%20torija"
     },
     {
       "id": "fact-213-sahag-n-s-holy-week-float-auct",
@@ -1330,7 +1371,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20subasta%20de%20pasos%20en%20sahag%C3%BAn"
     },
     {
       "id": "fact-214-carabanchel-s-11th-century-stu",
@@ -1361,7 +1403,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20pella%20estudiantil%20de%20carabanchel%20del%20siglo%20xi"
     },
     {
       "id": "fact-215-fuenlabrada-s-miraculous-pilgr",
@@ -1392,7 +1435,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.ayto-fuenlabrada.es/servicios/cultura/"
     },
     {
       "id": "fact-216-fuenlabrada-s-long-distance-wa",
@@ -1423,7 +1467,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.ayto-fuenlabrada.es/servicios/cultura/"
     },
     {
       "id": "fact-217-fuenlabrada-s-local-sunday-rul",
@@ -1454,7 +1499,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://www.ayto-fuenlabrada.es/servicios/cultura/"
     },
     {
       "id": "fact-218-humanes-de-madrid-s-three-pine",
@@ -1485,7 +1531,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20prado%20de%20los%20tres%20pinos%20en%20humanes"
     },
     {
       "id": "fact-219-fuentidue-a-s-riverbank-corre",
@@ -1516,7 +1563,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search='correr%20la%20tortilla'%20en%20fuentidue%C3%B1a%20de%20tajo"
     },
     {
       "id": "fact-220-fuentidue-a-s-libretilla-bread",
@@ -1547,7 +1595,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20bocadillo%20de%20libretilla%20en%20fuentidue%C3%B1a"
     },
     {
       "id": "fact-221-guadalix-de-la-sierra-s-don-ca",
@@ -1578,7 +1627,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20despedida%20a%20don%20carnal%20en%20guadalix"
     },
     {
       "id": "fact-222-loeches-s-field-sharing-ritual",
@@ -1609,7 +1659,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20intercambio%20de%20tortillas%20en%20loeches"
     },
     {
       "id": "fact-223-mejorada-del-campo-s-carnival",
@@ -1640,7 +1691,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20jueves%20lardero%20de%20mejorada%20del%20campo"
     },
     {
       "id": "fact-224-robledo-s-grandmother-crafted",
@@ -1671,7 +1723,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20merienda%20de%20las%20abuelas%20de%20robledo"
     },
     {
       "id": "fact-225-san-fernando-s-hospital-evicti",
@@ -1702,7 +1755,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20traslado%20del%20cerro%20de%20la%20herradura"
     },
     {
       "id": "fact-226-coslada-s-cerro-picnics",
@@ -1733,7 +1787,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=los%20picnics%20hist%C3%B3ricos%20de%20coslada"
     },
     {
       "id": "fact-227-torrej-n-s-sunday-shift",
@@ -1764,7 +1819,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20cambio%20al%20domingo%20en%20torrej%C3%B3n%20de%20ardoz"
     },
     {
       "id": "fact-228-torrej-n-s-free-broth-and-dess",
@@ -1795,7 +1851,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=caldo%20gratuito%20y%20tortilla%20en%20torrej%C3%B3n"
     },
     {
       "id": "fact-229-torrej-n-de-ardoz-s-petanque-t",
@@ -1826,7 +1883,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20campeonato%20de%20petanca%20de%20torrej%C3%B3n"
     },
     {
       "id": "fact-230-torres-de-la-alameda-s-double",
@@ -1857,7 +1915,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=los%20dos%20jueves%20seguidos%20de%20torres%20de%20la%20alameda"
     },
     {
       "id": "fact-231-valdemoro-s-hidden-egg-sweet-b",
@@ -1888,7 +1947,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20torta%20de%20san%20marcos%20con%20huevo%20en%20valdemoro"
     },
     {
       "id": "fact-232-velilla-de-san-antonio-s-early",
@@ -1919,7 +1979,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20arranque%20temprano%20de%20velilla%20de%20san%20antonio"
     },
     {
       "id": "fact-233-villa-de-vallecas-s-sacred-ce",
@@ -1950,7 +2011,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20'cerro%20gordo'%20de%20villa%20de%20vallecas"
     },
     {
       "id": "fact-234-villa-de-vallecas-s-libreta-st",
@@ -1981,7 +2043,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20libreta%20panadera%20de%20vallecas"
     },
     {
       "id": "fact-235-calzada-s-oak-forest-mass",
@@ -2012,7 +2075,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=misa%20campestre%20en%20calzada%20de%20los%20molinos"
     },
     {
       "id": "fact-236-carmena-s-saturday-of-glory",
@@ -2043,7 +2107,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20s%C3%A1bado%20de%20gloria%20de%20carmena"
     },
     {
       "id": "fact-237-las-herencias-s-castillos-brea",
@@ -2074,7 +2139,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=los%20castillos%20y%20la%20tortilla%20en%20las%20herencias"
     },
     {
       "id": "fact-238-gamonal-s-thursday-of-comadre",
@@ -2105,7 +2171,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20jueves%20de%20comadre%20de%20gamonal"
     },
     {
       "id": "fact-239-belv-s-de-la-jara-s-white-ston",
@@ -2136,7 +2203,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20cerro%20de%20los%20cantos%20blancos%20en%20belv%C3%ADs"
     },
     {
       "id": "fact-240-velada-s-shared-gamonal-spirit",
@@ -2167,7 +2235,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20tradici%C3%B3n%20compartida%20de%20velada"
     },
     {
       "id": "fact-241-borox-s-march-countryside-esca",
@@ -2198,7 +2267,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20salida%20al%20campo%20de%20borox%20y%20esquivias"
     },
     {
       "id": "fact-242-sese-a-s-bakery-horns",
@@ -2229,7 +2299,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=los%20cuernos%20panaderos%20de%20sese%C3%B1a"
     },
     {
       "id": "fact-243-corral-de-almaguer-s-easter-om",
@@ -2260,7 +2331,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%20fiestas%20caseras%20de%20corral%20de%20almaguer"
     },
     {
       "id": "fact-244-villal-n-s-spring-gatherings",
@@ -2291,7 +2363,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20domingo%20tortillero%20de%20villal%C3%B3n%20de%20campos"
     },
     {
       "id": "fact-245-san-pedro-de-latarce-s-river-f",
@@ -2322,7 +2395,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%20riberas%20del%20r%C3%ADo%20en%20san%20pedro%20de%20latarce"
     },
     {
       "id": "fact-246-zamora-s-grammatical-rule",
@@ -2353,7 +2427,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20uso%20gramatical%20'tortillero'%20en%20zamora"
     },
     {
       "id": "fact-247-zamora-s-field-blessings",
@@ -2384,7 +2459,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20bendici%C3%B3n%20de%20campos%20en%20zamora"
     },
     {
       "id": "fact-248-zamora-s-wine-cave-feasts",
@@ -2415,7 +2491,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%20comidas%20en%20bodegas%20de%20zamora"
     },
     {
       "id": "fact-249-zamora-s-clay-pot-chicken",
@@ -2446,7 +2523,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20pollo%20en%20tartera%20de%20barro"
     },
     {
       "id": "fact-250-the-lost-custom-of-tortill-n",
@@ -2477,7 +2555,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20costumbre%20perdida%20del%20'tortill%C3%ADn'"
     },
     {
       "id": "fact-251-morales-del-rey-s-san-marcos-s",
@@ -2508,7 +2587,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=san%20marcos%20en%20morales%20del%20rey"
     },
     {
       "id": "fact-252-soto-del-real-s-la-maya-crowni",
@@ -2539,7 +2619,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=la%20coronaci%C3%B3n%20de%20la%20maya%20en%20soto%20del%20real"
     },
     {
       "id": "fact-253-soto-del-real-s-peaches-in-syr",
@@ -2570,7 +2651,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=los%20melocotones%20en%20alm%C3%ADbar%20de%20soto%20del%20real"
     },
     {
       "id": "fact-254-hoyo-de-manzanares-s-sweet-ani",
@@ -2601,7 +2683,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=el%20juego%20de%20'correr%20la%20rosca'%20en%20hoyo"
     },
     {
       "id": "fact-255-the-three-roscas-categories",
@@ -2632,7 +2715,8 @@
           "en": "View Folk Festivals",
           "de": "Volksfeste ansehen"
         }
-      }
+      },
+      "sourceUrl": "https://es.wikipedia.org/wiki/Tortilla_de_patatas?search=las%20tres%20categor%C3%ADas%20de%20roscas%20de%20hoyo"
     }
   ]
 }

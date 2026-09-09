@@ -1,0 +1,24 @@
+{
+  "id": "jamon",
+  "type": "ingredient",
+  "contentId": "ingredient.jamon",
+  "slug": {
+    "es": "jamon",
+    "en": "jamon",
+    "de": "schinken"
+  },
+  "title": {
+    "es": "Jamón Ibérico",
+    "en": "Ibérico Ham",
+    "de": "Ibérico-Schinken"
+  },
+  "description": {
+    "es": "El rey de la charcutería española: aporta umami profundo, grasa infiltrada sedosa y notas de bellota.",
+    "en": "The pinnacle of Spanish cured meats: deep umami, silky infiltrated fat, and acorn notes.",
+    "de": "König der spanischen Schinkenkultur: tiefes Umami, seidiges Fett und edle Eichel-Aromen."
+  },
+  "icon": "UtensilsCrossed",
+  "related": [
+    { "type": "region", "id": "extremadura", "relationship": "origin_region" }
+  ]
+}

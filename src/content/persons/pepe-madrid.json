@@ -1,0 +1,56 @@
+{
+  "id": "pepe-madrid",
+  "type": "person",
+  "contentId": "person.pepe-madrid",
+  "name": "Pepe el Tabernero",
+  "region": "madrid",
+  "role": {
+    "es": "Tabernero Castizo & Maestro de la Barra Madrileña",
+    "en": "Castizo Tavern Master & Madrid Counter Icon",
+    "de": "Kult-Gastwirt & Meister der Madrider Tapasbar"
+  },
+  "specialty": "Purismo de Barrio & Fritura en Sartén de Hierro Curada",
+  "slug": {
+    "es": "pepe-madrid",
+    "en": "pepe-madrid",
+    "de": "pepe-madrid"
+  },
+  "title": {
+    "es": "Pepe el Tabernero",
+    "en": "Pepe el Tabernero",
+    "de": "Pepe el Tabernero"
+  },
+  "description": {
+    "es": "Dueño de una taberna centenaria en Chamberí, sirve cada mañana más de sesenta tortillas cuajadas en sartén de hierro negro a fuego vivo.",
+    "en": "Owner of a century-old tavern in Madrid's Chamberí, serving over sixty tortillas every morning flipped in cured cast iron pans over open flame.",
+    "de": "Inhaber einer traditionsreichen Taverne im Madrider Viertel Chamberí, der jeden Morgen über sechzig Tortillas in schweren Gusseisenpfannen auf offenem Feuer brät."
+  },
+  "bio": {
+    "es": "Tercera generación al frente de su taberna madrileña. Su mostrador de cinc es punto de encuentro diario de taxistas, poetas, profesores y devotos de la tortilla jugosa y bien dorada por fuera.",
+    "en": "Third-generation steward of his Madrid tavern. His zinc bar is a daily crossroad for taxi drivers, poets, academics, and devotees of golden-crusted, melty-centered tortillas.",
+    "de": "Gastwirt in dritter Generation in Madrid. Seine Zinktheke ist täglicher Treffpunkt für Taxifahrer, Dichter, Professoren und Liebhaber der außen goldbraunen, innen saftigen Tortilla."
+  },
+  "quote": {
+    "es": "Aquí no hay termómetros ni espumas: hay hierro curado, aceite limpio, patata bien frita y el golpe de muñeca que no te enseña ninguna escuela.",
+    "en": "No thermometers or foams here: just seasoned iron, clean oil, crisp potatoes, and the wrist snap no culinary school can ever teach.",
+    "de": "Hier gibt es keine Thermometer oder Schäume: nur eingebranntes Gusseisen, sauberes Öl, goldene Kartoffeln und den Handgelenksschwung, den keine Schule lehren kann."
+  },
+  "dogma": {
+    "es": "Sartén de hierro negro, aceite bien caliente, dos vueltas rápidas y directa al pan crujiente.",
+    "en": "Black cast iron skillet, blazing clean oil, two swift flips, and straight onto crusty bread.",
+    "de": "Schwere Gusseisenpfanne, heißes Öl, zwei schnelle Wendungen und direkt auf krosses Landbrot."
+  },
+  "favoriteRecipe": "betanzos",
+  "story": "/es/personas/pepe-madrid",
+  "image": "/images/personas/pepa-miranda.jpg",
+  "badge": {
+    "es": "Taberna Castiza",
+    "en": "Madrid Tavern",
+    "de": "Madrider Taverne"
+  },
+  "related": [
+    { "type": "faction", "id": "puristas" },
+    { "type": "recipe", "id": "betanzos" },
+    { "type": "region", "id": "madrid" }
+  ]
+}

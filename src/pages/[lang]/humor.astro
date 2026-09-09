@@ -1,0 +1,44 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { TortillaHumorHub } from '@/components/humor/TortillaHumorHub';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Humor de Bar, Anécdotas & Oráculo Tortillero | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Bar-Humor, Anekdoten & Tortilla-Orakel | tortilladepatatas.org'
+  : 'Bar Humor, Lore & Tortilla Excuse Generator | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'El lado más divertido y castizo de la tortilla española: generador de excusas gourmet para vuelcos fallidos, detector de sacrilegios y leyes del buen humor.'
+  : currentLang === 'de'
+  ? 'Der humorvolle Guide zur spanischen Tortilla: Ausreden-Generator für Pfannen-Missgeschicke, Ketzerei-Detektor und Bar-Anekdoten.'
+  : 'The fun side of Spanish tortilla: gourmet kitchen excuse generator, sacrilege detector quiz, and bar culture lore.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Universo Tortilla', url: `/${currentLang}/enciclopedia` },
+  { name: 'Humor & Anécdotas', url: `/${currentLang}/humor` },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-6xl space-y-12">
+    <!-- Tortilla Humor Hub Component -->
+    <TortillaHumorHub client:load lang={currentLang} />
+
+    <!-- Linear Culinary Progress -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/humor`} client:visible />
+  </div>
+</Layout>

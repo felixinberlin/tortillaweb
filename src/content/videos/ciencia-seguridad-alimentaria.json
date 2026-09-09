@@ -1,0 +1,22 @@
+{
+  "id": "ciencia-seguridad-alimentaria",
+  "title": {
+    "es": "La Ciencia del Cuajado: Cinética Térmica y Destrucción Bacteriana",
+    "en": "Science of Curdling: Thermal Kinetics and Bacterial Destruction",
+    "de": "Wissenschaft des Stockens: Thermische Kinetik und Keimabtötung"
+  },
+  "description": {
+    "es": "Análisis de laboratorio sobre la pasteurización de Salmonella spp. a **70°C durante 2 minutos** (o **63°C durante 20 segundos**) y el límite estricto de **4 horas** a temperatura ambiente.",
+    "en": "Laboratory analysis on the pasteurization of Salmonella spp. at **70°C for 2 minutes** (or **63°C for 20 seconds**) and the strict **4 hours** room-temperature limit.",
+    "de": "Laboranalyse zur Pasteurisierung von Salmonella spp. bei **70°C für 2 Minuten** (oder **63°C für 20 Sekunden**) und der strengen **4-Stunden-Grenze** bei Raumtemperatur."
+  },
+  "thumbnailUrl": "/images/normativa-1021-2022.jpg",
+  "duration": 1140,
+  "lang": "es",
+  "category": "science",
+  "relatedRecipeIds": [
+    "clasica",
+    "betanzos"
+  ],
+  "publishedAt": "2026-05-05T09:00:00Z"
+}

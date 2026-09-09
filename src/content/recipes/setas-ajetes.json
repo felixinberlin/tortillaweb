@@ -144,7 +144,7 @@
     {
       "step": { "es": "2. Confitado de la patata", "en": "2. Potato confit", "de": "2. Kartoffeln dünsten" },
       "text": {
-        "es": "Confta las patatas laminadas en el resto del aceite de oliva durante 15 minutos hasta que estén muy suaves.",
+        "es": "Confita las patatas laminadas en el resto del aceite de oliva durante 15 minutos hasta que estén muy suaves.",
         "en": "Confit sliced potatoes in remaining olive oil for 15 minutes until soft.",
         "de": "Kartoffeln 15 Minuten im Olivenöl weich dünsten."
       }
@@ -152,9 +152,9 @@
     {
       "step": { "es": "3. Unión y cuajado meloso", "en": "3. Assembly & creamy sear", "de": "3. Mischen & sanftes Stocken" },
       "text": {
-        "es": "Combina las patatas escurridas, el salteado de setas y los huevos batidos con sal. Deja reposar 4 minutos y cuaja a fuego suave 2 minutos por lado. Para seguridad bactericida garantizada, asegúrate de mantener 70°C durante 2 minutos.",
-        "en": "Fold drained potatoes and mushroom sauté into beaten eggs. Rest for 4 minutes and sear gently 2 minutes per side. Maintain 70°C for 2 minutes food safety threshold.",
-        "de": "Kartoffeln, Pilze und Eier vermengen. 4 Minuten ziehen lassen und 2 Minuten pro Seite garen. 70°C für 2 Minuten einhalten."
+        "es": "Combina las patatas escurridas, el salteado de setas y los huevos batidos con sal. Deja reposar 4 minutos y cuaja a fuego suave 2 minutos por lado. Para seguridad bactericida garantizada, asegúrate de mantener **70°C durante 2 minutos**.",
+        "en": "Fold drained potatoes and mushroom sauté into beaten eggs. Rest for 4 minutes and sear gently 2 minutes per side. Maintain **70°C for 2 minutes** food safety threshold.",
+        "de": "Kartoffeln, Pilze und Eier vermengen. 4 Minuten ziehen lassen und 2 Minuten pro Seite garen. **70°C für 2 Minuten** einhalten."
       }
     }
   ],

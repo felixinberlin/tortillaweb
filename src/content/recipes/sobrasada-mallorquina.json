@@ -1,0 +1,225 @@
+{
+  "id": "sobrasada-mallorquina",
+  "contentId": "recipe.sobrasada-mallorquina",
+  "translationKey": "recipe-sobrasada-mallorquina",
+  "slug": {
+    "es": "tortilla-mallorquina-sobrasada-romero",
+    "en": "mallorcan-sobrasada-rosemary-omelette",
+    "de": "mallorquinische-sobrasada-rosmarin-tortilla"
+  },
+  "title": {
+    "es": "Tortilla Balear de Sobrasada de Mallorca y Romero",
+    "en": "Mallorcan Sobrasada & Fresh Rosemary Spanish Omelette",
+    "de": "Mallorquinische Tortilla mit Sobrasada und Rosmarin"
+  },
+  "description": {
+    "es": "Especialidad balear con sobrasada de Mallorca IGP fundida con patatas pochadas, huevos camperos y una pincelada silvestre de romero fresco picado.",
+    "en": "Balearic specialty featuring PGI Mallorcan cured sobrasada melted with olive-oil poached potatoes, free-range eggs, and fragrant fresh rosemary.",
+    "de": "Balearen-Spezialität mit geschmolzener g.g.A. Mallorquinischer Sobrasada, zarten Kartoffeln, Freilandeiern und frischem wildem Rosmarin."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:sobrasada",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:baleares",
+    "style:rustic",
+    "technique:confit",
+    "technique:slow-cooking",
+    "difficulty:medium"
+  ],
+  "time": 30,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 20,
+  "yieldServings": 4,
+  "image": "/images/recipes/sobrasada-mallorquina.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Monalisa o Kennebec",
+        "en": "Monalisa or Kennebec Potato",
+        "de": "Monalisa- oder Kennebec-Kartoffel"
+      },
+      "amount": 500,
+      "unit": "g",
+      "notes": {
+        "es": "500g cortadas en rodajas finas",
+        "en": "500g thinly sliced into rounds",
+        "de": "500g in dünne Scheiben geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos camperos frescos",
+        "en": "Fresh Free-Range Eggs",
+        "de": "Frische Freilandeier"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos camperos tamaño L",
+        "en": "6 large free-range eggs",
+        "de": "6 große Freilandeier"
+      }
+    },
+    {
+      "id": "sobrasada",
+      "ingredientId": "sobrasada",
+      "name": {
+        "es": "Sobrasada de Mallorca I.G.P.",
+        "en": "PGI Mallorcan Cured Sobrasada",
+        "de": "Mallorquinische Sobrasada g.g.A."
+      },
+      "amount": 80,
+      "unit": "g",
+      "notes": {
+        "es": "80g de sobrasada artesana desmigada",
+        "en": "80g artisanal sobrasada crumbled into bits",
+        "de": "80g traditionelle Sobrasada in Stücken"
+      }
+    },
+    {
+      "id": "rosemary",
+      "ingredientId": "blackPepper",
+      "name": {
+        "es": "Romero fresco picado",
+        "en": "Fresh Chopped Rosemary",
+        "de": "Frischer gehackter Rosmarin"
+      },
+      "amount": 2,
+      "unit": "g",
+      "notes": {
+        "es": "1/2 cucharadita de romero fresco finamente picado",
+        "en": "1/2 tsp finely minced fresh rosemary",
+        "de": "1/2 TL fein gehackter frischer Rosmarin"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml de AOVE balear",
+        "en": "150ml EVOO",
+        "de": "150ml Olivenöl"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal marina de las salinas de Mallorca",
+        "en": "Mallorcan Sea Salt",
+        "de": "Mallorquinisches Meersalz"
+      },
+      "amount": 4,
+      "unit": "g",
+      "notes": {
+        "es": "4g de sal marina (ajustar considerando el punto de la sobrasada)",
+        "en": "4g sea salt (adjusting for cured sausage seasoning)",
+        "de": "4g Meersalz (unter Berücksichtigung der Wurstsalzigkeit)"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Confitado de las patatas en AOVE",
+        "en": "1. Poaching potatoes in olive oil",
+        "de": "1. Kartoffeln in Olivenöl pochieren"
+      },
+      "text": {
+        "es": "Pela las patatas, córtalas en láminas finas y confítalas en abundante AOVE a 130-140°C durante 15 minutos hasta que estén tiernas y ligeramente doradas.",
+        "en": "Peel and thinly slice potatoes, poaching them gently in EVOO at 130-140°C for 15 minutes until tender and slightly golden.",
+        "de": "Kartoffeln schälen, in dünne Scheiben schneiden und in Olivenöl bei 130-140°C 15 Minuten weich und leicht golden pochieren."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Atemperado y fundición de la sobrasada",
+        "en": "2. Crumbled sobrasada tempering",
+        "de": "2. Sobrasada erwärmen und anbraten"
+      },
+      "text": {
+        "es": "Desmiga la sobrasada en porciones pequeñas. Saltea en sartén caliente sin aceite añadido durante 45 segundos para que se ablande y libere sus aceites aromáticos de pimentón.",
+        "en": "Crumble sobrasada into small chunks. Warm in a dry pan for 45 seconds to soften and release its fragrant paprika oils.",
+        "de": "Sobrasada zerzupfen. In einer Pfanne ohne zusätzliches Fett 45 Sekunden erwärmen, bis sie weich wird und ihr Paprikaöl abgibt."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Batido con romero silvestre",
+        "en": "3. Egg blend with fresh rosemary",
+        "de": "3. Eimasse mit Rosmarin verrühren"
+      },
+      "text": {
+        "es": "Bate los 6 huevos con sal y añade el romero fresco finamente picado, permitiendo que sus aceites esenciales aromaticen la masa de huevo.",
+        "en": "Whisk 6 eggs with salt and stir in the minced fresh rosemary so its essential oils infuse the beaten egg mixture.",
+        "de": "6 Eier mit Salz verquirlen und den fein gehackten Rosmarin unterrühren, damit die ätherischen Öle das Ei aromatisieren."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Mezcla caliente y emulsión de pimentón",
+        "en": "4. Warm mixing & paprika emulsion",
+        "de": "4. Warmes Vermengen und Emulgieren"
+      },
+      "text": {
+        "es": "Añade las patatas calientes escurridas y los bocados de sobrasada fundente al bol de huevo. Remueve suavemente creando vetas anaranjadas y reposa 3 minutos.",
+        "en": "Add drained hot potatoes and warm sobrasada morsels to the eggs. Fold gently creating beautiful orange ribbons and let rest for 3 minutes.",
+        "de": "Heiße Kartoffeln und die warme Sobrasada ins Ei geben. Sanft unterheben, sodass appetitliche orangefarbene Marmorierungen entstehen, und 3 Minuten ruhen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Cuajado balear a fuego medio",
+        "en": "5. Balearic skillet cooking",
+        "de": "5. Braten in der Pfanne"
+      },
+      "text": {
+        "es": "Vierte en la sartén antiadherente caliente con unas gotas de aceite. Cocina a fuego medio durante 2 minutos rematando los bordes con espátula.",
+        "en": "Pour into a hot skillet with a splash of oil. Cook over medium heat for 2 minutes, smoothing and rounding the edges with a spatula.",
+        "de": "In die heiße Pfanne mit etwas Öl geben und 2 Minuten bei mittlerer Hitze braten, dabei die Ränder mit dem Spatel formen."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Volteo final y protocolo de seguridad",
+        "en": "6. Flip and food safety standard",
+        "de": "6. Wenden und Hygienehinweise"
+      },
+      "text": {
+        "es": "Da la vuelta con plato y cocina 1 minuto más. Sirve templada. Si se reserva, garantiza la seguridad alimentaria alcanzando **70°C durante 2 minutos** y no mantengas a temperatura ambiente más de **4 horas**.",
+        "en": "Flip with a plate and cook 1 more minute. Serve warm. For storage safety, ensure it reaches **70°C for 2 minutes** and never leave beyond **4 hours** at ambient temperature.",
+        "de": "Mit einem Teller wenden und 1 Minute fertig braten. Warm servieren. Bei Aufbewahrung **70°C für 2 Minuten** einhalten und maximal **4 Stunden** bei Raumtemperatur belassen."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Gastronomía Tradicional de Mallorca e Islas Baleares",
+      "description": {
+        "es": "Receta emblemática de la cocina insular que aprovecha los embutidos de matanza balear.",
+        "en": "Emblematic Balearic island recipe featuring artisanal cured charcuterie.",
+        "de": "Traditionelles Inselrezept der Balearen mit handwerklich hergestellter Wurst."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

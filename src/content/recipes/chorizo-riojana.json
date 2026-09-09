@@ -153,9 +153,9 @@
     {
       "step": { "es": "3. Mezclado y cuajado", "en": "3. Egg soak & final sear", "de": "3. Mischen & Stocken" },
       "text": {
-        "es": "Bate los huevos con la sal, añade las patatas y chorizo escurridos, reposa 5 minutos y cuaja 2 minutos por lado. Para garantizar la seguridad bactericida del huevo mantén 70°C durante 2 minutos.",
-        "en": "Beat eggs with salt, add drained potato-chorizo mix, soak for 5 minutes, then sear 2 minutes per side. For food safety, maintain 70°C for 2 minutes.",
-        "de": "Eier verquirlen, Kartoffel-Chorizo-Mischung 5 Minuten ziehen lassen, dann 2 Minuten pro Seite braten. 70°C für 2 Minuten sicherstellen."
+        "es": "Bate los huevos con la sal, añade las patatas y chorizo escurridos, reposa 5 minutos y cuaja 2 minutos por lado. Para garantizar la seguridad bactericida del huevo mantén **70°C durante 2 minutos**.",
+        "en": "Beat eggs with salt, add drained potato-chorizo mix, soak for 5 minutes, then sear 2 minutes per side. For food safety, maintain **70°C for 2 minutes**.",
+        "de": "Eier verquirlen, Kartoffel-Chorizo-Mischung 5 Minuten ziehen lassen, dann 2 Minuten pro Seite braten. **70°C für 2 Minuten** sicherstellen."
       }
     }
   ],

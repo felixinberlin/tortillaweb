@@ -1,0 +1,237 @@
+{
+  "id": "betanzos-pimenton",
+  "contentId": "recipe.betanzos-pimenton",
+  "translationKey": "recipe-betanzos-pimenton",
+  "slug": {
+    "es": "tortilla-betanzos-pimenton-chorizo",
+    "en": "galician-betanzos-paprika-chorizo-omelette",
+    "de": "galicische-betanzos-tortilla-paprika-chorizo"
+  },
+  "title": {
+    "es": "Tortilla de Betanzos con Pimentón y Chorizo Gallego",
+    "en": "Galician Betanzos Tortilla with Paprika & Chorizo",
+    "de": "Galicische Betanzos-Tortilla mit Paprika und Chorizo"
+  },
+  "description": {
+    "es": "Variación gallega de la mítica tortilla de Betanzos enriquecida con pimentón de la Vera ahumado y sutiles taquitos de chorizo artesano, manteniendo su corazón intensamente caldoso.",
+    "en": "Galician variation of the legendary Betanzos tortilla infused with smoky paprika and artisanal cured chorizo, retaining its famous liquid golden center.",
+    "de": "Galicische Variante der legendären Betanzos-Tortilla mit geräuchertem Paprikapulver und feiner Chorizo bei unvergleichlich saftig-flüssigem Kern."
+  },
+  "taxonomyIds": [
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:chorizo",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:galicia",
+    "region:betanzos",
+    "style:juicy",
+    "technique:frying",
+    "difficulty:medium"
+  ],
+  "time": 25,
+  "prepTimeMinutes": 10,
+  "cookTimeMinutes": 15,
+  "yieldServings": 4,
+  "image": "/images/recipes/betanzos-pimenton.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata Kennebec I.G.P. Galicia",
+        "en": "Galician PGI Kennebec Potato",
+        "de": "Galicische Kennebec-Kartoffel"
+      },
+      "amount": 550,
+      "unit": "g",
+      "notes": {
+        "es": "550g cortadas en lascas finas e irregulares",
+        "en": "550g cut into thin irregular flakes",
+        "de": "550g in dünne unregelmäßige Scheiben geschnitten"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevos de aldea gallegos",
+        "en": "Galician Farmhouse Eggs",
+        "de": "Galicische Landeier"
+      },
+      "amount": 8,
+      "unit": "unit",
+      "notes": {
+        "es": "8 huevos camperos de yema anaranjada intensa",
+        "en": "8 large free-range eggs with deep orange yolks",
+        "de": "8 große Freilandeier mit kräftigem Dotter"
+      }
+    },
+    {
+      "id": "chorizo",
+      "ingredientId": "chorizo",
+      "name": {
+        "es": "Chorizo gallego artesano",
+        "en": "Artisanal Galician Chorizo",
+        "de": "Galicische Chorizo-Wurst"
+      },
+      "amount": 60,
+      "unit": "g",
+      "notes": {
+        "es": "60g cortado en taquitos diminutos y salteado",
+        "en": "60g finely minced and lightly crisped",
+        "de": "60g fein gewürfelt und kurz angebraten"
+      }
+    },
+    {
+      "id": "paprika",
+      "ingredientId": "blackPepper",
+      "name": {
+        "es": "Pimentón de la Vera Agridulce D.O.P.",
+        "en": "Smoked Spanish Paprika DOP",
+        "de": "Geräuchertes Paprikapulver D.O.P."
+      },
+      "amount": 3,
+      "unit": "g",
+      "notes": {
+        "es": "1/2 cucharadita de pimentón de la Vera",
+        "en": "1/2 tsp bittersweet smoked paprika",
+        "de": "1/2 TL edelsüßes geräuchertes Paprikapulver"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 180,
+      "unit": "ml",
+      "notes": {
+        "es": "180ml de AOVE para fritura",
+        "en": "180ml EVOO for crisp frying",
+        "de": "180ml Olivenöl zum Frittieren"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal marina",
+        "en": "Sea Salt",
+        "de": "Meersalz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "5g de sal marina fina",
+        "en": "5g fine sea salt",
+        "de": "5g feines Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Corte de patatas estilo Betanzos",
+        "en": "1. Betanzos-style potato cutting",
+        "de": "1. Betanzos-Kartoffelschnitt"
+      },
+      "text": {
+        "es": "Pela las patatas Kennebec y córtalas en láminas muy finas y pequeñas con cuchillo afilado, sin lavarlas tras el corte para preservar el almidón superficial.",
+        "en": "Peel Kennebec potatoes and slice into very thin, small chips with a sharp chef knife without rinsing to retain natural starches.",
+        "de": "Kennebec-Kartoffeln schälen und mit scharfem Messer in sehr dünne Scheiben schneiden. Nicht waschen, um Stärke zu erhalten."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Salteado del chorizo e infusión del aceite",
+        "en": "2. Sautéing chorizo & oil infusion",
+        "de": "2. Chorizo anbraten & Öl aromatisieren"
+      },
+      "text": {
+        "es": "Saltea los taquitos de chorizo en 1 cucharada de aceite durante 1 minuto hasta que suelten sus aromas y grasas rojizas. Reserva aparte.",
+        "en": "Sauté the finely diced chorizo in 1 tbsp olive oil for 1 minute until fragrant and releasing its natural red oils. Set aside.",
+        "de": "Chorizo-Würfel in 1 EL Öl 1 Minute anbraten, bis das Würzöl austritt. Beiseitestellen."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Fritura crujiente de las patatas",
+        "en": "3. Crispy potato frying",
+        "de": "3. Knuspriges Frittieren der Kartoffeln"
+      },
+      "text": {
+        "es": "Fríe las patatas en abundante AOVE caliente a 160-170°C hasta que estén doradas y crujientes por los bordes pero sin tostarse.",
+        "en": "Fry the potatoes in hot olive oil at 160-170°C until golden and crispy at the edges while remaining tender inside.",
+        "de": "Kartoffeln in reichlich heißem Olivenöl bei 160-170°C goldgelb mit knusprigen Rändern frittieren."
+      }
+    },
+    {
+      "step": {
+        "es": "4. Mezcla batida con pimentón",
+        "en": "4. Egg & paprika blend",
+        "de": "4. Eimasse mit Paprika verrühren"
+      },
+      "text": {
+        "es": "Bate los 8 huevos en un bol junto con la sal y el pimentón ahumado. Incorpora el chorizo salteado y las patatas recién escurridas muy calientes.",
+        "en": "Lightly beat the 8 eggs with sea salt and smoked paprika. Stir in the crisped chorizo and hot freshly drained potatoes.",
+        "de": "8 Eier mit Meersalz und geräuchertem Paprikapulver kurz verquirlen. Warme Chorizo und heiße Kartoffeln unterheben."
+      }
+    },
+    {
+      "step": {
+        "es": "5. Reposo y homogenización térmica",
+        "en": "5. Rest & thermal integration",
+        "de": "5. Ruhen und Binden"
+      },
+      "text": {
+        "es": "Deja reposar la mezcla 1 minuto para que las patatas crujientes absorban parte del huevo y transmitan su calor.",
+        "en": "Allow the bowl mixture to rest for 1 minute so the warm crispy potatoes absorb the seasoned egg yolk liquid.",
+        "de": "Die Mischung 1 Minute ruhen lassen, damit die warmen Kartoffeln die aromatische Eimasse aufnehmen."
+      }
+    },
+    {
+      "step": {
+        "es": "6. Cuajado fugaz en sartén viva",
+        "en": "6. Flash searing in skillet",
+        "de": "6. Sekundenschnelles Stocken"
+      },
+      "text": {
+        "es": "Vierte la mezcla en una sartén muy caliente y mueve continuamente durante 20 segundos. Da la vuelta inmediatamente y cocina otros 20 segundos para sellar la fina capa exterior.",
+        "en": "Pour into a very hot skillet and agitate vigorously for 20 seconds. Flip immediately and sear for only 20 seconds more to seal the outer shell.",
+        "de": "In die glühend heiße Pfanne geben, 20 Sekunden rühren, sofort wenden und weitere 20 Sekunden garen, um nur die Außenhaut zu schließen."
+      }
+    },
+    {
+      "step": {
+        "es": "7. Emplatado y directrices sanitarias",
+        "en": "7. Plating & food safety guidelines",
+        "de": "7. Anrichten und Hygienehinweise"
+      },
+      "text": {
+        "es": "Desliza en el plato; al cortarla debe fluir un río de yema aromática. Si vas a conservarla, atempera y refrigera a menos de 8°C o asegúrate de que supere los **70°C durante 2 minutos**.",
+        "en": "Slide onto a serving plate; slicing should release a golden river of paprika-scented yolk. For storage, ensure safety heating to **70°C for 2 minutes** and never leave beyond **4 hours**.",
+        "de": "Auf einen Teller gleiten lassen; beim Anschnitt fließt saftiges aromatisches Eigelb heraus. Bei Aufbewahrung **70°C für 2 Minuten** sicherstellen und höchstens **4 Stunden** warmhalten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Evolución de la Escuela de Betanzos (A Coruña)",
+      "description": {
+        "es": "Variante regional contemporánea de la icónica tortilla líquida de Betanzos.",
+        "en": "Contemporary regional evolution of the iconic Betanzos runny omelette.",
+        "de": "Moderne Interpretation der berühmten flüssigen Betanzos-Tortilla aus Galicien."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "tortilladepatatas.org"
+  }
+}

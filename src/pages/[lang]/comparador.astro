@@ -4,7 +4,6 @@ import { supportedLanguages } from '@/lib/i18n';
 import { generateBreadcrumbSchema } from '@/lib/seo';
 import { getAllRecipes } from '@/lib/taxonomy';
 import { RecipeComparator } from '@/components/comparator/RecipeComparator';
-import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import { Scale, ShieldCheck } from 'lucide-react';
 
 export async function getStaticPaths() {
@@ -32,7 +31,7 @@ const stylesSummary = [
     onion: 'Nunca lleva cebolla',
     potatoCut: 'Hojuela frita a fuego vivo (muy crujiente)',
     tempTarget: '60°C - 63°C en centro',
-    safetyNote: 'Requiere consumo inmediato o huevo pasteurizado.'
+    safetyNote: 'Requiere consumo inmediato (<4 horas) o huevo pasteurizado.'
   },
   {
     name: 'Estilo Clásico Tradicional',
@@ -40,7 +39,7 @@ const stylesSummary = [
     onion: 'Opcional (cebolla pochada)',
     potatoCut: 'Láminas pochadas en aceite de oliva',
     tempTarget: '68°C - 70°C en centro',
-    safetyNote: 'Alcanza el punto óptimo de cuajado y seguridad sanitaria.'
+    safetyNote: 'Alcanza el punto óptimo de cuajado y seguridad sanitaria (70°C por 2 minutos).'
   },
   {
     name: 'Estilo Vasco / Bar',
@@ -56,16 +55,16 @@ const stylesSummary = [
 <Layout title={pageTitle} description="Comparador técnico de recetas de tortilla de patatas basado en ratios normalizados por huevo" lang={currentLang} schema={[breadcrumbSchema]}>
   <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
     <header class="text-center max-w-3xl mx-auto space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
-        <Scale class="w-3.5 h-3.5" />
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/35 text-xs font-bold shadow-2xs">
+        <Scale class="w-3.5 h-3.5 text-[#FFB800]" />
         <span>Comparador Técnico Normalizado (Unidad Fundamental = 1 Huevo)</span>
       </div>
 
-      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-[#292521]">
+      <h1 class="text-3xl sm:text-4xl font-serif-heading font-extrabold text-foreground">
         Comparador de Recetas & ADN de Tortilla
       </h1>
 
-      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed">
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
         Compara cualquier fórmula convirtiendo todas las cantidades a gramos/mililitros por huevo. Analiza las diferencias porcentuales de patata, aceite, cebolla y la intensidad de su ADN culinario.
       </p>
     </header>
@@ -75,39 +74,39 @@ const stylesSummary = [
 
     <!-- Style Characteristics Summary -->
     <div class="space-y-6 pt-6">
-      <h2 class="text-2xl font-serif-heading font-bold text-[#292521] border-b border-[#E8E2D5] pb-3">
+      <h2 class="text-2xl font-serif-heading font-bold text-foreground border-b border-border pb-3">
         Resumen Parámetros por Estilo Culinario
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {stylesSummary.map((s) => (
-          <div class="card-notebook p-6 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] space-y-4 shadow-xs">
-            <h3 class="text-xl font-serif-heading font-bold text-[#292521] pb-2 border-b border-[#E8E2D5]">
+          <div class="card-notebook p-6 rounded-2xl border border-border bg-card space-y-4 shadow-xs">
+            <h3 class="text-xl font-serif-heading font-bold text-foreground pb-2 border-b border-border">
               {s.name}
             </h3>
 
             <div class="space-y-3 text-xs sm:text-sm">
               <div>
-                <span class="font-bold text-[#8D6E63] block">Estado del Huevo:</span>
+                <span class="font-bold text-[#8D6E63] dark:text-[#FFB800] block">Estado del Huevo:</span>
                 <span class="text-foreground/90">{s.eggState}</span>
               </div>
 
               <div>
-                <span class="font-bold text-[#8D6E63] block">Uso de Cebolla:</span>
+                <span class="font-bold text-[#8D6E63] dark:text-[#FFB800] block">Uso de Cebolla:</span>
                 <span class="text-foreground/90">{s.onion}</span>
               </div>
 
               <div>
-                <span class="font-bold text-[#8D6E63] block">Corte de Patata:</span>
+                <span class="font-bold text-[#8D6E63] dark:text-[#FFB800] block">Corte de Patata:</span>
                 <span class="text-foreground/90">{s.potatoCut}</span>
               </div>
 
               <div>
-                <span class="font-bold text-[#8D6E63] block">Temperatura en Centro:</span>
-                <span class="font-mono bg-[#F5E6BE] px-1.5 py-0.5 rounded text-xs font-bold text-[#8D6E63] inline-block">{s.tempTarget}</span>
+                <span class="font-bold text-[#8D6E63] dark:text-[#FFB800] block">Objetivo Térmico:</span>
+                <span class="text-foreground/90 font-mono text-xs">{s.tempTarget}</span>
               </div>
 
-              <div class="pt-2 border-t border-[#E8E2D5] text-xs text-muted-foreground">
-                {s.safetyNote}
+              <div class="pt-3 border-t border-border text-xs text-muted-foreground">
+                <strong class="text-foreground">Seguridad:</strong> {s.safetyNote}
               </div>
             </div>
           </div>
@@ -115,18 +114,17 @@ const stylesSummary = [
       </div>
     </div>
 
-    <!-- Mandatory Safety Standards Card -->
-    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5]">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p>
-          En todos los estilos, la norma bactericida de oro exige **70°C for 2 minutes** o **63°C for 20 seconds** para garantizar la eliminación de Salmonella spp., limitando la permanencia a temperatura ambiente a **4 hours**.
-        </p>
+    <!-- Abuela's Note on Safety Standard -->
+    <div class="chef-note space-y-1">
+      <div class="flex items-center gap-2">
+        <ShieldCheck class="w-5 h-5 text-[#FFB800]" />
+        <h3 class="font-serif-heading font-bold text-base text-foreground">
+          Estándar de Oro en Termodinámica & Inocuidad
+        </h3>
       </div>
-    </section>
-
-    <!-- Linear Guided Culinary Journey -->
-    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/comparador`} client:visible />
+      <p class="text-xs sm:text-sm text-foreground/90 font-sans leading-relaxed">
+        El estándar sanitario exige alcanzar <strong>70°C durante 2 minutos</strong> en el corazón de la masa para la destrucción de Salmonella enteritidis, o alternativamente <strong>63°C durante 20 segundos</strong>. Para perfiles fluidos estilo Betanzos, consúmase de inmediato y no exceda <strong>4 horas</strong> a temperatura ambiente.
+      </p>
+    </div>
   </div>
 </Layout>
-

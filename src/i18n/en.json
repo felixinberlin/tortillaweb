@@ -11,7 +11,14 @@
     "about": "About",
     "contact": "Contact",
     "aboutAndContact": "About & Contact",
-    "impressum": "Legal Notice & Impressum"
+    "impressum": "Legal Notice & Impressum",
+    "videos": "Videos",
+    "humor": "Humor & Oracle",
+    "club": "Club & Passport",
+    "autenticidad": "Authenticity & Sources",
+    "escandallo": "HORECA Cost Calculator",
+    "utensilios": "Kitchen Tools & Gear",
+    "tienda": "Equipment & Gourmet Shop"
   },
   "hero": {
     "badge": "The encyclopedia of Spanish tortilla",
@@ -202,7 +209,7 @@
     "title": "About Tortilla de Patatas",
     "subtitle": "A dedicated project to document, share, and perfect Spain's iconic culinary treasure.",
     "storyTitle": "Origin of an Icon",
-    "storyP1": "While popular legend attributes the invention of tortilla to General Tomás de Zumalacárregui in Navarra around 1817 as a cheap, nourishing food for his troops, historical documents trace its origins to Villanueva de la Serena (Extremadura) in 1798.",
+    "storyP1": "While popular folklore often misattributed the origin to General Tomás de Zumalacárregui in 1835 (Siege of Bilbao) or the Navarrese memorial of 1817, historical research by CSIC has proven that the earliest documented recipe dates back to 1798 in Villanueva de la Serena (Extremadura), developed by Joseph de Tena Godoy and the Marquis of Robledo.",
     "storyP2": "Today, Spanish tortilla transcends borders: it is the staple dish across tapas bars in Spain, enjoyed from morning till night.",
     "missionTitle": "Our Mission",
     "missionDesc": "tortilladepatatas.org was created to connect food enthusiasts worldwide, document traditional cooking techniques, and offer interactive tools like our ratio builder.",
@@ -481,5 +488,25 @@
       "subtitle": "Traditional and modern recipes utilizing potato as their core structural foundation",
       "viewRecipe": "View Recipe"
     }
+  },
+  "videosPage": {
+    "badge": "Audiovisual & Masterclasses",
+    "title": "Culinary Video Library & Documentaries",
+    "subtitle": "Technique tutorials, exclusive interviews, documentary history, and omelette science.",
+    "allCategories": "All categories",
+    "technique": "Techniques",
+    "interview": "Interviews",
+    "history": "History",
+    "science": "Science",
+    "searchPlaceholder": "Search tutorials, techniques, or people...",
+    "watchVideo": "Watch video",
+    "comingSoon": "Coming Soon",
+    "inProduction": "In production",
+    "duration": "Duration",
+    "relatedRecipes": "Related recipes",
+    "noResults": "No videos found matching your criteria.",
+    "modalTitle": "Audiovisual Premiere in Production",
+    "modalDesc": "We are currently editing and producing this feature in crisp 4K alongside master chefs and culinary historians.",
+    "close": "Close"
   }
 }

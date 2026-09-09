@@ -46,6 +46,21 @@
       "icon": "Scale"
     },
     {
+      "id": "club",
+      "href": "/club",
+      "title": {
+        "es": "Club de la Tortilla & Carnet Oficial",
+        "en": "Tortilla Club & Official Passport",
+        "de": "Tortilla-Club & Offizieller Ausweis"
+      },
+      "description": {
+        "es": "Generador de carnet digital oficial de Tortillólogo acreditado: elige tu facción, rango gastronómico y comparte tu pasaporte con QR.",
+        "en": "Official digital member passport generator for accredited Tortillologists: pick your faction, rank, and share your passport.",
+        "de": "Offizieller digitaler Mitgliedsausweis: Wähle Faktion und Rang und teile deinen Pass mit QR-Code."
+      },
+      "icon": "Award"
+    },
+    {
       "id": "encuestas",
       "href": "/encuestas",
       "title": {
@@ -74,6 +89,51 @@
         "de": "Finde heraus, welcher Faktion du angehörst."
       },
       "icon": "HelpCircle"
+    },
+    {
+      "id": "escandallo",
+      "href": "/escandallo",
+      "title": {
+        "es": "Escandallos & Costes Hostelería",
+        "en": "Recipe Costing & Margins (HORECA)",
+        "de": "Deckungsbeitrags- & Kostenrechner"
+      },
+      "description": {
+        "es": "Calculadora profesional de food cost, margen bruto por pincho, punto de equilibrio y fichas técnicas APPCC.",
+        "en": "Professional food cost calculator, portion gross margins, break-even analysis, and HACCP technical spec sheets.",
+        "de": "Professioneller Wareneinsatz- und Portionsrechner mit Deckungsbeitrag für Gastronomie und Catering."
+      },
+      "icon": "Scale"
+    },
+    {
+      "id": "autenticidad",
+      "href": "/autenticidad",
+      "title": {
+        "es": "Verificador de Autenticidad & Fuentes",
+        "en": "Authenticity Verifier & Source Archive",
+        "de": "Authentizitätsprüfung & Quellenarchiv"
+      },
+      "description": {
+        "es": "Archivo de proveniencia científica e histórica: manuscritos de 1798, BOE, CSIC y actas del Campeonato de España.",
+        "en": "Provenance archive: verified 1798 manuscripts, official BOE safety decrees, CSIC papers, and championship jury records.",
+        "de": "Wissenschaftliches Quellenarchiv: 1798-Manuskripte, BOE-Sicherheitsstandards und Meisterschaftsdaten."
+      },
+      "icon": "ShieldCheck"
+    },
+    {
+      "id": "svg-generator",
+      "href": "/laboratorio/svg-generator",
+      "title": {
+        "es": "Estudio SVG & Ilustrador Vectorial",
+        "en": "SVG Studio & Vector Illustrator",
+        "de": "SVG-Studio & Vektor-Illustrator"
+      },
+      "description": {
+        "es": "Generador paramétrico de ilustraciones SVG de alta fidelidad según cuajado, corte de patata, cebolla y extras culinarios.",
+        "en": "Parametric high-fidelity SVG illustration generator based on yolk physics, potato cuts, onions, and culinary toppings.",
+        "de": "Parametrischer SVG-Vektorgenerator für Tortillas nach Garstufe, Schnittform und Zutaten."
+      },
+      "icon": "Sparkles"
     },
     {
       "id": "worldstate",

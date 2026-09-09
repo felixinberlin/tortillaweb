@@ -159,9 +159,9 @@
     {
       "step": { "es": "4. Volteo y seguridad alimentaria", "en": "4. Flipping and food safety", "de": "4. Wenden und Lebensmittelsicherheit" },
       "text": {
-        "es": "Cocina durante 2 minutos por lado a fuego medio. Para máxima seguridad alimentaria y coagulación completa del centro trufado, mantén la masa a 70°C durante 2 minutos.",
-        "en": "Cook for 2 minutes per side over medium heat. For food safety and pasteurization of the center, maintain 70°C for 2 minutes.",
-        "de": "2 Minuten pro Seite garen. Für Lebensmittelsicherheit halten Sie im Kern 70°C für 2 Minuten ein."
+        "es": "Cocina durante 2 minutos por lado a fuego medio. Para máxima seguridad alimentaria y coagulación completa del centro trufado, mantén la masa a **70°C durante 2 minutos**.",
+        "en": "Cook for 2 minutes per side over medium heat. For food safety and pasteurization of the center, maintain **70°C for 2 minutes**.",
+        "de": "2 Minuten pro Seite garen. Für Lebensmittelsicherheit halten Sie im Kern **70°C für 2 Minuten** ein."
       }
     }
   ],

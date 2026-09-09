@@ -97,7 +97,7 @@ export const historyData: Record<string, HistoryPageContent> = {
       {
         year: "1991 - 2025",
         title: "Alertas Sanitarias y Control Epidemiológico",
-        location: "Valencia, Madrid, Galia",
+        location: "Valencia, Madrid, Galicia",
         description: "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C durante 2 minutos** y ovoproductos.",
         badge: "Seguridad Alimentaria",
         tagType: "safety"
@@ -200,7 +200,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         bulletPoints: [
           "Uso de ovoproductos pasteurizados: Obligatorio en restauración profesional para tortillas jugosas.",
           "Refrigeración estricta (<8°C): Requerida si no se consume de forma inmediata.",
-          "Límite de exposición ambiental: Jamás superar las **4 hours** de reposo en barra o mesa."
+          "Límite de exposición ambiental: Jamás superar las **4 horas** de reposo en barra o mesa."
         ]
       },
       {

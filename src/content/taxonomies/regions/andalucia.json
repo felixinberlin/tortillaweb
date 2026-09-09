@@ -1,0 +1,21 @@
+{
+  "id": "andalucia",
+  "type": "region",
+  "contentId": "region.andalucia",
+  "slug": {
+    "es": "andalucia",
+    "en": "andalusia",
+    "de": "andalusien"
+  },
+  "title": {
+    "es": "Andalucía",
+    "en": "Andalusia",
+    "de": "Andalusien"
+  },
+  "description": {
+    "es": "Cuna del aceite de oliva virgen extra de calidad excepcional y de las tortillas camperas y paisanas de huerta.",
+    "en": "Birthplace of world-class EVOO and rich Andalusian countryside vegetable omelettes.",
+    "de": "Heimat weltberühmten Olivenöls und reichhaltiger andalusischer Bauerntortillas."
+  },
+  "icon": "Sun"
+}

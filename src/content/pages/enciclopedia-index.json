@@ -61,6 +61,21 @@
       "icon": "Flame"
     },
     {
+      "id": "utensilios",
+      "href": "/utensilios",
+      "title": {
+        "es": "Utensilios & Menaje de Cocina",
+        "en": "Kitchen Tools & Gear",
+        "de": "Küchen-Utensilien & Menage"
+      },
+      "description": {
+        "es": "Análisis termodinámico y mecánico: sartenes dobles abatibles vs vuelvetortillas cerámicos, peladores y mandolinas.",
+        "en": "Thermodynamic and mechanical analysis: double-hinged flip pans vs ceramic turning lids, peelers, and mandolines.",
+        "de": "Thermodynamische und mechanische Analyse: Wende-Doppelpfannen vs Tortilla-Wendeteller, Sparschäler und Mandolinen."
+      },
+      "icon": "Utensils"
+    },
+    {
       "id": "ciencia",
       "href": "/science",
       "title": {
@@ -89,6 +104,36 @@
         "de": "Faszinierende Fakten, Trivia und Geheimnisse aus allen Taxonomien des Tortilla-Universums."
       },
       "icon": "HelpCircle"
+    },
+    {
+      "id": "humor",
+      "href": "/humor",
+      "title": {
+        "es": "Humor & Oráculo Tortillero",
+        "en": "Humor & Tortilla Oracle",
+        "de": "Bar-Humor & Tortilla-Orakel"
+      },
+      "description": {
+        "es": "Generador de excusas para vuelcos fallidos, detector de sacrilegios y los mandamientos del humor castizo.",
+        "en": "Gourmet excuse generator for failed flips, sacrilege detector quiz, and bar culture lore.",
+        "de": "Ausreden-Generator für Pfannen-Missgeschicke, Ketzerei-Detektor und humorvolle Bar-Kultur."
+      },
+      "icon": "Laugh"
+    },
+    {
+      "id": "autenticidad",
+      "href": "/autenticidad",
+      "title": {
+        "es": "Autenticidad & Fuentes Primarias",
+        "en": "Authenticity & Primary Sources",
+        "de": "Authentizität & Primärquellen"
+      },
+      "description": {
+        "es": "Archivo de verificación científica e histórica: manuscritos de 1798, BOE, CSIC y cinéticas microbiológicas.",
+        "en": "Scientific and historical verification archive: 1798 manuscripts, BOE decrees, and microbiology kinetics.",
+        "de": "Wissenschaftliches und historisches Quellenarchiv: 1798-Manuskripte, BOE-Dekrete und CSIC-Forschung."
+      },
+      "icon": "ShieldCheck"
     }
   ]
 }

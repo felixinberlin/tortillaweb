@@ -4,18 +4,20 @@ import {
   Share2,
   Copy,
   Check,
-  ChefHat,
   Flame,
   Scale,
+  Download,
+  FileDown,
   ExternalLink,
-  BookOpen,
-  GitCompare,
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { TortillaConfiguration } from "@/domain/builder/types";
 import { getIngredientModifier } from "@/domain/builder/ingredientRegistry";
+import { RecipeComparisonCard } from "./RecipeComparisonCard";
+import { DnaExportModal } from "./DnaExportModal";
+import { getComparatorUrlForConfig, downloadDnaAsPdf } from "@/domain/builder/dnaShareHelper";
+import TortillaSvgRenderer from "@/components/svg/TortillaSvgRenderer";
+import { builderConfigToSvgOptions } from "@/domain/svg";
 
 interface TortillaProfileViewProps {
   lang: string;
@@ -28,21 +30,26 @@ export const TortillaProfileView: React.FC<TortillaProfileViewProps> = ({
   lang,
   config,
   shareUrl,
-  onOpenComparator,
 }) => {
   const isEs = lang.startsWith("es");
   const isDe = lang.startsWith("de");
 
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedRecipe, setCopiedRecipe] = useState(false);
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
 
   const { calculatedProfile, ingredients } = config;
+  const comparatorUrl = getComparatorUrlForConfig(config, lang);
 
-  const eggIng = ingredients.find((i) => i.entityId === "egg");
-  const potatoIng = ingredients.find((i) => i.entityId === "potato");
-  const extraIngs = ingredients.filter(
-    (i) => i.entityId !== "egg" && i.entityId !== "potato" && i.entityId !== "oil"
-  );
+  const handleDownloadPdf = async () => {
+    setIsDownloadingPdf(true);
+    try {
+      await downloadDnaAsPdf(config, lang, shareUrl);
+    } finally {
+      setIsDownloadingPdf(false);
+    }
+  };
 
   const getLocalizedName = (entityId: string) => {
     if (entityId === "egg") return isEs ? "Huevos" : isDe ? "Eier" : "Eggs";
@@ -53,24 +60,8 @@ export const TortillaProfileView: React.FC<TortillaProfileViewProps> = ({
     return isEs ? mod.name.es : isDe ? mod.name.de : mod.name.en;
   };
 
-  const getTaxonomyUrl = (entityId: string) => {
-    const langPrefix = isEs ? "/es" : isDe ? "/de" : "/en";
-    const section = isEs ? "ingredientes" : isDe ? "zutaten" : "ingredients";
-
-    if (entityId === "egg") return `${langPrefix}/${section}/${isEs ? "huevo" : isDe ? "ei" : "egg"}`;
-    if (entityId === "potato") return `${langPrefix}/${section}/${isEs ? "patata" : isDe ? "kartoffel" : "potato"}`;
-    if (entityId === "oil") return `${langPrefix}/${section}/${isEs ? "aceite" : isDe ? "oel" : "oil"}`;
-
-    const mod = getIngredientModifier(entityId);
-    if (mod?.taxonomySlug) {
-      const slug = isEs ? mod.taxonomySlug.es : isDe ? mod.taxonomySlug.de : mod.taxonomySlug.en;
-      return `${langPrefix}/${section}/${slug}`;
-    }
-    return null;
-  };
-
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(shareUrl);
+    navigator.clipboard.writeText(shareUrl || window.location.href);
     setCopiedLink(true);
     setTimeout(() => setCopiedLink(false), 2000);
   };
@@ -95,6 +86,8 @@ ${isEs ? "Sartén recomendada:" : "Recommended pan:"} ${calculatedProfile.recomm
 ${isEs ? "Raciones estimadas:" : "Estimated servings:"} ${calculatedProfile.estimatedServings}
 ${isEs ? "Ratio Patata/Huevo:" : "Potato/Egg ratio:"} ${calculatedProfile.potatoEggRatio}g/egg (${calculatedProfile.ratioCategory[isEs ? "es" : "en"]})
 
+${isEs ? "Seguridad Culinaria:" : "Food Safety Standard:"} 70°C por 2 minutos (óptimo) / 63°C por 20 segundos
+
 ${isEs ? "Instrucciones de Elaboración:" : "Cooking Steps:"}
 ${adviceList.map((step, idx) => `${idx + 1}. ${step}`).join("\n")}
 ------------------------------------
@@ -118,301 +111,321 @@ ${shareUrl}`;
     : calculatedProfile.flavorNotes.en;
 
   return (
-    <div className="space-y-8">
-      {/* Identity Banner */}
-      <Card className="border-2 border-amber-600/40 bg-gradient-to-br from-amber-500/15 via-stone-50 to-amber-500/10 shadow-md rounded-2xl overflow-hidden">
-        <CardContent className="p-6 md:p-8 space-y-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-amber-900/10 pb-6">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-amber-600 text-white font-bold px-3 py-1">
-                  <Sparkles className="w-3.5 h-3.5 mr-1 inline" />
-                  {isEs ? "Identidad Creada" : isDe ? "Tortilla-Identität" : "Tortilla Identity"}
-                </Badge>
-                <Badge variant="outline" className="border-amber-400 bg-amber-100 text-amber-950 font-bold">
-                  🍳 {calculatedProfile.recommendedPanSizeCm} cm pan
-                </Badge>
-                <Badge variant="outline" className="border-amber-400 bg-amber-100 text-amber-950 font-bold">
-                  👥 {calculatedProfile.estimatedServings} {isEs ? "raciones" : "servings"}
-                </Badge>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
-                {isEs ? "Tu Tortilla Personalizada" : isDe ? "Ihre Eigene Tortilla" : "Your Custom Tortilla"}
-              </h2>
-              <p className="text-stone-600 text-sm md:text-base mt-1">
-                {calculatedProfile.ratioCategory[isEs ? "es" : isDe ? "de" : "en"]}
-              </p>
-            </div>
-
-            {/* Quick Action Buttons */}
-            <div className="flex flex-wrap items-center gap-2 shrink-0">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleCopyLink}
-                className="border-amber-500 text-amber-950 hover:bg-amber-100 font-bold text-xs"
-              >
-                {copiedLink ? <Check className="w-4 h-4 mr-1 text-emerald-600" /> : <Share2 className="w-4 h-4 mr-1" />}
-                {copiedLink
-                  ? isEs
-                    ? "Enlace Copiado!"
-                    : "Link Copied!"
-                  : isEs
-                  ? "Compartir URL"
-                  : "Share URL"}
-              </Button>
-              <Button
-                size="sm"
-                onClick={handleCopyRecipeText}
-                className="bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-xs"
-              >
-                {copiedRecipe ? <Check className="w-4 h-4 mr-1" /> : <Copy className="w-4 h-4 mr-1" />}
-                {copiedRecipe
-                  ? isEs
-                    ? "Copiado!"
-                    : "Copied!"
-                  : isEs
-                  ? "Copiar Receta"
-                  : "Copy Recipe"}
-              </Button>
-              {onOpenComparator && (
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={onOpenComparator}
-                  className="bg-stone-800 hover:bg-stone-900 text-white font-bold text-xs"
-                >
-                  <GitCompare className="w-4 h-4 mr-1" />
-                  {isEs ? "Comparar ADN" : "Compare DNA"}
-                </Button>
-              )}
-            </div>
-          </div>
-
-          {/* Ingredient Composition Summary Grid */}
+    <div className="space-y-6">
+      {/* Header Banner with Profile Summary */}
+      <div className="card-notebook p-6 bg-card border border-border rounded-2xl shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-border">
           <div>
-            <h3 className="text-xs font-extrabold text-amber-900 uppercase tracking-wider mb-3 flex items-center gap-2">
-              <ChefHat className="w-4 h-4" />
-              {isEs ? "Composición de Ingredientes" : isDe ? "Zusammenstellung" : "Ingredient Composition"}
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div className="bg-white p-3.5 rounded-xl border border-stone-200 text-center">
-                <span className="text-xs text-stone-500 block">🥚 {isEs ? "Huevos" : "Eggs"}</span>
-                <span className="text-xl font-extrabold text-stone-900">{eggIng?.quantity || 0}</span>
-                <span className="text-3xs text-stone-400 block uppercase font-bold">{eggIng?.size || "L"}</span>
-              </div>
-              <div className="bg-white p-3.5 rounded-xl border border-stone-200 text-center">
-                <span className="text-xs text-stone-500 block">🥔 {isEs ? "Patatas" : "Potatoes"}</span>
-                <span className="text-xl font-extrabold text-stone-900">{potatoIng?.quantity || 0}g</span>
-                <span className="text-3xs text-stone-400 block font-bold">≈ {calculatedProfile.potatoUnits} {isEs ? "unidades" : "units"}</span>
-              </div>
-              <div className="bg-white p-3.5 rounded-xl border border-stone-200 text-center">
-                <span className="text-xs text-stone-500 block">🫒 {isEs ? "Aceite Absorbido" : "Absorbed Oil"}</span>
-                <span className="text-xl font-extrabold text-amber-900">{calculatedProfile.estimatedAbsorbedOilMl}ml</span>
-                <span className="text-3xs text-stone-400 block font-bold">({calculatedProfile.estimatedFryingOilMl}ml {isEs ? "freír" : "fry"})</span>
-              </div>
-              <div className="bg-white p-3.5 rounded-xl border border-stone-200 text-center">
-                <span className="text-xs text-stone-500 block">🥗 {isEs ? "Extras" : "Extras"}</span>
-                <span className="text-xl font-extrabold text-stone-900">{extraIngs.length}</span>
-                <span className="text-3xs text-stone-400 block font-bold">{isEs ? "ingredientes" : "ingredients"}</span>
-              </div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-2xl">🍳</span>
+              <h3 className="font-serif-heading text-2xl font-bold text-foreground">
+                {isEs ? "Fórmula Personalizada de Tortilla" : isDe ? "Dein Tortilla-Profil" : "Custom Tortilla Recipe Profile"}
+              </h3>
             </div>
+            <p className="text-muted-foreground text-xs sm:text-sm">
+              {isEs
+                ? "Resumen de pesos, termodinámica, proporciones de corte y tiempos calculados"
+                : isDe
+                ? "Zusammenfassung von Gewichten, Verhältnissen und Garzeiten"
+                : "Comprehensive breakdown of weights, ratios, thermodynamics, and timings"}
+            </p>
           </div>
-        </CardContent>
-      </Card>
 
-      {/* Tortilla DNA Profile Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Ratios & Indicators */}
-        <Card className="border-2 border-amber-900/10 shadow-sm bg-stone-50/80 rounded-2xl overflow-hidden">
-          <CardHeader className="bg-amber-500/10 pb-3 border-b border-amber-900/10">
-            <CardTitle className="text-lg font-bold text-stone-900 flex items-center gap-2">
-              <Scale className="w-5 h-5 text-amber-600" />
-              {isEs ? "Indicadores Tortilla DNA" : "Tortilla DNA Ratios"}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 space-y-4">
-            {/* Potato/Egg ratio */}
-            <div>
-              <div className="flex justify-between items-center text-sm font-semibold mb-1">
-                <span className="text-stone-800">🥔 {isEs ? "Ratio Patata / Huevo:" : "Potato / Egg Ratio:"}</span>
-                <span className="text-amber-900 font-extrabold">{calculatedProfile.potatoEggRatio}g / {isEs ? "huevo" : "egg"}</span>
-              </div>
-              <div className="w-full bg-stone-200 h-2.5 rounded-full overflow-hidden">
-                <div
-                  className="bg-amber-600 h-2.5 rounded-full"
-                  style={{ width: `${Math.min(100, (calculatedProfile.potatoEggRatio / 150) * 100)}%` }}
-                />
-              </div>
-              <p className="text-xs text-stone-500 mt-1">
-                {calculatedProfile.ratioCategory[isEs ? "es" : isDe ? "de" : "en"]}
-              </p>
-            </div>
+          <div className="flex flex-wrap items-center gap-2">
+            {/* Direct PDF Export */}
+            <Button
+              onClick={handleDownloadPdf}
+              disabled={isDownloadingPdf}
+              size="sm"
+              className="bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-extrabold text-xs gap-1.5 shadow-2xs cursor-pointer"
+            >
+              <FileDown className="w-3.5 h-3.5" />
+              <span>
+                {isDownloadingPdf
+                  ? isEs
+                    ? "Generando PDF..."
+                    : "Generating PDF..."
+                  : isEs
+                  ? "Exportar Receta (PDF)"
+                  : isDe
+                  ? "Rezept PDF"
+                  : "Export PDF Recipe"}
+              </span>
+            </Button>
 
-            {/* Oil/Egg ratio */}
-            <div>
-              <div className="flex justify-between items-center text-sm font-semibold mb-1">
-                <span className="text-stone-800">🫒 {isEs ? "Ratio Aceite / Huevo:" : "Oil / Egg Ratio:"}</span>
-                <span className="text-amber-900 font-extrabold">{calculatedProfile.oilEggRatio}ml / {isEs ? "huevo" : "egg"}</span>
-              </div>
-              <div className="w-full bg-stone-200 h-2.5 rounded-full overflow-hidden">
-                <div
-                  className="bg-amber-700 h-2.5 rounded-full"
-                  style={{ width: `${Math.min(100, (calculatedProfile.oilEggRatio / 35) * 100)}%` }}
-                />
-              </div>
-            </div>
+            {/* Download & Export Modal Trigger */}
+            <Button
+              onClick={() => setIsExportModalOpen(true)}
+              size="sm"
+              className="bg-[#FFB800] hover:bg-[#E0A200] text-[#1C1917] font-extrabold text-xs gap-1.5 shadow-2xs cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>{isEs ? "Descargar / Guardar ADN" : isDe ? "DNA Speichern" : "Download / Save DNA"}</span>
+            </Button>
 
-            {/* Quality Traits Grid */}
-            <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
-              <div className="bg-white p-3 rounded-lg border border-stone-200">
-                <span className="text-stone-500 font-medium block">💧 {isEs ? "Humedad / Jugosidad" : "Moisture Level"}</span>
-                <span className="font-extrabold text-stone-900 text-sm">{calculatedProfile.moistureLevel}</span>
-              </div>
-              <div className="bg-white p-3 rounded-lg border border-stone-200">
-                <span className="text-stone-500 font-medium block">🥩 {isEs ? "Intensidad de Grasa" : "Fat Level"}</span>
-                <span className="font-extrabold text-stone-900 text-sm">{calculatedProfile.fatLevel}</span>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            <Button
+              onClick={handleCopyLink}
+              size="sm"
+              variant="outline"
+              className="border-border bg-accent text-foreground hover:bg-accent/80 text-xs font-bold gap-1.5 cursor-pointer"
+            >
+              {copiedLink ? <Check className="w-3.5 h-3.5 text-[#2E7D32]" /> : <Share2 className="w-3.5 h-3.5" />}
+              <span>{copiedLink ? (isEs ? "¡URL Copiada!" : "URL Copied!") : (isEs ? "Copiar Enlace URL" : "Copy URL Link")}</span>
+            </Button>
 
-        {/* Predicted Characteristics */}
-        <Card className="border-2 border-amber-900/10 shadow-sm bg-stone-50/80 rounded-2xl overflow-hidden">
-          <CardHeader className="bg-amber-500/10 pb-3 border-b border-amber-900/10">
-            <CardTitle className="text-lg font-bold text-stone-900 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-amber-600" />
-              {isEs ? "Características Predichas" : "Predicted Characteristics"}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6 space-y-4">
-            <div>
-              <h4 className="text-xs font-extrabold text-stone-500 uppercase tracking-wider mb-1">
-                ✨ {isEs ? "Textura Prevista" : "Predicted Texture"}
-              </h4>
-              <p className="text-stone-900 font-semibold text-sm">
-                {calculatedProfile.textureNote[isEs ? "es" : isDe ? "de" : "en"]}
-              </p>
-            </div>
+            <Button
+              onClick={handleCopyRecipeText}
+              size="sm"
+              className="bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] font-bold text-xs gap-1.5 cursor-pointer"
+            >
+              {copiedRecipe ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+              <span>{copiedRecipe ? (isEs ? "¡Texto Copiado!" : "Text Copied!") : (isEs ? "Copiar Receta" : "Copy Recipe")}</span>
+            </Button>
+          </div>
+        </div>
 
-            <div>
-              <h4 className="text-xs font-extrabold text-stone-500 uppercase tracking-wider mb-1">
-                🍳 {isEs ? "Notas de Sabor" : "Flavor Notes"}
-              </h4>
-              <ul className="list-disc list-inside text-xs text-stone-700 space-y-1">
-                {flavorNotes.map((note, idx) => (
-                  <li key={idx}>{note}</li>
-                ))}
-              </ul>
-            </div>
+        {/* Quick Spec Pills */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+          <div className="p-3 rounded-xl bg-accent border border-border text-center">
+            <span className="text-3xs text-muted-foreground font-bold uppercase block">{isEs ? "Sartén" : "Pan"}</span>
+            <span className="text-lg font-black text-foreground">{calculatedProfile.recommendedPanSizeCm} cm</span>
+          </div>
+          <div className="p-3 rounded-xl bg-accent border border-border text-center">
+            <span className="text-3xs text-muted-foreground font-bold uppercase block">{isEs ? "Raciones" : "Servings"}</span>
+            <span className="text-lg font-black text-foreground">{calculatedProfile.estimatedServings} pers.</span>
+          </div>
+          <div className="p-3 rounded-xl bg-accent border border-border text-center">
+            <span className="text-3xs text-muted-foreground font-bold uppercase block">{isEs ? "Ratio P/H" : "Ratio P/E"}</span>
+            <span className="text-lg font-black text-[#8D6E63] dark:text-[#FFB800]">{calculatedProfile.potatoEggRatio}g</span>
+          </div>
+          <div className="p-3 rounded-xl bg-accent border border-border text-center">
+            <span className="text-3xs text-muted-foreground font-bold uppercase block">{isEs ? "Seguridad" : "Safety"}</span>
+            <span className="text-xs font-extrabold text-[#2E7D32] dark:text-[#81C784] block mt-1">
+              <strong>70°C / 2 min</strong>
+            </span>
+          </div>
+        </div>
 
-            <div>
-              <h4 className="text-xs font-extrabold text-stone-500 uppercase tracking-wider mb-1">
-                🍳 {isEs ? "Estructura & Corte" : "Structure & Slice"}
-              </h4>
-              <p className="text-xs text-stone-700">
-                {typeof calculatedProfile.structureNote === "object"
-                  ? calculatedProfile.structureNote[isEs ? "es" : isDe ? "de" : "en"] || calculatedProfile.structureNote.es
-                  : calculatedProfile.structureNote}
-              </p>
+        {/* Visual Parametric SVG Illustration */}
+        <div className="mt-6 pt-6 border-t border-border">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#FFB800]" />
+              <span className="font-bold text-sm text-foreground">
+                {isEs ? "Avatar Ilustrado de tu Tortilla (SVG)" : "Parametric SVG Vector Preview"}
+              </span>
             </div>
-          </CardContent>
-        </Card>
+            <a
+              href={`/${lang}/laboratorio/svg-generator`}
+              className="text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline"
+            >
+              {isEs ? "Abrir en Estudio SVG →" : "Open in SVG Studio →"}
+            </a>
+          </div>
+          <div className="max-w-xl mx-auto">
+            <TortillaSvgRenderer
+              options={builderConfigToSvgOptions(config, {
+                title: isEs ? `Tortilla Personalizada (${calculatedProfile.potatoEggRatio}g/huevo)` : `Custom Tortilla (${calculatedProfile.potatoEggRatio}g/egg)`,
+              })}
+              allowViewSwitch={true}
+              allowDownload={true}
+              className="w-full"
+            />
+          </div>
+        </div>
       </div>
 
-      {/* Dynamic Cooking Recommendation */}
-      <Card className="border-2 border-amber-600/30 shadow-sm bg-amber-500/5 rounded-2xl overflow-hidden">
-        <CardHeader className="bg-amber-500/15 pb-4 border-b border-amber-600/20">
-          <CardTitle className="text-xl font-bold text-amber-950 flex items-center gap-2.5">
-            <Flame className="w-6 h-6 text-amber-600" />
-            {isEs ? "Recomendaciones Dinámicas de Elaboración" : "Dynamic Cooking Instructions"}
-          </CardTitle>
-          <CardDescription className="text-amber-900/80 text-sm">
-            {isEs
-              ? "Paso a paso personalizado según tus ingredientes y técnica elegida"
-              : "Custom step-by-step instructions generated for your exact ingredient balance"}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="p-6">
-          <ol className="space-y-4">
-            {adviceList.map((step, idx) => (
-              <li key={idx} className="flex items-start gap-4 p-3.5 bg-white rounded-xl border border-amber-200/80 shadow-2xs">
-                <span className="font-extrabold text-amber-800 bg-amber-100 rounded-full w-8 h-8 flex items-center justify-center shrink-0 text-sm">
-                  {idx + 1}
-                </span>
-                <p className="text-stone-800 text-sm leading-relaxed pt-1 font-medium">{step}</p>
-              </li>
-            ))}
-          </ol>
-        </CardContent>
-      </Card>
-
-      {/* Knowledge Graph Connections */}
-      <Card className="border-2 border-stone-200 shadow-sm bg-white rounded-2xl overflow-hidden">
-        <CardHeader className="bg-stone-100/80 pb-3 border-b border-stone-200">
-          <CardTitle className="text-base font-bold text-stone-900 flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-amber-600" />
-            {isEs ? "Conexiones con el Grafo de Conocimiento" : "Knowledge Graph Connections"}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-6 space-y-4">
-          <p className="text-xs text-stone-600">
-            {isEs
-              ? "Explora las fichas de conocimiento detalladas y herramientas interconectadas para esta receta:"
-              : "Explore detailed knowledge monographs and interconnected tools for this recipe:"}
-          </p>
-
-          <div className="flex flex-wrap gap-2">
-            {ingredients.map((ing) => {
-              const url = getTaxonomyUrl(ing.entityId);
-              if (!url) return null;
-
-              return (
-                <a
-                  key={ing.entityId}
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-950 font-semibold text-xs transition-all shadow-2xs"
-                >
-                  <span>{getLocalizedName(ing.entityId)}</span>
-                  <ExternalLink className="w-3 h-3 text-amber-700" />
-                </a>
-              );
-            })}
-
-            <a
-              href={isEs ? "/es/science" : isDe ? "/de/science" : "/en/science"}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 text-emerald-950 font-semibold text-xs transition-all shadow-2xs"
-            >
-              <span>🔬 {isEs ? "Guía de Seguridad & Ciencia" : "Safety & Science Guide"}</span>
-              <ExternalLink className="w-3 h-3 text-emerald-700" />
-            </a>
-
-            <a
-              href={isEs ? "/es/laboratorio/comparador" : isDe ? "/de/laboratorio/comparador" : "/en/laboratorio/comparador"}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-300 bg-sky-50 hover:bg-sky-100 text-sky-950 font-semibold text-xs transition-all shadow-2xs"
-            >
-              <span>📊 {isEs ? "Comparador de Estilos" : "Style Comparator"}</span>
-              <ExternalLink className="w-3 h-3 text-sky-700" />
-            </a>
-
-            <a
-              href={isEs ? "/es/factions" : isDe ? "/de/factions" : "/en/factions"}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-orange-300 bg-orange-50 hover:bg-orange-100 text-orange-950 font-semibold text-xs transition-all shadow-2xs"
-            >
-              <span>🏛️ {isEs ? "Facciones & Debates" : "Factions & Debate"}</span>
-              <ExternalLink className="w-3 h-3 text-orange-700" />
-            </a>
+      {/* Prominent Comparator Launch Banner */}
+      <div className="p-5 rounded-2xl bg-gradient-to-r from-[#FFB800]/20 via-accent to-[#8D6E63]/15 border-2 border-[#FFB800]/50 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3">
+          <div className="p-3 rounded-2xl bg-[#FFB800] text-[#1C1917] shadow-2xs shrink-0">
+            <Scale className="w-6 h-6" />
           </div>
-        </CardContent>
-      </Card>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#FFB800] text-[#1C1917]">
+                {isEs ? "ADN Listo para Comparar" : "DNA Ready to Compare"}
+              </span>
+            </div>
+            <h4 className="font-serif-heading text-lg font-extrabold text-foreground mt-1">
+              {isEs
+                ? `¿Cómo compite tu ratio de ${calculatedProfile.potatoEggRatio}g/huevo frente al canon?`
+                : `How does your ${calculatedProfile.potatoEggRatio}g/egg ratio compare to the canon?`}
+            </h4>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              {isEs
+                ? "Lleva tu ADN de Tortilla al comparador para medir las diferencias porcentuales de patata, aceite y cebolla."
+                : "Open the technical comparator to analyze percentage differences in potato, oil, and onion."}
+            </p>
+          </div>
+        </div>
+
+        <a
+          href={comparatorUrl}
+          className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] text-sm font-extrabold text-center shrink-0 shadow-xs flex items-center justify-center gap-2 transition-transform hover:scale-102 cursor-pointer"
+        >
+          <span>{isEs ? "Comparar mi ADN en el Comparador" : "Compare DNA in Comparator"}</span>
+          <ExternalLink className="w-4 h-4" />
+        </a>
+      </div>
+
+      {/* Ratios and Predicted Traits Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Ratios Card */}
+        <div className="card-notebook p-6 bg-card border border-border rounded-2xl shadow-xs space-y-4">
+          <h4 className="font-serif-heading text-lg font-bold text-foreground flex items-center gap-2">
+            <Scale className="w-5 h-5 text-[#FFB800]" />
+            {isEs ? "Equilibrio Químico & Ratios" : "Chemical Balance & Ratios"}
+          </h4>
+
+          {/* Potato/Egg ratio */}
+          <div>
+            <div className="flex justify-between items-center text-sm font-semibold mb-1">
+              <span className="text-foreground">🥔 {isEs ? "Ratio Patata / Huevo:" : "Potato / Egg Ratio:"}</span>
+              <span className="text-[#8D6E63] dark:text-[#FFB800] font-extrabold">
+                {calculatedProfile.potatoEggRatio}g / {isEs ? "huevo" : "egg"}
+              </span>
+            </div>
+            <div className="w-full bg-secondary h-2.5 rounded-full overflow-hidden">
+              <div
+                className="bg-[#FFB800] h-2.5 rounded-full"
+                style={{ width: `${Math.min(100, (calculatedProfile.potatoEggRatio / 150) * 100)}%` }}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              {calculatedProfile.ratioCategory[isEs ? "es" : isDe ? "de" : "en"]}
+            </p>
+          </div>
+
+          {/* Oil/Egg ratio */}
+          <div>
+            <div className="flex justify-between items-center text-sm font-semibold mb-1">
+              <span className="text-foreground">🫒 {isEs ? "Ratio Aceite / Huevo:" : "Oil / Egg Ratio:"}</span>
+              <span className="text-[#8D6E63] dark:text-[#FFB800] font-extrabold">
+                {calculatedProfile.oilEggRatio}ml / {isEs ? "huevo" : "egg"}
+              </span>
+            </div>
+            <div className="w-full bg-secondary h-2.5 rounded-full overflow-hidden">
+              <div
+                className="bg-[#8D6E63] h-2.5 rounded-full"
+                style={{ width: `${Math.min(100, (calculatedProfile.oilEggRatio / 35) * 100)}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Traits */}
+          <div className="grid grid-cols-2 gap-3 pt-2 text-xs">
+            <div className="bg-accent p-3 rounded-xl border border-border">
+              <span className="text-muted-foreground font-medium block">💧 {isEs ? "Humedad / Jugosidad" : "Moisture Level"}</span>
+              <span className="font-extrabold text-foreground text-sm">{calculatedProfile.moistureLevel}</span>
+            </div>
+            <div className="bg-accent p-3 rounded-xl border border-border">
+              <span className="text-muted-foreground font-medium block">🥩 {isEs ? "Grasa & Untuosidad" : "Fat Level"}</span>
+              <span className="font-extrabold text-foreground text-sm">{calculatedProfile.fatLevel}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Predicted Traits Card */}
+        <div className="card-notebook p-6 bg-card border border-border rounded-2xl shadow-xs space-y-4">
+          <h4 className="font-serif-heading text-lg font-bold text-foreground flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-[#FFB800]" />
+            {isEs ? "Características Predichas" : "Predicted Characteristics"}
+          </h4>
+
+          <div>
+            <span className="text-3xs font-extrabold text-muted-foreground uppercase tracking-wider block mb-1">
+              ✨ {isEs ? "Textura Prevista" : "Predicted Texture"}
+            </span>
+            <p className="text-foreground font-semibold text-sm">
+              {calculatedProfile.textureNote[isEs ? "es" : isDe ? "de" : "en"]}
+            </p>
+          </div>
+
+          <div>
+            <span className="text-3xs font-extrabold text-muted-foreground uppercase tracking-wider block mb-1">
+              🍳 {isEs ? "Notas de Sabor" : "Flavor Notes"}
+            </span>
+            <ul className="list-disc list-inside text-xs text-muted-foreground space-y-1">
+              {flavorNotes.map((note, idx) => (
+                <li key={idx}>{note}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <span className="text-3xs font-extrabold text-muted-foreground uppercase tracking-wider block mb-1">
+              🥩 {isEs ? "Estructura & Corte" : "Structure & Slice"}
+            </span>
+            <p className="text-xs text-muted-foreground">
+              {typeof calculatedProfile.structureNote === "object"
+                ? calculatedProfile.structureNote[isEs ? "es" : isDe ? "de" : "en"] || calculatedProfile.structureNote.es
+                : calculatedProfile.structureNote}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Dynamic Cooking Instructions */}
+      <div className="card-notebook p-6 bg-card border border-border rounded-2xl shadow-xs space-y-4">
+        <div className="flex items-center gap-2.5 pb-3 border-b border-border">
+          <Flame className="w-6 h-6 text-[#FF8A00]" />
+          <div>
+            <h4 className="font-serif-heading text-xl font-bold text-foreground">
+              {isEs ? "Instrucciones de Elaboración Personalizadas" : "Custom Step-by-Step Instructions"}
+            </h4>
+            <p className="text-xs text-muted-foreground">
+              {isEs
+                ? "Paso a paso calculado matemáticamente para tus proporciones exactas"
+                : "Mathematically calculated steps for your exact ingredient balance"}
+            </p>
+          </div>
+        </div>
+
+        <ol className="space-y-3">
+          {adviceList.map((step, idx) => (
+            <li key={idx} className="flex items-start gap-3 p-3.5 bg-accent rounded-xl border border-border text-sm">
+              <span className="font-extrabold text-[#8D6E63] dark:text-[#FFB800] bg-secondary rounded-full w-7 h-7 flex items-center justify-center shrink-0 text-xs">
+                {idx + 1}
+              </span>
+              <p className="text-foreground font-medium pt-0.5 leading-relaxed">{step}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* Interactive DNA & Canonical Recipe Comparator */}
+      <RecipeComparisonCard lang={lang} config={config} />
+
+      {/* Export / Download Modal */}
+      <DnaExportModal
+        isOpen={isExportModalOpen}
+        onClose={() => setIsExportModalOpen(false)}
+        lang={lang}
+        config={config}
+        shareUrl={shareUrl}
+      />
+
+      {/* Safety Standard Callout */}
+      <div className="chef-note">
+        <p className="font-serif-heading font-bold text-sm mb-1 text-foreground">
+          🛡️ {isEs ? "Norma de Seguridad Alimentaria" : "Food Safety Golden Standard"}
+        </p>
+        <p className="text-xs text-foreground/90 font-sans leading-relaxed">
+          {isEs ? (
+            <>
+              Para garantizar inocuidad bacteriológica frente a salmonella, mantén el centro de la tortilla a{" "}
+              <strong>70°C durante 2 minutos</strong> (o <strong>63°C durante 20 segundos</strong>). Si prefieres textura líquida tipo Betanzos, consúmela inmediatamente y nunca la dejes más de <strong>4 horas</strong> a temperatura ambiente.
+            </>
+          ) : (
+            <>
+              To guarantee microbiological safety against salmonella, maintain the tortilla core at{" "}
+              <strong>70°C for 2 minutes</strong> (or <strong>63°C for 20 seconds</strong>). If serving liquid Betanzos style, consume immediately and never keep over <strong>4 hours</strong> at ambient temperature.
+            </>
+          )}
+        </p>
+      </div>
     </div>
   );
 };
+

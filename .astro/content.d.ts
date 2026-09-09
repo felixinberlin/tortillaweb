@@ -124,13 +124,23 @@ declare module 'astro:content' {
 		: any;
 
 	type DataEntryMap = {
-		"history": Record<string, {
+		"guides": Record<string, {
+  id: string;
+  body?: string;
+  collection: "guides";
+  data: InferEntrySchema<"guides">;
+  rendered?: RenderedContent;
+  filePath?: string;
+  digest?: string | number;
+}>;
+"history": Record<string, {
   id: string;
   body?: string;
   collection: "history";
   data: InferEntrySchema<"history">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "ingredients": Record<string, {
   id: string;
@@ -139,6 +149,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"ingredients">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "navigation": Record<string, {
   id: string;
@@ -147,6 +158,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"navigation">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "pages": Record<string, {
   id: string;
@@ -155,6 +167,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"pages">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "persons": Record<string, {
   id: string;
@@ -163,6 +176,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"persons">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "recipes": Record<string, {
   id: string;
@@ -171,6 +185,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"recipes">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "science": Record<string, {
   id: string;
@@ -179,6 +194,7 @@ declare module 'astro:content' {
   data: InferEntrySchema<"science">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
 }>;
 "settings": Record<string, {
   id: string;
@@ -187,6 +203,16 @@ declare module 'astro:content' {
   data: InferEntrySchema<"settings">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
+}>;
+"stories": Record<string, {
+  id: string;
+  body?: string;
+  collection: "stories";
+  data: InferEntrySchema<"stories">;
+  rendered?: RenderedContent;
+  filePath?: string;
+  digest?: string | number;
 }>;
 "taxonomies": Record<string, {
   id: string;
@@ -195,6 +221,16 @@ declare module 'astro:content' {
   data: InferEntrySchema<"taxonomies">;
   rendered?: RenderedContent;
   filePath?: string;
+  digest?: string | number;
+}>;
+"videos": Record<string, {
+  id: string;
+  body?: string;
+  collection: "videos";
+  data: InferEntrySchema<"videos">;
+  rendered?: RenderedContent;
+  filePath?: string;
+  digest?: string | number;
 }>;
 
 	};

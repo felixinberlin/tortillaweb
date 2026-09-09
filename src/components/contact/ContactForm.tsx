@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useId } from 'react';
-import { useTranslation } from 'react-i18next';
+import { getTranslations } from '@/lib/i18n';
 import {
   Send,
   CheckCircle2,
@@ -136,7 +136,7 @@ const fallbackTranslations = {
 
 export default function ContactForm({ lang = 'es', currentPath, className = '' }: ContactFormProps) {
   const currentLang = (['es', 'en', 'de'].includes(lang) ? lang : 'es') as 'es' | 'en' | 'de';
-  const { t } = useTranslation(undefined, { lng: currentLang });
+  const t = getTranslations(currentLang);
 
   const getTx = (key: string, fallback: string): string => {
     const translated = t(key);
