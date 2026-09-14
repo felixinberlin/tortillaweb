@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="ingredients_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Ingredients Canon" />
+      <note priority="1">Die 4 heiligen Grundpfeiler und traditionelle Zutaten der echten spanischen Tortilla.</note>
+    </header>
+    <body>
+      <trans-unit id="ingredientsPage.badge" resname="INGREDIENTS_BADGE">
+        <source>Los Fundamentos</source>
+        <target>Die Grundlagen</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.title" resname="INGREDIENTS_TITLE">
+        <source>Los 4 Ingredientes Sagrados</source>
+        <target>Die 4 heiligen Zutaten</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.subtitle" resname="INGREDIENTS_SUBTITLE">
+        <source>La patata, el huevo, el aceite de oliva y la sal forman la columna vertebral inviolable de la auténtica tortilla española.</source>
+        <target>Kartoffeln, Eier, Olivenöl und Salz bilden das unantastbare Fundament der echten spanischen Tortilla.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.sacredSectionTitle" resname="INGREDIENTS_SACRED_TITLE">
+        <source>Los 4 Sagrados e Imprescindibles</source>
+        <target>Die 4 heiligen Grundzutaten</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.sacredSectionSubtitle" resname="INGREDIENTS_SACRED_SUBTITLE">
+        <source>Sin estos cuatro elementos no existe la tortilla. La proporción justa y la máxima calidad de la materia prima son la clave.</source>
+        <target>Ohne diese vier Hauptkomponenten gibt es keine Tortilla. Höchste Qualität der Rohstoffe und das richtige Verhältnis entscheiden.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.optionalSectionTitle" resname="INGREDIENTS_OPTIONAL_TITLE">
+        <source>Ingredientes Opcionales y Variaciones</source>
+        <target>Optionale Zutaten &amp; Regionale Varianten</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.optionalSectionSubtitle" resname="INGREDIENTS_OPTIONAL_SUBTITLE">
+        <source>Acompañantes tradicionales y toques personales que enriquecen o transforman la receta según la región o el gusto del cocinero.</source>
+        <target>Traditionelle Ergänzungen und persönliche Akzente, die das Rezept je nach Region verfeinern.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.potatoes.title" resname="INGREDIENTS_POTATOES_TITLE">
+        <source>La Patata</source>
+        <target>Die Kartoffel</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.potatoes.subtitle" resname="INGREDIENTS_POTATOES_SUBTITLE">
+        <source>Monalisa, Kennebec o Agria</source>
+        <target>Monalisa, Kennebec oder vorwiegend festkochende Sorten</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.potatoes.desc" resname="INGREDIENTS_POTATOES_DESC">
+        <source>Buscamos patatas con equilibrio entre almidón y agua. La Monalisa o Kennebec son ideales porque al pocharse quedan cremosas por dentro sin deshacerse del todo.</source>
+        <target>Wir suchen Kartoffeln mit einer ausgewogenen Balance aus Stärke und Wasser. Monalisa oder Kennebec sind ideal, da sie beim langsamen Garen cremig werden, ohne zu zerfallen.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.eggs.title" resname="INGREDIENTS_EGGS_TITLE">
+        <source>El Huevo</source>
+        <target>Das Ei</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.eggs.subtitle" resname="INGREDIENTS_EGGS_SUBTITLE">
+        <source>Camperos o de Cama de Paja (Categoría 0 o 1)</source>
+        <target>Eier aus Freiland- oder Ökohaltung</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.eggs.desc" resname="INGREDIENTS_EGGS_DESC">
+        <source>La yema aporta la cremosidad y el color dorado natural. Huevos frescos a temperatura ambiente garantizan una emulsión perfecta sin necesidad de batir demasiado.</source>
+        <target>Das Eigelb sorgt für Cremigkeit und eine natürliche goldene Farbe. Frische Eier bei Raumtemperatur garantieren eine perfekte Emulsion ohne übermäßiges Verquirlen.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.oil.title" resname="INGREDIENTS_OIL_TITLE">
+        <source>El Aceite de Oliva</source>
+        <target>Das Olivenöl</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.oil.subtitle" resname="INGREDIENTS_OIL_SUBTITLE">
+        <source>AOVE de acidez suave (Variedad Arbequina o Picual suave)</source>
+        <target>Mildes Nativ Extra Olivenöl (Sorte Arbequina)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.oil.desc" resname="INGREDIENTS_OIL_DESC">
+        <source>No es un mero lubricante: es el medio de cocción que confita la patata. Un buen aceite de oliva virgen extra transmite sabor sin enmascarar la patata.</source>
+        <target>Nicht nur ein Bratfett: Es ist das Garmedium, in dem die Kartoffeln konfiert werden. Hochwertiges Olivenöl verleiht Geschmack, ohne das Kartoffelaroma zu überdecken.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.salt.title" resname="INGREDIENTS_SALT_TITLE">
+        <source>La Sal</source>
+        <target>Das Salz</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.salt.subtitle" resname="INGREDIENTS_SALT_SUBTITLE">
+        <source>Sal marina fina</source>
+        <target>Feines Meersalz</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.salt.desc" resname="INGREDIENTS_SALT_DESC">
+        <source>Se debe salar el huevo batido y no solo la patata. La sal solubiliza las proteínas del huevo permitiendo un cuajado suave y uniforme.</source>
+        <target>Salz sollte den verquirlten Eiern zugegeben werden und nicht nur den Kartoffeln. Salz löst Eiproteine auf und sorgt für ein gleichmäßiges, samtiges Stocken.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.onion.title" resname="INGREDIENTS_ONION_TITLE">
+        <source>La Cebolla</source>
+        <target>Die Zwiebel</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.onion.subtitle" resname="INGREDIENTS_ONION_SUBTITLE">
+        <source>Cebolla dulce o recia (Opcional - El Gran Debate)</source>
+        <target>Milde Zwiebel (Optional - Die ewige Debatte)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.onion.desc" resname="INGREDIENTS_ONION_DESC">
+        <source>Para los concebollistas, la cebolla cortada en brunoise fina o pluma aporta humedad natural y azúcares caramelizados que potencian el sabor salado del huevo.</source>
+        <target>Für Zwiebelliebhaber verleiht fein geschnittene Zwiebel natürliche Feuchtigkeit und karamellisierten Zucker, der das herzhafte Ei perfekt ergänzt.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.peppers.title" resname="INGREDIENTS_PEPPERS_TITLE">
+        <source>Los Pimientos</source>
+        <target>Paprika</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.peppers.subtitle" resname="INGREDIENTS_PEPPERS_SUBTITLE">
+        <source>Pimiento verde o rojo (Opcional - Variedad Paisana)</source>
+        <target>Grüne oder rote Paprika (Optional - Ländliche Tortilla Paisana)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.peppers.desc" resname="INGREDIENTS_PEPPERS_DESC">
+        <source>Aportan frescura, aromas de huerta y un toque de color en variantes tradicionales como la tortilla paisana o donostiarra. No confundir con la pimienta negra.</source>
+        <target>Bringen Frische, Gartenaromen und Farbe in regionalen Varianten wie der nordspanischen Tortilla Paisana (nicht mit schwarzem Pfeffer zu verwechseln).</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.garlic.title" resname="INGREDIENTS_GARLIC_TITLE">
+        <source>El Ajo</source>
+        <target>Knoblauch</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.garlic.subtitle" resname="INGREDIENTS_GARLIC_SUBTITLE">
+        <source>Diente de ajo (Opcional - Aromatización)</source>
+        <target>Knoblauchzehe (Optional - Aromatische Infusion)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.garlic.desc" resname="INGREDIENTS_GARLIC_DESC">
+        <source>Un diente de ajo frito brevemente en el aceite de oliva antes de pochar la patata infunde un aroma sutil y un trasfondo campestre irresistible sin amargar.</source>
+        <target>Eine kurz im Olivenöl angebratene Knoblauchzehe verleiht dem Öl ein feines, herzhaftes Hintergrundaroma, das der Kartoffel zusätzliche Tiefe verleiht.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.blackPepper.title" resname="INGREDIENTS_BLACK_PEPPER_TITLE">
+        <source>La Pimienta Negra</source>
+        <target>Schwarzer Pfeffer</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.blackPepper.subtitle" resname="INGREDIENTS_BLACK_PEPPER_SUBTITLE">
+        <source>Pimienta negra recién molida (Toque aromático opcional)</source>
+        <target>Frisch gemahlener schwarzer Pfeffer (Optionale Würznote)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.blackPepper.desc" resname="INGREDIENTS_BLACK_PEPPER_DESC">
+        <source>Un toque sutil de pimienta negra recién molida en el huevo batido aporta calidez y resalta las notas aromáticas del aceite de oliva virgen extra sin restar protagonismo a la patata.</source>
+        <target>Ein subtiler Hauch frisch gemahlenen schwarzen Pfeffers im verquirlten Ei verleiht Wärme und hebt die aromatischen Noten des Olivenöls hervor, ohne die Kartoffel zu überdecken.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

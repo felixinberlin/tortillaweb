@@ -1,0 +1,96 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import TriviaGame from '@/components/trivia/TriviaGame';
+import { Trophy, HelpCircle, ShieldCheck, Gamepad2 } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pagesCollection = await getCollection('pages');
+const triviaEntry = pagesCollection.find((p) => p.id === 'trivia');
+const triviaCategoryEntries = pagesCollection.filter((p) => p.id.startsWith('trivia-') || p.id.startsWith('trivia/'));
+
+let factsList = triviaEntry?.data?.facts || triviaEntry?.data?.extraTrivia || [];
+if (!factsList || factsList.length === 0) {
+  factsList = triviaCategoryEntries.flatMap((cat) => cat.data?.facts || []);
+}
+
+const searchParams = Astro.url.searchParams;
+const initialLevel = (searchParams.get('level') as any) || 'master';
+const initialTopic = searchParams.get('topic') || 'all';
+
+const pageTitle = currentLang === 'en'
+  ? 'Tortilla Trivia Challenge Game | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Das große Tortilla Trivia-Spiel | tortilladepatatas.org'
+  : 'Juego de Trivia: Desafío de la Tortilla | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'en'
+  ? 'Interactive trivia game on Spanish Omelette. Select difficulty levels, topics, answer 3-option questions, and challenge your friends.'
+  : currentLang === 'de'
+  ? 'Interaktives Trivia-Spiel über Tortilla de Patatas mit Levels, Themen und 3 Antwortmöglichkeiten.'
+  : 'Juego interactivo de preguntas con 3 opciones sobre la tortilla de patatas. Elige nivel, tema, pon a prueba tus conocimientos y comparte tu resultado.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Enciclopedia', url: `/${currentLang}/enciclopedia` },
+  { name: 'Trivia', url: `/${currentLang}/trivia` },
+  { name: 'Juego de Trivia', url: `/${currentLang}/juego-trivia` },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+    <!-- Header Banner -->
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
+        <Gamepad2 className="w-4 h-4 text-[#8D6E63]" />
+        <span>{currentLang === 'en' ? 'Interactive Knowledge Arena' : currentLang === 'de' ? 'Interaktive Wissens-Arena' : 'Arena Interactiva de Conocimiento'}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-serif-heading font-extrabold text-[#292521] leading-tight">
+        {currentLang === 'en' ? 'The Great Tortilla Trivia Challenge' : currentLang === 'de' ? 'Das große Tortilla-Wissensspiel' : 'El Gran Desafío de Trivia de la Tortilla'}
+      </h1>
+      <p class="text-base sm:text-lg text-foreground/80 leading-relaxed font-sans">
+        {currentLang === 'en'
+          ? 'Choose your difficulty level and topic to test your knowledge across 368 historical and scientific facts.'
+          : currentLang === 'de'
+          ? 'Wähle Level und Thema, um dein Wissen über 368 historische und wissenschaftliche Fakten zu testen.'
+          : 'Elige nivel y tema para poner a prueba tus conocimientos sobre 368 datos verificado e históricos de la tortilla de patatas.'}
+      </p>
+    </header>
+
+    <!-- Interactive React Game Component -->
+    <TriviaGame
+      client:load
+      facts={factsList}
+      currentLang={currentLang}
+      initialLevel={initialLevel}
+      initialTopic={initialTopic}
+    />
+
+    <!-- Safety Footnote Note -->
+    <section class="card-notebook p-5 rounded-2xl bg-[#FCF9F2] border-l-4 border-l-[#2E7D32] border border-[#E8E2D5] max-w-4xl mx-auto">
+      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
+        <ShieldCheck className="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
+        <p>
+          {currentLang === 'es' ? (
+            <>En todas las partidas y preguntas científicas, el sistema evalúa y resalta el estándar higiénico fundamental: <strong class="font-bold">70°C durante 2 minutos</strong> (o <strong class="font-bold">63°C durante 20 segundos</strong>) en el centro térmico, y consumo en máximo <strong class="font-bold">4 horas</strong> a temperatura ambiente.</>
+          ) : currentLang === 'de' ? (
+            <>Mikrobiologischer Standard in allen Spielen: <strong class="font-bold">70°C für 2 Minuten</strong> (oder <strong class="font-bold">63°C für 20 Sekunden</strong>), max <strong class="font-bold">4 Stunden</strong> ungekühlt.</>
+          ) : (
+            <>Food safety metric across all games: thermal core must sustain <strong class="font-bold">70°C for 2 minutes</strong> (or <strong class="font-bold">63°C for 20 seconds</strong>), max <strong class="font-bold">4 hours</strong> unrefrigerated.</>
+          )}
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

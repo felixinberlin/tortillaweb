@@ -57,7 +57,11 @@ export const StepPreferences: React.FC<StepPreferencesProps> = ({
         : isDe
         ? "Cremiger Kern, perfekt gebunden"
         : "Luscious creamy center without spilling",
-      safetyNote: isEs ? "Alcanza 63°C durante 20 segundos para pasteurización térmica." : "Reaches 63°C for 20s for thermal pasteurization.",
+      safetyNote: isEs
+        ? "Alcanza **63°C durante 20 segundos** para pasteurización térmica."
+        : isDe
+        ? "Erreicht **63°C für 20 Sekunden** zur thermischen Pasteurisierung."
+        : "Reaches **63°C for 20 seconds** for thermal pasteurization.",
     },
     {
       id: "cuajada",
@@ -68,7 +72,11 @@ export const StepPreferences: React.FC<StepPreferencesProps> = ({
         : isDe
         ? "Gleichmäßig fest, perfekt für unterwegs"
         : "Uniformly set structure, ideal for sandwiches",
-      safetyNote: isEs ? "Estándar de oro: 70°C durante 2 minutos (100% segura)." : "Gold standard: 70°C for 2 minutes (100% safe).",
+      safetyNote: isEs
+        ? "Estándar de oro: **70°C durante 2 minutos** (100% segura)."
+        : isDe
+        ? "Goldstandard: **70°C für 2 Minuten** (100% sicher)."
+        : "Gold standard: **70°C for 2 minutes** (100% safe).",
     },
   ];
 

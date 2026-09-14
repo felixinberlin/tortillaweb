@@ -30,6 +30,23 @@ describe('i18n Helpers Unit Tests', () => {
     expect(t('nonexistent.key', 'Fallback String')).toBe('Fallback String');
   });
 
+  it('should return correct safety canon translations across all languages', () => {
+    const tEs = getTranslations('es');
+    expect(tEs('safety.optimalThreshold')).toBe('**70°C durante 2 minutos**');
+    expect(tEs('safety.intermediateThreshold')).toBe('**63°C durante 20 segundos**');
+    expect(tEs('safety.ambientLimit')).toBe('Máximo **4 horas** a temperatura ambiente');
+
+    const tEn = getTranslations('en');
+    expect(tEn('safety.optimalThreshold')).toBe('**70°C for 2 minutes**');
+    expect(tEn('safety.intermediateThreshold')).toBe('**63°C for 20 seconds**');
+    expect(tEn('safety.ambientLimit')).toBe('Maximum **4 hours** at ambient temperature');
+
+    const tDe = getTranslations('de');
+    expect(tDe('safety.optimalThreshold')).toBe('**70°C für 2 Minuten**');
+    expect(tDe('safety.intermediateThreshold')).toBe('**63°C für 20 Sekunden**');
+    expect(tDe('safety.ambientLimit')).toBe('Maximal **4 Stunden** bei Raumtemperatur');
+  });
+
   it('should fallback to default fallback parameter when key does not exist in Spanish dictionary', () => {
     const t = getTranslations('es');
     expect(t('unknown.nested.path', 'Default Fallback')).toBe('Default Fallback');

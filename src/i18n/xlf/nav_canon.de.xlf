@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="nav_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Navigation Canon" />
+      <note priority="1">Hauptnavigations-Links und Menüeinträge.</note>
+    </header>
+    <body>
+      <trans-unit id="nav.recipes" resname="NAV_RECIPES">
+        <source>Recetas</source>
+        <target>Rezepte</target>
+      </trans-unit>
+      <trans-unit id="nav.factions" resname="NAV_FACTIONS">
+        <source>Facciones</source>
+        <target>Faktionen</target>
+      </trans-unit>
+      <trans-unit id="nav.ingredients" resname="NAV_INGREDIENTS">
+        <source>Ingredientes</source>
+        <target>Zutaten</target>
+      </trans-unit>
+      <trans-unit id="nav.techniques" resname="NAV_TECHNIQUES">
+        <source>Técnicas</source>
+        <target>Techniken</target>
+      </trans-unit>
+      <trans-unit id="nav.science" resname="NAV_SCIENCE">
+        <source>Ciencia</source>
+        <target>Wissenschaft</target>
+      </trans-unit>
+      <trans-unit id="nav.history" resname="NAV_HISTORY">
+        <source>Historia</source>
+        <target>Geschichte</target>
+      </trans-unit>
+      <trans-unit id="nav.personas" resname="NAV_PERSONAS">
+        <source>Personas</source>
+        <target>Persönlichkeiten</target>
+      </trans-unit>
+      <trans-unit id="nav.builder" resname="NAV_BUILDER">
+        <source>Constructor</source>
+        <target>Baukasten</target>
+      </trans-unit>
+      <trans-unit id="nav.about" resname="NAV_ABOUT">
+        <source>Sobre nosotros</source>
+        <target>Über uns</target>
+      </trans-unit>
+      <trans-unit id="nav.contact" resname="NAV_CONTACT">
+        <source>Contacto</source>
+        <target>Kontakt</target>
+      </trans-unit>
+      <trans-unit id="nav.aboutAndContact" resname="NAV_ABOUT_AND_CONTACT">
+        <source>Sobre Nosotros &amp; Contacto</source>
+        <target>Über uns &amp; Kontakt</target>
+      </trans-unit>
+      <trans-unit id="nav.impressum" resname="NAV_IMPRESSUM">
+        <source>Aviso Legal e Impressum</source>
+        <target>Impressum &amp; Rechtliches</target>
+      </trans-unit>
+      <trans-unit id="nav.videos" resname="NAV_VIDEOS">
+        <source>Vídeos</source>
+        <target>Videos</target>
+      </trans-unit>
+      <trans-unit id="nav.humor" resname="NAV_HUMOR">
+        <source>Humor &amp; Oráculo</source>
+        <target>Humor &amp; Orakel</target>
+      </trans-unit>
+      <trans-unit id="nav.club" resname="NAV_CLUB">
+        <source>Club &amp; Carnet</source>
+        <target>Club &amp; Pass</target>
+      </trans-unit>
+      <trans-unit id="nav.autenticidad" resname="NAV_AUTENTICIDAD">
+        <source>Autenticidad &amp; Fuentes</source>
+        <target>Authentizität &amp; Quellen</target>
+      </trans-unit>
+      <trans-unit id="nav.escandallo" resname="NAV_ESCANDALLO">
+        <source>Calculadora de Escandallo</source>
+        <target>HORECA Kalkulator</target>
+      </trans-unit>
+      <trans-unit id="nav.utensilios" resname="NAV_UTENSILIOS">
+        <source>Utensilios &amp; Menaje de Cocina</source>
+        <target>Küchen-Utensilien &amp; Menage</target>
+      </trans-unit>
+      <trans-unit id="nav.tienda" resname="NAV_TIENDA">
+        <source>Equipamiento &amp; Tienda Gourmet</source>
+        <target>Ausrüstung &amp; Meister-Shop</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

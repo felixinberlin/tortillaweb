@@ -1,0 +1,207 @@
+{
+  "id": "chorizo-picante-riojana",
+  "contentId": "recipe.chorizo-picante-riojana",
+  "translationKey": "recipe-chorizo-picante-riojana",
+  "slug": {
+    "es": "tortilla-chorizo-picante-riojano-cebolla-ajo",
+    "en": "spicy-riojan-chorizo-onion-garlic-tortilla",
+    "de": "pikante-rioja-chorizo-tortilla-zwiebel-knoblauch"
+  },
+  "title": {
+    "es": "Tortilla de Chorizo Picante Riojano con Cebolla y Ajo",
+    "en": "Spicy Riojan Chorizo Tortilla with Onion & Garlic",
+    "de": "Pikante Rioja-Chorizo-Tortilla mit Zwiebeln & Knoblauch"
+  },
+  "description": {
+    "es": "Clásico contundente de la gastronomía riojana: patata pochada lentamente con cebolla dulce caramelizada, chorizo riojano picante salteado en su propio pimentón y el toque aromático de ajo dorado.",
+    "en": "A hearty classic of Riojan gastronomy: potatoes slow-poached with sweet caramelized onions, spicy Riojan chorizo sautéed in its rich paprika oils, and a fragrant accent of golden garlic.",
+    "de": "Ein herzhafter Klassiker aus La Rioja: Langsam mit süßen Zwiebeln geschmorte Kartoffeln, pikante Rioja-Chorizo in aromatischem Paprikaöl und goldener Knoblauch."
+  },
+  "taxonomyIds": [
+    "faction:concebollistas",
+    "faction:ajistas",
+    "faction:con-cosas",
+    "ingredient:potato",
+    "ingredient:egg",
+    "ingredient:onion",
+    "ingredient:garlic",
+    "ingredient:chorizo",
+    "ingredient:oil",
+    "ingredient:salt",
+    "region:rioja",
+    "technique:frying",
+    "difficulty:medium"
+  ],
+  "time": 40,
+  "prepTimeMinutes": 15,
+  "cookTimeMinutes": 25,
+  "yieldServings": 4,
+  "image": "/images/recipes/chorizo.jpg",
+  "ingredients": [
+    {
+      "id": "potato",
+      "ingredientId": "potato",
+      "name": {
+        "es": "Patata",
+        "en": "Potato",
+        "de": "Kartoffel"
+      },
+      "amount": 600,
+      "unit": "g",
+      "notes": {
+        "es": "600g de patata chascada o en láminas",
+        "en": "600g cracked or sliced potatoes",
+        "de": "600g Kartoffeln in Scheiben"
+      }
+    },
+    {
+      "id": "egg",
+      "ingredientId": "egg",
+      "name": {
+        "es": "Huevo",
+        "en": "Egg",
+        "de": "Ei"
+      },
+      "amount": 6,
+      "unit": "unit",
+      "notes": {
+        "es": "6 huevos camperos frescos (L)",
+        "en": "6 fresh free-range eggs (L)",
+        "de": "6 frische Freilandeier (L)"
+      }
+    },
+    {
+      "id": "chorizo",
+      "ingredientId": "chorizo",
+      "name": {
+        "es": "Chorizo Picante Riojano",
+        "en": "Spicy Riojan Chorizo Sausage",
+        "de": "Pikante Rioja-Chorizo"
+      },
+      "amount": 120,
+      "unit": "g",
+      "notes": {
+        "es": "120g de chorizo picante riojano I.G.P. cortado en dados",
+        "en": "120g diced PGI spicy Riojan chorizo",
+        "de": "120g gewürfelte pikante Rioja-Chorizo"
+      }
+    },
+    {
+      "id": "onion",
+      "ingredientId": "onion",
+      "name": {
+        "es": "Cebolla",
+        "en": "Onion",
+        "de": "Zwiebel"
+      },
+      "amount": 150,
+      "unit": "g",
+      "notes": {
+        "es": "150g de cebolla dulce en juliana fina",
+        "en": "150g sweet onion thinly sliced",
+        "de": "150g süße Zwiebel in feinen Streifen"
+      }
+    },
+    {
+      "id": "garlic",
+      "ingredientId": "garlic",
+      "name": {
+        "es": "Ajo",
+        "en": "Garlic",
+        "de": "Knoblauch"
+      },
+      "amount": 3,
+      "unit": "unit",
+      "notes": {
+        "es": "3 dientes de ajo morado laminados",
+        "en": "3 cloves purple garlic sliced",
+        "de": "3 Zehen violetter Knoblauch in Scheiben"
+      }
+    },
+    {
+      "id": "oil",
+      "ingredientId": "oil",
+      "name": {
+        "es": "Aceite de Oliva Virgen Extra",
+        "en": "Extra Virgin Olive Oil",
+        "de": "Natives Olivenöl Extra"
+      },
+      "amount": 150,
+      "unit": "ml",
+      "notes": {
+        "es": "150ml para pochar y saltear",
+        "en": "150ml for poaching and sautéing",
+        "de": "150ml zum Schmoren und Anbraten"
+      }
+    },
+    {
+      "id": "salt",
+      "ingredientId": "salt",
+      "name": {
+        "es": "Sal",
+        "en": "Salt",
+        "de": "Salz"
+      },
+      "amount": 5,
+      "unit": "g",
+      "notes": {
+        "es": "5g de sal marina fina",
+        "en": "5g fine sea salt",
+        "de": "5g feines Meersalz"
+      }
+    }
+  ],
+  "instructions": [
+    {
+      "step": {
+        "es": "1. Salteado del chorizo picante y ajo",
+        "en": "1. Sautéing spicy chorizo & garlic",
+        "de": "1. Pikante Chorizo & Knoblauch anbraten"
+      },
+      "text": {
+        "es": "En una sartén amplia con un fondo de aceite de oliva virgen extra, dora los ajos laminados y saltea los dados de chorizo picante riojano durante 3-4 minutos hasta que liberen su grasa carmesí y pimentón aromático. Retira y reserva.",
+        "en": "In a wide skillet with extra virgin olive oil, lightly brown sliced garlic and sauté diced spicy Riojan chorizo for 3-4 minutes until rich crimson paprika oil is released. Remove and reserve.",
+        "de": "In einer Pfanne mit nativem Olivenöl extra die Knoblauchscheiben anbraten und die pikante Rioja-Chorizo 3-4 Minuten anrösten, bis das würzige Paprikaöl austritt. Herausnehmen und beiseitestellen."
+      }
+    },
+    {
+      "step": {
+        "es": "2. Pochado de patata y cebolla",
+        "en": "2. Slow poaching potatoes & onions",
+        "de": "2. Kartoffeln & Zwiebeln schmoren"
+      },
+      "text": {
+        "es": "En el mismo aceite perfumado con el chorizo y el ajo, incorpora la cebolla en juliana y las patatas cortadas finas. Pocha a fuego medio-bajo (130°C - 140°C) durante 20 minutos hasta que la patata esté tierna y la cebolla dulce y transparente. Escurre bien.",
+        "en": "In the same chorizo-garlic infused oil, add julienned onion and thinly sliced potatoes. Poach over medium-low heat (130°C - 140°C) for 20 minutes until potatoes are tender and onions are sweet and translucent. Drain well.",
+        "de": "Im gewürzten Chorizo-Knoblauch-Öl die Zwiebelstreifen und feinen Kartoffelscheiben bei mittlerer Hitze (130°C - 140°C) 20 Minuten weich und glasig schmoren. Gut abtropfen lassen."
+      }
+    },
+    {
+      "step": {
+        "es": "3. Emulsión y cuajado seguro",
+        "en": "3. Egg soak & safety sear",
+        "de": "3. Eier-Emulsion & sicheres Stocken"
+      },
+      "text": {
+        "es": "Bate los 6 huevos con la sal, agrega las patatas, cebolla, el chorizo salteado y el ajo dorado. Deja reposar la mezcla caliente 5 minutos para fundir sabores. Cuaja a fuego vivo 1-2 minutos por lado. Para máxima seguridad alimentaria mantén el núcleo a **70°C durante 2 minutos**.",
+        "en": "Beat 6 eggs with salt, add warm potatoes, onion, sautéed spicy chorizo, and golden garlic. Rest for 5 minutes so starch creates a warm emulsion. Sear over high heat for 1-2 minutes per side. For complete food safety, ensure the core reaches **70°C for 2 minutes**.",
+        "de": "Die 6 Eier mit Salz verquirlen, warme Kartoffeln, Zwiebeln, gebratene Chorizo und Knoblauch unterrühren. 5 Minuten ziehen lassen. Auf hoher Hitze 1-2 Minuten pro Seite stocken lassen. Zur biologischen Sicherheit im Kern **70°C für 2 Minuten** halten."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "type": "traditional",
+      "name": "Gastronomía Tradicional de La Rioja",
+      "description": {
+        "es": "Variante clásica de taberna riojana con chorizo picante de la I.G.P. Chorizo Riojano, cebolla y ajo.",
+        "en": "Classic Riojan tavern variant featuring PGI Riojan spicy chorizo, onion, and garlic.",
+        "de": "Klassische riojanische Kneipenvariante mit geschützter Rioja-Chorizo, Zwiebeln und Knoblauch."
+      }
+    }
+  ],
+  "author": {
+    "type": "platform",
+    "name": "Archivo de la Tortilla"
+  }
+}

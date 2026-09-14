@@ -16,6 +16,21 @@
   },
   "sections": [
     {
+      "id": "asistente",
+      "href": "/asistente",
+      "title": {
+        "es": "Asistente de Cocina & Temporizador",
+        "en": "Kitchen Assistant & Timer",
+        "de": "Küchen-Assistent & Timer"
+      },
+      "description": {
+        "es": "Acompañamiento interactivo con voz y alertas acústicas para el pochado, emulsión térmica, la cuenta atrás para el volteo y verificación higiénica.",
+        "en": "Hands-free voice and audio companion for slicing, confit poaching, thermal egg soak, decisive pan flip, and food safety standards.",
+        "de": "Interaktiver Küchen-Assistent mit Sprach- und Audiobegleitung beim Pochieren, Wenden und für die Lebensmittelsicherheit."
+      },
+      "icon": "Utensils"
+    },
+    {
       "id": "builder",
       "href": "/builder",
       "title": {

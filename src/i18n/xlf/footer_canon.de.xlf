@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="footer_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Footer Canon" />
+      <note priority="1">Footer-Markenmetadaten, thermische Grenzwerte und rechtliche Hinweise.</note>
+    </header>
+    <body>
+      <trans-unit id="footer.brandDesc" resname="FOOTER_BRAND_DESC">
+        <source>La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.</source>
+        <target>Die Gastronomie-Enzyklopädie und das Labornotizbuch für die authentische spanische Tortilla de Patatas.</target>
+      </trans-unit>
+      <trans-unit id="footer.subtitle" resname="FOOTER_SUBTITLE">
+        <source>Gastronomía, Tradición &amp; Ciencia Culinaria</source>
+        <target>Gastronomie, Tradition &amp; Kulinarische Wissenschaft</target>
+      </trans-unit>
+      <trans-unit id="footer.exploreTitle" resname="FOOTER_EXPLORE_TITLE">
+        <source>Explorar Cuaderno</source>
+        <target>Notizbuch erkunden</target>
+      </trans-unit>
+      <trans-unit id="footer.thermalThresholds" resname="FOOTER_THERMAL_THRESHOLDS">
+        <source>Umbrales Térmicos de Seguridad:</source>
+        <target>Thermische Sicherheitsgrenzen:</target>
+      </trans-unit>
+      <trans-unit id="footer.safeThreshold" resname="FOOTER_SAFE_THRESHOLD">
+        <source>Seguro: **70°C durante 2 minutos**</source>
+        <target>Sicher: **70°C für 2 Minuten**</target>
+      </trans-unit>
+      <trans-unit id="footer.cautionThreshold" resname="FOOTER_CAUTION_THRESHOLD">
+        <source>Precaución: **63°C durante 20 segundos**</source>
+        <target>Achtung: **63°C für 20 Sekunden**</target>
+      </trans-unit>
+      <trans-unit id="footer.riskThreshold" resname="FOOTER_RISK_THRESHOLD">
+        <source>Riesgo: **4 horas** amb.</source>
+        <target>Risiko: **4 Stunden** Raumtemp.</target>
+      </trans-unit>
+      <trans-unit id="footer.safetyTitle" resname="FOOTER_SAFETY_TITLE">
+        <source>Estándar de Seguridad Bactericida</source>
+        <target>Bakterizider Sicherheitsstandard</target>
+      </trans-unit>
+      <trans-unit id="footer.safetyText" resname="FOOTER_SAFETY_TEXT">
+        <source>Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C durante 2 minutos** (o **63°C durante 20 segundos** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 horas** a temperatura ambiente.</source>
+        <target>Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C für 2 Minuten** (oder **63°C für 20 Sekunden** als mittlere Stufe). Saftige Tortillas sollten nicht länger als **4 Stunden** bei Raumtemperatur stehen.</target>
+      </trans-unit>
+      <trans-unit id="footer.safetyNorm" resname="FOOTER_SAFETY_NORM">
+        <source>Normativa Colectividades Real Decreto 1021/2022</source>
+        <target>Gemeinschaftsverpflegung Verordnung Königliches Dekret 1021/2022</target>
+      </trans-unit>
+      <trans-unit id="footer.viewReport" resname="FOOTER_VIEW_REPORT">
+        <source>Ver Informe</source>
+        <target>Bericht anzeigen</target>
+      </trans-unit>
+      <trans-unit id="footer.rights" resname="FOOTER_RIGHTS">
+        <source>Ningún derecho reservado.</source>
+        <target>Keine Rechte vorbehalten.</target>
+      </trans-unit>
+      <trans-unit id="footer.craftedWith" resname="FOOTER_CRAFTED_WITH">
+        <source>Hecho con</source>
+        <target>Erstellt mit</target>
+      </trans-unit>
+      <trans-unit id="footer.forGastronomy" resname="FOOTER_FOR_GASTRONOMY">
+        <source>para los amantes de la tortilla de patatas.</source>
+        <target>für Liebhaber der Tortilla de Patatas.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

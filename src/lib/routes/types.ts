@@ -25,7 +25,8 @@ export type RouteId =
   | 'guides'
   | 'videos'
   | 'utensilios'
-  | 'tienda';
+  | 'tienda'
+  | 'timer';
 
 export type CanonicalType =
   | 'recipe'

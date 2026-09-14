@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="builder_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Builder Canon" />
+      <note priority="1">Interactive recipe builder, portion calculator, and doneness preferences.</note>
+    </header>
+    <body>
+      <trans-unit id="builder.badge" resname="BUILDER_BADGE">
+        <source>Constructor interactivo de tortilla</source>
+        <target>Interactive tortilla builder</target>
+      </trans-unit>
+      <trans-unit id="builder.title" resname="BUILDER_TITLE">
+        <source>Crea tu propia tortilla</source>
+        <target>Create your own tortilla</target>
+      </trans-unit>
+      <trans-unit id="builder.subtitle" resname="BUILDER_SUBTITLE">
+        <source>Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.</source>
+        <target>Choose ingredients, control the heat and discover how every decision changes the final result.</target>
+      </trans-unit>
+      <trans-unit id="builder.button" resname="BUILDER_BUTTON">
+        <source>Empezar a crear</source>
+        <target>Start building</target>
+      </trans-unit>
+      <trans-unit id="builder.openApp" resname="BUILDER_OPEN_APP">
+        <source>Abrir Tortilla Creator</source>
+        <target>Open Tortilla Creator</target>
+      </trans-unit>
+      <trans-unit id="builder.appDesc" resname="BUILDER_APP_DESC">
+        <source>Accede a la aplicación interactiva Tortilla Creator en https://tortilladepatatas.de/ para personalizar y calcular tu receta.</source>
+        <target>Access the interactive Tortilla Creator application at https://tortilladepatatas.de/ to customize your recipe.</target>
+      </trans-unit>
+      <trans-unit id="builder.dinersQuestion" resname="BUILDER_DINERS_QUESTION">
+        <source>¿Para cuántas personas?</source>
+        <target>How many servings?</target>
+      </trans-unit>
+      <trans-unit id="builder.dinersDesc" resname="BUILDER_DINERS_DESC">
+        <source>Calcularemos la sartén y las cantidades según el número de comensales.</source>
+        <target>We'll adjust ingredient quantities and pan size automatically.</target>
+      </trans-unit>
+      <trans-unit id="builder.servings" resname="BUILDER_SERVINGS">
+        <source>pers.</source>
+        <target>servings</target>
+      </trans-unit>
+      <trans-unit id="builder.onionDebate" resname="BUILDER_ONION_DEBATE">
+        <source>El debate del siglo: ¿Con o sin cebolla?</source>
+        <target>The Great Debate: Onion or No Onion?</target>
+      </trans-unit>
+      <trans-unit id="builder.withOnion" resname="BUILDER_WITH_ONION">
+        <source>Con cebolla</source>
+        <target>With Onion</target>
+      </trans-unit>
+      <trans-unit id="builder.noOnion" resname="BUILDER_NO_ONION">
+        <source>Sin cebolla</source>
+        <target>No Onion</target>
+      </trans-unit>
+      <trans-unit id="builder.concebollista" resname="BUILDER_CONCEBOLLISTA">
+        <source>Con Cebolla (Concebollista)</source>
+        <target>With Onion (Concebollista)</target>
+      </trans-unit>
+      <trans-unit id="builder.concebollistaDesc" resname="BUILDER_CONCEBOLLISTA_DESC">
+        <source>Aporta dulzor, jugosidad y un toque caramelizado irresistible.</source>
+        <target>Adds natural sweetness, moisture, and caramelized depth.</target>
+      </trans-unit>
+      <trans-unit id="builder.sincebollista" resname="BUILDER_SINCEBOLLISTA">
+        <source>Sin Cebolla (Sincebollista)</source>
+        <target>Without Onion (Sincebollista)</target>
+      </trans-unit>
+      <trans-unit id="builder.sincebollistaDesc" resname="BUILDER_SINCEBOLLISTA_DESC">
+        <source>Sabor puro a huevo fresco y patata dorada en aceite de oliva.</source>
+        <target>Pure egg and potato flavor without sweet onion interference.</target>
+      </trans-unit>
+      <trans-unit id="builder.donenessTitle" resname="BUILDER_DONENESS_TITLE">
+        <source>Punto de cuajado</source>
+        <target>Doneness &amp; Consistency</target>
+      </trans-unit>
+      <trans-unit id="builder.betanzosTitle" resname="BUILDER_BETANZOS_TITLE">
+        <source>Estilo Betanzos</source>
+        <target>Betanzos Style</target>
+      </trans-unit>
+      <trans-unit id="builder.betanzosDesc" resname="BUILDER_BETANZOS_DESC">
+        <source>Muy jugosa, el huevo corre al cortar.</source>
+        <target>Very runny &amp; juicy center.</target>
+      </trans-unit>
+      <trans-unit id="builder.jugosaTitle" resname="BUILDER_JUGOSA_TITLE">
+        <source>En su punto</source>
+        <target>Medium Creamy</target>
+      </trans-unit>
+      <trans-unit id="builder.jugosaDesc" resname="BUILDER_JUGOSA_DESC">
+        <source>Interior cremoso y bordes sellados.</source>
+        <target>Soft creamy interior, golden crust.</target>
+      </trans-unit>
+      <trans-unit id="builder.cuajadaTitle" resname="BUILDER_CUAJADA_TITLE">
+        <source>Cuajada firme</source>
+        <target>Well Done</target>
+      </trans-unit>
+      <trans-unit id="builder.cuajadaDesc" resname="BUILDER_CUAJADA_DESC">
+        <source>Ideal para llevar a excursiones o bocadillos.</source>
+        <target>Firm throughout, perfect for sandwiches.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

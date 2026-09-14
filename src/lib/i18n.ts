@@ -1,6 +1,7 @@
 import es from "../i18n/es.json";
 import en from "../i18n/en.json";
 import de from "../i18n/de.json";
+import { getXlfTranslation } from "./xlfRegistry";
 
 const translations: Record<string, any> = { es, en, de };
 
@@ -11,6 +12,13 @@ export function getTranslations(lang: string = "es") {
   const dict = translations[lang] || translations.es;
 
   return function t(key: string, fallback?: string): string {
+    // 1. Check canonical XLIFF registry first (primary source of truth)
+    const xlfVal = getXlfTranslation(lang, key);
+    if (xlfVal !== undefined) {
+      return xlfVal;
+    }
+
+    // 2. Query structured JSON dictionary hierarchy
     const keys = key.split(".");
     let current: any = dict;
 

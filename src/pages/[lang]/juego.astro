@@ -1,0 +1,11 @@
+---
+import { supportedLanguages } from '@/lib/i18n';
+import JuegoTrivia from './juego-trivia.astro';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+---
+<JuegoTrivia />

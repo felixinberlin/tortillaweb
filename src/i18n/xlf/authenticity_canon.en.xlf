@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="authenticity_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Authenticity Canon" />
+      <note priority="1">Editorial taxonomy markers: Fact vs. Legend vs. Opinion, plus verified institutional sources.</note>
+    </header>
+    <body>
+      <!-- Fact vs Legend vs Opinion Markers -->
+      <trans-unit id="authenticity.fact" resname="AUTHENTICITY_FACT">
+        <source>Hecho Histórico Documentado (FACT)</source>
+        <target>Documented Historical Fact (FACT)</target>
+        <note priority="1">Backed by primary archival documentation (e.g. 1798 Villanueva, 1817 Cortes de Navarra).</note>
+      </trans-unit>
+      <trans-unit id="authenticity.legend" resname="AUTHENTICITY_LEGEND">
+        <source>Leyenda Popular (LEGEND)</source>
+        <target>Popular Legend (LEGEND)</target>
+        <note priority="1">Cultural folklore without contemporary documentary evidence (e.g. General Zumalacárregui).</note>
+      </trans-unit>
+      <trans-unit id="authenticity.opinion" resname="AUTHENTICITY_OPINION">
+        <source>Preferencia Cultural / Tradición (OPINION)</source>
+        <target>Cultural Tradition / Opinion (OPINION)</target>
+        <note priority="1">Subjective factional preferences (onion debate, doneness style, potato varieties).</note>
+      </trans-unit>
+
+      <!-- Institutional Source Badges -->
+      <trans-unit id="authenticity.source.boe" resname="AUTHENTICITY_SOURCE_BOE">
+        <source>BOE: Legislación Oficial</source>
+        <target>BOE: Official Spanish Legislation</target>
+        <note priority="2">Official State Gazette (e.g. Real Decreto 1021/2022).</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.csic" resname="AUTHENTICITY_SOURCE_CSIC">
+        <source>CSIC: Archivo Científico</source>
+        <target>CSIC: Scientific Research Archive</target>
+        <note priority="2">Spanish National Research Council food science publications.</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.aesan" resname="AUTHENTICITY_SOURCE_AESAN">
+        <source>AESAN: Seguridad Alimentaria</source>
+        <target>AESAN: Spanish Food Safety Agency</target>
+        <note priority="2">National Food Safety &amp; Nutrition Agency.</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.bne" resname="AUTHENTICITY_SOURCE_BNE">
+        <source>BNE: Biblioteca Nacional</source>
+        <target>BNE: National Library Historical Archives</target>
+        <note priority="2">Primary 18th/19th century manuscripts and agricultural gazettes.</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.cis" resname="AUTHENTICITY_SOURCE_CIS">
+        <source>CIS: Demografía y Sondeos</source>
+        <target>CIS: National Sociological Surveys</target>
+        <note priority="2">Official polls on Spanish culinary habits and onion debate.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

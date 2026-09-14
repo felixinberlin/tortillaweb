@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="320" height="240" fill="none" role="img" aria-label="Jamón Ibérico de Bellota" class="">
+
+
+    <defs>
+      
+    <!-- Master Drop Shadow with Warm Ambient Occlusion -->
+    <filter id="jamon_svg_dropShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#1C0A00" floodOpacity="0.38" />
+      <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000000" floodOpacity="0.25" />
+    </filter>
+
+    <!-- Deep 3D Shadow for Floating Objects -->
+    <filter id="jamon_svg_deepShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="2" dy="8" stdDeviation="8" floodColor="#1A0D00" floodOpacity="0.45" />
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.3" />
+    </filter>
+
+    <!-- Soft Organic Shadow -->
+    <filter id="jamon_svg_softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3.5" floodColor="#271505" floodOpacity="0.3" />
+    </filter>
+
+    <!-- Glossy Specular Highlight Filter -->
+    <filter id="jamon_svg_glossHighlight" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Subtle Food Glisten Filter -->
+    <filter id="jamon_svg_glistenGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Organic Natural Texture Filter -->
+    <filter id="jamon_svg_organicTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5   0 0 0 0 0.4   0 0 0 0 0.3  0 0 0 0.12 0" />
+      <feComposite in2="SourceGraphic" in="gl" operator="in" />
+    </filter>
+  
+      
+      <!-- Cured Ruby-Garnet Meat Fiber Gradient -->
+      <linearGradient id="jamon_svg_curedMeat" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#BE123C" />
+        <stop offset="35%" stopColor="#9F1239" />
+        <stop offset="70%" stopColor="#881337" />
+        <stop offset="100%" stopColor="#4C0519" />
+      </linearGradient>
+
+      <!-- Translucent Oleic Infiltrated Fat (Melting at room temp) -->
+      <linearGradient id="jamon_svg_oleicFat" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.95" />
+        <stop offset="50%" stopColor="#FEF3C7" stopOpacity="0.85" />
+        <stop offset="100%" stopColor="#FDE68A" stopOpacity="0.7" />
+      </linearGradient>
+    </defs>
+
+    <g filter="url(#jamon_svg_dropShadow)">
+      <!-- 1. Cured Ham Cut Geometry (Organic Translucent Ribbon) -->
+      <path d="M 16 48 C 14 36 28 22 55 20 C 78 18 86 34 84 54 C 82 72 68 84 42 82 C 22 80 18 64 16 48 Z" 
+            fill="url(#jamon_svg_curedMeat)" 
+            stroke="#4C0519" 
+            stroke-width="1.2" />
+
+      <!-- 2. Melting Intramuscular Fat Streaks (Veteado de Bellota) -->
+      <!-- Fat Streak 1 -->
+      <path d="M 22 38 C 36 32 54 36 78 30 C 65 36 45 38 22 44 Z" fill="url(#jamon_svg_oleicFat)" />
+      
+      <!-- Fat Streak 2 -->
+      <path d="M 18 52 C 34 46 58 50 82 46 C 70 54 48 56 18 60 Z" fill="url(#jamon_svg_oleicFat)" />
+      
+      <!-- Fat Streak 3 -->
+      <path d="M 24 68 C 42 62 60 66 76 60 C 62 70 42 72 24 74 Z" fill="url(#jamon_svg_oleicFat)" />
+
+      <!-- 3. White Tyrosine Micro-Crystals (Aged Cure Marker) -->
+      <circle cx="34" cy="46" r="0.8" fill="#FFFFFF" />
+      <circle cx="52" cy="42" r="0.9" fill="#FFFFFF" />
+      <circle cx="68" cy="40" r="0.7" fill="#FFFFFF" />
+      <circle cx="44" cy="62" r="0.8" fill="#FFFFFF" />
+      <circle cx="60" cy="58" r="0.7" fill="#FFFFFF" />
+
+      <!-- 4. Glistening Oleic Acid Luster (Natural room temperature sweat) -->
+      <path d="M 28 28 C 42 22 62 24 72 32 C 60 28 42 28 28 34 Z" fill="#FFFFFF" opacity="0.6" filter="url(#jamon_svg_glossHighlight)" />
+      <ellipse cx="36" cy="30" rx="3.5" ry="1.5" fill="#FFFFFF" opacity="0.8" />
+      <ellipse cx="64" cy="42" rx="4" ry="1.5" fill="#FFFFFF" opacity="0.7" transform="rotate(10 64 42)" />
+    </g>
+  
+</svg>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="culinary_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Culinary Canon" />
+      <note priority="1">Thermodynamische Wissenschaft, Mengenverhältnisse und Garparameter der spanischen Tortilla.</note>
+    </header>
+    <body>
+      <!-- Ratios -->
+      <trans-unit id="culinary.ratio.potato_egg" resname="CULINARY_RATIO_POTATO_EGG">
+        <source>100g de patata por cada huevo (o 1 kg por 6-8 huevos)</source>
+        <target>100g Kartoffel pro Ei (oder 1 kg für 6-8 Eier)</target>
+        <note priority="1">Goldener Schnitt zwischen Kartoffelmasse und Eieremulsion.</note>
+      </trans-unit>
+      <trans-unit id="culinary.ratio.salt" resname="CULINARY_RATIO_SALT">
+        <source>1,2% del peso total (12g de sal por kg de patata pelada)</source>
+        <target>1,2% des Gesamtgewichts (12g Salz pro kg geschälte Kartoffeln)</target>
+        <note priority="1">Standard-Salzverhältnis für ausgewogenen Geschmack.</note>
+      </trans-unit>
+      <trans-unit id="culinary.ratio.absorbed_oil" resname="CULINARY_RATIO_ABSORBED_OIL">
+        <source>~10% de absorción de AOVE (~60-80ml por tortilla de 6 huevos)</source>
+        <target>~10% Olivenölabsorption (~60-80ml pro 6-Eier-Tortilla)</target>
+        <note priority="2">Fettgehalt, der beim Pochieren/Konfieren aufgenommen wird.</note>
+      </trans-unit>
+
+      <!-- Thermal Frying Parameters -->
+      <trans-unit id="culinary.thermal.poaching" resname="CULINARY_THERMAL_POACHING">
+        <source>Confitado a 130°C - 140°C en AOVE abundante</source>
+        <target>Sanftes Garen bei 130°C - 140°C in reichlich Olivenöl</target>
+        <note priority="1">Schmortemperatur für weiche, nicht knusprig gebratene Kartoffeln.</note>
+      </trans-unit>
+      <trans-unit id="culinary.thermal.searing" resname="CULINARY_THERMAL_SEARING">
+        <source>Sellado en sartén caliente a 180°C</source>
+        <target>Kurzes Anbraten in heißer Pfanne bei 180°C</target>
+        <note priority="1">Hohe Hitze für schnelle Krustenbildung und schnelles Wenden.</note>
+      </trans-unit>
+      <trans-unit id="culinary.thermal.egg_coagulation" resname="CULINARY_THERMAL_EGG_COAGULATION">
+        <source>Coagulación proteica del huevo a partir de 62°C</source>
+        <target>Eiweißgerinnung beginnt ab 62°C</target>
+        <note priority="1">Temperatur der Proteindenaturierung von Ovalbumin.</note>
+      </trans-unit>
+      <trans-unit id="culinary.thermal.starch_gelatinization" resname="CULINARY_THERMAL_STARCH_GELATINIZATION">
+        <source>Gelatinización de almidón entre 60°C y 65°C</source>
+        <target>Kartoffelstärkegelierung zwischen 60°C und 65°C</target>
+        <note priority="2">Hydratation und Aufquellen der Kartoffelstärke.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

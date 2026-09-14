@@ -32,7 +32,9 @@ import {
   Flame,
   Scale,
   FlaskConical,
-  Scissors
+  Scissors,
+  MapPin,
+  Calendar
 } from 'lucide-react';
 
 export async function getStaticPaths() {
@@ -252,6 +254,14 @@ const personaQuote = taxAny?.quote ? (taxAny.quote[currentLang] || taxAny.quote.
 const favoriteRecipeId = taxAny?.favoriteRecipe;
 const allRecipesList = favoriteRecipeId ? await getAllRecipes() : [];
 const favoriteRecipe = favoriteRecipeId ? allRecipesList.find((r) => r.id === favoriteRecipeId) : null;
+
+// Region specific fields
+const isRegion = taxonomy?.type === 'region';
+const pagesCollection = isRegion ? await getCollection('pages') : [];
+const regEntry = isRegion ? pagesCollection.find((p) => p.id === 'regions' || p.id.includes('regions')) : null;
+const regionProfile = (isRegion && regEntry?.data?.regions)
+  ? (regEntry.data.regions as any[]).find((r: any) => r.id === taxonomy?.id)
+  : null;
 
 // Load related recipes, articles, taxonomies, and knowledge base dynamically
 const taxonomyId = taxonomy ? taxonomy.id : ingredientArticle?.data.ingredient;
@@ -575,6 +585,79 @@ const pillars = [
       </section>
     )}
 
+    <!-- REGIONAL PROFILE & TRADITION CALLOUT (IF REGION TAXONOMY) -->
+    {isRegion && regionProfile && (
+      <section class="card-notebook p-6 sm:p-8 rounded-2xl border border-[#E8E2D5] bg-[#FCF9F2] shadow-xs space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E8E2D5] pb-4">
+          <div class="flex items-center gap-2">
+            <div class="p-2 rounded-xl bg-[#F5E6BE] text-[#8D6E63] border border-amber-300">
+              <MapPin class="w-5 h-5 text-[#8D6E63]" />
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-[#8D6E63] block">
+                {regionProfile.badge?.[currentLang] || regionProfile.badge?.es || 'Tradición Comarcal'}
+              </span>
+              <h2 class="text-xl font-serif-heading font-bold text-foreground">
+                {currentLang === 'en' ? 'Culinary Profile & Regional Tradition' : currentLang === 'de' ? 'Kulinarisches Profil & Regionale Tradition' : 'Perfil Culinario y Tradición Territorial'}
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-xl bg-white/70 dark:bg-card border border-border/80 space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block">
+              {currentLang === 'en' ? 'Potato Variety' : currentLang === 'de' ? 'Kartoffelsorte' : 'Variedad de Patata'}
+            </span>
+            <span class="text-sm font-semibold text-foreground">
+              {regionProfile.potatoVariety}
+            </span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/70 dark:bg-card border border-border/80 space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block">
+              {currentLang === 'en' ? 'Runniness & Setting' : currentLang === 'de' ? 'Bindung & Garstufe' : 'Cuajado y Textura'}
+            </span>
+            <span class="text-sm font-semibold text-foreground">
+              {regionProfile.cuajado?.[currentLang] || regionProfile.cuajado?.es}
+            </span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/70 dark:bg-card border border-border/80 space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block">
+              {currentLang === 'en' ? 'Onion Dogma' : currentLang === 'de' ? 'Zwiebel-Dogma' : 'Dogma de la Cebolla'}
+            </span>
+            <span class="text-sm font-semibold text-foreground">
+              {regionProfile.onionPolicy?.[currentLang] || regionProfile.onionPolicy?.es}
+            </span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/70 dark:bg-card border border-border/80 space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block">
+              {currentLang === 'en' ? 'Traditional Oil' : currentLang === 'de' ? 'Traditionelles Öl' : 'Aceite Tradicional'}
+            </span>
+            <span class="text-sm font-semibold text-foreground line-clamp-2" title={regionProfile.oilType?.[currentLang] || regionProfile.oilType?.es}>
+              {regionProfile.oilType?.[currentLang] || regionProfile.oilType?.es}
+            </span>
+          </div>
+        </div>
+
+        {regionProfile.festivals && (
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[#FFB800]/15 border border-[#FFB800]/40 text-xs sm:text-sm">
+            <Calendar class="w-5 h-5 text-[#8D6E63] shrink-0 mt-0.5" />
+            <div class="space-y-0.5">
+              <span class="font-bold text-[#8D6E63] uppercase tracking-wide text-xs block">
+                {currentLang === 'en' ? 'Popular Festival & Heritage' : currentLang === 'de' ? 'Volksfest & Brauchtum' : 'Festividad Popular y Costumbre'}
+              </span>
+              <p class="text-foreground/90 font-medium leading-relaxed">
+                {regionProfile.festivals?.[currentLang] || regionProfile.festivals?.es}
+              </p>
+            </div>
+          </div>
+        )}
+      </section>
+    )}
+
     <!-- POTATO PILLARS SUB-MONOGRAPHS NAV (IF POTATO CLUSTER) -->
     {isPotatoCluster && (
       <section class="space-y-4">
@@ -706,6 +789,7 @@ const pillars = [
                     <RecipeImage
                       client:visible
                       src={r.image}
+                      recipeId={r.id}
                       title={recipeTitle}
                       ingredients={r.ingredients}
                       taxonomyIds={r.taxonomyIds}

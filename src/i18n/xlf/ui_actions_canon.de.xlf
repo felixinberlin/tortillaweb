@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="ui_actions_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence UI Actions Canon" />
+      <note priority="1">Standardisierte Benutzeraktionen, Export-Buttons und Sharing-Texte.</note>
+    </header>
+    <body>
+      <!-- Exporters -->
+      <trans-unit id="action.download_cooklang" resname="ACTION_DOWNLOAD_COOKLANG">
+        <source>Descargar Receta Cooklang (.cook)</source>
+        <target>Cooklang-Rezept herunterladen (.cook)</target>
+        <note priority="1">Aktions-Button für reines Text-Rezeptformat.</note>
+      </trans-unit>
+      <trans-unit id="action.export_pdf" resname="ACTION_EXPORT_PDF">
+        <source>Exportar Ficha Técnica PDF</source>
+        <target>Technisches Datenblatt exportieren (PDF)</target>
+        <note priority="1">Aktions-Button zum Herunterladen des druckfertigen PDF-Datenblatts.</note>
+      </trans-unit>
+      <trans-unit id="action.download_svg" resname="ACTION_DOWNLOAD_SVG">
+        <source>Descargar SVG de Laboratorio</source>
+        <target>Labor-Vektorgrafik herunterladen (SVG)</target>
+        <note priority="1">Aktions-Button zum Herunterladen der dynamischen SVG-Vektorillustration.</note>
+      </trans-unit>
+      <trans-unit id="action.copy_recipe_link" resname="ACTION_COPY_RECIPE_LINK">
+        <source>Copiar Enlace de Receta</source>
+        <target>Rezept-Link kopieren</target>
+        <note priority="2">Aktion zum Kopieren des permanenten Links.</note>
+      </trans-unit>
+      <trans-unit id="action.verify_source" resname="ACTION_VERIFY_SOURCE">
+        <source>Verificar Fuente en la Web</source>
+        <target>Quelle online prüfen</target>
+        <note priority="2">Direkter Link zu historischen und wissenschaftlichen Primärquellen.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

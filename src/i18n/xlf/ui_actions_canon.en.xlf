@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="ui_actions_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence UI Actions Canon" />
+      <note priority="1">Standardized user actions, exporter buttons, and share copy.</note>
+    </header>
+    <body>
+      <!-- Exporters -->
+      <trans-unit id="action.download_cooklang" resname="ACTION_DOWNLOAD_COOKLANG">
+        <source>Descargar Receta Cooklang (.cook)</source>
+        <target>Download Cooklang Recipe (.cook)</target>
+        <note priority="1">Action button for plain text recipe format.</note>
+      </trans-unit>
+      <trans-unit id="action.export_pdf" resname="ACTION_EXPORT_PDF">
+        <source>Exportar Ficha Técnica PDF</source>
+        <target>Export Technical PDF Sheet</target>
+        <note priority="1">Action button to download printable PDF sheet.</note>
+      </trans-unit>
+      <trans-unit id="action.download_svg" resname="ACTION_DOWNLOAD_SVG">
+        <source>Descargar SVG de Laboratorio</source>
+        <target>Download Laboratory Vector SVG</target>
+        <note priority="1">Action button to download dynamic SVG vector illustration.</note>
+      </trans-unit>
+      <trans-unit id="action.copy_recipe_link" resname="ACTION_COPY_RECIPE_LINK">
+        <source>Copiar Enlace de Receta</source>
+        <target>Copy Recipe Link</target>
+        <note priority="2">Share link copy action.</note>
+      </trans-unit>
+      <trans-unit id="action.verify_source" resname="ACTION_VERIFY_SOURCE">
+        <source>Verificar Fuente en la Web</source>
+        <target>Verify Source Online</target>
+        <note priority="2">Direct link to primary historical/scientific documentation.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

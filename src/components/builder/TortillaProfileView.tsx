@@ -18,6 +18,7 @@ import { DnaExportModal } from "./DnaExportModal";
 import { getComparatorUrlForConfig, downloadDnaAsPdf } from "@/domain/builder/dnaShareHelper";
 import TortillaSvgRenderer from "@/components/svg/TortillaSvgRenderer";
 import { builderConfigToSvgOptions } from "@/domain/svg";
+import { ShareButtons } from "@/components/share/ShareButtons";
 
 interface TortillaProfileViewProps {
   lang: string;
@@ -392,6 +393,27 @@ ${shareUrl}`;
             </li>
           ))}
         </ol>
+      </div>
+
+      {/* Share To & Save URL Elements for the Created Recipe */}
+      <div id="share-created-recipe">
+        <ShareButtons
+          url={shareUrl}
+          title={isEs ? "Mi Receta de Tortilla de Patatas Personalizada" : isDe ? "Mein persönliches Tortilla-Rezept" : "My Custom Spanish Tortilla Recipe"}
+          description={
+            isEs
+              ? `Fórmula gastronómica a medida: ${config.calculatedProfile.potatoEggRatio}g de patata por huevo, punto ${config.preferences.texture}, para ${config.calculatedProfile.estimatedServings} personas.`
+              : `Custom recipe: ${config.calculatedProfile.potatoEggRatio}g potato per egg, ${config.preferences.texture} texture, for ${config.calculatedProfile.estimatedServings} diners.`
+          }
+          summary={
+            isEs
+              ? `Ratio ${config.calculatedProfile.potatoEggRatio}g/huevo | Sartén ${config.calculatedProfile.recommendedPanSizeCm}cm | ${config.preferences.texture}`
+              : `Ratio ${config.calculatedProfile.potatoEggRatio}g/egg | Pan ${config.calculatedProfile.recommendedPanSizeCm}cm | ${config.preferences.texture}`
+          }
+          lang={lang}
+          variant="card"
+          showUrlNotice={true}
+        />
       </div>
 
       {/* Interactive DNA & Canonical Recipe Comparator */}

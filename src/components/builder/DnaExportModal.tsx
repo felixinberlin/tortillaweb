@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Download,
-  Share2,
   Copy,
   Check,
   FileJson,
@@ -22,6 +21,7 @@ import {
   downloadDnaAsText,
   getComparatorUrlForConfig,
 } from "@/domain/builder/dnaShareHelper";
+import { ShareButtons } from "@/components/share/ShareButtons";
 
 interface DnaExportModalProps {
   isOpen: boolean;
@@ -56,26 +56,6 @@ export const DnaExportModal: React.FC<DnaExportModalProps> = ({
       setTimeout(() => setCopiedLink(false), 2000);
     } catch {
       // Fallback
-    }
-  };
-
-  const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: isEs
-            ? `Mi ADN de Tortilla de Patatas (${config.calculatedProfile.potatoEggRatio}g/huevo)`
-            : `My Tortilla DNA Profile (${config.calculatedProfile.potatoEggRatio}g/egg)`,
-          text: isEs
-            ? `He creado mi fórmula de Tortilla de Patatas con un ratio de ${config.calculatedProfile.potatoEggRatio}g/huevo y sartén de ${config.calculatedProfile.recommendedPanSizeCm}cm. ¡Pruébala y compárala!`
-            : `Check out my custom Tortilla DNA formula (${config.calculatedProfile.potatoEggRatio}g/egg). Compare it in the lab!`,
-          url: shareUrl || window.location.href,
-        });
-      } catch {
-        // User cancelled or not supported
-      }
-    } else {
-      handleCopyLink();
     }
   };
 
@@ -144,7 +124,7 @@ export const DnaExportModal: React.FC<DnaExportModalProps> = ({
             <input
               type="text"
               readOnly
-              value={shareUrl || window.location.href}
+              value={shareUrl || (typeof window !== "undefined" ? window.location.href : "")}
               className="flex-1 text-xs font-mono bg-card px-3 py-2.5 rounded-xl border border-border text-foreground select-all focus:outline-hidden"
             />
             <Button
@@ -157,18 +137,26 @@ export const DnaExportModal: React.FC<DnaExportModalProps> = ({
             </Button>
           </div>
 
-          {typeof navigator !== "undefined" && "share" in navigator && (
-            <div className="pt-1">
-              <button
-                type="button"
-                onClick={handleNativeShare}
-                className="text-xs font-bold text-[#00A3FF] hover:underline flex items-center gap-1.5 cursor-pointer"
-              >
-                <Share2 className="w-3.5 h-3.5" />
-                <span>{isEs ? "Compartir con aplicaciones (WhatsApp, Telegram...)" : "Share via native apps"}</span>
-              </button>
-            </div>
-          )}
+          {/* Social and Direct Messaging Share Buttons */}
+          <div className="pt-2 border-t border-border/50">
+            <span className="text-3xs font-extrabold uppercase tracking-wider text-muted-foreground block mb-2">
+              {isEs ? "Compartir receta directamente en:" : "Share recipe directly to:"}
+            </span>
+            <ShareButtons
+              url={shareUrl || (typeof window !== "undefined" ? window.location.href : "")}
+              title={isEs ? "Receta de Tortilla de Patatas Personalizada" : "Custom Tortilla Recipe"}
+              description={isEs ? "Fórmula personalizada generada en tortilladepatatas.org" : "Custom tortilla formula from tortilladepatatas.org"}
+              lang={lang}
+              variant="pills"
+              showUrlNotice={false}
+            />
+          </div>
+
+          <p className="text-3xs text-muted-foreground leading-relaxed pt-1">
+            {isEs
+              ? "💡 Puedes guardar este enlace en los marcadores de tu navegador (Ctrl+D) para volver a tu receta exacta en cualquier momento sin necesidad de registrarte."
+              : "💡 You can save this link in your browser bookmarks (Ctrl+D) to return to your exact recipe anytime without creating an account."}
+          </p>
         </div>
 
         {/* Download Grid Options */}

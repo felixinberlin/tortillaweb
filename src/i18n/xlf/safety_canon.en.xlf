@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="safety_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Safety Canon" />
+      <note priority="1">Bactericidal food safety rules for Spanish tortilla (Salmonella enteritidis prevention).</note>
+    </header>
+    <body>
+      <!-- Full Legal & Culinary Safety Notice -->
+      <trans-unit id="safety.gold_standard.full" resname="SAFETY_GOLD_STANDARD_FULL">
+        <source>Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C durante 2 minutos** (o **63°C durante 20 segundos** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 horas** a temperatura ambiente.</source>
+        <target>To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as an intermediate threshold). Runny tortillas should not remain for more than **4 hours** at ambient temperature.</target>
+        <note priority="1">Full notice for footers, technical sheets, and safety documentation. Mandatory bolding on 70°C, 63°C, 2 minutes, 20 seconds, 4 hours.</note>
+      </trans-unit>
+
+      <!-- Short Summary Notice -->
+      <trans-unit id="safety.gold_standard.summary" resname="SAFETY_GOLD_STANDARD_SUMMARY">
+        <source>El estándar de oro sanitario exige **70°C durante 2 minutos** en el corazón de la masa para inocuidad total frente a Salmonella.</source>
+        <target>The golden culinary safety standard mandates **70°C for 2 minutes** at core for total safety against Salmonella.</target>
+        <note priority="2">Used in chef cards, DNA summary cards, and quick badges.</note>
+      </trans-unit>
+
+      <!-- Optimal Threshold (Safe / Gold Standard) -->
+      <trans-unit id="safety.threshold.optimal" resname="SAFETY_THRESHOLD_OPTIMAL">
+        <source>**70°C durante 2 minutos**</source>
+        <target>**70°C for 2 minutes**</target>
+        <note priority="1">Gold standard threshold for complete ≥ 5 log reduction of Salmonella enteritidis.</note>
+      </trans-unit>
+
+      <!-- Intermediate Threshold (Warning / Caution) -->
+      <trans-unit id="safety.threshold.intermediate" resname="SAFETY_THRESHOLD_INTERMEDIATE">
+        <source>**63°C durante 20 segundos**</source>
+        <target>**63°C for 20 seconds**</target>
+        <note priority="1">Intermediate safety threshold for creamy, juicy tortillas intended for immediate consumption.</note>
+      </trans-unit>
+
+      <!-- Ambient Exposure Limit (Danger Threshold) -->
+      <trans-unit id="safety.threshold.ambient_limit" resname="SAFETY_THRESHOLD_AMBIENT_LIMIT">
+        <source>Máximo **4 horas** a temperatura ambiente</source>
+        <target>Maximum **4 hours** at ambient temperature</target>
+        <note priority="1">Danger limit above which rapid bacterial proliferation occurs in the danger zone.</note>
+      </trans-unit>
+
+      <!-- Cold Storage Threshold -->
+      <trans-unit id="safety.threshold.refrigeration" resname="SAFETY_THRESHOLD_REFRIGERATION">
+        <source>Refrigeración a &lt;8°C (óptimo 4°C)</source>
+        <target>Refrigeration below &lt;8°C (optimal 4°C)</target>
+        <note priority="2">Storage guideline for prepared tortillas.</note>
+      </trans-unit>
+
+      <!-- Safety Badges & Statuses -->
+      <trans-unit id="safety.status.safe" resname="SAFETY_STATUS_SAFE">
+        <source>Seguro: **70°C durante 2 minutos** (&lt;8°C refrig)</source>
+        <target>Safe: **70°C for 2 minutes** (&lt;8°C refrig)</target>
+        <note priority="2">Badge text for green status (#2E7D32).</note>
+      </trans-unit>
+
+      <trans-unit id="safety.status.warning" resname="SAFETY_STATUS_WARNING">
+        <source>Precaución: **63°C durante 20 segundos** (consumo inmediato)</source>
+        <target>Caution: **63°C for 20 seconds** (immediate consumption)</target>
+        <note priority="2">Badge text for warning amber status (#FFC107).</note>
+      </trans-unit>
+
+      <trans-unit id="safety.status.danger" resname="SAFETY_STATUS_DANGER">
+        <source>Peligro: Riesgo Alto (&gt;4 horas a temperatura ambiente)</source>
+        <target>Danger: High Risk (&gt;4 hours at ambient temperature)</target>
+        <note priority="2">Badge text for danger crimson status (#B00020).</note>
+      </trans-unit>
+
+      <!-- Compact Badge Label -->
+      <trans-unit id="safety.badge.compact" resname="SAFETY_BADGE_COMPACT">
+        <source>🛡️ 70°C 2min / 63°C 20s</source>
+        <target>🛡️ 70°C 2min / 63°C 20s</target>
+        <note priority="3">Micro-badge used on SVG renders and graphic exports.</note>
+      </trans-unit>
+
+      <!-- Technical Reduction Claim -->
+      <trans-unit id="safety.reduction.salmonella" resname="SAFETY_REDUCTION_SALMONELLA">
+        <source>Reducción bactericida ≥ 5 log de Salmonella enteritidis</source>
+        <target>Bactericidal ≥ 5 log reduction of Salmonella enteritidis</target>
+        <note priority="3">Scientific microbiology specification from CSIC / AESAN.</note>
+      </trans-unit>
+
+      <!-- Social & Trivia Share Standard Text -->
+      <trans-unit id="safety.share.rule_verified" resname="SAFETY_SHARE_RULE_VERIFIED">
+        <source>Norma Térmica: 70°C durante 2 minutos / máx 4 horas ambiente.</source>
+        <target>Safety Rule Verified: 70°C for 2 min / max 4 hours ambient.</target>
+        <note priority="3">Snippet appended to share messages and challenge cards.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

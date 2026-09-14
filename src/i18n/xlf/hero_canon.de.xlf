@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="hero_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Hero Canon" />
+      <note priority="1">Hauptüberschriften und Aktionen im Hero-Bereich.</note>
+    </header>
+    <body>
+      <trans-unit id="hero.badge" resname="HERO_BADGE">
+        <source>La enciclopedia de la tortilla española</source>
+        <target>Die Enzyklopädie der spanischen Tortilla</target>
+      </trans-unit>
+      <trans-unit id="hero.title" resname="HERO_TITLE">
+        <source>Todo sobre la Tortilla de Patatas</source>
+        <target>Alles über die Tortilla de Patatas</target>
+      </trans-unit>
+      <trans-unit id="hero.subtitle" resname="HERO_SUBTITLE">
+        <source>Recetas, técnicas, ingredientes, historia y ciencia detrás del plato más famoso de España.</source>
+        <target>Rezepte, Techniken, Zutaten, Geschichte und Wissenschaft hinter Spaniens berühmtestem Gericht.</target>
+      </trans-unit>
+      <trans-unit id="hero.recipesButton" resname="HERO_RECIPES_BUTTON">
+        <source>Explorar recetas</source>
+        <target>Rezepte entdecken</target>
+      </trans-unit>
+      <trans-unit id="hero.buildButton" resname="HERO_BUILD_BUTTON">
+        <source>Crea tu tortilla</source>
+        <target>Erstelle deine Tortilla</target>
+      </trans-unit>
+      <trans-unit id="hero.ingredients" resname="HERO_INGREDIENTS">
+        <source>Ingredientes</source>
+        <target>Zutaten</target>
+      </trans-unit>
+      <trans-unit id="hero.techniques" resname="HERO_TECHNIQUES">
+        <source>Punto de Cuajado</source>
+        <target>Garstufe &amp; Stockung</target>
+      </trans-unit>
+      <trans-unit id="hero.knowledge" resname="HERO_KNOWLEDGE">
+        <source>Conocimiento</source>
+        <target>Wissen</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

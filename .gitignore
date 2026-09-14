@@ -30,6 +30,3 @@ dist-ssr
 firebase-applet-config.json
 firebase-applet-config.*
 firebase-blueprint.json
-
-# repomix codebase dumps (regenerate on demand, don't version)
-repomix-output.md

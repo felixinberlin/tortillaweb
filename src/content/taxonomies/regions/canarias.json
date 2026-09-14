@@ -1,0 +1,39 @@
+{
+  "id": "canarias",
+  "type": "region",
+  "contentId": "region.canarias",
+  "slug": {
+    "es": "canarias",
+    "en": "canary-islands",
+    "de": "kanarische-inseln"
+  },
+  "title": {
+    "es": "Islas Canarias",
+    "en": "Canary Islands",
+    "de": "Kanarische Inseln"
+  },
+  "description": {
+    "es": "Archipiélago atlántico que conservó el término quechua original 'papas', guardián de las Papas Antiguas de Canarias con D.O.P. y de versiones con batata dulce y mojos tradicionales.",
+    "en": "Atlantic archipelago preserving the original Quechua term 'papas', home to volcanic PDO Ancient Canary Potatoes and tortillas paired with sweet potato and vibrant mojos.",
+    "de": "Atlantische Inseln, die den Quechua-Begriff 'papas' bewahrten, Heimat der g.U. Papas Antiguas und Varianten mit Süßkartoffeln und Mojos."
+  },
+  "dogma": {
+    "es": "La textura cremosa de la papa volcánica aporta una untuosidad inigualable al batido.",
+    "en": "Volcanic potato creaminess delivers unmatched silkiness to the egg mixture.",
+    "de": "Die Cremigkeit der Vulkan-Kartoffel verleiht der Eimasse einzigartige Textur."
+  },
+  "keyIngredient": {
+    "es": "Papas Antiguas de Canarias D.O.P. & Batata Roja",
+    "en": "Canary PDO Ancient Potatoes & Red Sweet Potato",
+    "de": "Papas Antiguas g.U. & Rote Süßkartoffel"
+  },
+  "badge": {
+    "es": "Patrimonio Volcánico & Raíz Quechua",
+    "en": "Volcanic Heritage & Quechua Origin",
+    "de": "Vulkanisches Erbe & Quechua-Wurzeln"
+  },
+  "icon": "Sun",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "regional_potato" }
+  ]
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Vote, CheckCircle2, BarChart3 } from "lucide-react";
+import { setFactionCookie, getFactionCookie } from "@/lib/factionCookie";
 
 interface PollComponentProps {
   lang?: string;
@@ -20,21 +21,30 @@ export default function PollComponent({ lang = "es" }: PollComponentProps) {
   const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("tortilla_faction_vote");
-      if (saved) {
-        setSelected(saved);
+    const saved = getFactionCookie();
+    if (saved) {
+      setSelected(saved);
+      setHasVoted(true);
+    }
+
+    const handleSync = (e: Event) => {
+      const customEvent = e as CustomEvent<{ factionId: string | null }>;
+      if (customEvent.detail?.factionId) {
+        setSelected(customEvent.detail.factionId);
         setHasVoted(true);
       }
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("tortilla-faction-changed", handleSync);
+      return () => window.removeEventListener("tortilla-faction-changed", handleSync);
     }
   }, []);
 
   const handleVote = (id: string) => {
     setSelected(id);
     setHasVoted(true);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("tortilla_faction_vote", id);
-    }
+    setFactionCookie(id);
   };
 
   return (

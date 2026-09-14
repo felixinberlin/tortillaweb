@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getContentUrl, type SupportedLocale } from "@/lib/routes";
+import { setFactionCookie, getFactionCookie } from "@/lib/factionCookie";
 import { 
   Shield, 
   Heart, 
@@ -54,28 +55,37 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
   const [stats, setStats] = useState<Record<string, number>>(initialStats);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedVote = localStorage.getItem("tortilla_faction_vote");
-      if (savedVote) {
-        setSelectedFaction(savedVote);
+    const savedVote = getFactionCookie();
+    if (savedVote) {
+      setSelectedFaction(savedVote);
+      setHasVoted(true);
+      setStats((prev) => {
+        const updated = { ...prev };
+        if (updated[savedVote] !== undefined) {
+          updated[savedVote] += 1;
+        }
+        return updated;
+      });
+    }
+
+    const handleSync = (e: Event) => {
+      const customEvent = e as CustomEvent<{ factionId: string | null }>;
+      if (customEvent.detail?.factionId) {
+        setSelectedFaction(customEvent.detail.factionId);
         setHasVoted(true);
-        setStats((prev) => {
-          const updated = { ...prev };
-          if (updated[savedVote] !== undefined) {
-            updated[savedVote] += 1;
-          }
-          return updated;
-        });
       }
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("tortilla-faction-changed", handleSync);
+      return () => window.removeEventListener("tortilla-faction-changed", handleSync);
     }
   }, []);
 
   const totalVotes = Object.values(stats).reduce((a, b) => a + b, 0);
 
   const handleVote = (factionId: string) => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("tortilla_faction_vote", factionId);
-    }
+    setFactionCookie(factionId);
     if (!hasVoted) {
       setStats((prev) => ({
         ...prev,
@@ -281,8 +291,8 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                   )}
                 </div>
 
-                {/* View Details Link */}
-                <div className="mt-6 pt-4 border-t border-[#E8E2D5] flex items-center justify-between">
+                {/* View Details Link & Faction Selection */}
+                <div className="mt-6 pt-4 border-t border-[#E8E2D5] flex flex-wrap items-center justify-between gap-2">
                   <a
                     href={factionUrl}
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#8D6E63] hover:text-[#292521] bg-[#F5E6BE]/60 hover:bg-[#F5E6BE] px-3 py-1.5 rounded-lg border border-amber-300/80 transition-colors shadow-2xs"
@@ -290,6 +300,28 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                     <span>{currentLang === 'en' ? 'View Profile & Recipes' : currentLang === 'de' ? 'Profil & Rezepte ansehen' : 'Ver Ficha & Recetas'}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
+
+                  <button
+                    type="button"
+                    onClick={() => handleVote(faction.id)}
+                    className={`inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg transition-all shadow-2xs cursor-pointer ${
+                      selectedFaction === faction.id
+                        ? "bg-[#2E7D32] text-white border border-[#2E7D32]"
+                        : "bg-white hover:bg-[#FFF7EA] text-[#8D6E63] border border-[#E8E2D5] hover:border-[#FFB800]"
+                    }`}
+                  >
+                    {selectedFaction === faction.id ? (
+                      <>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                        <span>{currentLang === 'en' ? 'My Faction' : currentLang === 'de' ? 'Meine Faktion' : 'Mi Facción'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Vote className="w-3.5 h-3.5 text-[#FFB800]" />
+                        <span>{currentLang === 'en' ? 'Choose Faction' : currentLang === 'de' ? 'Faktion wählen' : 'Elegir Facción'}</span>
+                      </>
+                    )}
+                  </button>
                 </div>
                 </div>
               </article>

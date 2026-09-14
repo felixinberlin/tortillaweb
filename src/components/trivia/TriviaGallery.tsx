@@ -27,6 +27,7 @@ import {
   ArrowUpDown,
   ExternalLink
 } from 'lucide-react';
+import { setFactionCookie, getFactionCookie } from '@/lib/factionCookie';
 
 export interface TriviaFact {
   id: string;
@@ -82,6 +83,18 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
   useEffect(() => {
     setCurrentPage(1);
   }, [statusFilter, selectedCategory, searchQuery, sortBy, pageSize]);
+
+  // Load existing faction preference from cookie
+  useEffect(() => {
+    const existing = getFactionCookie();
+    if (existing) {
+      if (existing === 'puristas' || existing === 'sincebollistas') {
+        setFactionVote('sincebollistas');
+      } else if (existing === 'concebollistas') {
+        setFactionVote('concebollistas');
+      }
+    }
+  }, []);
 
   const t = {
     all: currentLang === 'en' ? 'All Facts' : currentLang === 'de' ? 'Alle Fakten' : 'Todas las Curiosidades',
@@ -143,6 +156,8 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
 
   const handleFactionVoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const mappedFaction = factionVote === 'sincebollistas' ? 'puristas' : factionVote;
+    setFactionCookie(mappedFaction);
     setVoteSubmitted(true);
     setTimeout(() => setVoteSubmitted(false), 5000);
   };

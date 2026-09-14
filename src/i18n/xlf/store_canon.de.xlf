@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="store_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Store Canon" />
+      <note priority="1">Canonical strings for the equipment shop, gourmet pantry, and verified cookware catalog.</note>
+    </header>
+    <body>
+      <trans-unit id="store.badge" resname="STORE_BADGE">
+        <source>Arsenal Culinario Homologado por Gastrónomos</source>
+        <target>Von Spitzenköchen geprüftes Meister-Equipment</target>
+      </trans-unit>
+      <trans-unit id="store.title" resname="STORE_TITLE">
+        <source>Equipamiento, Despensa &amp; Guías Maestras</source>
+        <target>Ausrüstung, Vorratskammer &amp; Meister-Leitfäden</target>
+      </trans-unit>
+      <trans-unit id="store.subtitle" resname="STORE_SUBTITLE">
+        <source>Herramientas de hierro mineral, sartenes dobles volteadoras, termómetros de sonda calibrados y aceites de oliva virgen extra con D.O.P.</source>
+        <target>Mineral-Eisenpfannen, Doppel-Wende-Pfannen, kalibrierte Einstichthermometer und D.O.P. natives Olivenöl extra.</target>
+      </trans-unit>
+      <trans-unit id="store.search_placeholder" resname="STORE_SEARCH_PLACEHOLDER">
+        <source>Buscar sartenes, mandolinas, termómetros o aceites...</source>
+        <target>Pfannen, Mandolinen, Thermometer oder Öle suchen...</target>
+      </trans-unit>
+      <trans-unit id="store.cat.all" resname="STORE_CAT_ALL">
+        <source>Todo el Arsenal</source>
+        <target>Gesamte Ausrüstung</target>
+      </trans-unit>
+      <trans-unit id="store.cat.skillets" resname="STORE_CAT_SKILLETS">
+        <source>Sartenes &amp; Volteadoras</source>
+        <target>Pfannen &amp; Wender</target>
+      </trans-unit>
+      <trans-unit id="store.cat.thermometers" resname="STORE_CAT_THERMOMETERS">
+        <source>Termómetros &amp; Seguridad</source>
+        <target>Thermometer &amp; Hygiene</target>
+      </trans-unit>
+      <trans-unit id="store.cat.cutlery" resname="STORE_CAT_CUTLERY">
+        <source>Mandolinas &amp; Corte</source>
+        <target>Mandolinen &amp; Messer</target>
+      </trans-unit>
+      <trans-unit id="store.cat.pantry" resname="STORE_CAT_PANTRY">
+        <source>Aceites D.O. &amp; Despensa</source>
+        <target>D.O. Olivenöl &amp; Vorrat</target>
+      </trans-unit>
+      <trans-unit id="store.cat.books" resname="STORE_CAT_BOOKS">
+        <source>E-Books &amp; Cursos Pro</source>
+        <target>E-Books &amp; Meisterkurse</target>
+      </trans-unit>
+      <trans-unit id="store.cat.merch" resname="STORE_CAT_MERCH">
+        <source>Delantales &amp; Merch</source>
+        <target>Schürzen &amp; Merch</target>
+      </trans-unit>
+      <trans-unit id="store.trust.certification" resname="STORE_TRUST_CERTIFICATION">
+        <source>Homologación Técnica</source>
+        <target>Technische Zertifizierung</target>
+      </trans-unit>
+      <trans-unit id="store.trust.thermal" resname="STORE_TRUST_THERMAL">
+        <source>Estándar **70°C durante 2 minutos**</source>
+        <target>Standard **70°C für 2 Minuten**</target>
+      </trans-unit>
+      <trans-unit id="store.trust.editorial" resname="STORE_TRUST_EDITORIAL">
+        <source>Criterio Editorial Riguroso</source>
+        <target>Strenge redaktionelle Standards</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="culinary_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Culinary Canon" />
+      <note priority="1">Thermodynamic science, proportions, and frying parameters for Spanish tortilla.</note>
+    </header>
+    <body>
+      <!-- Ratios -->
+      <trans-unit id="culinary.ratio.potato_egg" resname="CULINARY_RATIO_POTATO_EGG">
+        <source>100g de patata por cada huevo (o 1 kg por 6-8 huevos)</source>
+        <target>100g potato per egg (or 1 kg per 6-8 eggs)</target>
+        <note priority="1">Golden ratio between potato mass and egg emulsion.</note>
+      </trans-unit>
+      <trans-unit id="culinary.ratio.salt" resname="CULINARY_RATIO_SALT">
+        <source>1,2% del peso total (12g de sal por kg de patata pelada)</source>
+        <target>1.2% of total weight (12g salt per kg of peeled potato)</target>
+        <note priority="1">Standard seasoning ratio for clean savory profile.</note>
+      </trans-unit>
+      <trans-unit id="culinary.ratio.absorbed_oil" resname="CULINARY_RATIO_ABSORBED_OIL">
+        <source>~10% de absorción de AOVE (~60-80ml por tortilla de 6 huevos)</source>
+        <target>~10% EVOO absorption (~60-80ml per 6-egg tortilla)</target>
+        <note priority="2">Fat balance absorbed during poaching/confit.</note>
+      </trans-unit>
+
+      <!-- Thermal Frying Parameters -->
+      <trans-unit id="culinary.thermal.poaching" resname="CULINARY_THERMAL_POACHING">
+        <source>Confitado a 130°C - 140°C en AOVE abundante</source>
+        <target>Confit at 130°C - 140°C in abundant EVOO</target>
+        <note priority="1">Slow poaching temperature for tender, non-crisp potatoes.</note>
+      </trans-unit>
+      <trans-unit id="culinary.thermal.searing" resname="CULINARY_THERMAL_SEARING">
+        <source>Sellado en sartén caliente a 180°C</source>
+        <target>Searing in hot pan at 180°C</target>
+        <note priority="1">High heat for rapid external crust formation and quick pan flip.</note>
+      </trans-unit>
+      <trans-unit id="culinary.thermal.egg_coagulation" resname="CULINARY_THERMAL_EGG_COAGULATION">
+        <source>Coagulación proteica del huevo a partir de 62°C</source>
+        <target>Egg protein coagulation starting at 62°C</target>
+        <note priority="1">Thermal denaturation threshold of ovalbumin.</note>
+      </trans-unit>
+      <trans-unit id="culinary.thermal.starch_gelatinization" resname="CULINARY_THERMAL_STARCH_GELATINIZATION">
+        <source>Gelatinización de almidón entre 60°C y 65°C</source>
+        <target>Potato starch gelatinization between 60°C and 65°C</target>
+        <note priority="2">Hydration and swelling of potato amylose/amylopectin.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

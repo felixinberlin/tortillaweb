@@ -1,5 +1,5 @@
 import "@/i18n/config";
-import { ArrowRight, Flame, Egg, BookOpen, ChefHat, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Flame, Egg, BookOpen, ChefHat, Sparkles, ShieldCheck, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { getTranslations } from "@/lib/i18n";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
@@ -68,22 +68,46 @@ export default function Hero({ lang = "es" }: HeroProps) {
             </LocalizedLink>
           </div>
 
-          {/* Value Pillars */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 text-xs sm:text-sm font-semibold text-muted-foreground">
-            <div className="flex items-center gap-2 p-2 rounded-xl bg-card border border-border shadow-2xs">
-              <Egg className="h-4 w-4 text-[#FFB800] shrink-0" />
-              <span className="truncate">{t("hero.ingredients", "Ratio Huevo/Patata")}</span>
-            </div>
+          {/* Value Pillars / Interactive Quick Guides */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 text-xs sm:text-sm font-semibold">
+            <LocalizedLink
+              to="/ingredients"
+              lang={lang}
+              title={lang === "de" ? "Zutatenlexikon: Eier, Kartoffeln, Öl und Zwiebeln" : lang === "en" ? "Ingredients guide: eggs, potatoes, oil, and onions" : "Guía de ingredientes: patatas, huevos, aceite y cebolla"}
+              className="flex items-center justify-between gap-2 px-3 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#FFB800]/10 border border-border hover:border-[#FFB800]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <Egg className="h-4 w-4 text-[#FFB800] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="truncate">{t("hero.ingredients", "Ingredientes")}</span>
+              </div>
+              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#FFB800] group-hover:translate-x-0.5 transition-all shrink-0" />
+            </LocalizedLink>
 
-            <div className="flex items-center gap-2 p-2 rounded-xl bg-card border border-border shadow-2xs">
-              <Flame className="h-4 w-4 text-[#FF8A00] shrink-0" />
-              <span className="truncate">{t("hero.techniques", "Punto de Cuajado")}</span>
-            </div>
+            <LocalizedLink
+              to="/techniques"
+              lang={lang}
+              title={lang === "de" ? "Kochtechniken & Garstufen: Stockung, Confit und Wenden" : lang === "en" ? "Techniques & Doneness: egg coagulation, poaching, and pan-flipping" : "Técnicas y cuajado: coagulación, confitado y volteo"}
+              className="flex items-center justify-between gap-2 px-3 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#FF8A00]/10 border border-border hover:border-[#FF8A00]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <Flame className="h-4 w-4 text-[#FF8A00] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="truncate">{t("hero.techniques", "Punto de Cuajado")}</span>
+              </div>
+              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#FF8A00] group-hover:translate-x-0.5 transition-all shrink-0" />
+            </LocalizedLink>
 
-            <div className="col-span-2 sm:col-span-1 flex items-center gap-2 p-2 rounded-xl bg-card border border-border shadow-2xs">
-              <BookOpen className="h-4 w-4 text-[#00A3FF] shrink-0" />
-              <span className="truncate">{t("hero.knowledge", "Tradición & Ciencia")}</span>
-            </div>
+            <LocalizedLink
+              to="/enciclopedia"
+              lang={lang}
+              title={lang === "de" ? "Wissensarchiv: Geschichte, Wissenschaft und Regionen" : lang === "en" ? "Knowledge hub: history, food science, and regional styles" : "Enciclopedia del conocimiento: historia, ciencia y regiones"}
+              className="flex items-center justify-between gap-2 px-3 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#00A3FF]/10 border border-border hover:border-[#00A3FF]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
+            >
+              <div className="flex items-center gap-2 min-w-0">
+                <BookOpen className="h-4 w-4 text-[#00A3FF] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="truncate">{t("hero.knowledge", "Conocimiento")}</span>
+              </div>
+              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#00A3FF] group-hover:translate-x-0.5 transition-all shrink-0" />
+            </LocalizedLink>
           </div>
         </motion.div>
 

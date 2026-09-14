@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="science_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Science Canon" />
+      <note priority="1">Lebensmittelchemie, Stärke-/Proteindynamik und thermische Sicherheitsgrenzwerte.</note>
+    </header>
+    <body>
+      <trans-unit id="sciencePage.badge" resname="SCIENCE_BADGE">
+        <source>Física, Química y Seguridad Alimentaria</source>
+        <target>Kulinarische Physik, Chemie &amp; Lebensmittelsicherheit</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.title" resname="SCIENCE_TITLE">
+        <source>La Ciencia Detrás de la Tortilla</source>
+        <target>Die Wissenschaft hinter der Tortilla</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.subtitle" resname="SCIENCE_SUBTITLE">
+        <source>Entiende las transformaciones moleculares, la inactivación térmica de patógenos y los umbrales microbiológicos.</source>
+        <target>Verstehe molekulare Transformationen, thermische Erregerinaktivierung und mikrobiologische Sicherheitsstandards.</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.chefNoteHeader" resname="SCIENCE_CHEF_NOTE_HEADER">
+        <source>Del Cuaderno de la Chef &amp; Laboratorio:</source>
+        <target>Aus dem Notizbuch der Chefköchin &amp; des Labors:</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.chefNoteText" resname="SCIENCE_CHEF_NOTE_TEXT">
+        <source>La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C durante 2 minutos** para lograr una reducción ≥ 5 log de *S. Enteritidis*.</source>
+        <target>Die Tortilla ist ein Meisterwerk der Dualität: die rustikale Wärme der Kartoffel und die wissenschaftliche Volatilität des Eis. Um bakterizide Sicherheit zu garantieren, fordert der Goldstandard stets **70°C für 2 Minuten** für eine ≥ 5 Log-Reduktion von *S. Enteritidis*.</target>
+        <note priority="1">Mandatory bolding on 70°C for 2 minutes.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.card1.title" resname="SCIENCE_CARD1_TITLE">
+        <source>Coagulación de Proteínas</source>
+        <target>Proteinkoagulation</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card1.desc" resname="SCIENCE_CARD1_DESC">
+        <source>Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C durante 2 minutos** (reducción $\ge 5 \text{ log}$ de *S. Enteritidis*).</source>
+        <target>Eiproteine beginnen ab 62°C zu gerinnen. Um bakterizide Sicherheit zu gewährleisten, fordert der Standard **70°C für 2 Minuten** (Reduktion $\ge 5 \text{ log}$ von *S. Enteritidis*).</target>
+        <note priority="1">Mandatory bolding on 70°C for 2 minutes.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.card2.title" resname="SCIENCE_CARD2_TITLE">
+        <source>Gelatinización del Almidón</source>
+        <target>Stärkeverkleisterung</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card2.desc" resname="SCIENCE_CARD2_DESC">
+        <source>A 60°C - 65°C, los gránulos de almidón de la patata absorben agua y grasa del pochado, hinchándose para crear una matriz suave que estructura la tortilla.</source>
+        <target>Bei 60°C - 65°C absorbieren die Stärkekörner der Kartoffel Wasser und Fett vom Konfieren und quellen zu einer weichen Matrix auf.</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card3.title" resname="SCIENCE_CARD3_TITLE">
+        <source>Inactivación Térmica &amp; Fuego</source>
+        <target>Thermische Inaktivierung &amp; Hitze</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card3.desc" resname="SCIENCE_CARD3_DESC">
+        <source>El nivel de seguridad medio alcanza los **63°C durante 20 segundos** (reducción intermedia de *Salmonella* para tortillas jugosas de consumo inmediato). El estándar máximo de pasteurización bactericida se logra alcanzando **70°C durante 2 minutos**.</source>
+        <target>Die mittlere Sicherheitsstufe erreicht **63°C für 20 Sekunden** (mittlere *Salmonella*-Reduktion für saftige Tortillas zum sofortigen Verzehr). Der bakterizide Goldstandard ist **70°C für 2 Minuten**.</target>
+        <note priority="1">Mandatory bolding on 63°C for 20 seconds and 70°C for 2 minutes.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.card4.title" resname="SCIENCE_CARD4_TITLE">
+        <source>Gestión Microbiológica de Riesgos</source>
+        <target>Mikrobiologisches Risikomanagement</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card4.desc" resname="SCIENCE_CARD4_DESC">
+        <source>Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta actividad de agua ($a_w &gt; 0.99$). Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 horas**.</source>
+        <target>Saftige 'poco cuajada' Tortillas weisen einen pH-Wert von 3,8–4,5 und hohe Wasseraktivität ($a_w &gt; 0,99$) auf. Ungekühlte Zubereitungen über **8°C** dürfen nicht länger als **4 Stunden** bei Raumtemperatur stehen.</target>
+        <note priority="1">Mandatory bolding on 4 hours.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.safetySectionTitle" resname="SCIENCE_SAFETY_SECTION_TITLE">
+        <source>Garantía de Seguridad Alimentaria &amp; Térmica</source>
+        <target>Garantie für Lebensmittel- &amp; Thermosicherheit</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.safetySectionSub" resname="SCIENCE_SAFETY_SECTION_SUB">
+        <source>Los tres umbrales de procesamiento térmico según la metodología Risk Ranger.</source>
+        <target>Die drei thermischen Verarbeitungsstufen nach der Risk-Ranger-Methodik.</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelPilotTitle" resname="SCIENCE_LEVEL_PILOT_TITLE">
+        <source>Zona de Peligro Ambiental</source>
+        <target>Raumtemperatur-Gefahrenzone</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelPilotDesc" resname="SCIENCE_LEVEL_PILOT_DESC">
+        <source>Temperatura ambiente sin control térmico. Proliferación bacteriana si el consumo supera las **4 horas**.</source>
+        <target>Raumtemperatur ohne thermische Kontrolle. Bakterienvermehrungsrisiko, wenn die Stehzeit **4 Stunden** überschreitet.</target>
+        <note priority="1">Mandatory bolding on 4 hours.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelMediumTitle" resname="SCIENCE_LEVEL_MEDIUM_TITLE">
+        <source>Umbral de Seguridad Medio</source>
+        <target>Mittlere Sicherheitsstufe</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelMediumDesc" resname="SCIENCE_LEVEL_MEDIUM_DESC">
+        <source>Procesamiento a **63°C durante 20 segundos**. Indicado para tortillas jugosas de consumo inmediato.</source>
+        <target>Thermische Behandlung bei **63°C für 20 Sekunden**. Empfohlen für saftige Tortillas zum sofortigen Verzehr.</target>
+        <note priority="1">Mandatory bolding on 63°C for 20 seconds.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelSafeTitle" resname="SCIENCE_LEVEL_SAFE_TITLE">
+        <source>Estándar Bactericida Oro</source>
+        <target>Bakterizider Goldstandard</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelSafeDesc" resname="SCIENCE_LEVEL_SAFE_DESC">
+        <source>Procesamiento térmico de **70°C durante 2 minutos**. Garantiza una reducción $\ge 5 \text{ log}$ de *S. Enteritidis*.</source>
+        <target>Thermische Behandlung von **70°C für 2 Minuten**. Garantiert eine Reduktion von $\ge 5 \text{ log}$ von *S. Enteritidis*.</target>
+        <note priority="1">Mandatory bolding on 70°C for 2 minutes.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

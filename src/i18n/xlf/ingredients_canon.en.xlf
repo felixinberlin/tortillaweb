@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="ingredients_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Ingredients Canon" />
+      <note priority="1">The 4 sacred pillars and optional regional additions for authentic Spanish tortilla.</note>
+    </header>
+    <body>
+      <trans-unit id="ingredientsPage.badge" resname="INGREDIENTS_BADGE">
+        <source>Los Fundamentos</source>
+        <target>The Fundamentals</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.title" resname="INGREDIENTS_TITLE">
+        <source>Los 4 Ingredientes Sagrados</source>
+        <target>The 4 Sacred Ingredients</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.subtitle" resname="INGREDIENTS_SUBTITLE">
+        <source>La patata, el huevo, el aceite de oliva y la sal forman la columna vertebral inviolable de la auténtica tortilla española.</source>
+        <target>Potato, egg, olive oil, and salt form the sacred, unshakeable foundation of authentic Spanish tortilla.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.sacredSectionTitle" resname="INGREDIENTS_SACRED_TITLE">
+        <source>Los 4 Sagrados e Imprescindibles</source>
+        <target>The 4 Sacred Essentials</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.sacredSectionSubtitle" resname="INGREDIENTS_SACRED_SUBTITLE">
+        <source>Sin estos cuatro elementos no existe la tortilla. La proporción justa y la máxima calidad de la materia prima son la clave.</source>
+        <target>Without these four core elements, there is no tortilla. Quality raw ingredients and balance are everything.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.optionalSectionTitle" resname="INGREDIENTS_OPTIONAL_TITLE">
+        <source>Ingredientes Opcionales y Variaciones</source>
+        <target>Optional Ingredients &amp; Regional Additions</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.optionalSectionSubtitle" resname="INGREDIENTS_OPTIONAL_SUBTITLE">
+        <source>Acompañantes tradicionales y toques personales que enriquecen o transforman la receta según la región o el gusto del cocinero.</source>
+        <target>Traditional additions and personal touches that enrich or vary the recipe across different regions or personal preference.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.potatoes.title" resname="INGREDIENTS_POTATOES_TITLE">
+        <source>La Patata</source>
+        <target>The Potato</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.potatoes.subtitle" resname="INGREDIENTS_POTATOES_SUBTITLE">
+        <source>Monalisa, Kennebec o Agria</source>
+        <target>Monalisa, Kennebec, or Yukon Gold</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.potatoes.desc" resname="INGREDIENTS_POTATOES_DESC">
+        <source>Buscamos patatas con equilibrio entre almidón y agua. La Monalisa o Kennebec son ideales porque al pocharse quedan cremosas por dentro sin deshacerse del todo.</source>
+        <target>We seek potatoes with a balanced starch and water ratio. Monalisa or Kennebec are ideal because they turn tender and creamy when poached without completely falling apart.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.eggs.title" resname="INGREDIENTS_EGGS_TITLE">
+        <source>El Huevo</source>
+        <target>The Egg</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.eggs.subtitle" resname="INGREDIENTS_EGGS_SUBTITLE">
+        <source>Camperos o de Cama de Paja (Categoría 0 o 1)</source>
+        <target>Free-range pasture raised eggs</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.eggs.desc" resname="INGREDIENTS_EGGS_DESC">
+        <source>La yema aporta la cremosidad y el color dorado natural. Huevos frescos a temperatura ambiente garantizan una emulsión perfecta sin necesidad de batir demasiado.</source>
+        <target>The yolk provides creaminess and rich golden color. Room-temperature fresh eggs ensure smooth emulsification without over-whisking.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.oil.title" resname="INGREDIENTS_OIL_TITLE">
+        <source>El Aceite de Oliva</source>
+        <target>Olive Oil</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.oil.subtitle" resname="INGREDIENTS_OIL_SUBTITLE">
+        <source>AOVE de acidez suave (Variedad Arbequina o Picual suave)</source>
+        <target>Mild Extra Virgin Olive Oil (Arbequina)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.oil.desc" resname="INGREDIENTS_OIL_DESC">
+        <source>No es un mero lubricante: es el medio de cocción que confita la patata. Un buen aceite de oliva virgen extra transmite sabor sin enmascarar la patata.</source>
+        <target>Not merely a lubricant: it is the cooking medium that confits the potatoes. High quality EVOO adds fruity notes without overpowering the natural potato flavor.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.salt.title" resname="INGREDIENTS_SALT_TITLE">
+        <source>La Sal</source>
+        <target>Salt</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.salt.subtitle" resname="INGREDIENTS_SALT_SUBTITLE">
+        <source>Sal marina fina</source>
+        <target>Fine sea salt</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.salt.desc" resname="INGREDIENTS_SALT_DESC">
+        <source>Se debe salar el huevo batido y no solo la patata. La sal solubiliza las proteínas del huevo permitiendo un cuajado suave y uniforme.</source>
+        <target>Salt should be added to the beaten eggs, not just the potatoes. Salt solubilizes egg proteins, allowing for a silky smooth setting.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.onion.title" resname="INGREDIENTS_ONION_TITLE">
+        <source>La Cebolla</source>
+        <target>The Onion</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.onion.subtitle" resname="INGREDIENTS_ONION_SUBTITLE">
+        <source>Cebolla dulce o recia (Opcional - El Gran Debate)</source>
+        <target>Sweet yellow onion (Optional - The Eternal Debate)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.onion.desc" resname="INGREDIENTS_ONION_DESC">
+        <source>Para los concebollistas, la cebolla cortada en brunoise fina o pluma aporta humedad natural y azúcares caramelizados que potencian el sabor salado del huevo.</source>
+        <target>For onion enthusiasts, thinly sliced onion adds natural moisture and caramelized sugars that complement the savory egg.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.peppers.title" resname="INGREDIENTS_PEPPERS_TITLE">
+        <source>Los Pimientos</source>
+        <target>Bell &amp; Frying Peppers</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.peppers.subtitle" resname="INGREDIENTS_PEPPERS_SUBTITLE">
+        <source>Pimiento verde o rojo (Opcional - Variedad Paisana)</source>
+        <target>Green or red peppers (Optional - Country / Paisana Style)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.peppers.desc" resname="INGREDIENTS_PEPPERS_DESC">
+        <source>Aportan frescura, aromas de huerta y un toque de color en variantes tradicionales como la tortilla paisana o donostiarra. No confundir con la pimienta negra.</source>
+        <target>Fresh sweet or frying peppers that bring garden aromas and color to regional varieties like Basque tortilla paisana. Note: distinct from black pepper.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.garlic.title" resname="INGREDIENTS_GARLIC_TITLE">
+        <source>El Ajo</source>
+        <target>Garlic</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.garlic.subtitle" resname="INGREDIENTS_GARLIC_SUBTITLE">
+        <source>Diente de ajo (Opcional - Aromatización)</source>
+        <target>Garlic clove (Optional - Aromatic Infusion)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.garlic.desc" resname="INGREDIENTS_GARLIC_DESC">
+        <source>Un diente de ajo frito brevemente en el aceite de oliva antes de pochar la patata infunde un aroma sutil y un trasfondo campestre irresistible sin amargar.</source>
+        <target>A garlic clove gently sizzled in the olive oil before poaching potatoes infuses a subtle savory aroma and countryside depth without overpowering.</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.blackPepper.title" resname="INGREDIENTS_BLACK_PEPPER_TITLE">
+        <source>La Pimienta Negra</source>
+        <target>Black Pepper</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.blackPepper.subtitle" resname="INGREDIENTS_BLACK_PEPPER_SUBTITLE">
+        <source>Pimienta negra recién molida (Toque aromático opcional)</source>
+        <target>Freshly cracked black pepper (Optional aromatic touch)</target>
+      </trans-unit>
+      <trans-unit id="ingredientsPage.blackPepper.desc" resname="INGREDIENTS_BLACK_PEPPER_DESC">
+        <source>Un toque sutil de pimienta negra recién molida en el huevo batido aporta calidez y resalta las notas aromáticas del aceite de oliva virgen extra sin restar protagonismo a la patata.</source>
+        <target>A subtle pinch of freshly cracked black pepper in the beaten eggs adds warmth and enhances the aromatic notes of the olive oil without overwhelming the potato.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

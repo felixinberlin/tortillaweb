@@ -26,6 +26,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { EQUIPMENT_ITEMS, type EquipmentItem } from "@/data/equipmentData";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { STORE_CANON, STORE_CATEGORIES_CANON, getStoreCategoryLabel } from "@/lib/storeCanon";
 
 interface EquipmentStoreProps {
   lang?: string;
@@ -39,43 +40,24 @@ export function EquipmentStore({ lang = "es" }: EquipmentStoreProps) {
   const [checkoutSuccess, setCheckoutSuccess] = useState<boolean>(false);
   const [buyerEmail, setBuyerEmail] = useState<string>("");
 
-  const categories = [
-    {
-      id: "all",
-      label: currentLang === "es" ? "Todo el Arsenal" : currentLang === "de" ? "Gesamtes Arsenal" : "All Equipment",
-      icon: ShoppingBag,
-    },
-    {
-      id: "pans",
-      label: currentLang === "es" ? "Sartenes & Volteadoras" : currentLang === "de" ? "Pfannen & Wender" : "Pans & Skillets",
-      icon: Flame,
-    },
-    {
-      id: "thermometers",
-      label: currentLang === "es" ? "Termómetros & Seguridad" : currentLang === "de" ? "Thermometer & Hygiene" : "Thermometers & Safety",
-      icon: ShieldCheck,
-    },
-    {
-      id: "cutlery",
-      label: currentLang === "es" ? "Mandolinas & Corte" : currentLang === "de" ? "Mandolinen & Messer" : "Mandolines & Cutlery",
-      icon: Layers,
-    },
-    {
-      id: "pantry",
-      label: currentLang === "es" ? "Aceites D.O. & Despensa" : currentLang === "de" ? "D.O. Olivenöl & Vorrat" : "D.O. Olive Oil & Pantry",
-      icon: Sparkles,
-    },
-    {
-      id: "books",
-      label: currentLang === "es" ? "E-Books & Cursos Pro" : currentLang === "de" ? "E-Books & Meisterkurse" : "E-Books & Masterclasses",
-      icon: BookOpen,
-    },
-    {
-      id: "merch",
-      label: currentLang === "es" ? "Delantales & Merch" : currentLang === "de" ? "Schürzen & Merch" : "Aprons & Merch",
-      icon: Award,
-    },
-  ];
+  const categoryIcons: Record<string, React.ElementType> = {
+    all: ShoppingBag,
+    pans: Flame,
+    skillets: Flame,
+    thermometers: ShieldCheck,
+    cutlery: Layers,
+    pantry: Sparkles,
+    books: BookOpen,
+    merch: Award,
+  };
+
+  const categories = useMemo(() => {
+    return STORE_CATEGORIES_CANON.map((cat) => ({
+      id: cat.id === 'skillets' ? 'pans' : cat.id,
+      label: getStoreCategoryLabel(cat.id, currentLang),
+      icon: categoryIcons[cat.id] || ShoppingBag,
+    }));
+  }, [currentLang]);
 
   const filteredItems = useMemo(() => {
     return EQUIPMENT_ITEMS.filter((item) => {
@@ -112,29 +94,19 @@ export function EquipmentStore({ lang = "es" }: EquipmentStoreProps) {
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/25 text-[#8D6E63] dark:text-[#FFB800] text-xs font-bold border border-[#FFB800]/30 shadow-xs">
           <ChefHat className="h-4 w-4 text-[#FFB800]" />
-          <span>
-            {currentLang === "es"
-              ? "Arsenal Culinario Homologado por Gastrónomos"
-              : currentLang === "de"
-              ? "Von Spitzenköchen geprüftes Meister-Equipment"
-              : "Culinary Arsenal Endorsed by Master Chefs"}
-          </span>
+          <span>{STORE_CANON.header.badge[currentLang] || STORE_CANON.header.badge.es}</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-serif-heading text-foreground tracking-tight">
-          {currentLang === "es"
-            ? "Equipamiento, Despensa & Guías Maestras"
-            : currentLang === "de"
-            ? "Ausrüstung, Vorratskammer & Meister-Leitfäden"
-            : "Equipment, Gourmet Pantry & Master Guides"}
+          {STORE_CANON.header.title[currentLang] || STORE_CANON.header.title.es}
         </h1>
 
         <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
           {currentLang === "es"
-            ? "Las herramientas exactas utilizadas por los campeones de España. Desde sartenes de hierro curado hasta mandolinas de precisión y el termómetro para garantizar los 70°C de seguridad térmica."
+            ? "Las herramientas exactas utilizadas por los campeones de España. Desde sartenes de hierro curado hasta mandolinas de precisión y el termómetro para garantizar los **70°C durante 2 minutos** de seguridad térmica bactericida."
             : currentLang === "de"
-            ? "Die exakten Werkzeuge der spanischen Tortilla-Meister: Eisenpfannen, Präzisions-Mandolinen und Einstich-Thermometer für 70°C Lebensmittelsicherheit."
-            : "The exact tools used by Spanish national champions: seasoned mineral iron skillets, precision mandolines, and instant thermometers for guaranteed 70°C food safety."}
+            ? "Die exakten Werkzeuge der spanischen Tortilla-Meister: Eisenpfannen, Präzisions-Mandolinen und Einstich-Thermometer für **70°C für 2 Minuten** Lebensmittelsicherheit."
+            : "The exact tools used by Spanish national champions: seasoned mineral iron skillets, precision mandolines, and instant thermometers for guaranteed **70°C for 2 minutes** food safety."}
         </p>
 
         {/* Affiliate & Integrity Disclosure */}
@@ -159,13 +131,7 @@ export function EquipmentStore({ lang = "es" }: EquipmentStoreProps) {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={
-              currentLang === "es"
-                ? "Buscar sartén, mandolina, AOVE, termómetro..."
-                : currentLang === "de"
-                ? "Pfanne, Mandoline, Olivenöl suchen..."
-                : "Search skillets, mandolines, olive oil, probe..."
-            }
+            placeholder={STORE_CANON.header.searchPlaceholder[currentLang] || STORE_CANON.header.searchPlaceholder.es}
             className="w-full pl-10 pr-4 py-2.5 bg-card text-foreground border border-border rounded-xl text-sm font-medium shadow-2xs focus:outline-hidden focus:ring-2 focus:ring-[#FFB800] focus:border-transparent transition-all"
           />
         </div>
@@ -236,7 +202,7 @@ export function EquipmentStore({ lang = "es" }: EquipmentStoreProps) {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-[#2E7D32]" />
-                  <span>Curvas de Cuajado 70°C</span>
+                  <span>Curvas de Cuajado <strong>70°C</strong></span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-4 w-4 text-[#2E7D32]" />
@@ -518,13 +484,12 @@ export function EquipmentStore({ lang = "es" }: EquipmentStoreProps) {
 
                   <Button
                     onClick={() => {
-                      alert(currentLang === "es" ? "Descargando paquete PDF + Masterclass..." : "Downloading Masterclass bundle...");
                       setActiveModalItem(null);
                     }}
                     className="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold"
                   >
                     <Download className="mr-2 h-4 w-4" />
-                    <span>{currentLang === "es" ? "Descargar Archivo ZIP / PDF" : currentLang === "de" ? "ZIP / PDF Herunterladen" : "Download ZIP / PDF"}</span>
+                    <span>{currentLang === "es" ? "Descarga Iniciada — Cerrar" : currentLang === "de" ? "Download gestartet — Schließen" : "Download Started — Close"}</span>
                   </Button>
                 </div>
               )}

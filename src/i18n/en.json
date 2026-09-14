@@ -20,6 +20,20 @@
     "utensilios": "Kitchen Tools & Gear",
     "tienda": "Equipment & Gourmet Shop"
   },
+  "safety": {
+    "goldStandardFull": "To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as an intermediate threshold). Runny tortillas should not remain for more than **4 hours** at ambient temperature.",
+    "goldStandardSummary": "The golden culinary safety standard mandates **70°C for 2 minutes** at core for total safety against Salmonella.",
+    "optimalThreshold": "**70°C for 2 minutes**",
+    "intermediateThreshold": "**63°C for 20 seconds**",
+    "ambientLimit": "Maximum **4 hours** at ambient temperature",
+    "refrigeration": "Refrigeration below <8°C (optimal 4°C)",
+    "statusSafe": "Safe: **70°C for 2 minutes** (<8°C refrig)",
+    "statusWarning": "Caution: **63°C for 20 seconds** (immediate consumption)",
+    "statusDanger": "Danger: High Risk (>4 hours at ambient temperature)",
+    "compactBadge": "🛡️ 70°C 2min / 63°C 20s",
+    "reductionClaim": "Bactericidal ≥ 5 log reduction of Salmonella enteritidis",
+    "shareVerifiedRule": "Safety Rule Verified: 70°C for 2 min / max 4 hours ambient."
+  },
   "hero": {
     "badge": "The encyclopedia of Spanish tortilla",
     "title": "Everything about Tortilla de Patatas",
@@ -27,6 +41,7 @@
     "recipesButton": "Explore recipes",
     "buildButton": "Build your tortilla",
     "ingredients": "Ingredients",
+    "techniques": "Cooking Doneness",
     "knowledge": "Knowledge"
   },
   "builder": {

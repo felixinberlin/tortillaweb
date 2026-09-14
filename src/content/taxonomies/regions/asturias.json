@@ -1,0 +1,39 @@
+{
+  "id": "asturias",
+  "type": "region",
+  "contentId": "region.asturias",
+  "slug": {
+    "es": "asturias",
+    "en": "asturias",
+    "de": "asturien"
+  },
+  "title": {
+    "es": "Asturias (Principado)",
+    "en": "Asturias (Principality)",
+    "de": "Asturien (Fürstentum)"
+  },
+  "description": {
+    "es": "Paraíso natural de pastos y quesos de cueva, afamado por fundir queso Cabrales o Gamonéu con la tortilla caliente, servida siempre en chigres junto a sidra natural escanciada.",
+    "en": "Mountain paradise famous for cave-aged blue cheeses, folding pungent Cabrales or Gamonéu into warm tortillas, enjoyed in rustic cider houses.",
+    "de": "Naturparadies mit Höhlenkäsen, berühmt für mit Cabrales oder Gamonéu veredelte warme Tortillas, serviert zu frisch eingeschenktem Apfelwein."
+  },
+  "dogma": {
+    "es": "El queso azul se incorpora en el corazón de la tortilla justo antes del sellado para que funda por calor residual sin quemarse.",
+    "en": "Blue cheese is folded into the center right before sealing so residual heat melts it without burning.",
+    "de": "Blauschimmelkäse wird kurz vor dem Wenden in den Kern gelegt, damit Resthitze ihn sanft schmilzt."
+  },
+  "keyIngredient": {
+    "es": "Queso Cabrales D.O.P. & Patata de Caserío",
+    "en": "Cabrales PDO Blue Cheese & Farmhouse Potatoes",
+    "de": "Cabrales g.U. Blauschimmelkäse & Bauernkartoffeln"
+  },
+  "badge": {
+    "es": "Queso de Cueva & Cultura de Chigre",
+    "en": "Cave Cheese & Cider House Lore",
+    "de": "Höhlenkäse & Apfelwein-Kultur"
+  },
+  "icon": "Mountain",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "regional_potato" }
+  ]
+}

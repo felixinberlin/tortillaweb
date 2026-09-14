@@ -345,6 +345,7 @@ export default function GarlicIngredientDetail({
                   <div className="h-28 sm:h-44 md:h-48 w-full overflow-hidden bg-[#F5E6BE] relative border-b border-[#E8DFD1]">
                     <RecipeImage
                       src={r.image}
+                      recipeId={r.id}
                       title={recipeTitle}
                       ingredients={r.ingredients}
                       taxonomyIds={r.taxonomyIds}

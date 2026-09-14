@@ -20,6 +20,20 @@
     "utensilios": "Küchen-Utensilien & Menage",
     "tienda": "Ausrüstung & Meister-Shop"
   },
+  "safety": {
+    "goldStandardFull": "Für maximale Lebensmittelsicherheit und bakterizide Pasteurisierung verlangt der Standard **70°C für 2 Minuten** (oder **63°C für 20 Sekunden** als mittlere Stufe). Saftige Tortillas sollten nicht länger als **4 Stunden** bei Raumtemperatur stehen.",
+    "goldStandardSummary": "Der Goldstandard für Lebensmittelsicherheit fordert **70°C für 2 Minuten** im Kern für vollständige Salmonellenabtötung.",
+    "optimalThreshold": "**70°C für 2 Minuten**",
+    "intermediateThreshold": "**63°C für 20 Sekunden**",
+    "ambientLimit": "Maximal **4 Stunden** bei Raumtemperatur",
+    "refrigeration": "Kühlung unter <8°C (optimal 4°C)",
+    "statusSafe": "Sicher: **70°C für 2 Minuten** (<8°C Kühlung)",
+    "statusWarning": "Achtung: **63°C für 20 Sekunden** (sofortiger Verzehr)",
+    "statusDanger": "Gefahr: Hohes Risiko (>4 Stunden bei Raumtemperatur)",
+    "compactBadge": "🛡️ 70°C 2min / 63°C 20s",
+    "reductionClaim": "Bakterizide Reduktion von ≥ 5 log von Salmonella enteritidis",
+    "shareVerifiedRule": "Sicherheitsstandard: 70°C für 2 Min / max 4 Std ungekühlt."
+  },
   "hero": {
     "badge": "Die Enzyklopädie der spanischen Tortilla",
     "title": "Alles über die Tortilla de Patatas",
@@ -27,6 +41,7 @@
     "recipesButton": "Rezepte entdecken",
     "buildButton": "Erstelle deine Tortilla",
     "ingredients": "Zutaten",
+    "techniques": "Garstufe & Stockung",
     "knowledge": "Wissen"
   },
   "builder": {

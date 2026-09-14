@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="factions_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Factions Canon" />
+      <note priority="1">Doctrines, tenets, and names of Spanish tortilla culinary factions.</note>
+    </header>
+    <body>
+      <!-- Puristas / Sincebollistas -->
+      <trans-unit id="factions.puristas.name" resname="FACTIONS_PURISTAS_NAME">
+        <source>Los Puristas (Sin Cebolla / Betanzos)</source>
+        <target>The Purists (No Onion / Betanzos)</target>
+        <note priority="1">Faction advocating 0% onion and runny egg style.</note>
+      </trans-unit>
+      <trans-unit id="factions.puristas.badge" resname="FACTIONS_PURISTAS_BADGE">
+        <source>Ortodoxos (Betanzos)</source>
+        <target>Orthodox (Betanzos)</target>
+      </trans-unit>
+      <trans-unit id="factions.puristas.dogma" resname="FACTIONS_PURISTAS_DOGMA">
+        <source>Patata, huevo fresco, aceite de oliva virgen extra y sal. Nada más.</source>
+        <target>Potato, fresh pasture-raised egg, extra virgin olive oil, and salt. Nothing else.</target>
+      </trans-unit>
+      <trans-unit id="factions.puristas.description" resname="FACTIONS_PURISTAS_DESCRIPTION">
+        <source>Defienden que cualquier hortaliza dulce enmascara el sabor limpio del huevo y la patata. Rinden culto al cuajado líquido y dorado de Betanzos.</source>
+        <target>They maintain that any sweet vegetable masks the clean purity of egg and potato. Devoted to the molten golden flow of Betanzos.</target>
+      </trans-unit>
+
+      <!-- Concebollistas -->
+      <trans-unit id="factions.concebollistas.name" resname="FACTIONS_CONCEBOLLISTAS_NAME">
+        <source>Los Concebollistas (Con Cebolla)</source>
+        <target>Onion Lovers (Concebollistas)</target>
+        <note priority="1">Faction advocating slow-poached caramelization.</note>
+      </trans-unit>
+      <trans-unit id="factions.concebollistas.badge" resname="FACTIONS_CONCEBOLLISTAS_BADGE">
+        <source>Tradicionalistas Populares</source>
+        <target>Popular Traditionalists</target>
+      </trans-unit>
+      <trans-unit id="factions.concebollistas.dogma" resname="FACTIONS_CONCEBOLLISTAS_DOGMA">
+        <source>La cebolla pochada a fuego lento aporta jugosidad, melosidad y azúcares naturales.</source>
+        <target>Slow-poached onions yield unctuous juiciness and natural sweetness.</target>
+      </trans-unit>
+      <trans-unit id="factions.concebollistas.description" resname="FACTIONS_CONCEBOLLISTAS_DESCRIPTION">
+        <source>Aporta dulzor, jugosidad y un toque caramelizado irresistible que cohesiona la textura.</source>
+        <target>Imparts sweetness, juiciness, and an irresistible caramelized note that unites the texture.</target>
+      </trans-unit>
+
+      <!-- Pimientistas -->
+      <trans-unit id="factions.pimientistas.name" resname="FACTIONS_PIMIENTISTAS_NAME">
+        <source>Pimientistas (Con Pimiento)</source>
+        <target>Pepper Enthusiasts (Pimientistas)</target>
+      </trans-unit>
+      <trans-unit id="factions.pimientistas.dogma" resname="FACTIONS_PIMIENTISTAS_DOGMA">
+        <source>El pimiento verde o rojo confitado realza el carácter mediterráneo y ahumado.</source>
+        <target>Confit green or red peppers elevate Mediterranean warmth and depth.</target>
+      </trans-unit>
+
+      <!-- Ajistas -->
+      <trans-unit id="factions.ajistas.name" resname="FACTIONS_AJISTAS_NAME">
+        <source>Ajistas (Con Ajo)</source>
+        <target>Garlic Devotees (Ajistas)</target>
+      </trans-unit>
+      <trans-unit id="factions.ajistas.dogma" resname="FACTIONS_AJISTAS_DOGMA">
+        <source>Un diente de ajo aromatizando el aceite confiere personalidad y solera tradicional.</source>
+        <target>A clove of garlic infusing the olive oil imparts authentic rustic depth.</target>
+      </trans-unit>
+
+      <!-- Con Cosas / Vanguardistas -->
+      <trans-unit id="factions.con_cosas.name" resname="FACTIONS_CON_COSAS_NAME">
+        <source>Con Cosas (Innovadores)</source>
+        <target>Experimentalists (Con Cosas)</target>
+      </trans-unit>
+      <trans-unit id="factions.con_cosas.dogma" resname="FACTIONS_CON_COSAS_DOGMA">
+        <source>Chorizo, queso trufado, setas o espinacas: la tortilla es un lienzo para la vanguardia.</source>
+        <target>Chorizo, truffle cheese, mushrooms, or spinach: the omelette is an evolving canvas.</target>
+      </trans-unit>
+
+      <!-- Faction UI Banner & Cookies -->
+      <trans-unit id="factions.cookie.banner_title" resname="FACTIONS_COOKIE_BANNER_TITLE">
+        <source>Afinidad Tortillera</source>
+        <target>Tortilla Allegiance</target>
+      </trans-unit>
+      <trans-unit id="factions.cookie.banner_desc" resname="FACTIONS_COOKIE_BANNER_DESC">
+        <source>Selecciona tu facción para adaptar recetas y proporciones a tu doctrina favorita.</source>
+        <target>Select your faction to personalize recipes and ratios to your preferred doctrine.</target>
+      </trans-unit>
+      <trans-unit id="factions.cookie.pledge_btn" resname="FACTIONS_COOKIE_PLEDGE_BTN">
+        <source>Jurar Fidelidad</source>
+        <target>Pledge Allegiance</target>
+      </trans-unit>
+      <trans-unit id="factions.cookie.change_btn" resname="FACTIONS_COOKIE_CHANGE_BTN">
+        <source>Cambiar de Facción</source>
+        <target>Change Faction</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

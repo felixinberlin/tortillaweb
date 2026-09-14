@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="authenticity_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Authenticity Canon" />
+      <note priority="1">Redaktionelle Taxonomie-Marker: Fakt vs. Legende vs. Meinung, plus verifizierte Quellen.</note>
+    </header>
+    <body>
+      <!-- Fact vs Legend vs Opinion Markers -->
+      <trans-unit id="authenticity.fact" resname="AUTHENTICITY_FACT">
+        <source>Hecho Histórico Documentado (FACT)</source>
+        <target>Dokumentierte historische Tatsache (FACT)</target>
+        <note priority="1">Gestützt auf historische Primärquellen (z.B. 1798 Villanueva, 1817 Cortes de Navarra).</note>
+      </trans-unit>
+      <trans-unit id="authenticity.legend" resname="AUTHENTICITY_LEGEND">
+        <source>Leyenda Popular (LEGEND)</source>
+        <target>Populäre Legende (LEGEND)</target>
+        <note priority="1">Kulturelle Überlieferung ohne zeitgenössische Primärbelege (z.B. General Zumalacárregui).</note>
+      </trans-unit>
+      <trans-unit id="authenticity.opinion" resname="AUTHENTICITY_OPINION">
+        <source>Preferencia Cultural / Tradición (OPINION)</source>
+        <target>Kulturelle Tradition / Meinung (OPINION)</target>
+        <note priority="1">Subjektive Vorlieben (Zwiebeldebatte, Gargrad, Kartoffelsorten).</note>
+      </trans-unit>
+
+      <!-- Institutional Source Badges -->
+      <trans-unit id="authenticity.source.boe" resname="AUTHENTICITY_SOURCE_BOE">
+        <source>BOE: Legislación Oficial</source>
+        <target>BOE: Spanisches Amtsblatt &amp; Gesetzgebung</target>
+        <note priority="2">Offizielles spanisches Gesetzblatt (z.B. Königliches Dekret 1021/2022).</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.csic" resname="AUTHENTICITY_SOURCE_CSIC">
+        <source>CSIC: Archivo Científico</source>
+        <target>CSIC: Wissenschaftliches Forschungsarchiv</target>
+        <note priority="2">Publikationen des Obersten Rats für wissenschaftliche Forschung.</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.aesan" resname="AUTHENTICITY_SOURCE_AESAN">
+        <source>AESAN: Seguridad Alimentaria</source>
+        <target>AESAN: Spanische Agentur für Lebensmittelsicherheit</target>
+        <note priority="2">Nationale Behörde für Lebensmittelsicherheit und Ernährung.</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.bne" resname="AUTHENTICITY_SOURCE_BNE">
+        <source>BNE: Biblioteca Nacional</source>
+        <target>BNE: Historische Archive der Nationalbibliothek</target>
+        <note priority="2">Manuskripte und Zeitschriften des 18. und 19. Jahrhunderts.</note>
+      </trans-unit>
+      <trans-unit id="authenticity.source.cis" resname="AUTHENTICITY_SOURCE_CIS">
+        <source>CIS: Demografía y Sondeos</source>
+        <target>CIS: Soziologische Umfragen Spanien</target>
+        <note priority="2">Offizielle soziologische Erhebungen zu spanischen Essgewohnheiten.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

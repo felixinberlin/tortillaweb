@@ -1,0 +1,40 @@
+{
+  "id": "castilla-y-leon",
+  "type": "region",
+  "contentId": "region.castilla-y-leon",
+  "slug": {
+    "es": "castilla-y-leon",
+    "en": "castile-and-leon",
+    "de": "kastilien-und-leon"
+  },
+  "title": {
+    "es": "Castilla y León",
+    "en": "Castile and León",
+    "de": "Kastilien und León"
+  },
+  "description": {
+    "es": "Tierra de campos cerealistas y tubérculos con I.G.P. Patata de Castilla y León, célebre por la tortilla con morcilla de Burgos y las históricas romerías del Jueves Lardero en Zamora y Ávila.",
+    "en": "Land of grain plains and PGI Castile and León potatoes, renowned for Burgos black pudding omelettes and historic Fat Thursday pilgrimages in Zamora and Ávila.",
+    "de": "Land weiter Hochebenen und g.g.A. Kartoffeln, bekannt für Tortilla mit Burgos-Blutwurst und historische Jueves-Lardero-Picknicks in Zamora und Ávila."
+  },
+  "dogma": {
+    "es": "Equilibrio entre patata frita consistente y embutido artesano sin enmascarar el huevo.",
+    "en": "Balanced harmony between robust fried potatoes and artisanal charcuterie.",
+    "de": "Ausgewogene Harmonie zwischen krossen Kartoffeln und handwerklicher Wurst."
+  },
+  "keyIngredient": {
+    "es": "Morcilla de Burgos con Arroz & Patata Agria",
+    "en": "Burgos Rice Black Pudding & Agria Potato",
+    "de": "Burgos-Reis-Blutwurst & Agria-Kartoffel"
+  },
+  "badge": {
+    "es": "Fuerza Castellana & Jueves Lardero",
+    "en": "Castilian Heritage & Fat Thursday",
+    "de": "Kastilische Tradition & Fetter Donnerstag"
+  },
+  "icon": "Shield",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "regional_potato" },
+    { "type": "style", "id": "clasica", "relationship": "regional_foundation" }
+  ]
+}

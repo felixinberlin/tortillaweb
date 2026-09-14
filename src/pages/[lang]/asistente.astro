@@ -1,0 +1,93 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { KitchenAssistantTimer } from '@/components/assistant/KitchenAssistantTimer';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import { Utensils, ShieldCheck, Flame, RotateCw } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Asistente de Cocina & Temporizador de Tortilla de Patatas | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Interaktiver Küchen-Assistent & Tortilla-Timer | tortilladepatatas.org'
+  : 'Interactive Spanish Omelette Cooking Timer & Audio Assistant | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Asistente manos libres con voz y alertas acústicas para cocinar tu tortilla de patatas: corte, pochado lento, emulsión térmica, cuenta atrás para dar la vuelta y verificación higiénica a 70°C.'
+  : currentLang === 'de'
+  ? 'Freihändige Audio- und Sprachbegleitung beim Schneiden, Pochieren, Wenden und für die mikrobiologische Sicherheit nach Meisterstandard.'
+  : 'Hands-free voice and acoustic cooking timer companion for frying, thermal egg soaking, the critical pan flip countdown, and 70°C food safety standards.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  {
+    name: currentLang === 'es' ? 'Asistente & Temporizador' : currentLang === 'de' ? 'Küchen-Assistent' : 'Kitchen Assistant',
+    url: `/${currentLang}/asistente`,
+  },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-6xl space-y-12">
+    <!-- Interactive Audio & Hands-Free Timer Island -->
+    <KitchenAssistantTimer client:load lang={currentLang} />
+
+    <!-- Culinary Guide & Science Context Banner -->
+    <section class="card-notebook p-6 sm:p-8 bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent border-2 border-[#FFB800]/40 rounded-3xl shadow-stacked-parchment grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-sm font-bold text-[#8D6E63] dark:text-[#FFB800] font-mono">
+          <Flame class="w-4 h-4 text-[#FF8A00]" />
+          <span>{currentLang === 'es' ? '1. Confitado Lento' : currentLang === 'de' ? '1. Sanftes Pochieren' : '1. Slow Poaching'}</span>
+        </div>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          {currentLang === 'es'
+            ? 'El pochado a 130°C–150°C gelatiniza la amilosa de la patata sin quemar el exterior, creando una textura maleable que absorberá la yema de huevo.'
+            : currentLang === 'de'
+            ? 'Pochieren bei 130°C–150°C geliert die Stärke ohne dunkle Kruste und bereitet die Kartoffeln perfekt auf das Ei vor.'
+            : 'Slow confit poaching at 130°C–150°C gelatinizes potato amylose without burning edges, priming starch to bind intimately with raw egg.'}
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-sm font-bold text-[#8D6E63] dark:text-[#FFB800] font-mono">
+          <RotateCw class="w-4 h-4 text-[#FFB800]" />
+          <span>{currentLang === 'es' ? '2. El Momento de la Vuelta' : currentLang === 'de' ? '2. Der Moment des Wendens' : '2. The Decisive Pan Flip'}</span>
+        </div>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          {currentLang === 'es'
+            ? 'La inercia vence a la gravedad: utiliza un plato llano 2 cm más ancho que la sartén, un trapo para proteger la palma y gira con decisión continua.'
+            : currentLang === 'de'
+            ? 'Physik und Entschlossenheit: Ein flacher Teller, 2 cm größer als die Pfanne, und eine flüssige Drehbewegung garantieren den Erfolg.'
+            : 'Inertia overcomes gravity: use a flat lid or plate 2 cm wider than the skillet rim, a kitchen cloth for palm grip, and rotate decisively.'}
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-sm font-bold text-[#2E7D32] font-mono">
+          <ShieldCheck class="w-4 h-4 text-[#2E7D32]" />
+          <span>{currentLang === 'es' ? '3. Seguridad Térmica' : currentLang === 'de' ? '3. Thermische Sicherheit' : '3. Thermal Safety Canon'}</span>
+        </div>
+        <p class="text-xs text-muted-foreground leading-relaxed">
+          {currentLang === 'es'
+            ? 'El estándar sanitario exige alcanzar **70°C durante 2 minutos** para esterilización total, o **63°C durante 20 segundos** para consumo inmediato. Máximo **4 horas** a temperatura ambiente.'
+            : currentLang === 'de'
+            ? 'Vollständige Sicherheit erfordert **70°C für 2 Minuten** im Kern (oder **63°C für 20 Sekunden** bei Sofortverzehr). Maximal **4 Stunden** bei Raumtemperatur.'
+            : 'Full safety requires reaching **70°C for 2 minutes** at core (or **63°C for 20 seconds** for immediate runny consumption). Maximum **4 hours** at room temperature.'}
+        </p>
+      </div>
+    </section>
+
+    <!-- Guided Journey Component -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/asistente`} client:visible />
+  </div>
+</Layout>

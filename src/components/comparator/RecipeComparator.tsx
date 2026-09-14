@@ -20,6 +20,7 @@ import {
 import {
   buildCustomRecipeFromConfig,
 } from "@/domain/builder/dnaShareHelper";
+import { ShareButtons } from "@/components/share/ShareButtons";
 
 interface RecipeComparatorProps {
   recipes: RawRecipeInput[];
@@ -175,13 +176,10 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
     return str;
   }
 
-  const handleShareComparison = () => {
-    if (typeof window === "undefined") return;
-    const url = new URL(window.location.href);
-
-    // If both custom configs exist, encode a_* and b_*
+  const comparisonUrl = useMemo(() => {
+    const baseUrl = `https://tortilladepatatas.org/${lang}/comparador`;
+    const url = new URL(baseUrl);
     if (customDnaConfigA && customDnaConfigB) {
-      url.search = ""; // clear
       url.searchParams.set("recipeA", "custom-user-recipe-a");
       url.searchParams.set("recipeB", "custom-user-recipe-b");
       if (builderQueryA) {
@@ -195,16 +193,20 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
     } else {
       url.searchParams.set("recipeA", selectedIdA);
       url.searchParams.set("recipeB", selectedIdB);
-
       if (customDnaConfigA && builderQueryA) {
         const dnaParams = new URLSearchParams(builderQueryA);
         dnaParams.forEach((val, key) => url.searchParams.set(key, val));
       }
     }
+    return url.toString();
+  }, [lang, selectedIdA, selectedIdB, customDnaConfigA, customDnaConfigB, builderQueryA, builderQueryB]);
 
-    navigator.clipboard.writeText(url.toString());
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 2000);
+  const handleShareComparison = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(comparisonUrl);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
+    }
   };
 
   const handleDownloadComparisonData = () => {
@@ -886,6 +888,26 @@ export const RecipeComparator: React.FC<RecipeComparatorProps> = ({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Share Comparison & URL Save Section */}
+      <div className="pt-2">
+        <ShareButtons
+          url={comparisonUrl}
+          title={
+            comparison
+              ? `${comparison.recipeA.recipeName} vs ${comparison.recipeB.recipeName} - Comparador de Tortillas`
+              : "Comparador de Tortillas de Patatas"
+          }
+          description={
+            comparison
+              ? `Comparativa matemática entre ${comparison.recipeA.recipeName} y ${comparison.recipeB.recipeName}. Ratios, humedad y perfil técnico en tortilladepatatas.org.`
+              : "Compara recetas y proporciones de tortilla de patatas."
+          }
+          lang={lang}
+          variant="card"
+          showUrlNotice={true}
+        />
       </div>
     </div>
   );

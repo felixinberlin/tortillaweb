@@ -2,6 +2,7 @@ import { jsPDF } from "jspdf";
 import type { TortillaConfiguration } from "@/domain/builder/types";
 import type { RawRecipeInput } from "@/lib/translator/types";
 import { getIngredientModifier } from "@/domain/builder/ingredientRegistry";
+import { getPdfSafetyBullets } from "@/lib/safetyCanon";
 
 export interface GeneratePdfOptions {
   config?: TortillaConfiguration;
@@ -260,11 +261,7 @@ export function createRecipePdfDocument(options: GeneratePdfOptions): { doc: jsP
   doc.setFontSize(7.2);
   doc.setTextColor(28, 25, 23);
 
-  const safetyBody = isEs
-    ? "• Estándar de oro sanitario: 70°C durante 2 minutos en el corazón para inocuidad total frente a Salmonella.\n• Alternativa térmica segura: 63°C durante 20 segundos. Límite ambiente: máximo 4 horas antes de refrigerar (<8°C)."
-    : isDe
-    ? "• Goldstandard: 70°C für 2 Minuten im Kern für absolute Salmonellenfreiheit.\n• Schnelle Alternative: 63°C für 20 Sekunden. Raumtemperaturgrenze: maximal 4 Stunden vor Kühlung (<8°C)."
-    : "• Gold standard: 70°C for 2 minutes at core for total safety against Salmonella.\n• Rapid alternative: 63°C for 20 seconds. Ambient limit: maximum 4 hours before refrigeration (<8°C).";
+  const safetyBody = getPdfSafetyBullets(isEs ? "es" : isDe ? "de" : "en");
 
   doc.text(safetyBody, margin + 12, currentY + 10);
   currentY += 19;

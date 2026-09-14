@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="trivia_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Trivia Canon" />
+      <note priority="1">Canonical UI strings and gameplay constants for the Tortilla Trivia Game engine.</note>
+    </header>
+    <body>
+      <trans-unit id="trivia.title" resname="TRIVIA_TITLE">
+        <source>Juego de Trivia: Desafío de la Tortilla</source>
+        <target>Tortilla Trivia Challenge Game</target>
+      </trans-unit>
+      <trans-unit id="trivia.subtitle" resname="TRIVIA_SUBTITLE">
+        <source>Pon a prueba tus conocimientos sobre historia, mitos regionales, récords monumentales y seguridad alimentaria.</source>
+        <target>Test your knowledge on history, regional myths, giant records, and bactericidal food safety rules.</target>
+      </trans-unit>
+      <trans-unit id="trivia.select_level" resname="TRIVIA_SELECT_LEVEL">
+        <source>Selecciona el Nivel de Dificultad</source>
+        <target>Select Difficulty Level</target>
+      </trans-unit>
+      <trans-unit id="trivia.select_topic" resname="TRIVIA_SELECT_TOPIC">
+        <source>Selecciona el Tema</source>
+        <target>Select Topic</target>
+      </trans-unit>
+      <trans-unit id="trivia.start_button" resname="TRIVIA_START_BUTTON">
+        <source>Comenzar Juego de Trivia</source>
+        <target>Start Trivia Game</target>
+      </trans-unit>
+      <trans-unit id="trivia.question_of" resname="TRIVIA_QUESTION_OF">
+        <source>Pregunta</source>
+        <target>Question</target>
+      </trans-unit>
+      <trans-unit id="trivia.of" resname="TRIVIA_OF">
+        <source>de</source>
+        <target>of</target>
+      </trans-unit>
+      <trans-unit id="trivia.score" resname="TRIVIA_SCORE">
+        <source>Puntos</source>
+        <target>Score</target>
+      </trans-unit>
+      <trans-unit id="trivia.streak" resname="TRIVIA_STREAK">
+        <source>Racha</source>
+        <target>Streak</target>
+      </trans-unit>
+      <trans-unit id="trivia.next_question" resname="TRIVIA_NEXT_QUESTION">
+        <source>Siguiente Pregunta</source>
+        <target>Next Question</target>
+      </trans-unit>
+      <trans-unit id="trivia.view_results" resname="TRIVIA_VIEW_RESULTS">
+        <source>Ver Resultados Finales</source>
+        <target>View Final Results</target>
+      </trans-unit>
+      <trans-unit id="trivia.correct" resname="TRIVIA_CORRECT">
+        <source>¡Correcto!</source>
+        <target>Correct!</target>
+      </trans-unit>
+      <trans-unit id="trivia.incorrect" resname="TRIVIA_INCORRECT">
+        <source>Incorrecto</source>
+        <target>Incorrect</target>
+      </trans-unit>
+      <trans-unit id="trivia.verdict_label" resname="TRIVIA_VERDICT_LABEL">
+        <source>Explicación Histórica &amp; Científica</source>
+        <target>Historical &amp; Scientific Explanation</target>
+      </trans-unit>
+      <trans-unit id="trivia.safety_highlight" resname="TRIVIA_SAFETY_HIGHLIGHT">
+        <source>Estándar Térmico de Seguridad</source>
+        <target>Food Safety Metric</target>
+      </trans-unit>
+      <trans-unit id="trivia.game_completed" resname="TRIVIA_GAME_COMPLETED">
+        <source>¡Desafío Completado!</source>
+        <target>Challenge Completed!</target>
+      </trans-unit>
+      <trans-unit id="trivia.accuracy" resname="TRIVIA_ACCURACY">
+        <source>Precisión</source>
+        <target>Accuracy</target>
+      </trans-unit>
+      <trans-unit id="trivia.max_streak" resname="TRIVIA_MAX_STREAK">
+        <source>Racha Máxima</source>
+        <target>Max Streak</target>
+      </trans-unit>
+      <trans-unit id="trivia.share_score" resname="TRIVIA_SHARE_SCORE">
+        <source>Compartir Puntuación y Desafiar Amigos</source>
+        <target>Share Score &amp; Challenge Friends</target>
+      </trans-unit>
+      <trans-unit id="trivia.copy_score_card" resname="TRIVIA_COPY_SCORE_CARD">
+        <source>Copiar Tarjeta de Resultado</source>
+        <target>Copy Score Card</target>
+      </trans-unit>
+      <trans-unit id="trivia.play_again" resname="TRIVIA_PLAY_AGAIN">
+        <source>Jugar de Nuevo</source>
+        <target>Play Again</target>
+      </trans-unit>
+      <trans-unit id="trivia.change_settings" resname="TRIVIA_CHANGE_SETTINGS">
+        <source>Cambiar Nivel o Tema</source>
+        <target>Change Level or Topic</target>
+      </trans-unit>
+      <trans-unit id="trivia.review_questions" resname="TRIVIA_REVIEW_QUESTIONS">
+        <source>Desglose de Preguntas &amp; Explicaciones</source>
+        <target>Question Breakdown &amp; Explanations</target>
+      </trans-unit>
+      <trans-unit id="trivia.copied_text" resname="TRIVIA_COPIED_TEXT">
+        <source>¡Tarjeta de resultado copiada al portapapeles!</source>
+        <target>Score card copied to clipboard!</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

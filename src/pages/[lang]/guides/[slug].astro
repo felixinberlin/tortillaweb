@@ -24,6 +24,7 @@ import { getCollection, render } from 'astro:content';
 import LocalizedLink from '@/components/navigation/LocalizedLink';
 import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import ShareButtons from '@/components/share/ShareButtons';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -77,6 +78,8 @@ const articleSchema = generateArticleSchema({
   image: guide?.data.image,
 });
 
+const currentUrl = new URL(Astro.url.pathname, Astro.site || 'https://tortilladepatatas.org').toString();
+
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: `/${currentLang}` },
   { name: currentLang === 'es' ? 'Guías' : currentLang === 'de' ? 'Anleitungen' : 'Guides', url: `/${currentLang}/guides` },
@@ -87,8 +90,8 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 <Layout title={title} description={description} lang={currentLang} schema={[articleSchema, breadcrumbSchema]}>
   <div class="container mx-auto px-4 py-8 md:py-12 max-w-7xl space-y-8">
     
-    <!-- Back to Guides navigation -->
-    <div class="flex items-center justify-between">
+    <!-- Back to Guides navigation & Share -->
+    <div class="flex flex-wrap items-center justify-between gap-3">
       <LocalizedLink
         to="/guias"
         class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F5E6BE]/60 dark:bg-[#2A2420] text-[#8D6E63] dark:text-[#F5E6BE] text-xs font-bold hover:bg-[#FFB800] hover:text-black transition-colors"
@@ -97,12 +100,23 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <span>{currentLang === 'es' ? 'Volver a todas las Guías' : currentLang === 'de' ? 'Zurück zu allen Anleitungen' : 'Back to all Guides'}</span>
       </LocalizedLink>
 
-      {guide.data.readTimeMinutes && (
-        <div class="inline-flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
-          <Clock class="w-3.5 h-3.5 text-[#FFB800]" />
-          <span>{guide.data.readTimeMinutes} min read</span>
-        </div>
-      )}
+      <div class="flex items-center gap-3">
+        {guide.data.readTimeMinutes && (
+          <div class="inline-flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
+            <Clock class="w-3.5 h-3.5 text-[#FFB800]" />
+            <span>{guide.data.readTimeMinutes} min read</span>
+          </div>
+        )}
+        <ShareButtons
+          client:load
+          url={currentUrl}
+          title={guide?.data.title || 'Tortilla Masterclass Guide'}
+          description={description}
+          lang={currentLang}
+          variant="compact"
+          showUrlNotice={false}
+        />
+      </div>
     </div>
 
     <!-- Header Hero Banner -->
@@ -239,6 +253,19 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               <p>No se pudo cargar el contenido de la guía.</p>
             </div>
           )}
+
+          <!-- Share Masterclass Guide & URL Info -->
+          <div class="pt-6">
+            <ShareButtons
+              client:visible
+              url={currentUrl}
+              title={guide?.data.title || 'Tortilla Masterclass Guide'}
+              description={description}
+              lang={currentLang}
+              variant="card"
+              showUrlNotice={true}
+            />
+          </div>
 
           <!-- Footer Navigation & Back to top -->
           <div class="pt-8 mt-10 border-t border-[#E8E2D5] dark:border-[#3D352E] flex items-center justify-between text-xs text-muted-foreground">

@@ -3,14 +3,18 @@ import { BookOpen, ShieldCheck, Sparkles, Award } from "lucide-react";
 
 interface AuthorityStatsBannerProps {
   lang?: string;
+  recipeCount?: number;
 }
 
-export default function AuthorityStatsBanner({ lang = "es" }: AuthorityStatsBannerProps) {
+const recipeFilesCount = Object.keys(import.meta.glob('/src/content/recipes/*.json')).length;
+
+export default function AuthorityStatsBanner({ lang = "es", recipeCount }: AuthorityStatsBannerProps) {
   const currentLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
+  const totalRecipes = typeof recipeCount === "number" && recipeCount > 0 ? recipeCount : recipeFilesCount;
 
   const stats = [
     {
-      value: "100+",
+      value: String(totalRecipes),
       label: currentLang === "es" ? "Recetas & Variantes Regionales" : currentLang === "de" ? "Rezepte & Regionale Stile" : "Recipes & Regional Styles",
       desc: currentLang === "es" ? "Desde Betanzos hasta vanguardia" : currentLang === "de" ? "Von Betanzos bis Avantgarde" : "From Betanzos to Modernist",
       icon: BookOpen,

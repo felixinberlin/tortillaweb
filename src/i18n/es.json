@@ -20,6 +20,20 @@
     "utensilios": "Utensilios & Menaje de Cocina",
     "tienda": "Equipamiento & Tienda Gourmet"
   },
+  "safety": {
+    "goldStandardFull": "Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C durante 2 minutos** (o **63°C durante 20 segundos** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 horas** a temperatura ambiente.",
+    "goldStandardSummary": "El estándar de oro sanitario exige **70°C durante 2 minutos** en el corazón de la masa para inocuidad total frente a Salmonella.",
+    "optimalThreshold": "**70°C durante 2 minutos**",
+    "intermediateThreshold": "**63°C durante 20 segundos**",
+    "ambientLimit": "Máximo **4 horas** a temperatura ambiente",
+    "refrigeration": "Refrigeración a <8°C (óptimo 4°C)",
+    "statusSafe": "Seguro: **70°C durante 2 minutos** (<8°C refrig)",
+    "statusWarning": "Precaución: **63°C durante 20 segundos** (consumo inmediato)",
+    "statusDanger": "Peligro: Riesgo Alto (>4 horas a temperatura ambiente)",
+    "compactBadge": "🛡️ 70°C 2min / 63°C 20s",
+    "reductionClaim": "Reducción bactericida ≥ 5 log de Salmonella enteritidis",
+    "shareVerifiedRule": "Norma Térmica: 70°C durante 2 minutos / máx 4 horas ambiente."
+  },
   "hero": {
     "badge": "La enciclopedia de la tortilla española",
     "title": "Todo sobre la Tortilla de Patatas",
@@ -27,6 +41,7 @@
     "recipesButton": "Explorar recetas",
     "buildButton": "Crea tu tortilla",
     "ingredients": "Ingredientes",
+    "techniques": "Punto de Cuajado",
     "knowledge": "Conocimiento"
   },
   "builder": {

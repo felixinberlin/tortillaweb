@@ -1,43 +1,704 @@
 {
   "badge": {
-    "es": "Geografía Gastronómica",
-    "en": "Gastronomic Geography",
-    "de": "Gastronomische Geografie"
+    "es": "Geografía Gastronómica & Atlas de Tradiciones",
+    "en": "Gastronomic Geography & Regional Atlas",
+    "de": "Gastronomische Geografie & Regional-Atlas"
   },
   "title": {
-    "es": "Regiones & Variaciones de España",
-    "en": "Regions & Variations of Spain",
-    "de": "Regionen & Variationen Spaniens"
+    "es": "Atlas Regional de la Tortilla de Patatas",
+    "en": "Regional Atlas of the Spanish Tortilla",
+    "de": "Regionaler Atlas der Tortilla de Patatas"
   },
   "subtitle": {
-    "es": "Descubre las expresiones culturales y regionales de la tortilla de patatas a lo largo de la península ibérica e islas.",
-    "en": "Discover the cultural and regional expressions of the potato omelette across the Iberian Peninsula and islands.",
-    "de": "Entdecke die kulturellen und regionalen Varianten der Tortilla auf der iberischen Halbinsel."
+    "es": "Un viaje enciclopédico por las identidades, variedades de patata, técnicas de sartén y festividades locales que definen a cada territorio de España.",
+    "en": "An encyclopedic journey through local identities, potato varieties, pan techniques, and regional festivals that define each territory across Spain.",
+    "de": "Eine enzyklopädische Reise durch regionale Identitäten, Kartoffelsorten, Pfannentechniken und Feste in ganz Spanien."
+  },
+  "safetyStandard": {
+    "title": {
+      "es": "Estándar Microbiológico Oficial",
+      "en": "Official Microbiological Standard",
+      "de": "Offizieller Mikrobiologischer Standard"
+    },
+    "description": {
+      "es": "Tanto en el norte líquido como en las tortillas más cuajadas de mesón, la seguridad higiénica exige alcanzar 70°C durante 2 minutos (o 63°C durante 20 segundos). Mantener expuesta a temperatura ambiente un máximo de 4 horas o conservar bajo refrigeración a menos de 8°C.",
+      "en": "Across runny northern tortillas and dense tavern slices alike, hygiene standards require reaching 70°C for 2 minutes (or 63°C for 20 seconds). Limit ambient counter display to 4 hours maximum or refrigerate below 8°C.",
+      "de": "Von flüssigen nördlichen Varianten bis zu festen Tavernenstücken verlangt die Hygiene 70°C für 2 Minuten (oder 63°C für 20 Sekunden). Maximale Thekenzeit bei Raumtemperatur 4 Stunden oder Kühlung unter 8°C."
+    }
   },
   "regions": [
     {
-      "name": "Galicia (Betanzos)",
+      "id": "betanzos",
+      "name": {
+        "es": "Betanzos (Galicia)",
+        "en": "Betanzos (Galicia)",
+        "de": "Betanzos (Galicien)"
+      },
+      "styleCategory": "north_runny",
+      "badge": {
+        "es": "0% Cebolla & Interior Líquido",
+        "en": "0% Onion & Runny Yolk",
+        "de": "0% Zwiebel & Flüssiger Kern"
+      },
+      "potatoVariety": "Kennebec (I.G.P. Pataca de Galicia)",
+      "cuajado": {
+        "es": "Ultra-líquida / Yema fluida",
+        "en": "Ultra-runny / Fluid egg yolk",
+        "de": "Ultra-flüssig / Fließendes Eigelb"
+      },
+      "onionPolicy": {
+        "es": "Terminantemente prohibida",
+        "en": "Strictly prohibited",
+        "de": "Strengstens verboten"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen extra suave o girasol alto oleico",
+        "en": "Mild EVOO or high-oleic sunflower oil",
+        "de": "Mildes AOVE oder High-Oleic-Sonnenblumenöl"
+      },
+      "festivals": {
+        "es": "Semana de la Tortilla de Betanzos (octubre)",
+        "en": "Betanzos Tortilla Week (October)",
+        "de": "Tortilla-Woche in Betanzos (Oktober)"
+      },
       "description": {
-        "es": "Caracterizada por no llevar jamás cebolla, utilizar patata de la variedad Kenebec cortada muy fina y frita a alta temperatura, logrando un interior líquido con abundante yema.",
-        "en": "Famous for never containing onion, using finely sliced Kennebec potatoes fried at high heat, yielding a liquid interior.",
-        "de": "Ohne Zwiebel, hauchdünne Kennebec-Kartoffeln, kross frittiert und innen flüssig."
-      }
+        "es": "El epicentro del purismo gallego: patata Kennebec cortada finísima y frita crujiente a alta temperatura, sumergida en una desproporcionada cantidad de huevos camperos de aldea y sellada en sartén apenas 30 segundos por lado. Jamás lleva cebolla.",
+        "en": "The epicenter of Galician egg purism: paper-thin Kennebec potatoes flash-fried crisp, bathed in abundant pasture-raised egg yolks, seared in a blazing pan for barely 30 seconds per side. Onion is strictly banished.",
+        "de": "Das Epizentrum des galicischen Ei-Purismus: hauchdünne Kennebec-Kartoffeln, kross heiß frittiert, in reichlich Freilandeiern geschwenkt und nur 30 Sekunden pro Seite versiegelt. Niemals mit Zwiebel."
+      },
+      "icon": "Shield",
+      "slug": "betanzos"
     },
     {
-      "name": "País Vasco & Navarra",
+      "id": "galicia",
+      "name": {
+        "es": "Galicia",
+        "en": "Galicia",
+        "de": "Galicien"
+      },
+      "styleCategory": "north_runny",
+      "badge": {
+        "es": "Huevos de Aldea & Kennebec I.G.P.",
+        "en": "Farmhouse Eggs & PGI Kennebec",
+        "de": "Dorf-Eier & g.g.A. Kennebec"
+      },
+      "potatoVariety": "Kennebec de Xinzo de Limia y Bergantiños",
+      "cuajado": {
+        "es": "Muy jugosa a cremosa",
+        "en": "Very juicy to creamy",
+        "de": "Sehr saftig bis cremig"
+      },
+      "onionPolicy": {
+        "es": "Debatida según la comarca",
+        "en": "Debated by county",
+        "de": "Regional umstritten"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen",
+        "en": "Virgin olive oil",
+        "de": "Natives Olivenöl"
+      },
+      "festivals": {
+        "es": "Romerías costeras y fiestas patronales de verano",
+        "en": "Coastal pilgrimages and summer patron feasts",
+        "de": "Küstenschifffahrten und Sommer-Wallfahrten"
+      },
       "description": {
-        "es": "Tradición de tortillas jugosas, a menudo servidas como pintxo sobre pan, con versiones que incorporan pimientos verdes fritos o bacalao (tortilla de bacalao de sidrería).",
-        "en": "Juicy pintxo tradition served on crusty bread, featuring versions with fried green peppers or salt cod.",
-        "de": "Saftige Pintxo-Tradition mit Varianten mit grünem Paprika oder Klippfisch."
-      }
+        "es": "Tierra de fertilidad atlántica con patatas de indicación geográfica protegida y huevos de gallinas de corral con yemas doradas intensas. Conviven la vertiente ultra-líquida de A Coruña y las versiones rústicas del interior con grelos y chorizo.",
+        "en": "Atlantic land celebrated for PGI potatoes and intense orange-yolked eggs. Home to both the ultra-liquid A Coruña style and rustic inland variations with turnip greens and cured chorizo.",
+        "de": "Atlantische Region mit geschützter Herkunftsangabe für Kartoffeln und intensiv orangen Eigelben. Vereint die flüssige A Coruña-Schule mit rustikalen Varianten mit Stängelkohl und Chorizo."
+      },
+      "icon": "MapPin",
+      "slug": "galicia"
     },
     {
-      "name": "Madrid & Centro",
+      "id": "donostia",
+      "name": {
+        "es": "Donostia & País Vasco",
+        "en": "San Sebastián & Basque Country",
+        "de": "San Sebastián & Baskenland"
+      },
+      "styleCategory": "north_runny",
+      "badge": {
+        "es": "Pintxos de Barra & Pimiento Pochado",
+        "en": "Counter Pintxos & Poached Pepper",
+        "de": "Theken-Pintxos & Sanfte Paprika"
+      },
+      "potatoVariety": "Monalisa / Kennebec alavesa",
+      "cuajado": {
+        "es": "Cremosa y jugosa",
+        "en": "Creamy and unctuous",
+        "de": "Cremig und saftig"
+      },
+      "onionPolicy": {
+        "es": "Obligatoria, pochada lentamente",
+        "en": "Mandatory, slowly stewed",
+        "de": "Obligatorisch, sanft gedünstet"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen extra de Rioja Alavesa / Arróniz",
+        "en": "Arróniz / Rioja Alavesa EVOO",
+        "de": "Arróniz / Rioja Alavesa natives Olivenöl"
+      },
+      "festivals": {
+        "es": "Santo Tomás (diciembre) y Semana Grande",
+        "en": "Santo Tomás Festival (December) and Semana Grande",
+        "de": "Santo Tomás Fest (Dezember) und Semana Grande"
+      },
       "description": {
-        "es": "Predominio de la tortilla con cebolla bien caramelizada, jugosidad media-alta y patata monalisa pocha en abundante aceite de oliva.",
-        "en": "Prevalence of well-caramelized onions, medium-high runniness, and poached Monalisa potatoes.",
-        "de": "Überwiegend mit karamellisierter Zwiebel und mittel-saftigem Kern."
-      }
+        "es": "La cultura del pintxo elevada a arte mayor en la Parte Vieja donostiarra. Iconos mundiales como el Bar Néstor introdujeron el pimiento verde pochado junto a la cebolla, logrando un dulzor y jugosidad inconfundibles servidos sobre pan crujiente.",
+        "en": "Pintxo bar culture elevated to world-class mastery in San Sebastián's Old Town. Global temples like Bar Néstor popularized slow-poaching sweet green peppers alongside onions for incomparable depth atop rustic bread.",
+        "de": "Pintxo-Kultur auf höchstem Niveau in der Altstadt von San Sebastián. Kultstätten wie Bar Néstor machten das gemeinsame Dünsten von grünem Paprika und Zwiebel weltberühmt."
+      },
+      "icon": "Sprout",
+      "slug": "donostia"
+    },
+    {
+      "id": "madrid",
+      "name": {
+        "es": "Comunidad de Madrid",
+        "en": "Madrid Region",
+        "de": "Region Madrid"
+      },
+      "styleCategory": "central_confit",
+      "badge": {
+        "es": "Cebolla Caramelizada & Romerías de Marzo",
+        "en": "Caramelized Onion & March Day of Tortilla",
+        "de": "Karamellisierte Zwiebel & März-Feiertage"
+      },
+      "potatoVariety": "Monalisa / Spunta",
+      "cuajado": {
+        "es": "Jugosa en el centro (babé)",
+        "en": "Juicy center (baveuse)",
+        "de": "Saftiger Kern (baveuse)"
+      },
+      "onionPolicy": {
+        "es": "Ampliamente defendida (pochada profunda)",
+        "en": "Widely championed (deeply caramelized)",
+        "de": "Weitgehend favorisiert (tief karamellisiert)"
+      },
+      "oilType": {
+        "es": "AOVE de la D.O.P. Aceite de Madrid (Cornicabra / Manzanilla)",
+        "en": "PDO Madrid EVOO (Cornicabra / Manzanilla)",
+        "de": "g.U. Madrid Olivenöl (Cornicabra / Manzanilla)"
+      },
+      "festivals": {
+        "es": "Día de la Tortilla en Fuenlabrada, Coslada, San Fernando y Torrejón (9 de marzo y Jueves Lardero)",
+        "en": "Día de la Tortilla across Fuenlabrada, Coslada, and Torrejón (March 9 and Fat Thursday)",
+        "de": "Día de la Tortilla in Fuenlabrada, Coslada und Torrejón (9. März und Weiberfastnacht)"
+      },
+      "description": {
+        "es": "Capital de las barras castizas, el bocadillo en pan de libreta y la cebolla pochada a fuego lento hasta casi caramelizar. Fiestas populares como el 9 de marzo movilizan a cientos de miles de vecinos al campo con su tortilla reglamentaria.",
+        "en": "Capital of historic tavern counters, crusty baguette sandwiches, and sweet onions gently confited into melting golden sweetness. Municipal holidays on March 9 gather entire communities outdoors with fresh tortillas.",
+        "de": "Hauptstadt uriger Tapas-Bars, knuspriger Baguettes und langsam sanft gegarter süßer Zwiebeln. Traditionelle Feiertage am 9. März ziehen ganze Städte zum Picknick ins Grüne."
+      },
+      "icon": "Building",
+      "slug": "madrid"
+    },
+    {
+      "id": "andalucia",
+      "name": {
+        "es": "Andalucía",
+        "en": "Andalusia",
+        "de": "Andalusien"
+      },
+      "styleCategory": "south_islands",
+      "badge": {
+        "es": "Tortilla Cartujana, Campera & Cuna del AOVE",
+        "en": "Cartujana Convent Omelette & EVOO Cradle",
+        "de": "Kloster-Cartujana & Wiege des Olivenöls"
+      },
+      "potatoVariety": "Patata de Sanlúcar / Spunta temprana",
+      "cuajado": {
+        "es": "Jugosa pero firme y consistente",
+        "en": "Juicy yet structurally firm",
+        "de": "Saftig, aber strukturstabil"
+      },
+      "onionPolicy": {
+        "es": "Habitual en tortillas camperas con pimiento",
+        "en": "Standard in campera styles with peppers",
+        "de": "Üblich in Bauerntortillas mit Paprika"
+      },
+      "oilType": {
+        "es": "AOVE de Jaén, Córdoba o Sevilla (Picual, Hojiblanca)",
+        "en": "EVOO from Jaén, Córdoba, or Seville (Picual, Hojiblanca)",
+        "de": "AOVE aus Jaén, Córdoba oder Sevilla (Picual, Hojiblanca)"
+      },
+      "festivals": {
+        "es": "Día de la Tortilla en Galera (Granada) y romerías andaluzas de primavera",
+        "en": "Día de la Tortilla in Galera (Granada) and spring pilgrimages",
+        "de": "Día de la Tortilla in Galera (Granada) und Frühlings-Wallfahrten"
+      },
+      "description": {
+        "es": "Cuna del aceite de oliva virgen extra de primer orden mundial. Destacan la histórica 'tortilla cartujana' documentada en conventos sevillanos antes del término 'francesa', las tortillas camperas de huerta y el uso centenario del vocablo quechua 'papas'.",
+        "en": "World capital of premium extra virgin olive oil. Renowned for the conventual 'tortilla cartujana' recorded in Seville before the term 'French omelette' spread, fresh vegetable campera recipes, and preserving the Quechua word 'papas'.",
+        "de": "Welthauptstadt des erstklassigen Olivenöls extra vergine. Bekannt für die klösterliche 'Tortilla Cartujana' in Sevilla, reichhaltige Bauerntortillas und den Quechua-Begriff 'papas'."
+      },
+      "icon": "Sun",
+      "slug": "andalucia"
+    },
+    {
+      "id": "cordoba",
+      "name": {
+        "es": "Córdoba (Andalucía)",
+        "en": "Cordoba (Andalusia)",
+        "de": "Cordoba (Andalusien)"
+      },
+      "styleCategory": "south_islands",
+      "badge": {
+        "es": "Tortillas Monumentales de 10 kg en Taberna",
+        "en": "Monumental 10-kg Tavern Slices",
+        "de": "Monumentale 10-kg Tavernen-Tortillas"
+      },
+      "potatoVariety": "Patata en dados fritos de la vega del Guadalquivir",
+      "cuajado": {
+        "es": "Consistente, alta y tierna",
+        "en": "Tall, thick, and tender",
+        "de": "Hoch, schnittfest und zart"
+      },
+      "onionPolicy": {
+        "es": "Con o sin según la taberna clásica",
+        "en": "Offered both ways across taverns",
+        "de": "In klassischen Tavernen mit oder ohne"
+      },
+      "oilType": {
+        "es": "AOVE D.O.P. Priego de Córdoba / Baena",
+        "en": "Priego de Córdoba / Baena PDO EVOO",
+        "de": "g.U. Priego de Córdoba / Baena Olivenöl"
+      },
+      "festivals": {
+        "es": "Santos Mártires y Cruces de Mayo",
+        "en": "Feast of Holy Martyrs and May Crosses",
+        "de": "Heilige Märtyrer und Maikreuze-Fest"
+      },
+      "description": {
+        "es": "Frente a la Mezquita-Catedral, tabernas históricas como Casa Santos baten más de 30 huevos y 5 kilos de patatas para crear torres de tortilla de 10 kg y 15 cm de altura, cortadas en cuñas limpias y doradas con una jugosidad uniforme.",
+        "en": "Right opposite the Great Mosque-Cathedral, historic taverns like Casa Santos whip over 30 eggs and 5 kg of potatoes into colossal 10-kg wheels standing 15 cm tall, carved into clean, golden, uniformly moist wedges.",
+        "de": "Gegenüber der Mezquita-Kathedrale schlagen Traditionslokale wie Casa Santos über 30 Eier und 5 kg Kartoffeln zu monumentalen 10-Kilo-Rädern von 15 cm Höhe, die in saftige Keile geschnitten werden."
+      },
+      "icon": "Building",
+      "slug": "cordoba"
+    },
+    {
+      "id": "navarra",
+      "name": {
+        "es": "Navarra",
+        "en": "Navarre",
+        "de": "Navarra"
+      },
+      "styleCategory": "stuffed_garden",
+      "badge": {
+        "es": "Piquillos de Lodosa & Documento de 1817",
+        "en": "Lodosa Piquillo Peppers & 1817 Document",
+        "de": "Lodosa-Piquillo-Paprika & 1817-Urkunde"
+      },
+      "potatoVariety": "Kennebec / Monalisa navarra",
+      "cuajado": {
+        "es": "Jugosa y cremosa",
+        "en": "Juicy and velvety",
+        "de": "Saftig und samtig"
+      },
+      "onionPolicy": {
+        "es": "Frecuente, pochada con ajetes o pimientos",
+        "en": "Common, stewed with garlic shoots or peppers",
+        "de": "Üblich, mit Knoblauchsprossen gedünstet"
+      },
+      "oilType": {
+        "es": "AOVE de la Ribera de Navarra",
+        "en": "Ribera de Navarra EVOO",
+        "de": "Natives Olivenöl der Ribera de Navarra"
+      },
+      "festivals": {
+        "es": "San Fermín y fiestas de la huerta de Tudela",
+        "en": "San Fermín and Tudela Garden Harvest Festival",
+        "de": "San Fermín und Erntefeste in Tudela"
+      },
+      "description": {
+        "es": "Escenario del célebre memorial anónimo de 1817 presentado a las Cortes de Navarra que describía a la tortilla de patatas como alimento de campesinos humildes. Tierra privilegiada por las verduras de la Ribera, pimientos del piquillo y setas de temporada.",
+        "en": "Setting of the landmark 1817 anonymous petition to the Cortes of Navarre, chronicling the potato omelette as nourishment for humble farmers. Famed for Ribera vegetables, Lodosa piquillo peppers, and wild forest mushrooms.",
+        "de": "Schauplatz der berühmten Denkschrift von 1817 an die Cortes de Navarra über die Tortilla als nahrhafte Speise armer Bauern. Berühmt für feines Gemüse aus Tudela, Piquillo-Paprika und Pilze."
+      },
+      "icon": "Shield",
+      "slug": "navarra"
+    },
+    {
+      "id": "rioja",
+      "name": {
+        "es": "La Rioja",
+        "en": "La Rioja",
+        "de": "La Rioja"
+      },
+      "styleCategory": "stuffed_garden",
+      "badge": {
+        "es": "Chorizo Riojano I.G.P. & Aceite Rojo",
+        "en": "PGI Riojan Chorizo & Smoky Paprika Oil",
+        "de": "g.g.A. Rioja-Chorizo & Rotes Paprikaöl"
+      },
+      "potatoVariety": "Patata de Rioja Alta",
+      "cuajado": {
+        "es": "Jugosa en el centro",
+        "en": "Juicy and succulent",
+        "de": "Saftig mit zartem Kern"
+      },
+      "onionPolicy": {
+        "es": "Habitual, aportando dulzor al picor del chorizo",
+        "en": "Standard, balancing chorizo spiciness",
+        "de": "Üblich, mildert die Schärfe der Wurst"
+      },
+      "oilType": {
+        "es": "AOVE con pimentón liberado por el sofrito del embutido",
+        "en": "EVOO tinted red by naturally rendered chorizo paprika",
+        "de": "AOVE, rot getönt durch gebratenes Chorizo-Paprikapulver"
+      },
+      "festivals": {
+        "es": "Fiestas de San Mateo en Logroño y ruta de la Calle Laurel",
+        "en": "San Mateo Wine Harvest in Logroño and Calle Laurel pintxo crawl",
+        "de": "San Mateo Weinfest in Logroño und Pintxo-Tour Calle Laurel"
+      },
+      "description": {
+        "es": "La cumbre de las tortillas con carácter ahumado. El chorizo riojano artesanal se corta en rodajas y se sofríe ligeramente para teñir el aceite de tonos rubí y pimentón antes de incorporar las patatas pochadas y los huevos de granja.",
+        "en": "The peak of hearty, smoky tortillas. Artisanal Riojan paprika chorizo is gently rendered into the pan, dyeing the olive oil a deep ruby tone before combining with slow-poached potatoes and farm eggs.",
+        "de": "Der Inbegriff herzhafter Würze. Handwerkliche Rioja-Chorizo wird kurz angebraten, färbt das Olivenöl rubinrot mit edlem Paprika-Aroma und verbindet sich mit zarten Kartoffeln und Eiern."
+      },
+      "icon": "Flame",
+      "slug": "la-rioja"
+    },
+    {
+      "id": "extremadura",
+      "name": {
+        "es": "Extremadura",
+        "en": "Extremadura",
+        "de": "Extremadura"
+      },
+      "styleCategory": "central_confit",
+      "badge": {
+        "es": "Cuna Histórica de 1798 & Dehesa",
+        "en": "Historical 1798 Birthplace & Dehesa",
+        "de": "Historische Wiege von 1798 & Dehesa"
+      },
+      "potatoVariety": "Patata de las Vegas Altas del Guadiana",
+      "cuajado": {
+        "es": "Jugosa tradicional",
+        "en": "Traditional juicy",
+        "de": "Traditionell saftig"
+      },
+      "onionPolicy": {
+        "es": "Presente en recetas campesinas de la dehesa",
+        "en": "Present in rustic countryside farmhouse styles",
+        "de": "In ländlichen Dehesa-Rezepten verbreitet"
+      },
+      "oilType": {
+        "es": "AOVE de Gata-Hurdes / Monterrubio",
+        "en": "Gata-Hurdes / Monterrubio EVOO",
+        "de": "Gata-Hurdes / Monterrubio natives Olivenöl"
+      },
+      "festivals": {
+        "es": "Feria de la Tortilla de Patatas de Villanueva de la Serena",
+        "en": "Villanueva de la Serena Potato Omelette Fair",
+        "de": "Tortilla-Fest in Villanueva de la Serena"
+      },
+      "description": {
+        "es": "Cuna indiscutible del primer testimonio escrito de la tortilla de patatas en 1798, atribuido al Marqués de Robledo y Joseph de Tena Godoy en Villanueva de la Serena. Se acompaña con jamón ibérico de bellota y quesos de La Serena.",
+        "en": "Indisputable documented birthplace of the potato omelette in 1798, attributed to the Marquis of Robledo and Joseph de Tena Godoy in Villanueva de la Serena. Frequently paired with acorn-fed Iberian ham and creamy Torta de La Serena cheese.",
+        "de": "Unbestrittener Ursprungsort der ersten schriftlichen Erwähnung von 1798 durch den Marquis von Robledo in Villanueva de la Serena. Serviert mit feinstem iberischem Eichelschinken und La-Serena-Schafskäse."
+      },
+      "icon": "History",
+      "slug": "extremadura"
+    },
+    {
+      "id": "baleares",
+      "name": {
+        "es": "Islas Baleares",
+        "en": "Balearic Islands",
+        "de": "Balearen"
+      },
+      "styleCategory": "south_islands",
+      "badge": {
+        "es": "Sobrasada de Mallorca & Miel Silvestre",
+        "en": "Mallorcan Sobrasada & Wild Honey",
+        "de": "Mallorca-Sobrasada & Waldhonig"
+      },
+      "potatoVariety": "Patata de Sa Pobla (Mallorca)",
+      "cuajado": {
+        "es": "Cremosa y untuosa",
+        "en": "Creamy and unctuous",
+        "de": "Cremig und saftig"
+      },
+      "onionPolicy": {
+        "es": "Opcional, a menudo sustituida por el dulzor de la miel",
+        "en": "Optional, often balanced by a honey drizzle",
+        "de": "Optional, oft durch Honigsüße balanciert"
+      },
+      "oilType": {
+        "es": "Oli de Mallorca D.O.P. (Arbequina / Empeltre)",
+        "en": "Mallorca PDO EVOO (Arbequina / Empeltre)",
+        "de": "g.U. Oli de Mallorca (Arbequina / Empeltre)"
+      },
+      "festivals": {
+        "es": "Festes de Sant Antoni (enero) y torrades populares",
+        "en": "Sant Antoni Festival (January) with communal bonfires",
+        "de": "Sant Antoni Fest (Januar) mit Freiluft-Grillfeuern"
+      },
+      "description": {
+        "es": "La joya mediterránea de los contrastes agridulces: la sobrasada de cerdo negro de Mallorca se deshace con el calor residual entre las patatas de Sa Pobla, rematada opcionalmente con unas gotas de miel de romero de la Serra de Tramuntana.",
+        "en": "Mediterranean masterpiece of sweet and savory harmony: black pig artisanal sobrasada melts smoothly under residual heat between Sa Pobla potatoes, finished with a subtle drizzle of Tramuntana wild rosemary honey.",
+        "de": "Mediterranes Meisterwerk süß-herzhafter Kontraste: Schwarzkirch-Sobrasada schmilzt zart in der Resthitze der Sa-Pobla-Kartoffeln, abgerundet mit einem Hauch Rosmarinhonig."
+      },
+      "icon": "MapPin",
+      "slug": "baleares"
+    },
+    {
+      "id": "cataluna",
+      "name": {
+        "es": "Cataluña",
+        "en": "Catalonia",
+        "de": "Katalonien"
+      },
+      "styleCategory": "stuffed_garden",
+      "badge": {
+        "es": "Botifarra, Mongetes & Pa amb Tomàquet",
+        "en": "Botifarra, White Beans & Pa amb Tomàquet",
+        "de": "Botifarra, Weiße Bohnen & Pa amb Tomàquet"
+      },
+      "potatoVariety": "Patata del Bufet / Kennebec",
+      "cuajado": {
+        "es": "Jugosa pero consistente para tapeo",
+        "en": "Juicy yet structurally steady for tapas",
+        "de": "Saftig, aber stabil zum Teilen"
+      },
+      "onionPolicy": {
+        "es": "Pochada suave en aceite arbequina",
+        "en": "Gently stewed in mild Arbequina olive oil",
+        "de": "Sanft gedünstet in Arbequina-Öl"
+      },
+      "oilType": {
+        "es": "AOVE de Les Garrigues o Siurana (Arbequina)",
+        "en": "Les Garrigues or Siurana PDO EVOO (Arbequina)",
+        "de": "g.U. Les Garrigues oder Siurana AOVE (Arbequina)"
+      },
+      "festivals": {
+        "es": "Dijous Gras (Jueves Lardero de Carnaval) y Fiestas Mayores",
+        "en": "Dijous Gras (Carnival Fat Thursday) and local Festes Majors",
+        "de": "Dijous Gras (Weiberfastnacht) und Stadtfeste"
+      },
+      "description": {
+        "es": "Protagonista indiscutible del Dijous Gras previo a Carnaval, donde manda la tradicional 'truita de botifarra d'ou'. Acompañada indefectiblemente por rebanadas de pan de payés frotado con tomate de colgar, sal y aceite de oliva virgen extra.",
+        "en": "The centerpiece of Dijous Gras before Lent, celebrated with traditional 'truita de botifarra d'ou' (egg sausage omelette). Universally served alongside rustic crusty bread rubbed with ripe hanging tomatoes, salt, and EVOO.",
+        "de": "Der Star des Dijous Gras vor der Fastenzeit mit der traditionellen Eierwurst-Tortilla ('botifarra d'ou'). Stets serviert mit knusprigem Bauernbrot, abgerieben mit reifer Tomate, Salz und nativem Olivenöl."
+      },
+      "icon": "Flame",
+      "slug": "cataluna"
+    },
+    {
+      "id": "cantabria",
+      "name": {
+        "es": "Cantabria",
+        "en": "Cantabria",
+        "de": "Kantabrien"
+      },
+      "styleCategory": "stuffed_garden",
+      "badge": {
+        "es": "Tortilla Rellena de Bonito & Valderredible",
+        "en": "Stuffed Albacore Tuna & Valderredible",
+        "de": "Gefüllte Thunfisch-Tortilla & Valderredible"
+      },
+      "potatoVariety": "Patata de Valderredible (I.G.P.)",
+      "cuajado": {
+        "es": "Cremosa en base, fría en relleno",
+        "en": "Warm creamy base, chilled filling",
+        "de": "Warme saftige Basis, kühle Füllung"
+      },
+      "onionPolicy": {
+        "es": "Habitual en la tortilla base",
+        "en": "Standard in the base omelette",
+        "de": "Üblich in der Basis-Tortilla"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen y toque de mantequilla pasiega",
+        "en": "Virgin olive oil with a kiss of Pasiego valley butter",
+        "de": "Natives Olivenöl mit einem Hauch Pasiega-Butter"
+      },
+      "festivals": {
+        "es": "Fiestas de la Virgen del Mar y Baños de Ola de Santander",
+        "en": "Virgen del Mar Festival and Santander summer celebrations",
+        "de": "Virgen del Mar Fest und Santander Sommerfeste"
+      },
+      "description": {
+        "es": "Pionera de la tortilla rellena en las barras del norte: se cuaja una tortilla tierna con patatas de Valderredible, se deja atemperar y se corta en dos pisos horizontales para rellenarla con lomos de bonito del norte, lechuga crujiente y mayonesa casera.",
+        "en": "Pioneer of stuffed tavern tortillas across Northern Spain: a tender omelette made with Valderredible potatoes is rested, halved horizontally, and stuffed with premium white albacore tuna, crisp lettuce, and homemade mayonnaise.",
+        "de": "Pionier der gefüllten Theken-Tortilla im Norden: Eine zarte Tortilla aus Valderredible-Kartoffeln wird abgekühlt, waagerecht geteilt und mit weißem Thunfisch, knackigem Salat und frischer Mayonnaise gefüllt."
+      },
+      "icon": "Anchor",
+      "slug": "cantabria"
+    },
+    {
+      "id": "castilla-y-leon",
+      "name": {
+        "es": "Castilla y León",
+        "en": "Castile and León",
+        "de": "Kastilien und León"
+      },
+      "styleCategory": "central_confit",
+      "badge": {
+        "es": "Morcilla de Burgos & Domingo Tortillero",
+        "en": "Burgos Black Pudding & Tortillero Sunday",
+        "de": "Burgos-Blutwurst & Tortilla-Sonntag"
+      },
+      "potatoVariety": "Patata de Castilla y León (I.G.P.)",
+      "cuajado": {
+        "es": "Jugosa compacta",
+        "en": "Compact and juicy",
+        "de": "Kompakt und saftig"
+      },
+      "onionPolicy": {
+        "es": "Presente, reforzando la morcilla",
+        "en": "Present, complementing the black pudding",
+        "de": "Verbreitet, ergänzt die Blutwurst"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen extra",
+        "en": "Extra virgin olive oil",
+        "de": "Natives Olivenöl extra"
+      },
+      "festivals": {
+        "es": "Domingo Tortillero en Zamora y romerías de Jueves Lardero en Sanchidrián y Sandoval",
+        "en": "Domingo Tortillero in Zamora and Fat Thursday picnics in Sanchidrián",
+        "de": "Domingo Tortillero in Zamora und Jueves-Lardero-Picknicks in Sanchidrián"
+      },
+      "description": {
+        "es": "Corazón de la meseta cerealista y de grandes tubérculos con I.G.P. Destaca la combinación con morcilla de arroz de Burgos, así como ancestrales costumbres populares como el 'Domingo Tortillero' de Zamora, donde familias enteras acuden a las bodegas con tortillas campestres.",
+        "en": "Heart of the Castilian plateau with renowned PGI potatoes. Famous for adding spiced rice black pudding from Burgos, alongside ancestral communal rituals like Zamora's 'Domingo Tortillero', where families gather in historic wine cellars.",
+        "de": "Herz der kastilischen Hochebene mit hervorragenden g.g.A.-Kartoffeln. Berühmt für Kombinationen mit Burgos-Reis-Blutwurst und Bräuche wie Zamoras 'Domingo Tortillero' mit Picknicks in historischen Weinkellern."
+      },
+      "icon": "Shield",
+      "slug": "castilla-y-leon"
+    },
+    {
+      "id": "castilla-la-mancha",
+      "name": {
+        "es": "Castilla-La Mancha",
+        "en": "Castile-La Mancha",
+        "de": "Kastilien-La Mancha"
+      },
+      "styleCategory": "central_confit",
+      "badge": {
+        "es": "Pisto Manchego & Jueves de Comadre",
+        "en": "Pisto Manchego & Comadre Thursday",
+        "de": "Pisto Manchego & Weiberfastnacht"
+      },
+      "potatoVariety": "Monalisa / Agria manchega",
+      "cuajado": {
+        "es": "Cremosa y sustanciosa",
+        "en": "Creamy and hearty",
+        "de": "Cremig und herzhaft"
+      },
+      "onionPolicy": {
+        "es": "Imprescindible en el sofrito",
+        "en": "Essential in the vegetable sofrito",
+        "de": "Unverzichtbar im Sofrito"
+      },
+      "oilType": {
+        "es": "AOVE Montes de Toledo (Cornicabra)",
+        "en": "Montes de Toledo Cornicabra EVOO",
+        "de": "Montes de Toledo Cornicabra AOVE"
+      },
+      "festivals": {
+        "es": "Jueves de Comadre en Gamonal, Talavera de la Reina y La Mancha",
+        "en": "Jueves de Comadre in Gamonal and Talavera countryside",
+        "de": "Jueves de Comadre in Gamonal und Talavera"
+      },
+      "description": {
+        "es": "Fusión del huerto de interior con la sartén manchega: pimientos rojos y verdes pochados lentamente al estilo del pisto, toques aromáticos de azafrán y queso manchego curado rallado en el centro para dar untuosidad profunda en las romerías de primavera.",
+        "en": "Fusion of sun-drenched gardens and the rustic Castilian pan: red and green peppers slowly stewed pisto-style, scented with saffron, and melted with aged Manchego sheep cheese for spring pilgrimages.",
+        "de": "Symbiose aus sonnigem Gartengemüse und rustikaler Pfanne: Rote und grüne Paprika sanft als Pisto geschmort, mit Safran verfeinert und mit gereiftem Manchego-Käse für Frühlingsfeste geschmolzen."
+      },
+      "icon": "Sun",
+      "slug": "castilla-la-mancha"
+    },
+    {
+      "id": "canarias",
+      "name": {
+        "es": "Islas Canarias",
+        "en": "Canary Islands",
+        "de": "Kanarische Inseln"
+      },
+      "styleCategory": "south_islands",
+      "badge": {
+        "es": "Papas Antiguas D.O.P. & Raíz Quechua",
+        "en": "Canary PDO Ancient Potatoes & Quechua Roots",
+        "de": "g.U. Kanarische Ur-Kartoffeln & Quechua-Wurzeln"
+      },
+      "potatoVariety": "Papas Antiguas de Canarias (Bonita, Negra, Colorada)",
+      "cuajado": {
+        "es": "Untuosa y aterciopelada",
+        "en": "Velvety and unctuous",
+        "de": "Samtig und cremig"
+      },
+      "onionPolicy": {
+        "es": "Frecuente con cebolla dulce de Gáldar",
+        "en": "Common with sweet Gáldar onions",
+        "de": "Häufig mit süßen Gáldar-Zwiebeln"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen extra suave",
+        "en": "Mild extra virgin olive oil",
+        "de": "Mildes natives Olivenöl"
+      },
+      "festivals": {
+        "es": "Romerías de San Benito y Fiestas del Carmen",
+        "en": "San Benito Pilgrimages and Carmen Festivities",
+        "de": "San Benito Wallfahrten und Carmen-Feste"
+      },
+      "description": {
+        "es": "El primer enclave europeo donde arribó la papa desde los Andes. Canarias conserva las variedades genéticas más antiguas de Europa con D.O.P. Papas Antiguas de Canarias, el término quechua original 'papas' y tortillas que combinan tubérculos volcánicos con batata roja y mojos.",
+        "en": "The historic gateway where the potato first reached Europe from the Andes. The Canary Islands preserve Europe's oldest potato cultivars with PDO status, the Quechua term 'papas', and tortillas combining volcanic tubers with red sweet potatoes.",
+        "de": "Das historische Tor, über das die Kartoffel aus den Anden Europa erreichte. Die Kanaren bewahren Europas älteste Sorten mit g.U.-Status, den Begriff 'papas' und Tortillas mit Vulkan-Kartoffeln und Süßkartoffeln."
+      },
+      "icon": "Sun",
+      "slug": "canarias"
+    },
+    {
+      "id": "asturias",
+      "name": {
+        "es": "Asturias",
+        "en": "Asturias",
+        "de": "Asturien"
+      },
+      "styleCategory": "stuffed_garden",
+      "badge": {
+        "es": "Queso Cabrales D.O.P. & Sidra Natural",
+        "en": "Cabrales PDO Blue Cheese & Natural Cider",
+        "de": "Cabrales g.U. Blauschimmel & Naturcider"
+      },
+      "potatoVariety": "Patata de caserío asturiano",
+      "cuajado": {
+        "es": "Jugosa con corazón fundido",
+        "en": "Juicy with molten cheese core",
+        "de": "Saftig mit geschmolzenem Käsekern"
+      },
+      "onionPolicy": {
+        "es": "Habitual para suavizar la potencia del queso",
+        "en": "Standard to mellow the bold cheese aroma",
+        "de": "Üblich, mildert die Würze des Käses"
+      },
+      "oilType": {
+        "es": "Aceite de oliva virgen",
+        "en": "Virgin olive oil",
+        "de": "Natives Olivenöl"
+      },
+      "festivals": {
+        "es": "Festival de la Sidra de Nava y Fiestas del Carmín de Pola de Siero",
+        "en": "Nava Cider Festival and Pola de Siero Carmín picnics",
+        "de": "Cider-Festival in Nava und Carmín-Picknicks in Pola de Siero"
+      },
+      "description": {
+        "es": "En los chigres y sidrerías asturianas, la tortilla caliente recibe en su núcleo dados o lascas de queso Cabrales o Gamonéu que se funden de manera untuosa, servida invariablemente con culines de sidra natural recién escanciada.",
+        "en": "In traditional Asturian cider houses (chigres), steaming hot tortillas are filled with nuggets of cave-ripened Cabrales or Gamonéu cheese that melt into molten perfection, accompanied by freshly poured natural cider.",
+        "de": "In urigen asturischen Chigres wird die dampfende Tortilla mit Kernen aus gereiftem Cabrales- oder Gamonéu-Käse gefüllt, die saftig schmelzen, serviert zu frisch im Bogen eingeschenktem Apfelwein."
+      },
+      "icon": "Mountain",
+      "slug": "asturias"
     }
   ]
 }
+

@@ -46,14 +46,45 @@ function normalizeOnion(onion?: OnionConfig | boolean): {
 }
 
 /**
- * Normalizes extras list into a fast Set
+ * Normalizes extras list into a fast Set with comprehensive synonym mapping
  */
 function normalizeExtras(extras?: (IngredientExtraId | string)[]): Set<string> {
   const set = new Set<string>();
   if (!extras) return set;
   for (const item of extras) {
     if (typeof item === "string") {
-      set.add(item.toLowerCase().trim());
+      const raw = item.toLowerCase().trim();
+      set.add(raw);
+      // Map synonyms and variants
+      if (raw.includes("chorizo")) set.add("chorizo");
+      if (raw.includes("jamon") || raw.includes("ham") || raw.includes("iberico")) {
+        set.add("jamon");
+        set.add("ham");
+      }
+      if (raw.includes("truffle") || raw.includes("trufa")) {
+        set.add("truffle");
+        set.add("trufa");
+      }
+      if (raw.includes("pepper") || raw.includes("pimiento") || raw.includes("piquillo")) {
+        set.add("peppers");
+        set.add("pimientos");
+        set.add("piquillo");
+      }
+      if (raw.includes("cheese") || raw.includes("queso")) {
+        set.add("cheese");
+        set.add("queso");
+      }
+      if (raw.includes("mushroom") || raw.includes("setas") || raw.includes("champinon")) {
+        set.add("mushrooms");
+        set.add("setas");
+      }
+      if (raw.includes("sobrasada")) set.add("sobrasada");
+      if (raw.includes("atun") || raw.includes("tuna") || raw.includes("bonito")) set.add("atun");
+      if (raw.includes("bacalao") || raw.includes("cod")) set.add("bacalao");
+      if (raw.includes("garlic") || raw.includes("ajo") || raw.includes("ajetes")) set.add("garlic");
+      if (raw.includes("miel") || raw.includes("honey")) set.add("miel");
+      if (raw.includes("chickpea") || raw.includes("vegana") || raw.includes("garbanzo")) set.add("chickpea");
+      if (raw.includes("chips")) set.add("chips");
     }
   }
   return set;
@@ -315,7 +346,7 @@ export function generateTortillaSvg(options: TortillaSvgOptions = {}): string {
   const extras = normalizeExtras(options.extras);
   const ratioGPerEgg = eggCount > 0 ? Math.round(potatoWeightG / eggCount) : 100;
   const donenessPalette = getDonenessColors(doneness);
-  const svgId = `tortilla_svg_${Math.random().toString(36).substring(2, 9)}`;
+  const svgId = options.id || `tortilla_svg_${Math.random().toString(36).substring(2, 9)}`;
   const safeLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
 
   const renderView = VIEW_RENDERERS[presentation] || VIEW_RENDERERS.skillet_top;
@@ -342,10 +373,14 @@ export function generateTortillaSvg(options: TortillaSvgOptions = {}): string {
     svgId,
   });
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" fill="none" role="img" aria-label="${escapeXml(title)}">
+  const svgTag = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" fill="none" role="img" aria-label="${escapeXml(title)}">
 ${content}
 </svg>`;
+
+  if (options.omitXmlDeclaration) {
+    return svgTag;
+  }
+  return `<?xml version="1.0" encoding="UTF-8"?>\n${svgTag}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -806,6 +841,38 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
     `
         : ""
     }
+    ${
+      extras.has("cheese") || extras.has("queso")
+        ? `
+    <path d="M 270 258 Q 290 262 315 255 Q 300 270 280 265 Z" fill="#FEF08A" opacity="0.9" />
+    <path d="M 360 238 Q 385 242 405 235" stroke="#FEF9C3" stroke-width="4" fill="none" stroke-linecap="round" />
+    `
+        : ""
+    }
+    ${
+      extras.has("peppers") || extras.has("pimientos") || extras.has("piquillo")
+        ? `
+    <path d="M 230 262 Q 255 270 275 258" stroke="#EF4444" stroke-width="4" fill="none" stroke-linecap="round" />
+    <path d="M 350 248 Q 375 240 395 252" stroke="#22C55E" stroke-width="3.5" fill="none" stroke-linecap="round" />
+    `
+        : ""
+    }
+    ${
+      extras.has("mushrooms") || extras.has("setas")
+        ? `
+    <ellipse cx="280" cy="245" rx="10" ry="5" fill="#573a2e" stroke="#3d281f" stroke-width="1.2" transform="rotate(-15 280 245)" />
+    <ellipse cx="370" cy="245" rx="9" ry="4.5" fill="#573a2e" stroke="#3d281f" stroke-width="1.2" transform="rotate(20 370 245)" />
+    `
+        : ""
+    }
+    ${
+      extras.has("sobrasada")
+        ? `
+    <circle cx="260" cy="265" r="8" fill="#EA580C" opacity="0.9" />
+    <circle cx="345" cy="245" r="7" fill="#C2410C" opacity="0.9" />
+    `
+        : ""
+    }
 
     <!-- ================= MOLTEN YOLK LAVA WATERFALL ================= -->
     ${
@@ -1117,6 +1184,75 @@ function renderRealisticExtras(extras: Set<string>, cx: number, cy: number, svgI
     `);
   }
 
+  if (extras.has("cheese") || extras.has("queso")) {
+    rendered.push(`
+      <g id="${svgId}_extra_cheese">
+        <ellipse cx="${cx - 35}" cy="${cy - 20}" rx="14" ry="7" fill="#FEF9C3" stroke="#FDE047" stroke-width="1.5" opacity="0.9" />
+        <ellipse cx="${cx + 38}" cy="${cy + 25}" rx="16" ry="8" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" opacity="0.92" />
+        <path d="M ${cx + 25} ${cy + 28} Q ${cx + 42} ${cy + 35} ${cx + 55} ${cy + 25}" stroke="#B45309" stroke-width="1.2" fill="none" opacity="0.7" />
+      </g>
+    `);
+  }
+
+  if (extras.has("mushrooms") || extras.has("setas")) {
+    rendered.push(`
+      <g id="${svgId}_extra_mushrooms">
+        <!-- Cremini mushroom cap -->
+        <path d="M ${cx + 40} ${cy - 45} C ${cx + 25} ${cy - 60} ${cx + 60} ${cy - 65} ${cx + 65} ${cy - 45} Z" fill="#573a2e" stroke="#3d281f" stroke-width="1.2" />
+        <rect x="${cx + 48}" y="${cy - 45}" width="8" height="7" rx="2" fill="#E7E5E4" opacity="0.85" />
+        <!-- Wild mushroom slice -->
+        <path d="M ${cx - 45} ${cy + 20} C ${cx - 60} ${cy + 5} ${cx - 30} ${cy} ${cx - 25} ${cy + 18} Z" fill="#443128" stroke="#2d1f18" stroke-width="1.2" />
+      </g>
+    `);
+  }
+
+  if (extras.has("sobrasada")) {
+    rendered.push(`
+      <g id="${svgId}_extra_sobrasada">
+        <circle cx="${cx - 45}" cy="${cy - 35}" r="9" fill="#EA580C" stroke="#C2410C" stroke-width="1.5" />
+        <circle cx="${cx + 35}" cy="${cy - 30}" r="8" fill="#F97316" opacity="0.95" />
+        <circle cx="${cx}" cy="${cy + 45}" r="10" fill="#EA580C" stroke="#9A3412" stroke-width="1.5" />
+        <ellipse cx="${cx - 43}" cy="${cy - 37}" rx="3" ry="2" fill="#FED7AA" opacity="0.8" />
+      </g>
+    `);
+  }
+
+  if (extras.has("atun") || extras.has("bacalao")) {
+    rendered.push(`
+      <g id="${svgId}_extra_fish">
+        <path d="M ${cx - 40} ${cy - 30} Q ${cx - 20} ${cy - 38} ${cx - 10} ${cy - 25} Q ${cx - 25} ${cy - 20} ${cx - 40} ${cy - 30} Z" fill="#F5F5F4" stroke="#D6D3D1" stroke-width="1.2" />
+        <path d="M ${cx + 20} ${cy + 25} Q ${cx + 40} ${cy + 18} ${cx + 50} ${cy + 30} Q ${cx + 35} ${cy + 36} ${cx + 20} ${cy + 25} Z" fill="#FAF9F6" stroke="#E7E5E4" stroke-width="1.2" />
+      </g>
+    `);
+  }
+
+  if (extras.has("garlic")) {
+    rendered.push(`
+      <g id="${svgId}_extra_garlic">
+        <ellipse cx="${cx - 25}" cy="${cy + 35}" rx="7" ry="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1" transform="rotate(-20 ${cx - 25} ${cy + 35})" />
+        <ellipse cx="${cx + 48}" cy="${cy - 2}" rx="6" ry="3.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" transform="rotate(25 ${cx + 48} ${cy - 2})" />
+      </g>
+    `);
+  }
+
+  if (extras.has("miel")) {
+    rendered.push(`
+      <g id="${svgId}_extra_miel">
+        <path d="M ${cx - 50} ${cy - 40} Q ${cx} ${cy - 10} ${cx - 10} ${cy + 20} Q ${cx + 20} ${cy + 40} ${cx + 50} ${cy + 15}" stroke="#D97706" stroke-width="3" fill="none" opacity="0.85" stroke-linecap="round" />
+        <path d="M ${cx - 48} ${cy - 39} Q ${cx} ${cy - 9} ${cx - 10} ${cy + 21}" stroke="#FEF08A" stroke-width="1.2" fill="none" opacity="0.9" />
+      </g>
+    `);
+  }
+
+  if (extras.has("chips")) {
+    rendered.push(`
+      <g id="${svgId}_extra_chips">
+        <path d="M ${cx - 55} ${cy - 35} Q ${cx - 35} ${cy - 50} ${cx - 20} ${cy - 30} Q ${cx - 40} ${cy - 20} ${cx - 55} ${cy - 35} Z" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5" opacity="0.9" />
+        <path d="M ${cx + 25} ${cy + 15} Q ${cx + 45} ${cy} ${cx + 60} ${cy + 20} Q ${cx + 40} ${cy + 30} ${cx + 25} ${cy + 15} Z" fill="#FDE047" stroke="#B45309" stroke-width="1.5" opacity="0.9" />
+      </g>
+    `);
+  }
+
   return rendered.join("\n");
 }
 
@@ -1174,12 +1310,52 @@ export function recipeToSvgOptions(
       : recipe.title?.es || recipe.name?.es || recipe.recipeName?.es || recipe.id || "Tortilla Española";
 
   const rawTitleLower = title.toLowerCase();
+  const recipeId = (recipe.id || recipe.slug?.es || "").toLowerCase();
+
+  // Check if purist / without onion
+  const hasPuristTaxonomy = Array.isArray(recipe.taxonomyIds) && (
+    recipe.taxonomyIds.includes("faction:puristas") ||
+    recipe.taxonomyIds.includes("faction:sincebollistas")
+  );
+  const isPurist =
+    hasPuristTaxonomy ||
+    rawTitleLower.includes("sin cebolla") ||
+    rawTitleLower.includes("without onion") ||
+    rawTitleLower.includes("ohne zwiebel");
+
+  let hasOnion = !isPurist && (
+    rawTitleLower.includes("con cebolla") ||
+    rawTitleLower.includes("with onion") ||
+    rawTitleLower.includes("mit zwiebel") ||
+    rawTitleLower.includes("concebolla") ||
+    recipeId.includes("concebolla") ||
+    (Array.isArray(recipe.taxonomyIds) && (
+      recipe.taxonomyIds.includes("ingredient:onion") ||
+      recipe.taxonomyIds.includes("faction:concebollistas") ||
+      recipe.taxonomyIds.includes("faction:cebollistas")
+    ))
+  );
 
   // Extract ingredients
-  const extrasList: string[] = [];
+  const extrasSet = new Set<string>();
   let eggCount = recipe.eggCount || 6;
   let potatoGrams = 600;
-  let hasOnion = rawTitleLower.includes("cebolla");
+
+  const normalizeExtraKey = (key: string): string => {
+    const k = key.toLowerCase().trim();
+    if (k.includes("cherrypepper") || k.includes("piquillo") || k.includes("pimiento") || k === "peppers" || k === "pepper") return "peppers";
+    if (k.includes("garlic") || k.includes("ajetes") || k === "ajo") return "garlic";
+    if (k.includes("jamon") || k.includes("jamón")) return "jamon";
+    if (k.includes("chorizo")) return "chorizo";
+    if (k.includes("sobrasada")) return "sobrasada";
+    if (k.includes("queso") || k.includes("cheese")) return "cheese";
+    if (k.includes("mushroom") || k.includes("setas") || k.includes("champin") || k.includes("champiñ")) return "mushrooms";
+    if (k.includes("trufa") || k.includes("truffle")) return "truffle";
+    if (k.includes("chickpea") || k.includes("garbanzo")) return "chickpea";
+    if (k.includes("atun") || k.includes("atún") || k.includes("tuna")) return "tuna";
+    if (k.includes("bacalao") || k.includes("cod")) return "bacalao";
+    return k;
+  };
 
   if (Array.isArray(recipe.ingredients)) {
     for (const item of recipe.ingredients) {
@@ -1192,54 +1368,88 @@ export function recipeToSvgOptions(
           const match = item.match(/(\d+)/);
           if (match) potatoGrams = Number(match[1]);
         } else if (lower.includes("cebolla") || lower.includes("onion") || lower.includes("zwiebel")) {
-          hasOnion = true;
+          if (!isPurist) hasOnion = true;
         } else {
-          extrasList.push(item);
+          extrasSet.add(normalizeExtraKey(item));
         }
         continue;
       }
 
       const id = (item.ingredientId || item.id || item.entityId || "").toLowerCase();
+      const amountVal = item.amount !== undefined ? Number(item.amount) : item.quantity !== undefined ? Number(item.quantity) : undefined;
+
       if (id === "egg" || id === "huevo") {
-        if (item.quantity) eggCount = Number(item.quantity);
+        if (amountVal && !isNaN(amountVal)) eggCount = amountVal;
       } else if (id === "potato" || id === "patata") {
-        if (item.quantity) potatoGrams = Number(item.quantity);
+        if (amountVal && !isNaN(amountVal)) potatoGrams = amountVal;
       } else if (id === "onion" || id === "cebolla") {
-        hasOnion = true;
+        if (!isPurist) hasOnion = true;
       } else if (id) {
-        extrasList.push(id);
+        if (id !== "oil" && id !== "salt" && id !== "water") {
+          extrasSet.add(normalizeExtraKey(id));
+        }
+      }
+    }
+  }
+
+  // Parse taxonomies if present
+  if (Array.isArray(recipe.taxonomyIds)) {
+    for (const tax of recipe.taxonomyIds) {
+      if (typeof tax === "string") {
+        const lowerTax = tax.toLowerCase();
+        if (lowerTax.startsWith("ingredient:")) {
+          const ingKey = lowerTax.replace("ingredient:", "");
+          if (ingKey === "onion" || ingKey === "cebolla") {
+            if (!isPurist) hasOnion = true;
+          } else if (ingKey !== "potato" && ingKey !== "egg" && ingKey !== "patata" && ingKey !== "oil" && ingKey !== "salt") {
+            extrasSet.add(normalizeExtraKey(ingKey));
+          }
+        }
       }
     }
   }
 
   // Derive doneness using declarative rules
   let doneness: DonenessLevel = "melosa";
-  for (const [key, val] of Object.entries(TEXTURE_DONENESS_MAP)) {
-    if (rawTitleLower.includes(key)) {
-      doneness = val;
-      if (key === "betanzos" || key === "liquid") hasOnion = false;
-      break;
+  if (recipeId.includes("betanzos") || rawTitleLower.includes("betanzos") || (Array.isArray(recipe.taxonomyIds) && recipe.taxonomyIds.includes("region:betanzos"))) {
+    doneness = "liquid";
+    hasOnion = false;
+  } else {
+    for (const [key, val] of Object.entries(TEXTURE_DONENESS_MAP)) {
+      if (rawTitleLower.includes(key)) {
+        doneness = val;
+        if (key === "betanzos" || key === "liquid") hasOnion = false;
+        break;
+      }
     }
   }
 
   // Derive potato cut using declarative rules
   let potatoCut: PotatoCut = "panadera";
-  for (const [key, val] of Object.entries(CUT_MAP)) {
-    if (rawTitleLower.includes(key)) {
-      potatoCut = val;
-      if (key === "chips") extrasList.push("chips");
-      break;
+  if (recipeId === "express" || rawTitleLower.includes("express") || rawTitleLower.includes("chips")) {
+    potatoCut = "chips";
+    extrasSet.add("chips");
+  } else {
+    for (const [key, val] of Object.entries(CUT_MAP)) {
+      if (rawTitleLower.includes(key)) {
+        potatoCut = val;
+        if (key === "chips") extrasSet.add("chips");
+        break;
+      }
     }
   }
 
+  const cleanExtras = Array.from(extrasSet);
+
   return {
+    id: recipeId || (title || "tortilla").toLowerCase().replace(/[^a-z0-9]+/g, "-"),
     title,
     eggCount,
     potatoWeightG: potatoGrams,
     potatoCut,
     doneness,
     onion: hasOnion,
-    extras: extrasList,
+    extras: cleanExtras,
     presentation: "skillet_top",
     theme: "kitchen_dark",
     showBadge: true,

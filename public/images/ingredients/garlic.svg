@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="320" height="240" fill="none" role="img" aria-label="Ajo Morado" class="">
+
+
+    <defs>
+      
+    <!-- Master Drop Shadow with Warm Ambient Occlusion -->
+    <filter id="garlic_svg_dropShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#1C0A00" floodOpacity="0.38" />
+      <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000000" floodOpacity="0.25" />
+    </filter>
+
+    <!-- Deep 3D Shadow for Floating Objects -->
+    <filter id="garlic_svg_deepShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="2" dy="8" stdDeviation="8" floodColor="#1A0D00" floodOpacity="0.45" />
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.3" />
+    </filter>
+
+    <!-- Soft Organic Shadow -->
+    <filter id="garlic_svg_softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3.5" floodColor="#271505" floodOpacity="0.3" />
+    </filter>
+
+    <!-- Glossy Specular Highlight Filter -->
+    <filter id="garlic_svg_glossHighlight" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Subtle Food Glisten Filter -->
+    <filter id="garlic_svg_glistenGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Organic Natural Texture Filter -->
+    <filter id="garlic_svg_organicTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5   0 0 0 0 0.4   0 0 0 0 0.3  0 0 0 0.12 0" />
+      <feComposite in2="SourceGraphic" in="gl" operator="in" />
+    </filter>
+  
+      
+      <!-- Papery White-Cream Tunic Base -->
+      <radialGradient id="garlic_svg_bulbBase" cx="38%" cy="30%" r="70%">
+        <stop offset="0%" stopColor="#FFFFFF" />
+        <stop offset="35%" stopColor="#FAF5FF" />
+        <stop offset="70%" stopColor="#F3E8FF" />
+        <stop offset="90%" stopColor="#E9D5FF" />
+        <stop offset="100%" stopColor="#C084FC" />
+      </radialGradient>
+
+      <!-- Violet-Purple Striation Tone -->
+      <linearGradient id="garlic_svg_violetStreak" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#A855F7" />
+        <stop offset="50%" stopColor="#7E22CE" />
+        <stop offset="100%" stopColor="#581C87" />
+      </linearGradient>
+    </defs>
+
+    <g filter="url(#garlic_svg_deepShadow)">
+      <!-- 1. Garlic Bulb Geometry with Clove Segments -->
+      <!-- Center Main Segment -->
+      <path d="M 50 14 C 46 22 22 36 22 62 C 22 80 34 88 50 88 C 66 88 78 80 78 62 C 78 36 54 22 50 14 Z" 
+            fill="url(#garlic_svg_bulbBase)" 
+            stroke="#C084FC" 
+            stroke-width="1.2" />
+
+      <!-- Clove Segment Creases (Bulb Lobes) -->
+      <path d="M 50 14 C 38 28 34 50 36 86" stroke="#9333EA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.75" />
+      <path d="M 50 14 C 62 28 66 50 64 86" stroke="#9333EA" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.75" />
+      <path d="M 50 14 C 48 35 48 65 50 88" stroke="#A855F7" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6" />
+
+      <!-- 2. Characteristic Violet-Purple Striations (Ajo Morado) -->
+      <path d="M 28 42 Q 26 58 30 72" stroke="url(#garlic_svg_violetStreak)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75" />
+      <path d="M 42 32 Q 40 55 42 78" stroke="url(#garlic_svg_violetStreak)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7" />
+      <path d="M 58 32 Q 60 55 58 78" stroke="url(#garlic_svg_violetStreak)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7" />
+      <path d="M 72 42 Q 74 58 70 72" stroke="url(#garlic_svg_violetStreak)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75" />
+
+      <!-- 3. Dry Papery Stem Neck at Top -->
+      <path d="M 48 14 L 50 6 L 52 14 Z" fill="#D8B4FE" stroke="#7E22CE" stroke-width="0.8" />
+      <path d="M 49 14 L 51 7 L 53 14" stroke="#581C87" stroke-width="0.6" />
+
+      <!-- 4. Fibrous Root Basal Plate at Bottom -->
+      <ellipse cx="50" cy="88" rx="8" ry="2.5" fill="#78350F" />
+      <path d="M 46 89 Q 44 94 42 96 M 49 89 Q 49 95 48 97 M 52 89 Q 54 94 56 96" stroke="#D7CCC8" stroke-width="1" stroke-linecap="round" fill="none" />
+
+      <!-- 5. Silky Specular Highlight on Bulb Lobes -->
+      <path d="M 38 30 C 44 26 56 26 62 30" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85" filter="url(#garlic_svg_glossHighlight)" />
+    </g>
+  
+</svg>

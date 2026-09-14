@@ -136,4 +136,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'tienda', en: 'tienda', de: 'tienda' },
     label: { es: 'Equipamiento & Tienda', en: 'Equipment & Shop', de: 'Ausrüstung & Shop' },
   },
+  timer: {
+    id: 'timer',
+    slug: { es: 'asistente', en: 'assistant', de: 'kuechentimer' },
+    label: { es: 'Asistente & Temporizador', en: 'Kitchen Assistant & Timer', de: 'Küchen-Assistent & Timer' },
+  },
 };

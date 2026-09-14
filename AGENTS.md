@@ -34,3 +34,11 @@ All agentic contributions to `tortilladepatatas.org` must strictly adhere to:
 - **Local Asset Location**: All local images are served directly from `/public/images/personas/` and `/public/images/ingredients/`.
 - **Google Drive Import Note**: Direct Google Drive links or auto-imports can produce corrupted/truncated files. Always verify file sizes or use uploaded ZIP archives unpacked directly into `public/images/`.
 
+## Operational Playbook & AI Knowledge Transfer:
+See `docu/AI_AGENT_PLAYBOOK.md` for complete architectural guides, lessons learned, and debugging notes.
+1. **Vite `server.allowedHosts`**: Always ensure `vite.server.allowedHosts: true` is configured in `astro.config.mjs` to prevent 403 Forbidden errors when loading Astro island modules behind Cloud Run reverse proxies (`*.run.app`).
+2. **Build Pipeline Sequence**: `npm run build` runs `npx tsx scripts/generateRecipeSvgs.ts` before `astro build`. If SVG renders fail or missing, run `npm run generate:svgs`.
+3. **URL-Encoded State**: All Tortilla Builder configurations are saved in URL parameters (zero login needed). Maintain this pattern whenever adding recipe options.
+4. **SSR & Browser Globals**: Astro renders components on both server and client. Always guard browser APIs (`window`, `localStorage`, `navigator`) with `typeof window !== "undefined"` or inside React lifecycle hooks.
+5. **Fast Quality Checks**: Use `npm run lint` (`oxlint`) for near-instant lint feedback and `compile_applet` for full production compilation checks.
+

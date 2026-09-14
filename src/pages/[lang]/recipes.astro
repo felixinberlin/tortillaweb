@@ -130,6 +130,7 @@ const schemas = [collectionSchema, breadcrumbSchema, ...recipeSchemas];
                 <RecipeImage
                   client:visible
                   src={r.image}
+                  recipeId={r.id}
                   title={rTitle}
                   ingredients={r.ingredients}
                   taxonomyIds={r.taxonomyIds}

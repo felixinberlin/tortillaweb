@@ -29,6 +29,7 @@ import { StepInventory } from "./StepInventory";
 import { StepPreferences } from "./StepPreferences";
 import { TortillaProfileView } from "./TortillaProfileView";
 import { SelectedIngredientsBar } from "./SelectedIngredientsBar";
+import { UrlSaveInfoBanner } from "./UrlSaveInfoBanner";
 
 interface BuilderAppProps {
   lang?: string;
@@ -139,7 +140,6 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
   ]);
 
   const shareUrl = useMemo(() => {
-    if (typeof window === "undefined") return "";
     const queryString = serializeConfigurationToUrl({
       eggs,
       eggSize,
@@ -152,8 +152,9 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
       fryingTempProfile,
       extras,
     });
-    return `${window.location.origin}${window.location.pathname}?${queryString}`;
+    return `https://tortilladepatatas.org/${lang}/builder?${queryString}`;
   }, [
+    lang,
     eggs,
     eggSize,
     potatoesGrams,
@@ -227,6 +228,13 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
           </div>
         </div>
       </div>
+
+      {/* Real-time URL Auto-save Notification Banner */}
+      <UrlSaveInfoBanner
+        shareUrl={shareUrl}
+        lang={lang}
+        onOpenShare={() => setActiveTab("identity")}
+      />
 
       {/* Navigation Tabs Header */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-6 bg-secondary/80 p-1.5 rounded-2xl max-w-3xl mx-auto shadow-2xs border border-border">

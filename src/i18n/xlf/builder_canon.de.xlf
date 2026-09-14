@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="builder_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Builder Canon" />
+      <note priority="1">Interaktiver Rezept-Baukasten, Portionsrechner und Konsistenzstufen.</note>
+    </header>
+    <body>
+      <trans-unit id="builder.badge" resname="BUILDER_BADGE">
+        <source>Constructor interactivo de tortilla</source>
+        <target>Interaktiver Tortilla-Baukasten</target>
+      </trans-unit>
+      <trans-unit id="builder.title" resname="BUILDER_TITLE">
+        <source>Crea tu propia tortilla</source>
+        <target>Erstelle deine eigene Tortilla</target>
+      </trans-unit>
+      <trans-unit id="builder.subtitle" resname="BUILDER_SUBTITLE">
+        <source>Elige ingredientes, controla el fuego y descubre cómo cada decisión cambia el resultado final.</source>
+        <target>Wähle Zutaten, steuere die Hitze und entdecke, wie jede Entscheidung das Endergebnis verändert.</target>
+      </trans-unit>
+      <trans-unit id="builder.button" resname="BUILDER_BUTTON">
+        <source>Empezar a crear</source>
+        <target>Baukasten starten</target>
+      </trans-unit>
+      <trans-unit id="builder.openApp" resname="BUILDER_OPEN_APP">
+        <source>Abrir Tortilla Creator</source>
+        <target>Tortilla Creator öffnen</target>
+      </trans-unit>
+      <trans-unit id="builder.appDesc" resname="BUILDER_APP_DESC">
+        <source>Accede a la aplicación interactiva Tortilla Creator en https://tortilladepatatas.de/ para personalizar y calcular tu receta.</source>
+        <target>Rufen Sie die interaktive Tortilla Creator Anwendung unter https://tortilladepatatas.de/ auf, um Ihr Rezept anzupassen.</target>
+      </trans-unit>
+      <trans-unit id="builder.dinersQuestion" resname="BUILDER_DINERS_QUESTION">
+        <source>¿Para cuántas personas?</source>
+        <target>Für wie viele Personen?</target>
+      </trans-unit>
+      <trans-unit id="builder.dinersDesc" resname="BUILDER_DINERS_DESC">
+        <source>Calcularemos la sartén y las cantidades según el número de comensales.</source>
+        <target>Wir berechnen Pfannengröße und Zutatenmengen entsprechend der Personenanzahl.</target>
+      </trans-unit>
+      <trans-unit id="builder.servings" resname="BUILDER_SERVINGS">
+        <source>pers.</source>
+        <target>Pers.</target>
+      </trans-unit>
+      <trans-unit id="builder.onionDebate" resname="BUILDER_ONION_DEBATE">
+        <source>El debate del siglo: ¿Con o sin cebolla?</source>
+        <target>Die große Debatte: Mit oder ohne Zwiebeln?</target>
+      </trans-unit>
+      <trans-unit id="builder.withOnion" resname="BUILDER_WITH_ONION">
+        <source>Con cebolla</source>
+        <target>Mit Zwiebeln</target>
+      </trans-unit>
+      <trans-unit id="builder.noOnion" resname="BUILDER_NO_ONION">
+        <source>Sin cebolla</source>
+        <target>Ohne Zwiebeln</target>
+      </trans-unit>
+      <trans-unit id="builder.concebollista" resname="BUILDER_CONCEBOLLISTA">
+        <source>Con Cebolla (Concebollista)</source>
+        <target>Mit Zwiebeln (Concebollista)</target>
+      </trans-unit>
+      <trans-unit id="builder.concebollistaDesc" resname="BUILDER_CONCEBOLLISTA_DESC">
+        <source>Aporta dulzor, jugosidad y un toque caramelizado irresistible.</source>
+        <target>Bringt natürliche Süße, Saftigkeit und ein unwiderstehliches karamellisiertes Aroma.</target>
+      </trans-unit>
+      <trans-unit id="builder.sincebollista" resname="BUILDER_SINCEBOLLISTA">
+        <source>Sin Cebolla (Sincebollista)</source>
+        <target>Ohne Zwiebeln (Sincebollista)</target>
+      </trans-unit>
+      <trans-unit id="builder.sincebollistaDesc" resname="BUILDER_SINCEBOLLISTA_DESC">
+        <source>Sabor puro a huevo fresco y patata dorada en aceite de oliva.</source>
+        <target>Reiner Geschmack von frischem Ei und in Olivenöl goldbraun gebratenen Kartoffeln.</target>
+      </trans-unit>
+      <trans-unit id="builder.donenessTitle" resname="BUILDER_DONENESS_TITLE">
+        <source>Punto de cuajado</source>
+        <target>Garstufe &amp; Konsistenz</target>
+      </trans-unit>
+      <trans-unit id="builder.betanzosTitle" resname="BUILDER_BETANZOS_TITLE">
+        <source>Estilo Betanzos</source>
+        <target>Betanzos-Stil</target>
+      </trans-unit>
+      <trans-unit id="builder.betanzosDesc" resname="BUILDER_BETANZOS_DESC">
+        <source>Muy jugosa, el huevo corre al cortar.</source>
+        <target>Sehr saftig, das Ei läuft beim Schneiden heraus.</target>
+      </trans-unit>
+      <trans-unit id="builder.jugosaTitle" resname="BUILDER_JUGOSA_TITLE">
+        <source>En su punto</source>
+        <target>En su punto (Cremige Mitte)</target>
+      </trans-unit>
+      <trans-unit id="builder.jugosaDesc" resname="BUILDER_JUGOSA_DESC">
+        <source>Interior cremoso y bordes sellados.</source>
+        <target>Cremiges Inneres und leicht gebräunte Kruste.</target>
+      </trans-unit>
+      <trans-unit id="builder.cuajadaTitle" resname="BUILDER_CUAJADA_TITLE">
+        <source>Cuajada firme</source>
+        <target>Durchgegart &amp; Fest</target>
+      </trans-unit>
+      <trans-unit id="builder.cuajadaDesc" resname="BUILDER_CUAJADA_DESC">
+        <source>Ideal para llevar a excursiones o bocadillos.</source>
+        <target>Fest durchgegart, ideal für unterwegs oder Sandwiches.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

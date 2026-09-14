@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "astro dev --host 0.0.0.0 --port 3000",
-    "build": "astro build",
+    "dev": "npx tsx scripts/generateRecipeSvgs.ts && astro dev --host 0.0.0.0 --port 3000",
+    "generate:svgs": "npx tsx scripts/generateRecipeSvgs.ts",
+    "build": "npx tsx scripts/generateRecipeSvgs.ts && astro build",
     "preview": "astro preview --host 0.0.0.0 --port 3000",
     "astro": "astro",
     "lint": "oxlint",

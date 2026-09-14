@@ -12,6 +12,7 @@ import {
   generateOrganizationSchema,
   generateBreadcrumbSchema,
 } from '@/lib/seo';
+import { getAllRecipes } from '@/lib/taxonomy';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -22,6 +23,9 @@ export function getStaticPaths() {
 const { lang = 'es' } = Astro.params;
 const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
 const t = getTranslations(currentLang);
+
+const recipes = await getAllRecipes();
+const recipeCount = recipes.length;
 
 const title = currentLang === 'es'
   ? 'Tortilla de Patatas: La Enciclopedia, Ciencia, Recetas & Menaje Culinario'
@@ -46,7 +50,7 @@ const schemas = [
 
 <Layout title={title} description={description} lang={currentLang} schema={schemas}>
   <Hero lang={currentLang} client:load />
-  <AuthorityStatsBanner lang={currentLang} client:load />
+  <AuthorityStatsBanner lang={currentLang} recipeCount={recipeCount} client:load />
   <FeatureGrid lang={currentLang} client:load />
   <KitchenToolsTeaser lang={currentLang} client:load />
   <BuilderTeaser lang={currentLang} client:load />

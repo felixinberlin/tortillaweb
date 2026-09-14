@@ -100,6 +100,10 @@ const ROUTE_SEGMENT_ALIASES: Record<string, RouteId> = {
   anleitungen: 'guides',
   videos: 'videos',
   video: 'videos',
+  asistente: 'timer',
+  assistant: 'timer',
+  timer: 'timer',
+  kuechentimer: 'timer',
 };
 
 export function getRouteIdFromSlug(slugSegment: string, lang?: SupportedLocale): RouteId | undefined {

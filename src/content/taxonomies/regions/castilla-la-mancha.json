@@ -1,0 +1,40 @@
+{
+  "id": "castilla-la-mancha",
+  "type": "region",
+  "contentId": "region.castilla-la-mancha",
+  "slug": {
+    "es": "castilla-la-mancha",
+    "en": "castile-la-mancha",
+    "de": "kastilien-la-mancha"
+  },
+  "title": {
+    "es": "Castilla-La Mancha",
+    "en": "Castile-La Mancha",
+    "de": "Kastilien-La Mancha"
+  },
+  "description": {
+    "es": "Tierra de pisto manchego, azafrán de La Mancha y queso curado de oveja, donde la tortilla de campo se funde con hortalizas de huerta y costumbres de comadre.",
+    "en": "Land of pisto manchego, La Mancha saffron, and aged sheep cheese, featuring rustic countryside tortillas enriched with slow-cooked vegetables.",
+    "de": "Land des Pisto Manchego, La-Mancha-Safrans und Schafskäses mit herzhaften Bauerntortillas voller Gartengemüse."
+  },
+  "dogma": {
+    "es": "La verdura se pocha lentamente antes de recibir el golpe de sartén con huevo de granja.",
+    "en": "Vegetables are slowly poached before searing with farm-fresh eggs.",
+    "de": "Gemüse wird sanft gegart, bevor es mit frischen Landeiern kurz angebraten wird."
+  },
+  "keyIngredient": {
+    "es": "Pimientos de Huerta, Azafrán & Queso Manchego",
+    "en": "Garden Peppers, Saffron & Manchego Cheese",
+    "de": "Gartenpaprika, Safran & Manchego-Käse"
+  },
+  "badge": {
+    "es": "Pisto Manchego & Huerta de Interior",
+    "en": "Pisto Manchego & Inland Harvest",
+    "de": "Pisto Manchego & Ernte des Binnenlands"
+  },
+  "icon": "Sun",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "regional_potato" },
+    { "type": "style", "id": "paisana", "relationship": "signature_style" }
+  ]
+}

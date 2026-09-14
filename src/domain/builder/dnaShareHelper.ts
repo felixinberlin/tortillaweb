@@ -2,6 +2,7 @@ import type { TortillaConfiguration } from "./types";
 import type { RawRecipeInput, LocalizedString } from "@/domain/comparator/types";
 import { serializeConfigurationToUrl } from "./configCalculator";
 import { exportRecipeToPdf } from "@/lib/pdf/recipePdfGenerator";
+import { SAFETY_CANON, getSafetySummaryNotice } from "@/lib/safetyCanon";
 
 /**
  * Converts a calculated TortillaConfiguration into a RawRecipeInput for the comparator.
@@ -157,9 +158,7 @@ export function downloadDnaAsJson(config: TortillaConfiguration, lang: string = 
       targetOptimal: "70°C for 2 minutes",
       targetFast: "63°C for 20 seconds",
       ambientLimitHours: 4,
-      note: isEs
-        ? "El estándar de oro sanitario exige 70°C durante 2 minutos en el corazón de la masa para inocuidad frente a Salmonella."
-        : "The golden culinary safety standard mandates 70°C for 2 minutes at core.",
+      note: getSafetySummaryNotice(isEs ? "es" : isDe ? "de" : "en"),
     },
     stepByStepAdvice: config.calculatedProfile.cookingAdvice[isEs ? "es" : isDe ? "de" : "en"],
   };

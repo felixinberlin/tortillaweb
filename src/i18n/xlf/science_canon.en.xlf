@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="science_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Science Canon" />
+      <note priority="1">Food chemistry, physical starch/protein dynamics, and thermal safety thresholds.</note>
+    </header>
+    <body>
+      <trans-unit id="sciencePage.badge" resname="SCIENCE_BADGE">
+        <source>Física, Química y Seguridad Alimentaria</source>
+        <target>Culinary Physics, Chemistry &amp; Food Safety</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.title" resname="SCIENCE_TITLE">
+        <source>La Ciencia Detrás de la Tortilla</source>
+        <target>The Science Behind Tortilla</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.subtitle" resname="SCIENCE_SUBTITLE">
+        <source>Entiende las transformaciones moleculares, la inactivación térmica de patógenos y los umbrales microbiológicos.</source>
+        <target>Understand molecular transformations, thermal pathogen inactivation, and microbiological safety standards.</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.chefNoteHeader" resname="SCIENCE_CHEF_NOTE_HEADER">
+        <source>Del Cuaderno de la Chef &amp; Laboratorio:</source>
+        <target>From the Chef's &amp; Laboratory Notebook:</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.chefNoteText" resname="SCIENCE_CHEF_NOTE_TEXT">
+        <source>La tortilla es una obra maestra de dualidad: la calidez rústica de la patata y la volatilidad científica del huevo. Para garantizar la seguridad bactericida, el estándar oro exige siempre **70°C durante 2 minutos** para lograr una reducción ≥ 5 log de *S. Enteritidis*.</source>
+        <target>The tortilla is a masterpiece of duality: the rustic warmth of potato and the scientific volatility of egg. To guarantee bactericidal safety, the gold standard always demands **70°C for 2 minutes** to achieve a ≥ 5 log reduction of *S. Enteritidis*.</target>
+        <note priority="1">Mandatory bolding on 70°C for 2 minutes.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.card1.title" resname="SCIENCE_CARD1_TITLE">
+        <source>Coagulación de Proteínas</source>
+        <target>Protein Coagulation</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card1.desc" resname="SCIENCE_CARD1_DESC">
+        <source>Las proteínas del huevo empiezan a coagular a los 62°C. Para garantizar la seguridad bactericida, el umbral estándar de seguridad alimentaria exige alcanzar **70°C durante 2 minutos** (reducción $\ge 5 \text{ log}$ de *S. Enteritidis*).</source>
+        <target>Egg proteins begin coagulating at 62°C. To ensure bactericidal safety, the core standard requires **70°C for 2 minutes** (achieving a $\ge 5 \text{ log}$ reduction of *S. Enteritidis*).</target>
+        <note priority="1">Mandatory bolding on 70°C for 2 minutes.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.card2.title" resname="SCIENCE_CARD2_TITLE">
+        <source>Gelatinización del Almidón</source>
+        <target>Starch Gelatinization</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card2.desc" resname="SCIENCE_CARD2_DESC">
+        <source>A 60°C - 65°C, los gránulos de almidón de la patata absorben agua y grasa del pochado, hinchándose para crear una matriz suave que estructura la tortilla.</source>
+        <target>At 60°C - 65°C, potato starch granules absorb water and olive oil, swelling into a soft structural matrix that binds the dish.</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card3.title" resname="SCIENCE_CARD3_TITLE">
+        <source>Inactivación Térmica &amp; Fuego</source>
+        <target>Thermal Inactivation &amp; Heat</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card3.desc" resname="SCIENCE_CARD3_DESC">
+        <source>El nivel de seguridad medio alcanza los **63°C durante 20 segundos** (reducción intermedia de *Salmonella* para tortillas jugosas de consumo inmediato). El estándar máximo de pasteurización bactericida se logra alcanzando **70°C durante 2 minutos**.</source>
+        <target>Medium doneness safety threshold reaches **63°C for 20 seconds** (intermediate *Salmonella* reduction for juicy tortillas intended for immediate consumption). The gold bactericidal standard is **70°C for 2 minutes**.</target>
+        <note priority="1">Mandatory bolding on 63°C for 20 seconds and 70°C for 2 minutes.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.card4.title" resname="SCIENCE_CARD4_TITLE">
+        <source>Gestión Microbiológica de Riesgos</source>
+        <target>Microbiological Risk Management</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.card4.desc" resname="SCIENCE_CARD4_DESC">
+        <source>Las tortillas 'poco cuajadas' presentan pH 3.8–4.5 y alta actividad de agua ($a_w &gt; 0.99$). Las preparaciones no congeladas o no refrigeradas por debajo de **8°C** no deben permanecer a temperatura ambiente más de **4 horas**.</source>
+        <target>Runny 'poco cuajada' tortillas feature a pH of 3.8–4.5 and high water activity ($a_w &gt; 0.99$). Unrefrigerated preparations above **8°C** must not exceed **4 hours** at ambient temperature.</target>
+        <note priority="1">Mandatory bolding on 4 hours.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.safetySectionTitle" resname="SCIENCE_SAFETY_SECTION_TITLE">
+        <source>Garantía de Seguridad Alimentaria &amp; Térmica</source>
+        <target>Food &amp; Thermal Safety Guarantee</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.safetySectionSub" resname="SCIENCE_SAFETY_SECTION_SUB">
+        <source>Los tres umbrales de procesamiento térmico según la metodología Risk Ranger.</source>
+        <target>The three thermal processing levels according to Risk Ranger methodology.</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelPilotTitle" resname="SCIENCE_LEVEL_PILOT_TITLE">
+        <source>Zona de Peligro Ambiental</source>
+        <target>Ambient Danger Zone</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelPilotDesc" resname="SCIENCE_LEVEL_PILOT_DESC">
+        <source>Temperatura ambiente sin control térmico. Proliferación bacteriana si el consumo supera las **4 horas**.</source>
+        <target>Ambient temperature without thermal control. Bacterial proliferation risk if standing time exceeds **4 hours**.</target>
+        <note priority="1">Mandatory bolding on 4 hours.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelMediumTitle" resname="SCIENCE_LEVEL_MEDIUM_TITLE">
+        <source>Umbral de Seguridad Medio</source>
+        <target>Medium Safety Threshold</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelMediumDesc" resname="SCIENCE_LEVEL_MEDIUM_DESC">
+        <source>Procesamiento a **63°C durante 20 segundos**. Indicado para tortillas jugosas de consumo inmediato.</source>
+        <target>Thermal processing at **63°C for 20 seconds**. Recommended for juicy tortillas for immediate consumption.</target>
+        <note priority="1">Mandatory bolding on 63°C for 20 seconds.</note>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelSafeTitle" resname="SCIENCE_LEVEL_SAFE_TITLE">
+        <source>Estándar Bactericida Oro</source>
+        <target>Gold Bactericidal Standard</target>
+      </trans-unit>
+      <trans-unit id="sciencePage.levelSafeDesc" resname="SCIENCE_LEVEL_SAFE_DESC">
+        <source>Procesamiento térmico de **70°C durante 2 minutos**. Garantiza una reducción $\ge 5 \text{ log}$ de *S. Enteritidis*.</source>
+        <target>Thermal processing at **70°C for 2 minutes**. Ensures $\ge 5 \text{ log}$ reduction of *S. Enteritidis*.</target>
+        <note priority="1">Mandatory bolding on 70°C for 2 minutes.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

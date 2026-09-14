@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="de" datatype="plaintext" original="contact_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Contact Canon" />
+      <note priority="1">Kontaktformular-Felder, Optionen, Validierungsfehler und Bestätigungen.</note>
+    </header>
+    <body>
+      <trans-unit id="contact.title" resname="CONTACT_TITLE">
+        <source>Contacto &amp; Consultas</source>
+        <target>Kontakt &amp; Anfragen</target>
+      </trans-unit>
+      <trans-unit id="contact.subtitle" resname="CONTACT_SUBTITLE">
+        <source>¿Tienes alguna duda sobre la enciclopedia, sugerencias de recetas o quieres colaborar?</source>
+        <target>Haben Sie Fragen zur Enzyklopädie, Rezeptvorschläge oder möchten Sie zusammenarbeiten?</target>
+      </trans-unit>
+      <trans-unit id="contact.badge" resname="CONTACT_BADGE">
+        <source>Atención al Tortillero</source>
+        <target>Kontakt</target>
+      </trans-unit>
+      <trans-unit id="contact.nameLabel" resname="CONTACT_NAME_LABEL">
+        <source>Nombre completo</source>
+        <target>Vollständiger Name</target>
+      </trans-unit>
+      <trans-unit id="contact.namePlaceholder" resname="CONTACT_NAME_PLACEHOLDER">
+        <source>Ej. Juan Pérez</source>
+        <target>z.B. Max Mustermann</target>
+      </trans-unit>
+      <trans-unit id="contact.emailLabel" resname="CONTACT_EMAIL_LABEL">
+        <source>Correo electrónico</source>
+        <target>E-Mail-Adresse</target>
+      </trans-unit>
+      <trans-unit id="contact.emailPlaceholder" resname="CONTACT_EMAIL_PLACEHOLDER">
+        <source>tu@email.com</source>
+        <target>ihre@email.de</target>
+      </trans-unit>
+      <trans-unit id="contact.typeLabel" resname="CONTACT_TYPE_LABEL">
+        <source>Motivo del mensaje</source>
+        <target>Grund der Anfrage</target>
+      </trans-unit>
+      <trans-unit id="contact.typeOptions.help" resname="CONTACT_TYPE_HELP">
+        <source>¡Genial! ¡Quiero ayudar!</source>
+        <target>Cool! Ich möchte helfen!</target>
+      </trans-unit>
+      <trans-unit id="contact.typeOptions.question" resname="CONTACT_TYPE_QUESTION">
+        <source>Tengo una pregunta</source>
+        <target>Ich habe eine Frage</target>
+      </trans-unit>
+      <trans-unit id="contact.typeOptions.thanks" resname="CONTACT_TYPE_THANKS">
+        <source>¡Sois los mejores!</source>
+        <target>Ihr seid die Besten!</target>
+      </trans-unit>
+      <trans-unit id="contact.typeOptions.other" resname="CONTACT_TYPE_OTHER">
+        <source>Otro asunto</source>
+        <target>Sonstiges</target>
+      </trans-unit>
+      <trans-unit id="contact.messageLabel" resname="CONTACT_MESSAGE_LABEL">
+        <source>Mensaje</source>
+        <target>Nachricht</target>
+      </trans-unit>
+      <trans-unit id="contact.messagePlaceholder" resname="CONTACT_MESSAGE_PLACEHOLDER">
+        <source>Escribe aquí tu consulta o comentario...</source>
+        <target>Schreiben Sie hier Ihre Nachricht...</target>
+      </trans-unit>
+      <trans-unit id="contact.submitButton" resname="CONTACT_SUBMIT_BUTTON">
+        <source>Enviar mensaje</source>
+        <target>Nachricht senden</target>
+      </trans-unit>
+      <trans-unit id="contact.sending" resname="CONTACT_SENDING">
+        <source>Enviando...</source>
+        <target>Wird gesendet...</target>
+      </trans-unit>
+      <trans-unit id="contact.successTitle" resname="CONTACT_SUCCESS_TITLE">
+        <source>¡Mensaje enviado con éxito!</source>
+        <target>Nachricht erfolgreich gesendet!</target>
+      </trans-unit>
+      <trans-unit id="contact.successMessage" resname="CONTACT_SUCCESS_MESSAGE">
+        <source>Gracias por contactar con tortilladepatatas.org. Nos pondremos en contacto contigo lo antes posible.</source>
+        <target>Vielen Dank für Ihre Anfrage an tortilladepatatas.org. Wir melden uns schnellstmöglich bei Ihnen.</target>
+      </trans-unit>
+      <trans-unit id="contact.sendAnother" resname="CONTACT_SEND_ANOTHER">
+        <source>Enviar otro mensaje</source>
+        <target>Weitere Nachricht senden</target>
+      </trans-unit>
+      <trans-unit id="contact.errorMessage" resname="CONTACT_ERROR_MESSAGE">
+        <source>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.</source>
+        <target>Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.</target>
+      </trans-unit>
+      <trans-unit id="contact.errors.nameRequired" resname="CONTACT_ERROR_NAME_REQUIRED">
+        <source>Por favor, introduce tu nombre.</source>
+        <target>Bitte geben Sie Ihren Namen ein.</target>
+      </trans-unit>
+      <trans-unit id="contact.errors.emailRequired" resname="CONTACT_ERROR_EMAIL_REQUIRED">
+        <source>Por favor, introduce tu correo electrónico.</source>
+        <target>Bitte geben Sie Ihre E-Mail-Adresse ein.</target>
+      </trans-unit>
+      <trans-unit id="contact.errors.emailInvalid" resname="CONTACT_ERROR_EMAIL_INVALID">
+        <source>Por favor, introduce un correo electrónico válido.</source>
+        <target>Bitte geben Sie eine gültige E-Mail-Adresse ein.</target>
+      </trans-unit>
+      <trans-unit id="contact.errors.typeRequired" resname="CONTACT_ERROR_TYPE_REQUIRED">
+        <source>Por favor, selecciona el motivo de tu mensaje.</source>
+        <target>Bitte wählen Sie den Grund Ihrer Anfrage aus.</target>
+      </trans-unit>
+      <trans-unit id="contact.errors.messageRequired" resname="CONTACT_ERROR_MESSAGE_REQUIRED">
+        <source>Por favor, escribe un mensaje.</source>
+        <target>Bitte geben Sie eine Nachricht ein.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

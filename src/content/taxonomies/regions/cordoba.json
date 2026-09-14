@@ -1,0 +1,40 @@
+{
+  "id": "cordoba",
+  "type": "region",
+  "contentId": "region.cordoba",
+  "slug": {
+    "es": "cordoba",
+    "en": "cordoba",
+    "de": "cordoba"
+  },
+  "title": {
+    "es": "Córdoba (Andalucía)",
+    "en": "Cordoba (Andalusia)",
+    "de": "Cordoba (Andalusien)"
+  },
+  "description": {
+    "es": "Tierra de tabernas centenarias junto a la Mezquita (como Casa Santos), famosa en el mundo por sus monumentales tortillas de hasta 10 kilos, patatas cortadas en dados fritos y textura majestuosa.",
+    "en": "Historic tavern city next to the Mosque-Cathedral (like Casa Santos), world-renowned for monumental 10-kg tortillas, diced fried potatoes, and tall, majestic slices.",
+    "de": "Historische Tavernenstadt an der Mezquita (wie Casa Santos), weltberühmt für monumentale 10-Kilo-Tortillas, gewürfelte Kartoffeln und hohe Stücke."
+  },
+  "dogma": {
+    "es": "Patata cortada en dados compactos, frita con AOVE cordobés y cuajado uniforme para sostener su arquitectura monumental.",
+    "en": "Potatoes diced into compact cubes, fried in Cordoban EVOO, with uniform setting to hold its monumental architecture.",
+    "de": "In kompakte Würfel geschnittene Kartoffeln, in andalusischem AOVE frittiert mit gleichmäßiger Bindung für monumentale Schnitte."
+  },
+  "keyIngredient": {
+    "es": "AOVE de Priego de Córdoba & Patata en Dados",
+    "en": "Priego de Córdoba EVOO & Diced Potatoes",
+    "de": "Priego de Córdoba AOVE & Gewürfelte Kartoffeln"
+  },
+  "badge": {
+    "es": "Tortillas Monumentales de Taberna (10 kg)",
+    "en": "Monumental 10-kg Tavern Tortillas",
+    "de": "Monumentale 10-kg Tavernen-Tortillas"
+  },
+  "icon": "Building",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "regional_potato" },
+    { "type": "ingredient", "id": "oil", "relationship": "signature_oil" }
+  ]
+}

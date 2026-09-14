@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { Picture } from 'astro:assets';
 import FactionsPage from '@/components/factions/FactionsPage';
 import TechniquesPage from '@/components/techniques/TechniquesPage';
+import RegionalAtlas from '@/components/regions/RegionalAtlas';
 import { 
   TAXONOMY_ROUTING_MAP, 
   getTaxonomyTypeFromRoute, 
@@ -174,6 +175,9 @@ const styleTaxonomies = allTaxonomies.filter((item) => item.type === 'style');
 // REGIONS PREPARATION
 const regEntry = pagesCollection.find((p) => p.id === 'regions' || p.id.includes('regions'));
 const regContent = regEntry ? regEntry.data : null;
+const regionTaxonomies = allTaxonomies.filter((t) => t.type === 'region');
+const recipesCollection = await getCollection('recipes');
+const allRecipes = recipesCollection.map((r) => ({ id: r.id, ...r.data }));
 
 // PERSONAS PREPARATION
 const personasEntry = pagesCollection.find((p) => p.id === 'personas-index' || p.id.includes('personas-index'));
@@ -468,36 +472,32 @@ if (canonicalType === 'ingredient') {
   )}
 
   {canonicalType === 'region' && (
-    <div class="container mx-auto px-4 py-10 md:py-16 max-w-5xl space-y-12">
+    <div class="container mx-auto px-4 py-10 md:py-16 max-w-6xl space-y-12">
       <header class="text-center max-w-3xl mx-auto space-y-4">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5E6BE] text-[#8D6E63] border border-amber-300 text-xs font-bold shadow-2xs">
           <MapPin class="w-3.5 h-3.5" />
           <span>{regContent?.badge?.[currentLang] || 'Geografía Gastronómica'}</span>
         </div>
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-extrabold text-foreground">
-          {regContent?.title?.[currentLang] || 'Regiones & Variaciones de España'}
+          {regContent?.title?.[currentLang] || 'Atlas Regional de la Tortilla de Patatas'}
         </h1>
         <p class="text-base text-muted-foreground max-w-2xl mx-auto">
-          {regContent?.subtitle?.[currentLang] || 'Expresiones regionales de la tortilla de patatas.'}
+          {regContent?.subtitle?.[currentLang] || 'Un viaje enciclopédico por las 14 tradiciones, técnicas de cuajado e identidades culinarias de España.'}
         </p>
       </header>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        {(regContent?.regions || []).map((region: any) => (
-          <Card class="card-notebook p-6 space-y-3">
-            <h2 class="text-xl font-serif-heading font-bold text-foreground">
-              {region.name?.[currentLang] || region.name?.es}
-            </h2>
-            <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              {region.description?.[currentLang] || region.description?.es}
-            </p>
-          </Card>
-        ))}
-      </div>
+      <RegionalAtlas
+        client:load
+        regions={regContent?.regions || []}
+        taxonomies={regionTaxonomies}
+        recipes={allRecipes}
+        currentLang={currentLang}
+        safetyStandard={regContent?.safetyStandard}
+      />
     </div>
   )}
 
-  {!['ingredient', 'faction', 'technique', 'style'].includes(canonicalType) && (
+  {!['ingredient', 'faction', 'technique', 'style', 'region'].includes(canonicalType) && (
     <div class="container mx-auto px-4 py-10 max-w-5xl space-y-8">
       <h1 class="text-3xl font-serif-heading font-bold text-foreground">{sectionLabel}</h1>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

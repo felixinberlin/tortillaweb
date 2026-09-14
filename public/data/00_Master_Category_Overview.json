@@ -1,0 +1,49 @@
+{
+  "title": "Tortilla de Patatas - Master Category Overview",
+  "total_facts": 368,
+  "categories_count": 6,
+  "categories": [
+    {
+      "group_id": "history",
+      "group_name": "History & Historical Foundations",
+      "file_prefix": "01_History_and_Foundations",
+      "fact_count": 58,
+      "description": "18th-century agricultural treatises, CSIC archival discoveries, 1798 and 1817 manuscripts."
+    },
+    {
+      "group_id": "regions",
+      "group_name": "Regional Traditions & Local Festivals",
+      "file_prefix": "02_Regional_Traditions",
+      "fact_count": 84,
+      "description": "Día de la Tortilla, Jueves Lardero picnics, Santa Juana pilgrimages, and Spanish municipal traditions."
+    },
+    {
+      "group_id": "science",
+      "group_name": "Culinary Science & Food Safety",
+      "file_prefix": "03_Culinary_Science_and_Safety",
+      "fact_count": 122,
+      "description": "Maillard reaction, thermal coagulation of egg proteins, pasteurization, and thermal safety rules."
+    },
+    {
+      "group_id": "pop-culture",
+      "group_name": "Pop Culture, Cinema & Literature",
+      "file_prefix": "04_Pop_Culture_and_Media",
+      "fact_count": 39,
+      "description": "Spanish cinema (Airbag), Mortadelo y Filemón comic gags, literature, and television archives."
+    },
+    {
+      "group_id": "records",
+      "group_name": "World Records & Mass Events",
+      "file_prefix": "05_World_Records_and_Events",
+      "fact_count": 28,
+      "description": "Giant tortillas (Vitoria-Gasteiz, Melide), Guinness World Record claims, and notarized events."
+    },
+    {
+      "group_id": "factions",
+      "group_name": "Factions, Debates & Cultural Preferences",
+      "file_prefix": "06_Factions_and_Debates",
+      "fact_count": 37,
+      "description": "Concebollistas vs Sincebollistas, CIS national polls, and Michelin chefs statements."
+    }
+  ]
+}

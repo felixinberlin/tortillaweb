@@ -1,0 +1,11 @@
+---
+import { supportedLanguages } from '@/lib/i18n';
+import AsistentePage from '../asistente.astro';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+---
+<AsistentePage />

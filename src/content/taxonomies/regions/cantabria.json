@@ -1,0 +1,40 @@
+{
+  "id": "cantabria",
+  "type": "region",
+  "contentId": "region.cantabria",
+  "slug": {
+    "es": "cantabria",
+    "en": "cantabria",
+    "de": "kantabrien"
+  },
+  "title": {
+    "es": "Cantabria (Santander & Valles)",
+    "en": "Cantabria (Santander & Valleys)",
+    "de": "Kantabrien (Santander & Täler)"
+  },
+  "description": {
+    "es": "Cuna de la afamada tortilla rellena del norte (bonito del norte, mayonesa y lechuga), patatas de Valderredible con I.G.P. y mantequilla pasiega.",
+    "en": "Home of Northern Spain's famous stuffed tortilla (albacore tuna, homemade mayonnaise, and lettuce), Valderredible PGI potatoes, and Pasiego butter.",
+    "de": "Heimat der berühmten gefüllten Tortilla (Weißer Thunfisch, hausgemachte Mayonnaise, Salat), g.g.A. Valderredible-Kartoffeln und Pasiega-Butter."
+  },
+  "dogma": {
+    "es": "El relleno frío se integra en corte horizontal una vez reposada la tortilla base.",
+    "en": "Cold fillings are added horizontally after the base tortilla has rested.",
+    "de": "Kalte Füllungen werden waagerecht nach dem Ruhen der Basistortilla eingelegt."
+  },
+  "keyIngredient": {
+    "es": "Bonito del Norte & Patata de Valderredible",
+    "en": "Albacore Tuna & Valderredible Potato",
+    "de": "Weißer Thunfisch & Valderredible-Kartoffel"
+  },
+  "badge": {
+    "es": "Tradición Rellena del Cantábrico",
+    "en": "Cantabrian Stuffed Tradition",
+    "de": "Kantabrische Fülltradition"
+  },
+  "icon": "Anchor",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "regional_potato" },
+    { "type": "style", "id": "rellena", "relationship": "signature_style" }
+  ]
+}

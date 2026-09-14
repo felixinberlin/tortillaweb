@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="es" target-language="en" datatype="plaintext" original="footer_canon">
+    <header>
+      <tool tool-id="tortilladepatatas-i18n" tool-name="Tortilla Editorial Intelligence Footer Canon" />
+      <note priority="1">Footer brand metadata, thermal thresholds summary, and legal acknowledgements.</note>
+    </header>
+    <body>
+      <trans-unit id="footer.brandDesc" resname="FOOTER_BRAND_DESC">
+        <source>La enciclopedia gastronómica y cuaderno de laboratorio dedicado a la auténtica tortilla de patatas española.</source>
+        <target>The gastronomy encyclopedia and laboratory notebook dedicated to authentic Spanish tortilla de patatas.</target>
+      </trans-unit>
+      <trans-unit id="footer.subtitle" resname="FOOTER_SUBTITLE">
+        <source>Gastronomía, Tradición &amp; Ciencia Culinaria</source>
+        <target>Gastronomy, Tradition &amp; Culinary Science</target>
+      </trans-unit>
+      <trans-unit id="footer.exploreTitle" resname="FOOTER_EXPLORE_TITLE">
+        <source>Explorar Cuaderno</source>
+        <target>Explore Notebook</target>
+      </trans-unit>
+      <trans-unit id="footer.thermalThresholds" resname="FOOTER_THERMAL_THRESHOLDS">
+        <source>Umbrales Térmicos de Seguridad:</source>
+        <target>Thermal Safety Thresholds:</target>
+      </trans-unit>
+      <trans-unit id="footer.safeThreshold" resname="FOOTER_SAFE_THRESHOLD">
+        <source>Seguro: **70°C durante 2 minutos**</source>
+        <target>Safe: **70°C for 2 minutes**</target>
+      </trans-unit>
+      <trans-unit id="footer.cautionThreshold" resname="FOOTER_CAUTION_THRESHOLD">
+        <source>Precaución: **63°C durante 20 segundos**</source>
+        <target>Caution: **63°C for 20 seconds**</target>
+      </trans-unit>
+      <trans-unit id="footer.riskThreshold" resname="FOOTER_RISK_THRESHOLD">
+        <source>Riesgo: **4 horas** amb.</source>
+        <target>Risk: **4 hours** amb.</target>
+      </trans-unit>
+      <trans-unit id="footer.safetyTitle" resname="FOOTER_SAFETY_TITLE">
+        <source>Estándar de Seguridad Bactericida</source>
+        <target>Bactericidal Safety Standard</target>
+      </trans-unit>
+      <trans-unit id="footer.safetyText" resname="FOOTER_SAFETY_TEXT">
+        <source>Para garantizar la inocuidad microbiológica y la destrucción de Salmonella spp., el estándar de cocinado bactericida exige alcanzar **70°C durante 2 minutos** (o **63°C durante 20 segundos** como umbral intermedio). Las tortillas poco cuajadas no deben permanecer más de **4 horas** a temperatura ambiente.</source>
+        <target>To guarantee microbiological safety and destruction of Salmonella spp., the bactericidal cooking standard requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds** as a medium threshold). Runny tortillas should not remain for more than **4 hours** at ambient temperature.</target>
+      </trans-unit>
+      <trans-unit id="footer.safetyNorm" resname="FOOTER_SAFETY_NORM">
+        <source>Normativa Colectividades Real Decreto 1021/2022</source>
+        <target>Public Catering Regulation Royal Decree 1021/2022</target>
+      </trans-unit>
+      <trans-unit id="footer.viewReport" resname="FOOTER_VIEW_REPORT">
+        <source>Ver Informe</source>
+        <target>View Report</target>
+      </trans-unit>
+      <trans-unit id="footer.rights" resname="FOOTER_RIGHTS">
+        <source>Ningún derecho reservado.</source>
+        <target>No rights reserved.</target>
+      </trans-unit>
+      <trans-unit id="footer.craftedWith" resname="FOOTER_CRAFTED_WITH">
+        <source>Hecho con</source>
+        <target>Crafted with</target>
+      </trans-unit>
+      <trans-unit id="footer.forGastronomy" resname="FOOTER_FOR_GASTRONOMY">
+        <source>para los amantes de la tortilla de patatas.</source>
+        <target>for lovers of tortilla de patatas.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

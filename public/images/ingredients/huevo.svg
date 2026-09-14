@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="320" height="240" fill="none" role="img" aria-label="Huevo de Campo" class="">
+
+
+    <defs>
+      
+    <!-- Master Drop Shadow with Warm Ambient Occlusion -->
+    <filter id="egg_svg_dropShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" floodColor="#1C0A00" floodOpacity="0.38" />
+      <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000000" floodOpacity="0.25" />
+    </filter>
+
+    <!-- Deep 3D Shadow for Floating Objects -->
+    <filter id="egg_svg_deepShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="2" dy="8" stdDeviation="8" floodColor="#1A0D00" floodOpacity="0.45" />
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.3" />
+    </filter>
+
+    <!-- Soft Organic Shadow -->
+    <filter id="egg_svg_softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="3" stdDeviation="3.5" floodColor="#271505" floodOpacity="0.3" />
+    </filter>
+
+    <!-- Glossy Specular Highlight Filter -->
+    <filter id="egg_svg_glossHighlight" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Subtle Food Glisten Filter -->
+    <filter id="egg_svg_glistenGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Organic Natural Texture Filter -->
+    <filter id="egg_svg_organicTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.5   0 0 0 0 0.4   0 0 0 0 0.3  0 0 0 0.12 0" />
+      <feComposite in2="SourceGraphic" in="gl" operator="in" />
+    </filter>
+  
+      
+      <!-- Outer Watery Albumen Ring -->
+      <radialGradient id="egg_svg_albumenOuter" cx="48%" cy="45%" r="52%">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
+        <stop offset="70%" stopColor="#FEF3C7" stopOpacity="0.25" />
+        <stop offset="92%" stopColor="#FDE68A" stopOpacity="0.5" />
+        <stop offset="100%" stopColor="#D97706" stopOpacity="0" />
+      </radialGradient>
+
+      <!-- Inner Thick Gel Albumen Ring -->
+      <radialGradient id="egg_svg_albumenThick" cx="46%" cy="44%" r="48%">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.75" />
+        <stop offset="60%" stopColor="#FFFBEB" stopOpacity="0.55" />
+        <stop offset="90%" stopColor="#FEF08A" stopOpacity="0.7" />
+        <stop offset="100%" stopColor="#D97706" stopOpacity="0.3" />
+      </radialGradient>
+
+      <!-- High-Dome 3D Yolk Sphere with Subsurface Orange Scattering -->
+      <radialGradient id="egg_svg_yolk3d" cx="36%" cy="32%" r="68%">
+        <stop offset="0%" stopColor="#FFFDE7" />
+        <stop offset="18%" stopColor="#FFC800" />
+        <stop offset="55%" stopColor="#FF9500" />
+        <stop offset="85%" stopColor="#E65100" />
+        <stop offset="100%" stopColor="#9A2C00" />
+      </radialGradient>
+
+      <!-- Yolk Contact Ambient Occlusion Shadow -->
+      <radialGradient id="egg_svg_yolkContact" cx="50%" cy="50%" r="50%">
+        <stop offset="60%" stopColor="#7C2D12" stopOpacity="0.65" />
+        <stop offset="100%" stopColor="#7C2D12" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+
+    <g filter="url(#egg_svg_softShadow)">
+      <!-- 1. Outer Fluid Albumen (Thin Ring) -->
+      <path d="M 18 52 C 14 36 28 18 54 18 C 76 18 88 32 86 54 C 84 74 68 86 48 86 C 26 86 16 70 18 52 Z" fill="url(#egg_svg_albumenOuter)" />
+      
+      <!-- Outer Refraction Edge Catching Light -->
+      <path d="M 28 26 C 45 19 68 19 80 32 C 86 45 84 65 76 76" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.65" />
+
+      <!-- 2. Inner Thick Albumen Dome -->
+      <path d="M 26 50 C 24 38 34 26 52 26 C 70 26 78 36 76 52 C 74 68 62 76 48 76 C 32 76 25 64 26 50 Z" fill="url(#egg_svg_albumenThick)" />
+      <path d="M 32 34 C 44 28 62 29 70 38" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.75" />
+
+      <!-- 3. Chalaza Twisted Protein Cord -->
+      <path d="M 22 46 C 26 49 28 44 33 48 C 36 50 38 47 42 49" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85" filter="url(#egg_svg_glossHighlight)" />
+      <path d="M 62 55 C 66 58 68 53 74 57" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.8" filter="url(#egg_svg_glossHighlight)" />
+
+      <!-- 4. Yolk Contact Shadow -->
+      <ellipse cx="51" cy="53" rx="21" ry="19" fill="url(#egg_svg_yolkContact)" />
+
+      <!-- 5. 3D Golden-Orange High-Dome Yolk -->
+      <ellipse cx="50" cy="49" rx="20" ry="19" fill="url(#egg_svg_yolk3d)" />
+
+      <!-- 6. Secondary Ambient Rim Reflection -->
+      <path d="M 36 58 C 42 66 58 66 66 58" stroke="#FFD54F" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.75" />
+
+      <!-- 7. Primary Softbox Specular Highlight -->
+      <path d="M 40 38 C 45 35 48 37 47 43 C 46 47 42 48 39 45 C 37 42 38 39 40 38 Z" fill="#FFFFFF" opacity="0.9" filter="url(#egg_svg_glossHighlight)" />
+      <ellipse cx="42" cy="40" rx="3.5" ry="2" fill="#FFFFFF" opacity="0.98" />
+
+      <!-- 8. Secondary Tiny Specular Glint -->
+      <circle cx="56" cy="53" r="1.8" fill="#FFFFFF" opacity="0.7" />
+      <circle cx="38" cy="52" r="1" fill="#FFFFFF" opacity="0.5" />
+    </g>
+  
+</svg>

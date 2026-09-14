@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "@/i18n/config";
-import { ArrowRight, ChefHat, Sparkles, Users, ShieldCheck, Flame } from "lucide-react";
+import { ArrowRight, ChefHat, Sparkles, Users, ShieldCheck, Flame, Link2 } from "lucide-react";
 import { getTranslations } from "@/lib/i18n";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import { Button } from "@/components/ui/button";
@@ -118,6 +118,11 @@ export default function BuilderTeaser({ lang = "es" }: BuilderTeaserProps) {
               <div className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#2E7D32]/10 dark:bg-[#2E7D32]/20 border border-[#2E7D32]/25 text-[#2E7D32] dark:text-[#81C784] text-xs font-bold">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
                 <span>{lang === 'es' ? 'Seguridad:' : lang === 'de' ? 'Sicherheit:' : 'Safety:'} <strong>Huevo Seguro</strong></span>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#FFB800]/15 dark:bg-[#FFB800]/20 border border-[#FFB800]/30 text-foreground text-xs font-bold">
+                <Link2 className="w-4 h-4 text-[#FFB800] shrink-0" />
+                <span>{lang === 'es' ? 'Guarda tu receta en URL' : lang === 'de' ? 'Als URL speicherbar' : 'Save recipe as URL'}</span>
               </div>
             </div>
           </div>
