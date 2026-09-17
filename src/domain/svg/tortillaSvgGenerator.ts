@@ -194,6 +194,7 @@ interface RenderContext {
   showDnaMetrics: boolean;
   animated: boolean;
   animatedFlip: boolean;
+  interactive: boolean;
   lang: SvgStudioLang;
   svgId: string;
 }
@@ -202,11 +203,35 @@ interface RenderContext {
 // MASTER CSS ANIMATION STYLES (SMIL & Keyframe Engine)
 // ---------------------------------------------------------------------------
 
-function getSvgAnimationStyles(svgId: string, animated: boolean, animatedFlip: boolean): string {
-  if (!animated && !animatedFlip) return "";
+function getSvgAnimationStyles(
+  svgId: string,
+  animated: boolean,
+  animatedFlip: boolean,
+  interactive: boolean = false
+): string {
+  if (!animated && !animatedFlip && !interactive) return "";
 
   return `
     <style>
+      ${
+        interactive
+          ? `
+      /* Interactive Culinary Element Hyperlinks & Accessible Focus Styles */
+      .${svgId}_interactiveLink {
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease, opacity 0.2s ease;
+      }
+      .${svgId}_interactiveLink:hover, .${svgId}_interactiveLink:focus-visible {
+        filter: drop-shadow(0 0 10px rgba(255, 184, 0, 0.95)) brightness(1.15);
+      }
+      .${svgId}_interactiveLink:active {
+        transform: scale(0.98);
+      }
+      `
+          : ""
+      }
       @media (prefers-reduced-motion: no-preference) {
         ${
           animated
@@ -302,8 +327,50 @@ function getSvgAnimationStyles(svgId: string, animated: boolean, animatedFlip: b
             : ""
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
   `;
+}
+
+// ---------------------------------------------------------------------------
+// INTERACTIVE SVG LINK HELPERS & ACCESSIBILITY
+// ---------------------------------------------------------------------------
+
+function getInteractiveIngredientUrls(lang: SvgStudioLang) {
+  const isEs = lang === "es";
+  const isDe = lang === "de";
+  return {
+    potato: isEs ? "/es/ingredientes/patata" : isDe ? "/de/zutaten/kartoffel" : "/en/ingredients/potato",
+    egg: isEs ? "/es/ingredientes/huevo" : isDe ? "/de/zutaten/ei" : "/en/ingredients/egg",
+    oliveOil: isEs ? "/es/ingredientes/aceite-de-oliva" : isDe ? "/de/zutaten/olivenoel" : "/en/ingredients/olive-oil",
+    onion: isEs ? "/es/facciones/concebollistas" : isDe ? "/de/faktionen/concebollistas" : "/en/factions/concebollistas",
+    skillet: `/${lang}/utensilios`,
+    salt: `/${lang}/science`,
+    safety: `/${lang}/science`,
+  };
+}
+
+function wrapInteractiveLink(
+  content: string,
+  url: string,
+  tooltip: string,
+  svgId: string,
+  interactive: boolean
+): string {
+  if (!interactive) return content;
+  return `
+  <a href="${url}" class="${svgId}_interactiveLink" role="link" aria-label="${escapeXml(tooltip)}">
+    <title>${escapeXml(tooltip)}</title>
+    ${content}
+  </a>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -337,6 +404,7 @@ export function generateTortillaSvg(options: TortillaSvgOptions = {}): string {
     showDnaMetrics = false,
     animated = true,
     animatedFlip = false,
+    interactive = false,
     lang = "es",
     width = 600,
     height = 400,
@@ -346,7 +414,16 @@ export function generateTortillaSvg(options: TortillaSvgOptions = {}): string {
   const extras = normalizeExtras(options.extras);
   const ratioGPerEgg = eggCount > 0 ? Math.round(potatoWeightG / eggCount) : 100;
   const donenessPalette = getDonenessColors(doneness);
-  const svgId = options.id || `tortilla_svg_${Math.random().toString(36).substring(2, 9)}`;
+  let svgId = options.id;
+  if (!svgId) {
+    const rawKey = `${title}_${presentation}_${theme}_${doneness}_${eggCount}_${potatoWeightG}_${potatoCut}_${options.onion ? JSON.stringify(options.onion) : "no_onion"}_${options.extras ? JSON.stringify(options.extras) : "no_extras"}_${width}_${height}`;
+    let hash = 0;
+    for (let i = 0; i < rawKey.length; i++) {
+      hash = ((hash << 5) - hash) + rawKey.charCodeAt(i);
+      hash |= 0;
+    }
+    svgId = `tortilla_svg_${Math.abs(hash).toString(36)}`;
+  }
   const safeLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
 
   const renderView = VIEW_RENDERERS[presentation] || VIEW_RENDERERS.skillet_top;
@@ -369,11 +446,15 @@ export function generateTortillaSvg(options: TortillaSvgOptions = {}): string {
     showDnaMetrics,
     animated,
     animatedFlip,
+    interactive,
     lang: safeLang,
     svgId,
   });
 
-  const svgTag = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" fill="none" role="img" aria-label="${escapeXml(title)}">
+  const descText = subtitle || `${title} - Ilustración vectorial científica de tortilla de patatas`;
+  const svgTag = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" fill="none" role="img" focusable="false" preserveAspectRatio="xMidYMid meet" aria-labelledby="${svgId}_title ${svgId}_desc">
+  <title id="${svgId}_title">${escapeXml(title)}</title>
+  <desc id="${svgId}_desc">${escapeXml(descText)}</desc>
 ${content}
 </svg>`;
 
@@ -403,6 +484,7 @@ function renderSkilletTopView(ctx: RenderContext): string {
     eggCount,
     animated,
     animatedFlip,
+    interactive,
     lang,
     svgId,
   } = ctx;
@@ -414,10 +496,12 @@ function renderSkilletTopView(ctx: RenderContext): string {
 
   const i18n = getSvgStudioTranslations(lang);
   const badgeLabels = i18n.svgBadgeLabels;
+  const urls = getInteractiveIngredientUrls(lang);
+  const tooltips = i18n.interactiveTooltips;
 
   return `
   <defs>
-    ${getSvgAnimationStyles(svgId, animated, animatedFlip)}
+    ${getSvgAnimationStyles(svgId, animated, animatedFlip, interactive)}
 
     <!-- Multi-Layer Heavy Pan Drop Shadow with Ambient Occlusion -->
     <filter id="${svgId}_panShadow" x="-30%" y="-30%" width="160%" height="160%">
@@ -505,9 +589,10 @@ function renderSkilletTopView(ctx: RenderContext): string {
   }
 
   <!-- Outer Skillet Group (with 3D Flip animation support) -->
-  <g class="${animatedFlip ? `${svgId}_flipContainer` : ""}">
+  <g${animatedFlip ? ` class="${svgId}_flipContainer"` : ""}>
 
-  <!-- Skillet Handle (Heavy Forged Iron Shank + Turned Beechwood Grip) -->
+  <!-- Skillet Handle and Cast Iron Body (Interactive link to equipment & craft) -->
+  ${wrapInteractiveLink(`
   <g filter="url(#${svgId}_panShadow)">
     <!-- Forged Iron Shank Connector -->
     <path d="M 370 188 L 430 184 L 430 216 L 370 212 Z" fill="#1C1917" stroke="#44403C" stroke-width="1.5" />
@@ -532,6 +617,7 @@ function renderSkilletTopView(ctx: RenderContext): string {
     <circle cx="260" cy="200" r="132" fill="#0C0A09" />
     <circle cx="260" cy="200" r="128" fill="#1C1917" stroke="#44403C" stroke-width="1" />
   </g>
+  `, urls.skillet, tooltips.skillet, svgId, interactive)}
 
   <!-- ==================== TORTILLA SURFACE ==================== -->
   <g>
@@ -553,27 +639,27 @@ function renderSkilletTopView(ctx: RenderContext): string {
           opacity="0.6" 
           stroke-linecap="round" />
 
-    <!-- POTATO LAYER BASED ON CUT STYLE -->
-    ${renderRealisticPotatoCut(potatoCut, 260, 200, svgId)}
+    <!-- POTATO LAYER BASED ON CUT STYLE (Interactive Link) -->
+    ${wrapInteractiveLink(renderRealisticPotatoCut(potatoCut, 260, 200, svgId), urls.potato, tooltips.potato, svgId, interactive)}
 
-    <!-- CARAMELIZED ONION STRANDS -->
-    ${onionConfig.hasOnion ? renderRealisticOnion(onionConfig.style, 260, 200, svgId) : ""}
+    <!-- CARAMELIZED ONION STRANDS (Interactive Link) -->
+    ${onionConfig.hasOnion ? wrapInteractiveLink(renderRealisticOnion(onionConfig.style, 260, 200, svgId), urls.onion, tooltips.onion, svgId, interactive) : ""}
 
     <!-- EXTRA TOPPINGS (Chorizo, Jamón, Truffle, etc.) -->
     ${renderRealisticExtras(extras, 260, 200, svgId)}
 
-    <!-- DONENESS CENTER DOME / RUNNY LAVA -->
-    ${
+    <!-- DONENESS CENTER DOME / RUNNY LAVA (Interactive Link to Egg & Chemistry) -->
+    ${wrapInteractiveLink(
       !isVegan && (donenessPalette.isRunny || donenessPalette.isSuperRunny)
         ? `
     <!-- High-Gloss Molten Runny Yolk Volcano Center -->
-    <g class="${animated ? `${svgId}_yolkPulse` : ""}">
+    <g${animated ? ` class="${svgId}_yolkPulse"` : ""}>
       <ellipse cx="258" cy="196" rx="48" ry="42" fill="url(#${svgId}_runnyPool)" filter="url(#${svgId}_lavaGlow)" stroke="#EA580C" stroke-width="1.5" />
       <ellipse cx="258" cy="196" rx="38" ry="32" fill="#FFB800" opacity="0.9" />
 
       <!-- Studio Softbox Specular Highlight Curve on Molten Yolk -->
-      <path class="${animated ? `${svgId}_shimmer` : ""}" d="M 240 178 C 255 170 278 174 286 186 C 274 180 252 180 240 186 Z" fill="#FFFFFF" opacity="${donenessPalette.shineOpacity}" filter="url(#${svgId}_foodGloss)" />
-      <ellipse class="${animated ? `${svgId}_shimmer` : ""}" cx="248" cy="182" rx="5" ry="2.5" fill="#FFFFFF" opacity="0.95" transform="rotate(-15 248 182)" />
+      <path${animated ? ` class="${svgId}_shimmer"` : ""} d="M 240 178 C 255 170 278 174 286 186 C 274 180 252 180 240 186 Z" fill="#FFFFFF" opacity="${donenessPalette.shineOpacity}" filter="url(#${svgId}_foodGloss)" />
+      <ellipse${animated ? ` class="${svgId}_shimmer"` : ""} cx="248" cy="182" rx="5" ry="2.5" fill="#FFFFFF" opacity="0.95" transform="rotate(-15 248 182)" />
       <circle cx="276" cy="198" r="2.5" fill="#FFFFFF" opacity="0.8" />
       <circle cx="260" cy="214" r="2" fill="#FFFFFF" opacity="0.75" />
     </g>
@@ -583,35 +669,45 @@ function renderSkilletTopView(ctx: RenderContext): string {
     <g>
       <ellipse cx="252" cy="192" rx="34" ry="26" fill="#FACC15" opacity="0.9" />
       <ellipse cx="252" cy="192" rx="24" ry="18" fill="#FEF08A" opacity="0.8" />
-      <path class="${animated ? `${svgId}_shimmer` : ""}" d="M 238 184 C 248 178 262 180 268 188" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75" />
+      <path${animated ? ` class="${svgId}_shimmer"` : ""} d="M 238 184 C 248 178 262 180 268 188" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75" />
     </g>
-    `
-    }
+    `,
+      urls.egg,
+      tooltips.egg,
+      svgId,
+      interactive
+    )}
 
-    <!-- Sizzling Extra Virgin Olive Oil Glistening Droplets -->
-    <g class="${animated ? `${svgId}_oilGlisten1` : ""}">
+    <!-- Sizzling Extra Virgin Olive Oil Glistening Droplets (Interactive Link) -->
+    ${wrapInteractiveLink(`
+    <g${animated ? ` class="${svgId}_oilGlisten1"` : ""}>
       <circle cx="180" cy="165" r="3.5" fill="#84CC16" opacity="0.9" />
       <circle cx="180" cy="165" r="1.5" fill="#FFFFFF" />
       <circle cx="330" cy="175" r="4" fill="#EAB308" opacity="0.9" />
       <circle cx="330" cy="175" r="1.5" fill="#FFFFFF" />
     </g>
-    <g class="${animated ? `${svgId}_oilGlisten2` : ""}">
+    <g${animated ? ` class="${svgId}_oilGlisten2"` : ""}>
       <circle cx="265" cy="255" r="3" fill="#84CC16" opacity="0.9" />
       <circle cx="218" cy="130" r="3.5" fill="#EAB308" opacity="0.9" />
       <circle cx="312" cy="245" r="2.5" fill="#84CC16" opacity="0.9" />
     </g>
+    `, urls.oliveOil, tooltips.oliveOil, svgId, interactive)}
 
-    <!-- Flakes of Pyramidal Flor de Sal Scattered on Top -->
-    <polygon points="215,185 218,182 221,185 218,188" fill="#FFFFFF" opacity="0.95" />
-    <polygon points="295,160 298,157 301,160 298,163" fill="#FFFFFF" opacity="0.95" />
-    <polygon points="275,235 278,232 281,235 278,238" fill="#FFFFFF" opacity="0.9" />
-    <polygon points="230,225 232,223 234,225 232,227" fill="#FFFFFF" opacity="0.9" />
+    <!-- Flakes of Pyramidal Flor de Sal Scattered on Top (Interactive Link) -->
+    ${wrapInteractiveLink(`
+    <g>
+      <polygon points="215,185 218,182 221,185 218,188" fill="#FFFFFF" opacity="0.95" />
+      <polygon points="295,160 298,157 301,160 298,163" fill="#FFFFFF" opacity="0.95" />
+      <polygon points="275,235 278,232 281,235 278,238" fill="#FFFFFF" opacity="0.9" />
+      <polygon points="230,225 232,223 234,225 232,227" fill="#FFFFFF" opacity="0.9" />
+    </g>
+    `, urls.salt, tooltips.salt, svgId, interactive)}
 
     <!-- Sizzling Aromatic Steam Wafts -->
     <g>
-      <path class="${animated ? `${svgId}_steam1` : ""}" d="M 225 110 Q 215 85 232 65" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.3" filter="url(#${svgId}_foodGloss)" />
-      <path class="${animated ? `${svgId}_steam2` : ""}" d="M 265 105 Q 282 80 268 55" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35" filter="url(#${svgId}_foodGloss)" />
-      <path class="${animated ? `${svgId}_steam3` : ""}" d="M 300 115 Q 312 90 296 70" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.25" filter="url(#${svgId}_foodGloss)" />
+      <path${animated ? ` class="${svgId}_steam1"` : ""} d="M 225 110 Q 215 85 232 65" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.3" filter="url(#${svgId}_foodGloss)" />
+      <path${animated ? ` class="${svgId}_steam2"` : ""} d="M 265 105 Q 282 80 268 55" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35" filter="url(#${svgId}_foodGloss)" />
+      <path${animated ? ` class="${svgId}_steam3"` : ""} d="M 300 115 Q 312 90 296 70" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.25" filter="url(#${svgId}_foodGloss)" />
     </g>
   </g>
 
@@ -635,12 +731,12 @@ function renderSkilletTopView(ctx: RenderContext): string {
 
     ${
       showSafetyBadge
-        ? `
+        ? wrapInteractiveLink(`
     <rect x="330" y="331" width="142" height="28" rx="6" fill="#2E7D32" />
     <text x="401" y="349" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="bold" font-family="system-ui, sans-serif">
       ${escapeXml(i18n.safetyBadgeText)}
     </text>
-    `
+    `, urls.safety, tooltips.safety, svgId, interactive)
         : showDnaMetrics
         ? `
     <rect x="348" y="331" width="124" height="28" rx="6" fill="#FFB800" />
@@ -673,6 +769,7 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
     ratioGPerEgg,
     eggCount,
     animated,
+    interactive,
     lang,
     svgId,
   } = ctx;
@@ -680,10 +777,12 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
   const bgFill = theme === "warm_parchment" ? "#F5E6BE" : theme === "clean_minimal" ? "none" : "#1C1917";
   const i18n = getSvgStudioTranslations(lang);
   const badgeLabels = i18n.svgBadgeLabels;
+  const urls = getInteractiveIngredientUrls(lang);
+  const tooltips = i18n.interactiveTooltips;
 
   return `
   <defs>
-    ${getSvgAnimationStyles(svgId, animated, false)}
+    ${getSvgAnimationStyles(svgId, animated, false, interactive)}
 
     <!-- Master Drop Shadow with Warm Ambient Occlusion -->
     <filter id="${svgId}_pinchoShadow" x="-30%" y="-30%" width="160%" height="160%">
@@ -748,6 +847,7 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
   </g>
 
   <!-- Artisanal Crusty Rustic Bread Slice (Pan de Pueblo) Supporting the Pincho -->
+  ${wrapInteractiveLink(`
   <g filter="url(#${svgId}_pinchoShadow)">
     <!-- Bread Outer Crust Ring -->
     <ellipse cx="250" cy="275" rx="140" ry="42" fill="url(#${svgId}_breadCrust)" stroke="#451A03" stroke-width="2" transform="rotate(-8 250 275)" />
@@ -759,6 +859,7 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
     <ellipse cx="320" cy="265" rx="10" ry="5" fill="#D97706" opacity="0.4" />
     <ellipse cx="360" cy="260" rx="7" ry="3.5" fill="#D97706" opacity="0.35" />
   </g>
+  `, urls.skillet, tooltips.skillet, svgId, interactive)}
 
   <!-- ==================== 3D PINCHO WEDGE ==================== -->
   <g id="${svgId}_pinchoWedge" filter="url(#${svgId}_pinchoShadow)">
@@ -773,45 +874,53 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
     <ellipse cx="355" cy="140" rx="34" ry="14" fill="#451A03" opacity="0.35" transform="rotate(10 355 140)" />
     <ellipse cx="210" cy="180" rx="26" ry="12" fill="#92400E" opacity="0.4" transform="rotate(-20 210 180)" />
 
-    <!-- 2. Left Exposed Cut Face (Custard + Layered Sliced Potatoes) -->
-    <path d="M 160 145 L 220 260 L 220 295 L 160 185 Z" 
-          fill="url(#${svgId}_custardCore)" 
-          stroke="#B45309" 
-          stroke-width="1.5" />
-
-    <!-- 3. Right Exposed Front Cut Face (Main Cross-Section) -->
-    <path d="M 220 260 L 460 205 L 460 240 L 220 295 Z" 
-          fill="url(#${svgId}_custardCore)" 
-          stroke="#B45309" 
-          stroke-width="1.5" />
+    <!-- 2. Left Exposed Cut Face (Custard + Layered Sliced Potatoes) & 3. Right Exposed Front Cut Face -->
+    ${wrapInteractiveLink(`
+    <g>
+      <path d="M 160 145 L 220 260 L 220 295 L 160 185 Z" 
+            fill="url(#${svgId}_custardCore)" 
+            stroke="#B45309" 
+            stroke-width="1.5" />
+      <path d="M 220 260 L 460 205 L 460 240 L 220 295 Z" 
+            fill="url(#${svgId}_custardCore)" 
+            stroke="#B45309" 
+            stroke-width="1.5" />
+    </g>
+    `, urls.egg, tooltips.egg, svgId, interactive)}
 
     <!-- ================= LAYERED INGREDIENTS IN CROSS SECTION ================= -->
-    <!-- Tender Confit Potato Slices Embedded in Cut Face -->
-    <!-- Slice 1 (Top Left) -->
-    <ellipse cx="190" cy="195" rx="22" ry="9" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.2" transform="rotate(25 190 195)" />
-    <ellipse cx="190" cy="195" rx="16" ry="6" fill="#FFFBEB" opacity="0.75" transform="rotate(25 190 195)" />
+    <!-- Tender Confit Potato Slices Embedded in Cut Face (Interactive Link) -->
+    ${wrapInteractiveLink(`
+    <g>
+      <!-- Slice 1 (Top Left) -->
+      <ellipse cx="190" cy="195" rx="22" ry="9" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.2" transform="rotate(25 190 195)" />
+      <ellipse cx="190" cy="195" rx="16" ry="6" fill="#FFFBEB" opacity="0.75" transform="rotate(25 190 195)" />
 
-    <!-- Slice 2 (Bottom Left) -->
-    <ellipse cx="200" cy="240" rx="18" ry="8" fill="#FDE047" stroke="#CA8A04" stroke-width="1.2" transform="rotate(-15 200 240)" />
+      <!-- Slice 2 (Bottom Left) -->
+      <ellipse cx="200" cy="240" rx="18" ry="8" fill="#FDE047" stroke="#CA8A04" stroke-width="1.2" transform="rotate(-15 200 240)" />
 
-    <!-- Slice 3 (Center Front) -->
-    <ellipse cx="270" cy="270" rx="28" ry="10" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.2" transform="rotate(-10 270 270)" />
-    <ellipse cx="270" cy="270" rx="20" ry="7" fill="#FFFBEB" opacity="0.75" transform="rotate(-10 270 270)" />
+      <!-- Slice 3 (Center Front) -->
+      <ellipse cx="270" cy="270" rx="28" ry="10" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.2" transform="rotate(-10 270 270)" />
+      <ellipse cx="270" cy="270" rx="20" ry="7" fill="#FFFBEB" opacity="0.75" transform="rotate(-10 270 270)" />
 
-    <!-- Slice 4 (Center Mid) -->
-    <ellipse cx="350" cy="245" rx="30" ry="11" fill="#FDE047" stroke="#CA8A04" stroke-width="1.2" transform="rotate(12 350 245)" />
+      <!-- Slice 4 (Center Mid) -->
+      <ellipse cx="350" cy="245" rx="30" ry="11" fill="#FDE047" stroke="#CA8A04" stroke-width="1.2" transform="rotate(12 350 245)" />
 
-    <!-- Slice 5 (Right Edge) -->
-    <ellipse cx="420" cy="225" rx="22" ry="9" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.2" transform="rotate(-18 420 225)" />
+      <!-- Slice 5 (Right Edge) -->
+      <ellipse cx="420" cy="225" rx="22" ry="9" fill="#FEF08A" stroke="#CA8A04" stroke-width="1.2" transform="rotate(-18 420 225)" />
+    </g>
+    `, urls.potato, tooltips.potato, svgId, interactive)}
 
-    <!-- ONION STRANDS IN CROSS-SECTION -->
+    <!-- ONION STRANDS IN CROSS-SECTION (Interactive Link) -->
     ${
       onionConfig.hasOnion
-        ? `
-    <path d="M 180 175 Q 200 200 215 185" stroke="#8D6E63" stroke-width="3.5" fill="none" stroke-linecap="round" />
-    <path d="M 240 270 Q 290 255 330 268" stroke="#8D6E63" stroke-width="4" fill="none" stroke-linecap="round" />
-    <path d="M 340 240 Q 380 230 420 240" stroke="#8D6E63" stroke-width="3.5" fill="none" stroke-linecap="round" />
-    `
+        ? wrapInteractiveLink(`
+    <g>
+      <path d="M 180 175 Q 200 200 215 185" stroke="#8D6E63" stroke-width="3.5" fill="none" stroke-linecap="round" />
+      <path d="M 240 270 Q 290 255 330 268" stroke="#8D6E63" stroke-width="4" fill="none" stroke-linecap="round" />
+      <path d="M 340 240 Q 380 230 420 240" stroke="#8D6E63" stroke-width="3.5" fill="none" stroke-linecap="round" />
+    </g>
+    `, urls.onion, tooltips.onion, svgId, interactive)
         : ""
     }
 
@@ -874,11 +983,11 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
         : ""
     }
 
-    <!-- ================= MOLTEN YOLK LAVA WATERFALL ================= -->
+    <!-- ================= MOLTEN YOLK LAVA WATERFALL (Interactive Link to Egg) ================= -->
     ${
       donenessPalette.isRunny || donenessPalette.isSuperRunny
-        ? `
-    <g class="${animated ? `${svgId}_lavaWaterfall` : ""}">
+        ? wrapInteractiveLink(`
+    <g${animated ? ` class="${svgId}_lavaWaterfall"` : ""}>
       <!-- Cascading Liquid Yolk River Down the Front Tip Onto Bread -->
       <path d="M 215 250 C 215 270 205 295 218 310 C 235 320 260 315 255 295 C 252 278 238 265 225 250 Z" 
             fill="url(#${svgId}_liquidYolkFlow)" 
@@ -894,7 +1003,7 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
       <ellipse cx="245" cy="308" rx="16" ry="6" fill="#FFFBEB" opacity="0.75" />
       <circle cx="218" cy="282" r="2" fill="#FFFFFF" />
     </g>
-    `
+    `, urls.egg, tooltips.egg, svgId, interactive)
         : ""
     }
 
@@ -903,14 +1012,20 @@ function renderSlicedPinchoView(ctx: RenderContext): string {
     <path d="M 330 65 L 332 140" stroke="#FFFFFF" stroke-width="1.5" opacity="0.75" />
   </g>
 
-  <!-- Glistening Extra Virgin Olive Oil Drizzle & Flaky Salt on Wedge -->
-  <g class="${animated ? `${svgId}_oilGlisten1` : ""}">
+  <!-- Glistening Extra Virgin Olive Oil Drizzle & Flaky Salt on Wedge (Interactive Links) -->
+  ${wrapInteractiveLink(`
+  <g${animated ? ` class="${svgId}_oilGlisten1"` : ""}>
     <circle cx="310" cy="210" r="3.5" fill="#84CC16" opacity="0.9" />
     <circle cx="310" cy="210" r="1.5" fill="#FFFFFF" />
     <circle cx="215" cy="175" r="4" fill="#EAB308" opacity="0.9" />
   </g>
-  <polygon points="345,150 348,147 351,150 348,153" fill="#FFFFFF" opacity="0.95" />
-  <polygon points="265,175 268,172 271,175 268,178" fill="#FFFFFF" opacity="0.95" />
+  `, urls.oliveOil, tooltips.oliveOil, svgId, interactive)}
+  ${wrapInteractiveLink(`
+  <g>
+    <polygon points="345,150 348,147 351,150 348,153" fill="#FFFFFF" opacity="0.95" />
+    <polygon points="265,175 268,172 271,175 268,178" fill="#FFFFFF" opacity="0.95" />
+  </g>
+  `, urls.salt, tooltips.salt, svgId, interactive)}
 
   <!-- BADGE AND OVERLAY INFO -->
   ${
@@ -951,6 +1066,7 @@ function renderDuoPanSliceView(ctx: RenderContext): string {
     ratioGPerEgg,
     eggCount,
     animated,
+    interactive,
     lang,
     svgId,
   } = ctx;
@@ -958,10 +1074,12 @@ function renderDuoPanSliceView(ctx: RenderContext): string {
   const bgFill = theme === "warm_parchment" ? "#F5E6BE" : theme === "clean_minimal" ? "none" : "#1C1917";
   const i18n = getSvgStudioTranslations(lang);
   const badgeLabels = i18n.svgBadgeLabels;
+  const urls = getInteractiveIngredientUrls(lang);
+  const tooltips = i18n.interactiveTooltips;
 
   return `
   <defs>
-    ${getSvgAnimationStyles(svgId, animated, false)}
+    ${getSvgAnimationStyles(svgId, animated, false, interactive)}
 
     <radialGradient id="${svgId}_panGlowDuo" cx="44%" cy="40%" r="60%">
       <stop offset="0%" stopColor="${donenessPalette.yolkGlowStart}" />
@@ -979,19 +1097,23 @@ function renderDuoPanSliceView(ctx: RenderContext): string {
 
   <!-- Left: Sizzling Pan -->
   <g transform="translate(-60, -5)" filter="url(#${svgId}_duoShadow)">
+    ${wrapInteractiveLink(`
     <circle cx="230" cy="190" r="128" fill="#1C1917" stroke="#44403C" stroke-width="4" />
+    `, urls.skillet, tooltips.skillet, svgId, interactive)}
+    ${wrapInteractiveLink(`
     <circle cx="230" cy="190" r="115" fill="url(#${svgId}_panGlowDuo)" />
-    ${renderRealisticPotatoCut(potatoCut, 230, 190, svgId)}
-    ${onionConfig.hasOnion ? renderRealisticOnion(onionConfig.style, 230, 190, svgId) : ""}
+    `, urls.egg, tooltips.egg, svgId, interactive)}
+    ${wrapInteractiveLink(renderRealisticPotatoCut(potatoCut, 230, 190, svgId), urls.potato, tooltips.potato, svgId, interactive)}
+    ${onionConfig.hasOnion ? wrapInteractiveLink(renderRealisticOnion(onionConfig.style, 230, 190, svgId), urls.onion, tooltips.onion, svgId, interactive) : ""}
     ${renderRealisticExtras(extras, 230, 190, svgId)}
     ${
       donenessPalette.isRunny
-        ? `
-    <g class="${animated ? `${svgId}_yolkPulse` : ""}">
+        ? wrapInteractiveLink(`
+    <g${animated ? ` class="${svgId}_yolkPulse"` : ""}>
       <circle cx="230" cy="190" r="32" fill="#FFB800" stroke="#FF8A00" stroke-width="1.5" />
       <ellipse cx="222" cy="182" rx="10" ry="5" fill="#FFFFFF" opacity="0.85" transform="rotate(-20 222 182)" />
     </g>
-    `
+    `, urls.egg, tooltips.egg, svgId, interactive)
         : ""
     }
   </g>
@@ -1000,23 +1122,31 @@ function renderDuoPanSliceView(ctx: RenderContext): string {
   <g transform="translate(135, 10)" filter="url(#${svgId}_duoShadow)">
     <ellipse cx="320" cy="200" rx="125" ry="85" fill="#FAF8F5" stroke="#E5E0D8" stroke-width="4" />
     <ellipse cx="320" cy="200" rx="108" ry="70" fill="#FFFFFF" stroke="#F0EBE1" stroke-width="2" />
-    <!-- Pincho wedge -->
-    <polygon points="260,165 370,135 405,195 295,225" fill="#F59E0B" stroke="#78350F" stroke-width="2" />
-    <polygon points="260,165 295,225 295,250 260,190" fill="#FEF08A" stroke="#B45309" stroke-width="1.5" />
-    <polygon points="295,225 405,195 405,220 295,250" fill="#FDE047" stroke="#B45309" stroke-width="1.5" />
-    <!-- Potato in cross-section -->
-    <ellipse cx="280" cy="215" rx="14" ry="6" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
-    <ellipse cx="350" cy="210" rx="16" ry="7" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+    <!-- Pincho wedge (Egg Custard Base) -->
+    ${wrapInteractiveLink(`
+    <g>
+      <polygon points="260,165 370,135 405,195 295,225" fill="#F59E0B" stroke="#78350F" stroke-width="2" />
+      <polygon points="260,165 295,225 295,250 260,190" fill="#FEF08A" stroke="#B45309" stroke-width="1.5" />
+      <polygon points="295,225 405,195 405,220 295,250" fill="#FDE047" stroke="#B45309" stroke-width="1.5" />
+    </g>
+    `, urls.egg, tooltips.egg, svgId, interactive)}
+    <!-- Potato in cross-section (Interactive Link) -->
+    ${wrapInteractiveLink(`
+    <g>
+      <ellipse cx="280" cy="215" rx="14" ry="6" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+      <ellipse cx="350" cy="210" rx="16" ry="7" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+    </g>
+    `, urls.potato, tooltips.potato, svgId, interactive)}
     ${
       donenessPalette.isRunny
-        ? `
+        ? wrapInteractiveLink(`
     <!-- Runny lava stream -->
-    <g class="${animated ? `${svgId}_lavaWaterfall` : ""}">
+    <g${animated ? ` class="${svgId}_lavaWaterfall"` : ""}>
       <path d="M 290 225 C 290 245 282 265 295 272 C 308 275 315 260 305 245 Z" fill="#FFB800" stroke="#FF8A00" stroke-width="1.2" />
       <ellipse cx="298" cy="265" rx="12" ry="4" fill="#FFB800" opacity="0.9" />
       <ellipse cx="292" cy="245" rx="2" ry="6" fill="#FFFFFF" opacity="0.8" />
     </g>
-    `
+    `, urls.egg, tooltips.egg, svgId, interactive)
         : ""
     }
   </g>

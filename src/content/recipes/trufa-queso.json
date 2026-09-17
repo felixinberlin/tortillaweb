@@ -32,7 +32,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 20,
   "yieldServings": 4,
-  "image": "/images/recipes/truffle.jpg",
+  "image": "/images/recipes/truffle.svg",
   "ingredients": [
     {
       "id": "potato",

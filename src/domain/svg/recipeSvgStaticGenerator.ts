@@ -2,6 +2,22 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { recipeToSvgOptions, generateTortillaSvg, type TortillaSvgOptions } from './tortillaSvgGenerator';
 import { INGREDIENT_SVG_REGISTRY } from './ingredients';
+import { optimizeSvg } from './svgOptimizer';
+
+function writeFileIfChanged(filePath: string, content: string): boolean {
+  if (fs.existsSync(filePath)) {
+    try {
+      const existing = fs.readFileSync(filePath, 'utf-8');
+      if (existing === content) {
+        return false;
+      }
+    } catch {
+      // Fall through to write
+    }
+  }
+  fs.writeFileSync(filePath, content, 'utf-8');
+  return true;
+}
 
 export interface GeneratorOptions {
   recipesDir?: string;
@@ -51,6 +67,22 @@ export const INGREDIENT_FILE_MAPPINGS: Record<string, string> = {
   'sobrasada.svg': 'sobrasada',
   'garbanzo.svg': 'chickpea',
   'chickpea.svg': 'chickpea',
+  'potato_editorial_card.svg': 'potato',
+  'potato_ingredient_card.svg': 'potato',
+  'egg_editorial_card.svg': 'egg',
+  'egg_ingredient_card.svg': 'egg',
+  'olive_oil_editorial_card.svg': 'olive_oil',
+  'olive_oil_aromatics_card.svg': 'olive_oil',
+  'garlic_editorial_card.svg': 'garlic',
+  'garlic_ingredient_card.svg': 'garlic',
+  'onion_editorial_card.svg': 'onion',
+  'onion_ingredient_card.svg': 'onion',
+  'pepper_editorial_card.svg': 'peppers',
+  'pepper_ingredient_card.svg': 'peppers',
+  'peppers_editorial_card.svg': 'peppers',
+  'salt_editorial_card.svg': 'salt',
+  'salt_ingredient_card.svg': 'salt',
+  'black_pepper_editorial_card.svg': 'salt',
 };
 
 /**
@@ -75,13 +107,18 @@ export function generateAllIngredientSvgs(
         height: 240,
       });
 
-      // Ensure valid standalone XML document
-      const standaloneSvg = rawSvg.startsWith('<?xml')
-        ? rawSvg
-        : `<?xml version="1.0" encoding="UTF-8"?>\n${rawSvg}`;
+      // Optimize and ensure valid standalone XML document
+      const standaloneSvg = optimizeSvg(rawSvg, {
+        xmlDeclaration: true,
+        stripComments: true,
+        minifyWhitespace: true,
+        cleanEmptyAttributes: true,
+        ensureA11y: true,
+        title: `Ingrediente: ${moduleId}`,
+      });
 
       const filePath = path.join(outputDir, filename);
-      fs.writeFileSync(filePath, standaloneSvg, 'utf-8');
+      writeFileIfChanged(filePath, standaloneSvg);
       generated.push(filename);
     }
   }
@@ -100,17 +137,24 @@ export function generateRecipeSvg(
 ): string[] {
   const options = recipeToSvgOptions(recipeData, {
     theme: 'kitchen_dark',
-    showBadge: true,
+    showBadge: false,
     animated: false, // Pure vector presentation for static files
+    width: 600,
+    height: 400,
     ...overrides,
   });
 
   const svgContent = generateTortillaSvg(options);
 
-  // Ensure valid standalone XML document
-  const standaloneSvg = svgContent.startsWith('<?xml')
-    ? svgContent
-    : `<?xml version="1.0" encoding="UTF-8"?>\n${svgContent}`;
+  // Optimize and ensure valid standalone XML document
+  const standaloneSvg = optimizeSvg(svgContent, {
+    xmlDeclaration: true,
+    stripComments: true,
+    minifyWhitespace: true,
+    cleanEmptyAttributes: true,
+    ensureA11y: true,
+    title: options.title || recipeData?.title?.es || recipeId,
+  });
 
   const savedFiles: string[] = [];
 
@@ -119,7 +163,7 @@ export function generateRecipeSvg(
       fs.mkdirSync(dir, { recursive: true });
     }
     const targetFile = path.join(dir, `${recipeId}.svg`);
-    fs.writeFileSync(targetFile, standaloneSvg, 'utf-8');
+    writeFileIfChanged(targetFile, standaloneSvg);
     savedFiles.push(targetFile);
 
     // Also write aliases if recipe has alternate slug or custom image basename
@@ -136,7 +180,7 @@ export function generateRecipeSvg(
 
     for (const alias of aliases) {
       const aliasFile = path.join(dir, `${alias}.svg`);
-      fs.writeFileSync(aliasFile, standaloneSvg, 'utf-8');
+      writeFileIfChanged(aliasFile, standaloneSvg);
       savedFiles.push(aliasFile);
     }
   }

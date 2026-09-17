@@ -8,7 +8,7 @@ slug: "zutaten/ei"
 category: "ingredient"
 ingredient: "egg"
 scientificName: "Gallus gallus domesticus"
-image: "/images/ingredients/egg_editorial_card.jpg"
+image: "/images/ingredients/egg_editorial_card.svg"
 seo:
   canonical: "https://tortilladepatatas.org/de/zutaten/ei"
   keywords:

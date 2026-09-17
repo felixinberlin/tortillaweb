@@ -155,14 +155,14 @@ const sidebarLabels = {
               class="group relative block rounded-xl overflow-hidden border-2 border-[#2E7D32]/30 shadow-sm hover:border-[#2E7D32] transition-colors max-w-[220px]"
               title="Real Decreto 1021/2022 BOE"
             >
-              <Picture
-                src="/images/normativa-1021-2022.jpg"
+              <img
+                src="/images/normativa-1021-2022.svg"
                 width={220}
                 height={311}
-                formats={['avif', 'webp']}
-                widths={[220, 440]}
                 alt="Normativa Colectividades Real Decreto 1021/2022"
-                class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-auto object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                decoding="async"
               />
               <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-end p-2">
                 <span class="text-[10px] font-bold text-white bg-[#2E7D32] px-2 py-0.5 rounded shadow-2xs flex items-center gap-1">

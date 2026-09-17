@@ -1,0 +1,398 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import {
+  generateBreadcrumbSchema,
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+  generateFAQSchema,
+  SITE_URL,
+} from '@/lib/seo';
+import { MonoFoodBenchmark } from '@/components/comparator/MonoFoodBenchmark';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub';
+import {
+  Trophy,
+  Scale,
+  Flame,
+  ShieldCheck,
+  Globe2,
+  Sparkles,
+  Award,
+  BookOpen,
+  ArrowRight,
+  CheckCircle2,
+  AlertTriangle,
+  Lightbulb,
+  FileCode2,
+} from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+const currentPath = `/${currentLang}/mono-food`;
+
+// Multilingual Meta Content
+const metaTitles = {
+  es: 'Índice Mundial de Webs Monotemáticas: De Berlín a Nápoles | tortilladepatatas.org',
+  en: 'Global Single-Food Web Benchmark: From Berlin to Naples | tortilladepatatas.org',
+  de: 'Globaler Mono-Food Web-Vergleich: Von Berlin bis Neapel | tortilladepatatas.org',
+};
+
+const metaDescriptions = {
+  es: 'Auditoría comparativa mundial de proyectos monográficos de comida: Döner Museum, AVPN Pizza, Cocido, Raumen y por qué tortilladepatatas.org lidera en ciencia, código y rigor.',
+  en: 'The definitive global benchmark of single-dish culinary projects: Döner Museum, AVPN Pizza, Cocido, Raumen, and why tortilladepatatas.org sets the world standard.',
+  de: 'Der weltweite Benchmark für Single-Dish-Archive: Döner Museum, AVPN Pizza, Cocido, Raumen und warum tortilladepatatas.org weltweit Maßstäbe in Wissenschaft und Code setzt.',
+};
+
+const pageTitle = metaTitles[currentLang];
+const pageDescription = metaDescriptions[currentLang];
+
+// Structured Schemas
+const breadcrumbItems = [
+  { name: currentLang === 'es' ? 'Inicio' : currentLang === 'de' ? 'Startseite' : 'Home', url: `/${currentLang}` },
+  { name: currentLang === 'es' ? 'Laboratorio' : currentLang === 'de' ? 'Labor' : 'Lab', url: `/${currentLang}/laboratorio` },
+  { name: currentLang === 'es' ? 'Benchmark Mono-Food' : currentLang === 'de' ? 'Mono-Food Benchmark' : 'Single-Food Benchmark', url: currentPath },
+];
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+const orgSchema = generateOrganizationSchema();
+const webSiteSchema = generateWebSiteSchema();
+
+const faqs = [
+  {
+    question: currentLang === 'es' 
+      ? '¿Qué diferencia a tortilladepatatas.org de los blogs y webs de recetas tradicionales?'
+      : currentLang === 'de'
+      ? 'Was unterscheidet tortilladepatatas.org von typischen Rezept-Websites?'
+      : 'What makes tortilladepatatas.org fundamentally different from traditional recipe blogs?',
+    answer: currentLang === 'es'
+      ? 'A diferencia de las granjas de contenido que acumulan 40.000 recetas genéricas repletas de anuncios y textos vacíos, tortilladepatatas.org es un grafo de conocimiento monográfico vivo. Emplea un motor de cálculo paramétrico con estado URL, física térmica bactericida estricta (70°C por 2 minutos para esterilización y 63°C por 20 segundos para coagulación melosa), cero muros de pago y contraste histórico de fuentes archivísticas primarias (Villanueva de la Serena, 1798).'
+      : currentLang === 'de'
+      ? 'Im Gegensatz zu Content-Farmen mit 40.000 generischen Rezepten und aggressiver Werbung ist tortilladepatatas.org ein lebendiger monotematischer Wissensgraph. Die Plattform nutzt einen parametrischen Berechnungs-Motor mit URL-Zustand, strikte mikrobiologische Sicherheitsgrenzen (70°C für 2 Minuten zur Entkeimung, 63°C für 20 Sekunden für cremige Konsistenz) und strenge Quellenkritik (1798 Villanueva de la Serena).'
+      : 'Unlike generic ad-mills hosting 40,000 scraped recipes behind intrusive popups, tortilladepatatas.org is a living monographic knowledge graph. It features a parametric recipe engine with zero-login URL-encoded state, strict bactericidal safety standards (70°C for 2 minutes for complete pasteurization, 63°C for 20 seconds for custard creaminess), zero paywalls, and archival source verification from 1798.',
+  },
+  {
+    question: currentLang === 'es'
+      ? '¿Por qué fracasan o quiebran los museos físicos de comida como el Currywurst Museum o Pizza Brain?'
+      : currentLang === 'de'
+      ? 'Warum scheitern physische Food-Museen wie das Currywurst Museum oder Pizza Brain?'
+      : 'Why do physical novelty food museums like the Currywurst Museum or Pizza Brain shut down?',
+    answer: currentLang === 'es'
+      ? 'Los museos físicos de un solo plato suelen caer en la trampa del kitsch (muñecos de plástico, sofás con forma de salchicha y fotos para Instagram) sin suficiente profundidad académica ni utilidad culinaria práctica. Cuando los costes de alquiler comercial se disparan o el turismo de masas disminuye, quiebran. En cambio, una plataforma digital de código abierto y arquitectura estática serverless sobrevive indefinidamente sin gastos de alquiler inmobiliario.'
+      : currentLang === 'de'
+      ? 'Physische Single-Dish-Museen tappen oft in die Kitschfalle (Plastikfiguren, Würstchensofas, Instagram-Fotowände) ohne echte wissenschaftliche Substanz oder praktischen Nutzen. Steigende Gewerbemieten und nachlassender Tourismus führen unausweichlich zur Schließung. Ein digitaler Open-Access-Wissensgraph hingegen existiert dauerhaft auf Edge-Netzwerken ohne Immobilienkosten.'
+      : 'Physical single-dish museums often fall into the novelty kitsch trap (fiberglass mascots, plush hot-dog sofas, Instagram photo ops) with little scientific depth or everyday cooking utility. When commercial leases escalate or novelty fades, they collapse. In contrast, an open-access digital knowledge graph built on edge-distributed architecture survives permanently without real estate overheads.',
+  },
+  {
+    question: currentLang === 'es'
+      ? '¿Cuál es el canon de seguridad bactericida para la tortilla española?'
+      : currentLang === 'de'
+      ? 'Was ist der verbindliche hygienische Sicherheitsstandard für Tortilla Española?'
+      : 'What is the mandatory bactericidal safety standard for Spanish potato omelette?',
+    answer: currentLang === 'es'
+      ? 'El estándar de oro científico auditado exige alcanzar 70°C durante 2 minutos en el núcleo térmico para garantizar la eliminación total de Salmonella. Para tortillas melosas tipo Betanzos a 63°C durante 20 segundos, debe consumirse de inmediato y jamás superar las 4 horas a temperatura ambiente antes de su refrigeración estricta por debajo de 8°C.'
+      : currentLang === 'de'
+      ? 'Der wissenschaftliche Goldstandard verlangt das Erreichen von 70°C für 2 Minuten im Kern, um Salmonellen sicher abzutöten. Für flüssige Betanzos-Varianten bei 63°C für 20 Sekunden gilt strikter Sofortverzehr und ein maximales Zeitfenster von 4 Stunden bei Raumtemperatur, bevor auf unter 8°C gekühlt werden muss.'
+      : 'The gold scientific standard mandates reaching 70°C for 2 minutes at the thermal core for complete Salmonella deactivation. For runny, custard-style Betanzos tortillas reaching 63°C for 20 seconds, immediate consumption is required and the dish must never exceed 4 hours at ambient temperature before refrigeration below 8°C.',
+  },
+  {
+    question: currentLang === 'es'
+      ? '¿Qué es el Protocolo Abierto de la Tortilla (Open Tortilla Standard)?'
+      : currentLang === 'de'
+      ? 'Was ist das Offene Tortilla-Protokoll (Open Tortilla Standard)?'
+      : 'What is the Open Tortilla Protocol (Open Tortilla Standard)?',
+    answer: currentLang === 'es'
+      ? 'Es una especificación digital abierta que estandariza la receta de la tortilla mediante parámetros URL y esquema JSON-LD. Permite a restaurantes, bares y críticos gastronómicos generar insignias vectoriales SVG independientes, declarar porcentajes de almidón y certificar la temperatura de cuajado sin intermediarios ni muros de pago.'
+      : currentLang === 'de'
+      ? 'Ein offener digitaler Standard, der Tortilla-Rezepturen über URL-Parameter und JSON-LD codiert. Restaurants, Bars und Gastrokritiker können damit verlustfreie SVG-Vektorbadges einbetten und Garstufen unabhängig zertifizieren.'
+      : 'An open digital specification standardizing tortilla recipe DNA through URL state parameters and JSON-LD schemas. It enables restaurants, taverns, and culinary writers to embed pure SVG badges and certify thermal coagulation levels without proprietary lock-in.',
+  },
+];
+
+const faqSchema = generateFAQSchema(faqs);
+
+const itemPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemPage',
+  '@id': `${SITE_URL}${currentPath}#itempage`,
+  url: `${SITE_URL}${currentPath}`,
+  name: pageTitle,
+  description: pageDescription,
+  about: [
+    { '@type': 'Thing', name: 'Tortilla de patatas' },
+    { '@type': 'Thing', name: 'Spanish omelette' },
+    { '@type': 'Thing', name: 'Döner Kebab' },
+    { '@type': 'Thing', name: 'Neapolitan Pizza STG' },
+    { '@type': 'Thing', name: 'Cocido Madrileño' },
+    { '@type': 'Thing', name: 'Ramen' },
+    { '@type': 'Thing', name: 'Belgian Fries' },
+    { '@type': 'Thing', name: 'Culinary Science' },
+    { '@type': 'Thing', name: 'Single-Dish Gastronomy' },
+  ],
+  publisher: {
+    '@id': `${SITE_URL}/#organization`,
+  },
+};
+
+const combinedSchemas = [orgSchema, webSiteSchema, breadcrumbSchema, faqSchema, itemPageSchema];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  lang={currentLang}
+  schema={combinedSchemas}
+  breadcrumbs={breadcrumbItems}
+>
+  <main class="w-full max-w-7xl mx-auto px-4 py-8 md:py-12 space-y-12">
+    {/* Hero Section: Editorial Kitchen Notebook */}
+    <header class="relative p-6 md:p-10 rounded-3xl bg-[#FAF4E8] dark:bg-[#1C1613] border-3 border-[#8D6E63]/25 shadow-md overflow-hidden space-y-6">
+      {/* Decorative Stamp & Parchment Accents */}
+      <div class="absolute -right-6 -bottom-6 w-36 h-36 rounded-full border-4 border-dashed border-[#FFB800]/25 pointer-events-none rotate-12 flex items-center justify-center opacity-70">
+        <span class="text-[11px] font-black uppercase tracking-widest text-[#8D6E63]/40 text-center font-mono">
+          CANON<br />MONO-FOOD<br />AUDIT
+        </span>
+      </div>
+
+      <div class="space-y-3 max-w-3xl">
+        {/* Badge */}
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] text-xs font-black tracking-wide">
+          <Trophy class="w-4 h-4 text-[#FFB800]" />
+          <span>
+            {currentLang === 'es'
+              ? 'BENCHMARK CULINARIO GLOBAL'
+              : currentLang === 'de'
+              ? 'WELTWEITER BENCHMARK'
+              : 'GLOBAL MONO-FOOD BENCHMARK'}
+          </span>
+        </div>
+
+        {/* Display Heading */}
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-serif text-[#3E2723] dark:text-[#FAF4E8] tracking-tight leading-[1.15]">
+          {currentLang === 'es' ? (
+            <>
+              El Índice Global de Gastronomía Monotemática: <br />
+              <span class="text-[#FFB800] dark:text-[#FFB800]">De Berlín a Nápoles</span>, la Tortilla Lidera el Mundo
+            </>
+          ) : currentLang === 'de' ? (
+            <>
+              Der Globale Mono-Food Web-Vergleich: <br />
+              <span class="text-[#FFB800]">Von Berlin bis Neapel</span>, die Tortilla setzt Maßstäbe
+            </>
+          ) : (
+            <>
+              The Global Mono-Food Web Benchmark: <br />
+              <span class="text-[#FFB800]">From Berlin to Naples</span>, Tortilla Outclasses the World
+            </>
+          )}
+        </h1>
+
+        {/* Lead Paragraph */}
+        <p class="text-base sm:text-lg text-[#3E2723] dark:text-[#D7CCC8] leading-relaxed font-serif">
+          {currentLang === 'es' ? (
+            <>
+              Del <strong>Dönermuseum</strong> de Berlín a la fortaleza legal de la <strong>AVPN</strong> en Nápoles, pasando por los 4.500 utensilios del <strong>Cocido en Lalín</strong> y la extinción de <strong>Pizza Brain</strong> en Filadelfia: una auditoría científica, sociológica y descarada sobre cómo la red digitaliza sus mayores obsesiones culinarias.
+            </>
+          ) : currentLang === 'de' ? (
+            <>
+              Vom <strong>Dönermuseum</strong> in Berlin über die STG-Vorschriften der <strong>AVPN</strong> in Neapel bis zum Schicksal von <strong>Pizza Brain</strong> in Philadelphia: Ein schonungsloser Audit darüber, wie das Web die großen kulinarischen Monumente der Menschheit digitalisiert.
+            </>
+          ) : (
+            <>
+              From Berlin’s <strong>Döner Museum</strong> to Naples’s <strong>AVPN</strong> pizza fortress, the 4,500 artifacts of <strong>Galician Cocido</strong>, and the tragic eviction of <strong>Pizza Brain</strong> in Philadelphia: an unfiltered scientific audit of single-dish culinary projects.
+            </>
+          )}
+        </p>
+      </div>
+
+      {/* Safety Canon Callout Banner (Mandatory Bolding Compliance) */}
+      <div class="p-4 bg-white dark:bg-[#251D18] rounded-2xl border-l-4 border-[#2E7D32] shadow-xs text-xs sm:text-sm text-[#3E2723] dark:text-[#FAF4E8] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0" />
+          <span>
+            {currentLang === 'es' ? (
+              <>
+                Estándar de Oro Térmico Auditado: Pasteurización total a <strong>70°C por 2 minutos</strong>. Coagulación melosa a <strong>63°C por 20 segundos</strong> y consumo en menos de <strong>4 horas</strong>.
+              </>
+            ) : currentLang === 'de' ? (
+              <>
+                Auditiertes mikrobiologisches Goldstandard-Kanon: Entkeimung bei <strong>70°C für 2 Minuten</strong>. Cremige Stockung bei <strong>63°C für 20 Sekunden</strong> und Verzehr innerhalb von <strong>4 Stunden</strong>.
+              </>
+            ) : (
+              <>
+                Audited Core Safety Canon: Complete pasteurization at <strong>70°C for 2 minutes</strong>. Custard creaminess at <strong>63°C for 20 seconds</strong> and consumption within <strong>4 hours</strong>.
+              </>
+            )}
+          </span>
+        </div>
+        <a
+          href={`/${currentLang}/science`}
+          class="shrink-0 font-bold text-xs text-[#00A3FF] hover:underline inline-flex items-center gap-1"
+        >
+          <span>{currentLang === 'es' ? 'Ver física térmica' : currentLang === 'de' ? 'Zur Thermophysik' : 'View thermal physics'}</span>
+          <ArrowRight class="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </header>
+
+    {/* Section 1: Executive Summary - The Mono-Food Manifesto */}
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-[#FAF4E8] dark:bg-[#1C1613] border border-[#8D6E63]/25 space-y-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#FFB800]/20 text-[#FFB800] flex items-center justify-center font-bold">
+          1
+        </div>
+        <h2 class="text-lg font-black font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+          {currentLang === 'es' ? 'Autoridad Hiper-Vertical' : currentLang === 'de' ? 'Hypervertikale Autorität' : 'Hyper-Vertical Authority'}
+        </h2>
+        <p class="text-xs sm:text-sm text-[#8D6E63] dark:text-[#D7CCC8] leading-relaxed">
+          {currentLang === 'es'
+            ? 'Los algoritmos de búsqueda y los modelos de IA desprecian las webs genéricas de 40.000 recetas refritas. Solo un grafo de conocimiento monográfico profundo resuelve una obsesión culinaria con exactitud matemática.'
+            : currentLang === 'de'
+            ? 'Suchmaschinen und LLMs bestrafen generische Rezept-Seiten. Nur tiefgehende, monotematische Wissensgraphen lösen eine kulinarische Leidenschaft mit mathematischer Perfektion.'
+            : 'Search algorithms and AI models penalize generic 40,000-recipe scraping portals. Only a deep, single-subject knowledge graph answers culinary questions with mathematical precision.'}
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-[#FAF4E8] dark:bg-[#1C1613] border border-[#8D6E63]/25 space-y-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#00A3FF]/20 text-[#00A3FF] flex items-center justify-center font-bold">
+          2
+        </div>
+        <h2 class="text-lg font-black font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+          {currentLang === 'es' ? 'La Trampa Inmobiliaria' : currentLang === 'de' ? 'Die Immobilien-Falle' : 'The Real Estate Trap'}
+        </h2>
+        <p class="text-xs sm:text-sm text-[#8D6E63] dark:text-[#D7CCC8] leading-relaxed">
+          {currentLang === 'es'
+            ? 'Pizza Brain y el Currywurst Museum gastaron millones en locales físicos y merchandising de plástico. Cuando los alquileres subieron, desaparecieron. Una web estática distribuida en el borde vive para siempre.'
+            : currentLang === 'de'
+            ? 'Pizza Brain und das Currywurst Museum investierten Millionen in Mieten und Kitsch. Als die Mieten stiegen, schlossen sie. Eine verteilte statische Webplattform lebt für immer.'
+            : 'Pizza Brain and the Currywurst Museum spent fortunes on gentrified leases and novelty plastic toys. When rent spiked, they died. An edge-distributed open web graph lives forever.'}
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-[#FAF4E8] dark:bg-[#1C1613] border border-[#8D6E63]/25 space-y-2.5">
+        <div class="w-9 h-9 rounded-xl bg-[#2E7D32]/20 text-[#2E7D32] flex items-center justify-center font-bold">
+          3
+        </div>
+        <h2 class="text-lg font-black font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+          {currentLang === 'es' ? 'Ciencia Frente a Folklore' : currentLang === 'de' ? 'Wissenschaft statt Legenden' : 'Science Over Folklore'}
+        </h2>
+        <p class="text-xs sm:text-sm text-[#8D6E63] dark:text-[#D7CCC8] leading-relaxed">
+          {currentLang === 'es'
+            ? 'Mientras otros repiten la fábula del general Zumalacárregui o dicen «sal al gusto», nosotros documentamos el manuscrito de 1798 de Villanueva de la Serena y calculamos la termodinámica de la ovotransferrina.'
+            : currentLang === 'de'
+            ? 'Während andere Anekdoten über Generäle wiederholen, stützen wir uns auf das Dokument von 1798 aus Villanueva de la Serena und berechnen die Ovotransferrin-Stockung.'
+            : 'While others parrot 19th-century military fables or say “salt to taste”, we verify the 1798 archive in Villanueva de la Serena and calculate ovotransferrin denaturation curves.'}
+        </p>
+      </div>
+    </section>
+
+    {/* Section 2: The Interactive Benchmark Tool */}
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] text-xs font-bold">
+          <Scale class="w-4 h-4 text-[#FFB800]" />
+          <span>
+            {currentLang === 'es'
+              ? 'TABLERO COMPARATIVO INTERACTIVO'
+              : currentLang === 'de'
+              ? 'INTERAKTIVES VERGLEICHS-DASHBOARD'
+              : 'INTERACTIVE AUDIT MATRIX'}
+          </span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+          {currentLang === 'es'
+            ? 'Auditoría de los 11 Grandes Monumentos Monotemáticos'
+            : currentLang === 'de'
+            ? 'Audit der 11 großen monotematischen Food-Projekte'
+            : 'Audit of the 11 Great Mono-Food Monuments'}
+        </h2>
+        <p class="text-sm text-[#8D6E63] dark:text-[#D7CCC8] max-w-3xl">
+          {currentLang === 'es'
+            ? 'Filtra por formato (grafos digitales, museos físicos, gremios legales o archivos pop) y ordena por rigor científico, ingeniería web o nivel de kitsch. Despliega cada ficha para leer el veredicto sin censura.'
+            : currentLang === 'de'
+            ? 'Filtere nach Kategorie und sortiere nach wissenschaftlicher Exaktheit, digitaler Reife oder Kitschfaktor. Klappe jedes Projekt auf für das unzensierte Urteil.'
+            : 'Filter by format (digital graphs, physical museums, guilds, pop archives) and sort by science, engineering, or kitsch. Expand any project for the unfiltered verdict.'}
+        </p>
+      </div>
+
+      <MonoFoodBenchmark client:load lang={currentLang} />
+    </section>
+
+    {/* Featured Masterclass Callout: The Tao of Tortilla & Sushi */}
+    <aside class="relative p-6 sm:p-8 rounded-3xl bg-linear-to-br from-[#FFF9EE] to-[#FAF4E8] dark:from-[#231A15] dark:to-[#1C1613] border-2 border-[#FFB800]/40 shadow-md overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="space-y-2.5 max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] text-xs font-black tracking-wide">
+          <span>🥢</span>
+          <span>
+            {currentLang === 'es'
+              ? 'NUEVO ENSAYO FILOSÓFICO & MASTERCLASS'
+              : currentLang === 'de'
+              ? 'NEUE PHILOSOPHISCHE MEISTERKLASSE'
+              : 'NEW PHILOSOPHICAL TREATISE & MASTERCLASS'}
+          </span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-black font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+          {currentLang === 'es'
+            ? 'El Tao de la Tortilla y el Sushi: Reducción Extrema y el Oficio Shokunin'
+            : currentLang === 'de'
+            ? 'Das Tao der Tortilla und des Sushis: Extreme Reduktion & Shokunin-Geist'
+            : 'The Tao of Tortilla and Sushi: Extreme Reduction & Shokunin Craft'}
+        </h3>
+        <p class="text-xs sm:text-sm text-[#8D6E63] dark:text-[#D7CCC8] leading-relaxed">
+          {currentLang === 'es'
+            ? '¿Qué tienen en común Sukiyabashi Jiro y una abuela volteando la sartén? Exploramos el Tao Te Ching de Lao-Tse, el Wu Wei del reposo térmico de 10 minutos, la anatomía del corte transversal y qué aprende nuestro proyecto de los mejores portales de sushi del mundo.'
+            : currentLang === 'de'
+            ? 'Was verbindet Sukiyabashi Jiro und eine spanische Großmutter an der Pfanne? Entdecke das Tao Te King, das Wu Wei des 10-Minuten-Rastens im Ei und was wir von Japans führenden Meistern lernen.'
+            : 'What unites Sukiyabashi Jiro and a Spanish grandmother at the stove? We explore Laozi’s Tao Te Ching, the Wu Wei of the 10-minute warm egg soak, transverse cut anatomy, and what we learn from Tokyo’s master archives.'}
+        </p>
+      </div>
+      <a
+        href={currentLang === 'es' ? '/es/guias/el-tao-de-la-tortilla-y-el-sushi' : currentLang === 'de' ? '/de/anleitungen/das-tao-der-tortilla-und-des-sushis' : '/en/guides/the-tao-of-tortilla-and-sushi'}
+        class="shrink-0 px-5 py-3 rounded-xl bg-[#3E2723] hover:bg-[#2A1A17] text-[#FAF4E8] font-bold text-xs sm:text-sm shadow-sm inline-flex items-center gap-2 transition-transform active:scale-95"
+      >
+        <span>{currentLang === 'es' ? 'Leer Tratado Completo' : currentLang === 'de' ? 'Meisterklasse lesen' : 'Read Full Treatise'}</span>
+        <ArrowRight class="w-4 h-4 text-[#FFB800]" />
+      </a>
+    </aside>
+
+    {/* Section 3: The FAQ Section for Rich Search Engine Snippets */}
+    <section class="p-6 md:p-8 rounded-3xl bg-[#FAF4E8] dark:bg-[#1C1613] border-2 border-[#8D6E63]/25 space-y-6">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#00A3FF]/15 text-[#00A3FF] text-xs font-bold">
+          <Lightbulb class="w-3.5 h-3.5" />
+          <span>PREGUNTAS FRECUENTES & AUTORIDAD SEO</span>
+        </div>
+        <h2 class="text-2xl font-black font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+          {currentLang === 'es'
+            ? 'Preguntas Frecuentes sobre Proyectos Gastronómicos Monotemáticos'
+            : currentLang === 'de'
+            ? 'Häufig gestellte Fragen zu Mono-Food-Projekten'
+            : 'Frequently Asked Questions on Single-Food Knowledge Graphs'}
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq, idx) => (
+          <div
+            key={idx}
+            class="p-5 bg-white dark:bg-[#251D18] rounded-xl border border-[#8D6E63]/20 space-y-2"
+          >
+            <h3 class="text-base font-bold font-serif text-[#3E2723] dark:text-[#FAF4E8]">
+              {faq.question}
+            </h3>
+            <p class="text-xs sm:text-sm text-[#8D6E63] dark:text-[#D7CCC8] leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Interconnected Knowledge Ecosystem */}
+    <InterconnectedKnowledgeHub client:visible lang={currentLang} currentPath={currentPath} />
+  </main>
+</Layout>

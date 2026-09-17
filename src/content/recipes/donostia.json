@@ -32,7 +32,7 @@
   "prepTimeMinutes": 10,
   "cookTimeMinutes": 15,
   "yieldServings": 4,
-  "image": "/images/recipes/donostia.jpg",
+  "image": "/images/recipes/donostia.svg",
   "ingredients": [
     {
       "id": "potato",

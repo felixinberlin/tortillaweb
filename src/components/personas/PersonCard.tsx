@@ -108,7 +108,7 @@ export default function PersonCard({ persona, lang = "es" }: PersonCardProps) {
               decoding="async"
               referrerPolicy="no-referrer"
               onError={(e) => {
-                e.currentTarget.src = "/images/recipes/clasica.jpg";
+                e.currentTarget.src = "/images/recipes/clasica.svg";
               }}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />

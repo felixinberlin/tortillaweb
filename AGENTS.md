@@ -1,8 +1,8 @@
 # Project Guidelines, Design System & Editorial Intelligence
 
 All agentic contributions to `tortilladepatatas.org` must strictly adhere to:
-1. The project design system guidelines in `docu/DESIGN_SYSTEM.md` (originating from Google Doc `https://docs.google.com/document/d/1X-GEDt4_7o-mPwLejDBgc2q2ARxF4OIMsyE6bHYKaQA/edit?usp=sharing`).
-2. The Content Strategy & Editorial Intelligence principles in `docu/EDITORIAL_STRATEGY.md`.
+1. The project design system guidelines in `docs/DESIGN_SYSTEM.md` (originating from Google Doc `https://docs.google.com/document/d/1X-GEDt4_7o-mPwLejDBgc2q2ARxF4OIMsyE6bHYKaQA/edit?usp=sharing`).
+2. The Content Strategy & Editorial Intelligence principles in `docs/EDITORIAL_STRATEGY.md`.
 
 ## Key Design Requirements:
 1. **Design Aesthetic**: Skeuomorphic-Modernist "Kitchen Notebook" fusion (Parchment textures, notebook card edges, stacked parchment shadows).
@@ -35,7 +35,7 @@ All agentic contributions to `tortilladepatatas.org` must strictly adhere to:
 - **Google Drive Import Note**: Direct Google Drive links or auto-imports can produce corrupted/truncated files. Always verify file sizes or use uploaded ZIP archives unpacked directly into `public/images/`.
 
 ## Operational Playbook & AI Knowledge Transfer:
-See `docu/AI_AGENT_PLAYBOOK.md` for complete architectural guides, lessons learned, and debugging notes.
+See `docs/AI_AGENT_PLAYBOOK.md` for complete architectural guides, lessons learned, and debugging notes.
 1. **Vite `server.allowedHosts`**: Always ensure `vite.server.allowedHosts: true` is configured in `astro.config.mjs` to prevent 403 Forbidden errors when loading Astro island modules behind Cloud Run reverse proxies (`*.run.app`).
 2. **Build Pipeline Sequence**: `npm run build` runs `npx tsx scripts/generateRecipeSvgs.ts` before `astro build`. If SVG renders fail or missing, run `npm run generate:svgs`.
 3. **URL-Encoded State**: All Tortilla Builder configurations are saved in URL parameters (zero login needed). Maintain this pattern whenever adding recipe options.

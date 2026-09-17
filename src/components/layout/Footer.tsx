@@ -116,13 +116,13 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
                 title="BOE Real Decreto 1021/2022"
               >
                 <img
-                  src="/images/normativa-1021-2022.jpg"
+                  src="/images/normativa-1021-2022.svg"
                   alt="Normativa Colectividades Real Decreto 1021/2022"
                   width={56}
                   height={56}
                   loading="lazy"
                   decoding="async"
-                  className="w-14 h-14 object-cover hover:scale-105 transition-transform duration-200"
+                  className="w-14 h-14 object-contain hover:scale-105 transition-transform duration-200"
                   referrerPolicy="no-referrer"
                 />
               </a>

@@ -87,17 +87,37 @@ You can publish the generated `dist/` folder to any static hosting provider for 
 
 ---
 
+---
+
+## 📚 Documentation & Specifications
+
+A complete catalog of engineering architecture, design systems, editorial rules, and culinary research is available in **[`docindex.md`](./docindex.md)** and the **[`/docs/`](./docs/)** directory:
+
+- **[Master Documentation Index (`docindex.md`)](./docindex.md)**: Master portal and reading paths for developers, designers, and editors.
+- **[System Architecture (`docs/Architecture.md`)](./docs/Architecture.md)**: Astro 5 SSG, React Islands, and WorldState Simulator specifications.
+- **[Design System (`docs/DESIGN_SYSTEM.md`)](./docs/DESIGN_SYSTEM.md)**: "Kitchen Notebook" aesthetic, color tokens, and elevation guidelines.
+- **[Editorial Strategy (`docs/EDITORIAL_STRATEGY.md`)](./docs/EDITORIAL_STRATEGY.md)**: Rigorous food writing, Fact vs. Legend boundaries, and knowledge graphs.
+- **[Developer Guide (`docs/DEVELOPER_GUIDE.md`)](./docs/DEVELOPER_GUIDE.md)**: Environment setup, testing, and script manual.
+- **[Research Archive (`docs/research/`)](./docs/research/)**: Historical timelines, regional transcripts, and cultural personas.
+
+---
+
 ## 📁 Project Structure
 
 ```
+├── docindex.md          # Master documentation index
+├── docs/                # Comprehensive documentation, specs & research archives
 ├── astro.config.mjs     # Astro configuration & React integration
 ├── package.json         # Dependencies and scripts
-├── public/              # Static assets (images, icons)
+├── public/              # Static assets (images, icons, datasets)
 └── src/
     ├── components/      # React & Astro components
     │   ├── home/        # Hero, Feature Grid, Builder Teaser
+    │   ├── laboratorio/ # Tortilla Builder & Worldstate Simulator
+    │   ├── trivia/      # Trivia game & quiz engine
     │   ├── layout/      # Header, Footer, Sub-nav
     │   └── ui/          # Radix & Tailwind UI primitives
+    ├── content/         # Content collections (recipes, taxonomies, trivia)
     ├── layouts/         # Base & Page Astro layouts
     ├── lib/             # i18n translations & culinary math engine
     ├── pages/           # Astro routes with i18n static paths ([lang]/)

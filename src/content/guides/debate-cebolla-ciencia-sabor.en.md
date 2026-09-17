@@ -6,7 +6,7 @@ locale: "en"
 slug: "onion-debate-resolved-science-taste"
 translationKey: "guide-debate-cebolla-ciencia-sabor"
 category: "debate"
-image: "/images/recipes/con-cebolla.jpg"
+image: "/images/recipes/con-cebolla.svg"
 readTimeMinutes: 15
 ---
 

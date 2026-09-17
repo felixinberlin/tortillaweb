@@ -6,7 +6,7 @@ locale: "de"
 slug: "confit-technik-schonend-garen"
 translationKey: "guide-confit-tecnica-lenta"
 category: "technique"
-image: "/images/recipes/clasica.jpg"
+image: "/images/recipes/clasica.svg"
 readTimeMinutes: 13
 ---
 

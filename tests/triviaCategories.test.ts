@@ -68,11 +68,17 @@ describe('Trivia Categories & Modular Data Integrity Tests', () => {
     expect(totalFactsCount).toBe(368);
   });
 
-  it('should verify public/data/ and docu/ category JSON exports exist and match fact count', () => {
+  it('should verify public/data/ and docs/ category JSON exports exist and match fact count', () => {
     const publicDataDir = path.join(rootDir, 'public', 'data');
+    const docsDir = path.join(rootDir, 'docs');
     const docuDir = path.join(rootDir, 'docu');
 
-    for (const targetDir of [publicDataDir, docuDir]) {
+    const testDirs = [publicDataDir, docsDir];
+    if (fs.existsSync(docuDir)) {
+      testDirs.push(docuDir);
+    }
+
+    for (const targetDir of testDirs) {
       expect(fs.existsSync(targetDir)).toBe(true);
       const overviewFile = path.join(targetDir, '00_Master_Category_Overview.json');
       expect(fs.existsSync(overviewFile)).toBe(true);

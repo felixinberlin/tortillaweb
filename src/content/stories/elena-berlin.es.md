@@ -10,7 +10,7 @@ personName: "Elena Gómez"
 region: "madrid"
 faction: "concebollistas"
 favoriteRecipe: "express"
-image: "/images/personas/elena.jpg"
+image: "/images/personas/elena.svg"
 readTimeMinutes: 5
 ---
 

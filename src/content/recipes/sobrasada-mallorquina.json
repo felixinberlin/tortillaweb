@@ -34,7 +34,7 @@
   "prepTimeMinutes": 10,
   "cookTimeMinutes": 20,
   "yieldServings": 4,
-  "image": "/images/recipes/sobrasada-mallorquina.jpg",
+  "image": "/images/recipes/sobrasada-mallorquina.svg",
   "ingredients": [
     {
       "id": "potato",

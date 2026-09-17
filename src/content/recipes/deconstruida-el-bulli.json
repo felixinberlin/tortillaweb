@@ -33,7 +33,7 @@
   "prepTimeMinutes": 20,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/recipes/deconstruida.jpg",
+  "image": "/images/recipes/deconstruida.svg",
   "ingredients": [
     {
       "id": "potato",

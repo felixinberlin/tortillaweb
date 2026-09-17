@@ -6,7 +6,7 @@ locale: "es"
 slug: "masterclass-cebolla-caramelizada"
 translationKey: "guide-masterclass-cebolla-caramelizada"
 category: "technique"
-image: "/images/recipes/con-cebolla.jpg"
+image: "/images/recipes/con-cebolla.svg"
 readTimeMinutes: 14
 ---
 

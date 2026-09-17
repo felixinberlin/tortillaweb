@@ -10,7 +10,7 @@ personName: "Chef Enrique"
 region: "pais-vasco"
 faction: "concebollistas"
 favoriteRecipe: "donostia"
-image: "/images/personas/alejandro.jpg"
+image: "/images/personas/alejandro.svg"
 readTimeMinutes: 6
 ---
 

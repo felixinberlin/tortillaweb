@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { generateTortillaSvg, recipeToSvgOptions } from '@/domain/svg';
+import { generateTortillaSvg, recipeToSvgOptions, type SvgPresentationView } from '@/domain/svg';
 
 export interface IngredientSummary {
   id?: string;
@@ -12,6 +12,7 @@ export interface RecipeImageProps {
   title: string;
   recipeId?: string;
   preferSvg?: boolean;
+  showToggle?: boolean;
   ingredients?: (string | IngredientSummary)[];
   taxonomyIds?: string[];
   className?: string;
@@ -19,6 +20,8 @@ export interface RecipeImageProps {
   aspectRatio?: 'square' | 'video' | 'auto';
   doneness?: any;
   potatoCut?: any;
+  interactive?: boolean;
+  lang?: string;
 }
 
 /**
@@ -53,14 +56,6 @@ function extractIngredientKeys(
 }
 
 /**
- * Checks if a static image path is known to be missing in the build
- */
-function isKnownMissingPath(src?: string): boolean {
-  if (!src) return true;
-  return false;
-}
-
-/**
  * SVG Ingredient Composite Graphic Component powered by TortillaSvgGenerator
  */
 export function IngredientSvgComposite({
@@ -69,24 +64,40 @@ export function IngredientSvgComposite({
   className = '',
   doneness,
   potatoCut,
+  presentation = 'skillet_top',
+  animated = false,
+  interactive = true,
+  lang = 'es',
 }: {
   title: string;
   ingredientKeys: string[];
   className?: string;
   doneness?: any;
   potatoCut?: any;
+  presentation?: SvgPresentationView;
+  animated?: boolean;
+  interactive?: boolean;
+  lang?: string;
 }) {
+  const safeLang = (lang === 'es' || lang === 'en' || lang === 'de') ? (lang as SvgStudioLang) : 'es';
   const options = recipeToSvgOptions(
     {
       title,
       ingredients: ingredientKeys.map((k) => ({ id: k })),
     },
     {
+      id: `recipe_img_${title.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}`,
       title,
       doneness: doneness,
       potatoCut: potatoCut,
       theme: 'kitchen_dark',
-      showBadge: true,
+      showBadge: false,
+      presentation,
+      animated,
+      interactive,
+      lang: safeLang,
+      width: 600,
+      height: 400,
     }
   );
 
@@ -96,75 +107,100 @@ export function IngredientSvgComposite({
 
   return (
     <div
-      className={`relative w-full h-full overflow-hidden bg-stone-900 flex items-center justify-center select-none ${className}`}
+      className={`relative w-full h-full overflow-hidden bg-stone-950 flex items-center justify-center select-none ${className}`}
       dangerouslySetInnerHTML={{ __html: cleanInlineSvg }}
     />
   );
 }
 
 /**
- * Smart Recipe Image Component
- * 1. Checks if explicit preferSvg or SVG file is passed
- * 2. Renders static image if available
- * 3. Falls back to permanent static generated SVG (/images/recipes/generated/[id].svg)
- * 4. Falls back dynamically to real-time Tortilla SVG generator
+ * Pure Vector SVG Recipe Image Component
+ * 1. 100% Vector SVG across all recipes
+ * 2. Fully interactive ingredient exploration (potato, egg, oil, onion, skillet)
+ * 3. Deterministic candidate resolution for pre-generated SVGs when static mode requested
+ * 4. Pristine presentation with zero button clutter
+ * 5. Instant graceful fallback to parametric SVG composite if static assets are unavailable
  */
 export default function RecipeImage({
   src,
   title,
   recipeId,
-  preferSvg = false,
   ingredients,
   taxonomyIds,
   className = '',
   alt,
   doneness,
   potatoCut,
+  interactive = true,
+  lang = 'es',
 }: RecipeImageProps) {
-  const [useStaticSvgFallback, setUseStaticSvgFallback] = useState(false);
-  const [hasTotalError, setHasTotalError] = useState(false);
+  const [candidateIndex, setCandidateIndex] = useState<number>(0);
 
   const ingredientKeys = extractIngredientKeys(ingredients, taxonomyIds);
-  const isMissing = isKnownMissingPath(src);
 
-  // Determine static permanent SVG URL from explicit ID or image filename
-  const derivedRecipeId = recipeId || (src ? src.split('/').pop()?.replace(/\.(jpg|jpeg|png|webp|svg)$/i, '') : undefined);
-  const staticSvgUrl = derivedRecipeId ? `/images/recipes/generated/${derivedRecipeId}.svg` : undefined;
+  // Collect candidate identifiers for SVG matching
+  const candidateIds = Array.from(
+    new Set(
+      [
+        recipeId,
+        src ? src.split('/').pop()?.replace(/\.(jpg|jpeg|png|webp|svg)$/i, '') : undefined,
+      ].filter(Boolean) as string[]
+    )
+  );
 
-  // 1. If preferSvg is explicitly requested, render static SVG directly
-  if (preferSvg && staticSvgUrl && !hasTotalError) {
-    return (
-      <img
-        src={staticSvgUrl}
-        alt={alt || title}
-        width={800}
-        height={600}
-        className={className}
-        onError={() => setHasTotalError(true)}
-        loading="lazy"
-        decoding="async"
-      />
-    );
+  // Generate fallback sequence of SVG paths
+  const svgCandidates: string[] = [];
+  for (const cid of candidateIds) {
+    svgCandidates.push(`/images/recipes/generated/${cid}.svg`);
+    svgCandidates.push(`/images/recipes/${cid}.svg`);
   }
 
-  // 2. If primary image failed or was missing, attempt static permanent SVG first
-  if ((isMissing || useStaticSvgFallback) && staticSvgUrl && !hasTotalError) {
-    return (
-      <img
-        src={staticSvgUrl}
-        alt={alt || title}
-        width={800}
-        height={600}
-        className={className}
-        onError={() => setHasTotalError(true)}
-        loading="lazy"
-        decoding="async"
-      />
-    );
-  }
+  const activeSvgUrl = svgCandidates[candidateIndex];
+  const allSvgsFailed = svgCandidates.length === 0 || candidateIndex >= svgCandidates.length;
 
-  // 3. If primary image is missing and no static SVG or static SVG also failed, render dynamic SVG composite
-  if (isMissing || hasTotalError) {
+  const handleSvgError = () => {
+    if (candidateIndex + 1 < svgCandidates.length) {
+      setCandidateIndex((prev) => prev + 1);
+    } else {
+      setCandidateIndex(svgCandidates.length);
+    }
+  };
+
+  const renderVisualContent = () => {
+    // When interactive is requested (default for full recipe exploration), render the rich interactive vector composite
+    if (interactive) {
+      return (
+        <IngredientSvgComposite
+          title={title}
+          ingredientKeys={ingredientKeys}
+          className={className}
+          doneness={doneness}
+          potatoCut={potatoCut}
+          presentation="skillet_top"
+          animated={true}
+          interactive={true}
+          lang={lang}
+        />
+      );
+    }
+
+    // Default static pre-generated SVG (for non-interactive thumbnails)
+    if (!allSvgsFailed && activeSvgUrl) {
+      return (
+        <img
+          src={activeSvgUrl}
+          alt={alt || title}
+          width={600}
+          height={400}
+          className={`${className} group-hover:scale-102 transition-transform duration-500 ease-out`}
+          onError={handleSvgError}
+          loading="lazy"
+          decoding="async"
+        />
+      );
+    }
+
+    // Dynamic parametric SVG composite fallback
     return (
       <IngredientSvgComposite
         title={title}
@@ -172,28 +208,28 @@ export default function RecipeImage({
         className={className}
         doneness={doneness}
         potatoCut={potatoCut}
+        presentation="skillet_top"
+        animated={false}
+        interactive={false}
+        lang={lang}
       />
     );
-  }
+  };
 
-  // 4. Primary Image with graceful degradation to static SVG
+  const hintText = lang === 'en'
+    ? '✨ Click ingredients to explore'
+    : lang === 'de'
+    ? '✨ Zutaten anklicken zum Entdecken'
+    : '✨ Haz clic en los ingredientes para explorar';
+
   return (
-    <img
-      src={src}
-      alt={alt || title}
-      width={800}
-      height={600}
-      className={className}
-      onError={() => {
-        if (staticSvgUrl) {
-          setUseStaticSvgFallback(true);
-        } else {
-          setHasTotalError(true);
-        }
-      }}
-      loading="lazy"
-      decoding="async"
-    />
+    <div className="relative w-full h-full group/recipe-img overflow-hidden bg-stone-950 flex items-center justify-center">
+      {renderVisualContent()}
+      {interactive && (
+        <div className="absolute bottom-2 right-2 bg-stone-900/80 backdrop-blur-xs border border-stone-700/60 text-stone-300 text-[11px] font-medium px-2.5 py-1 rounded-full pointer-events-none opacity-70 group-hover/recipe-img:opacity-100 transition-opacity flex items-center gap-1.5 shadow-sm">
+          <span>{hintText}</span>
+        </div>
+      )}
+    </div>
   );
 }
-

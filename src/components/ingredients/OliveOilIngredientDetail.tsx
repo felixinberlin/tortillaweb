@@ -51,13 +51,13 @@ export default function OliveOilIngredientDetail({
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD1] shadow-sm bg-[#FFF7EA]">
           <div className="relative h-32 sm:h-64 md:h-80 lg:h-[320px] max-h-[35vh] w-full overflow-hidden bg-[#F5E6BE]">
             <img
-              src="/images/ingredients/olive_oil_editorial_card.jpg"
+              src="/images/ingredients/aceite.svg"
               alt={t('oilDetail.heroTitle', 'Aceite de Oliva (Olea europaea)')}
               width={1200}
               height={675}
               loading="eager"
               decoding="async"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-4 bg-amber-50/50"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end p-6 sm:p-10">

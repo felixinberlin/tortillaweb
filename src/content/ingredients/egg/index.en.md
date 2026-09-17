@@ -8,7 +8,7 @@ slug: "ingredients/egg"
 category: "ingredient"
 ingredient: "egg"
 scientificName: "Gallus gallus domesticus"
-image: "/images/ingredients/egg_editorial_card.jpg"
+image: "/images/ingredients/egg_editorial_card.svg"
 seo:
   canonical: "https://tortilladepatatas.org/en/ingredients/egg"
   keywords:

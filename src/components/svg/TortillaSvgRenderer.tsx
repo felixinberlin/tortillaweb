@@ -16,6 +16,7 @@ export interface TortillaSvgRendererProps {
   allowDownload?: boolean;
   initialView?: SvgPresentationView;
   lang?: string;
+  interactive?: boolean;
 }
 
 export default function TortillaSvgRenderer({
@@ -26,6 +27,7 @@ export default function TortillaSvgRenderer({
   allowDownload = false,
   initialView,
   lang = "es",
+  interactive = true,
 }: TortillaSvgRendererProps) {
   const currentLang = (lang === "es" || lang === "en" || lang === "de") ? (lang as SvgStudioLang) : "es";
   const t = useMemo(() => getSvgStudioTranslations(currentLang), [currentLang]);
@@ -45,8 +47,9 @@ export default function TortillaSvgRenderer({
       ...base,
       presentation: currentView,
       lang: currentLang,
+      interactive: interactive ?? base.interactive ?? true,
     };
-  }, [userOptions, recipe, currentView, currentLang]);
+  }, [userOptions, recipe, currentView, currentLang, interactive]);
 
   // Generate SVG string
   const svgString = useMemo(() => {

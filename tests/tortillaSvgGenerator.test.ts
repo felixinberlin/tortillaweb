@@ -171,4 +171,118 @@ describe("Tortilla SVG Generator & Animation Engine", () => {
     const svg = generateTortillaSvg(svgOptions);
     expect(svg).toContain("</svg>");
   });
+
+  describe("Interactive SVG Exploration & Ingredient Linking", () => {
+    it("should generate interactive links with proper routes when interactive is true (skillet_top)", () => {
+      const svg = generateTortillaSvg({
+        interactive: true,
+        lang: "es",
+        presentation: "skillet_top",
+        onion: true,
+        doneness: "melosa",
+      });
+
+      // Checks interactive CSS rules
+      expect(svg).toContain("_interactiveLink");
+      expect(svg).toContain("cursor: pointer");
+
+      // Checks interactive ingredient links
+      expect(svg).toContain('href="/es/ingredientes/patata"');
+      expect(svg).toContain('href="/es/ingredientes/huevo"');
+      expect(svg).toContain('href="/es/ingredientes/aceite-de-oliva"');
+      expect(svg).toContain('href="/es/facciones/concebollistas"');
+      expect(svg).toContain('href="/es/utensilios"');
+      expect(svg).toContain('href="/es/science"');
+
+      // Checks ARIA labels and accessibility attributes
+      expect(svg).toContain('role="link"');
+      expect(svg).toContain('aria-label=');
+    });
+
+    it("should localize interactive links and tooltips for English and German", () => {
+      const enSvg = generateTortillaSvg({
+        interactive: true,
+        lang: "en",
+        presentation: "skillet_top",
+        onion: true,
+      });
+
+      expect(enSvg).toContain('href="/en/ingredients/potato"');
+      expect(enSvg).toContain('href="/en/ingredients/egg"');
+      expect(enSvg).toContain('href="/en/factions/concebollistas"');
+      expect(enSvg).toContain('href="/en/utensilios"');
+      expect(enSvg).toMatch(/Potato monograph/i);
+
+      const deSvg = generateTortillaSvg({
+        interactive: true,
+        lang: "de",
+        presentation: "skillet_top",
+        onion: true,
+      });
+
+      expect(deSvg).toContain('href="/de/zutaten/kartoffel"');
+      expect(deSvg).toContain('href="/de/zutaten/ei"');
+      expect(deSvg).toContain('href="/de/faktionen/concebollistas"');
+      expect(deSvg).toContain('href="/de/utensilios"');
+      expect(deSvg).toMatch(/Kartoffel-Monograph/i);
+    });
+
+    it("should support interactive links in sliced_pincho presentation view", () => {
+      const svg = generateTortillaSvg({
+        interactive: true,
+        lang: "es",
+        presentation: "sliced_pincho",
+        onion: true,
+        doneness: "liquida",
+      });
+
+      expect(svg).toContain('href="/es/ingredientes/patata"');
+      expect(svg).toContain('href="/es/ingredientes/huevo"');
+      expect(svg).toContain('href="/es/ingredientes/aceite-de-oliva"');
+      expect(svg).toContain('href="/es/facciones/concebollistas"');
+      expect(svg).toContain('href="/es/utensilios"');
+      expect(svg).toContain("_interactiveLink");
+    });
+
+    it("should support interactive links in duo_pan_slice presentation view", () => {
+      const svg = generateTortillaSvg({
+        interactive: true,
+        lang: "es",
+        presentation: "duo_pan_slice",
+        onion: true,
+        doneness: "melosa",
+      });
+
+      expect(svg).toContain('href="/es/ingredientes/patata"');
+      expect(svg).toContain('href="/es/ingredientes/huevo"');
+      expect(svg).toContain('href="/es/facciones/concebollistas"');
+      expect(svg).toContain('href="/es/utensilios"');
+      expect(svg).toContain("_interactiveLink");
+    });
+
+    it("should NOT generate interactive links or interactive CSS when interactive is false", () => {
+      const staticSvg = generateTortillaSvg({
+        interactive: false,
+        lang: "es",
+        presentation: "skillet_top",
+        onion: true,
+      });
+
+      expect(staticSvg).not.toContain("_interactiveLink");
+      expect(staticSvg).not.toContain('role="link"');
+      expect(staticSvg).not.toContain('href="/es/ingredientes/patata"');
+      expect(staticSvg).not.toContain('href="/es/ingredientes/huevo"');
+    });
+
+    it("should omit onion link when recipe has no onion", () => {
+      const svg = generateTortillaSvg({
+        interactive: true,
+        lang: "es",
+        onion: false,
+      });
+
+      expect(svg).toContain('href="/es/ingredientes/patata"');
+      expect(svg).not.toContain('href="/es/facciones/concebollistas"');
+    });
+  });
 });

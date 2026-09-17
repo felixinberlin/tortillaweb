@@ -10,7 +10,8 @@ import {
   ArrowRight,
   Compass,
   BookOpen,
-  Utensils
+  Utensils,
+  Trophy
 } from "lucide-react";
 import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 
@@ -114,6 +115,15 @@ export default function InterconnectedKnowledgeHub({ lang = "es", currentPath = 
       description: lang === "es" ? "Generador de excusas para vuelcos fallidos y test detector de sacrilegios." : lang === "de" ? "Ausreden-Generator für Pfannen-Missgeschicke und Ketzerei-Detektor." : "Excuse generator for ruined pan flips and sacrilege detector quiz.",
       icon: Sparkles,
       color: "border-[#FFB800] bg-[#FFB800]/10 text-[#FFB800]",
+    },
+    {
+      id: "monoFood",
+      path: "/mono-food",
+      title: lang === "es" ? "Benchmark Mono-Food" : lang === "de" ? "Mono-Food Benchmark" : "Single-Food Web Benchmark",
+      badge: lang === "es" ? "Auditoría Global" : lang === "de" ? "Weltweiter Audit" : "Global Audit",
+      description: lang === "es" ? "Comparativa mundial con el Dönermuseum, AVPN Pizza, Cocido, Raumen y Currywurst." : lang === "de" ? "Weltweiter Vergleich mit Dönermuseum, AVPN Pizza, Cocido, Raumen und Currywurst." : "Global benchmark against the Döner Museum, AVPN Pizza, Cocido, Raumen, and Currywurst.",
+      icon: Trophy,
+      color: "border-[#FFB800] bg-[#FFB800]/10 text-[#8D6E63] dark:text-[#FFB800]",
     },
   ];
 

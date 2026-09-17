@@ -34,7 +34,7 @@
   "prepTimeMinutes": 10,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/recipes/chorizo.jpg",
+  "image": "/images/recipes/chorizo.svg",
   "ingredients": [
     {
       "id": "potato",

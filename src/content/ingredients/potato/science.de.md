@@ -8,7 +8,7 @@ slug: "zutaten/kartoffel/wissenschaft"
 category: "ingredient"
 ingredient: "potato"
 scientificName: "Solanum tuberosum"
-image: "/images/ingredients/kartoffel.jpg"
+image: "/images/ingredients/kartoffel.svg"
 seo:
   canonical: "https://tortilladepatatas.org/de/zutaten/kartoffel/wissenschaft"
   keywords:

@@ -1,5 +1,5 @@
 import React from "react";
-import { BookOpen, ShieldCheck, Sparkles, Award } from "lucide-react";
+import { BookOpen, ShieldCheck, Heart, Sparkles } from "lucide-react";
 
 interface AuthorityStatsBannerProps {
   lang?: string;
@@ -12,59 +12,59 @@ export default function AuthorityStatsBanner({ lang = "es", recipeCount }: Autho
   const currentLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
   const totalRecipes = typeof recipeCount === "number" && recipeCount > 0 ? recipeCount : recipeFilesCount;
 
-  const stats = [
+  const pillars = [
     {
-      value: String(totalRecipes),
-      label: currentLang === "es" ? "Recetas & Variantes Regionales" : currentLang === "de" ? "Rezepte & Regionale Stile" : "Recipes & Regional Styles",
-      desc: currentLang === "es" ? "Desde Betanzos hasta vanguardia" : currentLang === "de" ? "Von Betanzos bis Avantgarde" : "From Betanzos to Modernist",
+      value: `${totalRecipes} Recetas`,
+      label: currentLang === "es" ? "Recetario Tradicional" : currentLang === "de" ? "Traditions-Rezepte" : "Traditional Recipes",
+      desc: currentLang === "es" ? "Desde la clásica de la abuela hasta Betanzos melosa" : currentLang === "de" ? "Von Omas Klassiker bis zur saftigen Betanzos" : "From grandma's classic to runny Betanzos",
       icon: BookOpen,
       color: "text-[#FFB800]",
     },
     {
+      value: "100% AOVE",
+      label: currentLang === "es" ? "Pochado Lento en Aceite" : currentLang === "de" ? "Sanftes Olivenöl-Confit" : "Slow Olive Oil Confit",
+      desc: currentLang === "es" ? "Patata pochada con calma hasta quedar tierna como mantequilla" : currentLang === "de" ? "Kartoffeln butterweich gegart bei milder Hitze" : "Potatoes simmered gently until butter-soft and tender",
+      icon: Heart,
+      color: "text-[#8D6E63] dark:text-[#FFB800]",
+    },
+    {
       value: "70°C",
-      label: currentLang === "es" ? "Estándar Oro de Seguridad" : currentLang === "de" ? "Gold-Sicherheitsstandard" : "Food Safety Gold Standard",
-      desc: currentLang === "es" ? "Pasteurización a 2 minutos" : currentLang === "de" ? "2 Minuten Pasteurisation" : "2-minute thermal pasteurization",
+      label: currentLang === "es" ? "Seguridad en la Mesa" : currentLang === "de" ? "Sicherheit & Genuss" : "Food Safety & Peace of Mind",
+      desc: currentLang === "es" ? "Regla de oro: **70°C por 2 minutos** (o **63°C por 20 segundos**)" : currentLang === "de" ? "Goldstandard: **70°C für 2 Minuten** (oder **63°C für 20 Sekunden**)" : "Gold standard: **70°C for 2 minutes** (or **63°C for 20 seconds**)",
       icon: ShieldCheck,
       color: "text-[#2E7D32]",
     },
     {
-      value: "200+",
-      label: currentLang === "es" ? "Trivias Históricas Verificadas" : currentLang === "de" ? "Geprüfte Historische Fakten" : "Fact-Verified Historical Trivia",
-      desc: currentLang === "es" ? "1798 Villanueva a 2026" : currentLang === "de" ? "1798 Villanueva bis 2026" : "1798 Villanueva to 2026",
-      icon: Award,
-      color: "text-[#00A3FF]",
-    },
-    {
-      value: "50.000+",
-      label: currentLang === "es" ? "Tortillas Calculadas" : currentLang === "de" ? "Berechnete Tortillas" : "Calculated Custom Omelettes",
-      desc: currentLang === "es" ? "Algoritmo de proporciones áureas" : currentLang === "de" ? "Goldener Mengen-Algorithmus" : "Golden ratio algorithm engine",
+      value: "10 Min",
+      label: currentLang === "es" ? "El Reposo Mágico" : currentLang === "de" ? "Die magische Ruhezeit" : "The Magic Rest",
+      desc: currentLang === "es" ? "Mezclar patata y huevo antes de la sartén para máxima jugosidad" : currentLang === "de" ? "Kartoffeln und Ei vor dem Braten ziehen lassen" : "Resting potatoes and eggs before the pan for ultimate juiciness",
       icon: Sparkles,
-      color: "text-[#8D6E63] dark:text-[#FFB800]",
+      color: "text-[#FFA000]",
     },
   ];
 
   return (
-    <section className="bg-card/60 border-y border-border py-8 md:py-12 relative">
+    <section className="bg-card/70 border-y border-border py-8 md:py-10 relative">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {stats.map((stat, i) => {
-            const Icon = stat.icon;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {pillars.map((item, i) => {
+            const Icon = item.icon;
             return (
               <div
                 key={i}
-                className="card-notebook p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-2xs hover:shadow-sm transition-all text-center space-y-2 flex flex-col items-center justify-center"
+                className="card-notebook p-5 rounded-2xl bg-card border border-border shadow-2xs hover:shadow-xs transition-all text-center space-y-2 flex flex-col items-center justify-center"
               >
-                <div className={`p-2.5 rounded-full bg-secondary/80 ${stat.color} mb-1`}>
+                <div className={`p-2.5 rounded-full bg-[#FFB800]/10 dark:bg-[#FFB800]/20 ${item.color} mb-0.5`}>
                   <Icon className="h-5 w-5" />
                 </div>
-                <span className="text-2xl sm:text-3xl font-extrabold font-mono tracking-tight text-foreground">
-                  {stat.value}
+                <span className="text-xl sm:text-2xl font-extrabold font-serif-heading tracking-tight text-foreground">
+                  {item.value}
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-foreground leading-snug">
-                  {stat.label}
+                <span className="text-sm font-bold text-foreground leading-snug">
+                  {item.label}
                 </span>
-                <span className="text-[11px] text-muted-foreground leading-tight">
-                  {stat.desc}
+                <span className="text-xs text-muted-foreground leading-relaxed">
+                  {item.desc}
                 </span>
               </div>
             );

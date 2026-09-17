@@ -6,7 +6,7 @@ locale: "de"
 slug: "tortilla-posguerra-hambre-escasez"
 translationKey: "guide-tortilla-posguerra-hambre-escasez"
 category: "history"
-image: "/images/recipes/clasica.jpg"
+image: "/images/recipes/clasica.svg"
 readTimeMinutes: 10
 ---
 

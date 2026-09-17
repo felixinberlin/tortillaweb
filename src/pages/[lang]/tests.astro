@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { supportedLanguages } from '@/lib/i18n';
 import { generateBreadcrumbSchema } from '@/lib/seo';
 import FactionAffinityQuiz from '@/components/factions/FactionAffinityQuiz';
-import { HelpCircle, ShieldCheck, CheckCircle2, Gamepad2 } from 'lucide-react';
+import { HelpCircle, CheckCircle2, Gamepad2 } from 'lucide-react';
 
 export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -83,14 +83,5 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <span>→</span>
       </a>
     </div>
-
-    <section class="card-notebook p-5 rounded-2xl bg-accent border-l-4 border-l-[#2E7D32] border border-border">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground">
-        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p>
-          Cualquiera que sea tu facción, el protocolo sanitario exige mantener la seguridad alimentaria alcanzando <strong class="font-bold">70°C for 2 minutes</strong> o <strong class="font-bold">63°C for 20 seconds</strong>, consumiendo antes de <strong class="font-bold">4 hours</strong> a temperatura ambiente.
-        </p>
-      </div>
-    </section>
   </div>
 </Layout>

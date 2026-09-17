@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "@/i18n/config";
-import { ArrowRight, ChefHat, Sparkles, Users, ShieldCheck, Flame, Link2 } from "lucide-react";
+import { ArrowRight, ChefHat, Sparkles, Users, ShieldCheck, Link2 } from "lucide-react";
 import { getTranslations } from "@/lib/i18n";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,7 @@ export default function BuilderTeaser({ lang = "es" }: BuilderTeaserProps) {
   const potatoes = diners * 150; // grams
   const oil = diners * 30; // ml absorbed/used
   const panSize = diners <= 2 ? 20 : diners <= 4 ? 24 : diners <= 6 ? 26 : 28;
+  const panSizeCm = panSize;
 
   return (
     <section className="container mx-auto px-4 py-10 md:py-16">
@@ -127,26 +128,36 @@ export default function BuilderTeaser({ lang = "es" }: BuilderTeaserProps) {
             </div>
           </div>
 
-          {/* Right Column: Visual Notebook Illustration Badge */}
+          {/* Right Column: Visual Notebook Illustration Badge with Dynamic Tortilla SVG */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-xs aspect-square rounded-2xl bg-gradient-to-br from-[#FFFDF9] to-[#F5E6BE] dark:from-[#2A2420] dark:to-[#1C1917] border border-[#E8E2D5] dark:border-[#3D352E] p-6 shadow-inner flex flex-col justify-between items-center text-center">
+            <div className="relative w-full max-w-sm rounded-2xl bg-gradient-to-br from-[#FFFDF9] to-[#F5E6BE] dark:from-[#2A2420] dark:to-[#1C1917] border border-[#E8E2D5] dark:border-[#3D352E] p-4 shadow-inner flex flex-col justify-between items-center text-center overflow-hidden">
               
-              <div className="p-4 rounded-full bg-[#FFB800]/20 dark:bg-[#FFB800]/10 border border-[#FFB800]/40 text-[#FFB800] animate-pulse">
-                <Flame className="w-12 h-12" />
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-stone-950/90 border border-amber-900/20 flex items-center justify-center">
+                <img
+                  src={hasOnion ? "/images/recipes/generated/con-cebolla.svg" : "/images/recipes/generated/clasica.svg"}
+                  alt={hasOnion ? "Tortilla con cebolla - Vector SVG" : "Tortilla clásica sin cebolla - Vector SVG"}
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-contain p-1 transition-all duration-300"
+                  loading="lazy"
+                />
+                <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-[#FFB800] text-[#1C1917] text-[10px] font-black shadow-xs">
+                  {hasOnion ? "Con Cebolla" : "Sin Cebolla"}
+                </span>
               </div>
 
-              <div className="space-y-1">
-                <p className="font-serif-heading font-extrabold text-lg text-foreground dark:text-[#F5E6BE]">
-                  Simulación de Fuego & Ratios
+              <div className="space-y-1 my-2">
+                <p className="font-serif-heading font-extrabold text-base text-foreground dark:text-[#F5E6BE]">
+                  {hasOnion ? "Tortilla Con Cebolla Pochada" : "Tortilla Clásica Purista"}
                 </p>
                 <p className="chef-note text-xs text-amber-900 dark:text-[#FFB800]">
-                  «El Secreto: 150g de patata y 2 huevos por persona»
+                  «{diners * 150}g patata · {diners * 2} huevos camperos · {panSizeCm}cm»
                 </p>
               </div>
 
-              <div className="w-full bg-[#FAF6EE] dark:bg-[#28231F] py-2 px-3 rounded-xl border border-[#E8E2D5] dark:border-[#3D352E] text-[11px] font-bold text-foreground/80 dark:text-[#F5E6BE]/80 flex items-center justify-between">
-                <span>Calculadora Térmica</span>
-                <span className="text-[#2E7D32] dark:text-[#81C784] font-extrabold">100% Preciso</span>
+              <div className="w-full bg-[#FAF6EE] dark:bg-[#28231F] py-1.5 px-3 rounded-xl border border-[#E8E2D5] dark:border-[#3D352E] text-[11px] font-bold text-foreground/80 dark:text-[#F5E6BE]/80 flex items-center justify-between">
+                <span>📐 Esquema Vectorial</span>
+                <span className="text-[#2E7D32] dark:text-[#81C784] font-extrabold">100% SVG Vivo</span>
               </div>
             </div>
           </div>

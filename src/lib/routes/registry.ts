@@ -141,4 +141,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'asistente', en: 'assistant', de: 'kuechentimer' },
     label: { es: 'Asistente & Temporizador', en: 'Kitchen Assistant & Timer', de: 'Küchen-Assistent & Timer' },
   },
+  monoFood: {
+    id: 'monoFood',
+    slug: { es: 'mono-food', en: 'mono-food', de: 'mono-food' },
+    label: { es: 'Comparativa Mono-Food', en: 'Single-Food Web Benchmark', de: 'Mono-Food Vergleich' },
+  },
 };

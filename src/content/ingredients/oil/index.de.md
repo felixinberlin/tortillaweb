@@ -8,7 +8,7 @@ slug: "zutaten/olivenoel"
 category: "ingredient"
 ingredient: "oil"
 scientificName: "Olea europaea"
-image: "/images/ingredients/olive_oil_editorial_card.jpg"
+image: "/images/ingredients/olive_oil_editorial_card.svg"
 seo:
   canonical: "https://tortilladepatatas.org/de/zutaten/olivenoel"
   keywords:

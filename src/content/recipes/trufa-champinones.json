@@ -35,7 +35,7 @@
   "prepTimeMinutes": 10,
   "cookTimeMinutes": 20,
   "yieldServings": 4,
-  "image": "/images/recipes/trufa-champinones.jpg",
+  "image": "/images/recipes/trufa-champinones.svg",
   "ingredients": [
     {
       "id": "potato",

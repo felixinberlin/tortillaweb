@@ -6,7 +6,7 @@ locale: "de"
 slug: "concebollista-karamellisierte-zwiebel-meisterklasse"
 translationKey: "guide-masterclass-cebolla-caramelizada"
 category: "technique"
-image: "/images/recipes/con-cebolla.jpg"
+image: "/images/recipes/con-cebolla.svg"
 readTimeMinutes: 14
 ---
 

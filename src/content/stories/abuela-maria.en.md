@@ -10,7 +10,7 @@ personName: "Abuela María"
 region: "navarra"
 faction: "puristas"
 favoriteRecipe: "clasica"
-image: "/images/personas/cocineras.jpg"
+image: "/images/personas/cocineras.svg"
 readTimeMinutes: 5
 ---
 

@@ -40,8 +40,12 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
   const [copied, setCopied] = useState(false);
   const [showBookmarkTip, setShowBookmarkTip] = useState(false);
   const [mountedUrl, setMountedUrl] = useState<string>("");
+  const [hasNativeShare, setHasNativeShare] = useState<boolean>(false);
 
   useEffect(() => {
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      setHasNativeShare(true);
+    }
     if (typeof window !== "undefined") {
       const currentHost = window.location.host;
       if (currentHost.includes("tortilladepatatas.org")) {
@@ -125,8 +129,6 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
       handleCopyLink();
     }
   };
-
-  const hasNativeShare = typeof navigator !== "undefined" && "share" in navigator;
 
   // COMPACT VARIANT (Row of clean icon buttons)
   if (variant === "compact") {

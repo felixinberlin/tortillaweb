@@ -32,7 +32,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 25,
   "yieldServings": 6,
-  "image": "/images/recipes/rellena.jpg",
+  "image": "/images/recipes/rellena.svg",
   "ingredients": [
     {
       "id": "potato",

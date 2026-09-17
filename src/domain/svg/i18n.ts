@@ -50,6 +50,15 @@ export interface SvgStudioTranslations {
     eggsUnit: string;
     gPerEggUnit: string;
   };
+  interactiveTooltips: {
+    potato: string;
+    egg: string;
+    oliveOil: string;
+    onion: string;
+    skillet: string;
+    salt: string;
+    safety: string;
+  };
 }
 
 export const SVG_STUDIO_TRANSLATIONS: Record<SvgStudioLang, SvgStudioTranslations> = {
@@ -127,6 +136,15 @@ export const SVG_STUDIO_TRANSLATIONS: Record<SvgStudioLang, SvgStudioTranslation
       eggsUnit: "HUEVOS",
       gPerEggUnit: "g/h",
     },
+    interactiveTooltips: {
+      potato: "Patata: Monografía de la patata y variedades",
+      egg: "Huevo: Monografía del huevo y coagulación",
+      oliveOil: "AOVE: Aceite de Oliva Virgen Extra",
+      onion: "Cebolla: Facción Concebollista y debate",
+      skillet: "Sartén: Guía de sartenes y volteo",
+      salt: "Flor de Sal: Dinámica térmica y sazón",
+      safety: "Seguridad Térmica: 70°C durante 2 minutos / 63°C durante 20s",
+    },
   },
   en: {
     badgeSubtitle: "Gastronomic Vector SVG Engine",
@@ -202,6 +220,15 @@ export const SVG_STUDIO_TRANSLATIONS: Record<SvgStudioLang, SvgStudioTranslation
       eggsUnit: "EGGS",
       gPerEggUnit: "g/egg",
     },
+    interactiveTooltips: {
+      potato: "Potato: The Potato Monograph and varieties",
+      egg: "Egg: Egg Monograph and thermal coagulation",
+      oliveOil: "EVOO: Extra Virgin Olive Oil guide",
+      onion: "Onion: Onion Faction and historical debate",
+      skillet: "Skillet: Pan selection and flip technique",
+      salt: "Sea Salt: Thermal dynamics and seasoning",
+      safety: "Thermal Safety: 70°C for 2 minutes / 63°C for 20s",
+    },
   },
   de: {
     badgeSubtitle: "Gastronomische SVG-Vektorengine",
@@ -276,6 +303,15 @@ export const SVG_STUDIO_TRANSLATIONS: Record<SvgStudioLang, SvgStudioTranslation
       duoBadge: "PFANNE & PINCHO",
       eggsUnit: "EIER",
       gPerEggUnit: "g/Ei",
+    },
+    interactiveTooltips: {
+      potato: "Kartoffel: Kartoffel-Monographie und Sorten",
+      egg: "Ei: Ei-Monographie und Stockungstemperatur",
+      oliveOil: "Natives Olivenöl Extra Ratgeber",
+      onion: "Zwiebel: Zwiebel-Fraktion und Debatte",
+      skillet: "Pfanne: Pfannenguide und Wendetechnik",
+      salt: "Meersalz: Thermodynamik und Würzung",
+      safety: "Lebensmittelsicherheit: 70°C für 2 Minuten",
     },
   },
 };

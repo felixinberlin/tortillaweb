@@ -6,7 +6,7 @@ locale: "en"
 slug: "concebollista-caramelized-onion-masterclass"
 translationKey: "guide-masterclass-cebolla-caramelizada"
 category: "technique"
-image: "/images/recipes/con-cebolla.jpg"
+image: "/images/recipes/con-cebolla.svg"
 readTimeMinutes: 14
 ---
 

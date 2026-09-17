@@ -6,7 +6,7 @@ locale: "es"
 slug: "almidon-patata-amilosa-amilopectina"
 translationKey: "guide-almidon-patata-amilosa-amilopectina"
 category: "science"
-image: "/images/recipes/clasica.jpg"
+image: "/images/recipes/clasica.svg"
 readTimeMinutes: 12
 ---
 

@@ -10,7 +10,7 @@ personName: "Pepe el Tabernero"
 region: "madrid"
 faction: "puristas"
 favoriteRecipe: "betanzos"
-image: "/images/personas/pepa-miranda.jpg"
+image: "/images/personas/pepa-miranda.svg"
 readTimeMinutes: 5
 ---
 

@@ -10,7 +10,7 @@ personName: "Javier Brenes"
 region: "andalucia"
 faction: "pimientistas"
 favoriteRecipe: "paisana-andaluza"
-image: "/images/personas/nueno.jpg"
+image: "/images/personas/nueno.svg"
 readTimeMinutes: 5
 ---
 

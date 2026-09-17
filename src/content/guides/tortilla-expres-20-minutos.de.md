@@ -6,7 +6,7 @@ locale: "de"
 slug: "express-tortilla-20-minuten-methode"
 translationKey: "guide-tortilla-expres-20-minutos"
 category: "technique"
-image: "/images/recipes/chips.jpg"
+image: "/images/recipes/chips.svg"
 readTimeMinutes: 12
 ---
 

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx tsx scripts/generateRecipeSvgs.ts && astro dev --host 0.0.0.0 --port 3000",
+    "dev": "astro dev --host 0.0.0.0 --port 3000",
     "generate:svgs": "npx tsx scripts/generateRecipeSvgs.ts",
     "build": "npx tsx scripts/generateRecipeSvgs.ts && astro build",
     "preview": "astro preview --host 0.0.0.0 --port 3000",
@@ -43,6 +43,7 @@
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
     "sass": "^1.102.0",
+    "tsx": "^4.19.3",
     "typescript": "~6.0.2",
     "vite": "^8.1.1",
     "vitest": "^4.1.10"

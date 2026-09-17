@@ -126,13 +126,13 @@ function getLocalizedString(field: any, lang: 'es' | 'en' | 'de' = 'es'): string
  * Normalizes relative URLs with the base site URL.
  */
 export function resolveImageUrl(imagePath?: string, baseUrl: string = SITE_URL): string {
-  if (!imagePath) return `${baseUrl}/images/recipes/clasica.jpg`;
+  if (!imagePath) return `${baseUrl}/images/recipes/clasica.svg`;
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
     return imagePath;
   }
   const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
   const cleanPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
-  return `${cleanBase}${cleanPath}`;
+  return `${cleanBase}${cleanPath.replace(/\.jpg$/, '.svg')}`;
 }
 
 /**
@@ -156,7 +156,7 @@ export function createRecipeSchema(
   } else if (typeof recipeData.image === 'string' && recipeData.image.trim()) {
     images = [resolveImageUrl(recipeData.image, baseUrl)];
   } else {
-    images = [resolveImageUrl('/images/recipes/clasica.jpg', baseUrl)];
+    images = [resolveImageUrl('/images/recipes/clasica.svg', baseUrl)];
   }
 
   // Durations

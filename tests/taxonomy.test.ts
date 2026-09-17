@@ -65,7 +65,7 @@ describe('Taxonomy Unique ID & Taxonomy Integrity Tests', () => {
     const items = getAllTaxonomyItems();
     const cherryPepper = items.find((item) => item.id === 'cherryPepper');
     expect(cherryPepper).toBeDefined();
-    expect(cherryPepper?.image).toBe('/images/ingredients/pepper_editorial_card.jpg');
+    expect(cherryPepper?.image).toBe('/images/ingredients/pepper_editorial_card.svg');
 
     // Test localized URLs for cherryPepper
     const esUrl = getTaxonomyUrl('ingredient', cherryPepper?.slug.es || 'cherryPepper', 'es');

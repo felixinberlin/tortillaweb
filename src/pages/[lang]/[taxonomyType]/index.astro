@@ -91,7 +91,7 @@ const sacredIngredients = [
     key: "potatoes",
     taxonomyId: "potato",
     icon: Sprout,
-    image: "/images/ingredients/potato_editorial_card.jpg",
+    image: "/images/ingredients/patata.svg",
     badge: "Monalisa / Kennebec / Agria",
     badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
     iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
@@ -100,7 +100,7 @@ const sacredIngredients = [
     key: "eggs",
     taxonomyId: "egg",
     icon: Egg,
-    image: "/images/ingredients/egg_editorial_card.jpg",
+    image: "/images/ingredients/huevo.svg",
     badge: "Frescos Categoría 0 / 1",
     badgeColor: "bg-yellow-100 text-yellow-900 border-yellow-300",
     iconColor: "text-yellow-700 bg-yellow-100/80 border-yellow-200",
@@ -109,7 +109,7 @@ const sacredIngredients = [
     key: "oil",
     taxonomyId: "oil",
     icon: Droplet,
-    image: "/images/ingredients/olive_oil_editorial_card.jpg",
+    image: "/images/ingredients/aceite.svg",
     badge: "AOVE (Arbequina / Picual)",
     badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
     iconColor: "text-emerald-700 bg-emerald-100/80 border-emerald-200",
@@ -118,7 +118,7 @@ const sacredIngredients = [
     key: "salt",
     taxonomyId: "salt",
     icon: Sparkles,
-    image: "/images/ingredients/salt_editorial_card.jpg",
+    image: "/images/ingredients/sal.svg",
     badge: "Sal Marina Fina",
     badgeColor: "bg-blue-100 text-blue-900 border-blue-300",
     iconColor: "text-blue-700 bg-blue-100/80 border-blue-200",
@@ -130,7 +130,7 @@ const optionalIngredients = [
     key: "onion",
     taxonomyId: "onion",
     icon: Circle,
-    image: "/images/ingredients/onion_editorial_card.jpg",
+    image: "/images/ingredients/cebolla.svg",
     badge: "Opcional - Cebolla Dulce",
     badgeColor: "bg-orange-100 text-orange-900 border-orange-300",
     iconColor: "text-orange-700 bg-orange-100/80 border-orange-200",
@@ -139,7 +139,7 @@ const optionalIngredients = [
     key: "garlic",
     taxonomyId: "garlic",
     icon: Sparkles,
-    image: "/images/ingredients/garlic_editorial_card.jpg",
+    image: "/images/ingredients/ajo.svg",
     badge: "Opcional - Ajo Aromatizante",
     badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
     iconColor: "text-amber-700 bg-amber-100/80 border-amber-200",
@@ -148,7 +148,7 @@ const optionalIngredients = [
     key: "cherryPepper",
     taxonomyId: "cherryPepper",
     icon: Cherry,
-    image: "/images/ingredients/peppers_editorial_card.jpg",
+    image: "/images/ingredients/pimiento.svg",
     badge: "Opcional - Pimiento Verde / Rojo",
     badgeColor: "bg-red-100 text-red-900 border-red-300",
     iconColor: "text-red-700 bg-red-100/80 border-red-200",
@@ -157,7 +157,7 @@ const optionalIngredients = [
     key: "blackPepper",
     taxonomyId: "blackPepper",
     icon: Sparkles,
-    image: "/images/ingredients/black_pepper_editorial_card.jpg",
+    image: "/images/ingredients/sal.svg",
     badge: "Opcional - Pimienta Negra (Especia)",
     badgeColor: "bg-zinc-200 text-zinc-900 border-zinc-300",
     iconColor: "text-zinc-800 bg-zinc-200/80 border-zinc-300",
@@ -248,17 +248,17 @@ if (canonicalType === 'ingredient') {
 
       <!-- Hero Flatlay Image Banner -->
       <div class="relative rounded-2xl overflow-hidden border border-[#E8E2D5] shadow-sm max-w-5xl mx-auto">
-        <div class="relative w-full h-28 sm:h-56 md:h-72 max-h-[320px] overflow-hidden rounded-2xl">
-          <Picture
-            src="/images/ingredients/ingredient_flatlay_hero.jpg"
-            alt="Ingredientes de la Tortilla de Patatas - Flatlay"
+        <div class="relative w-full h-28 sm:h-56 md:h-72 max-h-[320px] overflow-hidden rounded-2xl bg-stone-950">
+          <img
+            src="/images/ingredients/ingredients-banner.svg"
+            alt="Ingredientes Sagrados de la Tortilla de Patatas - Composición Vectorial"
             width={1200}
-            height={550}
-            formats={['avif', 'webp']}
-            widths={[600, 900, 1200]}
+            height={400}
+            loading="eager"
+            decoding="async"
             class="w-full h-full object-cover"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-6 md:p-8">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6 md:p-8 pointer-events-none">
             <p class="text-white font-serif-heading text-lg md:text-2xl font-bold drop-shadow-md">
               Materia prima excepcional. Técnica depurada.
             </p>
@@ -290,18 +290,17 @@ if (canonicalType === 'ingredient') {
               <a href={url} key={item.key} class="group block hover:no-underline">
                 <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
                   <div>
-                    <div class="h-28 sm:h-44 md:h-48 w-full overflow-hidden relative border-b border-[#E8E2D5]">
-                      <Picture
+                    <div class="h-28 sm:h-44 md:h-48 w-full overflow-hidden relative border-b border-[#E8E2D5] bg-stone-950/90 flex items-center justify-center p-4">
+                      <img
                         src={item.image}
                         alt={t(`ingredientsPage.${item.key}.title`, item.key)}
                         width={600}
                         height={400}
-                        formats={['avif', 'webp']}
-                        widths={[300, 600]}
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                      <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                      <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between pointer-events-none">
                         <span class={`text-[11px] font-bold px-2.5 py-1 rounded-full border shadow-2xs ${item.badgeColor}`}>
                           {item.badge}
                         </span>
@@ -367,18 +366,17 @@ if (canonicalType === 'ingredient') {
               <a href={url} key={item.key} class="group block hover:no-underline">
                 <Card class="card-notebook overflow-hidden flex flex-col justify-between group-hover:border-[#FFB800] transition-all duration-300 group-hover:shadow-md">
                   <div>
-                    <div class="h-24 sm:h-40 md:h-44 w-full overflow-hidden relative border-b border-[#E8E2D5]">
-                      <Picture
+                    <div class="h-24 sm:h-40 md:h-44 w-full overflow-hidden relative border-b border-[#E8E2D5] bg-stone-950/90 flex items-center justify-center p-3">
+                      <img
                         src={item.image}
                         alt={t(`ingredientsPage.${item.key}.title`, item.key)}
                         width={600}
                         height={400}
-                        formats={['avif', 'webp']}
-                        widths={[300, 600]}
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                        class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                      <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                      <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                         <span class={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${item.badgeColor}`}>
                           {item.badge}
                         </span>

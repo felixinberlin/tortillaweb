@@ -33,72 +33,72 @@ export interface PersonasPageContent {
  */
 const PERSONA_META: Record<string, { imageUrl: string; category: Persona['category']; href: string }> = {
   'barat': {
-    imageUrl: '/images/personas/barat.jpg',
+    imageUrl: '/images/personas/barat.svg',
     category: 'pioneros',
     href: '/science'
   },
   'cocineras-anonimas': {
-    imageUrl: '/images/personas/cocineras.jpg',
+    imageUrl: '/images/personas/cocineras.svg',
     category: 'pioneros',
     href: '/history'
   },
   'pepa-miranda': {
-    imageUrl: '/images/personas/pepa-miranda.jpg',
+    imageUrl: '/images/personas/pepa-miranda.svg',
     category: 'maestros',
     href: '/recipes'
   },
   'cris-delantal': {
-    imageUrl: '/images/personas/cris.jpg',
+    imageUrl: '/images/personas/cris.svg',
     category: 'maestros',
     href: '/builder'
   },
   'colectivo-excelencia': {
-    imageUrl: '/images/personas/colectivo.jpg',
+    imageUrl: '/images/personas/colectivo.svg',
     category: 'maestros',
     href: '/techniques'
   },
   'alejandro-ortega': {
-    imageUrl: '/images/personas/alejandro.jpg',
+    imageUrl: '/images/personas/alejandro.svg',
     category: 'ciencia',
     href: '/science'
   },
   'elena-sandri': {
-    imageUrl: '/images/personas/elena.jpg',
+    imageUrl: '/images/personas/elena.svg',
     category: 'ciencia',
     href: '/history'
   },
   'natzir-turrado': {
-    imageUrl: '/images/personas/natzir.jpg',
+    imageUrl: '/images/personas/natzir.svg',
     category: 'ciencia',
     href: '/builder'
   },
   'bree-recker': {
-    imageUrl: '/images/personas/bree-recker.jpg',
+    imageUrl: '/images/personas/bree-recker.svg',
     category: 'divulgacion',
     href: '/ingredients'
   },
   'jose-luis-nueno': {
-    imageUrl: '/images/personas/nueno.jpg',
+    imageUrl: '/images/personas/nueno.svg',
     category: 'divulgacion',
     href: '/history'
   },
   'taz-skylar-inaki-godoy': {
-    imageUrl: '/images/personas/taz.jpg',
+    imageUrl: '/images/personas/taz.svg',
     category: 'divulgacion',
     href: '/history'
   },
   'rosalia': {
-    imageUrl: '/images/personas/rosalia.jpg',
+    imageUrl: '/images/personas/rosalia.svg',
     category: 'divulgacion',
     href: '/history'
   },
   'jose-andres': {
-    imageUrl: '/images/personas/jose-andres.jpg',
+    imageUrl: '/images/personas/jose-andres.svg',
     category: 'divulgacion',
     href: '/recipes'
   },
   'juan-roig': {
-    imageUrl: '/images/personas/juan-roig.jpg',
+    imageUrl: '/images/personas/juan-roig.svg',
     category: 'empresa',
     href: '/history'
   }
@@ -133,7 +133,7 @@ export const personasData: Record<string, PersonasPageContent> = {
     badge: "Directorio Maestro & Figura Clave",
     title: "Personas: Mentes & Manos de la Tortilla",
     subtitle: "Compendio analítico de las figuras y mentes que, desde la investigación académica, la innovación culinaria, la tradición popular y la visión empresarial, definen el presente y futuro de la tortilla de patatas.",
-    chefNote: "Este directorio rinde homenaje tanto a las pioneras anónimas como a los científicos y chefs de vanguardia. La tradición culinaria y la seguridad bactericida (**70°C durante 2 minutos**) caminan de la mano en nuestro cuaderno de laboratorio.",
+    chefNote: "Este compendio rinde homenaje tanto a las cocineras anónimas que perfeccionaron el pochado popular como a los científicos y maestros contemporáneos que han transformado la tortilla de patatas en un icono de la alta gastronomía.",
     categories: [
       {
         id: "pioneros",
@@ -288,7 +288,7 @@ export const personasData: Record<string, PersonasPageContent> = {
     badge: "Master Directory & Key Personalities",
     title: "Personas: Minds & Hands of the Tortilla",
     subtitle: "An analytical directory of key figures shaping the past, present, and future of the Spanish potato omelette through academic research, culinary innovation, tradition, and business vision.",
-    chefNote: "This directory honors both anonymous rural cooks and cutting-edge scientists and chefs. Culinary heritage and bactericidal safety (**70°C for 2 minutes**) go hand-in-hand in our laboratory notebook.",
+    chefNote: "This directory honors both the anonymous rural cooks who perfected traditional frying and the contemporary scientists and chefs who elevated the potato omelette into culinary art.",
     categories: [
       {
         id: "pioneros",
@@ -443,7 +443,7 @@ export const personasData: Record<string, PersonasPageContent> = {
     badge: "Meister-Verzeichnis & Schlüsselpersönlichkeiten",
     title: "Personas: Köpfe & Hände der Tortilla",
     subtitle: "Analytisches Verzeichnis der Personen, die durch akademische Forschung, kulinarische Innovation, Tradition und Wirtschaftsvision die Gegenwart und Zukunft der Kartoffeltortilla prägen.",
-    chefNote: "Dieses Verzeichnis ehrt anonyme Landköchinnen ebenso wie Spitzenköche und Wissenschaftler. Tradition und mikrobiologische Sicherheit (**70°C für 2 Minuten**) gehen in unserem Laborbuch Hand in Hand.",
+    chefNote: "Dieses Kompendium ehrt sowohl die anonymen Landköchinnen, die das Schmoren perfektionierten, als auch zeitgenössische Spitzenköche und Wissenschaftler.",
     categories: [
       {
         id: "pioneros",

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { generateTortillaSvg, recipeToSvgOptions } from "./tortillaSvgGenerator";
 import type { TortillaSvgOptions } from "./types";
+import { optimizeSvg } from "./svgOptimizer";
 
 export interface StaticRecipeSvgResult {
   recipeId: string;
@@ -52,7 +53,15 @@ export function generateStaticSvgForRecipe(
     ...overrides,
   });
 
-  const svg = generateTortillaSvg(options);
+  const rawSvg = generateTortillaSvg(options);
+  const svg = optimizeSvg(rawSvg, {
+    xmlDeclaration: true,
+    stripComments: true,
+    minifyWhitespace: true,
+    cleanEmptyAttributes: true,
+    ensureA11y: true,
+    title: options.title || recipeData?.title?.es || recipeId,
+  });
   return { svg, options };
 }
 

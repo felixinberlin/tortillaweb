@@ -1,11 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/home/Hero';
-import FeatureGrid from '@/components/home/FeatureGrid';
-import BuilderTeaser from '@/components/home/BuilderTeaser';
 import AuthorityStatsBanner from '@/components/home/AuthorityStatsBanner';
-import KitchenToolsTeaser from '@/components/home/KitchenToolsTeaser';
-import NewsletterLeadMagnet from '@/components/home/NewsletterLeadMagnet';
+import MainHubDirectory from '@/components/home/MainHubDirectory';
 import { getTranslations, supportedLanguages } from '@/lib/i18n';
 import {
   generateWebSiteSchema,
@@ -51,8 +48,5 @@ const schemas = [
 <Layout title={title} description={description} lang={currentLang} schema={schemas}>
   <Hero lang={currentLang} client:load />
   <AuthorityStatsBanner lang={currentLang} recipeCount={recipeCount} client:load />
-  <FeatureGrid lang={currentLang} client:load />
-  <KitchenToolsTeaser lang={currentLang} client:load />
-  <BuilderTeaser lang={currentLang} client:load />
-  <NewsletterLeadMagnet lang={currentLang} client:load />
+  <MainHubDirectory lang={currentLang} client:load />
 </Layout>

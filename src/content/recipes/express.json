@@ -31,7 +31,7 @@
   "prepTimeMinutes": 5,
   "cookTimeMinutes": 5,
   "yieldServings": 4,
-  "image": "/images/recipes/chips.jpg",
+  "image": "/images/recipes/chips.svg",
 "ingredients": [
     {
       "id": "potato-chips",

@@ -8,7 +8,7 @@ slug: "ingredients/olive-oil"
 category: "ingredient"
 ingredient: "oil"
 scientificName: "Olea europaea"
-image: "/images/ingredients/olive_oil_editorial_card.jpg"
+image: "/images/ingredients/olive_oil_editorial_card.svg"
 seo:
   canonical: "https://tortilladepatatas.org/en/ingredients/olive-oil"
   keywords:

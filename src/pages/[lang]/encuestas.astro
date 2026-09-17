@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { supportedLanguages } from '@/lib/i18n';
 import { generateBreadcrumbSchema } from '@/lib/seo';
 import PollComponent from '@/components/factions/PollComponent';
-import { Vote, ShieldCheck } from 'lucide-react';
+import { Vote } from 'lucide-react';
 
 export async function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -42,14 +42,5 @@ const breadcrumbSchema = generateBreadcrumbSchema([
     <div class="card-notebook p-6 sm:p-8 rounded-2xl border border-border bg-card">
       <PollComponent client:load lang={currentLang} />
     </div>
-
-    <section class="card-notebook p-5 rounded-2xl bg-accent border-l-4 border-l-[#2E7D32] border border-border">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p>
-          Ninguna discrepancia doctrinal en las encuestas compromete nuestro consenso sobre higiene y seguridad: alcanzar <strong>70°C for 2 minutes</strong> o <strong>63°C for 20 seconds</strong>, manteniendo la tortilla un máximo de <strong>4 hours</strong> a temperatura ambiente.
-        </p>
-      </div>
-    </section>
   </div>
 </Layout>

@@ -8,7 +8,7 @@ slug: "ingredientes/patata/tecnicas"
 category: "ingredient"
 ingredient: "potato"
 scientificName: "Solanum tuberosum"
-image: "/images/ingredients/potato_editorial_card.jpg"
+image: "/images/ingredients/potato_editorial_card.svg"
 seo:
   canonical: "https://tortilladepatatas.org/es/ingredientes/patata/tecnicas"
   keywords:

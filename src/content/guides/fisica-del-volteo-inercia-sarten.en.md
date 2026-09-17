@@ -6,7 +6,7 @@ locale: "en"
 slug: "fisica-del-volteo-inercia-sarten"
 translationKey: "guide-fisica-del-volteo-inercia-sarten"
 category: "technique"
-image: "/images/recipes/clasica.jpg"
+image: "/images/recipes/clasica.svg"
 readTimeMinutes: 11
 ---
 

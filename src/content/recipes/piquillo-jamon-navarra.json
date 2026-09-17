@@ -36,7 +36,7 @@
   "prepTimeMinutes": 10,
   "cookTimeMinutes": 25,
   "yieldServings": 4,
-  "image": "/images/recipes/piquillo-jamon-navarra.jpg",
+  "image": "/images/recipes/piquillo-jamon-navarra.svg",
   "ingredients": [
     {
       "id": "potato",

@@ -44,7 +44,7 @@
               "url": "/es/techniques"
             }
           ],
-          "image": "/images/factions/faction-purist.jpg"
+          "image": "/images/factions/faction-purist.svg"
         },
         {
           "id": "concebollistas",
@@ -70,7 +70,7 @@
               "url": "/es/recipes"
             }
           ],
-          "image": "/images/factions/faction-onion.jpg"
+          "image": "/images/factions/faction-onion.svg"
         },
         {
           "id": "pimientistas",
@@ -95,7 +95,7 @@
               "url": "/es/history"
             }
           ],
-          "image": "/images/factions/faction-pimientos.jpg"
+          "image": "/images/factions/faction-pimientos.svg"
         },
         {
           "id": "ajistas",
@@ -120,7 +120,7 @@
               "url": "/es/techniques"
             }
           ],
-          "image": "/images/factions/faction-garlic.jpg"
+          "image": "/images/factions/faction-garlic.svg"
         },
         {
           "id": "con-cosas",
@@ -146,7 +146,7 @@
               "url": "/es/techniques"
             }
           ],
-          "image": "/images/factions/faction-cosas.jpg"
+          "image": "/images/factions/faction-cosas.svg"
         }
       ],
       "poll": {
@@ -215,7 +215,7 @@
               "url": "/en/techniques"
             }
           ],
-          "image": "/images/factions/faction-purist.jpg"
+          "image": "/images/factions/faction-purist.svg"
         },
         {
           "id": "concebollistas",
@@ -241,7 +241,7 @@
               "url": "/en/recipes"
             }
           ],
-          "image": "/images/factions/faction-onion.jpg"
+          "image": "/images/factions/faction-onion.svg"
         },
         {
           "id": "pimientistas",
@@ -266,7 +266,7 @@
               "url": "/en/history"
             }
           ],
-          "image": "/images/factions/faction-pimientos.jpg"
+          "image": "/images/factions/faction-pimientos.svg"
         },
         {
           "id": "ajistas",
@@ -291,7 +291,7 @@
               "url": "/en/techniques"
             }
           ],
-          "image": "/images/factions/faction-garlic.jpg"
+          "image": "/images/factions/faction-garlic.svg"
         },
         {
           "id": "con-cosas",
@@ -317,7 +317,7 @@
               "url": "/en/techniques"
             }
           ],
-          "image": "/images/factions/faction-cosas.jpg"
+          "image": "/images/factions/faction-cosas.svg"
         }
       ],
       "poll": {
@@ -386,7 +386,7 @@
               "url": "/de/techniques"
             }
           ],
-          "image": "/images/factions/faction-purist.jpg"
+          "image": "/images/factions/faction-purist.svg"
         },
         {
           "id": "concebollistas",
@@ -412,7 +412,7 @@
               "url": "/de/recipes"
             }
           ],
-          "image": "/images/factions/faction-onion.jpg"
+          "image": "/images/factions/faction-onion.svg"
         },
         {
           "id": "pimientistas",
@@ -437,7 +437,7 @@
               "url": "/de/history"
             }
           ],
-          "image": "/images/factions/faction-pimientos.jpg"
+          "image": "/images/factions/faction-pimientos.svg"
         },
         {
           "id": "ajistas",
@@ -462,7 +462,7 @@
               "url": "/de/techniques"
             }
           ],
-          "image": "/images/factions/faction-garlic.jpg"
+          "image": "/images/factions/faction-garlic.svg"
         },
         {
           "id": "con-cosas",
@@ -488,7 +488,7 @@
               "url": "/de/techniques"
             }
           ],
-          "image": "/images/factions/faction-cosas.jpg"
+          "image": "/images/factions/faction-cosas.svg"
         }
       ],
       "poll": {

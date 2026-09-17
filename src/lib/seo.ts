@@ -138,7 +138,7 @@ export function generateRecipeSchema(data: RecipeSchemaInput) {
     {
       name: data.name,
       description: data.description,
-      image: data.image || '/images/recipes/clasica.jpg',
+      image: data.image ? data.image.replace(/\.jpg$/, '.svg') : '/images/recipes/clasica.svg',
       prepTimeMinutes: data.prepTimeMinutes,
       cookTimeMinutes: data.cookTimeMinutes,
       yieldServings: data.yieldServings,
@@ -210,7 +210,7 @@ export function createUserRecipeSchema(config: TortillaConfiguration, lang: stri
   return generateRecipeSchema({
     name,
     description,
-    image: '/images/recipes/clasica.jpg',
+    image: '/images/recipes/clasica.svg',
     prepTimeMinutes: 15,
     cookTimeMinutes: 20,
     yieldServings: calculatedProfile.estimatedServings || 4,
@@ -320,7 +320,7 @@ export function generateHowToSchema(data: {
 }) {
   const fullImage = data.image
     ? (data.image.startsWith('http') ? data.image : `${SITE_URL}${data.image.startsWith('/') ? data.image : `/${data.image}`}`)
-    : `${SITE_URL}/images/recipes/clasica.jpg`;
+    : `${SITE_URL}/images/recipes/clasica.svg`;
 
   return {
     '@context': 'https://schema.org',

@@ -10,7 +10,7 @@ personName: "Rosa María Morales"
 region: "cataluna"
 faction: "concebollistas"
 favoriteRecipe: "piquillo-catalana"
-image: "/images/personas/cris.jpg"
+image: "/images/personas/cris.svg"
 readTimeMinutes: 6
 ---
 

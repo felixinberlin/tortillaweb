@@ -33,7 +33,7 @@
   "prepTimeMinutes": 15,
   "cookTimeMinutes": 20,
   "yieldServings": 4,
-  "image": "/images/recipes/mushrooms.jpg",
+  "image": "/images/recipes/mushrooms.svg",
   "ingredients": [
     {
       "id": "potato",

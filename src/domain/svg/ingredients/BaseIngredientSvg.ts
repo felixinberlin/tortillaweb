@@ -39,7 +39,7 @@ export function getSharedDefs(id: string = "ing_shared"): string {
     <filter id="${id}_organicTexture" x="0%" y="0%" width="100%" height="100%">
       <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.5   0 0 0 0 0.4   0 0 0 0 0.3  0 0 0 0.12 0" />
-      <feComposite in2="SourceGraphic" in="gl" operator="in" />
+      <feComposite in2="SourceGraphic" in="noise" operator="in" />
     </filter>
   `;
 }
@@ -60,7 +60,10 @@ export function wrapSvg(
       ? '<rect width="100%" height="100%" rx="14" fill="#F5E6BE" stroke="#D8C7A0" stroke-width="1.5" />'
       : "";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${width}" height="${height}" fill="none" role="img" aria-label="${ariaLabel}" class="${className}">
+  const classAttr = className && className.trim().length > 0 ? ` class="${className.trim()}"` : "";
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" width="${width}" height="${height}" fill="none" role="img" focusable="false" preserveAspectRatio="xMidYMid meet" aria-label="${ariaLabel}"${classAttr}>
+<title>${ariaLabel}</title>
 ${bg}
 ${content}
 </svg>`;

@@ -106,7 +106,7 @@ describe('SEO & Schema Generator Unit Tests', () => {
       expect(schema.yieldCount).toBe('4');
       expect(schema.recipeCategory).toBe('Plato principal');
       expect(schema.recipeCuisine).toBe('Española');
-      expect(schema.image[0]).toBe('https://tortilladepatatas.org/images/recipes/clasica.jpg');
+      expect(schema.image[0]).toBe('https://tortilladepatatas.org/images/recipes/clasica.svg');
       expect(schema.recipeIngredient.length).toBeGreaterThan(0);
       expect(schema.recipeInstructions.length).toBeGreaterThan(0);
       expect(schema.recipeInstructions[0]['@type']).toBe('HowToStep');

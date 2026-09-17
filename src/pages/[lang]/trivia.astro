@@ -163,22 +163,6 @@ const schemas = [breadcrumbSchema, collectionSchema, faqSchema].filter(Boolean);
     <!-- Interactive Data-Driven Trivia Gallery -->
     <TriviaGallery client:load facts={factsList} currentLang={currentLang} />
 
-    <!-- Safety Footer Note -->
-    <section class="card-notebook p-5 rounded-2xl bg-accent border-l-4 border-l-[#2E7D32] border border-border">
-      <div class="flex items-start gap-3 text-xs sm:text-sm text-foreground/90">
-        <ShieldCheck class="w-5 h-5 text-[#2E7D32] shrink-0 mt-0.5" />
-        <p>
-          {currentLang === 'es' ? (
-            <>En la ciencia de la tortilla de patata, incluso las curiosidades más antiguas respetan la seguridad alimentaria moderna: el centro térmico debe mantenerse a <strong class="font-bold text-foreground">70°C durante 2 minutos</strong> (o <strong class="font-bold text-foreground">63°C durante 20 segundos</strong>) para eliminar patógenos y limitar el tiempo a temperatura ambiente a <strong class="font-bold text-foreground">4 horas</strong>.</>
-          ) : currentLang === 'de' ? (
-            <>Sicherheitsstandard: Der Kern muss <strong class="font-bold text-foreground">70°C für 2 Minuten</strong> (oder <strong class="font-bold text-foreground">63°C für 20 Sekunden</strong>) halten, maximal <strong class="font-bold text-foreground">4 Stunden</strong> ungekühlt.</>
-          ) : (
-            <>Safety standard: Thermal core must sustain <strong class="font-bold text-foreground">70°C for 2 minutes</strong> (or <strong class="font-bold text-foreground">63°C for 20 seconds</strong>), max <strong class="font-bold text-foreground">4 hours</strong> unrefrigerated.</>
-          )}
-        </p>
-      </div>
-    </section>
-
     <!-- Linear Guided Culinary Journey -->
     <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/trivia`} client:visible />
   </div>

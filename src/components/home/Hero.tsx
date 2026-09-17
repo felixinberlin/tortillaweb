@@ -1,17 +1,16 @@
+import React from "react";
 import "@/i18n/config";
-import { ArrowRight, Flame, Egg, BookOpen, ChefHat, Sparkles, ShieldCheck, ChevronRight } from "lucide-react";
+import { ArrowRight, Flame, Egg, BookOpen, ChefHat, Sparkles, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
-import { getTranslations } from "@/lib/i18n";
 import LocalizedLink from "@/components/navigation/LocalizedLink";
 import { Button } from "@/components/ui/button";
+import InteractiveHeroTortilla from "@/components/home/InteractiveHeroTortilla";
 
 interface HeroProps {
   lang?: string;
 }
 
 export default function Hero({ lang = "es" }: HeroProps) {
-  const t = getTranslations(lang);
-
   return (
     <section className="relative overflow-hidden bg-notebook-grid py-8 md:py-16 border-b border-border">
       <div className="container mx-auto max-w-7xl px-4 grid min-h-[480px] items-center gap-8 md:gap-12 lg:grid-cols-12">
@@ -23,24 +22,41 @@ export default function Hero({ lang = "es" }: HeroProps) {
           className="lg:col-span-7 space-y-6"
         >
           {/* Badge Group */}
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/20 px-3 py-1 text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/35 shadow-xs">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#FFB800]/15 dark:bg-[#FFB800]/25 px-3.5 py-1 text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] border border-[#FFB800]/35 shadow-xs">
               <ChefHat className="h-3.5 w-3.5 text-[#FFB800]" />
-              <span>{t("hero.badge", "Cuaderno Gastronómico & Ciencia")}</span>
+              <span>
+                {lang === "de"
+                  ? "Heimische Küche, Zeit & Gutes Öl"
+                  : lang === "en"
+                  ? "Slow Cooking, Good Oil & Home Comfort"
+                  : "Cocina de Casa, Fuego Lento & Buen Aceite"}
+              </span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#2E7D32]/10 dark:bg-[#2E7D32]/25 px-3 py-1 text-xs font-bold text-[#2E7D32] dark:text-[#81C784] border border-[#2E7D32]/25 shadow-xs">
-              <ShieldCheck className="h-3.5 w-3.5" />
-              <span>Estándar Oro: <strong>70°C por 2 minutos</strong></span>
-            </div>
+            <span className="font-script text-base sm:text-lg text-[#8D6E63] dark:text-[#F5E6BE] select-none">
+              {lang === "de"
+                ? "Wie bei Oma am Küchentisch"
+                : lang === "en"
+                ? "Just like grandma made it"
+                : "El sabor de siempre, como en casa"}
+            </span>
           </div>
 
           <h1 className="font-serif-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-            {t("hero.title", "La Tortilla de Patatas Perfecta")}
+            {lang === "de"
+              ? "Die Kunst der perfekten Tortilla"
+              : lang === "en"
+              ? "The Art of the Warm Spanish Omelette"
+              : "El Placer de la Tortilla Perfecta"}
           </h1>
 
           <p className="max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            {t("hero.subtitle", "La guía definitiva y cuaderno de cocina sobre la tortilla española: recetas de abuela, termodinámica culinaria, proporciones maestras y el debate eterno.")}
+            {lang === "de"
+              ? "Sanft in kaltgepresstem Olivenöl confitierte Kartoffeln, samtig-flüssiges Freilandei und der goldbraune Moment in der heißen Pfanne. Ein warmes Rezeptbuch zum Genießen und Nachkochen."
+              : lang === "en"
+              ? "Potatoes gently poached in extra virgin olive oil, velvety pasture eggs, and the sizzling, aromatic pan flip. A warm kitchen notebook to celebrate every delicious bite."
+              : "Patata pochada despacio en aceite de oliva virgen extra, huevo campero de yema cremosa y el punto dorado al fuego. Un cuaderno cálido y delicioso para disfrutar, cocinar y compartir."}
           </p>
 
           {/* Action CTAs */}
@@ -51,7 +67,13 @@ export default function Hero({ lang = "es" }: HeroProps) {
                 className="w-full sm:w-auto h-12 bg-[#8D6E63] hover:bg-[#73564B] dark:bg-[#FFB800] dark:hover:bg-[#E0A200] text-white dark:text-[#1C1917] font-bold text-sm shadow-md border border-[#8D6E63] dark:border-[#FFB800] transition-all"
               >
                 <BookOpen className="mr-2 h-4 w-4 text-[#FFB800] dark:text-[#1C1917]" />
-                <span>{t("hero.recipesButton", "Explorar Recetas")}</span>
+                <span>
+                  {lang === "de"
+                    ? "Die leckersten Rezepte ansehen"
+                    : lang === "en"
+                    ? "Browse Delicious Recipes"
+                    : "Ver las Recetas Más Ricas"}
+                </span>
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </LocalizedLink>
@@ -63,22 +85,30 @@ export default function Hero({ lang = "es" }: HeroProps) {
                 className="w-full sm:w-auto h-12 border-border bg-card text-foreground hover:bg-accent font-bold text-sm shadow-xs transition-all"
               >
                 <Sparkles className="mr-2 h-4 w-4 text-[#FFB800]" />
-                <span>{t("hero.buildButton", "Crear en el Constructor")}</span>
+                <span>
+                  {lang === "de"
+                    ? "Meine Portionsgröße berechnen"
+                    : lang === "en"
+                    ? "Calculate My Custom Omelette"
+                    : "Calcular Mi Tortilla a Medida"}
+                </span>
               </Button>
             </LocalizedLink>
           </div>
 
-          {/* Value Pillars / Interactive Quick Guides */}
+          {/* Value Pillars / Cozy Kitchen Notes */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 text-xs sm:text-sm font-semibold">
             <LocalizedLink
               to="/ingredients"
               lang={lang}
-              title={lang === "de" ? "Zutatenlexikon: Eier, Kartoffeln, Öl und Zwiebeln" : lang === "en" ? "Ingredients guide: eggs, potatoes, oil, and onions" : "Guía de ingredientes: patatas, huevos, aceite y cebolla"}
-              className="flex items-center justify-between gap-2 px-3 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#FFB800]/10 border border-border hover:border-[#FFB800]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
+              title={lang === "de" ? "Zutaten: Kartoffeln, Eier und Olivenöl" : lang === "en" ? "Ingredients: potatoes, eggs, and olive oil" : "Ingredientes: patatas, huevos y aceite de oliva"}
+              className="flex items-center justify-between gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#FFB800]/10 border border-border hover:border-[#FFB800]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
             >
               <div className="flex items-center gap-2 min-w-0">
                 <Egg className="h-4 w-4 text-[#FFB800] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="truncate">{t("hero.ingredients", "Ingredientes")}</span>
+                <span className="truncate">
+                  {lang === "de" ? "Kartoffeln & Eier" : lang === "en" ? "Potatoes & Eggs" : "Patatas & Huevos"}
+                </span>
               </div>
               <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#FFB800] group-hover:translate-x-0.5 transition-all shrink-0" />
             </LocalizedLink>
@@ -86,27 +116,31 @@ export default function Hero({ lang = "es" }: HeroProps) {
             <LocalizedLink
               to="/techniques"
               lang={lang}
-              title={lang === "de" ? "Kochtechniken & Garstufen: Stockung, Confit und Wenden" : lang === "en" ? "Techniques & Doneness: egg coagulation, poaching, and pan-flipping" : "Técnicas y cuajado: coagulación, confitado y volteo"}
-              className="flex items-center justify-between gap-2 px-3 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#FF8A00]/10 border border-border hover:border-[#FF8A00]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
+              title={lang === "de" ? "Der Moment des Wendens" : lang === "en" ? "The Perfect Pan Flip" : "El Volteo en Sartén"}
+              className="flex items-center justify-between gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#FF8A00]/10 border border-border hover:border-[#FF8A00]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
             >
               <div className="flex items-center gap-2 min-w-0">
                 <Flame className="h-4 w-4 text-[#FF8A00] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="truncate">{t("hero.techniques", "Punto de Cuajado")}</span>
+                <span className="truncate">
+                  {lang === "de" ? "Der Pfannenschwung" : lang === "en" ? "The Golden Flip" : "El Volteo Perfecto"}
+                </span>
               </div>
               <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#FF8A00] group-hover:translate-x-0.5 transition-all shrink-0" />
             </LocalizedLink>
 
             <LocalizedLink
-              to="/enciclopedia"
+              to="/facciones"
               lang={lang}
-              title={lang === "de" ? "Wissensarchiv: Geschichte, Wissenschaft und Regionen" : lang === "en" ? "Knowledge hub: history, food science, and regional styles" : "Enciclopedia del conocimiento: historia, ciencia y regiones"}
-              className="flex items-center justify-between gap-2 px-3 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#00A3FF]/10 border border-border hover:border-[#00A3FF]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
+              title={lang === "de" ? "Die Zwiebel-Debatte" : lang === "en" ? "The Onion Debate" : "El Debate de la Cebolla"}
+              className="flex items-center justify-between gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl bg-card hover:bg-[#8D6E63]/10 border border-border hover:border-[#8D6E63]/60 text-muted-foreground hover:text-foreground shadow-2xs transition-all group"
             >
               <div className="flex items-center gap-2 min-w-0">
-                <BookOpen className="h-4 w-4 text-[#00A3FF] shrink-0 group-hover:scale-110 transition-transform" />
-                <span className="truncate">{t("hero.knowledge", "Conocimiento")}</span>
+                <BookOpen className="h-4 w-4 text-[#8D6E63] dark:text-[#FFB800] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="truncate">
+                  {lang === "de" ? "Zwiebel-Debatte" : lang === "en" ? "The Onion Debate" : "¿Con o Sin Cebolla?"}
+                </span>
               </div>
-              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#00A3FF] group-hover:translate-x-0.5 transition-all shrink-0" />
+              <ChevronRight className="h-3.5 w-3.5 text-muted-foreground/40 group-hover:text-[#8D6E63] dark:group-hover:text-[#FFB800] group-hover:translate-x-0.5 transition-all shrink-0" />
             </LocalizedLink>
           </div>
         </motion.div>
@@ -118,30 +152,8 @@ export default function Hero({ lang = "es" }: HeroProps) {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
           className="lg:col-span-5 relative"
         >
-          <div className="card-notebook p-2 bg-card border border-border rounded-3xl shadow-stacked-parchment overflow-hidden">
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-secondary relative">
-              <img
-                src="/images/hero.jpg"
-                alt="Tortilla de Patatas Clásica Tradicional"
-                width={800}
-                height={600}
-                loading="eager"
-                decoding="async"
-                referrerPolicy="no-referrer"
-                className="h-full w-full object-cover hover:scale-103 transition-transform duration-500"
-              />
-              <div className="absolute bottom-3 left-3 right-3 bg-card/90 dark:bg-[#1C1917]/90 backdrop-blur-xs p-3 rounded-xl border border-border shadow-sm flex items-center justify-between">
-                <div>
-                  <span className="block text-xs font-bold text-foreground">Tortilla Clásica de Betanzos & Madrid</span>
-                  <span className="text-[11px] text-muted-foreground font-script text-base leading-none text-[#8D6E63] dark:text-[#FFB800]">
-                    "El secreto está en el pochado lento a 140°C"
-                  </span>
-                </div>
-                <div className="px-2 py-1 rounded-md bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] text-[10px] font-extrabold">
-                  4 pers.
-                </div>
-              </div>
-            </div>
+          <div className="card-notebook p-2 sm:p-2.5 bg-card border border-border rounded-3xl shadow-stacked-parchment overflow-hidden">
+            <InteractiveHeroTortilla lang={lang} />
           </div>
         </motion.div>
       </div>

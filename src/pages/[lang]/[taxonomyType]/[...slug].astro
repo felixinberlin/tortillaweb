@@ -300,7 +300,7 @@ const articleSchema = isValidRoute ? (ingredientArticle ? generateArticleSchema(
   headline: title,
   description: description,
   url: currentUrl || `${SITE_URL}/${currentLang}`,
-  image: ingredientArticle.data.image || '/images/ingredients/potato_editorial_card.jpg',
+  image: (ingredientArticle.data.image ? String(ingredientArticle.data.image).replace(/\.jpg$/, '.svg') : '/images/ingredients/patata.svg'),
 }) : generateCollectionPageSchema({
   name: title,
   description: description,
@@ -470,14 +470,14 @@ const pillars = [
     <!-- HERO HEADER -->
     <div class="space-y-6">
       <div class="relative w-full h-32 sm:h-64 md:h-80 lg:h-[380px] max-h-[35vh] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2D5] shadow-md bg-[#F5E6BE] group">
-        <Picture
-          src={ingredientArticle?.data.image || taxonomy?.image || "/images/ingredients/potato_editorial_card.jpg"}
+        <img
+          src={String(ingredientArticle?.data.image || taxonomy?.image || "/images/ingredients/patata.svg").replace(/\.jpg$/, '.svg')}
           width={1200}
           height={675}
-          formats={['avif', 'webp']}
-          widths={[600, 900, 1200]}
           alt={title}
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          loading="eager"
+          decoding="async"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex items-end p-6 sm:p-10">
           <div class="text-white space-y-3 max-w-3xl">
@@ -555,13 +555,12 @@ const pillars = [
               </span>
 
               <div class="rounded-xl overflow-hidden border border-[#E8E2D5] aspect-video">
-                <Picture
-                  src={favoriteRecipe.image || "/images/recipes/clasica.jpg"}
-                  width={400}
-                  height={225}
-                  formats={['avif', 'webp']}
-                  alt={favoriteRecipe.title[currentLang as keyof typeof favoriteRecipe.title] || favoriteRecipe.title.es}
-                  class="w-full h-full object-cover"
+                <RecipeImage
+                  client:visible
+                  src={favoriteRecipe.image}
+                  recipeId={favoriteRecipe.id}
+                  title={favoriteRecipe.title[currentLang as keyof typeof favoriteRecipe.title] || favoriteRecipe.title.es}
+                  className="w-full h-full object-cover"
                 />
               </div>
 

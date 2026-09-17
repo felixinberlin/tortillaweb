@@ -86,6 +86,7 @@ export interface TortillaSvgOptions {
   showDnaMetrics?: boolean;  // Displays g/egg ratio
   animated?: boolean;        // Enables subtle, appetizing SVG animations (steam, yolk shimmer, oil glisten)
   animatedFlip?: boolean;    // Enables 3D pan flip rotation effect
+  interactive?: boolean;     // Enables clickable SVG ingredient links, hover effects & accessibility titles
   lang?: "es" | "en" | "de";
   width?: number;
   height?: number;

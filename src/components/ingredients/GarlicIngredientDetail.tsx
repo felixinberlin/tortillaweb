@@ -49,17 +49,17 @@ export default function GarlicIngredientDetail({
         <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8DFD1] shadow-sm bg-[#FFF7EA]">
           <div className="relative h-44 sm:h-64 md:h-80 lg:h-[320px] max-h-[40vh] w-full overflow-hidden bg-[#8D6E63]/20">
             <img
-              src="/images/ingredients/garlic_editorial_card.jpg"
+              src="/images/ingredients/ajo.svg"
               alt={garlicText}
               width={1200}
               height={675}
               loading="eager"
               decoding="async"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-4 bg-amber-50/50"
               referrerPolicy="no-referrer"
               onError={(e) => {
                 // Fallback image if local path is missing
-                e.currentTarget.src = "/images/recipes/clasica.jpg";
+                e.currentTarget.src = "/images/recipes/clasica.svg";
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent flex items-end p-6 sm:p-10">

@@ -15,9 +15,19 @@ This approach follows headless CMS principles used by systems such as TYPO3, Dru
 
 The architecture avoids hardcoded categories and allows the website to grow without requiring structural changes.
 
----
+## 2. Trivia & Verification Compendium (6 Master Categories)
 
-# Design Principles
+Trivia entries are stored in `src/content/pages/trivia/` split across **6 master categories** to optimize page payload and maintain modularity:
+
+1. **`01_History_and_Foundations.json`**: 18th-century agricultural treatises, CSIC archival discoveries, earliest written records, and historic military legends.
+2. **`02_Regional_Traditions.json`**: Día de la Tortilla celebrations, Jueves Lardero picnics, Santa Juana pilgrimages, and municipal customs across Spain.
+3. **`03_Culinary_Science_and_Safety.json`**: Maillard reaction, thermal coagulation of egg proteins, starch gelatinization, pasteurization, and thermal safety rules (**70°C for 2 minutes**, **63°C for 20 seconds**, **4 hours** exposure limit).
+4. **`04_Pop_Culture_and_Media.json`**: Spanish cinema (Airbag), Mortadelo y Filemón comic gags, literature, and television archives.
+5. **`05_World_Records_and_Events.json`**: Giant tortilla attempts (Vitoria-Gasteiz, Melide), Guinness World Record claims, and notarized events.
+6. **`06_Factions_and_Debates.json`**: Concebollistas vs Sincebollistas, CIS national polls, and Michelin chefs statements.
+
+Master summaries and full datasets are also exported as clean JSON in `public/data/` and `docs/`.
+
 
 ## 1. Recipes are independent entities
 

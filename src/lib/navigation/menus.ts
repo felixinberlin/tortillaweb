@@ -17,7 +17,7 @@ export interface MenuSection {
 export const NAV_STRUCTURE = {
   universo: {
     title: { es: 'El Universo Tortillero', en: 'The Omelette Universe', de: 'Das Tortilla-Universum' },
-    routeIds: ['recipes', 'builder', 'comparador', 'laboratorio', 'enciclopedia', 'encuestas', 'tests'] as RouteId[],
+    routeIds: ['recipes', 'builder', 'comparador', 'monoFood', 'laboratorio', 'enciclopedia', 'encuestas', 'tests'] as RouteId[],
   },
   fundamentos: {
     title: { es: 'Fundamentos Culinarios', en: 'Culinary Fundamentals', de: 'Kulinarische Grundlagen' },
@@ -32,6 +32,7 @@ export const FOOTER_ROUTE_IDS: RouteId[] = [
   'techniques',
   'science',
   'history',
+  'monoFood',
   'about',
   'contact',
 ];

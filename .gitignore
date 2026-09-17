@@ -30,3 +30,9 @@ dist-ssr
 firebase-applet-config.json
 firebase-applet-config.*
 firebase-blueprint.json
+
+# Generated artifacts & Python caches
+*.pdf
+__pycache__/
+*.pyc
+

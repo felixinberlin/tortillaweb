@@ -6,7 +6,7 @@ locale: "es"
 slug: "fenomeno-betanzos-yema-tecnica"
 translationKey: "guide-fenomeno-betanzos-yema-tecnica"
 category: "technique"
-image: "/images/recipes/betanzos.jpg"
+image: "/images/recipes/betanzos.svg"
 readTimeMinutes: 11
 ---
 

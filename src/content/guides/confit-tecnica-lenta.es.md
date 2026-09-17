@@ -6,7 +6,7 @@ locale: "es"
 slug: "confit-tecnica-lenta"
 translationKey: "guide-confit-tecnica-lenta"
 category: "technique"
-image: "/images/recipes/clasica.jpg"
+image: "/images/recipes/clasica.svg"
 readTimeMinutes: 13
 ---
 

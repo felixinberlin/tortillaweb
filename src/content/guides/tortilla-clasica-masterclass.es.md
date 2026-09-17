@@ -6,7 +6,7 @@ locale: "es"
 slug: "tortilla-clasica-masterclass"
 translationKey: "guide-tortilla-clasica-masterclass"
 category: "masterclass"
-image: "/images/recipes/clasica.jpg"
+image: "/images/recipes/clasica.svg"
 readTimeMinutes: 14
 ---
 
