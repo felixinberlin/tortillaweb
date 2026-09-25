@@ -1,0 +1,3 @@
+## 2024-09-25 - Contextual ARIA labels for dynamic lists
+**Learning:** When listing dynamically added ingredients with delete buttons (e.g. "x"), generic titles like "Remove ingredient" are insufficient for screen readers. Users need to know *which* ingredient they are removing when tabbing through buttons. Focus visible states are also critical for these small icon buttons.
+**Action:** Always interpolate the dynamic item name into the `aria-label` (e.g., `aria-label={\`Remove \${itemName}\`}`) for icon-only action buttons within lists, and ensure `focus-visible` styles are distinct.
