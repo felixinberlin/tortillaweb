@@ -72,16 +72,29 @@ function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
     }
     return "¡Ay, mi cielico! Para cualquier duda al fogón, échale un vistazo a nuestras [Recetas Tradicionales](/es/recipes) o calcula las cantidades exactas para tu sartén en el [Creador de Tortillas](/es/builder). ¡Aquí me tienes!";
 }
-$apiKey = getenv('GEMINI_API_KEY');
-if (!$apiKey && file_exists(__DIR__ . '/../../.env')) {
-    $envLines = file(__DIR__ . '/../../.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($envLines as $line) {
-        if (strpos(trim($line), '#') === 0) continue;
-        if (strpos($line, '=') !== false) {
-            list($key, $val) = explode('=', $line, 2);
-            if (trim($key) === 'GEMINI_API_KEY') {
-                $apiKey = trim($val, " \t\n\r\0\x0B\"'");
-                break;
+$apiKey = getenv('GEMINI_API_KEY') ?: ($_ENV['GEMINI_API_KEY'] ?? ($_SERVER['GEMINI_API_KEY'] ?? ''));
+
+if (!$apiKey) {
+    $possibleEnvPaths = [
+        __DIR__ . '/../.env',       // Web root (where .htaccess and index.html live, e.g. /su572257/.env)
+        __DIR__ . '/.env',          // /api/.env
+        __DIR__ . '/../../.env',    // Parent directory if accessible
+        dirname(__DIR__) . '/.env'  // Alternative web root syntax
+    ];
+
+    foreach ($possibleEnvPaths as $envPath) {
+        if (file_exists($envPath) && is_readable($envPath)) {
+            $envLines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($envLines as $line) {
+                $line = trim($line);
+                if (strpos($line, '#') === 0) continue;
+                if (strpos($line, '=') !== false) {
+                    list($key, $val) = explode('=', $line, 2);
+                    if (trim($key) === 'GEMINI_API_KEY') {
+                        $apiKey = trim($val, " \t\n\r\0\x0B\"'");
+                        break 2;
+                    }
+                }
             }
         }
     }
