@@ -1,0 +1,1 @@
+sed -i 's/<button/& aria-expanded={isExpanded} aria-controls="url-save-details" aria-label={isEs ? "Ver más detalles de guardado" : isDe ? "Weitere Details zur Speicherung" : "More save details"}/' src/components/builder/UrlSaveInfoBanner.tsx
