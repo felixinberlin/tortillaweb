@@ -13,6 +13,7 @@ import {
   MicOff,
   Radio
 } from "lucide-react";
+import { AbuelaAvatarSvg } from "./AbuelaAvatarSvg";
 
 interface Message {
   id: string;
@@ -522,16 +523,12 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
       <div className="bg-gradient-to-r from-[#FDF6E2] via-[#FCEECB] to-[#F5E6BE] dark:from-[#292218] dark:via-[#241E15] dark:to-[#1C1917] px-6 py-4 border-b border-[#EADBB6] dark:border-[#443828] flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative">
-            <div className="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-950/60 border-2 border-[#FFB800] p-1 overflow-hidden shadow-inner flex items-center justify-center">
-              <img 
-                src="/images/personas/cocineras.svg" 
-                alt="Abuela María" 
-                className="w-full h-full object-cover rounded-xl"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
+            <div className="w-16 h-16 rounded-2xl bg-amber-100 dark:bg-amber-950/60 border-2 border-[#FFB800] p-0.5 overflow-hidden shadow-md flex items-center justify-center">
+              <AbuelaAvatarSvg 
+                size="100%" 
+                isSpeaking={isSpeaking} 
+                isListening={isListening} 
               />
-              <CookingPot className="w-8 h-8 text-[#FF8A00] hidden" />
             </div>
             <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white dark:border-[#1C1917] rounded-full shadow" title="Al fogón con su delantal" />
           </div>
@@ -610,12 +607,8 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
               }`}
             >
               {isAbuela && (
-                <div className="w-9 h-9 rounded-xl bg-[#F5E6BE] dark:bg-stone-800 border border-[#FFB800]/50 shrink-0 p-0.5 shadow-xs overflow-hidden">
-                  <img
-                    src="/images/personas/cocineras.svg"
-                    alt="Abuela"
-                    className="w-full h-full object-cover rounded-lg"
-                  />
+                <div className="w-10 h-10 rounded-xl bg-[#F5E6BE] dark:bg-stone-800 border border-[#FFB800]/50 shrink-0 p-0.5 shadow-xs overflow-hidden flex items-center justify-center">
+                  <AbuelaAvatarSvg size={36} isSpeaking={isSpeaking} />
                 </div>
               )}
 
@@ -683,12 +676,8 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
         {/* Loading Indicator */}
         {isLoading && (
           <div className="flex gap-3 max-w-[85%] self-start">
-            <div className="w-9 h-9 rounded-xl bg-[#F5E6BE] dark:bg-stone-800 border border-[#FFB800]/50 shrink-0 p-0.5 overflow-hidden animate-pulse">
-              <img
-                src="/images/personas/cocineras.svg"
-                alt="Abuela"
-                className="w-full h-full object-cover rounded-lg"
-              />
+            <div className="w-10 h-10 rounded-xl bg-[#F5E6BE] dark:bg-stone-800 border border-[#FFB800]/50 shrink-0 p-0.5 overflow-hidden flex items-center justify-center">
+              <AbuelaAvatarSvg size={36} isSpeaking={false} isListening={true} />
             </div>
             <div className="bg-[#FFFDF7] dark:bg-[#241F1A] border-2 border-[#EADBB6] dark:border-[#443828] rounded-2xl p-4 shadow-xs flex items-center gap-3 text-stone-600 dark:text-stone-300">
               <CookingPot className="w-5 h-5 text-[#FF8A00] animate-spin" style={{ animationDuration: '3s' }} />

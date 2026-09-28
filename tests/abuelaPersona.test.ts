@@ -35,4 +35,16 @@ describe("Abuela María AI Persona & Knowledge Base Tests", () => {
     expect(ABUELA_SYSTEM_PROMPT).toContain("ENLACES INTERNOS OBLIGATORIOS A PÁGINAS REALES");
     expect(ABUELA_SYSTEM_PROMPT).toContain("PROHIBIDO hablar como una IA corporativa");
   });
+
+  it("should verify animated Abuela SVG asset exists and contains eye and mouth animations", () => {
+    const fs = require("node:fs");
+    const path = require("node:path");
+    const svgPath = path.resolve(__dirname, "../public/images/personas/abuela-maria-animated.svg");
+    expect(fs.existsSync(svgPath)).toBe(true);
+    const svgContent = fs.readFileSync(svgPath, "utf-8");
+    expect(svgContent).toContain("@keyframes blink");
+    expect(svgContent).toContain("@keyframes talk");
+    expect(svgContent).toContain("eye-left");
+    expect(svgContent).toContain("mouth");
+  });
 });
