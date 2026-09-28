@@ -106,6 +106,10 @@ const CATEGORY: Record<string, Record<Lang, string>> = {
   'jurado profesional': { es: 'jurado profesional', en: 'jury prize', de: 'Jurypreis' },
   'premio del público': { es: 'premio del público', en: 'public vote', de: 'Publikumspreis' },
   originalidad: { es: 'originalidad', en: 'originality', de: 'Originalität' },
+  'tortilla con': { es: 'tortilla con…', en: 'tortilla "con" (with extras)', de: 'Tortilla „con“ (mit Extras)' },
+  'premio Huevos Larraz': { es: 'premio Huevos Larraz', en: 'Huevos Larraz prize', de: 'Huevos-Larraz-Preis' },
+  'tortilla rellena': { es: 'tortilla rellena', en: 'filled tortilla', de: 'gefüllte Tortilla' },
+  'ingrediente riojano': { es: 'ingrediente riojano', en: 'Rioja ingredient', de: 'Zutat aus La Rioja' },
 };
 
 const STYLE: Record<string, Record<Lang, string>> = {
