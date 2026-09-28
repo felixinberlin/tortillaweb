@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { recipeSvgIntegration } from './src/integrations/recipeSvgIntegration.ts';
-import { askAbuelaMaria } from './scripts/askAbuela.mjs';
+import { askAbuelaMaria, generateAbuelaVoice } from './scripts/askAbuela.mjs';
 
 function virtualModuleMiddlewarePlugin() {
   return {
@@ -45,6 +45,28 @@ function virtualModuleMiddlewarePlugin() {
                 res.statusCode = 500;
                 res.setHeader('Content-Type', 'application/json; charset=utf-8');
                 res.end(JSON.stringify({ success: false, error: err?.message || 'Error communicating with Abuela' }));
+              }
+            });
+            return;
+          }
+        }
+
+        // Handle /api/abuela-tts voice generation endpoint
+        if (req.url && (req.url === '/api/abuela-tts' || req.url.startsWith('/api/abuela-tts?'))) {
+          if (req.method === 'POST') {
+            let body = '';
+            req.on('data', (chunk) => { body += chunk; });
+            req.on('end', async () => {
+              try {
+                const payload = JSON.parse(body || '{}');
+                const voiceResult = await generateAbuelaVoice(payload.text || '', payload.lang || 'es');
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify({ success: true, ...voiceResult }));
+              } catch (err) {
+                console.error('API /api/abuela-tts error:', err);
+                res.statusCode = 500;
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify({ success: false, error: err?.message || 'Error generating voice' }));
               }
             });
             return;

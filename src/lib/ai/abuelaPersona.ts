@@ -138,3 +138,74 @@ export async function askAbuelaMaria(
 
   throw lastError || new Error("No response from AI models");
 }
+
+export async function generateAbuelaVoice(
+  text: string,
+  userLang: string = "es"
+): Promise<{ audioBase64: string; mimeType: string }> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("GEMINI_API_KEY is not configured");
+  }
+
+  const ai = new GoogleGenAI({
+    apiKey,
+    httpOptions: {
+      headers: {
+        "User-Agent": "aistudio-build",
+      },
+    },
+  });
+
+  const cleanText = text
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/\*(.*?)\*/g, "$1")
+    .replace(/\[(.*?)\]\(.*?\)/g, "$1")
+    .replace(/#+\s*/g, "")
+    .trim();
+
+  const voiceModels = ["gemini-3.8-flash-tts", "gemini-3.8-flash-lite-tts"];
+  let lastErr: any = null;
+
+  for (const model of voiceModels) {
+    try {
+      const response = await ai.models.generateContent({
+        model,
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                text: cleanText,
+                speechMetadata: {
+                  style: "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence",
+                },
+              },
+            ],
+          },
+        ],
+        config: {
+          responseModalities: ["AUDIO"],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: { voiceName: "Kore" },
+            },
+          },
+        },
+      });
+
+      const audioPart = response.candidates?.[0]?.content?.parts?.[0]?.inlineData;
+      if (audioPart?.data) {
+        return {
+          audioBase64: audioPart.data,
+          mimeType: audioPart.mimeType || "audio/wav",
+        };
+      }
+    } catch (e: any) {
+      lastErr = e;
+      console.warn(`Voice model ${model} failed, trying next:`, e?.message || e);
+    }
+  }
+
+  throw lastErr || new Error("Could not generate grandma voice");
+}

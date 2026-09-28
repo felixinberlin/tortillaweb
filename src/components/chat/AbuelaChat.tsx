@@ -87,6 +87,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const recognitionRef = useRef<any>(null);
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -102,9 +103,13 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     }
   }, [initialPrompt]);
 
-  // Clean up speech synthesis when unmounting
+  // Clean up speech synthesis and audio when unmounting
   useEffect(() => {
     return () => {
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause();
+        currentAudioRef.current = null;
+      }
       if (typeof window !== "undefined" && "speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
@@ -233,53 +238,96 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     }
   };
 
-  const speakText = (text: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-
-    window.speechSynthesis.cancel();
+  const speakText = async (text: string) => {
+    // If audio is currently playing, stop it
+    if (currentAudioRef.current) {
+      currentAudioRef.current.pause();
+      currentAudioRef.current = null;
+    }
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
 
     if (isSpeaking) {
       setIsSpeaking(false);
       return;
     }
 
-    // Clean text of markdown asterisks and URLs for speech
+    setIsSpeaking(true);
+
+    // Clean text of markdown asterisks, hashes, and URLs for speech
     const cleanSpeech = text
       .replace(/\*\*(.*?)\*\*/g, "$1")
       .replace(/\*(.*?)\*/g, "$1")
       .replace(/\[(.*?)\]\(.*?\)/g, "$1")
-      .replace(/#/g, "");
+      .replace(/#+\s*/g, "")
+      .trim();
 
-    const utterance = new SpeechSynthesisUtterance(cleanSpeech);
-    utterance.lang = currentLang === "de" ? "de-DE" : currentLang === "en" ? "en-US" : "es-ES";
-    utterance.pitch = 1.12; // Friendly, slightly higher grandma pitch
-    utterance.rate = 0.95;  // Calm, patient pace
+    // 1. First priority: High-fidelity AI Grandma voice generated on server
+    try {
+      const res = await fetch("/api/abuela-tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          text: cleanSpeech.slice(0, 300), // First 300 characters for immediate, snappy playback
+          lang: currentLang 
+        }),
+      });
 
-    // Try to pick a female voice if available
-    const voices = window.speechSynthesis.getVoices();
-    const langCode = utterance.lang.slice(0, 2);
-    const preferredVoice = voices.find(
-      (v) => v.lang.startsWith(langCode) && (
-        v.name.includes("Female") || 
-        v.name.includes("Natural") || 
-        v.name.includes("Monica") || 
-        v.name.includes("Lucia") || 
-        v.name.includes("Amira") || 
-        v.name.includes("Marlene") ||
-        v.name.includes("Conchita") ||
-        v.name.includes("Laura")
-      )
-    ) || voices.find((v) => v.lang.startsWith(langCode));
-
-    if (preferredVoice) {
-      utterance.voice = preferredVoice;
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success && data.audioBase64) {
+          const audio = new Audio(`data:${data.mimeType || "audio/wav"};base64,${data.audioBase64}`);
+          currentAudioRef.current = audio;
+          audio.onended = () => {
+            setIsSpeaking(false);
+            currentAudioRef.current = null;
+          };
+          audio.onerror = () => {
+            setIsSpeaking(false);
+            currentAudioRef.current = null;
+          };
+          await audio.play();
+          return;
+        }
+      }
+    } catch (ttsErr) {
+      console.warn("AI TTS audio generation error, falling back to browser female voice:", ttsErr);
     }
 
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
+    // 2. Fallback: Browser speech synthesis strictly filtered to female elderly/mature voices (NEVER MALE)
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      const utterance = new SpeechSynthesisUtterance(cleanSpeech);
+      utterance.lang = currentLang === "de" ? "de-DE" : currentLang === "en" ? "en-US" : "es-ES";
+      utterance.pitch = 0.92; // Warm, mature grandmother pitch (not high-pitched, not male)
+      utterance.rate = 0.90;  // Calm, patient, grandmotherly pace
 
-    window.speechSynthesis.speak(utterance);
+      const voices = window.speechSynthesis.getVoices();
+      const langCode = utterance.lang.slice(0, 2);
+
+      // Exclude male voice names explicitly
+      const isMaleVoice = /(jorge|pablo|diego|carlos|enrique|alvaro|manuel|raul|david|male|guy|man|stefan|markus|peter)/i;
+      const isFemaleVoice = /(female|monica|francisca|paloma|carmen|helena|laura|conchita|marta|victoria|lucia|amira|paulina|soledad|rosa|maria|elvira|penelope|marlene|anna|petra|samantha|karen|susan)/i;
+
+      // Find best female voice matching language
+      const preferredVoice = voices.find(
+        (v) => v.lang.startsWith(langCode) && !isMaleVoice.test(v.name) && isFemaleVoice.test(v.name)
+      ) || voices.find(
+        (v) => v.lang.startsWith(langCode) && !isMaleVoice.test(v.name)
+      );
+
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+
+      utterance.onstart = () => setIsSpeaking(true);
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
+
+      window.speechSynthesis.speak(utterance);
+    } else {
+      setIsSpeaking(false);
+    }
   };
 
   const handleSendMessage = async (textToSend?: string, forceVoiceReply: boolean = false) => {
