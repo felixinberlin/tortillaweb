@@ -151,4 +151,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'urgencias', en: 'emergency', de: 'notfall' },
     label: { es: 'Urgencias 112', en: 'Emergency Hotline', de: 'Tortilla-Notruf 112' },
   },
+  abuela: {
+    id: 'abuela',
+    slug: { es: 'abuela', en: 'abuela', de: 'abuela' },
+    label: { es: 'Pregúntale a la Abuela', en: 'Ask Grandma María', de: 'Frag Oma María' },
+  },
 };

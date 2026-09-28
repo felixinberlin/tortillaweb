@@ -1,0 +1,158 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { AbuelaChat } from '@/components/chat/AbuelaChat';
+import { Heart, Flame, ShieldCheck, Sparkles, BookOpen, PhoneCall, HelpCircle } from 'lucide-react';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Pregúntale a la Abuela María | Chatbot de Inteligencia Culinaria Tradicional'
+  : currentLang === 'de'
+  ? 'Frag Oma María | Traditioneller kulinarischer KI-Chatbot'
+  : 'Ask Grandma María | Traditional Spanish Tortilla AI Chatbot';
+
+const pageDescription = currentLang === 'es'
+  ? 'Conversa con la Abuela María de Navarra (1942), guardiana de la tortilla tradicional. Respuestas cálidas, humor manchego y navarro, y precisión científica sobre patatas, pochado, volteo y seguridad a 70°C.'
+  : currentLang === 'de'
+  ? 'Sprich mit Oma María aus Navarra (1942), Hüterin der traditionellen Tortilla. Herzliche Antworten, Humor und kulinarische Präzision zu Kartoffeln, Wenden und Sicherheit.'
+  : 'Chat with Grandma María from Navarre (1942), keeper of traditional Spanish omelette technique. Warm, funny, maternal advice with culinary science on potatoes, flipping, and 70°C safety.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  {
+    name: currentLang === 'es' ? 'Pregúntale a la Abuela' : currentLang === 'de' ? 'Frag Oma María' : 'Ask Grandma María',
+    url: `/${currentLang}/abuela`,
+  },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <main class="container mx-auto px-4 py-8 md:py-12 max-w-6xl space-y-10">
+    
+    <!-- Hero Header -->
+    <header class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFB800]/20 border border-[#FFB800]/40 text-[#8D6E63] dark:text-[#FFB800] text-xs font-bold uppercase tracking-wider">
+        <Sparkles class="w-3.5 h-3.5 text-[#FF8A00]" />
+        <span>{currentLang === 'es' ? 'Inteligencia Artificial con Alma Tradicional' : currentLang === 'de' ? 'KI mit dem Herzen einer Großmutter' : 'AI with a Grandmother’s Heart'}</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black font-serif text-stone-900 dark:text-stone-100 tracking-tight">
+        {currentLang === 'es' ? 'La Cocina de la Abuela María' : currentLang === 'de' ? 'In der Küche von Oma María' : 'Grandma María’s Kitchen'}
+      </h1>
+
+      <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed font-sans">
+        {currentLang === 'es'
+          ? 'Nacida en el Baztán en 1942, la Abuela María conoce cada secreto, receta, controversia y ley de seguridad de tortilladepatatas.org. Pregúntale tus dudas con total confianza.'
+          : currentLang === 'de'
+          ? 'Geboren 1942 im Baztán-Tal, kennt Oma María jedes Rezept, jedes Geheimnis und alle Sicherheitsregeln von tortilladepatatas.org. Frag sie alles!'
+          : 'Born in the Baztan Valley in 1942, Grandma María knows every recipe, secret, debate, and safety standard of tortilladepatatas.org. Ask her anything with confidence!'}
+      </p>
+    </header>
+
+    <!-- Main Chatbot Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Chat Interface Island -->
+      <div class="lg:col-span-8">
+        <AbuelaChat client:load lang={currentLang} />
+      </div>
+
+      <!-- Culinary Sidebar & Lore -->
+      <aside class="lg:col-span-4 space-y-6">
+        
+        <!-- Persona Bio Card -->
+        <div class="card-notebook p-6 bg-[#FFFDF7] dark:bg-[#1C1917] border-2 border-[#EADBB6] dark:border-[#443828] rounded-3xl shadow-stacked-parchment space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-stone-800 border-2 border-[#FFB800] p-1 shrink-0 overflow-hidden">
+              <img src="/images/personas/cocineras.svg" alt="Abuela María" class="w-full h-full object-cover rounded-xl" />
+            </div>
+            <div>
+              <h3 class="font-serif font-bold text-stone-900 dark:text-stone-100 text-base">
+                Abuela María
+              </h3>
+              <p class="text-xs text-[#8D6E63] dark:text-[#FFB800] font-mono">
+                Navarra, 1942 • Purista
+              </p>
+            </div>
+          </div>
+
+          <blockquote class="italic text-xs text-stone-600 dark:text-stone-300 border-l-2 border-[#FFB800] pl-3 py-1 font-serif">
+            «La patata y el huevo tienen su propia voz; quien les añade adornos innecesarios es porque desconfía de la calidad de su tierra.»
+          </blockquote>
+
+          <div class="pt-3 border-t border-stone-200 dark:border-stone-800 space-y-2 text-xs text-stone-600 dark:text-stone-400">
+            <div class="flex items-center justify-between">
+              <span class="font-medium">{currentLang === 'es' ? 'Receta predilecta:' : currentLang === 'de' ? 'Lieblingsrezept:' : 'Favorite recipe:'}</span>
+              <a href={`/${currentLang}/recipes/clasica`} class="text-[#FF8A00] font-bold hover:underline">
+                Tortilla Clásica
+              </a>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-medium">{currentLang === 'es' ? 'Variedad de patata:' : currentLang === 'de' ? 'Kartoffelsorte:' : 'Potato variety:'}</span>
+              <span class="font-bold text-stone-800 dark:text-stone-200">Kennebec</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-medium">{currentLang === 'es' ? 'Norma de oro:' : currentLang === 'de' ? 'Goldstandard:' : 'Gold standard:'}</span>
+              <span class="font-bold text-emerald-600 dark:text-emerald-400">70°C por 2 min</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Wisdom Tips -->
+        <div class="card-notebook p-6 bg-gradient-to-br from-[#FFB800]/10 via-[#FFFDF7] to-transparent dark:from-[#292218] dark:to-[#1C1917] border-2 border-[#FFB800]/30 rounded-3xl shadow-sm space-y-3">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8D6E63] dark:text-[#FFB800]">
+            <Heart class="w-4 h-4 text-rose-500 fill-rose-500" />
+            <span>{currentLang === 'es' ? 'Tres consejos de oro' : currentLang === 'de' ? 'Drei goldene Regeln' : 'Three Golden Rules'}</span>
+          </div>
+
+          <ul class="text-xs space-y-2.5 text-stone-700 dark:text-stone-300">
+            <li class="flex items-start gap-2">
+              <span class="text-[#FFB800] font-bold">1.</span>
+              <span><strong>{currentLang === 'es' ? 'Pochado manso:' : currentLang === 'de' ? 'Sanftes Garen:' : 'Gentle confit:'}</strong> {currentLang === 'es' ? 'El aceite a 130°C–140°C para que la patata quede tierna como mantequilla, nunca frita ni crujiente.' : currentLang === 'de' ? 'Öl bei 130°C–140°C halten, damit die Kartoffel butterzart wird.' : 'Oil at 130°C–140°C so potatoes turn buttery soft, never crisp.'}</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#FFB800] font-bold">2.</span>
+              <span><strong>{currentLang === 'es' ? 'El reposo:' : currentLang === 'de' ? 'Die Rastzeit:' : 'The rest:'}</strong> {currentLang === 'es' ? 'Vierte la patata caliente en el huevo y déjala reposar 5-10 minutos antes de ir a la sartén.' : currentLang === 'de' ? 'Heiße Kartoffeln zum Ei geben und 5-10 Minuten ruhen lassen.' : 'Pour hot potatoes into the eggs and rest 5-10 minutes before the pan.'}</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#FFB800] font-bold">3.</span>
+              <span><strong>{currentLang === 'es' ? 'Sin miedo al volteo:' : currentLang === 'de' ? 'Mut beim Wenden:' : 'No fear flipping:'}</strong> {currentLang === 'es' ? 'Plato plano sobre el fregadero y movimiento decidido. Quien duda, derrama.' : currentLang === 'de' ? 'Flacher Teller, über der Spüle und mit Entschlossenheit wenden!' : 'Flat plate, over the sink, one decisive motion. Hesitation spills!'}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Emergency Hotline Link -->
+        <a 
+          href={`/${currentLang}/urgencias`}
+          class="block p-5 bg-gradient-to-r from-rose-500/10 to-amber-500/10 border-2 border-rose-500/30 rounded-3xl hover:border-rose-500 transition-all group"
+        >
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 bg-rose-500 text-white rounded-2xl group-hover:scale-110 transition-transform">
+              <PhoneCall class="w-5 h-5" />
+            </div>
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
+                {currentLang === 'es' ? '¿Desastre en directo?' : currentLang === 'de' ? 'Akute Küchenkrise?' : 'Cooking Disaster?'}
+              </div>
+              <div class="text-sm font-black text-stone-900 dark:text-stone-100 font-serif">
+                {currentLang === 'es' ? 'Línea de Urgencias 112' : currentLang === 'de' ? 'Tortilla-Notruf 112' : 'Emergency Hotline 112'}
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </aside>
+
+    </div>
+
+  </main>
+</Layout>

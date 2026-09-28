@@ -36,7 +36,8 @@ import {
   Dna,
   ShoppingBag,
   Utensils,
-  PhoneCall
+  PhoneCall,
+  Heart
 } from "lucide-react";
 import { getTranslations } from "@/lib/i18n";
 import headerNavData from "@/content/navigation/header.json";
@@ -69,6 +70,7 @@ const iconMap: Record<string, any> = {
   encuestas: Vote,
   tests: HelpCircle,
   emergency: PhoneCall,
+  abuela: Heart,
   authenticity: ShieldCheck,
   escandallo: Scale,
   humor: Laugh,
