@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "@/i18n/config";
 import { ChefHat, ShieldCheck, Heart, BookOpen, ArrowUpRight, ExternalLink } from "lucide-react";
 import { getTranslations } from "@/lib/i18n";
-import { resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
+import { getRouteLabel, resolveNavigationTarget, type SupportedLocale } from "@/lib/routes";
 
 interface FooterProps {
   lang?: string;
@@ -73,6 +73,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
               { path: "/techniques", label: t("nav.techniques", "Técnicas & Volteado") },
               { path: "/science", label: t("nav.science", "Ciencia & Seguridad Alimentaria") },
               { path: "/history", label: t("nav.history", "Historia & Cronología 1767-2025") },
+              { path: "/mapapremios", label: getRouteLabel("mapaPremios", (lang as SupportedLocale) || "es") },
               { path: "/about", label: t("nav.aboutAndContact", "Sobre Nosotros & Contacto") },
               { path: "/aviso-legal", label: t("nav.impressum", "Aviso Legal e Impressum") },
             ].map((item) => (

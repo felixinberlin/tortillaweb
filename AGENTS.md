@@ -42,3 +42,15 @@ See `docs/AI_AGENT_PLAYBOOK.md` for complete architectural guides, lessons learn
 4. **SSR & Browser Globals**: Astro renders components on both server and client. Always guard browser APIs (`window`, `localStorage`, `navigator`) with `typeof window !== "undefined"` or inside React lifecycle hooks.
 5. **Fast Quality Checks**: Use `npm run lint` (`oxlint`) for near-instant lint feedback and `compile_applet` for full production compilation checks.
 
+
+## Award Map (`/[lang]/mapapremios`)
+Map and list of bars/restaurants that won tortilla championships (national, regional, local). Page: `src/pages/[lang]/mapapremios.astro`; component: `src/components/awards/AwardMap.tsx` (Leaflet, loaded client-side only; OSM tiles); data: `src/data/awardWinners.json`, one record per award. To add results, follow `.claude/skills/add-winner/SKILL.md`.
+
+Data rules (enforced by `tests/awardWinners.test.ts`):
+- Every award needs at least one `sources` URL (article or organiser page).
+- `verified` stays `false` until someone has opened a source page and confirmed venue, place, year and championship. Search snippets don't count.
+- Coordinates are approximate unless geocoded: `geo_precision` is `municipio`, `barrio` or `geocoded`.
+- Never copy, link or hotlink photos from news articles. Leave a field `null` rather than guess (e.g. `style`).
+- "Near me" needs `geolocation=(self)` in the `Permissions-Policy` headers (`netlify.toml`, `vercel.json`).
+
+Cloud sessions: the egress proxy may block page fetches (news sites), `nominatim.openstreetmap.org` and `tile.openstreetmap.org`; WebSearch works. New entries found there stay `verified: false`, and map tiles show grey in local browser tests. Research notes and open championships: `docs/research/award-map-2026-09-28.md`.
