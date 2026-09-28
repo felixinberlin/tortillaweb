@@ -1,3 +1,51 @@
 ---
-return Astro.redirect('/es');
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/home/Hero';
+import AuthorityStatsBanner from '@/components/home/AuthorityStatsBanner';
+import MainHubDirectory from '@/components/home/MainHubDirectory';
+import { getTranslations } from '@/lib/i18n';
+import {
+  generateWebSiteSchema,
+  generateOrganizationSchema,
+  generateBreadcrumbSchema,
+} from '@/lib/seo';
+import { getAllRecipes } from '@/lib/taxonomy';
+
+const currentLang = 'es';
+const t = getTranslations(currentLang);
+
+const recipes = await getAllRecipes();
+const recipeCount = recipes.length;
+
+const title = 'Tortilla de Patatas: La Enciclopedia, Ciencia, Recetas & Menaje Culinario';
+const description = 'La mayor autoridad mundial en tortilla de patatas: recetas tradicionales, ciencia del cuajado a 70°C, termodinámica de la patata, guía de peladores, sartenes dobles y calculadoras maestras.';
+
+const schemas = [
+  generateWebSiteSchema(),
+  generateOrganizationSchema(),
+  generateBreadcrumbSchema([
+    { name: 'Inicio', url: '/' }
+  ]),
+];
+
+const customHreflangs = [
+  { lang: 'es', href: 'https://tortilladepatatas.org/' },
+  { lang: 'en', href: 'https://tortilladepatatas.org/en' },
+  { lang: 'de', href: 'https://tortilladepatatas.org/de' },
+  { lang: 'x-default', href: 'https://tortilladepatatas.org/' },
+];
 ---
+
+<Layout
+  title={title}
+  description={description}
+  lang={currentLang}
+  schema={schemas}
+  canonical="https://tortilladepatatas.org/"
+  customHreflangs={customHreflangs}
+>
+  <Hero lang={currentLang} client:load />
+  <AuthorityStatsBanner lang={currentLang} recipeCount={recipeCount} />
+  <MainHubDirectory lang={currentLang} client:load />
+</Layout>
+

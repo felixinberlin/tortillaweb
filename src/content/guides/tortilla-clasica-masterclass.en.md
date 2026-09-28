@@ -55,7 +55,7 @@ For a generous 4-serving purist tortilla, the canonical ratio is **6 to 7 large 
 Always use cold-pressed **Extra Virgin Olive Oil (EVOO)** with low acidity (<0.4°).
 *   **Arbequina or Manzanilla Cacereña:** Mild, fruity, with sweet almond notes that preserve the natural sweetness of the potatoes.
 *   **Hojiblanca:** Offers fresh grass notes and a light peppery kick.
-*   *Avoid refined seed oils*: they lack thermal stability and strip the dish of authentic Mediterranean depth. Discover more in our [olive oil guide](/[lang]/ingredients/oil).
+*   *Avoid refined seed oils*: they lack thermal stability and strip the dish of authentic Mediterranean depth. Discover more in our [olive oil guide](/en/ingredients/olive-oil) and explore the chemical role of sodium in our [salt monograph](/en/ingredients/salt).
 
 ---
 
@@ -101,7 +101,7 @@ INTEGRATION PROTOCOL:
 2.  **Beneficial Thermal Shock:** Fold hot drained potatoes directly into the beaten eggs. The residual thermal mass gently warms the egg conalbumin without scrambling, forming a rich, silky custard.
 3.  **The 3-Minute Rest:** Allow potatoes to absorb egg liquid. Lightly crush a few slices with a wooden spoon to release binding starches.
 
-For an in-depth molecular breakdown, visit our [tortilla science guide](/[lang]/science).
+For an in-depth molecular breakdown, visit our [tortilla science guide](/en/science).
 
 ---
 
@@ -134,7 +134,7 @@ COOKING TIMELINE ACCORDING TO PREFERRED TEXTURE:
 - Firm & Traditional (Ideal for Bocadillos):       90s Side A + 75s Side B
 ```
 
-Experiment with heat output and wrist torque in our [interactive tortilla lab](/[lang]/laboratorio).
+Experiment with heat output and wrist torque in our [interactive tortilla lab](/en/laboratorio).
 
 ---
 
@@ -166,9 +166,12 @@ A velvety, juicy tortilla should always be prepared with food safety in mind to 
 
 ## 🔗 Related Recipes & Knowledge Resources
 
-* [Classic Tortilla Recipe](/[lang]/recipes/tortilla-clasica)
-* [Betanzos Runny Tortilla Recipe](/[lang]/recipes/tortilla-betanzos)
-* [Key Ingredient: Potatoes](/[lang]/ingredients/potato)
-* [Key Ingredient: Eggs](/[lang]/ingredients/egg)
-* [The Great Onion Debate & Style Comparator](/[lang]/comparador)
-* [Culinary Science & Physics Notebook](/[lang]/science)
+* [Classic Spanish Tortilla Recipe](/en/recipes/classic-spanish-omelette)
+* [Betanzos Runny Tortilla Recipe](/en/recipes/betanzos-style-spanish-omelette)
+* [Masterclass Guide: The Salting Chronology](/en/guides/la-cronologia-de-la-sal)
+* [Key Ingredient: Fine Sea Salt](/en/ingredients/salt)
+* [Key Ingredient: Potatoes](/en/ingredients/potato)
+* [Key Ingredient: Farm-Fresh Eggs](/en/ingredients/egg)
+* [Key Ingredient: Olive Oil](/en/ingredients/olive-oil)
+* [The Great Onion Debate & Style Comparator](/en/comparador)
+* [Culinary Science & Physics Notebook](/en/science)

@@ -26,7 +26,7 @@ The spatial reorganization of egg proteins under heat defines three distinct phy
 2.  **Creamy texture (63°C – 70°C):** The ideal phase equilibrium is achieved [30]. The proteins of the egg white have formed a stable network while the yolk reaches a semi-solid state of creamy emulsion [30].
 3.  **Dry or over-coagulated (>70°C):** The proteins contract excessively, expelling the retained water in a process called **syneresis** [30]. The egg becomes elastic, rubbery, and dry, losing all of its juiciness [30].
 
-*Pro Tip:* To avoid introducing air bubbles that create a spongy, soufflé-like texture, the egg should be mixed gently with a fork to break the yolk membranes, avoiding excessive beating [30, 90]. In schools like the one in [Betanzos](/[lang]/recipes/betanzos), the eggs are cracked directly over the hot potatoes without prior whisking [90, 137].
+*Pro Tip:* To avoid introducing air bubbles that create a spongy, soufflé-like texture, the egg should be mixed gently with a fork to break the yolk membranes, avoiding excessive beating [30, 90]. In schools like the one in [Betanzos](/en/recipes/betanzos-style-spanish-omelette), the eggs are cracked directly over the hot potatoes without prior whisking [90, 137].
 
 ---
 
@@ -45,7 +45,7 @@ The potato is not a mere filling; it is the supporting element of the dish [3, 3
 | **Starchy (Avoid)** | High starch, low water content [3]. | Russet. | They absorb too much oil, break apart easily, and make the egg cloudy, creating a pasty, dry mass [3]. |
 | **Early / Waxy (Avoid)** | High water content, low starch [3]. | Early white potatoes. | They release free water during cooking, preventing the egg from adhering and resulting in a rubbery texture [3]. |
 
-*The Cutting Technique:* An irregular cut, also known as **chascado** or cracking (breaking the potato's final section by prying with the knife), fractures the cell walls irregularly, releasing a larger amount of surface amylopectin [3, 30]. This free starch acts as a natural thickener that binds the egg and potato during the rest period [30]. Learn more about this basic ingredient in our dedicated [potato](/[lang]/ingredients/potato) section.
+*The Cutting Technique:* An irregular cut, also known as **chascado** or cracking (breaking the potato's final section by prying with the knife), fractures the cell walls irregularly, releasing a larger amount of surface amylopectin [3, 30]. This free starch acts as a natural thickener that binds the egg and potato during the rest period [30]. Learn more about this basic ingredient in our dedicated [potato](/en/ingredients/potato) section and discover how ionic salinity regulates osmosis in our [salt monograph](/en/ingredients/salt).
 
 ---
 
@@ -53,8 +53,8 @@ The potato is not a mere filling; it is the supporting element of the dish [3, 3
 
 Cooking the potato in oil is a heat transfer process controlled by the temperature of the lipid [30]:
 
-1.  **Gentle Poaching / Confit (110°C – 140°C):** This is the classical method associated with the [slow-cooking technique](/[lang]/techniques/slow-cooking) [30, 142]. The potatoes are cooked slowly while fully submerged [30, 142]. Cellular water evaporates gently, allowing the starch to gelatinize and the cells to soften without burning or caramelizing the potato's sugars [3, 30]. The result is a potato with a buttery texture that melts in the mouth [3, 30].
-2.  **Crispy Frying (160°C – 180°C):** Typical of the [frying technique](/[lang]/techniques/frying) [30, 142]. The potatoes are sliced paper-thin (into flakes or chips) and subjected to very hot oil [30, 142]. The water evaporates instantly, inflating the potato and creating slightly golden, crispy edges that contrast beautifully with the liquid egg [30].
+1.  **Gentle Poaching / Confit (110°C – 140°C):** This is the classical method associated with the [slow-cooking technique](/en/techniques/slow-poaching) [30, 142]. The potatoes are cooked slowly while fully submerged [30, 142]. Cellular water evaporates gently, allowing the starch to gelatinize and the cells to soften without burning or caramelizing the potato's sugars [3, 30]. The result is a potato with a buttery texture that melts in the mouth [3, 30].
+2.  **Crispy Frying (160°C – 180°C):** Typical of the [frying technique](/en/techniques/crispy-frying) [30, 142]. The potatoes are sliced paper-thin (into flakes or chips) and subjected to very hot oil [30, 142]. The water evaporates instantly, inflating the potato and creating slightly golden, crispy edges that contrast beautifully with the liquid egg [30].
 3.  **Thermal Abuse (>190°C):** Exceeding this temperature degrades the fatty acids of the olive oil, destroys its healthy polyphenols, and generates acrolein, imparting an unpleasant bitter and burnt flavor that ruins the dish [30].
 
 *The Final Sear:* Once the mixture is combined, it is poured into a very hot pan greased with a few drops of oil to cause instant coagulation of the outer layer [30]. This creates a thin, golden "jacket" that seals the structure and locks in the runny heart of the omelette [30].
@@ -74,7 +74,7 @@ To guarantee the effective destruction of pathogens in catering and public estab
 *   **Authorized Runny Treatment:** Keeping the center at **63°C for a minimum of 20 seconds** [62, 141]. This level offers a safe intermediate reduction, provided the dish is **consumed immediately** or kept warm at $\ge 63°C$ [62, 141].
 *   **The 4-Hour Rule:** Any omelette made with runny fresh eggs must never remain for more than **4 hours at room temperature** [141]. Leftovers must be refrigerated immediately at temperatures below **8°C** [62, 141].
 
-*Kitchen Hygiene:* Research directed by Dr. José Manuel Barat at the Universitat Politècnica de València (UPV) reveals that Salmonella is highly resilient on surfaces: it can survive more than **3 days** on stainless steel, up to **48 hours** on porous wooden boards, and up to **14 days** on food-grade plastics (forming resistant biofilms) [62, 141]. Learn more about the researcher [Barat](/[lang]/people/barat) in our directory.
+*Kitchen Hygiene:* Research directed by Dr. José Manuel Barat at the Universitat Politècnica de València (UPV) reveals that Salmonella is highly resilient on surfaces: it can survive more than **3 days** on stainless steel, up to **48 hours** on porous wooden boards, and up to **14 days** on food-grade plastics (forming resistant biofilms) [62, 141]. Learn more about the researcher [Barat](/en/personas/jose-manuel-barat) in our directory.
 
 ---
 

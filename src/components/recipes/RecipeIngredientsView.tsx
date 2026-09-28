@@ -299,6 +299,7 @@ export const RecipeIngredientsView: React.FC<RecipeIngredientsViewProps> = ({
             return (
               <li
                 key={item.key}
+                itemProp="recipeIngredient"
                 onClick={() => toggleCheck(item.key)}
                 className={`flex items-start gap-3 p-3 rounded-2xl transition-all cursor-pointer select-none border shadow-2xs ${
                   isChecked

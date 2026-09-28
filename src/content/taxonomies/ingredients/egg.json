@@ -21,6 +21,9 @@
   "related": [
     { "type": "ingredient", "id": "potato", "relationship": "structural_partner" },
     { "type": "ingredient", "id": "oil", "relationship": "emulsion_partner" },
+    { "type": "ingredient", "id": "salt", "relationship": "ionic_dispersion" },
+    { "type": "guide", "id": "la-cronologia-de-la-sal", "relationship": "protein_coagulation_kinetics" },
+    { "type": "guide", "id": "fenomeno-betanzos-yema-tecnica", "relationship": "runny_yolk_dynamics" },
     { "type": "technique", "id": "coagulation", "relationship": "thermal_process" },
     { "type": "technique", "id": "emulsion", "relationship": "physicochemical_process" },
     { "type": "recipe", "id": "clasica", "relationship": "featured_recipe" },

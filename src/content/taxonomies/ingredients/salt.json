@@ -3,9 +3,9 @@
   "type": "ingredient",
   "contentId": "ingredient.salt",
   "slug": {
-    "es": "salt",
+    "es": "sal",
     "en": "salt",
-    "de": "salt"
+    "de": "salz"
   },
   "title": {
     "es": "Sal Marina Fina",
@@ -17,5 +17,14 @@
     "en": "Essential mineral to season potatoes and enhance egg matrix flavor.",
     "de": "Essentielles Mineral zum Würzen der Kartoffeln und Abrunden der Ei-Matrix."
   },
-  "icon": "Sparkles"
+  "icon": "Sparkles",
+  "image": "/images/ingredients/salt_editorial_card.svg",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "osmotic_seasoning" },
+    { "type": "ingredient", "id": "egg", "relationship": "protein_charge_dispersion" },
+    { "type": "ingredient", "id": "oil", "relationship": "solubility_contrast" },
+    { "type": "recipe", "id": "clasica", "relationship": "featured_recipe" },
+    { "type": "recipe", "id": "betanzos", "relationship": "featured_recipe" },
+    { "type": "guide", "id": "la-cronologia-de-la-sal", "relationship": "scientific_masterclass" }
+  ]
 }

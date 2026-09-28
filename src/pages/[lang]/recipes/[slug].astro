@@ -11,7 +11,7 @@ import Clever404View from '@/components/navigation/Clever404View.tsx';
 import { getAllRecipes, resolveRecipeBadges, getAllTaxonomies, getTaxonomyRoutePrefix } from '@/lib/taxonomy';
 import { supportedLanguages, getTranslations } from '@/lib/i18n';
 import { generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
-import { createRecipeSchema } from '@/lib/seo/recipeSchema';
+import { createRecipeSchema, generateRecipeKeywords, formatIsoDuration } from '@/lib/seo/recipeSchema';
 import { Clock, Users, BookOpen, ExternalLink, Shield, ChefHat, Sparkles } from 'lucide-react';
 import { assertEntityExists } from '@/lib/routing/assertEntity';
 import { getRelatedRecipes, getRelatedIngredients, getRelatedTaxonomies } from '@/lib/content/related';
@@ -91,9 +91,28 @@ const instructionsList = isValidRoute && recipe?.instructions
     }))
   : [];
 
+const recipeKeywords = (isValidRoute && recipe)
+  ? generateRecipeKeywords(recipe, currentLang as 'es' | 'en' | 'de')
+  : '';
+
+const recipeCategory = currentLang === 'es' ? 'Plato principal' : currentLang === 'de' ? 'Hauptgericht' : 'Main Course';
+const recipeCuisine = currentLang === 'es' ? 'Española' : currentLang === 'de' ? 'Spanisch' : 'Spanish';
+const prepTimeIso = formatIsoDuration(recipe?.prepTimeMinutes || 15);
+const cookTimeIso = formatIsoDuration(recipe?.cookTimeMinutes || 20);
+const totalTimeIso = formatIsoDuration(recipe?.time || 35);
+const recipeYieldText = currentLang === 'es'
+  ? `${recipe?.yieldServings || 4} raciones`
+  : currentLang === 'de'
+  ? `${recipe?.yieldServings || 4} Portionen`
+  : `${recipe?.yieldServings || 4} servings`;
+const recipeImageUrl = `${SITE_URL}${recipe?.image ? recipe.image.replace(/\.jpg$/, '.svg') : '/images/recipes/clasica.svg'}`;
+
 const recipeSchema = (isValidRoute && recipe) ? createRecipeSchema(recipe, {
   lang: currentLang as 'es' | 'en' | 'de',
   url: currentUrl,
+  category: recipeCategory,
+  cuisine: recipeCuisine,
+  keywords: recipeKeywords,
 }) : undefined;
 
 const schemas = isValidRoute ? [breadcrumbSchema, recipeSchema].filter(Boolean) : undefined;
@@ -118,8 +137,9 @@ const rawRecipeInput = (isValidRoute && recipe) ? {
   prepTimeMinutes: recipe.prepTimeMinutes || 15,
   cookTimeMinutes: recipe.cookTimeMinutes || (recipe.time ? Math.max(0, recipe.time - 15) : 20),
   yieldServings: recipe.yieldServings || 4,
-  category: 'Main Course',
-  cuisine: 'Spanish',
+  category: recipeCategory,
+  cuisine: recipeCuisine,
+  keywords: recipeKeywords,
   authorName: recipe.author?.name || 'tortilladepatatas.org',
   url: currentUrl,
   ingredients: ingredientsList,
@@ -166,19 +186,40 @@ const personaImage = personaFavorited
   : undefined;
 ---
 
-<Layout title={pageTitle} description={description} lang={currentLang} schema={schemas} breadcrumbs={breadcrumbsList} customHreflangs={recipeHreflangs} canonical={currentUrl}>
+<Layout title={pageTitle} description={description} lang={currentLang} keywords={recipeKeywords} image={recipeImageUrl} schema={schemas} breadcrumbs={breadcrumbsList} customHreflangs={recipeHreflangs} canonical={currentUrl}>
   {!isValidRoute || !recipe ? (
     <div class="container mx-auto px-4 py-8">
       <Clever404View lang={currentLang} requestedPath={Astro.url.pathname} client:load />
     </div>
   ) : (
     <article itemscope itemtype="https://schema.org/Recipe" class="container mx-auto px-4 py-10 md:py-16 max-w-4xl space-y-10">
-      <!-- HIDDEN METADATA FOR CRAWLERS -->
-      <meta itemprop="prepTime" content={`PT${recipe.prepTimeMinutes || 15}M`} />
-      <meta itemprop="cookTime" content={`PT${recipe.cookTimeMinutes || 20}M`} />
-      <meta itemprop="totalTime" content={`PT${recipe.time || 35}M`} />
-      <meta itemprop="recipeCategory" content="Main Course" />
-      <meta itemprop="recipeCuisine" content="Spanish" />
+      <!-- STRUCTURED DATA METADATA FOR SEARCH ENGINES & GOOGLE RECIPE RICH RESULTS -->
+      <meta itemprop="keywords" content={recipeKeywords} />
+      <meta itemprop="recipeCategory" content={recipeCategory} />
+      <meta itemprop="recipeCuisine" content={recipeCuisine} />
+      <meta itemprop="prepTime" content={prepTimeIso} />
+      <meta itemprop="cookTime" content={cookTimeIso} />
+      <meta itemprop="totalTime" content={totalTimeIso} />
+      <meta itemprop="recipeYield" content={recipeYieldText} />
+      <link itemprop="image" href={recipeImageUrl} />
+      <div itemprop="author" itemscope itemtype="https://schema.org/Organization" class="hidden">
+        <meta itemprop="name" content={recipe.author?.name || 'tortilladepatatas.org'} />
+        <meta itemprop="url" content={SITE_URL} />
+      </div>
+
+      <!-- INGREDIENTS AS STRUCTURED DATA FOR GOOGLEBOT -->
+      {ingredientsList.map((ing) => (
+        <meta itemprop="recipeIngredient" content={ing} />
+      ))}
+
+      <!-- INSTRUCTIONS AS STRUCTURED DATA FOR GOOGLEBOT -->
+      {instructionsList.map((inst, idx) => (
+        <div itemprop="recipeInstructions" itemscope itemtype="https://schema.org/HowToStep" class="hidden">
+          <meta itemprop="position" content={`${idx + 1}`} />
+          <meta itemprop="name" content={inst.step} />
+          <meta itemprop="text" content={inst.text} />
+        </div>
+      ))}
 
       <!-- HEADER -->
       <header class="space-y-4 text-center">

@@ -82,7 +82,7 @@ CRONÓMETRO DE PREPARACIÓN EXPRÉS (MÉTODO MANDOLINA):
 2.  **Movimiento Sísmico y Espátula:** Agita la sartén enérgicamente en vaivén con una mano mientras con la espátula metes los bordes hacia abajo en círculo. La alta temperatura creará una piel dorada instantánea que impedirá fugas de huevo.
 3.  **Volteo Relámpago:** En menos de un minuto la base estará perfectamente dorada. Voltea sin vacilar sobre un plato humedecido y dale 30 segundos finales por el otro lado.
 
-Consulta la guía interactiva en nuestro [laboratorio de cocina](/[lang]/laboratorio).
+Consulta la guía interactiva en nuestro [laboratorio de cocina](/es/laboratorio).
 
 ---
 
@@ -113,7 +113,7 @@ El cocinado a fuego vivo produce una corteza exterior muy caliente, pero el cent
 
 ## 🔗 Enlaces y Recursos
 
-* [Receta: Tortilla Exprés de Patatas Chips](/[lang]/recipes/tortilla-express-patatas-chips)
-* [Receta: Tortilla Clásica](/[lang]/recipes/tortilla-clasica)
-* [Técnicas de Fritura y Termodinámica](/[lang]/techniques/frying)
-* [Ciencia del Huevo y Coagulación](/[lang]/science)
+* [Receta: Tortilla Exprés de Patatas Chips](/es/recipes/tortilla-express-patatas-chips)
+* [Receta: Tortilla Clásica](/es/recipes/tortilla-clasica)
+* [Técnicas de Fritura y Termodinámica](/es/tecnicas/fritura-crujiente)
+* [Ciencia del Huevo y Coagulación](/es/science)

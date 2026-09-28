@@ -58,7 +58,7 @@ Natives Olivenöl Extra besteht zu über 70% aus einfach ungesättigter **Ölsä
 3.  **Picual & Cornicabra (Andalusien & Kastilien):** Hoher Polyphenolgehalt und kräftige, leicht pfeffrige Noten für deftige Wirtshaus-Tortillas.
 4.  *Wiederverwendung des Confit-Öls:* Da die Temperatur unter 140°C bleibt, behält das Öl seine Qualität und nimmt feine Kartoffelaromen auf. Es kann nach dem Abseihen 4–5 Mal wiederverwendet werden.
 
-Lesen Sie mehr in unserem [Olivenöl-Ratgeber](/[lang]/ingredients/oil).
+Lesen Sie mehr in unserem [Olivenöl-Ratgeber](/de/zutaten/olivenoel).
 
 ---
 
@@ -101,7 +101,7 @@ Die Verbindung von heißer Kartoffel und frischem Ei entscheidet über die final
 2.  **Ei-Zugabe:** 6–7 Eier in einer Schüssel nur kurz mit der Gabel verquirlen und die heißen Kartoffeln sofort hineingeben.
 3.  **Die 4-Minuten-Ruhe:** Die Restwärme lässt das Ei-Conalbumin cremig binden, ohne dass Rührei entsteht.
 
-Erfahren Sie mehr in unserem Kapitel zur [Tortilla-Wissenschaft](/[lang]/science).
+Erfahren Sie mehr in unserem Kapitel zur [Tortilla-Wissenschaft](/de/science).
 
 ---
 
@@ -131,8 +131,8 @@ Das lange Confitieren gart die Kartoffeln komplett durch, doch das finale Stocke
 
 ## 🔗 Weiterführende Links
 
-* [Klassisches Tortilla-Rezept](/[lang]/recipes/tortilla-clasica)
-* [Kochtechnik: Schongaren & Confit](/[lang]/techniques/slow-cooking)
-* [Zutaten-Wissen: Natives Olivenöl Extra](/[lang]/ingredients/oil)
-* [Simulationslabor für Coagulation & Hitze](/[lang]/laboratorio)
-* [Kartoffelkunde und Stärkeverhalten](/[lang]/ingredients/potato)
+* [Klassisches Tortilla-Rezept](/de/recipes/klassische-spanische-tortilla)
+* [Kochtechnik: Schongaren & Confit](/de/techniken/langsam-pochieren)
+* [Zutaten-Wissen: Natives Olivenöl Extra](/de/zutaten/olivenoel)
+* [Simulationslabor für Coagulation & Hitze](/de/laboratorio)
+* [Kartoffelkunde und Stärkeverhalten](/de/zutaten/kartoffel)

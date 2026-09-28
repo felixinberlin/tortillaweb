@@ -34,53 +34,6 @@ const recipesWithBadges = await Promise.all(
 const title = `${t('recipes.title')} - tortilladepatatas.org`;
 const description = t('recipes.subtitle');
 
-const recipeSchemas = recipes.map((r) => {
-  const rTitle = r.title[currentLang as keyof typeof r.title] || r.title.es;
-  const rDesc = r.description[currentLang as keyof typeof r.description] || r.description.es;
-  const rSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
-  const rUrl = `${SITE_URL}/${currentLang}/recipes/${rSlug}`;
-
-  const ingredientsList = r.ingredients
-    ? r.ingredients.map((i) => {
-        if (typeof i === 'string') return i;
-        const note = i.notes ? (i.notes[currentLang as keyof typeof i.notes] || i.notes.es) : undefined;
-        if (note) return note;
-        const name = i.name[currentLang as keyof typeof i.name] || i.name.es;
-        return `${i.amount}${i.unit === 'unit' ? '' : i.unit} ${name}`;
-      })
-    : [
-        '600g Patatas Agria o Monalisa',
-        '6 Huevos camperos frescos (Tamaño L)',
-        '150ml Aceite de oliva virgen extra',
-        '6g Sal fina'
-      ];
-
-  const instructionsList = r.instructions
-    ? r.instructions.map((inst) => ({
-        step: inst.step[currentLang as keyof typeof inst.step] || inst.step.es,
-        text: inst.text[currentLang as keyof typeof inst.text] || inst.text.es,
-      }))
-    : [
-        { step: 'Cortar patatas', text: 'Pelar y cortar las patatas en láminas finas.' },
-        { step: 'Confitar patatas', text: 'Confitar en aceite de oliva a fuego medio-bajo (130-140°C).' },
-        { step: 'Mezclar con huevo', text: 'Batir los huevos con la sal y agregar las patatas.' },
-        { step: 'Cuajar y voltear', text: 'Cuajar a fuego suave-medio hasta lograr el punto de cremosidad ideal.' }
-      ];
-
-  return generateRecipeSchema({
-    name: rTitle,
-    description: rDesc,
-    image: r.image ? r.image.replace(/\.jpg$/, '.svg') : '/images/recipes/clasica.svg',
-    prepTimeMinutes: r.prepTimeMinutes || 15,
-    cookTimeMinutes: r.cookTimeMinutes || 20,
-    yieldServings: r.yieldServings || 4,
-    authorName: r.author?.name || 'tortilladepatatas.org',
-    ingredients: ingredientsList,
-    instructions: instructionsList,
-    url: rUrl,
-  });
-});
-
 const collectionSchema = generateCollectionPageSchema({
   name: t('recipes.title'),
   description: t('recipes.subtitle'),
@@ -96,7 +49,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: t('recipes.title'), url: `/${currentLang}/recipes` }
 ]);
 
-const schemas = [collectionSchema, breadcrumbSchema, ...recipeSchemas];
+const schemas = [collectionSchema, breadcrumbSchema];
 ---
 
 <Layout title={title} description={description} lang={currentLang} schema={schemas}>
@@ -121,12 +74,11 @@ const schemas = [collectionSchema, breadcrumbSchema, ...recipeSchemas];
         const rSlug = r.slug[currentLang as keyof typeof r.slug] || r.slug.es;
 
         return (
-          <article itemprop="itemListElement" itemscope itemtype="https://schema.org/Recipe" key={r.id} class="card-notebook overflow-hidden rounded-2xl border border-border bg-card hover:border-[#FFB800] transition-all duration-300 flex flex-col justify-between group">
+          <article itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" key={r.id} class="card-notebook overflow-hidden rounded-2xl border border-border bg-card hover:border-[#FFB800] transition-all duration-300 flex flex-col justify-between group">
             <meta itemprop="position" content={`${index + 1}`} />
             <meta itemprop="url" content={`${SITE_URL}/${currentLang}/recipes/${rSlug}`} />
             <div>
-              <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="h-44 sm:h-48 w-full overflow-hidden bg-muted relative border-b border-border">
-                <meta itemprop="url" content={`${SITE_URL}${r.image ? r.image.replace(/\.jpg$/, '.svg') : '/images/recipes/clasica.svg'}`} />
+              <div class="h-44 sm:h-48 w-full overflow-hidden bg-muted relative border-b border-border">
                 <RecipeImage
                   client:visible
                   src={r.image}
@@ -143,13 +95,13 @@ const schemas = [collectionSchema, breadcrumbSchema, ...recipeSchemas];
               </div>
 
               <div class="p-5 space-y-3">
-                <h2 itemprop="name" class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] dark:group-hover:text-[#FFB800] transition-colors">
-                  <a href={`/${currentLang}/recipes/${rSlug}`}>
-                    {rTitle}
+                <h2 class="text-xl font-serif-heading font-bold text-foreground group-hover:text-[#8D6E63] dark:group-hover:text-[#FFB800] transition-colors">
+                  <a itemprop="url" href={`/${currentLang}/recipes/${rSlug}`}>
+                    <span itemprop="name">{rTitle}</span>
                   </a>
                 </h2>
 
-                <p itemprop="description" class="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {rDesc}
                 </p>
 

@@ -45,7 +45,7 @@ No todas las patatas sirven para tortilla. La concentración de agua y almidón 
 | Variedad | Materia Seca (%) | Ratio Amilosa / Amilopectina | Comportamiento en Aceite (130°C – 160°C) | Veredicto Tortillero |
 | :--- | :--- | :--- | :--- | :--- |
 | **Agria** | 21% – 23% (Alta) | Equilibrado / Alta amilopectina | Exterior dorado sin quemarse, interior tierno y mantecoso. | **Estándar de Oro (Confitado Clásico)** |
-| **Kennebec** | 19% – 21% (Media-Alta) | Predominio amilosa estructural | Láminas firmes que no se deshacen, gran absorción de jugo. | **Indispensable en [Betanzos](/[lang]/recipes/betanzos)** |
+| **Kennebec** | 19% – 21% (Media-Alta) | Predominio amilosa estructural | Láminas firmes que no se deshacen, gran absorción de jugo. | **Indispensable en [Betanzos](/es/recipes/betanzos)** |
 | **Monalisa** | 17% – 19% (Media) | Amilopectina fluida | Textura muy cremosa, menor rigidez en el corte. | **Ideal para noveles y pochado suave** |
 | **Spunta / Temprana** | 13% – 16% (Baja / Acuosa) | Exceso de agua libre | Suelta agua en la sartén, cuece en vez de freír, textura gomosa. | ❌ **Prohibida en cocina seria** |
 | **Bintje** | 20% – 22% (Alta) | Alta amilosa | Tiende a dorarse con rapidez por presencia de azúcares libres. | **Apta sólo con control estricto de fuego** |
@@ -95,3 +95,13 @@ El almidón hidratado y tibio en contacto con huevo crudo constituye un medio de
 
 *   Recuerda el estándar microbiológico de referencia: **70°C durante 2 minutos** (o **63°C durante 20 segundos**) inactiva las colonias de *Salmonella*.
 *   Cualquier preparación con centro fluido debe consumirse en el momento y no sobrepasar jamás las **4 horas** a temperatura ambiente.
+
+---
+
+## 🔗 Monografías y Recursos Relacionados
+
+* 🥔 **Ingrediente Botánico:** [Monografía Completa de la Patata](/es/ingredientes/patata) — Variedades, almacenamiento y composición.
+* 🧂 **Regulador Osmótico:** [La Cronología de la Sal: Cuándo y Cómo Salar la Patata](/es/guias/la-cronologia-de-la-sal) y [Monografía de la Sal Marina](/es/ingredientes/sal).
+* 🫒 **Técnica Térmica:** [El Confitado Lento del Tubérculo](/es/guias/confit-tecnica-lenta) y [Monografía del Aceite de Oliva](/es/ingredientes/aceite-de-oliva).
+* 🥚 **Matriz de Cuajado:** [Monografía del Huevo Fresco](/es/ingredientes/huevo) y [El Fenómeno Betanzos](/es/guias/fenomeno-betanzos-yema-tecnica).
+* 🍳 **Recetas Canónicas:** [Tortilla Clásica Tradicional](/es/recipes/tortilla-clasica) y [Tortilla de Betanzos](/es/recipes/tortilla-betanzos).

@@ -17,5 +17,13 @@
     "en": "Center of Spain's culinary debate. Poached slowly, it adds natural sweetness and rich texture.",
     "de": "Hauptthema des kulinarischen Debatte. Langsam gedünstet verleiht sie natürliche Süße und Saftigkeit."
   },
-  "icon": "Flame"
+  "icon": "Flame",
+  "related": [
+    { "type": "ingredient", "id": "potato", "relationship": "pairing" },
+    { "type": "ingredient", "id": "oil", "relationship": "confit_medium" },
+    { "type": "ingredient", "id": "salt", "relationship": "osmotic_breakdown" },
+    { "type": "guide", "id": "debate-cebolla-ciencia-sabor", "relationship": "culinary_debate" },
+    { "type": "guide", "id": "masterclass-cebolla-caramelizada", "relationship": "caramelization_science" },
+    { "type": "recipe", "id": "con-cebolla", "relationship": "featured_recipe" }
+  ]
 }

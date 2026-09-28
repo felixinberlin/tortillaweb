@@ -26,7 +26,7 @@ Die räumliche Neuordnung der Eiproteine unter Hitzeeinfluss definiert drei klar
 2.  **Cremige Textur (63 °C – 70 °C):** Das ideale Phasengleichgewicht wird erreicht [30]. Die Proteine des Eiweißes haben ein stabiles Netzwerk gebildet, während das Eigelb einen halbfesten Zustand einer cremigen Emulsion erreicht [30].
 3.  **Trocken oder überkoaguliert (>70 °C):** Die Proteine ziehen sich zu stark zusammen und pressen das gebundene Wasser in einem Prozess namens **Synärese** aus [30]. Das Ei wird elastisch, gummiartig und trocken und verliert jegliche Saftigkeit [30].
 
-*Meistertipp:* Um Luftblasen zu vermeiden, die eine schwammige, souffléartige Textur erzeugen, sollte das Ei nur vorsichtig mit einer Gabel vermischt werden, um die Eigelbmembranen aufzubrechen, ohne es schaumig zu schlagen [30, 90]. In Schulen wie der in [Betanzos](/[lang]/recipes/betanzos) werden die Eier ohne vorheriges Schlagen direkt über den heißen Kartoffeln aufgeschlagen [90, 137].
+*Meistertipp:* Um Luftblasen zu vermeiden, die eine schwammige, souffléartige Textur erzeugen, sollte das Ei nur vorsichtig mit einer Gabel vermischt werden, um die Eigelbmembranen aufzubrechen, ohne es schaumig zu schlagen [30, 90]. In Schulen wie der in [Betanzos](/de/recipes/betanzos-tortilla) werden die Eier ohne vorheriges Schlagen direkt über den heißen Kartoffeln aufgeschlagen [90, 137].
 
 ---
 
@@ -45,7 +45,7 @@ Die Kartoffel ist keine bloße Beilage; sie ist das tragende Element der Struktu
 | **Mehligkochend (Zu vermeiden)** | Hoher Stärkegehalt, geringer Wassergehalt [3]. | Russet. | Sie absorbieren zu viel Öl, zerfallen extrem leicht und trüben das Ei, was zu einer trockenen, pastösen Masse führt [3]. |
 | **Festkochend / Frühkartoffeln (Zu vermeiden)** | Hoher Wassergehalt, wenig Stärke [3]. | Frühe weiße Kartoffeln. | Sie geben beim Garen freies Wasser ab, was das Anhaften des Eis verhindert und zu einer gummiartigen Textur führt [3]. |
 
-*Die Schneidetechnik:* Ein unregelmäßiger Schnitt, das sogenannte **chascado** oder Brechen (bei dem das letzte Stück der Kartoffel mit dem Messer durch Hebelwirkung abgebrochen wird), bricht die Zellwände unregelmäßig auf und setzt eine größere Menge an oberflächlichem Amylopektin frei [3, 30]. Diese freie Stärke wirkt während der Ruhephase als natürliches Verdickungsmittel, das Ei und Kartoffel perfekt verbindet [30]. Erfahre mehr über diese Zutat in unserem Abschnitt zur [Kartoffel](/[lang]/ingredients/potato).
+*Die Schneidetechnik:* Ein unregelmäßiger Schnitt, das sogenannte **chascado** oder Brechen (bei dem das letzte Stück der Kartoffel mit dem Messer durch Hebelwirkung abgebrochen wird), bricht die Zellwände unregelmäßig auf und setzt eine größere Menge an oberflächlichem Amylopektin frei [3, 30]. Diese freie Stärke wirkt während der Ruhephase als natürliches Verdickungsmittel, das Ei und Kartoffel perfekt verbindet [30]. Erfahre mehr über diese Zutat in unserem Abschnitt zur [Kartoffel](/de/zutaten/kartoffel) und über die osmotische Wirkung von [Meersalz](/de/zutaten/salz).
 
 ---
 
@@ -53,8 +53,8 @@ Die Kartoffel ist keine bloße Beilage; sie ist das tragende Element der Struktu
 
 Das Garen der Kartoffel im Öl ist ein Wärmeübertragungsprozess, der durch die Temperatur des Fetts gesteuert wird [30]:
 
-1.  **Sanftes Pochieren / Confit (110 °C – 140 °C):** Dies ist die klassische Methode, die mit der [Technik des langsamen Pochierens](/[lang]/techniques/slow-cooking) verbunden ist [30, 142]. Die Kartoffeln garen langsam vollständig im Öl untergetaucht [30, 142]. Das Zellwasser verdampft sanft, sodass die Stärke verkleistert und die Zellen weich werden, ohne dass der Zucker der Kartoffel karamellisiert oder verbrennt [3, 30]. Das Ergebnis ist eine Kartoffel mit einer butterweichen Textur, die auf der Zunge zergeht [3, 30].
-2.  **Knuspriges Frittieren (160 °C – 180 °C):** Typisch für die [Frittier-Technik](/[lang]/techniques/frying) [30, 142]. Die Kartoffeln werden in hauchdünne Scheiben (Blättchen oder Chips) geschnitten und in sehr heißes Öl gegeben [30, 142]. Das Wasser verdampft augenblicklich, wodurch sich die Kartoffelscheiben aufblähen und leicht goldene, knusprige Ränder bilden, die einen tollen Kontrast zum flüssigen Ei bilden [30].
+1.  **Sanftes Pochieren / Confit (110 °C – 140 °C):** Dies ist die klassische Methode, die mit der [Technik des langsamen Pochierens](/de/tecnicas/langsam-pochieren) verbunden ist [30, 142]. Die Kartoffeln garen langsam vollständig im Öl untergetaucht [30, 142]. Das Zellwasser verdampft sanft, sodass die Stärke verkleistert und die Zellen weich werden, ohne dass der Zucker der Kartoffel karamellisiert oder verbrennt [3, 30]. Das Ergebnis ist eine Kartoffel mit einer butterweichen Textur, die auf der Zunge zergeht [3, 30].
+2.  **Knuspriges Frittieren (160 °C – 180 °C):** Typisch für die [Frittier-Technik](/de/tecnicas/knusprig-frittieren) [30, 142]. Die Kartoffeln werden in hauchdünne Scheiben (Blättchen oder Chips) geschnitten und in sehr heißes Öl gegeben [30, 142]. Das Wasser verdampft augenblicklich, wodurch sich die Kartoffelscheiben aufblähen und leicht goldene, knusprige Ränder bilden, die einen tollen Kontrast zum flüssigen Ei bilden [30].
 3.  **Thermische Überlastung (>190 °C):** Das Überschreiten dieser Temperatur zersetzt die Fettsäuren des Olivenöls, zerstört seine gesunden Polyphenole und erzeugt Acrolein, was dem Gericht einen unangenehm bitteren und verbrannten Geschmack verleiht [30].
 
 *Das finale Anbraten:* Sobald die Mischung vereint ist, wird sie in eine sehr heiße, mit wenigen Tropfen Öl gefettete Pfanne gegossen, um eine sofortige Koagulation der äußeren Schicht zu bewirken [30]. Dies bildet eine dünne, goldene Hülle, die die Struktur versiegelt und den flüssigen Kern der Tortilla einschließt [30].
@@ -74,7 +74,7 @@ Um die wirksame Vernichtung von Krankheitserregern in der Gastronomie und in öf
 *   **Zugelassene flüssige Zubereitung:** Halten des Zentrums bei mindestens **63 °C für mindestens 20 Sekunden** [62, 141]. Diese Stufe bietet eine sichere Zwischenreduktion, vorausgesetzt, das Gericht wird **sofort verzehrt** oder bei $\ge 63$ °C warmgehalten [62, 141].
 *   **Die 4-Stunden-Regel:** Jede Tortilla, die mit flüssigem, frischem Ei zubereitet wurde, darf niemals länger als **4 Stunden bei Raumtemperatur** verbleiben [141]. Reste müssen sofort bei Temperaturen unter **8 °C** gekühlt werden [62, 141].
 
-*Küchenhygiene:* Forschungen unter der Leitung von Dr. José Manuel Barat an der Universitat Politècnica de València (UPV) zeigen, dass Salmonellen auf Oberflächen extrem widerstandsfähig sind: Sie können mehr als **3 Tage** auf Edelstahl, bis zu **48 Stunden** auf porösen Holzbrettern und bis zu **14 Tage** auf lebensmittelechten Kunststoffen überleben (wo sie resistente Biofilme bilden) [62, 141]. Erfahre mehr über den Forscher [Barat](/[lang]/people/barat) in unserem Personenverzeichnis.
+*Küchenhygiene:* Forschungen unter der Leitung von Dr. José Manuel Barat an der Universitat Politècnica de València (UPV) zeigen, dass Salmonellen auf Oberflächen extrem widerstandsfähig sind: Sie können mehr als **3 Tage** auf Edelstahl, bis zu **48 Stunden** auf porösen Holzbrettern und bis zu **14 Tage** auf lebensmittelechten Kunststoffen überleben (wo sie resistente Biofilme bilden) [62, 141]. Erfahre mehr über den Forscher [Barat](/de/personas/jose-manuel-barat) in unserem Personenverzeichnis.
 
 ---
 

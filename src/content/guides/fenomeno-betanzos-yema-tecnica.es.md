@@ -14,7 +14,7 @@ readTimeMinutes: 11
 
 En la comarca de As Mariñas (A Coruña), la villa de **Betanzos** ha elevado la tortilla de patatas a la categoría de culto litúrgico. Su estilo no admite medias tintas: es un volcán de yema dorada líquida que fluye libremente al primer corte del cuchillo, inundando el plato sin rastro de cebolla ni cuajado interno.
 
-Lejos de ser una tortilla "cruda" producto de la prisa, la auténtica [Tortilla de Betanzos](/[lang]/recipes/betanzos) es el resultado de una estricta coreografía térmica, una proporción de ingredientes extrema y un control preciso de la reología del huevo.
+Lejos de ser una tortilla "cruda" producto de la prisa, la auténtica [Tortilla de Betanzos](/es/recipes/betanzos) es el resultado de una estricta coreografía térmica, una proporción de ingredientes extrema y un control preciso de la reología del huevo.
 
 ---
 
@@ -83,4 +83,15 @@ La textura líquida de Betanzos suscita continuos debates en congresos de seguri
 
 ## 🏆 5. El Veredicto Cultural: Arte vs. Tradición
 
-En el universo de las [Facciones](/[lang]/facciones), los *Betanceiros* se erigen como los custodios de la pureza extrema. La ausencia de cebolla permite que el protagonismo absoluto recaiga en la calidad excelsa de la patata gallega y la intensidad untuosa de las yemas camperas.
+En el universo de las [Facciones](/es/facciones), los *Betanceiros* se erigen como los custodios de la pureza extrema. La ausencia de cebolla permite que el protagonismo absoluto recaiga en la calidad excelsa de la patata gallega y la intensidad untuosa de las yemas camperas.
+
+---
+
+## 🔗 Monografías y Recursos Relacionados
+
+* 🍳 **Ficha de Receta:** [Auténtica Tortilla de Betanzos](/es/recipes/betanzos) — Cantidades, tiempos de sartén y volteo rápido.
+* 🥚 **Ingrediente Protagonista:** [Monografía Completa del Huevo Fresco](/es/ingredientes/huevo) — Reología de la yema y albúmina.
+* 🧂 **Dispersión Iónica:** [La Cronología de la Sal: Cuándo y Cómo Salar](/es/guias/la-cronologia-de-la-sal) y [Monografía de la Sal Marina](/es/ingredientes/sal).
+* 🥔 **El Tubérculo Idóneo:** [Monografía de la Patata Kennebec IGP](/es/ingredientes/patata) y [Amilosa vs Amilopectina](/es/guias/almidon-patata-amilosa-amilopectina).
+* 🫒 **Medio Térmico:** [Monografía del Aceite de Oliva](/es/ingredientes/aceite-de-oliva).
+* ⚖️ **Comparador de Estilos:** [Con Cebolla vs Sin Cebolla vs Betanzos](/es/comparador).

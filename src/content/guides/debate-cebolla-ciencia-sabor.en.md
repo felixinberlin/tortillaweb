@@ -29,7 +29,7 @@ Historical archives discovered by Spanish researcher Javier López Linaje trace 
 *   **The 19th-Century Madrid & Andalusian Tavern:** Urban taverns introduced caramelized onions to reduce ingredient costs (onions were cheaper and rendered more liquid volume) and to keep tortillas moist while sitting for hours on zinc bar tops.
 *   **The School of Betanzos (Galicia):** The unshakeable citadel of the *Sincebollista* movement. In Betanzos, onions are forbidden in order to celebrate the terroir of local Kennebec potatoes and the vibrancy of free-range village eggs, resulting in a runny golden center that allows no flavor interference.
 
-Discover the full historical timeline in our [history archive](/[lang]/history).
+Discover the full historical timeline in our [history archive](/en/history).
 
 ---
 
@@ -83,7 +83,7 @@ From the perspective of haute gastronomy, **neither style is objectively superio
 1.  **The Purist Path (Sin Cebolla):** Demands pristine ingredients. If your eggs or potatoes are low quality, there is nowhere to hide. It is the ultimate test of knife skill, temperature precision, and runny yolk execution.
 2.  **The Concebollista Path (Con Cebolla):** Excels in flavor complexity, balancing savory fats with sweet caramel notes while maintaining long-lasting juiciness.
 
-Determine your personal alignment on our [faction tree](/[lang]/facciones).
+Determine your personal alignment on our [faction tree](/en/factions).
 
 ---
 
@@ -100,9 +100,9 @@ Regardless of your chosen faction, microbiological standards apply equally:
 
 ## 🔗 Related Resources & Deep Dives
 
-* [Masterclass: Classic Purist Tortilla](/[lang]/guias/tortilla-clasica-masterclass)
-* [Masterclass: Caramelized Onion Technique](/[lang]/guias/masterclass-cebolla-caramelizada)
-* [Classic Traditional Recipe](/[lang]/recipes/tortilla-clasica)
-* [Classic Tortilla with Onion Recipe](/[lang]/recipes/tortilla-clasica-con-cebolla)
-* [Culinary Science & Protein Denaturation](/[lang]/science)
-* [Style Comparator & Regional Factions](/[lang]/comparador)
+* [Masterclass: Classic Purist Tortilla](/en/guides/classic-tortilla-masterclass)
+* [Masterclass: Caramelized Onion Technique](/en/guides/concebollista-caramelized-onion-masterclass)
+* [Classic Traditional Recipe](/en/recipes/classic-spanish-omelette)
+* [Classic Tortilla with Onion Recipe](/en/recipes/classic-spanish-omelette-with-onion)
+* [Culinary Science & Protein Denaturation](/en/science)
+* [Style Comparator & Regional Factions](/en/comparador)

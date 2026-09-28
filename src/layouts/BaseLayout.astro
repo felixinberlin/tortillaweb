@@ -12,6 +12,7 @@ interface Props {
   title: string;
   description: string;
   lang: 'es' | 'en' | 'de' | (string & {});
+  keywords?: string;
   image?: string;
   type?: string;
   schema?: Record<string, any> | Array<Record<string, any>>;
@@ -27,6 +28,7 @@ const {
   title,
   description,
   lang,
+  keywords,
   image = "/images/recipes/clasica.svg",
   type = "website",
   schema,
@@ -86,7 +88,7 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
     <!-- Title & SEO Meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, cuajado perfecto" />
+    <meta name="keywords" content={keywords || "tortilla de patatas, Spanish omelette, tortilla española, receta tortilla patatas, Betanzos, tortilla con cebolla, seguridad alimentaria, cuajado perfecto"} />
     <meta name="author" content="tortilladepatatas.org" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
@@ -105,13 +107,31 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:locale" content={lang === 'es' ? 'es_ES' : lang === 'de' ? 'de_DE' : 'en_US'} />
+    {lang === 'es' ? (
+      <>
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:locale:alternate" content="de_DE" />
+      </>
+    ) : lang === 'de' ? (
+      <>
+        <meta property="og:locale:alternate" content="es_ES" />
+        <meta property="og:locale:alternate" content="en_US" />
+      </>
+    ) : (
+      <>
+        <meta property="og:locale:alternate" content="es_ES" />
+        <meta property="og:locale:alternate" content="de_DE" />
+      </>
+    )}
 
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={title} />
     
     <!-- Design System Typography Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -169,7 +189,7 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
           urlToKey={lookup.urlToKey}
           client:load
         />
-        <Breadcrumbs lang={lang} currentPath={Astro.url.pathname} items={breadcrumbs} client:load />
+        <Breadcrumbs lang={lang} currentPath={Astro.url.pathname} items={breadcrumbs} />
       </>
     )}
 
@@ -179,8 +199,8 @@ const imageUrl = image.startsWith('http://') || image.startsWith('https://')
 
     {showFooter && (
       <>
-        <InterconnectedKnowledgeHub lang={lang} currentPath={Astro.url.pathname} client:visible />
-        <Footer lang={lang} currentPath={Astro.url.pathname} client:load />
+        <InterconnectedKnowledgeHub lang={lang} currentPath={Astro.url.pathname} />
+        <Footer lang={lang} currentPath={Astro.url.pathname} />
       </>
     )}
 

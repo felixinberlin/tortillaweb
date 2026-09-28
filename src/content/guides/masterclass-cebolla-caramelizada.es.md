@@ -53,7 +53,7 @@ No todas las cebollas reaccionan igual al calor ni aportan la misma cantidad de 
 *   **Cebolla de Figueres (Cataluña):** De color violáceo suave y sabor dulce y suave. Aporta matices delicados en tortillas de estilo mediterráneo.
 *   *Cebolla Morada o Chalota:* Para matices gourmet más sofisticados o notas sutilmente ácidas.
 
-Puedes conocer todos los detalles en nuestra enciclopedia sobre la [cebolla](/[lang]/ingredients/onion).
+Puedes conocer todos los detalles en nuestra enciclopedia sobre la [cebolla](/es/ingredientes/cebolla).
 
 ---
 
@@ -98,7 +98,7 @@ Para una tortilla equilibrada de 4 raciones:
 2.  **Reposo Térmico:** Mezcla la cebolla caramelizada caliente y las patatas con los huevos batidos. Reposa **3 minutos**. El calor activa la infusión de azúcares y alicina dulce en la lecitina de la yema.
 3.  **Cuajado en Sartén:** Cuaja a fuego medio durante **60 segundos por la cara A**, voltea con plato plano y remata **40 segundos por la cara B**.
 
-Experimenta con los balances entre facciones en nuestro [comparador de estilos](/[lang]/comparador).
+Experimenta con los balances entre facciones en nuestro [comparador de estilos](/es/comparador).
 
 ---
 
@@ -128,7 +128,7 @@ La humedad y los azúcares de la cebolla crean un entorno culinario delicioso qu
 
 ## 🔗 Enlaces y Recursos
 
-* [Receta: Tortilla Clásica con Cebolla](/[lang]/recipes/tortilla-clasica-con-cebolla)
-* [El Gran Debate: Con Cebolla vs Sin Cebolla](/[lang]/comparador)
-* [Monográfico del Ingrediente: La Cebolla](/[lang]/ingredients/onion)
-* [Ciencia del Cuajado y Proteínas](/[lang]/science)
+* [Receta: Tortilla Clásica con Cebolla](/es/recipes/tortilla-clasica-con-cebolla)
+* [El Gran Debate: Con Cebolla vs Sin Cebolla](/es/comparador)
+* [Monográfico del Ingrediente: La Cebolla](/es/ingredientes/cebolla)
+* [Ciencia del Cuajado y Proteínas](/es/science)

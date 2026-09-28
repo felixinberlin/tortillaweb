@@ -18,7 +18,7 @@ Diese Monographie untersucht die Evolution der Tortilla im Detail: Sie entkräft
 
 ## 1. Die Ankunft der Kartoffel: Von den Anden auf europäische Felder
 
-Die Entstehung der modernen Tortilla ist untrennbar mit der botanischen Reise der **[Kartoffel](/[lang]/ingredients/patata)** (*Solanum tuberosum*) verbunden. Vor über 7.000 Jahren im Andenhochland rund um den Titicacasee domestiziert, bildete die Kartoffel unter dem Namen *Chuño* (durch Frost und Sonne gefriergetrocknete Knollen) das unverzichtbare Rückgrat des Inka-Reiches (*Tawantinsuyu*).
+Die Entstehung der modernen Tortilla ist untrennbar mit der botanischen Reise der **[Kartoffel](/de/zutaten/kartoffel)** (*Solanum tuberosum*) verbunden. Vor über 7.000 Jahren im Andenhochland rund um den Titicacasee domestiziert, bildete die Kartoffel unter dem Namen *Chuño* (durch Frost und Sonne gefriergetrocknete Knollen) das unverzichtbare Rückgrat des Inka-Reiches (*Tawantinsuyu*).
 
 ```
    ANDENHOCHLAND (Peru / Bolivien)
@@ -47,7 +47,7 @@ Erst im späten 18. Jahrhundert wendeten wiederkehrende Weizenmissernten und der
 
 ## 2. Omelette-Traditionen vor der Kartoffel: Das Jahrtausende alte Eier-Erbe
 
-Lange bevor die Kartoffel mit dem **[Ei](/[lang]/ingredients/huevo)** in spanischen Pfannen verschmolz, besaß die Kunst, verquirlte Eier in heißem Fett zu stocken, im Mittelmeerraum und im Orient eine Jahrtausende alte Geschichte.
+Lange bevor die Kartoffel mit dem **[Ei](/de/zutaten/ei)** in spanischen Pfannen verschmolz, besaß die Kunst, verquirlte Eier in heißem Fett zu stocken, im Mittelmeerraum und im Orient eine Jahrtausende alte Geschichte.
 
 ```
        Kookoo Sabzi (Antikes Persien / Mesopotamien)
@@ -76,7 +76,7 @@ Lange bevor die Kartoffel mit dem **[Ei](/[lang]/ingredients/huevo)** in spanisc
 
 ### Warum die Kartoffel die Eierküche revolutionierte
 Warum übertraf die Verbindung von Kartoffel und Ei alle früheren Zubereitungen?
-* **Stärke-Hydratation & Bindung**: Im Gegensatz zu Blattgemüse (das Wasser abgibt und die Masse wässrig macht) geliert die in **[Olivenöl](/[lang]/ingredients/aceite-de-oliva)** sanft pochierte Kartoffel ihre Stärkemoleküle. Sie bildet eine poröse Matrix, die das rohe Ei aufsaugt und eine unvergleichlich saftige Emulsion erzeugt.
+* **Stärke-Hydratation & Bindung**: Im Gegensatz zu Blattgemüse (das Wasser abgibt und die Masse wässrig macht) geliert die in **[Olivenöl](/de/zutaten/olivenoel)** sanft pochierte Kartoffel ihre Stärkemoleküle. Sie bildet eine poröse Matrix, die das rohe Ei aufsaugt und eine unvergleichlich saftige Emulsion erzeugt.
 * **Kalorischer Hebel**: Zwei Eier und zwei Kartoffeln ergaben eine sättigende, vollwertige Mahlzeit für vier Feldarbeiter zu einem Bruchteil der Kosten von Fleisch oder Brot.
 * **Mechanische Stabilität**: Die Kartoffelscheiben geben der Masse ein stabiles dreidimensionales Gerüst, das das Wenden fingerdicker Tortillas ohne Zerfallen ermöglicht.
 
@@ -132,7 +132,7 @@ Gastronomie-Pionier **Ángel Muro** kodifizierte das Rezept 1894 in *El Practic�
 
 ## 5. Das große Zwiebel-Schisma: Ursprung einer nationalen Debatte
 
-Kaum ein kulinarisches Thema spaltet Spanien so leidenschaftlich wie die Frage, ob eine echte Tortilla **[Zwiebeln](/[lang]/ingredients/cebolla)** enthalten darf.
+Kaum ein kulinarisches Thema spaltet Spanien so leidenschaftlich wie die Frage, ob eine echte Tortilla **[Zwiebeln](/de/zutaten/zwiebel)** enthalten darf.
 
 ```
                          TORTILLA DE PATATAS
@@ -146,9 +146,9 @@ Kaum ein kulinarisches Thema spaltet Spanien so leidenschaftlich wie die Frage, 
    • Typisch in Tapas-Bars                           • Heiliger Standard in Betanzos
 ```
 
-* **Die [Concebollista](/[lang]/factions/concebollistas)-Fraktion**: Betont, dass langsam geschmorte Zwiebeln Feuchtigkeit und harmonische Süße liefern. Zur Technik siehe die **[Meisterklasse: Karamellisierte Zwiebeln](/[lang]/guias/masterclass-cebolla-caramelizada)**.
-* **Die [Sincebollista](/[lang]/factions/sincebollistas)-Orthodoxie**: Beharrt darauf, dass Zwiebelsüße den puren Geschmack von Freilandeiern und knusprigen Kartoffeln überdeckt. Die Hochburg dieser Schule ist die **[Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)** in Galicien.
-* **Wissenschaftliche Analyse**: Die sensorischen Tests und chemischen Hintergründe finden sich in **[Die Zwiebel-Debatte gelöst](/[lang]/guias/debate-cebolla-ciencia-sabor)**.
+* **Die [Concebollista](/de/factions/concebollistas)-Fraktion**: Betont, dass langsam geschmorte Zwiebeln Feuchtigkeit und harmonische Süße liefern. Zur Technik siehe die **[Meisterklasse: Karamellisierte Zwiebeln](/de/anleitungen/masterclass-cebolla-caramelizada)**.
+* **Die [Sincebollista](/de/factions/sincebollistas)-Orthodoxie**: Beharrt darauf, dass Zwiebelsüße den puren Geschmack von Freilandeiern und knusprigen Kartoffeln überdeckt. Die Hochburg dieser Schule ist die **[Tortilla de Betanzos](/de/recipes/betanzos-tortilla)** in Galicien.
+* **Wissenschaftliche Analyse**: Die sensorischen Tests und chemischen Hintergründe finden sich in **[Die Zwiebel-Debatte gelöst](/de/anleitungen/debate-cebolla-ciencia-sabor)**.
 
 ---
 
@@ -219,7 +219,7 @@ Morgens um zehn Uhr an der Bar eines spanischen Lokals lösen sich soziale Stand
 
 Die Entwicklung der Tortilla ist eng mit wissenschaftlicher Hygiene verbunden. Mit dem Aufkommen gewerblicher Gastronomie im 20. Jahrhundert wurde der sichere Umgang mit Eiern zur Pflicht, um Salmonellen-Infektionen (*Salmonella enterica*) zu verhindern.
 
-Wie in unserem **[Wissenschafts- & Hygiene-Leitfaden](/[lang]/science)** dargelegt, verlangt die spanische Gesetzgebung (**Real Decreto 1021/2022**) für saftige Tortillas im Außer-Haus-Verzehr eine Kerntemperatur von **70°C für 2 Minuten** (oder **63°C für 20 Sekunden**) sowie eine strikte Höchstgrenze von **4 Stunden** bei Raumtemperatur.
+Wie in unserem **[Wissenschafts- & Hygiene-Leitfaden](/de/science)** dargelegt, verlangt die spanische Gesetzgebung (**Real Decreto 1021/2022**) für saftige Tortillas im Außer-Haus-Verzehr eine Kerntemperatur von **70°C für 2 Minuten** (oder **63°C für 20 Sekunden**) sowie eine strikte Höchstgrenze von **4 Stunden** bei Raumtemperatur.
 
 ---
 
@@ -235,13 +235,15 @@ Wie in unserem **[Wissenschafts- & Hygiene-Leitfaden](/[lang]/science)** dargele
 * **1835**: Entstehung der Legende um General Tomás de Zumalacárregui im Karlistenkrieg.
 * **1894**: Ángel Muro kodifiziert das Rezept in *El Practicón*.
 * **1936–1945**: Die "falsche Orangenschalen-Tortilla" entsteht in den Hungerjahren des Bürgerkriegs.
-* **1990–Heute**: Globaler Tapas-Boom: Triumphzug der saftigen **[Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)** und weltweite Meisterklassen.
+* **1990–Heute**: Globaler Tapas-Boom: Triumphzug der saftigen **[Tortilla de Betanzos](/de/recipes/betanzos-tortilla)** und weltweite Meisterklassen.
 
 ---
 
 ## Weiterführende Artikel & Wissensmodule
-* **[Wissenschaft, Physik & Hygiene der Tortilla](/[lang]/science)**
-* **[Klassische Tortilla: Die Meisterklasse](/[lang]/guias/tortilla-clasica-masterclass)**
-* **[Die Zwiebel-Debatte: Wissenschaft & Soziologie](/[lang]/guias/debate-cebolla-ciencia-sabor)**
-* **[Mengen- und Ratio-Rechner](/[lang]/builder)**
-* **[Physiklabor & Pfannenwende-Simulator](/[lang]/laboratorio)**
+* **[Wissenschaft, Physik & Hygiene der Tortilla](/de/science)**
+* **[Klassische Tortilla: Die Meisterklasse](/de/anleitungen/tortilla-clasica-masterclass)**
+* **[Meisterklasse-Leitfaden: Die Chronologie des Salzes](/de/anleitungen/la-cronologia-de-la-sal)**
+* **[Hauptzutat: Feines Meersalz](/de/zutaten/salz)**
+* **[Die Zwiebel-Debatte: Wissenschaft & Soziologie](/de/anleitungen/debate-cebolla-ciencia-sabor)**
+* **[Mengen- und Ratio-Rechner](/de/builder)**
+* **[Physiklabor & Pfannenwende-Simulator](/de/laboratorio)**

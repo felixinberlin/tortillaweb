@@ -29,7 +29,7 @@ Historische Dokumente, wiederentdeckt durch den Wissenschaftler Javier López Li
 *   **Die Tavernen von Madrid und Andalusien:** Im 19. Jahrhundert fügten Tavernen geschmorte Zwiebeln hinzu, um Kosten zu sparen (Zwiebeln waren billiger und brachten Volumen) und um Tortillas stundenlang auf der Theke saftig zu halten.
 *   **Die Schule von Betanzos (Galicien):** Die Hochburg der Puristen. In Betanzos sind Zwiebeln streng untersagt, um die Qualität der regionalen Kennebec-Kartoffeln und die Frische der Dorfeier ungestört zur Geltung zu bringen — mit legendär flüssig-cremigem Kern.
 
-Entdecken Sie die vollständige Chronik in unserem [Geschichtsarchiv](/[lang]/history).
+Entdecken Sie die vollständige Chronik in unserem [Geschichtsarchiv](/de/history).
 
 ---
 
@@ -83,7 +83,7 @@ Aus Sicht der Kochkunst gibt es **kein Richtig oder Falsch**, sondern zwei kompl
 1.  **Der puristische Weg (Sin Cebolla):** Erfordert allerhöchste Zutatenqualität und exaktes Timing in der Pfanne. Schlechte Eier oder falsche Kartoffeln lassen sich nicht kaschieren.
 2.  **Der Concebollista-Weg (Con Cebolla):** Begeistert durch vielschichtige Aromen, süß-herzhafte Kontraste und dauerhafte Saftigkeit.
 
-Bestimmen Sie Ihre eigene kulinarische Ausrichtung in unserem [Fraktions-Baum](/[lang]/facciones).
+Bestimmen Sie Ihre eigene kulinarische Ausrichtung in unserem [Fraktions-Baum](/de/faktionen).
 
 ---
 
@@ -100,9 +100,9 @@ Unabhängig von Ihrer Präferenz gelten strenge Hygieneregeln:
 
 ## 🔗 Weiterführende Links und Meisterklassen
 
-* [Meisterklasse: Klassische puristische Tortilla](/[lang]/guias/tortilla-clasica-masterclass)
-* [Meisterklasse: Karamellisierte Zwiebeln](/[lang]/guias/masterclass-cebolla-caramelizada)
-* [Rezept: Klassische Tortilla](/[lang]/recipes/tortilla-clasica)
-* [Rezept: Tortilla mit Zwiebel](/[lang]/recipes/tortilla-clasica-con-cebolla)
-* [Wissenschaft & Proteinstockung](/[lang]/science)
-* [Fraktionen & Stilvergleich](/[lang]/comparador)
+* [Meisterklasse: Klassische puristische Tortilla](/de/anleitungen/klassische-tortilla-meisterklasse)
+* [Meisterklasse: Karamellisierte Zwiebeln](/de/anleitungen/concebollista-karamellisierte-zwiebel-meisterklasse)
+* [Rezept: Klassische Tortilla](/de/recipes/klassische-spanische-tortilla)
+* [Rezept: Tortilla mit Zwiebel](/de/recipes/klassische-spanische-tortilla-mit-zwiebel)
+* [Wissenschaft & Proteinstockung](/de/science)
+* [Fraktionen & Stilvergleich](/de/comparador)

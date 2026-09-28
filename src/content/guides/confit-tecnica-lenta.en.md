@@ -58,7 +58,7 @@ EVOO features over 70% **monounsaturated oleic acid**, granting exceptional ther
 3.  **Picual & Cornicabra (Andalusia & Castilla):** Rich in polyphenols and vitamin E, providing robust peppery notes ideal for rustic tavern-style tortillas.
 4.  *Reusing Confit Oil:* Because confit temperatures stay below 140°C, the oil retains its antioxidant properties and is naturally infused with potato essence. Filter and reuse up to 4–5 times for future tortillas.
 
-Explore our comprehensive guide on [olive oil selection](/[lang]/ingredients/oil).
+Explore our comprehensive guide on [olive oil selection](/en/ingredients/olive-oil).
 
 ---
 
@@ -101,7 +101,7 @@ How you combine confited potatoes with eggs determines your final tortilla textu
 2.  **Egg Integration:** Lightly beat 6–7 fresh eggs in a wide bowl using a fork. Fold in hot confited potatoes immediately.
 3.  **The 4-Minute Thermal Rest:** The residual 70°C heat pre-thickens egg conalbumin without curdling, yielding a silky, custard-like emulsion.
 
-Learn more in our [tortilla science chapter](/[lang]/science).
+Learn more in our [tortilla science chapter](/en/science).
 
 ---
 
@@ -131,8 +131,8 @@ While the confit technique thoroughly cooks the potatoes, final skillet coagulat
 
 ## 🔗 Recommended Next Steps
 
-* [Classic Spanish Tortilla Recipe](/[lang]/recipes/tortilla-clasica)
-* [Culinary Technique: Slow Cooking](/[lang]/techniques/slow-cooking)
-* [Ingredient Profile: Extra Virgin Olive Oil](/[lang]/ingredients/oil)
-* [Physics & Coagulation Lab](/[lang]/laboratorio)
-* [Potato Science & Sourcing](/[lang]/ingredients/potato)
+* [Classic Spanish Tortilla Recipe](/en/recipes/classic-spanish-omelette)
+* [Culinary Technique: Slow Cooking](/en/techniques/slow-poaching)
+* [Ingredient Profile: Extra Virgin Olive Oil](/en/ingredients/olive-oil)
+* [Physics & Coagulation Lab](/en/laboratorio)
+* [Potato Science & Sourcing](/en/ingredients/potato)

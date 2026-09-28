@@ -92,7 +92,7 @@ KINETIC PROTOCOL:
 
 ## 🚨 4. Microbiology & Thermal Safety
 
-In runny tortillas such as the [Betanzos style](/[lang]/recipes/betanzos), the core remains in a viscous, uncoagulated state rich in denatured albumin. Always keep scientific food safety parameters in mind:
+In runny tortillas such as the [Betanzos style](/en/recipes/betanzos-style-spanish-omelette), the core remains in a viscous, uncoagulated state rich in denatured albumin. Always keep scientific food safety parameters in mind:
 
 *   **Thermal Kill Step:** To eliminate *Salmonella enteritidis*, food safety regulations require maintaining **70°C for 2 minutes** (or the equivalent threshold of **63°C for 20 seconds**).
 *   **Holding Limits:** Any runny tortilla cooked below 60°C core temperature must be eaten immediately upon resting and **must never remain at room temperature for more than 4 hours**.

@@ -5,7 +5,7 @@
  * optimized for Google Rich Snippets / Rich Results.
  */
 
-import { SITE_URL } from '../seo';
+export const SITE_URL = 'https://tortilladepatatas.org';
 
 export interface RecipeSchemaOptions {
   lang?: 'es' | 'en' | 'de';
@@ -13,6 +13,7 @@ export interface RecipeSchemaOptions {
   url?: string;
   category?: string;
   cuisine?: string;
+  keywords?: string | string[];
   calories?: string | number;
   rating?: {
     ratingValue: number;
@@ -123,6 +124,74 @@ function getLocalizedString(field: any, lang: 'es' | 'en' | 'de' = 'es'): string
 }
 
 /**
+ * Generates an SEO-rich, localized keyword list for a recipe.
+ * Combines core dish terminology, specific recipe identity, main ingredients, and taxonomy traits.
+ */
+export function generateRecipeKeywords(recipeData: any, lang: 'es' | 'en' | 'de' = 'es'): string {
+  // If explicitly specified in recipeData, normalize it
+  if (recipeData.keywords) {
+    if (Array.isArray(recipeData.keywords) && recipeData.keywords.length > 0) {
+      return recipeData.keywords.join(', ');
+    }
+    if (typeof recipeData.keywords === 'string' && recipeData.keywords.trim()) {
+      return recipeData.keywords.trim();
+    }
+    if (typeof recipeData.keywords === 'object' && recipeData.keywords[lang]) {
+      const val = recipeData.keywords[lang];
+      return Array.isArray(val) ? val.join(', ') : String(val);
+    }
+  }
+
+  const recipeTitle = getLocalizedString(recipeData.title || recipeData.name, lang);
+  const keywordsSet = new Set<string>();
+
+  // Base localized authority keywords
+  if (lang === 'es') {
+    keywordsSet.add('tortilla de patatas');
+    keywordsSet.add('tortilla española');
+    keywordsSet.add('receta tradicional');
+    keywordsSet.add('cuajado perfecto');
+    keywordsSet.add('gastronomía española');
+  } else if (lang === 'de') {
+    keywordsSet.add('spanische Tortilla');
+    keywordsSet.add('Tortilla de Patatas');
+    keywordsSet.add('Kartoffel-Omelett Rezept');
+    keywordsSet.add('spanisches Nationalgericht');
+    keywordsSet.add('Rezept traditionell');
+  } else {
+    keywordsSet.add('Spanish omelette');
+    keywordsSet.add('tortilla de patatas');
+    keywordsSet.add('Spanish potato omelette');
+    keywordsSet.add('traditional Spanish recipe');
+    keywordsSet.add('authentic tortilla española');
+  }
+
+  if (recipeTitle) {
+    keywordsSet.add(recipeTitle);
+  }
+
+  // Add ingredient keywords if available
+  if (Array.isArray(recipeData.ingredients)) {
+    recipeData.ingredients.slice(0, 4).forEach((ing: any) => {
+      const ingName = getLocalizedString(ing.name, lang) || ing.id || '';
+      if (ingName && typeof ingName === 'string') {
+        keywordsSet.add(ingName.toLowerCase());
+      }
+    });
+  }
+
+  // Add taxonomy tags if available
+  if (Array.isArray(recipeData.taxonomyIds)) {
+    recipeData.taxonomyIds.forEach((tid: string) => {
+      const cleanTag = tid.replace(/^(ingredient|faction|region|style|technique|difficulty):/, '');
+      if (cleanTag) keywordsSet.add(cleanTag);
+    });
+  }
+
+  return Array.from(keywordsSet).join(', ');
+}
+
+/**
  * Normalizes relative URLs with the base site URL.
  */
 export function resolveImageUrl(imagePath?: string, baseUrl: string = SITE_URL): string {
@@ -192,6 +261,15 @@ export function createRecipeSchema(
     });
   }
 
+  // Ensure recipeIngredient is never empty for Google Rich Results compliance
+  if (recipeIngredient.length === 0) {
+    recipeIngredient = lang === 'es'
+      ? ['Patatas seleccionadas', 'Huevos camperos frescos', 'Aceite de oliva virgen extra', 'Sal marina']
+      : lang === 'de'
+      ? ['Ausgewählte Kartoffeln', 'Frische Freilandeier', 'Natives Olivenöl Extra', 'Meersalz']
+      : ['Selected potatoes', 'Fresh farm eggs', 'Extra virgin olive oil', 'Sea salt'];
+  }
+
   // Instructions
   let recipeInstructions: HowToStepSchema[] = [];
   if (Array.isArray(recipeData.instructions)) {
@@ -250,18 +328,9 @@ export function createRecipeSchema(
   }
 
   // Keywords
-  const defaultKeywords = [
-    'tortilla de patatas',
-    'Spanish omelette',
-    'tortilla española',
-    'receta tradicional',
-    'cuajado perfecto',
-  ];
-  const keywords = Array.isArray(recipeData.keywords)
-    ? recipeData.keywords.join(', ')
-    : typeof recipeData.keywords === 'string'
-    ? recipeData.keywords
-    : defaultKeywords.join(', ');
+  const keywords = options.keywords
+    ? (Array.isArray(options.keywords) ? options.keywords.join(', ') : options.keywords)
+    : generateRecipeKeywords(recipeData, lang);
 
   const schema: RecipeJsonLd = {
     '@context': 'https://schema.org',
@@ -370,6 +439,7 @@ export function validateRecipeSchema(schema: any): { valid: boolean; errors: str
   if (!schema.recipeYield) warnings.push('recipeYield is recommended');
   if (!schema.recipeCategory) warnings.push('recipeCategory is recommended');
   if (!schema.recipeCuisine) warnings.push('recipeCuisine is recommended');
+  if (!schema.keywords) warnings.push('keywords is recommended');
   if (!schema.author) warnings.push('author is recommended');
 
   return {

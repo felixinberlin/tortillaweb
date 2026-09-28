@@ -146,4 +146,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'mono-food', en: 'mono-food', de: 'mono-food' },
     label: { es: 'Comparativa Mono-Food', en: 'Single-Food Web Benchmark', de: 'Mono-Food Vergleich' },
   },
+  emergency: {
+    id: 'emergency',
+    slug: { es: 'urgencias', en: 'emergency', de: 'notfall' },
+    label: { es: 'Urgencias 112', en: 'Emergency Hotline', de: 'Tortilla-Notruf 112' },
+  },
 };

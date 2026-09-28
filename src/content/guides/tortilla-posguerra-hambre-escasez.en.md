@@ -53,7 +53,7 @@ POTATO SUBSTITUTE PREPARATION:
 When fresh eggs were unobtainable, home cooks turned to batters made from **wheat flour, carob flour, or ground chickpea flour** blended with water or reconstituted skimmed milk powder:
 
 1. **The Flour Emulsion:** Whisking chickpea flour with lukewarm water and a pinch of saffron yielded a dense yellow batter that gelatinized upon contact with a hot skillet.
-2. **Precursor to Modern Vegan Cooking:** Post-war survival ingenuity utilized the exact same molecular mechanism underpinning today's contemporary [vegan tortilla](/[lang]/recipes/vegana).
+2. **Precursor to Modern Vegan Cooking:** Post-war survival ingenuity utilized the exact same molecular mechanism underpinning today's contemporary [vegan tortilla](/en/recipes/vegan-gluten-free-spanish-omelette).
 
 ---
 

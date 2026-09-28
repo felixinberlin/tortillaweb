@@ -53,7 +53,7 @@ Nicht jede Zwiebel verhält sich beim Schmoren gleich:
 *   **Figueres-Zwiebel (Katalonien):** Zart-violette Schale und feine, milde Süße für mediterran geprägte Tortillas.
 *   *Schalotten:* Für besonders feine Gourmet-Variationen mit eleganter Säurenote.
 
-Vertiefen Sie Ihr Wissen in unserer [Zwiebel-Warenkunde](/[lang]/ingredients/onion).
+Vertiefen Sie Ihr Wissen in unserer [Zwiebel-Warenkunde](/de/zutaten/zwiebel).
 
 ---
 
@@ -98,7 +98,7 @@ Für 4 reichliche Portionen:
 2.  **Ruhezeit:** Heiße Zwiebeln und Kartoffeln mit den Eiern vermengen und **3 Minuten** ruhen lassen, damit das Ei das Zwiebelaroma aufnimmt.
 3.  **Braten:** In der Pfanne **60 Sekunden auf Seite A** anbraten, wenden und **40 Sekunden auf Seite B** vollenden.
 
-Vergleichen Sie die Stile in unserem [Zwiebel-Debatten-Vergleich](/[lang]/comparador).
+Vergleichen Sie die Stile in unserem [Zwiebel-Debatten-Vergleich](/de/comparador).
 
 ---
 
@@ -128,7 +128,7 @@ Zwiebelsüße und Feuchtigkeit verlangen eine sorgfältige Temperaturüberwachun
 
 ## 🔗 Weiterführende Links
 
-* [Rezept: Tortilla mit Zwiebel](/[lang]/recipes/tortilla-clasica-con-cebolla)
-* [Die Große Zwiebel-Debatte im Vergleich](/[lang]/comparador)
-* [Zutaten-Lexikon: Die Zwiebel](/[lang]/ingredients/onion)
-* [Physik der Proteinstockung](/[lang]/science)
+* [Rezept: Tortilla mit Zwiebel](/de/recipes/klassische-spanische-tortilla-mit-zwiebel)
+* [Die Große Zwiebel-Debatte im Vergleich](/de/comparador)
+* [Zutaten-Lexikon: Die Zwiebel](/de/zutaten/zwiebel)
+* [Physik der Proteinstockung](/de/science)

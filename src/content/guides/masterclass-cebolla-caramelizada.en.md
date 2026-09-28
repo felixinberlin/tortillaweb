@@ -53,7 +53,7 @@ Different onion varieties behave dramatically differently under sustained heat:
 *   **Figueres Onion (Catalonia):** Mild violet-tinged skin with gentle sweetness. Imparts subtle floral notes in Mediterranean-style tortillas.
 *   *Shallots & Red Onions:* Ideal for sophisticated gourmet variations with delicate acidity.
 
-Read our complete botanical profile in the [onion ingredient guide](/[lang]/ingredients/onion).
+Read our complete botanical profile in the [onion ingredient guide](/en/ingredients/onion) and discover how salinity enhances sweetness in our [salt monograph](/en/ingredients/salt).
 
 ---
 
@@ -98,7 +98,7 @@ For a perfectly balanced 4-serving tortilla:
 2.  **Thermal Rest:** Fold warm caramelized onions and potatoes into lightly beaten eggs. Let rest for **3 minutes** so egg yolks absorb sweet onion aromatics.
 3.  **Skillet Cooking:** Cook over medium heat for **60 seconds on Side A**, flip using a flat plate, and finish with **40 seconds on Side B**.
 
-Explore the ongoing cultural debate on our [style comparator](/[lang]/comparador).
+Explore the ongoing cultural debate on our [style comparator](/en/comparador).
 
 ---
 
@@ -128,7 +128,10 @@ The rich moisture and natural sugars of caramelized onions require strict food s
 
 ## 🔗 Related Resources
 
-* [Classic Tortilla with Onion Recipe](/[lang]/recipes/tortilla-clasica-con-cebolla)
-* [The Great Spanish Onion Debate](/[lang]/comparador)
-* [Ingredient Profile: Onions](/[lang]/ingredients/onion)
-* [Protein Coagulation & Food Science](/[lang]/science)
+* [Classic Spanish Tortilla with Onion Recipe](/en/recipes/classic-spanish-omelette-with-onion)
+* [The Great Spanish Onion Debate](/en/comparador)
+* [Masterclass Guide: The Salting Chronology](/en/guides/la-cronologia-de-la-sal)
+* [Ingredient Profile: Fine Sea Salt](/en/ingredients/salt)
+* [Ingredient Profile: Sweet Onions](/en/ingredients/onion)
+* [Ingredient Profile: Farm-Fresh Eggs](/en/ingredients/egg)
+* [Protein Coagulation & Food Science](/en/science)

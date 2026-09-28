@@ -14,9 +14,9 @@ readTimeMinutes: 12
 
 In den allermeisten Kochbüchern wird Salz beiläufig am Ende der Zutatenliste abgehandelt: *"Salz nach Geschmack"*. Bei einem so reduzierten Gericht wie der spanischen Kartoffeltortilla – wo es weder Pfeffer, Knoblauch noch Saucen gibt, hinter denen man sich verstecken könnte – ist diese Gleichgültigkeit fatal.
 
-Natriumchlorid (NaCl) ist nicht bloß ein Geschmacksverstärker; **es ist ein primäres chemisches Reagenz**. Seine Anwesenheit oder Abwesenheit zu bestimmten Zeitpunkten der Zubereitung steuert die Denaturierung der Eiproteine, verändert den osmotischen Druck der [Kartoffel](/de/zutaten/kartoffel)-Zellwände und entscheidet darüber, ob die Tortilla ihren Saft in einer samtigen Emulsion bindet oder durch das Phänomen der **Synärese** wässrige Flüssigkeit auf dem Servierteller abscheidet.
+Natriumchlorid (NaCl) — oder [feines Meersalz](/de/zutaten/salz) — ist nicht bloß ein Geschmacksverstärker; **es ist ein primäres chemisches Reagenz**. Seine Anwesenheit oder Abwesenheit zu bestimmten Zeitpunkten der Zubereitung steuert die Denaturierung der [Eiproteine](/de/zutaten/ei), verändert den osmotischen Druck der [Kartoffel](/de/zutaten/kartoffel)-Zellwände und entscheidet darüber, ob die Tortilla ihren Saft in einer samtigen Emulsion bindet oder durch das Phänomen der **Synärese** wässrige Flüssigkeit auf dem Servierteller abscheidet.
 
-Diese Abhandlung analysiert die Molekularphysik des Salzens, vergleicht vier Zeitpunkte und definiert das kanonische Würzprotokoll.
+Diese Abhandlung analysiert die Molekularphysik des Salzens, vergleicht vier Zeitpunkte und definiert das kanonische Würzprotokoll in Verbindung mit unserer [vollständigen Meersalz-Monographie](/de/zutaten/salz).
 
 ---
 
@@ -69,7 +69,7 @@ Wird feines Salz in die verquirlten Eier eingerührt und die Mischung **10 bis 1
 
 ## ⏱️ 3. Der experimentelle Prüfstand: Vier Salzungs-Chronologien
 
-Um den optimalen Moment zu ermitteln, wurden vier Testansätze unter identischen Bedingungen geprüft (800 g Agria-Kartoffeln, 6 Eier, [Natives Olivenöl Extra](/de/zutaten/olivenoel), 8 g feines Meersalz):
+Um den optimalen Moment zu ermitteln, wurden vier Testansätze unter identischen Bedingungen geprüft (800 g [Agria-Kartoffeln](/de/zutaten/kartoffel), 6 [Freilandeier](/de/zutaten/ei), [Natives Olivenöl Extra](/de/zutaten/olivenoel), 8 g [feines Meersalz](/de/zutaten/salz)):
 
 | Protokoll | Zeitpunkt der Zugabe | Verhalten in der Pfanne | Texturergebnis | Urteil |
 | :--- | :--- | :--- | :--- | :--- |
@@ -84,9 +84,9 @@ Um den optimalen Moment zu ermitteln, wurden vier Testansätze unter identischen
 
 Nicht jeder Salzkristall verhält sich im Fett- und Proteingefüge gleich:
 
-### A. Feines Meersalz (0,2 – 0,4 mm)
+### A. [Feines Meersalz](/de/zutaten/salz) (0,2 – 0,4 mm)
 - **Lösungskinetik**: Löst sich im Eiwasser und an der heißen Kartoffeloberfläche in Sekundenschnelle auf.
-- **Funktion**: Das unverzichtbare Werkzeug für die innere Masse. Garantiert gleichmäßige Salzigkeit ohne lokale Salznester.
+- **Funktion**: Das unverzichtbare Werkzeug für die innere Masse aus unserer [Salz-Monographie](/de/zutaten/salz). Garantiert gleichmäßige Salzigkeit ohne lokale Salznester.
 
 ### B. Grobes Kochsalz (>1,5 mm)
 - **Verhalten**: Löst sich in zähen Emulsionen wie verquirltem Ei viel zu langsam auf.
@@ -94,7 +94,7 @@ Nicht jeder Salzkristall verhält sich im Fett- und Proteingefüge gleich:
 
 ### C. Meersalzflocken (Maldon / Flor de Sal)
 - **Verhalten**: Hauchdünne, pyramidenförmige Hohlkristalle, die bei Mundkontakt sofort schmelzen.
-- **Legitimer Einsatz**: Gehören niemals in die innere Masse. Ihre einzige Berechtigung ist als **feines Finish** auf saftigen, cremigen Tortillas (z. B. nach Betanzos-Art), sparsam Sekunden vor dem Servieren aufgestreut für einen flüchtigen Knuspereffekt.
+- **Legitimer Einsatz**: Gehören niemals in die innere Masse. Ihre einzige Berechtigung ist als **feines Finish** auf saftigen, cremigen Tortillas im [Betanzos-Stil](/de/recipes/betanzos-tortilla), sparsam Sekunden vor dem Servieren aufgestreut für einen flüchtigen Knuspereffekt.
 
 ---
 
@@ -102,7 +102,7 @@ Nicht jeder Salzkristall verhält sich im Fett- und Proteingefüge gleich:
 
 Die Salzung beeinflusst die Thermodynamik und die mikrobiologische Lebensmittelsicherheit unmittelbar:
 
-1. **70°C für 2 Minuten**: Der internationale bakterizide Standard zur sicheren Abtötung von *Salmonella enterica*. Dank der biphasischen Vorsalzung erreicht das Ei diesen Sicherheitswert, ohne trocken oder faserig zu werden.
+1. **70°C für 2 Minuten**: Der internationale bakterizide Standard zur sicheren Abtötung von *Salmonella enterica*. Dank der biphasischen Vorsalzung erreicht das Ei diesen Sicherheitswert, ohne trocken oder faserig zu werden. Verfolgen Sie Garstufen in unserem [Küchentimer & Assistent](/de/kuechentimer).
 2. **63°C für 20 Sekunden**: Die kritische Stockungsgrenze von Ovotransferrin. Das gelöste Natriumchlorid stabilisiert den saftig-cremigen Kern, sodass er beim Abkühlen nicht in Wasser und Fett zerfällt.
 3. **4-Stunden-Grenze**: Auch eine meisterhaft gewürzte Tortilla darf niemals länger als **4 Stunden** bei Raumtemperatur ungekühlt stehen.
 4. **Kühlung bei <8°C**: Reste für den nächsten Tag müssen nach dem Ausdampfen unverzüglich im Kühlschrank gelagert werden.
@@ -113,9 +113,9 @@ Die Salzung beeinflusst die Thermodynamik und die mikrobiologische Lebensmittels
 
 Für eine klassische Familientortilla (4 bis 6 Portionen):
 
-1. **Dosierung**: **1,0 g bis 1,2 g feines Meersalz pro 100 g Gesamtrohgewicht** abwiegen (ca. 8 g bis 10 g für 1 kg Gesamtmasse).
-2. **Phase 1 (Das Ei)**: 70 % des Salzes (ca. 6 g) zu den Eiern geben. Sanft verquirlen, ohne zu viel Luft einzuschlagen, und **15 Minuten ruhen lassen**. Die Eimasse wird dunkler, klarer und viskoser.
-3. **Phase 2 (Die heiße Kartoffel)**: Die in [Olivenöl](/de/zutaten/olivenoel) gegarten Kartoffeln abgießen und noch dampfend (über 80°C) mit den restlichen 30 % Salz (ca. 3 g) bestreuen und sanft durchschwenken.
+1. **Dosierung**: **1,0 g bis 1,2 g [feines Meersalz](/de/zutaten/salz) pro 100 g Gesamtrohgewicht** abwiegen (ca. 8 g bis 10 g für 1 kg Gesamtmasse). Nutzen Sie unseren [Tortilla-Baukasten Mengenkalkulator](/de/builder).
+2. **Phase 1 (Das Ei)**: 70 % des Salzes (ca. 6 g) zu den [frischen Eiern](/de/zutaten/ei) geben. Sanft verquirlen, ohne zu viel Luft einzuschlagen, und **15 Minuten ruhen lassen**. Die Eimasse wird dunkler, klarer und viskoser.
+3. **Phase 2 (Die heiße Kartoffel)**: Die in [Olivenöl](/de/zutaten/olivenoel) gegarten [Kartoffeln](/de/zutaten/kartoffel) abgießen (nach unserer [Confit-Meisterklasse](/de/anleitungen/confit-tecnica-lenta)) und noch dampfend (über 80°C) mit den restlichen 30 % Salz (ca. 3 g) bestreuen und sanft durchschwenken.
 4. **Phase 3 (Die Fusionsruhe)**: Heiße Kartoffeln und vorgesalzenes Ei in der Schüssel vereinen. **10 Minuten ruhen lassen**, damit sich der osmotische Salzausgleich vollzieht.
 5. **Vollendung**: In die heiße, geölte Pfanne gleiten lassen. Das Stocken verläuft vollkommen homogen, die Kruste bräunt gleichmäßig, und jeder Bissen bleibt saftig und formvollendet.
 
@@ -124,3 +124,14 @@ Für eine klassische Familientortilla (4 bis 6 Portionen):
 ## Fazit
 
 Eine Tortilla meisterhaft zu salzen ist weder Zufall noch blindes Gefühl; es ist die präzise Beherrschung mineralischer Ionen im Dialog mit Ei und Knolle. Wenn das Salz im richtigen Moment und in der richtigen Form eingreift, deckt das Ei die Kartoffel nicht zu und die Kartoffel dämpft das Ei nicht ab: Beide verschmelzen zu einer harmonischen kulinarischen Einheit.
+
+---
+
+## 🔗 Verwandte Monographien & Fachressourcen
+
+* 🧂 **Schlüsselzutat:** [Feines Meersalz (Zutaten-Monographie)](/de/zutaten/salz) — Natriumchlorid-Reinheit, Kristallformen und Dosierungsschwellen.
+* 🥔 **Die Knolle:** [Vollständige Kartoffel-Monographie](/de/zutaten/kartoffel) und der Leitfaden zu [Amylose vs. Amylopektin](/de/anleitungen/almidon-patata-amilosa-amilopectina).
+* 🥚 **Proteinmatrix:** [Das Ei (Monographie)](/de/zutaten/ei) und Garstufen im [Betanzos-Leitfaden](/de/anleitungen/fenomeno-betanzos-yema-tecnica).
+* 🫒 **Thermisches Medium:** [Natives Olivenöl Extra](/de/zutaten/olivenoel) und die [Technik des langsamen Pochierens](/de/anleitungen/confit-tecnica-lenta).
+* 🍳 **Kanonische Rezepte:** [Klassische Spanische Tortilla](/de/recipes/klassische-spanische-tortilla) und [Betanzos-Tortilla](/de/recipes/betanzos-tortilla).
+* ⏱️ **Präzision & Tools:** [Tortilla-Baukasten](/de/builder) und [Küchentimer & Assistent](/de/kuechentimer).

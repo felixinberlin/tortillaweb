@@ -84,6 +84,22 @@ You can publish the generated `dist/` folder to any static hosting provider for 
 | **Production Build** | `npm run build` | Builds static HTML pages & Vite assets into `/dist` |
 | **Preview** | `npm run preview` | Serves the production `/dist` build locally |
 | **Linter** | `npm run lint` | Runs Oxlint for fast TypeScript/JSX code analysis |
+| **Push to GitHub** | `npm run git:push` | Pushes current codebase directly to a remote GitHub repository |
+
+### Direct Push to GitHub
+
+You can push this repository directly to GitHub using either:
+
+1. **AI Studio Native Export**: Click the menu in the top right corner and select **Export to GitHub**.
+2. **CLI / NPM Script**: Run:
+   ```bash
+   npm run git:push -- --repo=https://github.com/USERNAME/REPO --token=ghp_YOUR_TOKEN
+   ```
+   Or set environment variables:
+   ```bash
+   GITHUB_TOKEN=ghp_YOUR_TOKEN GITHUB_REPO=USERNAME/REPO npm run git:push
+   ```
+   *Tip: Use `--force` if you need to overwrite an existing remote branch.*
 
 ---
 

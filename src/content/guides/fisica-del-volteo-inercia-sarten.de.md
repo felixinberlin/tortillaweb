@@ -92,7 +92,7 @@ KINETISCHES PROTOKOLL:
 
 ## 🚨 4. Mikrobiologie & Lebensmittelsicherheit
 
-Bei saftigen Varianten wie der [Tortilla de Betanzos](/[lang]/recipes/betanzos) bleibt der Kern cremig-flüssig. Beachten Sie stets die wissenschaftlichen Sicherheitsstandards:
+Bei saftigen Varianten wie der [Tortilla de Betanzos](/de/recipes/betanzos-tortilla) bleibt der Kern cremig-flüssig. Beachten Sie stets die wissenschaftlichen Sicherheitsstandards:
 
 *   **Thermische Inaktivierung:** Zur Abtötung von *Salmonella enteritidis* gilt als Goldstandard **70°C für 2 Minuten** (oder alternativ **63°C für 20 Sekunden**).
 *   **Haltbarkeit bei Zimmertemperatur:** Flüssig belassene Tortillas müssen frisch verzehrt werden und dürfen **niemals länger als 4 Stunden ungekühlt stehen**.

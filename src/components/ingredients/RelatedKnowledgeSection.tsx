@@ -51,6 +51,11 @@ const BADGE_CONFIG: Record<string, { label: Record<string, string>; color: strin
     color: 'bg-[#D89B32] text-white',
     icon: Award,
   },
+  guide: {
+    label: { es: 'Guía Magistral', en: 'Masterclass Guide', de: 'Meisterklasse-Leitfaden' },
+    color: 'bg-[#00A3FF] text-white',
+    icon: BookOpen,
+  },
 };
 
 export default function RelatedKnowledgeSection({

@@ -58,7 +58,7 @@ El AOVE posee un contenido superior al 70% de **ácido oleico monoinsaturado**, 
 3.  **Picual y Cornicabra (Andalucía y Castilla-La Mancha):** Alto contenido en polifenoles y tocoferoles. Aportan gran carácter y notas especiadas, ideales para tortillas de corte rústico o tabernero.
 4.  *Reutilización del aceite de confitado:* Al no haber superado los 140°C, el aceite de confitado conserva sus propiedades intactas y queda perfumado con el almidón y jugo de la patata. Puedes filtrarlo y reutilizarlo hasta 4-5 veces para futuras tortillas.
 
-Consulta nuestra enciclopedia de [aceite de oliva](/[lang]/ingredients/oil).
+Consulta nuestra enciclopedia de [aceite de oliva](/es/ingredientes/aceite-de-oliva) y la monografía de [sal marina fina](/es/ingredientes/sal).
 
 ---
 
@@ -101,7 +101,7 @@ Una vez confitada la patata, el método de unión con los huevos define la textu
 2.  **Integración con Huevos Camperos:** Bate 6-7 huevos camperos frescos simplemente rompiendo las yemas con un tenedor. Vierte las patatas confitadas calientes.
 3.  **El Reposo Termo-Emulsionado (4 minutos):** La mezcla adquiere una consistencia densa y cremosa, similar a una compota tibia bañada en oro líquido.
 
-Para profundizar en la interacción entre proteínas y almidones, consulta nuestro estudio sobre [físico-química de la tortilla](/[lang]/science).
+Para profundizar en la interacción entre proteínas y almidones, consulta nuestro estudio sobre [físico-química de la tortilla](/es/science).
 
 ---
 
@@ -131,8 +131,10 @@ La técnica del confitado prolongado asegura una cocción perfecta del tubércul
 
 ## 🔗 Enlaces y Recursos Recomendados
 
-* [Receta de Tortilla Clásica Tradicional](/[lang]/recipes/tortilla-clasica)
-* [Técnicas Culinarias: Cocción Lenta](/[lang]/techniques/slow-cooking)
-* [Monográfico de Ingrediente: Aceite de Oliva](/[lang]/ingredients/oil)
-* [Laboratorio de Dinámica y Coagulación](/[lang]/laboratorio)
-* [Guía de la Patata y sus Almidones](/[lang]/ingredients/potato)
+* [Receta de Tortilla Clásica Tradicional](/es/recipes/clasica)
+* [Guía Magistral: La Cronología de la Sal](/es/guias/la-cronologia-de-la-sal)
+* [Monográfico de Ingrediente: Sal Marina Fina](/es/ingredientes/sal)
+* [Monográfico de Ingrediente: Aceite de Oliva](/es/ingredientes/aceite-de-oliva)
+* [Guía de la Patata y sus Almidones: Amilosa vs Amilopectina](/es/guias/almidon-patata-amilosa-amilopectina)
+* [Monográfico de Ingrediente: La Patata](/es/ingredientes/patata)
+* [Laboratorio de Dinámica y Coagulación](/es/laboratorio)

@@ -53,7 +53,7 @@ COMPOSICIÓN DEL SUCEDÁNEO DE PATATA:
 Cuando no había huevos disponibles, las cocineras recurrían a mezclas de **harina de trigo, harina de algarroba o harina de garbanzo** diluidas en agua o leche en polvo desnatada:
 
 1. **La Emulsión de Harina:** Al batir harina de garbanzo con agua tibia y una pizca de azafrán o colorante de hebras, se obtenía una pasta amarilla densa que coagulaba por gelificación térmica de los almidones y proteínas vegetales al tocar la sartén caliente.
-2. **Precursora de la Tortilla Vegana Moderna:** Paradójicamente, la técnica de subsistencia de la posguerra española es la base molecular idéntica empleada hoy por la gastronomía contemporánea en la [tortilla vegana](/[lang]/recipes/vegana).
+2. **Precursora de la Tortilla Vegana Moderna:** Paradójicamente, la técnica de subsistencia de la posguerra española es la base molecular idéntica empleada hoy por la gastronomía contemporánea en la [tortilla vegana](/es/recipes/tortilla-de-patatas-vegana-sin-gluten).
 
 ---
 

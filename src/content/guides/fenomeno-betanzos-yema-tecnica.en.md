@@ -14,7 +14,7 @@ readTimeMinutes: 11
 
 In the As Mariñas county of A Coruña, the historic town of **Betanzos** has elevated the potato omelette to an almost religious art form. Its signature style brooks no compromise: a golden volcano of rich, runny egg yolk that floods the plate at the first cut, with zero onion and zero interior setting.
 
-Far from being a hasty "undercooked" omelette, the authentic [Betanzos Tortilla](/[lang]/recipes/betanzos) is the calculated product of strict thermal choreography, extreme ingredient ratios, and precise control of egg rheology.
+Far from being a hasty "undercooked" omelette, the authentic [Betanzos Tortilla](/en/recipes/betanzos-style-spanish-omelette) is the calculated product of strict thermal choreography, extreme ingredient ratios, and precise control of egg rheology.
 
 ---
 
@@ -83,4 +83,4 @@ The liquid core of Betanzos is a frequent subject of scientific inquiry:
 
 ## 🏆 5. Cultural Legacy: Art vs. Purism
 
-Within the universe of [Tortilla Factions](/[lang]/facciones), the *Betanceiros* stand as the guardians of pure minimalism. The deliberate omission of onion allows the extraordinary character of Galician potatoes and rich farm yolks to shine without distraction.
+Within the universe of [Tortilla Factions](/en/factions), the *Betanceiros* stand as the guardians of pure minimalism. The deliberate omission of onion allows the extraordinary character of Galician potatoes and rich farm yolks to shine without distraction.

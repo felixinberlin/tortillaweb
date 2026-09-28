@@ -82,7 +82,7 @@ MINUTE-BY-MINUTE CHRONO (MANDOLINE METHOD):
 2.  **Pan Shaking & Edge Tuck:** Vigorously shake the pan back and forth with your dominant hand while using a heatproof spatula to tuck the outer edges into a rounded cushion.
 3.  **Lightning Flip:** In under 60 seconds, the base will be deeply golden. Flip onto a moistened plate and return to the skillet for a final 30-second flash cook.
 
-Explore real-time heat physics in our [cooking laboratory](/[lang]/laboratorio).
+Explore real-time heat physics in our [cooking laboratory](/en/laboratorio).
 
 ---
 
@@ -113,7 +113,7 @@ High-heat cooking produces a scorching exterior, but core temperatures require m
 
 ## 🔗 Related Resources
 
-* [Express Potato Chip Tortilla Recipe](/[lang]/recipes/tortilla-express-patatas-chips)
-* [Classic Traditional Tortilla Recipe](/[lang]/recipes/tortilla-clasica)
-* [High-Heat Frying & Thermodynamics](/[lang]/techniques/frying)
-* [Egg Science & Protein Denaturation](/[lang]/science)
+* [Express Potato Chip Tortilla Recipe](/en/recipes/express-potato-chip-omelette)
+* [Classic Traditional Tortilla Recipe](/en/recipes/classic-spanish-omelette)
+* [High-Heat Frying & Thermodynamics](/en/techniques/crispy-frying)
+* [Egg Science & Protein Denaturation](/en/science)

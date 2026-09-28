@@ -26,7 +26,7 @@ La reorganización espacial de las proteínas del huevo con el calor define tres
 2.  **Textura cremosa (63 °C – 70 °C):** Se alcanza el equilibrio de fase ideal [30]. Las proteínas de la clara han formado una red estable mientras que la yema alcanza un estado semisólido de emulsión cremosa [30].
 3.  **Seca o sobrecoagulada (>70 °C):** Las proteínas se contraen en exceso, expulsando el agua retenida en un proceso llamado **sinéresis** [30]. El huevo se torna elástico, gomoso y seco, perdiendo toda jugosidad [30].
 
-*Consejo de Maestros:* Para evitar introducir burbujas de aire que generen una textura esponjosa tipo suflé, el huevo debe mezclarse suavemente con un tenedor para romper las membranas de la yema, evitando batir en exceso [30, 90]. En escuelas como la de [Betanzos](/[lang]/recipes/betanzos), los huevos se cascan directamente sobre la patata caliente sin batido previo [90, 137].
+*Consejo de Maestros:* Para evitar introducir burbujas de aire que generen una textura esponjosa tipo suflé, el huevo debe mezclarse suavemente con un tenedor para romper las membranas de la yema, evitando batir en exceso [30, 90]. En escuelas como la de [Betanzos](/es/recipes/betanzos), los huevos se cascan directamente sobre la patata caliente sin batido previo [90, 137].
 
 ---
 
@@ -45,7 +45,7 @@ La patata no es un mero relleno; es el elemento de soporte del plato [3, 30]. Su
 | **Harinosas (A evitar)** | Alto almidón, bajo contenido de agua [3]. | Russet. | Absorben demasiado aceite, se rompen con facilidad y enturbian el huevo creando una masa pastosa y seca [3]. |
 | **Tempranas / Acuosas (A evitar)** | Alto contenido de agua, bajo almidón [3]. | Blancas tempranas. | Liberan agua libre durante el cocinado, impidiendo que el huevo se adhiera y provocando una textura gomosa [3]. |
 
-*La técnica del corte:* El corte irregular o **chascado** (romper el último tramo de la patata haciendo palanca con el cuchillo) fractura las paredes celulares de forma irregular, liberando una mayor cantidad de amilopectina superficial [3, 30]. Este almidón libre actúa como un espesante natural que liga el huevo y la patata durante el reposo [30]. Puedes aprender más sobre este ingrediente básico en nuestra sección dedicada a la [patata](/[lang]/ingredients/potato).
+*La técnica del corte:* El corte irregular o **chascado** (romper el último tramo de la patata haciendo palanca con el cuchillo) fractura las paredes celulares de forma irregular, liberando una mayor cantidad de amilopectina superficial [3, 30]. Este almidón libre actúa como un espesante natural que liga el huevo y la patata durante el reposo [30]. Puedes aprender más sobre este ingrediente básico en nuestra sección dedicada a la [patata](/es/ingredientes/patata) y sobre la influencia osmótica de la [sal marina](/es/ingredientes/sal).
 
 ---
 
@@ -53,8 +53,8 @@ La patata no es un mero relleno; es el elemento de soporte del plato [3, 30]. Su
 
 La cocción de la patata en el aceite es una transferencia de calor controlada por la temperatura del lípido [30]:
 
-1.  **El Confitado Mimoso (110 °C – 140 °C):** Es el método clásico asociado a la [técnica de confitado](/[lang]/techniques/slow-cooking) [30, 142]. Las patatas se cocinan sumergidas de forma lenta [30, 142]. El agua celular se evapora suavemente, permitiendo que el almidón gelatinice y las células se ablanden sin que los azúcares se caramelicen o quemen [3, 30]. El resultado es una patata con textura mantequillosa que se deshace en boca [3, 30].
-2.  **La Fritura Crujiente (160 °C – 180 °C):** Típica de la [técnica de fritura](/[lang]/techniques/frying) [30, 142]. Las patatas se cortan en láminas ultrafinas (tipo lascas o chips) y se someten a un aceite bien caliente [30, 142]. El agua se evapora de golpe, suflando la patata y creando bordes ligeramente dorados y crujientes que contrastarán de forma idílica con el huevo líquido [30].
+1.  **El Confitado Mimoso (110 °C – 140 °C):** Es el método clásico asociado a la [técnica de confitado](/es/tecnicas/confitado) [30, 142]. Las patatas se cocinan sumergidas de forma lenta [30, 142]. El agua celular se evapora suavemente, permitiendo que el almidón gelatinice y las células se ablanden sin que los azúcares se caramelicen o quemen [3, 30]. El resultado es una patata con textura mantequillosa que se deshace en boca [3, 30].
+2.  **La Fritura Crujiente (160 °C – 180 °C):** Típica de la [técnica de fritura](/es/tecnicas/fritura-crujiente) [30, 142]. Las patatas se cortan en láminas ultrafinas (tipo lascas o chips) y se someten a un aceite bien caliente [30, 142]. El agua se evapora de golpe, suflando la patata y creando bordes ligeramente dorados y crujientes que contrastarán de forma idílica con el huevo líquido [30].
 3.  **Abuso Térmico (>190 °C):** Superar esta temperatura degrada los ácidos grasos del aceite de oliva, destruye sus polifenoles saludables y genera acroleína, aportando un desagradable sabor amargo y quemado que arruina el plato [30].
 
 *El Sellar Final:* Una vez unida la mezcla, se vierte en una sartén muy caliente untada con unas gotas de aceite para producir una coagulación instantánea de la capa exterior [30]. Esto crea una fina "camisa" dorada que sella la estructura y encierra el corazón líquido de la tortilla [30].
@@ -74,7 +74,7 @@ Para garantizar la destrucción efectiva de patógenos en restauración y colect
 *   **Tratamiento Jugoso Autorizado:** Mantener el centro a **63 °C durante un mínimo de 20 segundos** [62, 141]. Este nivel ofrece una reducción segura intermedia, siempre que el plato se **consuma inmediatamente** o se mantenga en caliente a $\ge 63$ °C [62, 141].
 *   **La Regla de las 4 Horas:** Cualquier tortilla elaborada con huevo fresco poco hecho nunca debe permanecer más de **4 horas a temperatura ambiente** [141]. Las sobras deben refrigerarse inmediatamente a temperaturas inferiores a **8 °C** [62, 141].
 
-*Higiene en la Cocina:* Investigaciones dirigidas por el Dr. José Manuel Barat en la Universitat Politècnica de València (UPV) revelan que Salmonella es altamente resistente en superficies: puede sobrevivir más de **3 días** en acero inoxidable, hasta **48 horas** en tablas de madera porosas y hasta **14 días** en plásticos alimentarios (formando biofilms resistentes) [62, 141]. Conoce más sobre la figura del investigador [Barat](/[lang]/people/barat) en nuestro directorio de personajes.
+*Higiene en la Cocina:* Investigaciones dirigidas por el Dr. José Manuel Barat en la Universitat Politècnica de València (UPV) revelan que Salmonella es altamente resistente en superficies: puede sobrevivir más de **3 días** en acero inoxidable, hasta **48 horas** en tablas de madera porosas y hasta **14 días** en plásticos alimentarios (formando biofilms resistentes) [62, 141]. Conoce más sobre la figura del investigador [Barat](/es/personas/jose-manuel-barat) en nuestro directorio de personajes.
 
 ---
 

@@ -21,6 +21,8 @@
   "related": [
     { "type": "ingredient", "id": "potato", "relationship": "confit_medium" },
     { "type": "ingredient", "id": "egg", "relationship": "emulsion_partner" },
+    { "type": "ingredient", "id": "salt", "relationship": "solubility_contrast" },
+    { "type": "guide", "id": "confit-tecnica-lenta", "relationship": "slow_poaching_science" },
     { "type": "technique", "id": "slow-cooking", "relationship": "thermal_process" },
     { "type": "technique", "id": "emulsion", "relationship": "chemical_process" },
     { "type": "recipe", "id": "clasica", "relationship": "featured_recipe" },

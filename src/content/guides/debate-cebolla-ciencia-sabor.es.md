@@ -29,7 +29,7 @@ Los primeros testimonios documentados sobre la tortilla de patatas, rescatados p
 *   **La Taberna Popular Madrileña y Andaluza:** Durante el siglo XIX, las tabernas incorporaron cebolla confitada para abaratar costes (la cebolla era más barata y rendía más jugo) y para mantener la tortilla jugosa durante largas horas expuesta sobre la barra de estaño.
 *   **La Escuela de Betanzos (Galicia):** El bastión inexpugnable del sincebollismo. En Betanzos, la tortilla prescinde de cebolla para ensalzar la excelencia de la patata Kennebec autóctona y la frescura de los huevos de aldea, logrando un huevo semilíquido dorado que no admite interferencias aromáticas.
 
-Explora la cronología completa en nuestro archivo de [historia de la tortilla](/[lang]/history).
+Explora la cronología completa en nuestro archivo de [historia de la tortilla](/es/history).
 
 ---
 
@@ -83,7 +83,7 @@ Desde el punto de vista de la alta gastronomía, **no existe una superioridad in
 1.  **La Vía Purista (Sin Cebolla):** Exige una materia prima insuperable. Si la patata o el huevo son mediocres, la tortilla no tiene dónde esconderse. Es la elección del perfeccionismo técnico y del huevo fluido.
 2.  **La Vía Concebollista (Con Cebolla):** Apuesta por la complejidad de capas, la integración de contrastes dulces y la seguridad de una tortilla que conservará su jugosidad incluso horas después de haberse cocinado.
 
-Compara tus preferencias y vota en nuestro [árbol de facciones](/[lang]/facciones).
+Compara tus preferencias y vota en nuestro [árbol de facciones](/es/facciones).
 
 ---
 
@@ -100,9 +100,9 @@ Independientemente del bando que elijas, las normas de seguridad microbiológica
 
 ## 🔗 Enlaces Cruzados y Artículos Relacionados
 
-* [Masterclass: Tortilla Clásica del Purista](/[lang]/guias/tortilla-clasica-masterclass)
-* [Masterclass Concebollista: Cebolla Caramelizada](/[lang]/guias/masterclass-cebolla-caramelizada)
-* [Ficha de Receta: Tortilla Clásica](/[lang]/recipes/tortilla-clasica)
-* [Ficha de Receta: Tortilla con Cebolla](/[lang]/recipes/tortilla-clasica-con-cebolla)
-* [Cuaderno de Ciencia y Coagulación](/[lang]/science)
-* [Comparador de Estilos y Facciones](/[lang]/comparador)
+* [Masterclass: Tortilla Clásica del Purista](/es/guias/tortilla-clasica-masterclass)
+* [Masterclass Concebollista: Cebolla Caramelizada](/es/guias/masterclass-cebolla-caramelizada)
+* [Ficha de Receta: Tortilla Clásica](/es/recipes/tortilla-clasica)
+* [Ficha de Receta: Tortilla con Cebolla](/es/recipes/tortilla-clasica-con-cebolla)
+* [Cuaderno de Ciencia y Coagulación](/es/science)
+* [Comparador de Estilos y Facciones](/es/comparador)

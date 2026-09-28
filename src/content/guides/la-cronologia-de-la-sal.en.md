@@ -14,9 +14,9 @@ readTimeMinutes: 12
 
 In almost every household recipe, salt is casually dismissed as an afterthought at the bottom of the ingredient list: *"salt to taste"*. In an unadorned preparation like the Spanish potato omelette — where there is no pepper, garlic, herbs, or sauce behind which to hide — this casual neglect is catastrophic.
 
-Sodium chloride (NaCl) is far more than a flavor enhancer; **it is an active chemical reagent**. Its presence or absence at specific stages of preparation alters the denaturation kinetics of egg proteins, shifts osmotic pressure across [potato](/en/ingredients/potato) cell walls, and dictates whether the tortilla will hold its juices in a luscious custard emulsion or "weep" watery liquid onto the serving platter through the dreaded phenomenon of **syneresis**.
+Sodium chloride (NaCl) — or [fine sea salt](/en/ingredients/salt) — is far more than a simple culinary seasoning; **it is an active chemical reagent**. Its presence or absence at specific stages of preparation alters the denaturation kinetics of [egg](/en/ingredients/egg) proteins, shifts osmotic pressure across [potato](/en/ingredients/potato) cell walls, and dictates whether the tortilla will hold its juices in a luscious custard emulsion or "weep" watery liquid onto the serving platter through the dreaded phenomenon of **syneresis**.
 
-This treatise explores the molecular physics of salting, tests four competing chronologies, and defines the canonical seasoning protocol.
+This treatise explores the molecular physics of salting, tests four competing chronologies, and defines the canonical seasoning protocol in tandem with our [comprehensive sea salt monograph](/en/ingredients/salt).
 
 ---
 
@@ -69,7 +69,7 @@ When salt is dissolved into beaten eggs and allowed to rest for **10 to 15 minut
 
 ## ⏱️ 3. The Experimental Testbench: Four Salting Chronologies
 
-To identify the optimal moment of application, we tested four parallel protocols using identical ratios (800 g Agria potatoes, 6 pasture-raised eggs, [extra virgin olive oil](/en/ingredients/olive-oil), and 8 g fine sea salt):
+To identify the optimal moment of application, we tested four parallel protocols using identical ratios (800 g [Agria potatoes](/en/ingredients/potato), 6 [pasture-raised eggs](/en/ingredients/egg), [extra virgin olive oil](/en/ingredients/olive-oil), and 8 g [fine sea salt](/en/ingredients/salt)):
 
 | Protocol | Application Point | Behavior in the Skillet | Textural Outcome | Verdict |
 | :--- | :--- | :--- | :--- | :--- |
@@ -84,9 +84,9 @@ To identify the optimal moment of application, we tested four parallel protocols
 
 Not all salt crystals behave the same way in the presence of lipid emulsions and heat:
 
-### A. Fine Sea Salt (0.2 – 0.4 mm)
+### A. [Fine Sea Salt](/en/ingredients/salt) (0.2 – 0.4 mm)
 - **Dissolution kinetics**: Instantaneous in beaten egg moisture and the hot surface steam of fried potatoes.
-- **Function**: The essential structural seasoning tool for the internal mass. Guarantees uniform salinity without isolated sodium hotspots.
+- **Function**: The essential structural seasoning tool described in our [salt monograph](/en/ingredients/salt). Guarantees uniform salinity without isolated sodium hotspots.
 
 ### B. Coarse Kitchen Salt (>1.5 mm)
 - **Behavior**: Dissolves very slowly in viscous emulsions like raw egg.
@@ -94,7 +94,7 @@ Not all salt crystals behave the same way in the presence of lipid emulsions and
 
 ### C. Finishing Salt Flakes (Maldon / Flor de Sal)
 - **Behavior**: Hollow, delicate pyramidal crystals with very low density and quick oral melt.
-- **Legitimate use**: Should never be mixed into the internal batter. Their only justifiable role is as a **delicate surface finish** on soft, runny Betanzos-style slices, sprinkled sparingly just seconds before serving for an ephemeral textural contrast that dissolves on the tongue.
+- **Legitimate use**: Should never be mixed into the internal batter. Their only justifiable role is as a **delicate surface finish** on soft, runny [Betanzos-style slices](/en/recipes/betanzos-style-spanish-omelette), sprinkled sparingly just seconds before serving for an ephemeral textural contrast that dissolves on the tongue.
 
 ---
 
@@ -102,7 +102,7 @@ Not all salt crystals behave the same way in the presence of lipid emulsions and
 
 Salting directly impacts heat transfer kinetics and microbiological safety:
 
-1. **70°C for 2 minutes**: The international bactericidal benchmark ensuring complete destruction of *Salmonella enterica*. With the bi-phasic pre-salting technique, eggs reach this safe internal threshold without drying out or turning rubbery.
+1. **70°C for 2 minutes**: The international bactericidal benchmark ensuring complete destruction of *Salmonella enterica*. With the bi-phasic pre-salting technique, eggs reach this safe internal threshold without drying out or turning rubbery. Monitor your cooks in our [Kitchen Assistant & Timer](/en/assistant).
 2. **63°C for 20 seconds**: The critical point of creamy ovotransferrin coagulation. Dissolved sodium ions keep this soft, luscious center stable without splitting into free water and oil.
 3. **4-hour counter limit**: Regardless of seasoning precision, no tortilla should ever remain exposed at room temperature for more than **4 hours**.
 4. **Refrigerate at <8°C**: Any portion saved for tomorrow must be chilled promptly once initial steam subsides.
@@ -113,9 +113,9 @@ Salting directly impacts heat transfer kinetics and microbiological safety:
 
 For a classic 4-to-6 serving family tortilla:
 
-1. **Dosage**: Measure **1.0 g to 1.2 g of fine sea salt per 100 g of total raw ingredient weight** (approximately 8 g to 10 g for a 1 kg total recipe).
-2. **Phase 1 (The Eggs)**: Add 70% of the salt (approx. 6 g) to the eggs. Beat gently without incorporating excessive air and **let rest for 15 minutes**. Notice how the egg mass becomes deeper in color, more translucent, and smoothly cohesive.
-3. **Phase 2 (The Hot Potatoes)**: Confit sliced potatoes in [olive oil](/en/ingredients/olive-oil). As soon as they are lifted and drained into a colander, sprinkle the remaining 30% of the salt (approx. 3 g) while they still steam above 80°C. Toss gently so hot capillary action pulls salt into the open starch cells.
+1. **Dosage**: Measure **1.0 g to 1.2 g of [fine sea salt](/en/ingredients/salt) per 100 g of total raw ingredient weight** (approximately 8 g to 10 g for a 1 kg total recipe). Calculate exact proportions with our [Tortilla Builder](/en/builder).
+2. **Phase 1 (The Eggs)**: Add 70% of the salt (approx. 6 g) to the [fresh eggs](/en/ingredients/egg). Beat gently without incorporating excessive air and **let rest for 15 minutes**. Notice how the egg mass becomes deeper in color, more translucent, and smoothly cohesive.
+3. **Phase 2 (The Hot Potatoes)**: Confit sliced [potatoes](/en/ingredients/potato) in [olive oil](/en/ingredients/olive-oil) (following our [slow confit masterclass](/en/guides/confit-tecnica-lenta)). As soon as they are lifted and drained into a colander, sprinkle the remaining 30% of the salt (approx. 3 g) while they still steam above 80°C. Toss gently so hot capillary action pulls salt into the open starch cells.
 4. **Phase 3 (The Soak & Fusion)**: Combine hot salted potatoes and rested seasoned eggs in the bowl. Let sit together for **10 minutes**. Osmosis will balance salinity evenly between potato and egg.
 5. **Cooking**: Slide into a hot, oiled skillet. Setting will be remarkably uniform, the exterior crust will brown evenly, and the finished wedge will stay moist, rich, and cohesive down to the very last bite.
 
@@ -124,3 +124,14 @@ For a classic 4-to-6 serving family tortilla:
 ## Conclusion
 
 Salting a tortilla properly is neither an arbitrary guess nor a matter of sheer luck; it is an applied mastery of mineral ions and biological matter. When salt is applied at the exact right moment and in the correct physical form, the egg never overpowers the potato and the potato never dulls the egg: both harmonize into an enduring culinary masterpiece.
+
+---
+
+## 🔗 Related Monographs & Technical Resources
+
+* 🧂 **Key Ingredient:** [Fine Sea Salt (Full Ingredient Monograph)](/en/ingredients/salt) — Sodium chloride purity, crystal morphology, and seasoning thresholds.
+* 🥔 **The Tuber:** [Potato Monograph](/en/ingredients/potato) and the botanical breakdown on [Amylose vs. Amylopectin](/en/guides/almidon-patata-amilosa-amilopectina).
+* 🥚 **Protein Matrix:** [Fresh Egg Monograph](/en/ingredients/egg) and runny setting in the [Betanzos Phenomenon Guide](/en/guides/fenomeno-betanzos-yema-tecnica).
+* 🫒 **Thermal Medium:** [Extra Virgin Olive Oil Monograph](/en/ingredients/olive-oil) and the [Slow Confit Technique](/en/guides/confit-tecnica-lenta).
+* 🍳 **Canonical Recipes:** [Traditional Spanish Tortilla](/en/recipes/classic-spanish-omelette) and [Betanzos-Style Omelette](/en/recipes/betanzos-style-spanish-omelette).
+* ⏱️ **Precision Tools:** [Tortilla Builder Ratio Calculator](/en/builder) and [Kitchen Assistant Timer](/en/assistant).

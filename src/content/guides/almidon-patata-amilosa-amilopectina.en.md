@@ -45,7 +45,7 @@ Not all potatoes are suited for tortilla making. Moisture and starch ratios dete
 | Variety | Dry Matter (%) | Amylose / Amylopectin Ratio | Skillet Behavior (130°C – 160°C) | Tortilla Assessment |
 | :--- | :--- | :--- | :--- | :--- |
 | **Agria** | 21% – 23% (High) | Balanced / High amylopectin | Golden exterior without scorching, buttery melting interior. | **Gold Standard (Classic Confit)** |
-| **Kennebec** | 19% – 21% (Med-High) | High structural amylose | Crisp edges, retains shape, superior egg absorption. | **Essential for [Betanzos](/[lang]/recipes/betanzos)** |
+| **Kennebec** | 19% – 21% (Med-High) | High structural amylose | Crisp edges, retains shape, superior egg absorption. | **Essential for [Betanzos](/en/recipes/betanzos-style-spanish-omelette)** |
 | **Monalisa** | 17% – 19% (Medium) | Fluid amylopectin | Extremely creamy texture, gentler pan resistance. | **Ideal for gentle poaching** |
 | **Spunta / Early New** | 13% – 16% (Low / Watery) | Excessive free water | Weeps moisture in hot oil, steams instead of frying. | ❌ **Forbidden in authentic craft** |
 | **Bintje** | 20% – 22% (High) | High amylose | Browns quickly due to free reducing sugars. | **Requires strict flame management** |
@@ -95,3 +95,13 @@ Hydrated starch in contact with warm raw egg creates a nutrient-rich medium for 
 
 *   The scientific pathogen kill threshold is **70°C for 2 minutes** (or **63°C for 20 seconds**) to eradicate *Salmonella* colonies.
 *   Any runny-center tortilla must be consumed fresh and **never stored at room temperature for longer than 4 hours**.
+
+---
+
+## 🔗 Related Monographs & Technical Resources
+
+* 🥔 **Botanical Ingredient:** [Complete Potato Monograph](/en/ingredients/potato) — Tuber anatomy, storage, and starch ratios.
+* 🧂 **Osmotic Regulation:** [The Salting Chronology: When and How to Salt](/en/guides/la-cronologia-de-la-sal) and [Fine Sea Salt Monograph](/en/ingredients/salt).
+* 🫒 **Thermal Confit:** [Slow Poaching in Olive Oil](/en/guides/confit-tecnica-lenta) and [Olive Oil Monograph](/en/ingredients/olive-oil).
+* 🥚 **Emulsification Matrix:** [Fresh Egg Monograph](/en/ingredients/egg) and [Runny Yolk Setting in the Betanzos Phenomenon](/en/guides/fenomeno-betanzos-yema-tecnica).
+* 🍳 **Canonical Recipes:** [Traditional Spanish Tortilla](/en/recipes/classic-spanish-omelette) and [Betanzos-Style Omelette](/en/recipes/betanzos-style-spanish-omelette).

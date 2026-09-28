@@ -14,7 +14,7 @@ readTimeMinutes: 11
 
 In der Region As Mariñas (A Coruña) hat das Städtchen **Betanzos** die Tortilla de Patatas zu einem kulinarischen Kult erhoben. Der Stil kennt keine Kompromisse: ein goldener Vulkan aus flüssigem Eigelb, der sich beim ersten Schnitt über den Teller ergießt – ohne Zwiebeln und ohne festen Kern.
 
-Weit davon entfernt, ein "halbgares" Produkt zu sein, ist die echte [Tortilla de Betanzos](/[lang]/recipes/betanzos) das Ergebnis präziser Thermodynamik, extremer Zutatendosierung und gezielter Ei-Rheologie.
+Weit davon entfernt, ein "halbgares" Produkt zu sein, ist die echte [Tortilla de Betanzos](/de/recipes/betanzos-tortilla) das Ergebnis präziser Thermodynamik, extremer Zutatendosierung und gezielter Ei-Rheologie.
 
 ---
 
@@ -83,4 +83,4 @@ Der flüssige Kern von Betanzos wirft regelmäßig Hygienefragen auf:
 
 ## 🏆 5. Kulturelle Identität: Kunst vs. Dogma
 
-Im Universum der [Tortilla-Fraktionen](/[lang]/facciones) gelten die *Betanceiros* als Hüter puristischer Essenz. Der bewusste Verzicht auf Zwiebeln rückt die Qualität galicischer Kartoffeln und goldener Freilandeigelbe in den Mittelpunkt.
+Im Universum der [Tortilla-Fraktionen](/de/faktionen) gelten die *Betanceiros* als Hüter puristischer Essenz. Der bewusste Verzicht auf Zwiebeln rückt die Qualität galicischer Kartoffeln und goldener Freilandeigelbe in den Mittelpunkt.

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://tortilladepatatas.org/sitemap-index.xml
+Sitemap: https://tortilladepatatas.org/sitemap.xml

@@ -18,7 +18,7 @@ Esta monografía examina en profundidad la evolución de la tortilla, desmontand
 
 ## 1. La llegada de la patata: De los Andes a los campos europeos
 
-La historia de la tortilla moderna es indisociable del periplo botánico de la **[patata](/[lang]/ingredients/patata)** (*Solanum tuberosum*). Domesticada hace más de 7.000 años en el altiplano andino por las civilizaciones preincaicas en las cuencas del lago Titicaca, la patata constituía el pilar alimentario del Tawantinsuyu bajo la forma de *chuno* (papa liofilizada mediante congelación nocturna y deshidratación solar).
+La historia de la tortilla moderna es indisociable del periplo botánico de la **[patata](/es/ingredientes/patata)** (*Solanum tuberosum*). Domesticada hace más de 7.000 años en el altiplano andino por las civilizaciones preincaicas en las cuencas del lago Titicaca, la patata constituía el pilar alimentario del Tawantinsuyu bajo la forma de *chuno* (papa liofilizada mediante congelación nocturna y deshidratación solar).
 
 ```
   ALTIPLANO ANDINO (Perú/Bolivia)
@@ -47,7 +47,7 @@ Fue a finales del siglo XVIII cuando las recurrentes hambrunas cerealistas y el 
 
 ## 2. Tradiciones de tortilla anteriores a la patata: El linaje milenario del huevo batido
 
-Antes de que la patata se uniera al **[huevo](/[lang]/ingredients/huevo)** en las sartenes españolas, la técnica de cuajar huevos batidos en grasa caliente sobre una fuente plana ya contaba con un linaje milenario en el Mediterráneo y Oriente Próximo.
+Antes de que la patata se uniera al **[huevo](/es/ingredientes/huevo)** en las sartenes españolas, la técnica de cuajar huevos batidos en grasa caliente sobre una fuente plana ya contaba con un linaje milenario en el Mediterráneo y Oriente Próximo.
 
 ```
        Kookoo Sabzi (Persia / Mesopotamia)
@@ -76,7 +76,7 @@ Antes de que la patata se uniera al **[huevo](/[lang]/ingredients/huevo)** en la
 
 ### Por qué la patata cambió las reglas del juego culinario
 ¿Por qué la unión de la patata y el huevo superó a todas las combinaciones anteriores?
-* **Capacidad de absorción de almidón**: A diferencia de las verduras de hoja (que liberan agua y vuelven la tortilla aguada), la patata pochada en **[aceite de oliva](/[lang]/ingredients/aceite-de-oliva)** gelifica sus almidones (amilosa y amilopectina), creando una matriz porosa capaz de embeber el huevo líquido crudo y formar una emulsión cremosa indestructible.
+* **Capacidad de absorción de almidón**: A diferencia de las verduras de hoja (que liberan agua y vuelven la tortilla aguada), la patata pochada en **[aceite de oliva](/es/ingredientes/aceite-de-oliva)** gelifica sus almidones (amilosa y amilopectina), creando una matriz porosa capaz de embeber el huevo líquido crudo y formar una emulsión cremosa indestructible.
 * **Multiplicador calórico**: Dos huevos y dos patatas medianas pasaron a conformar una comida hipercalórica, saciante y completa para cuatro jornaleros agrícolas por una fracción del coste del pan o la carne.
 * **Estabilidad mecánica**: La patata confitada aporta estructura física tridimensional, permitiendo voltear tortas de varios centímetros de grosor sin que se desmoronen.
 
@@ -148,7 +148,7 @@ El célebre gastrónomo decimonónico **Ángel Muro**, en su clásico *El Practi
 
 ## 5. El gran cisma: Genealogía del debate de la cebolla
 
-Pocos debates dividen a una nación con tanta vehemencia y afecto como la presencia o ausencia de **[cebolla](/[lang]/ingredients/cebolla)** en la tortilla.
+Pocos debates dividen a una nación con tanta vehemencia y afecto como la presencia o ausencia de **[cebolla](/es/ingredientes/cebolla)** en la tortilla.
 
 ```
                          TORTILLA DE PATATAS
@@ -163,9 +163,9 @@ Pocos debates dividen a una nación con tanta vehemencia y afecto como la presen
    • Dominante en tabernas populares               • Bastión sagrado en Betanzos
 ```
 
-* **La corriente [Concebollista](/[lang]/factions/concebollistas)**: Defiende que la cebolla picada y pochada lentamente aporta jugosidad intrínseca, humedad y una complejidad aromática basada en la caramelización natural de sus azúcares y compuestos azufrados. Para profundizar en la técnica, consulta la **[Masterclass de Cebolla Caramelizada](/[lang]/guias/masterclass-cebolla-caramelizada)**.
-* **La ortodoxia [Sincebollista](/[lang]/factions/sincebollistas)**: Sostiene que el dulzor de la cebolla enmascara el sabor auténtico del huevo fresco y el carácter terroso de la patata frita. Su máxima expresión geográfica es la **[Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)** en Galicia, donde el uso de cebolla está expresamente proscrito por tradición canónica.
-* **Análisis científico del debate**: Si deseas conocer las pruebas sensoriales ciegas y la química del choque organoléptico, revisa nuestro ensayo **[El Gran Debate de la Cebolla Resuelto](/[lang]/guias/debate-cebolla-ciencia-sabor)**.
+* **La corriente [Concebollista](/es/facciones/concebollistas)**: Defiende que la cebolla picada y pochada lentamente aporta jugosidad intrínseca, humedad y una complejidad aromática basada en la caramelización natural de sus azúcares y compuestos azufrados. Para profundizar en la técnica, consulta la **[Masterclass de Cebolla Caramelizada](/es/guias/masterclass-cebolla-caramelizada)**.
+* **La ortodoxia [Sincebollista](/es/facciones/sincebollistas)**: Sostiene que el dulzor de la cebolla enmascara el sabor auténtico del huevo fresco y el carácter terroso de la patata frita. Su máxima expresión geográfica es la **[Tortilla de Betanzos](/es/recipes/betanzos)** en Galicia, donde el uso de cebolla está expresamente proscrito por tradición canónica.
+* **Análisis científico del debate**: Si deseas conocer las pruebas sensoriales ciegas y la química del choque organoléptico, revisa nuestro ensayo **[El Gran Debate de la Cebolla Resuelto](/es/guias/debate-cebolla-ciencia-sabor)**.
 
 ---
 
@@ -256,7 +256,7 @@ En la barra de un bar español a las diez de la mañana, frente a un pincho de t
 
 La evolución de la tortilla no es solo culinaria, sino también de salud pública. Con la llegada de los bares modernos y las barras de pinchos en el siglo XX, la correcta manipulación del huevo cobró una importancia capital para prevenir brotes de *Salmonella enterica*.
 
-Como se analiza en nuestro compendio de **[Ciencia y Físico-Química](/[lang]/science)**, la legislación española moderna (**Real Decreto 1021/2022**) consagra que para tortillas con huevo fresco poco cuajado destinadas al consumo público se debe garantizar el estándar de **70°C durante 2 minutos** (o alternativamente **63°C durante 20 segundos**), manteniendo un límite estricto de **4 horas** a temperatura ambiente.
+Como se analiza en nuestro compendio de **[Ciencia y Físico-Química](/es/science)**, la legislación española moderna (**Real Decreto 1021/2022**) consagra que para tortillas con huevo fresco poco cuajado destinadas al consumo público se debe garantizar el estándar de **70°C durante 2 minutos** (o alternativamente **63°C durante 20 segundos**), manteniendo un límite estricto de **4 horas** a temperatura ambiente.
 
 ---
 
@@ -272,13 +272,15 @@ Como se analiza en nuestro compendio de **[Ciencia y Físico-Química](/[lang]/s
 * **1835**: Surge la leyenda militar del General Tomás de Zumalacárregui durante el Sitio Carlista de Bilbao.
 * **1894**: Ángel Muro consagra la receta en *El Practicón*.
 * **1936-1945**: Creación de la *"falsa tortilla"* de piel de naranja y harina de garbanzo durante los Años del Hambre.
-* **1990-Presente**: Eclosión gastronómica mundial: consolidación de la **[Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)**, desconstrucciones de alta cocina y proliferación internacional de las tapas.
+* **1990-Presente**: Eclosión gastronómica mundial: consolidación de la **[Tortilla de Betanzos](/es/recipes/betanzos)**, desconstrucciones de alta cocina y proliferación internacional de las tapas.
 
 ---
 
 ## Artículos y Recursos Relacionados
-* **[La Físico-Química de la Tortilla y Seguridad Alimentaria](/[lang]/science)**
-* **[Masterclass de la Tortilla Clásica](/[lang]/guias/tortilla-clasica-masterclass)**
-* **[El Gran Debate de la Cebolla: Ciencia y Sociología](/[lang]/guias/debate-cebolla-ciencia-sabor)**
-* **[Constructor de Ratios y Gramajes](/[lang]/builder)**
-* **[Simulador de Físicas y Volteo en Sartén](/[lang]/laboratorio)**
+* **[La Físico-Química de la Tortilla y Seguridad Alimentaria](/es/science)**
+* **[Masterclass de la Tortilla Clásica](/es/guias/tortilla-clasica-masterclass)**
+* **[La Cronología de la Sal: Cuándo y Cómo Salar](/es/guias/la-cronologia-de-la-sal)**
+* **[Monografía de la Sal Marina](/es/ingredientes/sal)**
+* **[El Gran Debate de la Cebolla: Ciencia y Sociología](/es/guias/debate-cebolla-ciencia-sabor)**
+* **[Constructor de Ratios y Gramajes](/es/builder)**
+* **[Simulador de Físicas y Volteo en Sartén](/es/laboratorio)**

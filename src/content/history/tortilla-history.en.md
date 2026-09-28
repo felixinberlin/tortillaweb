@@ -18,7 +18,7 @@ This monograph provides an exhaustive examination of the tortilla's evolution—
 
 ## 1. The Arrival of the Potato: From the Andes to European Fields
 
-The history of the modern tortilla is inseparable from the botanical journey of the **[potato](/[lang]/ingredients/patata)** (*Solanum tuberosum*). Domesticated over 7,000 years ago in the Andean highlands by pre-Inca civilizations around Lake Titicaca, the potato formed the nutritional backbone of the Inca Empire (*Tawantinsuyu*) as *chuño* (freeze-dried potatoes processed via nocturnal frost and solar dehydration).
+The history of the modern tortilla is inseparable from the botanical journey of the **[potato](/en/ingredients/potato)** (*Solanum tuberosum*). Domesticated over 7,000 years ago in the Andean highlands by pre-Inca civilizations around Lake Titicaca, the potato formed the nutritional backbone of the Inca Empire (*Tawantinsuyu*) as *chuño* (freeze-dried potatoes processed via nocturnal frost and solar dehydration).
 
 ```
    ANDEAN HIGHLANDS (Peru / Bolivia)
@@ -47,7 +47,7 @@ In the late 18th century, recurrent wheat famines and the intellectual momentum 
 
 ## 2. Pre-Tortilla Omelette Traditions: The Millennia-Old Egg Heritage
 
-Long before the potato met the **[egg](/[lang]/ingredients/huevo)** in Spanish frying pans, the culinary art of coagulating beaten eggs in hot fat had flourished across the Mediterranean and the Near East for millennia.
+Long before the potato met the **[egg](/en/ingredients/egg)** in Spanish frying pans, the culinary art of coagulating beaten eggs in hot fat had flourished across the Mediterranean and the Near East for millennia.
 
 ```
        Kookoo Sabzi (Ancient Persia / Mesopotamia)
@@ -76,7 +76,7 @@ Long before the potato met the **[egg](/[lang]/ingredients/huevo)** in Spanish f
 
 ### Why the Potato Revolutionized Egg Cookery
 Why did the potato-egg pairing eclipse all preceding omelette styles?
-* **Starch Absorption Capacity**: Unlike leafy greens (which expel moisture and water down the curd), potatoes gently poached in **[olive oil](/[lang]/ingredients/aceite-de-oliva)** undergo starch gelatinization (amylose and amylopectin), forming a porous structure that drinks in raw beaten egg to create an indestructible, creamy emulsion.
+* **Starch Absorption Capacity**: Unlike leafy greens (which expel moisture and water down the curd), potatoes gently poached in **[olive oil](/en/ingredients/olive-oil)** undergo starch gelatinization (amylose and amylopectin), forming a porous structure that drinks in raw beaten egg to create an indestructible, creamy emulsion.
 * **Caloric Multiplier**: Two eggs and two medium potatoes turned into a hearty, calorie-dense meal capable of sustaining four agricultural field laborers at a fraction of the cost of meat or bread.
 * **Mechanical Stability**: The tender potato slices provide a sturdy 3D architectural matrix, allowing cooks to flip multi-inch thick cakes without structural collapse.
 
@@ -132,7 +132,7 @@ Throughout the 1800s, the potato omelette completed its social ascent from rural
 
 ## 5. The Great Onion Schism: Genealogy of a National Debate
 
-Few culinary debates evoke such intense passion across an entire country as the presence or absence of **[onion](/[lang]/ingredients/cebolla)** in a tortilla.
+Few culinary debates evoke such intense passion across an entire country as the presence or absence of **[onion](/en/ingredients/onion)** in a tortilla.
 
 ```
                          TORTILLA DE PATATAS
@@ -146,9 +146,9 @@ Few culinary debates evoke such intense passion across an entire country as the 
    • Prevalent in classic tapas bars                 • Sacred standard in Betanzos
 ```
 
-* **The [Concebollista](/[lang]/factions/concebollistas) Camp**: Argues that gently caramelized onions contribute essential unctuousness, natural moisture, and rich aromatic depth through slow sugar browning. Explore our **[Caramelized Onion Masterclass](/[lang]/guias/masterclass-cebolla-caramelizada)** for technical execution.
-* **The [Sincebollista](/[lang]/factions/sincebollistas) Orthodox**: Insists that the sweetness of onions masks the pristine flavor of pasture-raised eggs and earthy, crispy potatoes. This purist doctrine finds its absolute temple in the **[Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)** of Galicia, where onions are strictly forbidden.
-* **Scientific Synthesis**: To understand the sensory chemistry and blind taste testing metrics, read **[The Great Onion Debate Resolved](/[lang]/guias/debate-cebolla-ciencia-sabor)**.
+* **The [Concebollista](/en/factions/concebollistas) Camp**: Argues that gently caramelized onions contribute essential unctuousness, natural moisture, and rich aromatic depth through slow sugar browning. Explore our **[Caramelized Onion Masterclass](/en/guides/masterclass-cebolla-caramelizada)** for technical execution.
+* **The [Sincebollista](/en/factions/sincebollistas) Orthodox**: Insists that the sweetness of onions masks the pristine flavor of pasture-raised eggs and earthy, crispy potatoes. This purist doctrine finds its absolute temple in the **[Tortilla de Betanzos](/en/recipes/betanzos-style-spanish-omelette)** of Galicia, where onions are strictly forbidden.
+* **Scientific Synthesis**: To understand the sensory chemistry and blind taste testing metrics, read **[The Great Onion Debate Resolved](/en/guides/debate-cebolla-ciencia-sabor)**.
 
 ---
 
@@ -220,7 +220,7 @@ At 10:00 AM in any Spanish neighborhood tavern, social barriers vanish over a wa
 
 The evolution of the tortilla is equally a story of modern food science. With the rise of commercial tapas bars in the 20th century, safe egg handling became paramount to prevent foodborne illness caused by *Salmonella enterica*.
 
-As detailed in our **[Food Safety Science Hub](/[lang]/science)**, modern Spanish regulation (**Royal Decree 1021/2022**) dictates that soft-curd tortillas prepared for public dining must reach a thermal core temperature of **70°C for 2 minutes** (or **63°C for 20 seconds**), adhering strictly to a maximum **4-hour limit** at ambient room temperature.
+As detailed in our **[Food Safety Science Hub](/en/science)**, modern Spanish regulation (**Royal Decree 1021/2022**) dictates that soft-curd tortillas prepared for public dining must reach a thermal core temperature of **70°C for 2 minutes** (or **63°C for 20 seconds**), adhering strictly to a maximum **4-hour limit** at ambient room temperature.
 
 ---
 
@@ -236,13 +236,15 @@ As detailed in our **[Food Safety Science Hub](/[lang]/science)**, modern Spanis
 * **1835**: The legend of General Tomás de Zumalacárregui emerges during the Carlist Siege of Bilbao.
 * **1894**: Ángel Muro codifies the classic recipe in *El Practicón*.
 * **1936–1945**: The "orange peel fake tortilla" invented during the Spanish Civil War and post-war hunger years.
-* **1990–Present**: Global tapas explosion: celebrated rise of the **[Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)**, modernist deconstructions, and international culinary acclaim.
+* **1990–Present**: Global tapas explosion: celebrated rise of the **[Tortilla de Betanzos](/en/recipes/betanzos-style-spanish-omelette)**, modernist deconstructions, and international culinary acclaim.
 
 ---
 
 ## Related Articles & Knowledge Modules
-* **[Food Safety & Physics of the Tortilla](/[lang]/science)**
-* **[Classic Tortilla Masterclass](/[lang]/guias/tortilla-clasica-masterclass)**
-* **[The Great Onion Debate: Science & Sociology](/[lang]/guias/debate-cebolla-ciencia-sabor)**
-* **[Recipe Builder & Ratio Calculator](/[lang]/builder)**
-* **[Interactive Physics & Flipping Lab](/[lang]/laboratorio)**
+* **[Food Safety & Physics of the Tortilla](/en/science)**
+* **[Classic Tortilla Masterclass](/en/guides/tortilla-clasica-masterclass)**
+* **[Masterclass Guide: The Salting Chronology](/en/guides/la-cronologia-de-la-sal)**
+* **[Key Ingredient: Fine Sea Salt](/en/ingredients/salt)**
+* **[The Great Onion Debate: Science & Sociology](/en/guides/debate-cebolla-ciencia-sabor)**
+* **[Recipe Builder & Ratio Calculator](/en/builder)**
+* **[Interactive Physics & Flipping Lab](/en/laboratorio)**

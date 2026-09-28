@@ -27,7 +27,8 @@ export type RouteId =
   | 'utensilios'
   | 'tienda'
   | 'timer'
-  | 'monoFood';
+  | 'monoFood'
+  | 'emergency';
 
 export type CanonicalType =
   | 'recipe'

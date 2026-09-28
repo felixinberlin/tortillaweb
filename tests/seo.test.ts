@@ -32,10 +32,10 @@ describe('SEO & Schema Generator Unit Tests', () => {
   it('should generate accurate hreflang tags for root and subpaths', () => {
     const rootHreflangs = getHreflangs('/');
     expect(rootHreflangs).toEqual([
-      { lang: 'es', href: 'https://tortilladepatatas.org/es' },
+      { lang: 'es', href: 'https://tortilladepatatas.org/' },
       { lang: 'en', href: 'https://tortilladepatatas.org/en' },
       { lang: 'de', href: 'https://tortilladepatatas.org/de' },
-      { lang: 'x-default', href: 'https://tortilladepatatas.org/es' },
+      { lang: 'x-default', href: 'https://tortilladepatatas.org/' },
     ]);
 
     const nestedHreflangs = getHreflangs('/es/recipes/clasica');
@@ -52,13 +52,15 @@ describe('SEO & Schema Generator Unit Tests', () => {
     expect(org['@type']).toBe('Organization');
     expect(org.name).toBe('tortilladepatatas.org');
     expect(org.knowsAbout).toContain('Pasteurización y Seguridad del Huevo');
+    expect(org.logo).toBeDefined();
   });
 
-  it('should generate WebSite schema with multilingual indicators', () => {
+  it('should generate WebSite schema with multilingual indicators and search action', () => {
     const ws = generateWebSiteSchema();
     expect(ws['@type']).toBe('WebSite');
     expect(ws.inLanguage).toEqual(['es', 'en', 'de']);
     expect(ws.name).toContain('tortilladepatatas.org');
+    expect(ws.potentialAction).toBeDefined();
   });
 
   it('should generate Breadcrumb schema correctly', () => {
@@ -106,6 +108,9 @@ describe('SEO & Schema Generator Unit Tests', () => {
       expect(schema.yieldCount).toBe('4');
       expect(schema.recipeCategory).toBe('Plato principal');
       expect(schema.recipeCuisine).toBe('Española');
+      expect(schema.keywords).toBeTruthy();
+      expect(typeof schema.keywords).toBe('string');
+      expect(schema.keywords!.length).toBeGreaterThan(0);
       expect(schema.image[0]).toBe('https://tortilladepatatas.org/images/recipes/clasica.svg');
       expect(schema.recipeIngredient.length).toBeGreaterThan(0);
       expect(schema.recipeInstructions.length).toBeGreaterThan(0);
@@ -115,6 +120,48 @@ describe('SEO & Schema Generator Unit Tests', () => {
       const validation = validateRecipeSchema(schema);
       expect(validation.valid).toBe(true);
       expect(validation.errors).toHaveLength(0);
+      expect(validation.warnings).toHaveLength(0);
+    });
+
+    it('should verify all 5 Google Search Console Recipe rich result fields across all recipes', async () => {
+      const { getAllRecipes } = await import('../src/lib/taxonomy');
+      const allRecipes = await getAllRecipes();
+      expect(allRecipes.length).toBeGreaterThanOrEqual(25);
+
+      for (const r of allRecipes) {
+        for (const lang of ['es', 'en', 'de'] as const) {
+          const schema = createRecipeSchema(r, { lang });
+          // Field 1: keywords
+          expect(schema.keywords, `Recipe ${r.id} missing keywords in ${lang}`).toBeDefined();
+          expect(typeof schema.keywords).toBe('string');
+          expect(schema.keywords!.length).toBeGreaterThan(0);
+
+          // Field 2: recipeIngredient
+          expect(schema.recipeIngredient, `Recipe ${r.id} missing recipeIngredient in ${lang}`).toBeDefined();
+          expect(Array.isArray(schema.recipeIngredient)).toBe(true);
+          expect(schema.recipeIngredient.length).toBeGreaterThan(0);
+
+          // Field 3: recipeCategory
+          expect(schema.recipeCategory, `Recipe ${r.id} missing recipeCategory in ${lang}`).toBeDefined();
+          expect(schema.recipeCategory.length).toBeGreaterThan(0);
+
+          // Field 4: prepTime
+          expect(schema.prepTime, `Recipe ${r.id} missing prepTime in ${lang}`).toBeDefined();
+          expect(schema.prepTime).toMatch(/^PT\d+M$/);
+
+          // Field 5: cookTime
+          expect(schema.cookTime, `Recipe ${r.id} missing cookTime in ${lang}`).toBeDefined();
+          expect(schema.cookTime).toMatch(/^PT\d+M$/);
+
+          const validation = validateRecipeSchema(schema);
+          expect(validation.valid).toBe(true);
+          expect(validation.errors).toHaveLength(0);
+          expect(validation.warnings).not.toContain('keywords is recommended');
+          expect(validation.warnings).not.toContain('prepTime is recommended');
+          expect(validation.warnings).not.toContain('cookTime is recommended');
+          expect(validation.warnings).not.toContain('recipeCategory is recommended');
+        }
+      }
     });
 
     it('should generate valid multilingual Schema.org/Recipe JSON-LD for Tortilla de Betanzos (English & German)', () => {

@@ -45,7 +45,7 @@ Nicht jede Kartoffel eignet sich für Tortilla. Wasser- und Stärkegehalt bestim
 | Sorte | Trockensubstanz (%) | Amylose / Amylopektin | Verhalten im Öl (130°C – 160°C) | Tortilla-Urteil |
 | :--- | :--- | :--- | :--- | :--- |
 | **Agria** | 21 % – 23 % (Hoch) | Ausgewogen / Hohes Amylopektin | Goldgelbe Kruste ohne Verbrennen, zart schmelzendes Inneres. | **Goldstandard (Klassisches Confit)** |
-| **Kennebec** | 19 % – 21 % (Mittel-Hoch) | Hohe strukturelle Amylose | Formstabile Scheiben, nimmt Eisaft optimal auf. | **Unerlässlich für [Betanzos](/[lang]/recipes/betanzos)** |
+| **Kennebec** | 19 % – 21 % (Mittel-Hoch) | Hohe strukturelle Amylose | Formstabile Scheiben, nimmt Eisaft optimal auf. | **Unerlässlich für [Betanzos](/de/recipes/betanzos-tortilla)** |
 | **Monalisa** | 17 % – 19 % (Mittel) | Fließfähiges Amylopektin | Sehr cremige Textur, weicherer Biss. | **Ideal für sanftes Pochieren** |
 | **Spunta / Frühkartoffel** | 13 % – 16 % (Niedrig / Wässrig) | Zu viel freies Wasser | Gibt Wasser ans Öl ab, kocht statt zu braten, gummiartig. | ❌ **In seriöser Küche verboten** |
 | **Bintje** | 20 % – 22 % (Hoch) | Hohe Amylose | Bräunt schnell durch freie Reduktionszucker. | **Nur mit präziser Hitzekontrolle** |
@@ -95,3 +95,13 @@ Hydratisierte Stärke in Kontakt mit warmem Ei bildet einen Nährboden für Keim
 
 *   Der wissenschaftliche Richtwert zur Abtötung von *Salmonella* beträgt **70°C für 2 Minuten** (oder **63°C für 20 Sekunden**).
 *   Flüssig zubereitete Tortillas müssen sofort gegessen werden und dürfen **niemals länger als 4 Stunden bei Zimmertemperatur verbleiben**.
+
+---
+
+## 🔗 Verwandte Monographien & Fachressourcen
+
+* 🥔 **Botanische Zutat:** [Vollständige Kartoffel-Monographie](/de/zutaten/kartoffel) — Sorten, Lagerung und Stärkeprofile.
+* 🧂 **Osmotische Steuerung:** [Die Chronologie des Salzes: Wann und Wie man salzt](/de/anleitungen/la-cronologia-de-la-sal) und [Meersalz-Monographie](/de/zutaten/salz).
+* 🫒 **Thermisches Confit:** [Sanftes Pochieren in Olivenöl](/de/anleitungen/confit-tecnica-lenta) und [Olivenöl-Monographie](/de/zutaten/olivenoel).
+* 🥚 **Emulsionsmatrix:** [Eier-Monographie](/de/zutaten/ei) und [Flüssiger Kern im Betanzos-Leitfaden](/de/anleitungen/fenomeno-betanzos-yema-tecnica).
+* 🍳 **Kanonische Rezepte:** [Klassische Spanische Tortilla](/de/recipes/klassische-spanische-tortilla) und [Betanzos-Tortilla](/de/recipes/betanzos-tortilla).

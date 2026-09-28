@@ -6,6 +6,7 @@ interface Props {
   title: string;
   description: string;
   lang: 'es' | 'en' | 'de' | (string & {});
+  keywords?: string;
   image?: string;
   type?: string;
   schema?: Record<string, any> | Array<Record<string, any>>;

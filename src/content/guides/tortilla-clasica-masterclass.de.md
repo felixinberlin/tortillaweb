@@ -54,7 +54,7 @@ Für eine klassische 4-Portionen-Tortilla gilt das goldene Verhältnis: **6 bis 
 Verwenden Sie ausschließlich **Natives Olivenöl Extra (AOVE)** mit geringem Säuregehalt (<0,4°).
 *   **Arbequina oder Manzanilla Cacereña:** Mild-fruchtiges Aroma mit Noten von grünen Mandeln, das den natürlichen Kartoffelgeschmack sanft unterstreicht.
 *   **Hojiblanca:** Frische Grasnoten mit dezenter pikanter Würze.
-*   *Vermeiden Sie raffinierte Samenöle*: Ihnen fehlt die nötige Hitzestabilität und das typische mediterrane Aroma. Mehr dazu in unserem [Olivenöl-Guide](/[lang]/ingredients/oil).
+*   *Vermeiden Sie raffinierte Samenöle*: Ihnen fehlt die nötige Hitzestabilität und das typische mediterrane Aroma. Mehr dazu in unserem [Olivenöl-Guide](/de/zutaten/olivenoel) und in unserer [Salz-Monographie](/de/zutaten/salz).
 
 ---
 
@@ -100,7 +100,7 @@ INTEGRATIONSSCHRITTE:
 2.  **Thermischer Schock:** Die heißen, abgetropften Kartoffeln direkt ins Ei geben. Die Restwärme lässt das Conalbumin leicht anbinden, ohne zu stocken, und erzeugt eine seidige Creme.
 3.  **Die 3-Minuten-Ruhe:** Die Masse ruhen lassen, damit die Kartoffeln das Ei aufsaugen. Einige Scheiben mit dem Holzlöffel leicht andrücken, um Stärke zu binden.
 
-Detaillierte chemische Zusammenhänge finden Sie in unserer [Wissenschaftssektion](/[lang]/science).
+Detaillierte chemische Zusammenhänge finden Sie in unserer [Wissenschaftssektion](/de/science).
 
 ---
 
@@ -133,7 +133,7 @@ BRATZEITEN JE NACH WUNSCHTEXTUR:
 - Durchgegart & fest (Ideal für Unterwegs): 90s Seite A + 75s Seite B
 ```
 
-Testen Sie Hitzeregelung und Wendegeschwindigkeit in unserem [interaktiven Tortilla-Labor](/[lang]/laboratorio).
+Testen Sie Hitzeregelung und Wendegeschwindigkeit in unserem [interaktiven Tortilla-Labor](/de/laboratorio).
 
 ---
 
@@ -165,9 +165,12 @@ Höchster Genuss erfordert strikte Einhaltung von Hygienestandards zum Schutz vo
 
 ## 🔗 Verwandte Rezepte & Wissen
 
-* [Rezept: Klassische Tortilla](/[lang]/recipes/tortilla-clasica)
-* [Rezept: Saftige Betanzos-Tortilla](/[lang]/recipes/tortilla-betanzos)
-* [Hauptzutat: Kartoffel](/[lang]/ingredients/potato)
-* [Hauptzutat: Ei](/[lang]/ingredients/egg)
-* [Zwiebel-Debatte & Stilvergleich](/[lang]/comparador)
-* [Wissenschafts- & Physiknotizbuch](/[lang]/science)
+* [Rezept: Klassische Tortilla](/de/recipes/klassische-spanische-tortilla)
+* [Rezept: Saftige Betanzos-Tortilla](/de/recipes/betanzos-tortilla)
+* [Meisterklasse-Leitfaden: Die Chronologie des Salzes](/de/anleitungen/la-cronologia-de-la-sal)
+* [Hauptzutat: Feines Meersalz](/de/zutaten/salz)
+* [Hauptzutat: Kartoffel](/de/zutaten/kartoffel)
+* [Hauptzutat: Ei](/de/zutaten/ei)
+* [Hauptzutat: Olivenöl](/de/zutaten/olivenoel)
+* [Zwiebel-Debatte & Stilvergleich](/de/comparador)
+* [Wissenschafts- & Physiknotizbuch](/de/science)

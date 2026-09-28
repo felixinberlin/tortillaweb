@@ -32,8 +32,6 @@ function virtualModuleMiddlewarePlugin() {
           res.setHeader('Content-Type', 'text/javascript; charset=utf-8');
           res.setHeader('Cache-Control', 'no-cache');
           res.end(
-            'import { injectIntoGlobalHook } from "/@react-refresh";\n' +
-            'injectIntoGlobalHook(window);\n' +
             'window.$RefreshReg$ = () => {};\n' +
             'window.$RefreshSig$ = () => (type) => type;\n'
           );
@@ -50,7 +48,6 @@ function virtualModuleMiddlewarePlugin() {
 
       // Unshift at the front of the middleware stack to run before Astro's secFetchMiddleware
       server.middlewares.stack.unshift({ route: '', handle: handler });
-      server.middlewares.use(handler);
     },
   };
 }
@@ -86,6 +83,23 @@ export default defineConfig({
       alias: {
         '@': '/src',
       },
+      dedupe: ['react', 'react-dom'],
+    },
+    optimizeDeps: {
+      include: [
+        'react',
+        'react-dom',
+        'react-dom/client',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+        'motion/react',
+        'lucide-react',
+        'clsx',
+        'tailwind-merge',
+        'class-variance-authority',
+        'i18next',
+        'react-i18next',
+      ],
     },
     server: {
       allowedHosts: true,

@@ -35,12 +35,12 @@ export function getHreflangs(pathname: string) {
     pagePath = pathname.startsWith('/') ? pathname : `/${pathname}`;
   }
 
-  if (pagePath === '/') {
+  if (pagePath === '/' || pagePath === '') {
     return [
-      { lang: 'es', href: `${SITE_URL}/es` },
+      { lang: 'es', href: `${SITE_URL}/` },
       { lang: 'en', href: `${SITE_URL}/en` },
       { lang: 'de', href: `${SITE_URL}/de` },
-      { lang: 'x-default', href: `${SITE_URL}/es` },
+      { lang: 'x-default', href: `${SITE_URL}/` },
     ];
   }
 
@@ -62,6 +62,8 @@ export function generateOrganizationSchema() {
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/favicon.svg`,
+      width: '512',
+      height: '512',
     },
     description: 'Directorio autoritativo de ciencia culinaria, recetas e historia de la Tortilla de Patatas.',
     knowsAbout: [
@@ -81,11 +83,20 @@ export function generateWebSiteSchema() {
     '@id': `${SITE_URL}/#website`,
     url: SITE_URL,
     name: 'tortilladepatatas.org - Cuaderno & Ciencia Culinaria',
+    alternateName: ['tortilladepatatas.org', 'Enciclopedia de la Tortilla de Patatas'],
     description: 'Directorio internacional de referencia sobre la tortilla de patatas, proporciones científicas y seguridad bactericida.',
     publisher: {
       '@id': `${SITE_URL}/#organization`,
     },
     inLanguage: ['es', 'en', 'de'],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/es/recipes?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   };
 }
 
@@ -106,6 +117,7 @@ export {
   createRecipeSchema,
   formatIsoDuration,
   parseIsoDuration,
+  generateRecipeKeywords,
   validateRecipeSchema as validateRecipeSchemaStructure,
   type RecipeSchemaOptions,
   type RecipeJsonLd,
@@ -121,34 +133,103 @@ export {
 export interface RecipeSchemaInput {
   name: string;
   description: string;
-  image?: string;
-  prepTimeMinutes: number;
-  cookTimeMinutes: number;
-  yieldServings: number;
+  image?: string | string[];
+  prepTimeMinutes?: number;
+  cookTimeMinutes?: number;
+  totalTimeMinutes?: number;
+  prepTime?: string;
+  cookTime?: string;
+  totalTime?: string;
+  yieldServings?: number | string;
   authorName?: string;
-  ingredients: string[];
-  instructions: { step: string; text: string }[];
+  authorUrl?: string;
+  ingredients?: string[];
+  recipeIngredient?: string[];
+  instructions?: (string | { step?: string; name?: string; text: string; image?: string; url?: string })[];
+  recipeInstructions?: (string | { step?: string; name?: string; text: string; image?: string; url?: string })[];
   category?: string;
+  recipeCategory?: string;
   cuisine?: string;
+  recipeCuisine?: string;
+  keywords?: string | string[];
   url?: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
 export function generateRecipeSchema(data: RecipeSchemaInput) {
+  const ingredients = data.ingredients || data.recipeIngredient || [
+    'Patatas seleccionadas',
+    'Huevos camperos frescos',
+    'Aceite de oliva virgen extra',
+    'Sal marina'
+  ];
+
+  const category = data.category || data.recipeCategory || 'Plato principal';
+  const cuisine = data.cuisine || data.recipeCuisine || 'Española';
+
+  let keywords = data.keywords;
+  if (!keywords || (Array.isArray(keywords) && keywords.length === 0)) {
+    keywords = [
+      data.name,
+      'tortilla de patatas',
+      'Spanish omelette',
+      'tortilla española',
+      'receta tradicional',
+      'cuajado perfecto'
+    ];
+  }
+
+  let prepMinutes = data.prepTimeMinutes;
+  if (prepMinutes === undefined && data.prepTime) {
+    prepMinutes = parseIsoDuration(data.prepTime);
+  }
+  if (prepMinutes === undefined) prepMinutes = 15;
+
+  let cookMinutes = data.cookTimeMinutes;
+  if (cookMinutes === undefined && data.cookTime) {
+    cookMinutes = parseIsoDuration(data.cookTime);
+  }
+  if (cookMinutes === undefined) cookMinutes = 20;
+
+  const instructions = (data.instructions || data.recipeInstructions || [
+    { step: 'Preparación', text: 'Pelar y confitar las patatas.' },
+    { step: 'Cuajado', text: 'Mezclar con huevo batido y cuajar suavemente.' }
+  ]).map((inst, idx) => {
+    if (typeof inst === 'string') {
+      return { step: `Paso ${idx + 1}`, text: inst };
+    }
+    return {
+      step: inst.step || inst.name || `Paso ${idx + 1}`,
+      text: inst.text,
+      image: inst.image,
+      url: inst.url,
+    };
+  });
+
   return translateToRecipeSchema(
     {
       name: data.name,
       description: data.description,
-      image: data.image ? data.image.replace(/\.jpg$/, '.svg') : '/images/recipes/clasica.svg',
-      prepTimeMinutes: data.prepTimeMinutes,
-      cookTimeMinutes: data.cookTimeMinutes,
-      yieldServings: data.yieldServings,
+      image: Array.isArray(data.image)
+        ? data.image.map(img => img.replace(/\.jpg$/, '.svg'))
+        : data.image
+        ? data.image.replace(/\.jpg$/, '.svg')
+        : '/images/recipes/clasica.svg',
+      prepTimeMinutes: prepMinutes,
+      cookTimeMinutes: cookMinutes,
+      totalTimeMinutes: data.totalTimeMinutes,
+      yieldServings: data.yieldServings || 4,
       authorName: data.authorName || 'tortilladepatatas.org',
-      ingredients: data.ingredients,
-      instructions: data.instructions,
-      category: data.category || 'Main Course',
-      cuisine: data.cuisine || 'Spanish',
-      keywords: ['tortilla de patatas', 'Spanish omelette', 'tortilla española', 'receta tradicional', 'cuajado perfecto'],
+      authorUrl: data.authorUrl,
+      ingredients,
+      instructions,
+      category,
+      cuisine,
+      keywords,
       url: data.url,
+      datePublished: data.datePublished,
+      dateModified: data.dateModified,
     },
     SITE_TRANSLATOR_CONFIG
   );
@@ -207,6 +288,12 @@ export function createUserRecipeSchema(config: TortillaConfiguration, lang: stri
     ? `Individuelles Spanisches Tortilla-Rezept. ${ratioCat}. Empfohlene Pfannengröße: ${calculatedProfile.recommendedPanSizeCm} cm. Textur: ${preferences.texture}, Technik: ${preferences.potatoTechnique}.`
     : `Custom Spanish omelette recipe generated with ratio calculator. ${ratioCat}. Recommended pan: ${calculatedProfile.recommendedPanSizeCm} cm. Texture: ${preferences.texture}, technique: ${preferences.potatoTechnique}.`;
 
+  const userKeywords = isEs
+    ? ['tortilla de patatas personalizada', 'calculadora de tortilla', 'receta personalizada', 'cuajado perfecto', 'huevos y patatas']
+    : isDe
+    ? ['eigene spanische Tortilla', 'Tortilla Rechner', 'individuelles Rezept', 'Kartoffel-Omelett']
+    : ['custom Spanish omelette', 'tortilla calculator', 'personalized recipe', 'runny egg yolk'];
+
   return generateRecipeSchema({
     name,
     description,
@@ -217,6 +304,9 @@ export function createUserRecipeSchema(config: TortillaConfiguration, lang: stri
     authorName: 'tortilladepatatas.org - Tortilla Creator',
     ingredients: formattedIngredients,
     instructions,
+    category: isEs ? 'Plato principal' : isDe ? 'Hauptgericht' : 'Main Course',
+    cuisine: isEs ? 'Española' : isDe ? 'Spanisch' : 'Spanish',
+    keywords: userKeywords,
     url: currentUrl,
   });
 }

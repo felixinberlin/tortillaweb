@@ -55,7 +55,7 @@ Para una tortilla de purista de 4 raciones generosas, la proporción canónica e
 Utiliza **Aceite de Oliva Virgen Extra (AOVE)** con acidez inferior a 0,4°. Las variedades monovarietales recomendadas son:
 *   **Arbequina o Manzanilla Cacereña:** Perfil afrutado dulce, notas a almendra y nula astringencia, ideal para no eclipsar el sabor dulce de la patata.
 *   **Hojiblanca:** Aporta toques de hierba fresca y un ligero picor elegante.
-*   *Evita aceites de semillas refinados*: no resisten igual la temperatura y privan a la patata de su riqueza aromática. Puedes explorar más sobre este ingrediente en nuestra enciclopedia de [aceite de oliva](/[lang]/ingredients/oil).
+*   *Evita aceites de semillas refinados*: no resisten igual la temperatura y privan a la patata de su riqueza aromática. Puedes explorar más sobre este ingrediente en nuestra enciclopedia de [aceite de oliva](/es/ingredientes/aceite-de-oliva) y descubrir el papel del sodio en la [monografía de la sal](/es/ingredientes/sal).
 
 ---
 
@@ -101,7 +101,7 @@ PROTOCOLO DE INTEGRACIÓN:
 2.  **El Choque Térmico Favorable:** Vierte las patatas recién escurridas (a unos 70°C) sobre el huevo batido. El calor residual pre-gelatinizará ligeramente la conalbúmina del huevo sin llegar a cuajarlo, creando una crema espesa y aterciopelada.
 3.  **El Reposo de 3 Minutos:** Deja que la patata absorba parte del huevo. Con una cuchara de madera, presiona suavemente algunas láminas para liberar amilopectina, logrando una masa cohesionada y suculenta.
 
-Consulta nuestro análisis físico-químico detallado en la sección de [ciencia de la tortilla](/[lang]/science).
+Consulta nuestro análisis físico-químico detallado en la sección de [ciencia de la tortilla](/es/science).
 
 ---
 
@@ -134,7 +134,7 @@ CRONÓMETRO DEL CUAJADO SEGÚN PREFERENCIA DE TEXTURA:
 - Centro Firme y Tradicional (Para Bocadillo):    90s cara A + 75s cara B
 ```
 
-Puedes practicar las variables de potencia térmica y fricción en nuestro [laboratorio interactivo de tortilla](/[lang]/laboratorio).
+Puedes practicar las variables de potencia térmica y fricción en nuestro [laboratorio interactivo de tortilla](/es/laboratorio).
 
 ---
 
@@ -167,9 +167,12 @@ El disfrute de una tortilla melosa debe ir siempre acompañado del rigor higién
 ## 🔗 Recetas Relacionadas y Enlaces de Interés
 
 Para continuar tu viaje culinario, explora nuestras recetas y recursos técnicos:
-* [Ficha de Receta: Tortilla Clásica Tradicional](/[lang]/recipes/tortilla-clasica)
-* [Ficha de Receta: Tortilla de Betanzos](/[lang]/recipes/tortilla-betanzos)
-* [Ingrediente Maestro: La Patata](/[lang]/ingredients/potato)
-* [Ingrediente Maestro: El Huevo](/[lang]/ingredients/egg)
-* [El Gran Debate: Con Cebolla vs Sin Cebolla](/[lang]/comparador)
-* [Cuaderno de Ciencia y Física Culinaria](/[lang]/science)
+* [Ficha de Receta: Tortilla Clásica Tradicional](/es/recipes/clasica)
+* [Ficha de Receta: Tortilla de Betanzos](/es/recipes/betanzos)
+* [Guía Magistral: La Cronología de la Sal: Cuándo y Cómo Salar](/es/guias/la-cronologia-de-la-sal)
+* [Ingrediente Maestro: Sal Marina Fina](/es/ingredientes/sal)
+* [Ingrediente Maestro: La Patata](/es/ingredientes/patata)
+* [Ingrediente Maestro: El Huevo](/es/ingredientes/huevo)
+* [Ingrediente Maestro: Aceite de Oliva](/es/ingredientes/aceite-de-oliva)
+* [El Gran Debate: Con Cebolla vs Sin Cebolla](/es/comparador)
+* [Cuaderno de Ciencia y Física Culinaria](/es/science)

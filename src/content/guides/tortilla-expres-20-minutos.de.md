@@ -82,7 +82,7 @@ MINUTEN-ZEITPLAN (MANDOLINEN-METHODE):
 2.  **Rütteln und Rand formen:** Die Pfanne mit einer Hand rütteln, während der Spatel die Ränder rundet.
 3.  **Blitzschnelles Wenden:** Nach knapp 60 Sekunden ist der Boden goldbraun. Wenden und der Rückseite 30 Sekunden geben.
 
-Simulationen zu Hitzeverteilung finden Sie in unserem [Kochlabor](/[lang]/laboratorio).
+Simulationen zu Hitzeverteilung finden Sie in unserem [Kochlabor](/de/laboratorio).
 
 ---
 
@@ -113,7 +113,7 @@ Das scharfe Anbraten erzeugt eine heiße Kruste, doch der Kern muss hygienisch s
 
 ## 🔗 Weiterführende Inhalte
 
-* [Rezept: Express-Tortilla mit Chips](/[lang]/recipes/tortilla-express-patatas-chips)
-* [Rezept: Klassische Tortilla](/[lang]/recipes/tortilla-clasica)
-* [Frittiertechnik & Hitzetransfer](/[lang]/techniques/frying)
-* [Wissenschaft der Eiproteine](/[lang]/science)
+* [Rezept: Express-Tortilla mit Chips](/de/recipes/express-kartoffelchips-tortilla)
+* [Rezept: Klassische Tortilla](/de/recipes/klassische-spanische-tortilla)
+* [Frittiertechnik & Hitzetransfer](/de/techniken/knusprig-frittieren)
+* [Wissenschaft der Eiproteine](/de/science)

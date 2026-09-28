@@ -97,6 +97,30 @@ async function getArticles(): Promise<RawArticle[]> {
         });
       }
     }
+
+    const guidesCol = await getCollection('guides' as any);
+    if (guidesCol && guidesCol.length > 0) {
+      for (const item of guidesCol) {
+        const rawId = item.id || '';
+        const gSlug = item.data?.slug || rawId.replace(/\.(es|en|de)\.md$/, '');
+        const gLang = item.data?.lang || item.data?.locale || (rawId.endsWith('.en.md') ? 'en' : rawId.endsWith('.de.md') ? 'de' : 'es');
+        let associatedIngredient = '';
+        if (gSlug.includes('sal')) associatedIngredient = 'salt';
+        else if (gSlug.includes('patata') || gSlug.includes('almidon')) associatedIngredient = 'potato';
+        else if (gSlug.includes('huevo') || gSlug.includes('yema') || gSlug.includes('betanzos')) associatedIngredient = 'egg';
+        else if (gSlug.includes('confit') || gSlug.includes('aceite')) associatedIngredient = 'oil';
+        else if (gSlug.includes('cebolla')) associatedIngredient = 'onion';
+
+        articles.push({
+          id: rawId,
+          title: item.data?.title || '',
+          description: item.data?.description || '',
+          ingredient: associatedIngredient,
+          slug: gSlug,
+          locale: gLang,
+        });
+      }
+    }
   } catch {
     // FS fallback
   }
@@ -520,12 +544,50 @@ export async function getRelatedKnowledgeForIngredient(
           relationship: rel.relationship,
         });
         seenIds.add('history:history');
+      } else if (rel.type === 'guide') {
+        const guideSlug = rel.id;
+        let guideTitle = guideSlug;
+        let guideDesc = '';
+
+        try {
+          const guidesCol = await getCollection('guides' as any);
+          if (guidesCol && guidesCol.length > 0) {
+            const matched = guidesCol.find((g: any) => {
+              const rawId = g.id || '';
+              const gSlug = g.data?.slug || rawId.replace(/\.(es|en|de)\.md$/, '');
+              const gLang = g.data?.lang || g.data?.locale || (rawId.endsWith('.en.md') ? 'en' : rawId.endsWith('.de.md') ? 'de' : 'es');
+              return gSlug === guideSlug && gLang === lang;
+            }) || guidesCol.find((g: any) => {
+              const rawId = g.id || '';
+              const gSlug = g.data?.slug || rawId.replace(/\.(es|en|de)\.md$/, '');
+              return gSlug === guideSlug;
+            });
+
+            if (matched) {
+              guideTitle = matched.data?.title || guideTitle;
+              guideDesc = matched.data?.description || guideDesc;
+            }
+          }
+        } catch {
+          // ignore error
+        }
+
+        const guideUrl = routeResolver.urlFor({ type: 'guide', slug: guideSlug }, lang);
+        items.push({
+          id: guideSlug,
+          type: 'guide',
+          title: guideTitle,
+          description: guideDesc,
+          url: guideUrl,
+          relationship: rel.relationship,
+        });
+        seenIds.add(`guide:${guideSlug}`);
       }
     }
   }
 
   // 2. Ensure Core Pillar Ingredient-to-Ingredient cross-links exist
-  const corePillars = ['potato', 'egg', 'oil'];
+  const corePillars = ['potato', 'egg', 'oil', 'salt'];
   for (const pillarId of corePillars) {
     if (pillarId !== ingredientId && !seenIds.has(`ingredient:${pillarId}`)) {
       const found = taxonomies.find((t) => t.id === pillarId && t.type === 'ingredient');

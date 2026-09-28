@@ -1,0 +1,61 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { TortillaEmergencyHotline } from '@/components/emergency/TortillaEmergencyHotline';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const pageTitle = currentLang === 'es'
+  ? 'Urgencias Tortilleras 112: Triaje & Rescate en Sartén | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Tortilla-Notruf 112: Interaktiver Rettungsdienst am Herd | tortilladepatatas.org'
+  : 'Tortilla Emergency Hotline 112: Stovetop Crisis Decision Tree | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Servicio de urgencias culinarias 112: árbol de decisiones interactivo para salvar tortillas pegadas, desparramadas en el vuelco, quemadas por fuera o resecas. Protocolos paso a paso con coartadas gourmet.'
+  : currentLang === 'de'
+  ? 'Interaktiver Entscheidungsbaum für Pfannen-Missgeschicke: Rette angebackene, beim Wenden verunglückte oder zähe Tortillas mit Schritt-für-Schritt-Protokollen und Gourmet-Ausreden.'
+  : 'Interactive stovetop crisis decision tree: salvage stuck, broken flip, undercooked, or dried out tortillas with precision protocols, thermal safety, and gourmet cover stories.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Inicio', url: `/${currentLang}` },
+  { name: 'Laboratorio', url: `/${currentLang}/laboratorio` },
+  {
+    name: currentLang === 'es' ? 'Urgencias 112' : currentLang === 'de' ? 'Notruf 112' : 'Emergency Hotline',
+    url: `/${currentLang}/urgencias`,
+  },
+]);
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: pageTitle.split('|')[0].trim(),
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'All',
+  description: pageDescription,
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'EUR',
+  },
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema, appSchema]}>
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-5xl space-y-12">
+    <!-- Tortilla Emergency Hotline Interactive Component -->
+    <TortillaEmergencyHotline client:load lang={currentLang} />
+
+    <!-- Linear Culinary Progress -->
+    <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/urgencias`} client:visible />
+  </div>
+</Layout>

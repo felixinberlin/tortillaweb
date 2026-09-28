@@ -92,7 +92,7 @@ PROTOCOLO CINÉTICO:
 
 ## 🚨 4. Microbiología y Seguridad Durante el Volteo
 
-En tortillas jugosas o estilo [Betanzos](/[lang]/recipes/betanzos), el interior se encuentra en una fase semilíquida rica en albúmina desnaturalizada pero no gelificada. Es crucial recordar las directrices de seguridad alimentaria:
+En tortillas jugosas o estilo [Betanzos](/es/recipes/tortilla-betanzos), el interior se encuentra en una fase semilíquida rica en albúmina desnaturalizada pero no gelificada. Es crucial recordar las directrices de seguridad alimentaria:
 
 *   **Punto Crítico:** Para eliminar patógenos como *Salmonella enteritidis*, la pasteurización térmica exige alcanzar **70°C durante 2 minutos** (o el umbral alternativo de **63°C durante 20 segundos**).
 *   **Tiempo de Consumo:** Si la tortilla se elabora con centro fluido o poco cuajado (<60°C en el núcleo), debe consumirse de inmediato y **nunca permanecer más de 4 horas a temperatura ambiente**.

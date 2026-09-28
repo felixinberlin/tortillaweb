@@ -53,7 +53,7 @@ HERSTELLUNG DES KARTOFFEL-SUBSTITUTS:
 Standen keine frischen Eier zur Verfügung, rührten die Köchinnen Teige aus **Weizen-, Johannisbrot- oder Kichererbsenmehl** mit Wasser oder Magermilchpulver an:
 
 1. **Die Mehl-Emulsion:** Kichererbsenmehl mit lauwarmem Wasser und Safran angerührt ergab eine sämige gelbe Masse, die beim Kontakt mit der heißen Pfanne durch thermische Stärkeverkleisterung stockte.
-2. **Vorläufer moderner veganer Küche:** Die Überlebenstechnik der spanischen Nachkriegszeit bildet das identische molekulare Prinzip der heutigen [veganen Tortilla](/[lang]/recipes/vegana).
+2. **Vorläufer moderner veganer Küche:** Die Überlebenstechnik der spanischen Nachkriegszeit bildet das identische molekulare Prinzip der heutigen [veganen Tortilla](/de/recipes/vegane-glutenfreie-spanische-tortilla).
 
 ---
 

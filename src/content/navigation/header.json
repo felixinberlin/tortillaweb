@@ -165,6 +165,15 @@
           }
         },
         {
+          "key": "emergency",
+          "href": "/urgencias",
+          "label": {
+            "es": "Urgencias 112 🚨",
+            "en": "Emergency 112 🚨",
+            "de": "Notruf 112 🚨"
+          }
+        },
+        {
           "key": "tests",
           "href": "/tests",
           "label": {

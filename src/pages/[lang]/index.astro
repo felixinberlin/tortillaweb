@@ -40,12 +40,20 @@ const schemas = [
   generateWebSiteSchema(),
   generateOrganizationSchema(),
   generateBreadcrumbSchema([
-    { name: 'Inicio', url: `/${currentLang}` }
+    { name: 'Inicio', url: currentLang === 'es' ? '/' : `/${currentLang}` }
   ]),
+];
+const canonicalUrl = currentLang === 'es' ? 'https://tortilladepatatas.org/' : undefined;
+
+const customHreflangs = [
+  { lang: 'es', href: 'https://tortilladepatatas.org/' },
+  { lang: 'en', href: 'https://tortilladepatatas.org/en' },
+  { lang: 'de', href: 'https://tortilladepatatas.org/de' },
+  { lang: 'x-default', href: 'https://tortilladepatatas.org/' },
 ];
 ---
 
-<Layout title={title} description={description} lang={currentLang} schema={schemas}>
+<Layout title={title} description={description} lang={currentLang} schema={schemas} canonical={canonicalUrl} customHreflangs={customHreflangs}>
   <Hero lang={currentLang} client:load />
   <AuthorityStatsBanner lang={currentLang} recipeCount={recipeCount} client:load />
   <MainHubDirectory lang={currentLang} client:load />

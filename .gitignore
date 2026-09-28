@@ -10,6 +10,9 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.astro/
+playwright-report/
+test-results/
 *.local
 
 # Editor directories and files
@@ -33,6 +36,7 @@ firebase-blueprint.json
 
 # Generated artifacts & Python caches
 *.pdf
+*.tsbuildinfo
 __pycache__/
 *.pyc
 
