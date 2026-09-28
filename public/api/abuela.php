@@ -47,6 +47,67 @@ if (!$apiKey) {
 // 2. Parse input JSON
 $input = file_get_contents('php://input');
 $data = json_decode($input, true) ?: [];
+
+// Check if this is a TTS voice request
+if (isset($data['action']) && $data['action'] === 'tts' || !empty($data['text']) && empty($data['messages'])) {
+    $ttsText = preg_replace('/[#*\[\]()]/', '', $data['text'] ?? '');
+    $userLang = $data['lang'] ?? 'es';
+
+    $style = "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence";
+    if ($userLang === 'de') {
+        $style = "Warm, gentle German-speaking grandmother (liebevolle Oma), affectionate, cozy, caring, mature elderly matriarch cadence";
+    } elseif ($userLang === 'en') {
+        $style = "Warm, charming English-speaking grandmother (sweet Nana), affectionate, cozy, caring, mature matriarch cadence";
+    }
+
+    $ttsPayload = [
+        'contents' => [
+            [
+                'role' => 'user',
+                'parts' => [
+                    [
+                        'text' => mb_substr($ttsText, 0, 350),
+                        'speechMetadata' => [
+                            'style' => $style
+                        ]
+                    ]
+                ]
+            ]
+        ],
+        'generationConfig' => [
+            'responseModalities' => ['AUDIO'],
+            'speechConfig' => [
+                'voiceConfig' => [
+                    'prebuiltVoiceConfig' => ['voiceName' => 'Kore']
+                ]
+            ]
+        ]
+    ];
+
+    $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent?key=' . urlencode($apiKey);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'User-Agent: aistudio-build']);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($ttsPayload));
+    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+    $ttsResp = curl_exec($ch);
+    curl_close($ch);
+
+    $ttsJson = json_decode($ttsResp, true);
+    $audioData = $ttsJson['candidates'][0]['content']['parts'][0]['inlineData']['data'] ?? null;
+    $mimeType = $ttsJson['candidates'][0]['content']['parts'][0]['inlineData']['mimeType'] ?? 'audio/wav';
+
+    if ($audioData) {
+        echo json_encode([
+            'success' => true,
+            'audioBase64' => $audioData,
+            'mimeType' => $mimeType
+        ]);
+        exit;
+    }
+}
+
 $rawMessages = isset($data['messages']) && is_array($data['messages']) ? $data['messages'] : [];
 
 if (empty($rawMessages) && !empty($data['prompt'])) {

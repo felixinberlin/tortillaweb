@@ -305,16 +305,35 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
       const voices = window.speechSynthesis.getVoices();
       const langCode = utterance.lang.slice(0, 2);
 
-      // Exclude male voice names explicitly
-      const isMaleVoice = /(jorge|pablo|diego|carlos|enrique|alvaro|manuel|raul|david|male|guy|man|stefan|markus|peter)/i;
-      const isFemaleVoice = /(female|monica|francisca|paloma|carmen|helena|laura|conchita|marta|victoria|lucia|amira|paulina|soledad|rosa|maria|elvira|penelope|marlene|anna|petra|samantha|karen|susan)/i;
+      // Exclude male voice names explicitly across all supported languages
+      const isMaleVoice = /(jorge|pablo|diego|carlos|enrique|alvaro|manuel|raul|david|male|guy|man|stefan|markus|peter|hans|jürgen|martin|yannick|klaus|otto|dieter|werner|michael|richard|james|john|paul|brian|daniel|alex|tom|fred|george)/i;
 
-      // Find best female voice matching language
-      const preferredVoice = voices.find(
-        (v) => v.lang.startsWith(langCode) && !isMaleVoice.test(v.name) && isFemaleVoice.test(v.name)
-      ) || voices.find(
-        (v) => v.lang.startsWith(langCode) && !isMaleVoice.test(v.name)
-      );
+      // Top authentic grandmother / mature female voices per language:
+      const germanGrandmaVoices = /(marlene|gudrun|hedda|katja|anna|gisela|petra|helena|vicki|weiblich|female)/i;
+      const englishGrandmaVoices = /(hazel|susan|moira|fiona|karen|samantha|tessa|victoria|serena|zoe|jenny|linda|female)/i;
+      const spanishGrandmaVoices = /(monica|francisca|paloma|carmen|helena|laura|conchita|marta|victoria|lucia|amira|paulina|soledad|rosa|maria|elvira|penelope|female)/i;
+
+      let preferredVoice: SpeechSynthesisVoice | undefined;
+
+      if (currentLang === "de") {
+        preferredVoice = voices.find(
+          (v) => v.lang.startsWith("de") && !isMaleVoice.test(v.name) && germanGrandmaVoices.test(v.name)
+        ) || voices.find(
+          (v) => v.lang.startsWith("de") && !isMaleVoice.test(v.name)
+        );
+      } else if (currentLang === "en") {
+        preferredVoice = voices.find(
+          (v) => v.lang.startsWith("en") && !isMaleVoice.test(v.name) && englishGrandmaVoices.test(v.name)
+        ) || voices.find(
+          (v) => v.lang.startsWith("en") && !isMaleVoice.test(v.name)
+        );
+      } else {
+        preferredVoice = voices.find(
+          (v) => v.lang.startsWith("es") && !isMaleVoice.test(v.name) && spanishGrandmaVoices.test(v.name)
+        ) || voices.find(
+          (v) => v.lang.startsWith("es") && !isMaleVoice.test(v.name)
+        );
+      }
 
       if (preferredVoice) {
         utterance.voice = preferredVoice;

@@ -167,6 +167,13 @@ export async function generateAbuelaVoice(
   const voiceModels = ["gemini-3.8-flash-tts", "gemini-3.8-flash-lite-tts"];
   let lastErr: any = null;
 
+  let grandmaStyle = "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence";
+  if (userLang === "de") {
+    grandmaStyle = "Warm, gentle German-speaking grandmother (liebevolle Oma), affectionate, cozy, caring, mature elderly matriarch cadence";
+  } else if (userLang === "en") {
+    grandmaStyle = "Warm, charming English-speaking grandmother (sweet Nana), affectionate, cozy, caring, mature matriarch cadence";
+  }
+
   for (const model of voiceModels) {
     try {
       const response = await ai.models.generateContent({
@@ -178,7 +185,7 @@ export async function generateAbuelaVoice(
               {
                 text: cleanText,
                 speechMetadata: {
-                  style: "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence",
+                  style: grandmaStyle,
                 },
               },
             ],
