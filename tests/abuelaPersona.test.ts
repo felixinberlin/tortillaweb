@@ -31,6 +31,8 @@ describe("Abuela María AI Persona & Knowledge Base Tests", () => {
     expect(ABUELA_SYSTEM_PROMPT).toContain("DIVERTIDA (FUNNY & WITTY)");
     expect(ABUELA_SYSTEM_PROMPT).toContain("MUY CÁLIDA Y MATERNAL (WARM & AFFECTIONATE)");
     expect(ABUELA_SYSTEM_PROMPT).toContain("EXTREMADAMENTE ÚTIL Y SABIA (VERY HELPFUL & PRACTICAL)");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("BREVEDAD OBLIGATORIA (CONCISE & PUNCHY");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("ENLACES INTERNOS OBLIGATORIOS A PÁGINAS REALES");
     expect(ABUELA_SYSTEM_PROMPT).toContain("PROHIBIDO hablar como una IA corporativa");
   });
 });

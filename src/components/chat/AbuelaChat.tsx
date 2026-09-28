@@ -461,7 +461,17 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     ]);
   };
 
-  // Format markdown helper (bolding temperatures, bullets)
+  // Format markdown helper (bolding temperatures, bullets, links)
+  const parseMarkdown = (raw: string) => {
+    return raw
+      .replace(
+        /\[(.*?)\]\((.*?)\)/g,
+        '<a href="$2" class="inline-flex items-center gap-0.5 font-bold text-[#FF8A00] dark:text-[#FFB800] underline decoration-[#FF8A00]/40 hover:decoration-[#FF8A00] hover:text-[#E0A200] transition-colors">$1 ↗</a>'
+      )
+      .replace(/\*\*(.*?)\*\*/g, "<strong class='font-bold text-[#8D6E63] dark:text-[#FFB800]'>$1</strong>")
+      .replace(/\*(.*?)\*/g, "<em>$1</em>");
+  };
+
   const renderFormattedText = (text: string) => {
     const paragraphs = text.split("\n\n");
     return paragraphs.map((para, i) => {
@@ -472,8 +482,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
           <ul key={i} className="list-disc pl-5 my-2 space-y-1">
             {items.map((item, j) => (
               <li key={j} dangerouslySetInnerHTML={{
-                __html: item.replace(/^[-*]\s+/, "")
-                  .replace(/\*\*(.*?)\*\*/g, "<strong class='font-bold text-[#8D6E63] dark:text-[#FFB800]'>$1</strong>")
+                __html: parseMarkdown(item.replace(/^[-*]\s+/, ""))
               }} />
             ))}
           </ul>
@@ -482,9 +491,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 
       return (
         <p key={i} className="my-2 leading-relaxed" dangerouslySetInnerHTML={{
-          __html: para
-            .replace(/\*\*(.*?)\*\*/g, "<strong class='font-bold text-[#8D6E63] dark:text-[#FFB800]'>$1</strong>")
-            .replace(/\*(.*?)\*/g, "<em>$1</em>")
+          __html: parseMarkdown(para)
         }} />
       );
     });
