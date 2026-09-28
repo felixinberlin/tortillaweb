@@ -28,28 +28,20 @@ async function main() {
   console.log("🚀 GitHub Push Utility — tortilladepatatas.org");
   console.log("==================================================");
 
-  if (!token || !repo) {
-    console.log("\n⚠️ Missing GitHub credentials or repository target.\n");
-    console.log("To push directly to GitHub, provide your Repository and Personal Access Token (PAT):");
-    console.log("");
-    console.log("Usage option 1 (npm script with arguments):");
-    console.log("  npm run git:push -- --repo=https://github.com/YOUR_USER/YOUR_REPO --token=ghp_xxxx\n");
-    console.log("Usage option 2 (environment variables):");
-    console.log("  GITHUB_TOKEN=ghp_xxxx GITHUB_REPO=YOUR_USER/YOUR_REPO npm run git:push\n");
-    console.log("Usage option 3 (in chat):");
-    console.log("  Send your GitHub repository URL and Personal Access Token in the chat, and I will execute the push directly.\n");
-    console.log("--------------------------------------------------");
-    console.log("💡 How to create a GitHub Personal Access Token:");
-    console.log("1. Visit https://github.com/settings/tokens (Developer Settings > Personal Access Tokens > Tokens classic)");
-    console.log("2. Click 'Generate new token (classic)'");
-    console.log("3. Select the 'repo' scope (full control of private repositories)");
-    console.log("4. Copy the generated token starting with ghp_");
-    console.log("==================================================");
-    return;
+  // Auto-detect existing origin if not passed
+  if (!repo) {
+    try {
+      const originUrl = execSync("git remote get-url origin", { encoding: "utf-8" }).trim();
+      if (originUrl) {
+        repo = originUrl;
+      }
+    } catch {
+      repo = "felixinberlin/tortillaweb";
+    }
   }
 
   // Normalize repository URL
-  let cleanRepo = repo.trim();
+  let cleanRepo = (repo || "felixinberlin/tortillaweb").trim();
   if (cleanRepo.startsWith("git@github.com:")) {
     cleanRepo = cleanRepo.replace("git@github.com:", "");
   }
@@ -60,7 +52,9 @@ async function main() {
     cleanRepo = cleanRepo.slice(0, -4);
   }
 
-  const authenticatedUrl = `https://${encodeURIComponent(token)}@github.com/${cleanRepo}.git`;
+  const authenticatedUrl = token
+    ? `https://${encodeURIComponent(token)}@github.com/${cleanRepo}.git`
+    : `https://github.com/${cleanRepo}.git`;
 
   try {
     // 1. Check git status
