@@ -1,0 +1,52 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { supportedLanguages } from '@/lib/i18n';
+import { generateBreadcrumbSchema } from '@/lib/seo';
+import { getRouteLabel, getRouteUrl } from '@/lib/routes';
+import { AwardMap } from '@/components/awards/AwardMap';
+
+export async function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const heading = getRouteLabel('mapaPremios', currentLang);
+
+const pageTitle = currentLang === 'es'
+  ? 'Mapa de las tortillas de patatas premiadas de España | tortilladepatatas.org'
+  : currentLang === 'de'
+  ? 'Karte der preisgekrönten Tortillas de Patatas in Spanien | tortilladepatatas.org'
+  : 'Map of Spain’s award-winning potato tortillas | tortilladepatatas.org';
+
+const pageDescription = currentLang === 'es'
+  ? 'Los bares y restaurantes que han ganado campeonatos de tortilla de patatas en España: nacionales, autonómicos y locales, con filtros por región, año y estilo.'
+  : currentLang === 'de'
+  ? 'Bars und Restaurants, die Tortilla-Wettbewerbe in Spanien gewonnen haben: national, regional und lokal, filterbar nach Region, Jahr und Stil.'
+  : 'The bars and restaurants that have won Spanish tortilla championships (national, regional and local), filterable by region, year and style.';
+
+const intro = currentLang === 'es'
+  ? 'Cada chincheta es un bar o restaurante que ha ganado (o subido al podio de) un campeonato de tortilla de patatas. Recogemos los resultados de los campeonatos nacionales, autonómicos y locales, siempre con su fuente.'
+  : currentLang === 'de'
+  ? 'Jede Markierung ist eine Bar oder ein Restaurant, das bei einem Tortilla-Wettbewerb gewonnen hat oder auf dem Podium stand. Wir sammeln Ergebnisse nationaler, regionaler und lokaler Wettbewerbe, immer mit Quelle.'
+  : 'Every pin is a bar or restaurant that won, or made the podium at, a tortilla de patatas championship. We collect results from national, regional and local contests, always with a source.';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: getRouteLabel('home', currentLang), url: getRouteUrl('home', currentLang) },
+  { name: heading, url: getRouteUrl('mapaPremios', currentLang) },
+]);
+---
+
+<Layout title={pageTitle} description={pageDescription} lang={currentLang} schema={[breadcrumbSchema]}>
+  <div class="container mx-auto max-w-6xl space-y-8 px-4 py-8 md:py-12">
+    <header class="max-w-3xl space-y-3">
+      <h1 class="font-serif-heading text-3xl font-bold text-foreground md:text-4xl">{heading}</h1>
+      <p class="text-base leading-relaxed text-muted-foreground">{intro}</p>
+    </header>
+
+    <AwardMap client:load lang={currentLang} />
+  </div>
+</Layout>

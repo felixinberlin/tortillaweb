@@ -156,4 +156,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'abuela', en: 'abuela', de: 'abuela' },
     label: { es: 'Pregúntale a la Abuela', en: 'Ask Grandma María', de: 'Frag Oma María' },
   },
+  mapaPremios: {
+    id: 'mapaPremios',
+    slug: { es: 'mapapremios', en: 'mapapremios', de: 'mapapremios' },
+    label: { es: 'Mapa de Tortillas Premiadas', en: 'Award-Winning Tortilla Map', de: 'Karte der preisgekrönten Tortillas' },
+  },
 };

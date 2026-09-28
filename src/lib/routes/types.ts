@@ -29,7 +29,8 @@ export type RouteId =
   | 'timer'
   | 'monoFood'
   | 'emergency'
-  | 'abuela';
+  | 'abuela'
+  | 'mapaPremios';
 
 export type CanonicalType =
   | 'recipe'
