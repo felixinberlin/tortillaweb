@@ -5,13 +5,13 @@ import {
   Volume2, 
   VolumeX, 
   Sparkles, 
-  ShieldCheck, 
-  Flame, 
   Heart,
-  MessageCircle,
   Copy,
   Check,
-  CookingPot
+  CookingPot,
+  Mic,
+  MicOff,
+  Radio
 } from "lucide-react";
 
 interface Message {
@@ -55,9 +55,9 @@ const SUGGESTIONS: Record<string, string[]> = {
 };
 
 const INITIAL_GREETINGS: Record<string, string> = {
-  es: "¡Hola, cielico mío! Ven corriendo a la mesa y ponte cómodo mientras se pochan las patatas a fuego manso. Pregúntame lo que quieras: que si cebolla sí o no, cómo voltear la sartén sin miedo, qué patata elegir o qué hacer si se te ha pegado. ¡Aquí tu abuela te lo explica con todo el amor y el saber de toda una vida!",
-  en: "Hello, my darling! Come sit at the kitchen table while the potatoes are gently confiting in olive oil. Ask me anything: the onion debate, how to flip the pan without spilling a drop, which potato to choose, or how to rescue a broken tortilla. Grandma is here to guide you with love and half a century of wisdom!",
-  de: "Hallo, mein Liebling! Komm, setz dich an den Küchentisch, während die Kartoffeln sanft im Olivenöl pochieren. Frag mich alles: mit oder ohne Zwiebeln, wie man die Pfanne mutig wendet, welche Kartoffel die beste ist oder was zu tun ist, wenn etwas schiefgeht. Deine Großmutter hilft dir von ganzem Herzen!"
+  es: "¡Hola, cielico mío! Ven corriendo a la mesa y ponte cómodo mientras se pochan las patatas a fuego manso. Puedes escribirme o pulsar el micrófono para hablarme de viva voz. Pregúntame lo que quieras: cebolla sí o no, cómo voltear la sartén sin miedo o qué hacer si se te ha pegado. ¡Aquí tu abuela te lo explica con todo el amor!",
+  en: "Hello, my darling! Come sit at the kitchen table while the potatoes are gently confiting in olive oil. You can type or press the microphone to talk to me with your voice! Ask me anything: the onion debate, how to flip without spilling, or how to fix a disaster. Grandma is right here!",
+  de: "Hallo, mein Liebling! Komm, setz dich an den Küchentisch, während die Kartoffeln sanft im Olivenöl pochieren. Du kannst mir schreiben oder auf das Mikrofon drücken, um direkt mit mir zu sprechen! Frag mich alles, was dein Herz begehrt. Deine Großmutter ist für dich da!"
 };
 
 export const AbuelaChat: React.FC<AbuelaChatProps> = ({ 
@@ -80,9 +80,13 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [autoSpeak, setAutoSpeak] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [speechSupported, setSpeechSupported] = useState(false);
+  const [micNotice, setMicNotice] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const recognitionRef = useRef<any>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -104,8 +108,111 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
       if (typeof window !== "undefined" && "speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.abort();
+        } catch (e) {}
+      }
     };
   }, []);
+
+  // Initialize Speech Recognition (Mic)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const SpeechRecognition = 
+        (window as any).SpeechRecognition || 
+        (window as any).webkitSpeechRecognition;
+
+      if (SpeechRecognition) {
+        setSpeechSupported(true);
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = currentLang === "de" ? "de-DE" : currentLang === "en" ? "en-US" : "es-ES";
+
+        recognition.onstart = () => {
+          setIsListening(true);
+          setMicNotice(null);
+          // Stop any ongoing grandma speech when user starts talking
+          if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+            setIsSpeaking(false);
+          }
+        };
+
+        recognition.onresult = (event: any) => {
+          let currentTranscript = "";
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            currentTranscript += event.results[i][0].transcript;
+          }
+          setInputText(currentTranscript);
+
+          // If the recognition identifies a final sentence, automatically submit to Abuela!
+          if (event.results[event.results.length - 1].isFinal) {
+            setIsListening(false);
+            if (currentTranscript.trim()) {
+              handleSendMessage(currentTranscript.trim(), true);
+            }
+          }
+        };
+
+        recognition.onerror = (event: any) => {
+          console.warn("Speech recognition error:", event.error);
+          setIsListening(false);
+          if (event.error === "not-allowed") {
+            setMicNotice(
+              currentLang === "de" 
+                ? "Mikrofonzugriff wurde im Browser blockiert." 
+                : currentLang === "en" 
+                ? "Microphone access was denied in browser." 
+                : "Permiso de micrófono denegado en el navegador."
+            );
+          } else if (event.error !== "no-speech") {
+            setMicNotice(
+              currentLang === "de" 
+                ? "Sprachaufnahme unterbrochen. Bitte erneut versuchen." 
+                : currentLang === "en" 
+                ? "Voice recognition interrupted. Please try again." 
+                : "Se interrumpió la escucha de voz. Pulsa el micro de nuevo."
+            );
+          }
+        };
+
+        recognition.onend = () => {
+          setIsListening(false);
+        };
+
+        recognitionRef.current = recognition;
+      }
+    }
+  }, [currentLang]);
+
+  const toggleMic = () => {
+    if (!speechSupported) {
+      alert(
+        currentLang === "de"
+          ? "Dein Browser unterstützt die Spracheingabe leider nicht (z.B. Chrome, Edge oder Safari nutzen)."
+          : currentLang === "en"
+          ? "Your browser does not support speech recognition (recommended: Chrome, Safari, Edge)."
+          : "Tu navegador no es compatible con reconocimiento de voz (prueba en Chrome, Edge o Safari)."
+      );
+      return;
+    }
+
+    if (isListening) {
+      try {
+        recognitionRef.current?.stop();
+      } catch (e) {}
+      setIsListening(false);
+    } else {
+      try {
+        setMicNotice(null);
+        recognitionRef.current?.start();
+      } catch (e) {
+        console.warn("Could not start speech recognition:", e);
+      }
+    }
+  };
 
   const speakText = (text: string) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
@@ -126,14 +233,23 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 
     const utterance = new SpeechSynthesisUtterance(cleanSpeech);
     utterance.lang = currentLang === "de" ? "de-DE" : currentLang === "en" ? "en-US" : "es-ES";
-    utterance.pitch = 1.1; // Friendly, slightly higher grandma pitch
+    utterance.pitch = 1.12; // Friendly, slightly higher grandma pitch
     utterance.rate = 0.95;  // Calm, patient pace
 
     // Try to pick a female voice if available
     const voices = window.speechSynthesis.getVoices();
     const langCode = utterance.lang.slice(0, 2);
     const preferredVoice = voices.find(
-      (v) => v.lang.startsWith(langCode) && (v.name.includes("Female") || v.name.includes("Natural") || v.name.includes("Monica") || v.name.includes("Lucia") || v.name.includes("Amira") || v.name.includes("Marlene"))
+      (v) => v.lang.startsWith(langCode) && (
+        v.name.includes("Female") || 
+        v.name.includes("Natural") || 
+        v.name.includes("Monica") || 
+        v.name.includes("Lucia") || 
+        v.name.includes("Amira") || 
+        v.name.includes("Marlene") ||
+        v.name.includes("Conchita") ||
+        v.name.includes("Laura")
+      )
     ) || voices.find((v) => v.lang.startsWith(langCode));
 
     if (preferredVoice) {
@@ -147,9 +263,17 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     window.speechSynthesis.speak(utterance);
   };
 
-  const handleSendMessage = async (textToSend?: string) => {
+  const handleSendMessage = async (textToSend?: string, forceVoiceReply: boolean = false) => {
     const query = (textToSend || inputText).trim();
     if (!query || isLoading) return;
+
+    // Stop listening if active
+    if (isListening) {
+      try {
+        recognitionRef.current?.stop();
+      } catch (e) {}
+      setIsListening(false);
+    }
 
     const userMessage: Message = {
       id: "user-" + Date.now(),
@@ -201,7 +325,8 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 
       setMessages((prev) => [...prev, modelMessage]);
 
-      if (autoSpeak) {
+      // If user spoke via mic or has autoSpeak turned on, speak the answer aloud!
+      if (autoSpeak || forceVoiceReply) {
         speakText(reply);
       }
     } catch (err) {
@@ -233,6 +358,12 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
+    }
+    if (isListening) {
+      try {
+        recognitionRef.current?.stop();
+      } catch (e) {}
+      setIsListening(false);
     }
     setMessages([
       {
@@ -286,7 +417,6 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
                 alt="Abuela María" 
                 className="w-full h-full object-cover rounded-xl"
                 onError={(e) => {
-                  // Fallback icon if image fails to load
                   (e.target as HTMLElement).style.display = 'none';
                 }}
               />
@@ -308,10 +438,10 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
               <span>
                 {currentLang === "de"
-                  ? "Die Weisheit der spanischen Großmutter"
+                  ? "Herzliche Küchenweisheit & Humor"
                   : currentLang === "en"
-                  ? "Traditional grandmother culinary wisdom"
-                  : "Sabiduría tradicional & amor de abuela"}
+                  ? "Loving kitchen wisdom & grandma humor"
+                  : "Amor maternal, humor y sabiduría culinaria"}
               </span>
             </p>
           </div>
@@ -319,7 +449,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
-          {/* Auto-speech toggle */}
+          {/* Hands-Free Auto-Speech Toggle */}
           <button
             type="button"
             onClick={() => {
@@ -330,15 +460,15 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
                 setIsSpeaking(false);
               }
             }}
-            className={`p-2 rounded-xl border text-xs flex items-center gap-1.5 transition-all ${
+            className={`p-2 rounded-xl border text-xs flex items-center gap-1.5 transition-all cursor-pointer ${
               autoSpeak 
                 ? "bg-[#FFB800] text-stone-900 border-[#FFB800] font-bold shadow-xs" 
                 : "bg-white/70 dark:bg-stone-800/70 text-stone-600 dark:text-stone-300 border-stone-200 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800"
             }`}
-            title={autoSpeak ? "Desactivar voz automática" : "Activar voz automática de la Abuela"}
-            aria-label="Voz automática"
+            title={autoSpeak ? "Desactivar voz de la Abuela" : "Activar respuesta por voz de la Abuela"}
+            aria-label="Voz de la Abuela"
           >
-            {autoSpeak ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+            {autoSpeak ? <Volume2 className="w-4 h-4 text-stone-950" /> : <VolumeX className="w-4 h-4" />}
             <span className="hidden sm:inline text-[11px]">
               {autoSpeak ? "Voz activa" : "Voz"}
             </span>
@@ -348,7 +478,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
           <button
             type="button"
             onClick={handleReset}
-            className="p-2 rounded-xl bg-white/70 dark:bg-stone-800/70 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+            className="p-2 rounded-xl bg-white/70 dark:bg-stone-800/70 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer"
             title="Reiniciar conversación"
             aria-label="Reiniciar conversación"
           >
@@ -412,7 +542,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
                       <button
                         type="button"
                         onClick={() => speakText(msg.text)}
-                        className="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer"
                         title="Escuchar a la Abuela"
                         aria-label="Escuchar mensaje"
                       >
@@ -421,7 +551,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
                       <button
                         type="button"
                         onClick={() => handleCopy(msg.id, msg.text)}
-                        className="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                        className="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors cursor-pointer"
                         title="Copiar respuesta"
                         aria-label="Copiar texto"
                       >
@@ -492,7 +622,44 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
         </div>
       </div>
 
-      {/* Input Box */}
+      {/* Live Voice Recording Status Banner */}
+      {isListening && (
+        <div className="px-4 py-2 bg-rose-50 dark:bg-rose-950/40 border-t border-rose-200 dark:border-rose-900/60 flex items-center justify-between animate-pulse">
+          <div className="flex items-center gap-2 text-xs font-bold text-rose-700 dark:text-rose-300">
+            <Radio className="w-4 h-4 text-rose-600 animate-spin" />
+            <span>
+              {currentLang === "de"
+                ? "🎙️ Oma hört dir aufmerksam zu... Sprich frei heraus!"
+                : currentLang === "en"
+                ? "🎙️ Grandma is listening to you... Speak naturally!"
+                : "🎙️ La Abuela te está escuchando con atención... ¡Cuéntale tu duda!"}
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={toggleMic}
+            className="text-[11px] underline text-rose-600 dark:text-rose-400 font-bold hover:text-rose-800 cursor-pointer"
+          >
+            {currentLang === "de" ? "Stoppen" : currentLang === "en" ? "Stop" : "Detener"}
+          </button>
+        </div>
+      )}
+
+      {/* Microphone Permission Notice Banner */}
+      {micNotice && (
+        <div className="px-4 py-2 bg-amber-50 dark:bg-amber-950/40 border-t border-amber-200 dark:border-amber-900/60 text-xs text-amber-800 dark:text-amber-200 flex items-center justify-between">
+          <span>{micNotice}</span>
+          <button 
+            type="button" 
+            onClick={() => setMicNotice(null)}
+            className="text-[11px] font-bold underline cursor-pointer ml-2"
+          >
+            OK
+          </button>
+        </div>
+      )}
+
+      {/* Input Box with Microphone and Send Button */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -508,16 +675,43 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
             onChange={(e) => setInputText(e.target.value)}
             disabled={isLoading}
             placeholder={
-              currentLang === "de"
-                ? "Schreibe deiner Großmutter eine Frage..."
+              isListening
+                ? currentLang === "de" ? "Ich höre dir zu..." : currentLang === "en" ? "Listening to your voice..." : "Escuchando tu voz..."
+                : currentLang === "de"
+                ? "Schreibe oder sprich mit deiner Großmutter..."
                 : currentLang === "en"
-                ? "Ask your Grandma anything about tortilla..."
-                : "Escríbele a la Abuela María (ej. ¿cuántos huevos le pongo?)..."
+                ? "Type or talk to Grandma María..."
+                : "Escribe o háblale por micrófono a la Abuela..."
             }
-            className="w-full bg-[#FFFDF7] dark:bg-stone-900 border-2 border-stone-300 dark:border-stone-700 focus:border-[#FFB800] dark:focus:border-[#FFB800] rounded-2xl px-4 py-3 text-sm text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-hidden transition-all shadow-inner"
+            className={`w-full bg-[#FFFDF7] dark:bg-stone-900 border-2 rounded-2xl px-4 py-3 text-sm text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-hidden transition-all shadow-inner ${
+              isListening 
+                ? "border-rose-500 ring-2 ring-rose-500/20" 
+                : "border-stone-300 dark:border-stone-700 focus:border-[#FFB800] dark:focus:border-[#FFB800]"
+            }`}
           />
         </div>
 
+        {/* Microphone Button */}
+        <button
+          type="button"
+          onClick={toggleMic}
+          disabled={isLoading}
+          className={`p-3.5 rounded-2xl transition-all shadow-md flex items-center justify-center shrink-0 cursor-pointer ${
+            isListening
+              ? "bg-rose-600 text-white animate-bounce ring-4 ring-rose-500/30"
+              : "bg-stone-100 hover:bg-[#FFB800]/20 dark:bg-stone-800 text-stone-700 dark:text-stone-200 border border-stone-300 dark:border-stone-700 hover:border-[#FFB800]"
+          }`}
+          title={
+            isListening 
+              ? (currentLang === "de" ? "Aufnahme stoppen" : currentLang === "en" ? "Stop microphone" : "Detener micrófono") 
+              : (currentLang === "de" ? "Mit Oma per Stimme sprechen" : currentLang === "en" ? "Talk to Grandma with your voice" : "Hablar con la Abuela por voz (Micrófono)")
+          }
+          aria-label="Micrófono"
+        >
+          {isListening ? <MicOff className="w-5 h-5 text-white" /> : <Mic className="w-5 h-5 text-[#8D6E63] dark:text-[#FFB800]" />}
+        </button>
+
+        {/* Send Button */}
         <button
           type="submit"
           disabled={!inputText.trim() || isLoading}

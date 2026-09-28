@@ -23,11 +23,14 @@ describe("Abuela María AI Persona & Knowledge Base Tests", () => {
     expect(ABUELA_KNOWLEDGE_SUMMARY).toContain("Thermal Bonding");
   });
 
-  it("should reflect Abuela María warmth and loving character directives in system prompt", () => {
+  it("should reflect Abuela María warmth, humor, and helpfulness directives in system prompt", () => {
     expect(ABUELA_SYSTEM_PROMPT).toContain("Navarra");
     expect(ABUELA_SYSTEM_PROMPT).toContain("1942");
-    expect(ABUELA_SYSTEM_PROMPT).toContain("mi cielo");
     expect(ABUELA_SYSTEM_PROMPT).toContain("cielico");
-    expect(ABUELA_SYSTEM_PROMPT).toContain("NUNCA suenes como un robot");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("cariño");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("DIVERTIDA (FUNNY & WITTY)");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("MUY CÁLIDA Y MATERNAL (WARM & AFFECTIONATE)");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("EXTREMADAMENTE ÚTIL Y SABIA (VERY HELPFUL & PRACTICAL)");
+    expect(ABUELA_SYSTEM_PROMPT).toContain("PROHIBIDO hablar como una IA corporativa");
   });
 });
