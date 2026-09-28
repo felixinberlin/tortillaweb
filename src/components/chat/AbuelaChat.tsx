@@ -67,12 +67,13 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 }) => {
   const currentLang = (lang === "es" || lang === "en" || lang === "de") ? lang : "es";
 
+  const [isMounted, setIsMounted] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "initial-greeting",
       role: "model",
       text: INITIAL_GREETINGS[currentLang] || INITIAL_GREETINGS.es,
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      timestamp: ""
     }
   ]);
   const [inputText, setInputText] = useState("");
@@ -92,6 +93,23 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    setIsMounted(true);
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id === "initial-greeting" && !m.timestamp
+          ? {
+              ...m,
+              timestamp: new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              }),
+            }
+          : m
+      )
+    );
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
@@ -613,7 +631,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
                   <span className="font-bold uppercase tracking-wider font-mono">
                     {isAbuela ? "Abuela María" : "Tú"}
                   </span>
-                  <span>{msg.timestamp}</span>
+                  {msg.timestamp ? <span>{msg.timestamp}</span> : null}
                 </div>
 
                 {/* Message Body */}
@@ -746,7 +764,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
             <span className="leading-snug">{micNotice}</span>
           </div>
           <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
-            {typeof window !== "undefined" && window.self !== window.top && (
+            {isMounted && typeof window !== "undefined" && window.self !== window.top && (
               <a
                 href={window.location.href}
                 target="_blank"
