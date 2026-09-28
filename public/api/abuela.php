@@ -20,7 +20,58 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// 1. Retrieve Gemini API Key from environment or local .env
+// Helper for contextual fallback responses if Gemini is rate-limited or key missing
+function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
+    $q = mb_strtolower($query);
+
+    if (strpos($q, 'cebolla') !== false || strpos($q, 'onion') !== false || strpos($q, 'zwiebel') !== false) {
+        if ($userLang === 'de') {
+            return "Ach, mein Herzchen! Für mich als echte Puristin reichen Kartoffeln, Eier und bestes Olivenöl. Wer es süßlich mag, schaut in unser [Rezept mit Zwiebeln](/de/recipes/concebolla) oder die [Zwiebel-Debatte](/de/factions). Hauptsache ganz langsam karamellisieren!";
+        }
+        if ($userLang === 'en') {
+            return "Oh, my darling! I'm a proud purist: fresh eggs, mountain potatoes, and olive oil; the rest is distraction. But if you love that sweet touch, check our [Tortilla with Onion Recipe](/en/recipes/concebolla) or the [Onion Debate](/en/factions). Just confit it slow and gentle!";
+        }
+        return "¡Ay, mi cielico! Para mí el huevo y la patata no necesitan adornos, pero si te va el dulzor, mira nuestra [Receta con Cebolla](/es/recipes/concebolla) y póchala muy despacio. Consulta también el [Debate de la Cebolla](/es/facciones) y verás qué lío.";
+    }
+
+    if (strpos($q, 'roto') !== false || strpos($q, 'romp') !== false || strpos($q, 'volte') !== false || strpos($q, 'vuelta') !== false || strpos($q, 'peg') !== false || strpos($q, 'broke') !== false || strpos($q, 'flip') !== false || strpos($q, 'zerbr') !== false) {
+        if ($userLang === 'de') {
+            return "Keine Tränen, mein Kind! Das passiert selbst den besten Köchen. Verwandle sie einfach in köstliche Huevos Rotos oder eine [offene Tortilla Vaga](/de/notfall). Schau direkt in unsere [Notfall-Hilfe 112](/de/notfall) zur schnellen Rettung!";
+        }
+        if ($userLang === 'en') {
+            return "Don't panic, my sweetheart! Even the greatest chefs have had a flip disaster. Turn it into scrambled eggs with potatoes or a delicious [Tortilla Vaga](/en/emergency). Check our [Emergency Hotline 112](/en/emergency) right now to salvage it!";
+        }
+        return "¡Ay, mi pobre cielico, no me llores que no pasa nada! Hasta al mejor cocinero se le ha desarmado una tortilla. Conviértela en unos gloriosos huevos rotos o una [tortilla vaga](/es/urgencias) y échale un ojo a nuestra [Línea de Urgencias 112](/es/urgencias).";
+    }
+
+    if (strpos($q, 'patata') !== false || strpos($q, 'potato') !== false || strpos($q, 'kartoffel') !== false) {
+        if ($userLang === 'de') {
+            return "Meine Liebe! Die Königin ist und bleibt die Kennebec, herrlich cremig und trocken. Auch Monalisa oder Agria gelingen wunderbar. Schau dir alle Sorten in unserem [Zutaten-Guide](/de/ingredients) an!";
+        }
+        if ($userLang === 'en') {
+            return "Listen to your Grandma, my dear: the undisputed queen is Kennebec, though Monalisa and Agria are wonderful. Slice them 3mm thin and salt them before poaching. Explore our [Ingredients Guide](/en/ingredients)!";
+        }
+        return "¡Ay, mi vida! Para una tortilla gloriosa la reina es la Kennebec de montaña, aunque la Monalisa y la Agria son magníficas. Córtala a 3 milímetros y sálala antes del aceite. Mira nuestra [Guía de Ingredientes](/es/ingredientes).";
+    }
+
+    if (strpos($q, 'segur') !== false || strpos($q, 'temperat') !== false || strpos($q, 'salmonel') !== false || strpos($q, 'safe') !== false || strpos($q, 'sicher') !== false) {
+        if ($userLang === 'de') {
+            return "Sicherheit geht über alles, mein Kind! Das Ei stockt sicher bei **63°C für 20 Sekunden**, und die vollkommene Pasteurisierung erreicht man bei **70°C für 2 Minuten**. Niemals länger als **4 Stunden** ungekühlt lassen! Lies mehr in [Wissenschaft & Sicherheit](/de/science).";
+        }
+        if ($userLang === 'en') {
+            return "Food safety is sacred, sweetheart! Eggs safely coagulate at **63°C for 20 seconds**, and full pasteurization standard is **70°C for 2 minutes**. Never leave it at room temp for more than **4 hours**! Discover the full science in [Science & Safety](/en/science).";
+        }
+        return "¡Alma de cántaro, la seguridad es lo primero! El huevo cuaja con seguridad a **63°C durante 20 segundos** y el estándar de oro de pasteurización es **70°C durante 2 minutos**. Y nunca más de **4 horas** fuera de la nevera. Consulta [Ciencia y Seguridad](/es/science).";
+    }
+
+    if ($userLang === 'de') {
+        return "Ach, mein Kind! Schau dir unsere traditionellen [Rezepte](/de/recipes) an oder stelle deine perfekten Mengen in unserem [Tortilla-Konfigurator](/de/builder) zusammen. Frag mich jederzeit weiter!";
+    }
+    if ($userLang === 'en') {
+        return "Oh, my darling! Check out our authentic [Recipes](/en/recipes) or calculate your pan proportions in our [Tortilla Builder](/en/builder). Grandma is always here to help you cook!";
+    }
+    return "¡Ay, mi cielico! Para cualquier duda al fogón, échale un vistazo a nuestras [Recetas Tradicionales](/es/recipes) o calcula las cantidades exactas para tu sartén en el [Creador de Tortillas](/es/builder). ¡Aquí me tienes!";
+}
 $apiKey = getenv('GEMINI_API_KEY');
 if (!$apiKey && file_exists(__DIR__ . '/../../.env')) {
     $envLines = file(__DIR__ . '/../../.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -36,22 +87,22 @@ if (!$apiKey && file_exists(__DIR__ . '/../../.env')) {
     }
 }
 
-if (!$apiKey) {
-    echo json_encode([
-        'success' => false,
-        'reply' => '¡Ay, mi cielico! Falta configurar GEMINI_API_KEY en tu servidor de Strato. Añade la variable en tu panel o en un archivo .env en la raíz.'
-    ]);
-    exit;
-}
-
 // 2. Parse input JSON
 $input = file_get_contents('php://input');
 $data = json_decode($input, true) ?: [];
+$userLang = $data['lang'] ?? 'es';
 
 // Check if this is a TTS voice request
 if (isset($data['action']) && $data['action'] === 'tts' || !empty($data['text']) && empty($data['messages'])) {
+    if (!$apiKey) {
+        echo json_encode([
+            'success' => false,
+            'fallbackToBrowserVoice' => true
+        ]);
+        exit;
+    }
+
     $ttsText = preg_replace('/[#*\[\]()]/', '', $data['text'] ?? '');
-    $userLang = $data['lang'] ?? 'es';
 
     $style = "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence";
     if ($userLang === 'de') {
@@ -105,6 +156,12 @@ if (isset($data['action']) && $data['action'] === 'tts' || !empty($data['text'])
             'mimeType' => $mimeType
         ]);
         exit;
+    } else {
+        echo json_encode([
+            'success' => false,
+            'fallbackToBrowserVoice' => true
+        ]);
+        exit;
     }
 }
 
@@ -112,6 +169,22 @@ $rawMessages = isset($data['messages']) && is_array($data['messages']) ? $data['
 
 if (empty($rawMessages) && !empty($data['prompt'])) {
     $rawMessages = [['role' => 'user', 'text' => $data['prompt']]];
+}
+
+$lastUserQuery = '';
+foreach (array_reverse($rawMessages) as $m) {
+    if (($m['role'] ?? '') === 'user' || empty($m['role'])) {
+        $lastUserQuery = $m['text'] ?? '';
+        break;
+    }
+}
+
+if (!$apiKey) {
+    echo json_encode([
+        'success' => true,
+        'reply' => getContextualAbuelaPhpResponse($lastUserQuery, $userLang)
+    ]);
+    exit;
 }
 
 // 3. Format contents for Gemini API
