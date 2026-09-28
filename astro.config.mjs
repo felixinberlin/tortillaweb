@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { recipeSvgIntegration } from './src/integrations/recipeSvgIntegration.ts';
+import { askAbuelaMaria, generateAbuelaVoice } from './scripts/askAbuela.mjs';
 
 function virtualModuleMiddlewarePlugin() {
   return {
@@ -13,7 +14,7 @@ function virtualModuleMiddlewarePlugin() {
 
         // Ensure CORS headers for dev preview in iframe
         res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, POST, OPTIONS');
         res.setHeader('Access-Control-Allow-Headers', '*');
 
         if (req.method === 'OPTIONS') {
@@ -25,6 +26,49 @@ function virtualModuleMiddlewarePlugin() {
         // Allow cross-origin requests within AI Studio iframe preview
         if (req.headers['sec-fetch-site'] === 'cross-site') {
           req.headers['sec-fetch-site'] = 'same-origin';
+        }
+
+        // Handle /api/abuela and /api/chat endpoints
+        if (req.url && (req.url === '/api/abuela' || req.url.startsWith('/api/abuela?') || req.url === '/api/chat')) {
+          if (req.method === 'POST') {
+            let body = '';
+            req.on('data', (chunk) => { body += chunk; });
+            req.on('end', async () => {
+              try {
+                const payload = JSON.parse(body || '{}');
+                const messages = payload.messages || [{ role: 'user', text: payload.prompt || 'Hola' }];
+                const reply = await askAbuelaMaria(messages, payload.lang || 'es');
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify({ success: true, reply }));
+              } catch (err) {
+                console.error('API /api/abuela error:', err);
+                res.statusCode = 500;
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify({ success: false, error: err?.message || 'Error communicating with Abuela' }));
+              }
+            });
+            return;
+          }
+        }
+
+        // Handle /api/abuela-tts voice generation endpoint
+        if (req.url && (req.url === '/api/abuela-tts' || req.url.startsWith('/api/abuela-tts?'))) {
+          if (req.method === 'POST') {
+            let body = '';
+            req.on('data', (chunk) => { body += chunk; });
+            req.on('end', async () => {
+              try {
+                const payload = JSON.parse(body || '{}');
+                const voiceResult = await generateAbuelaVoice(payload.text || '', payload.lang || 'es');
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify(voiceResult));
+              } catch (_err) {
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.end(JSON.stringify({ success: false, fallbackToBrowserVoice: true }));
+              }
+            });
+            return;
+          }
         }
 
         // Ensure before-hydration.js is always served as valid JS regardless of URL encoding or proxy path

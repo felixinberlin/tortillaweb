@@ -165,6 +165,15 @@
           }
         },
         {
+          "key": "abuela",
+          "href": "/abuela",
+          "label": {
+            "es": "Abuela María (IA) 👵",
+            "en": "Grandma María (AI) 👵",
+            "de": "Oma María (KI) 👵"
+          }
+        },
+        {
           "key": "emergency",
           "href": "/urgencias",
           "label": {
