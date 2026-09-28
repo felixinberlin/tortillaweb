@@ -1,6 +1,6 @@
 {
   "name": "Tortilla de Patatas",
   "description": "The definitive encyclopedia, recipe builder, and culinary science guide for the Spanish Tortilla de Patatas.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": ["microphone"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

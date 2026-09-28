@@ -187,9 +187,9 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     }
   }, [currentLang]);
 
-  const toggleMic = () => {
+  const toggleMic = async () => {
     if (!speechSupported) {
-      alert(
+      setMicNotice(
         currentLang === "de"
           ? "Dein Browser unterstützt die Spracheingabe leider nicht (z.B. Chrome, Edge oder Safari nutzen)."
           : currentLang === "en"
@@ -207,6 +207,25 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     } else {
       try {
         setMicNotice(null);
+
+        // Pre-prompt microphone permission via getUserMedia
+        if (typeof navigator !== "undefined" && navigator.mediaDevices?.getUserMedia) {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            stream.getTracks().forEach((track) => track.stop());
+          } catch (permErr: any) {
+            console.warn("Microphone permission prompt result:", permErr);
+            setMicNotice(
+              currentLang === "de"
+                ? "Mikrofonzugriff blockiert. Klicke auf 🔒 in der Adressleiste oder öffne die Seite im Vollbild-Tab."
+                : currentLang === "en"
+                ? "Microphone access blocked. Click 🔒 in address bar to allow, or open in a full tab."
+                : "Permiso de micrófono bloqueado. Haz clic en el candado 🔒 de la barra del navegador o abre la web en pestaña completa."
+            );
+            return;
+          }
+        }
+
         recognitionRef.current?.start();
       } catch (e) {
         console.warn("Could not start speech recognition:", e);
@@ -647,15 +666,30 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 
       {/* Microphone Permission Notice Banner */}
       {micNotice && (
-        <div className="px-4 py-2 bg-amber-50 dark:bg-amber-950/40 border-t border-amber-200 dark:border-amber-900/60 text-xs text-amber-800 dark:text-amber-200 flex items-center justify-between">
-          <span>{micNotice}</span>
-          <button 
-            type="button" 
-            onClick={() => setMicNotice(null)}
-            className="text-[11px] font-bold underline cursor-pointer ml-2"
-          >
-            OK
-          </button>
+        <div className="px-4 py-3 bg-amber-50 dark:bg-amber-950/60 border-t border-amber-200 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <span className="text-base shrink-0">🔒</span>
+            <span className="leading-snug">{micNotice}</span>
+          </div>
+          <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+            {typeof window !== "undefined" && window.self !== window.top && (
+              <a
+                href={window.location.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 bg-[#FFB800] text-stone-950 font-bold rounded-lg hover:bg-[#E0A200] transition-colors inline-flex items-center gap-1 text-[11px]"
+              >
+                {currentLang === "de" ? "In neuem Tab öffnen ↗" : currentLang === "en" ? "Open in new tab ↗" : "Abrir en nueva pestaña ↗"}
+              </a>
+            )}
+            <button 
+              type="button" 
+              onClick={() => setMicNotice(null)}
+              className="text-[11px] font-bold underline cursor-pointer px-1.5 py-1 hover:text-amber-950 dark:hover:text-white"
+            >
+              {currentLang === "de" ? "Schließen" : currentLang === "en" ? "Dismiss" : "Cerrar"}
+            </button>
+          </div>
         </div>
       )}
 
