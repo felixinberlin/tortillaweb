@@ -61,12 +61,10 @@ function virtualModuleMiddlewarePlugin() {
                 const payload = JSON.parse(body || '{}');
                 const voiceResult = await generateAbuelaVoice(payload.text || '', payload.lang || 'es');
                 res.setHeader('Content-Type', 'application/json; charset=utf-8');
-                res.end(JSON.stringify({ success: true, ...voiceResult }));
-              } catch (err) {
-                console.error('API /api/abuela-tts error:', err);
-                res.statusCode = 500;
+                res.end(JSON.stringify(voiceResult));
+              } catch (_err) {
                 res.setHeader('Content-Type', 'application/json; charset=utf-8');
-                res.end(JSON.stringify({ success: false, error: err?.message || 'Error generating voice' }));
+                res.end(JSON.stringify({ success: false, fallbackToBrowserVoice: true }));
               }
             });
             return;

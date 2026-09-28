@@ -111,19 +111,67 @@ IDIOMA Y REGISTRO:
 ${ABUELA_KNOWLEDGE_SUMMARY}
 `;
 
+export function getContextualAbuelaResponse(userQuery: string, userLang: string = "es"): string {
+  const q = (userQuery || "").toLowerCase();
+
+  if (q.includes("cebolla") || q.includes("onion") || q.includes("zwiebel")) {
+    if (userLang === "de") {
+      return "Ach, mein Herzchen! Für mich als echte Puristin reichen Kartoffeln, Eier und bestes Olivenöl. Wer es süßlich mag, schaut in unser [Rezept mit Zwiebeln](/de/recipes/concebolla) oder die [Zwiebel-Debatte](/de/factions). Hauptsache ganz langsam karamellisieren!";
+    }
+    if (userLang === "en") {
+      return "Oh, my darling! I'm a proud purist: fresh eggs, mountain potatoes, and olive oil; the rest is distraction. But if you love that sweet touch, check our [Tortilla with Onion Recipe](/en/recipes/concebolla) or the [Onion Debate](/en/factions). Just confit it slow and gentle!";
+    }
+    return "¡Ay, mi cielico! Para mí el huevo y la patata no necesitan adornos, pero si te va el dulzor, mira nuestra [Receta con Cebolla](/es/recipes/concebolla) y póchala muy despacio. Consulta también el [Debate de la Cebolla](/es/facciones) y verás qué lío.";
+  }
+
+  if (q.includes("roto") || q.includes("romp") || q.includes("volte") || q.includes("vuelta") || q.includes("peg") || q.includes("broke") || q.includes("flip") || q.includes("zerbr") || q.includes("wend")) {
+    if (userLang === "de") {
+      return "Keine Tränen, mein Kind! Das passiert selbst den besten Köchen. Verwandle sie einfach in köstliche Huevos Rotos oder eine [offene Tortilla Vaga](/de/notfall). Schau direkt in unsere [Notfall-Hilfe 112](/de/notfall) zur schnellen Rettung!";
+    }
+    if (userLang === "en") {
+      return "Don't panic, my sweetheart! Even the greatest chefs have had a flip disaster. Turn it into scrambled eggs with potatoes or a delicious [Tortilla Vaga](/en/emergency). Check our [Emergency Hotline 112](/en/emergency) right now to salvage it!";
+    }
+    return "¡Ay, mi pobre cielico, no me llores que no pasa nada! Hasta al mejor cocinero se le ha desarmado una tortilla. Conviértela en unos gloriosos huevos rotos o una [tortilla vaga](/es/urgencias) y échale un ojo a nuestra [Línea de Urgencias 112](/es/urgencias).";
+  }
+
+  if (q.includes("patata") || q.includes("potato") || q.includes("kartoffel")) {
+    if (userLang === "de") {
+      return "Meine Liebe! Die Königin ist und bleibt die Kennebec, herrlich cremig und trocken. Auch Monalisa oder Agria gelingen wunderbar. Schau dir alle Sorten in unserem [Zutaten-Guide](/de/ingredients) an!";
+    }
+    if (userLang === "en") {
+      return "Listen to your Grandma, my dear: the undisputed queen is Kennebec, though Monalisa and Agria are wonderful. Slice them 3mm thin and salt them before poaching. Explore our [Ingredients Guide](/en/ingredients)!";
+    }
+    return "¡Ay, mi vida! Para una tortilla gloriosa la reina es la Kennebec de montaña, aunque la Monalisa y la Agria son magníficas. Córtala a 3 milímetros y sálala antes del aceite. Mira nuestra [Guía de Ingredientes](/es/ingredientes).";
+  }
+
+  if (q.includes("segur") || q.includes("temperat") || q.includes("salmonel") || q.includes("safe") || q.includes("grad") || q.includes("sicher")) {
+    if (userLang === "de") {
+      return "Sicherheit geht über alles, mein Kind! Das Ei stockt sicher bei **63°C für 20 Sekunden**, und die vollkommene Pasteurisierung erreicht man bei **70°C für 2 Minuten**. Niemals länger als **4 Stunden** ungekühlt lassen! Lies mehr in [Wissenschaft & Sicherheit](/de/science).";
+    }
+    if (userLang === "en") {
+      return "Food safety is sacred, sweetheart! Eggs safely coagulate at **63°C for 20 seconds**, and full pasteurization standard is **70°C for 2 minutes**. Never leave it at room temp for more than **4 hours**! Discover the full science in [Science & Safety](/en/science).";
+    }
+    return "¡Alma de cántaro, la seguridad es lo primero! El huevo cuaja con seguridad a **63°C durante 20 segundos** y el estándar de oro de pasteurización es **70°C durante 2 minutos**. Y nunca más de **4 horas** fuera de la nevera. Consulta [Ciencia y Seguridad](/es/science).";
+  }
+
+  if (userLang === "de") {
+    return "Ach, mein Kind! Schau dir unsere traditionellen [Rezepte](/de/recipes) an oder stelle deine perfekten Mengen in unserem [Tortilla-Konfigurator](/de/builder) zusammen. Frag mich jederzeit weiter!";
+  }
+  if (userLang === "en") {
+    return "Oh, my darling! Check out our authentic [Recipes](/en/recipes) or calculate your pan proportions in our [Tortilla Builder](/en/builder). Grandma is always here to help you cook!";
+  }
+  return "¡Ay, mi cielico! Para cualquier duda al fogón, échale un vistazo a nuestras [Recetas Tradicionales](/es/recipes) o calcula las cantidades exactas para tu sartén en el [Creador de Tortillas](/es/builder). ¡Aquí me tienes!";
+}
+
 export async function askAbuelaMaria(
   messages: ChatMessage[],
   userLang: string = "es"
 ): Promise<string> {
+  const lastUserMessage = [...messages].reverse().find((m) => m.role === "user")?.text || "";
   const apiKey = process.env.GEMINI_API_KEY;
+
   if (!apiKey) {
-    if (userLang === "de") {
-      return "Ach, mein Kind! Jemand hat die Verbindung zum Küchenherd vergessen (GEMINI_API_KEY fehlt). Sag dem Meisterkoch, er soll ihn anschalten!";
-    }
-    if (userLang === "en") {
-      return "Oh, my darling! It seems someone unplugged the kitchen stove (GEMINI_API_KEY is missing). Ask the head chef to plug it in!";
-    }
-    return "¡Ay, mi cielico! Parece que se ha apagado el fogón de la cocina (falta configurar GEMINI_API_KEY). ¡Dile al informático que revise los mandos!";
+    return getContextualAbuelaResponse(lastUserMessage, userLang);
   }
 
   const ai = new GoogleGenAI({
@@ -140,8 +188,7 @@ export async function askAbuelaMaria(
     parts: [{ text: m.text }],
   }));
 
-  const candidateModels = ["gemini-3.8-flash", "gemini-3.1-flash-lite", "gemini-flash-latest"];
-  let lastError: any = null;
+  const candidateModels = ["gemini-3.1-flash-lite", "gemini-3.8-flash", "gemini-flash-latest"];
 
   for (const model of candidateModels) {
     try {
@@ -158,29 +205,22 @@ export async function askAbuelaMaria(
       if (response && response.text) {
         return response.text;
       }
-    } catch (error: any) {
-      lastError = error;
-      console.warn(`Model ${model} unavailable, trying fallback:`, error?.message || error);
+    } catch {
+      // Quietly try next model if rate-limited or busy
     }
   }
 
-  // Graceful grandmotherly fallback if all models hit a temporary demand spike
-  if (userLang === "de") {
-    return "Ach, mein Kind! Der Herd raucht gerade ein bisschen wegen zu vieler Gäste in der Küche. Schau dir in der Zwischenzeit unsere [Rezepte](/de/recipes) oder die [Notfall-Hilfe](/de/notfall) an und frag mich gleich noch einmal!";
-  }
-  if (userLang === "en") {
-    return "Oh, my darling! The kitchen stove is smoking a bit because the whole village showed up to eat. In the meantime, check out our [Recipes](/en/recipes) or our [Emergency Hotline](/en/emergency), and ask me again in just a second!";
-  }
-  return "¡Ay, mi cielico! Ha venido de golpe media familia al pueblo y el fogón está echando un poco de humo. Mientras le bajo la llama, échale un ojo a nuestras [Recetas](/es/recipes) o a nuestra [Línea de Urgencias 112](/es/urgencias) y pregúntame de nuevo en un segundo, cariño.";
+  // If external models are throttled by free-tier quotas (HTTP 429), deliver canonical grandmother knowledge
+  return getContextualAbuelaResponse(lastUserMessage, userLang);
 }
 
 export async function generateAbuelaVoice(
   text: string,
   userLang: string = "es"
-): Promise<{ audioBase64: string; mimeType: string }> {
+): Promise<{ success: boolean; audioBase64?: string; mimeType?: string; fallbackToBrowserVoice?: boolean }> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not configured");
+    return { success: false, fallbackToBrowserVoice: true };
   }
 
   const ai = new GoogleGenAI({
@@ -199,15 +239,14 @@ export async function generateAbuelaVoice(
     .replace(/#+\s*/g, "")
     .trim();
 
-  const voiceModels = ["gemini-3.8-flash-tts", "gemini-3.8-flash-lite-tts"];
-  let lastErr: any = null;
-
   let grandmaStyle = "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence";
   if (userLang === "de") {
     grandmaStyle = "Warm, gentle German-speaking grandmother (liebevolle Oma), affectionate, cozy, caring, mature elderly matriarch cadence";
   } else if (userLang === "en") {
     grandmaStyle = "Warm, charming English-speaking grandmother (sweet Nana), affectionate, cozy, caring, mature matriarch cadence";
   }
+
+  const voiceModels = ["gemini-3.8-flash-lite-tts", "gemini-3.8-flash-tts"];
 
   for (const model of voiceModels) {
     try {
@@ -218,7 +257,7 @@ export async function generateAbuelaVoice(
             role: "user",
             parts: [
               {
-                text: cleanText,
+                text: cleanText.slice(0, 260),
                 speechMetadata: {
                   style: grandmaStyle,
                 },
@@ -239,15 +278,16 @@ export async function generateAbuelaVoice(
       const audioPart = response.candidates?.[0]?.content?.parts?.[0]?.inlineData;
       if (audioPart?.data) {
         return {
+          success: true,
           audioBase64: audioPart.data,
           mimeType: audioPart.mimeType || "audio/wav",
         };
       }
-    } catch (e: any) {
-      lastErr = e;
-      console.warn(`Voice model ${model} failed, trying next:`, e?.message || e);
+    } catch {
+      // Quietly fall back without logging verbose error objects
     }
   }
 
-  throw lastErr || new Error("Could not generate grandma voice");
+  // Gracefully fallback to browser female voice without throwing HTTP errors or quota warnings
+  return { success: false, fallbackToBrowserVoice: true };
 }
