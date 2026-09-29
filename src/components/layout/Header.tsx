@@ -296,14 +296,30 @@ export default function Header({
             type="button"
             onClick={toggleTheme}
             className="p-1.5 sm:p-2 rounded-lg border border-[#E8E2D5] dark:border-[#3D352E] bg-[#F3EFE6] dark:bg-[#28231F] text-[#8D6E63] dark:text-[#FFB800] hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A] transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
-            aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"}
-            title={theme === "dark" ? "Modo Claro" : "Modo Oscuro"}
+            aria-label={
+              lang === "en"
+                ? (theme === "dark" ? "Enable light mode" : "Enable dark mode")
+                : lang === "de"
+                ? (theme === "dark" ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren")
+                : (theme === "dark" ? "Activar modo claro" : "Activar modo oscuro")
+            }
+            title={
+              lang === "en"
+                ? (theme === "dark" ? "Light Mode" : "Dark Mode")
+                : lang === "de"
+                ? (theme === "dark" ? "Heller Modus" : "Dunkler Modus")
+                : (theme === "dark" ? "Modo Claro" : "Modo Oscuro")
+            }
           >
             {theme === "dark" ? <Sun className="w-4 h-4 text-[#FFB800]" /> : <Moon className="w-4 h-4 text-[#8D6E63]" />}
           </button>
 
           {/* Language Switcher */}
-          <div className="language-switcher flex items-center gap-0.5 bg-[#F3EFE6] dark:bg-[#28231F] p-0.5 sm:p-1 rounded-lg border border-[#E8E2D5] dark:border-[#3D352E]" role="region" aria-label="Language Selector">
+          <div className="language-switcher flex items-center gap-0.5 bg-[#F3EFE6] dark:bg-[#28231F] p-0.5 sm:p-1 rounded-lg border border-[#E8E2D5] dark:border-[#3D352E]" role="region" aria-label={
+              lang === "en" ? "Language Selector"
+              : lang === "de" ? "Sprachauswahl"
+              : "Selector de idioma"
+            }>
             <Languages className="h-3.5 w-3.5 text-muted-foreground ml-1 mr-0.5 hidden md:block" />
             {languages.map((language) => {
               const active = lang === language.code;
@@ -338,7 +354,13 @@ export default function Header({
             type="button"
             onClick={() => setMobileMenuOpen(true)}
             className="lg:hidden p-1.5 sm:p-2 border border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE] dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE] rounded-lg hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A] cursor-pointer"
-            aria-label="Toggle Navigation Menu"
+            aria-label={
+              lang === "en" ? "Toggle Navigation Menu"
+              : lang === "de" ? "Navigationsmenü umschalten"
+              : "Alternar menú de navegación"
+            }
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu-drawer"
           >
             <Menu className="h-5 w-5" />
           </button>
@@ -382,6 +404,7 @@ export default function Header({
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div 
+          id="mobile-menu-drawer"
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-end"
           onClick={() => setMobileMenuOpen(false)}
         >
@@ -407,7 +430,11 @@ export default function Header({
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-1 rounded-lg hover:bg-amber-100 dark:hover:bg-[#2E2824] text-foreground dark:text-[#F5E6BE] cursor-pointer"
-                  aria-label="Close menu"
+                  aria-label={
+                    lang === "en" ? "Close menu"
+                    : lang === "de" ? "Menü schließen"
+                    : "Cerrar menú"
+                  }
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -455,14 +482,20 @@ export default function Header({
                             type="button"
                             onClick={() => setOpenSubmenu(isSubOpen ? null : item.key)}
                             className="p-1 text-xs text-amber-900 dark:text-[#FFB800] cursor-pointer"
-                            aria-label="Toggle submenu"
+                            aria-label={
+                              lang === "en" ? "Toggle submenu"
+                              : lang === "de" ? "Untermenü umschalten"
+                              : "Alternar submenú"
+                            }
+                            aria-expanded={isSubOpen}
+                            aria-controls={`submenu-${item.key}`}
                           >
                             <ChevronDown className={`w-4 h-4 transition-transform ${isSubOpen ? "rotate-180" : ""}`} />
                           </button>
                         </div>
 
                         {isSubOpen && (
-                          <div className="pl-3 space-y-1 border-l-2 border-[#FFB800] ml-3 mt-1">
+                          <div id={`submenu-${item.key}`} className="pl-3 space-y-1 border-l-2 border-[#FFB800] ml-3 mt-1">
                             {item.children.map((child: any) => {
                               const ChildIcon = child.icon;
                               const childLabel = getItemLabel(child);
