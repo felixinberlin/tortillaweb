@@ -129,6 +129,15 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
       records: currentLang === 'en' ? 'Records & Feats' : currentLang === 'de' ? 'Rekorde & Leistung' : 'Récords & Hazañas',
       factions: currentLang === 'en' ? 'Factions & Debates' : currentLang === 'de' ? 'Fraktionen & Debatten' : 'Facciones & Debates',
       regions: currentLang === 'en' ? 'Regional Tradition' : currentLang === 'de' ? 'Regionale Tradition' : 'Tradición Regional',
+    },
+    aria: {
+      clearSearch: currentLang === 'en' ? 'Clear search' : currentLang === 'de' ? 'Suche löschen' : 'Borrar búsqueda',
+      likeFact: currentLang === 'en' ? 'Like this fact' : currentLang === 'de' ? 'Diesen Fakt liken' : 'Me gusta este dato',
+      shareFact: currentLang === 'en' ? 'Share this fact' : currentLang === 'de' ? 'Diesen Fakt teilen' : 'Compartir este dato',
+      firstPage: currentLang === 'en' ? 'Go to first page' : currentLang === 'de' ? 'Zur ersten Seite' : 'Ir a la primera página',
+      previousPage: currentLang === 'en' ? 'Go to previous page' : currentLang === 'de' ? 'Zur vorherigen Seite' : 'Ir a la página anterior',
+      nextPage: currentLang === 'en' ? 'Go to next page' : currentLang === 'de' ? 'Zur nächsten Seite' : 'Ir a la página siguiente',
+      lastPage: currentLang === 'en' ? 'Go to last page' : currentLang === 'de' ? 'Zur letzten Seite' : 'Ir a la última página',
     }
   };
 
@@ -304,6 +313,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               onClick={() => setSearchQuery('')}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-stone-100 transition-colors"
               title="Clear search"
+              aria-label={t.aria.clearSearch}
             >
               <X className="w-4 h-4" />
             </button>
@@ -623,6 +633,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
                       onClick={() => toggleLike(item.id)}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E8E2D5] text-foreground/80 hover:text-amber-900 hover:border-amber-400 transition-all cursor-pointer min-h-[36px]"
                       title={t.didYouKnow}
+                      aria-label={t.aria.likeFact}
                     >
                       <ThumbsUp className="w-3.5 h-3.5 text-[#FFB800]" />
                       <span className="font-bold">{likes[item.id] || 0}</span>
@@ -632,6 +643,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
                       onClick={() => handleShare(titleText)}
                       className="inline-flex items-center gap-1 px-2.5 py-1.5 text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[36px]"
                       title="Compartir"
+                      aria-label={t.aria.shareFact}
                     >
                       <Share2 className="w-3.5 h-3.5" />
                     </button>
@@ -659,6 +671,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === 1}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="First Page"
+              aria-label={t.aria.firstPage}
             >
               <ChevronsLeft className="w-4 h-4" />
             </button>
@@ -669,6 +682,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === 1}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Previous Page"
+              aria-label={t.aria.previousPage}
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -703,6 +717,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === totalPages}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Next Page"
+              aria-label={t.aria.nextPage}
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -713,6 +728,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === totalPages}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Last Page"
+              aria-label={t.aria.lastPage}
             >
               <ChevronsRight className="w-4 h-4" />
             </button>
