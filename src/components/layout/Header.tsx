@@ -338,7 +338,9 @@ export default function Header({
             type="button"
             onClick={() => setMobileMenuOpen(true)}
             className="lg:hidden p-1.5 sm:p-2 border border-[#E8E2D5] dark:border-[#3D352E] bg-[#FAF6EE] dark:bg-[#28231F] text-foreground dark:text-[#F5E6BE] rounded-lg hover:bg-[#F5E6BE]/60 dark:hover:bg-[#3D332A] cursor-pointer"
-            aria-label="Toggle Navigation Menu"
+            aria-label={lang === 'es' ? 'Abrir menú de navegación' : lang === 'de' ? 'Navigationsmenü öffnen' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu-drawer"
           >
             <Menu className="h-5 w-5" />
           </button>
@@ -386,6 +388,7 @@ export default function Header({
           onClick={() => setMobileMenuOpen(false)}
         >
           <div 
+            id="mobile-menu-drawer"
             className="w-full max-w-xs bg-[#FCF9F2] dark:bg-[#1C1917] h-full p-5 border-l border-[#E8E2D5] dark:border-[#3D352E] flex flex-col justify-between overflow-y-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -407,7 +410,9 @@ export default function Header({
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-1 rounded-lg hover:bg-amber-100 dark:hover:bg-[#2E2824] text-foreground dark:text-[#F5E6BE] cursor-pointer"
-                  aria-label="Close menu"
+                  aria-label={lang === 'es' ? 'Cerrar menú' : lang === 'de' ? 'Menü schließen' : 'Close menu'}
+                  aria-expanded={mobileMenuOpen}
+                  aria-controls="mobile-menu-drawer"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -455,14 +460,16 @@ export default function Header({
                             type="button"
                             onClick={() => setOpenSubmenu(isSubOpen ? null : item.key)}
                             className="p-1 text-xs text-amber-900 dark:text-[#FFB800] cursor-pointer"
-                            aria-label="Toggle submenu"
+                            aria-label={isSubOpen ? (lang === 'es' ? 'Cerrar submenú' : lang === 'de' ? 'Untermenü schließen' : 'Close submenu') : (lang === 'es' ? 'Abrir submenú' : lang === 'de' ? 'Untermenü öffnen' : 'Open submenu')}
+                            aria-expanded={isSubOpen}
+                            aria-controls={`submenu-${item.key}`}
                           >
                             <ChevronDown className={`w-4 h-4 transition-transform ${isSubOpen ? "rotate-180" : ""}`} />
                           </button>
                         </div>
 
                         {isSubOpen && (
-                          <div className="pl-3 space-y-1 border-l-2 border-[#FFB800] ml-3 mt-1">
+                          <div id={`submenu-${item.key}`} className="pl-3 space-y-1 border-l-2 border-[#FFB800] ml-3 mt-1">
                             {item.children.map((child: any) => {
                               const ChildIcon = child.icon;
                               const childLabel = getItemLabel(child);
