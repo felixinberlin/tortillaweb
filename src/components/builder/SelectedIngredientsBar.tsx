@@ -99,7 +99,9 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
             className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary cursor-pointer transition-colors"
-            aria-label={isExpanded ? "Collapse ingredients bar" : "Expand ingredients bar"}
+            aria-expanded={isExpanded}
+            aria-controls="selected-ingredients-details"
+            aria-label={isEs ? (isExpanded ? "Ocultar ingredientes" : "Ver ingredientes") : isDe ? (isExpanded ? "Zutaten ausblenden" : "Zutaten ansehen") : (isExpanded ? "Collapse ingredients bar" : "Expand ingredients bar")}
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
@@ -108,7 +110,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
 
       {/* Expandable Content Area */}
       {isExpanded && (
-        <div className="p-4 bg-card">
+        <div id="selected-ingredients-details" className="p-4 bg-card">
           <div className="flex flex-wrap items-center gap-2">
             {/* 1. Base Huevos */}
             <div className="inline-flex items-center gap-1.5 bg-accent border border-border px-3 py-1.5 rounded-xl text-xs">

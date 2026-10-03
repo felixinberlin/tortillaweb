@@ -1,0 +1,3 @@
+## 2025-02-14 - Localized Disclosure Patterns
+**Learning:** For a11y, disclosure components (expand/collapse) in multilingual React apps often lack `aria-expanded` attributes mapping correctly to boolean states. Additionally, dynamically localizing the `aria-label` based on language (es/en/de) and expanded/collapsed state is critical for screen reader users trying to interpret the toggle button.
+**Action:** When building or modifying expand/collapse components, always add `aria-expanded` tied to the state, `aria-controls` linked to the content container's ID, and correctly localize the `aria-label` using standard checks (e.g. `isEs`, `isDe`).
