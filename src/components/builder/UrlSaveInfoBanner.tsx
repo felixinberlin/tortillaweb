@@ -109,7 +109,10 @@ export const UrlSaveInfoBanner: React.FC<UrlSaveInfoBannerProps> = ({
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            title={isEs ? "Ver más detalles de guardado" : "More details"}
+            title={isEs ? "Ver más detalles de guardado" : "More save details"}
+            aria-label={isEs ? "Alternar detalles de guardado" : "Toggle save details"}
+            aria-expanded={isExpanded}
+            aria-controls="url-save-info-details"
             className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-card transition-colors cursor-pointer border border-transparent hover:border-border"
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -119,7 +122,7 @@ export const UrlSaveInfoBanner: React.FC<UrlSaveInfoBannerProps> = ({
 
       {/* Expandable Explanation Details */}
       {isExpanded && (
-        <div className="mt-3 pt-3 border-t border-[#FFB800]/20 text-xs text-muted-foreground space-y-2 animate-in fade-in slide-in-from-top-1 duration-150">
+        <div id="url-save-info-details" className="mt-3 pt-3 border-t border-[#FFB800]/20 text-xs text-muted-foreground space-y-2 animate-in fade-in slide-in-from-top-1 duration-150">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="p-2.5 rounded-xl bg-card/80 border border-border">
               <span className="font-bold text-foreground block mb-0.5">
