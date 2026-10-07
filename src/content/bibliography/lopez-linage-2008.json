@@ -1,0 +1,30 @@
+{
+  "id": "lopez-linage-2008",
+  "title": {
+    "es": "La patata en España: Historia y agroecología del tubérculo andino",
+    "en": "The Potato in Spain: History and Agroecology of the Andean Tuber",
+    "de": "Die Kartoffel in Spanien: Geschichte und Agrarökologie der Andenknolle"
+  },
+  "authors": ["Javier López Linage"],
+  "year": 2008,
+  "type": "academic_book",
+  "category": "history",
+  "publisher": "Editorial CSIC (Consejo Superior de Investigaciones Científicas)",
+  "location": "Madrid, España",
+  "officialCode": "ISBN 978-84-00-08709-8",
+  "url": "https://editorial.csic.es/publicaciones/libros/11690/978-84-00-08709-8/la-patata-en-espana-historia-y-agroecologia-del-t.html",
+  "citationText": "López Linage, J. (2008). La patata en España: Historia y agroecología del tubérculo andino. Madrid: Editorial CSIC (pp. 235–248).",
+  "summary": {
+    "es": "Monografía historiográfica de referencia absoluta elaborada por el científico del CSIC Javier López Linage. En ella saca a la luz los documentos de Villanueva de la Serena (1798) de Joseph de Tena Godoy y el Marqués de Robledo, revolucionando la historia gastronómica nacional.",
+    "en": "Definitive historiographical monograph by CSIC scholar Javier López Linage. Unearths the 1798 Villanueva de la Serena manuscripts by Tena Godoy and Marqués de Robledo, revolutionizing the modern understanding of the tortilla's origin.",
+    "de": "Maßgebliche historische Monografie des CSIC-Forschers Javier López Linage. Entdeckte die Dokumente von Villanueva de la Serena (1798) von Tena Godoy und revolutionierte die spanische Gastronomiegeschichte."
+  },
+  "keyTakeaway": {
+    "es": "Base historiográfica moderna indiscutible que sitúa en Villanueva de la Serena (Badajoz) el primer experimento ilustrado documentado de fritura de patatas y huevo en sartén.",
+    "en": "Cornerstone modern historiographical authority pinpointing Villanueva de la Serena (Badajoz) as the first documented Enlightenment experiment frying potatoes and egg in a skillet.",
+    "de": "Unverzichtbares Standardwerk, das Villanueva de la Serena (Badajoz) als Ort des ersten dokumentierten aufklärerischen Pfannenexperiments ausweist."
+  },
+  "relatedArticleSlugs": ["history", "historia", "ciencia", "origenes"],
+  "verified": true,
+  "tags": ["csic", "investigacion_academica", "lopez_linage", "2008", "badajoz"]
+}

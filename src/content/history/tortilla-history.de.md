@@ -82,43 +82,94 @@ Warum übertraf die Verbindung von Kartoffel und Ei alle früheren Zubereitungen
 
 ---
 
-## 3. Regionale Ursprungstheorien: Dokumente, Mythen & Streitigkeiten
+## 3. Dokumentarische Chronologie der Ursprünge: Quellen, Archive & Kontroversen
 
-Lange Zeit war der genaue Entstehungsort der Tortilla Gegenstand leidenschaftlicher Debatten. Heutige Archivfunde zeichnen ein klares Bild:
+Lange Zeit war der genaue Entstehungsort der Kartoffeltortilla Gegenstand leidenschaftlicher Debatten. Heutige Archivfunde des spanischen Forschungsrats CSIC zeichnen ein klares und belegtes Bild:
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│               DOKUMENTARISCHE CHRONOLOGIE DER URSPRÜNGE                │
-├────────────────────────┬─────────────────────┬────────────────────────┤
-│ REGION                 │ NACHWEISJAHR        │ HISTORISCHE QUELLE     │
-├────────────────────────┼─────────────────────┼────────────────────────┤
-│ Extremadura            │ 1798                │ Schriften von Robledo  │
-│ (Villanueva de la S.)  │                     │ & Joseph de Tena Godoy │
-├────────────────────────┼─────────────────────┼────────────────────────┤
-│ Navarra                │ 1817                │ Anonymes Memorial an   │
-│ (Pamplona / Cuenca)    │                     │ die Cortes von Navarra │
-├────────────────────────┼─────────────────────┼────────────────────────┤
-│ Baskenland             │ 1835 (Kriegsmythos) │ Legende von General    │
-│ (Bilbao / Gipuzkoa)    │                     │ Zumalacárregui         │
-└────────────────────────┴─────────────────────┴────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        HISTORISCHE DOKUMENTENMATRIX DER URSPRÜNGE                      │
+├───────┬──────────────────────────────┬─────────────────────────────────────────────────┤
+│ JAHR  │ REGION / ORT                 │ HISTORISCHE QUELLE & BEDEUTUNG                  │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1767  │ Valencia / Gesamtes Spanien  │ Joseph Antonio Valcárcel (*Agricultura General*)│
+│       │                              │ Früheste gedruckte Erwähnung: Kartoffel-Tortilla│
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1772  │ Barcelona / La Mancha        │ Jaume Roig (Handelskammer Barcelona)            │
+│       │                              │ Bericht über bäuerlichen Kartoffel-Ei-Verzehr   │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1798  │ Extremadura                  │ Joseph de Tena Godoy & Marqués de Robledo       │
+│       │ (Villanueva de la Serena)    │ *Semanario de Agricultura y Artes* (Ausg. 85)   │
+│       │                              │ Erstes technisches Pfannenprotokoll in Olivenöl │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1810  │ Cádiz                        │ Belagerung von Cádiz (Unabhängigkeitskrieg)     │
+│ -1812 │                              │ Gaditanischer Spott: Name 'Tortilla Francesa'   │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1817  │ Navarra                      │ Anonymes *Memorial an die Cortes von Navarra*   │
+│       │ (Pamplona / Cuenca)          │ Erstes Zeugnis bäuerlicher Alltagsküche         │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1835  │ Baskenland / Navarra         │ Legende von Tomás de Zumalacárregui (Karlisten) │
+│       │                              │ WIDERLEGTER MYTHOS, aber militärischer Vektor   │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1854  │ Madrid / Verlagswesen        │ José López Camuñas (*La cocina perfeccionada*)  │
+│       │                              │ Erstes formal gedrucktes Kochbuchrezept         │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1881  │ Saragossa                    │ Fidel Romero de Gállego (*El Hogar*)            │
+│       │                              │ Rezept für 'Tortilla de Patatas Fritas'         │
+└───────┴──────────────────────────────┴─────────────────────────────────────────────────┘
 ```
 
-### A. Das Dokument aus Villanueva de la Serena (Extremadura, 1798)
-Der entscheidende Meilenstein der Tortilla-Forschung wurde vom CSIC-Historiker **Javier López Linage** (*La patata en España*) entdeckt.
+### A. Die früheste gedruckte Erwähnung: Joseph Antonio Valcárcel (1767)
+Jahrzehnte bevor Kochbücher des 19. Jahrhunderts das Rezept festhielten, veröffentlichte der Aufklärungsagronom **Joseph Antonio Valcárcel** im Jahr **1767** den dritten Band seines Werks *Agricultura General y Gobierno de la Casa de Campo*. Über die Eingewöhnung der Andenknolle in Spanien schrieb Valcárcel:
 
-Am **27. Oktober 1798** hielten der Grundbesitzer **Joseph de Tena Godoy** und der **Marqués de Robledo** in **Villanueva de la Serena (Badajoz)** fest, wie sie ein nahrhaftes und günstiges Pfannengericht schufen, indem sie geriebene oder gekochte Kartoffeln mit verquirltem Ei vermengten und in Olivenöl ausbacken ließen. Dies ist der älteste bekannte schriftliche Beleg für die gezielte Kombination von Kartoffeln und Ei in der Pfanne.
+> *«In Spanien werden sie regelmäßig in Eintöpfen und Tortillas verwendet...»*
 
-### B. Das Memorial an die Cortes von Navarra (1817)
-Der zweite entscheidende Beleg – und das Zeugnis bäuerlicher Alltagsküche – ist eine Petition an das Regionalparlament von Navarra aus dem Jahr **1817**:
+Dieser Satz, verfasst 31 Jahre vor den Ereignissen in Villanueva de la Serena, ist der **älteste bekannte gedruckte Beleg**, der Kartoffeln explizit mit spanischen Eiertortillas verknüpft. Fünf Jahre später, im Jahr **1772**, bestätigte ein Handelsbericht von **Jaume Roig** an die Handelskammer von Barcelona, dass Landwirte in La Mancha Kartoffeln regelmäßig in Eiertortillas aßen.
+
+### B. Das Pfannenprotokoll aus Villanueva de la Serena (Extremadura, 1798)
+Der entscheidende Meilenstein der modernen Tortillageschichte wurde vom CSIC-Historiker **Javier López Linage** in *La patata en España: Historia y Agroecología del Tubérculo Andino* (2008) dokumentiert.
+
+In einer am **27. Februar 1798** in **Villanueva de la Serena (Badajoz)** unterzeichneten und am **16. August 1798** in Ausgabe Nr. 85 des *Semanario de Agricultura y Artes Dirigido a los Párrocos* publizierten Abhandlung beschrieben Grundbesitzer **Joseph de Tena Godoy y Malfeyto** und der **Marqués de Robledo** ihre Versuche gegen wiederkehrende Getreidehungersnöte.
+
+Ihr Ziel war ein nahrhaftes "Kartoffelbrot". Da die Kartoffelstärke jedoch kein Klebereiweiß (Gluten) besitzt, um wie Brot aufzugehen, mengten sie gekochte oder geriebene Kartoffeln mit verquirltem Ei und buken die Masse in der Pfanne mit heißem **[Olivenöl](/de/zutaten/olivenoel)** aus. Dies ist das **erste dokumentierte Küchenprotokoll über in der Pfanne gebratene Kartoffel-Ei-Tortillas**, weshalb Villanueva de la Serena jährlich die *Feria de la Tortilla* feiert.
+
+### C. Das Memorial an die Cortes von Navarra (1817): Bäuerliche Überlebensrealität
+Das im Generalarchiv von Navarra verwahrte Dokument von **1817** – volkstümlich *"memorial de ratonera"* genannt – bezeugt die Tortilla als echtes bäuerliches Alltagsgericht. In der anonymen Denkschrift *"Memorial über das Elend der Landarbeiter von Navarra"* heißt es:
 
 > *«...zwei oder drei Eier in der Pfanne für fünf oder sechs Personen, weil unsere Frauen sie groß und dick zu machen verstehen mit wenigen Eiern, indem sie Kartoffeln, Brotreste oder was gerade da ist untermischen...»*
 
-Dies belegt, dass die Kartoffel-Tortilla im frühen 19. Jahrhundert in Nordspanien bereits als traditionelles Mittel zur Eierstreckung etabliert war.
+Der historische Ausdruck *atapurres de pan* (Brotkrumen) beweist, wie Landfrauen Knollen und Reste nutzten, um teure Hühnereier zu strecken und große Familien zu ernähren.
 
-### C. Die Legende um General Zumalacárregui (Baskenland, 1835)
-Eine populäre Legende schreibt die Erfindung dem baskischen Karlistengeneral **Tomás de Zumalacárregui** während der Belagerung von Bilbao 1835 zu. Eine arme navarrische Bäuerin soll ihm aus purer Not Eier, Kartoffeln und Zwiebeln in Schmalz gebraten haben. Beeindruckt von der Energie soll er das Gericht für seine Truppen übernommen haben.
+### D. Die Legende um General Zumalacárregui (1835): Mythos vs. militärischer Vektor
+Eine verbreitete Legende schreibt die Erfindung dem Karlistengeneral **Tomás de Zumalacárregui** während der Belagerung von Bilbao 1835 zu. Eine Bäuerin soll ihm aus purer Not Eier, Kartoffeln und Schmalz gebraten haben.
 
-Obwohl das Gericht nachweislich älter ist, verdeutlicht die Legende eine historische Wahrheit: **Die Karlistenkriege dienten als gigantischer Verbreitungskanal**, der das Rezept durch heimkehrende Soldaten in ganz Spanien bekannt machte.
+**Historisches Urteil**: Diese Erzählung ist als Entstehungsursprung **eindeutig widerlegt**, da Primärquellen von 1767, 1798 und 1817 das Gericht Jahrzehnte früher belegen. Historiker betonen jedoch die Rolle der Karlisten- und Befreiungskriege als **riesige geografische Verbreitungskanäle**: Soldaten lernten das Gericht an der Front kennen und brachten es in ihre Heimatdörfer mit.
+
+### E. Erste gedruckte Kochbücher im 19. Jahrhundert
+Die Kartoffeltortilla fand bald ihren festen Platz in der kulinarischen Fachliteratur:
+* **1854 — José López Camuñas (*La cocina perfeccionada*)**: Veröffentlichte eines der ersten gedruckten Fachrezepte unter dem Titel *Tortilla de patatas*.
+* **1881 — Fidel Romero de Gállego (*El Hogar o Cocina sin desorden*, Saragossa)**: Kodifizierte das Rezept *Tortilla de Patatas Fritas* für die bürgerliche Küche.
+* **1894 — Ángel Muro (*El Practicón*)**: Erhob das Gericht endgültig in den nationalen spanischen Gastronomiekanon.
+* **1913 — Emilia Pardo Bazán (*La cocina española antigua*)**: Feierte die Tortilla selbstbewusst als ureigenes Kulturgut gegen die französische Haute-Cuisine-Dominanz.
+
+---
+
+## 3.1. Faktencheck-Matrix: Was ist historischer Fakt, was Mythos und was Meinung?
+
+Für alle geschichtsinteressierten Leser stellt diese Matrix gängige Behauptungen den Primärquellen gegenüber:
+
+| Gängige Behauptung | Kategorie | Historisches Urteil & Quellenlage | Nachweis / Quelle |
+| :--- | :--- | :--- | :--- |
+| **„General Zumalacárregui erfand die Tortilla 1835“** | **WIDERLEGTER MYTHOS** | **FALSCH**. Dokumente von 1767, 1798 und 1817 beweisen, dass das Gericht viel älter ist. Die Legende entstand erst im späten 19. Jh. | CSIC-Archiv; Generalarchiv Navarra. |
+| **„Villanueva de la Serena (1798) ist das erste Pfannen-Protokoll“** | **DOKUMENTIERTER FAKT** | **WAHR**. Tena Godoy und der Marqués de Robledo dokumentierten 1798 das Ausbacken von Kartoffeln mit Ei in der Pfanne als Brot-Ersatz. | *Semanario de Agricultura*, Nr. 85 (16. Aug. 1798). |
+| **„Joseph Antonio Valcárcel nannte Kartoffel-Tortillas 1767“** | **DOKUMENTIERTER FAKT** | **WAHR**. Früheste gedruckte Nennung von Kartoffeln in „guisados y tortillas“ in Spanien. | Valcárcel, *Agricultura General*, Bd. III (1767). |
+| **„Lancelot de Casteau erfand die Tortilla 1604 in Belgien“** | **INTERNET-HOAX** | **FALSCH**. In *Ouverture de cuisine* (1604) beschrieb Casteau gekochte Kartoffeln und Pasteten mit Käse, nie eine spanische Kartoffeltortilla. | Lancelot de Casteau, *Ouverture de cuisine* (1604). |
+| **„Die 'Tortilla Francesa' entstand 1810 in Cádiz aus Kartoffelnot“** | **KULTURELLE ETYMOLOGIE** | **TEILWAHRHEIT**. Reine Eieromeletts gab es seit Rom. Doch der spanische Spottname „francesa“ entstand 1810 während der napoleonischen Belagerung, als Kartoffeln fehlten. | Chroniken von Cádiz (1810–1812); Alexander Hunter (1806). |
+| **„Das Wort 'Tortilla' stammt von mexikanischen Maistortillas“** | **FALSCHE ETYMOLOGIE** | **FALSCH**. Die Azteken aßen *tlaxcalli*. Spanier nannten sie „Tortillas“ wegen der Ähnlichkeit zu runden Kuchen (*tortas*). Kein botanischer oder zoologischer Bezug. | Chroniken der Neuen Welt (Cortés, 1519). |
+| **„Das Originalrezept von 1798 oder 1817 enthielt zwingend Zwiebeln“** | **KULINARISCHE MEINUNG** | **DEBATTE / TRADITION**. Weder 1767, 1798 noch 1817 schreiben Zwiebeln vor. Die Zwiebel verbreitete sich später in Tavernen wegen Saftigkeit und Kostenersparnis. | Agrarische Traktate des 18. & 19. Jh. |
+| **„Flüssiger Kern (Betanzos-Stil) ist eine moderne Erfindung“** | **FAKT / HYGIENE** | **JAHRHUNDERTEALTE TRADITION**. In Galicien historisch verankert. In der Gastronomie gilt nach RD 1021/2022 Pflicht zu **70°C für 2 Minuten** (oder **63°C für 20 Sekunden**) und max. **4 Stunden** bei Raumtemperatur. | Real Decreto 1021/2022; UPV-Salmonellenstudie. |
+
+---
 
 ---
 
@@ -229,13 +280,19 @@ Wie in unserem **[Wissenschafts- & Hygiene-Leitfaden](/de/science)** dargelegt, 
 * **1. Jh. n. Chr.**: Apicius dokumentiert die *Ova Spongia ex Lacte* im Römischen Reich.
 * **1532**: Spanische Entdecker sichten die Kartoffel in den peruanischen Anden.
 * **1573**: Erster urkundlicher Nachweis des Kartoffelverzehrs im Hospital de las Cinco Llagas in Sevilla.
-* **1611**: Hofkoch Francisco Martínez Montiño veröffentlicht Rezepte für Kräutertortillas.
-* **1798**: Joseph de Tena Godoy und der Marqués de Robledo dokumentieren in **Villanueva de la Serena (Extremadura)** das erste gebratene Kartoffel-Ei-Pfannengericht.
-* **1817**: Das anonyme *Memorial an die Cortes von Navarra* beschreibt die Kartoffeltortilla als bäuerliches Streckgericht.
-* **1835**: Entstehung der Legende um General Tomás de Zumalacárregui im Karlistenkrieg.
-* **1894**: Ángel Muro kodifiziert das Rezept in *El Practicón*.
-* **1936–1945**: Die "falsche Orangenschalen-Tortilla" entsteht in den Hungerjahren des Bürgerkriegs.
-* **1990–Heute**: Globaler Tapas-Boom: Triumphzug der saftigen **[Tortilla de Betanzos](/de/recipes/betanzos-tortilla)** und weltweite Meisterklassen.
+* **1611**: Hofkoch Francisco Martínez Montiño veröffentlicht Rezepte für Kräutertortillas am spanischen Königshof.
+* **1767**: Joseph Antonio Valcárcel (*Agricultura General*, Bd. III) überliefert die früheste gedruckte Nennung von Kartoffeln in „Eintöpfen und Tortillas“.
+* **1772**: Jaume Roig dokumentiert vor der Handelskammer Barcelona den Verzehr von Eiertortillas mit Kartoffeln in La Mancha.
+* **1798**: Joseph de Tena Godoy und der Marqués de Robledo formulieren in **Villanueva de la Serena (Badajoz)** das erste Pfannenprotokoll für Kartoffeln und Ei in Olivenöl (unterzeichnet 27. Feb. 1798, publiziert 16. Aug. 1798).
+* **1810–1812**: Belagerung von Cádiz; Entstehung des satirischen Begriffs „Tortilla Francesa“ infolge von Kartoffelmangel.
+* **1817**: Das anonyme *Memorial an die Cortes von Navarra* beschreibt die bäuerliche Kartoffeltortilla mit Brotresten zum Strecken teurer Eier.
+* **1835**: Mythos um General Tomás de Zumalacárregui (Karlistenkriege); historisch als Ursprung widerlegt, jedoch massiver Verbreitungskanal.
+* **1854**: José López Camuñas (*La cocina perfeccionada*) publiziert eines der ersten gedruckten spanischen Kochbuchrezepte.
+* **1881**: Fidel Romero de Gállego (*El Hogar o Cocina sin desorden*, Saragossa) veröffentlicht sein Rezept für „Tortilla de Patatas Fritas“.
+* **1894**: Ángel Muro kodifiziert das Rezept in *El Practicón* im nationalen Gastronomiekanon.
+* **1913**: Emilia Pardo Bazán verteidigt die traditionelle Tortilla in *La cocina española antigua*.
+* **1936–1945**: Die „falsche Orangenschalen-Tortilla“ entsteht in den Hungerjahren des Bürgerkriegs.
+* **1990–Heute**: Globaler Tapas-Boom: Triumphzug der saftigen **[Tortilla de Betanzos](/de/recipes/betanzos-tortilla)**, moderne bakterizide Hygienevorgaben (**Real Decreto 1021/2022**: **70°C für 2 Minuten** oder **63°C für 20 Sekunden**) und weltweite Meisterklassen.
 
 ---
 

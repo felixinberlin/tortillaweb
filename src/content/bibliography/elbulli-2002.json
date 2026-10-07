@@ -1,0 +1,34 @@
+{
+  "id": "elbulli-2002",
+  "title": {
+    "es": "elBulli 1998–2002: Catálogo general (Tortilla de patatas desestructurada)",
+    "en": "elBulli 1998–2002: General Catalogue (Deconstructed Potato Omelette)",
+    "de": "elBulli 1998–2002: Gesamtkatalog (Dekonstruierte Kartoffeltortilla)"
+  },
+  "authors": [
+    "Ferran Adrià",
+    "Juli Soler",
+    "Albert Adrià"
+  ],
+  "year": 2002,
+  "type": "culinary_canon",
+  "category": "gastronomy",
+  "publisher": "RBA Libros",
+  "location": "Barcelona, España",
+  "officialCode": "ISBN 978-84-7871-049-2",
+  "url": "https://elbullifoundation.com/",
+  "citationText": "Adrià, F., Soler, J., & Adrià, A. (2002). elBulli 1998–2002. Barcelona: RBA Libros (Receta #258: 'Tortilla de patatas en copa de martini').",
+  "summary": {
+    "es": "Hito histórico de la alta cocina de vanguardia mundial: Ferran Adrià deconstruyó la tortilla en tres capas térmicas y texturales dentro de una copa de martini: cebolla pochada en la base, yema de huevo líquido templado, y espuma sifonada de patata y nata.",
+    "en": "Landmark moment in modern global avant-garde gastronomy: Ferran Adrià deconstructed the tortilla into three thermal and textural layers served in a martini glass: confited onion base, warm liquid egg yolk, and siphon-aerated potato-cream foam.",
+    "de": "Meilenstein der weltweiten Avantgarde-Küche: Ferran Adrià dekonstruierte die Tortilla im Martiniglas in drei Schichten: confierte Zwiebelbasis, lauwarmes flüssiges Eigelb und Siphon-Kartoffelespuma."
+  },
+  "keyTakeaway": {
+    "es": "Revolucionó el debate global entre tradición y vanguardia culinaria, demostrando que la identidad sápida de un plato popular reside en su memoria gustativa y proporciones aromáticas, aun alterando radicalmente su morfología física.",
+    "en": "Revolutionized the debate between culinary tradition and modernist technique, proving that a cultural dish's flavor memory persists through sensory essence even when physical morphology is inverted.",
+    "de": "Revolutionierte die Debatte zwischen Tradition und Moderne und bewies, dass die geschmackliche Identität eines Nationalgerichts in der sensorischen Erinnerung verankert bleibt."
+  },
+  "relatedArticleSlugs": ["recipes", "recetas", "history", "historia", "ciencia"],
+  "verified": true,
+  "tags": ["ferran_adria", "elbulli", "deconstruccion", "espuma", "vanguardia"]
+}

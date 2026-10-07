@@ -58,9 +58,9 @@
       },
       "location": "Villanueva de la Serena (Badajoz)",
       "description": {
-        "es": "Documentos de Extremadura detallan cómo el ingenio local creó la fórmula de patata y huevo como respuesta nutritiva a la escasez agrícola.",
-        "en": "Extremaduran historical archives detail how local ingenuity created the potato and egg formula as a nutritious answer to agricultural scarcity.",
-        "de": "Archive aus Extremadura belegen die genaue Kombination aus Kartoffel und Ei als nährstoffreiche Antwort auf Hungersnöte."
+        "es": "Carta firmada el 27 de febrero de 1798 por Joseph de Tena Godoy y el Marqués de Robledo (publicada en agosto en el Semanario de Agricultura nº 85): primera formulación técnica en sartén con aceite.",
+        "en": "Letter signed Feb 27, 1798, by Joseph de Tena Godoy and the Marquis of Robledo (published in August in Semanario de Agricultura #85): first technical skillet protocol in olive oil.",
+        "de": "Brief vom 27. Februar 1798 von Joseph de Tena Godoy und dem Marqués de Robledo (publiziert August 1798 im Semanario de Agricultura Nr. 85): erstes Pfannenprotokoll mit Olivenöl."
       },
       "badge": {
         "es": "Hito Fundacional",
@@ -115,14 +115,33 @@
       },
       "location": "Guerras Carlistas",
       "description": {
-        "es": "La tradición narra que una campesina anónima improvisó el plato para el general Carlista para nutrir a sus tropas de forma rápida, económica y calórica.",
-        "en": "Tradition holds that an anonymous farmwoman created the dish for Carlist troops to provide a dense, affordable military ration.",
-        "de": "Eine Bäuerin soll das nahrhafte, günstige Gericht improvisiert haben, um Karlistentruppen schnell zu verpflegen."
+        "es": "La tradición atribuía la invención a una campesina para el general en el Sitio de Bilbao. Mito refutado como origen, pero vector crucial de difusión militar por toda España.",
+        "en": "Tradition attributed invention to a peasant woman for the general during the Siege of Bilbao. Disproven as origin, but vital military geographic spreader.",
+        "de": "Der Volksmund schrieb die Erfindung einer Bäuerin bei der Belagerung von Bilbao zu. Als Ursprung widerlegt, doch historisch ein massiver Verbreitungskanal."
       },
       "badge": {
         "es": "Mito Gastronómico",
         "en": "Gastronomic Legend",
         "de": "Mythen & Legenden"
+      }
+    },
+    {
+      "year": "1854",
+      "title": {
+        "es": "Primera Receta en Recetario",
+        "en": "First Printed Cookbook Recipe",
+        "de": "Erstes Gedrucktes Kochbuchrezept"
+      },
+      "location": "Madrid",
+      "description": {
+        "es": "José López Camuñas publica en 'La cocina perfeccionada' una de las primeras recetas formales impresas bajo el título de 'Tortilla de patatas'.",
+        "en": "José López Camuñas publishes one of the earliest formal recipes explicitly titled 'Tortilla de patatas' in 'La cocina perfeccionada'.",
+        "de": "José López Camuñas veröffentlicht in 'La cocina perfeccionada' eines der ersten formalen Kochbuchrezepte als 'Tortilla de patatas'."
+      },
+      "badge": {
+        "es": "Codificación Culinaria",
+        "en": "Culinary Codification",
+        "de": "Kulinarische Kodifizierung"
       }
     },
     {

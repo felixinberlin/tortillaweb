@@ -82,43 +82,94 @@ Why did the potato-egg pairing eclipse all preceding omelette styles?
 
 ---
 
-## 3. Regional Origin Theories: Documents, Myths & Disputes
+## 3. Documentary Timeline of Origins: Treatises, Archives & Controversies
 
-For decades, the exact birthplace of the potato omelette sparked passionate debates among historians and culinary scholars. Modern archival research has established clear factual coordinates:
+For decades, the exact birthplace of the potato omelette sparked passionate debates among historians and culinary scholars. Modern archival research by Spain's National Research Council (CSIC) has established definitive factual coordinates:
 
 ```
-┌────────────────────────────────────────────────────────────────────────┐
-│               DOCUMENTARY TIMELINE OF ORIGINS                          │
-├────────────────────────┬─────────────────────┬────────────────────────┤
-│ REGION                 │ RECORDED DATE       │ HISTORICAL SOURCE      │
-├────────────────────────┼─────────────────────┼────────────────────────┤
-│ Extremadura            │ 1798                │ Writings of Robledo &  │
-│ (Villanueva de la S.)  │                     │ Joseph de Tena Godoy   │
-├────────────────────────┼─────────────────────┼────────────────────────┤
-│ Navarre                │ 1817                │ Anonymous Memorial to  │
-│ (Pamplona / Cuenca)    │                     │ the Cortes of Navarre  │
-├────────────────────────┼─────────────────────┼────────────────────────┤
-│ Basque Country         │ 1835 (Military Myth)│ Legend of Zumalacár-   │
-│ (Bilbao / Gipuzkoa)    │                     │ regui (Carlist Wars)   │
-└────────────────────────┴─────────────────────┴────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        HISTORICAL DOCUMENTARY ORIGINS MATRIX                           │
+├───────┬──────────────────────────────┬─────────────────────────────────────────────────┤
+│ YEAR  │ REGION / LOCATION            │ HISTORICAL SOURCE & SIGNIFICANCE                │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1767  │ Valencia / Peninsular Spain  │ Joseph Antonio Valcárcel (*Agricultura General*)│
+│       │                              │ Earliest printed text: potatoes in tortillas    │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1772  │ Barcelona / La Mancha        │ Jaume Roig (Barcelona Board of Commerce)        │
+│       │                              │ Report on rural consumption of potatoes & eggs  │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1798  │ Extremadura                  │ Joseph de Tena Godoy & Marquis of Robledo       │
+│       │ (Villanueva de la Serena)    │ *Semanario de Agricultura y Artes* (Issue #85)  │
+│       │                              │ Earliest technical skillet protocol with olive oil│
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1810  │ Cádiz                        │ Napoleonic Siege (Peninsular War)               │
+│ -1812 │                              │ Gaditano satire: origins of "French omelette"   │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1817  │ Navarre                      │ Anonymous *Memorial to the Cortes of Navarre*   │
+│       │ (Pamplona / Cuenca)          │ First record of rural peasant household practice│
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1835  │ Basque Country / Navarre     │ Legend of Tomás de Zumalacárregui (Carlist War) │
+│       │                              │ DISPROVEN MYTH, but vital military spreader     │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1854  │ Madrid / Publishing          │ José López Camuñas (*La cocina perfeccionada*)  │
+│       │                              │ Earliest formal printed cookbook recipe         │
+├───────┼──────────────────────────────┼─────────────────────────────────────────────────┤
+│ 1881  │ Zaragoza                     │ Fidel Romero de Gállego (*El Hogar*)            │
+│       │                              │ Recipe for "Tortilla de Patatas Fritas"         │
+└───────┴──────────────────────────────┴─────────────────────────────────────────────────┘
 ```
 
-### A. The Villanueva de la Serena Document (Extremadura, 1798)
-The pivotal breakthrough in tortilla historiography was uncovered by CSIC scientist and historian **Javier López Linage** in *La patata en España*.
+### A. The Earliest Printed Reference: Joseph Antonio Valcárcel (1767)
+Decades before 19th-century cookbooks codified the recipe, Enlightenment agronomist **Joseph Antonio Valcárcel** published the third volume of his monumental work *Agricultura General y Gobierno de la Casa de Campo* in **1767**. Discussing the agricultural acclimation of Andean potatoes across Spain, Valcárcel made a crucial observation:
 
-Documents published in the *Semanario de Agricultura y Artes Dirigido a los Párrocos* on **October 27, 1798**, in **Villanueva de la Serena (Badajoz)** record that Enlightenment landowners **Joseph de Tena Godoy y Malfeyto** and the **Marquis of Robledo** developed an affordable, nutritious pan-fried cake by mixing grated or boiled potatoes with beaten eggs and frying them in olive oil. This text represents the oldest known direct written description of fried potatoes and eggs bound in a skillet.
+> *«In Spain they are regularly used in stews and tortillas...»*
 
-### B. The Memorial to the Cortes of Navarre (1817)
-The second decisive documentary pillar—and the earliest account of rural peasant household practice—is an anonymous 1817 petition submitted to the regional parliament entitled *"Memorial on the Misery of Navarre Farmers"*:
+Written 31 years before the events in Villanueva de la Serena, this document represents the **earliest known printed Spanish text** recording that potatoes were being integrated into egg tortillas. In **1772**, an official trade report by **Jaume Roig** for the Barcelona Board of Commerce confirmed that rural communities in La Mancha regularly consumed potatoes combined with beaten eggs.
+
+### B. The Skillet Formulation in Villanueva de la Serena (Extremadura, 1798)
+The pivotal breakthrough in tortilla historiography was uncovered by CSIC scientist and historian **Javier López Linage** in his research *La patata en España: Historia y Agroecología del Tubérculo Andino* (2008).
+
+In a paper signed on **February 27, 1798**, in **Villanueva de la Serena (Badajoz)** and published on **August 16, 1798**, in Issue No. 85 of the *Semanario de Agricultura y Artes Dirigido a los Párrocos*, Enlightenment landowners **Joseph de Tena Godoy y Malfeyto** and the **Marquis of Robledo** documented their experiments to alleviate recurring wheat famines.
+
+Their initial objective was to bake an economical, nourishing "potato bread." Discovering that potato starch lacked the gluten necessary to leaven and bake in a traditional oven, they hit upon blending boiled or grated potatoes with beaten eggs and frying the mixture in a skillet with hot **[olive oil](/en/ingredients/oil)**. This text is the **earliest documented culinary protocol describing fried potatoes and eggs cooked as an omelette in a pan**, establishing Villanueva de la Serena's historical title as the documentary cradle of the recipe.
+
+### C. The Memorial to the Cortes of Navarre (1817): Peasant Household Reality
+While the 1798 Extremadura document reflects the agrarian ingenuity of the landed Enlightenment, an **1817** petition preserved in the General Archive of Navarre—colloquially known as the *"memorial de ratonera"*—provides the earliest written evidence of the tortilla as a daily rural survival food. Submitted anonymously to the regional parliament under the title *"Memorial on the Misery of Navarre Farmers"*, the author lamented:
 
 > *«...two or three eggs in a skillet for five or six people, because our women know how to make it large and thick with few eggs by mixing in potatoes, breadcrumbs, or whatever is at hand...»*
 
-This passage proves that by the early 19th century, the potato omelette was already a widespread domestic technique across northern Spain for stretching scarce eggs.
+The archaic term *atapurres de pan* (crusts or crumbs) confirms that Navarrese peasant women used potatoes to multiply the caloric volume of scarce hen eggs to nourish large families.
 
-### C. The Legend of General Zumalacárregui (Basque Country, 1835)
-A persistent popular legend attributes the invention to Basque Carlist general **Tomás de Zumalacárregui** during the First Siege of Bilbao in 1835. According to folklore, an impoverished Navarre peasant woman concocted the dish from her meager pantry (eggs, potatoes, and onion scrambled in lard) to feed the general. Impressed by its energy density, Zumalacárregui allegedly adopted it to feed his troops.
+### D. The Legend of General Zumalacárregui (1835): Folklore vs. Military Vector
+A widespread popular myth credits the invention to Basque Carlist general **Tomás de Zumalacárregui** during the First Siege of Bilbao in 1835. According to romance folklore, an impoverished Navarre peasant woman whipped up whatever remained in her pantry (eggs, potatoes, and lard) to feed the general, who then adopted it for his troops.
 
-While modern historiography has established that the recipe predated the Carlist Wars by decades, the legend highlights a sociological truth: **19th-century military conflicts served as massive geographic distribution channels**, spreading the recipe nationwide as soldiers returned home to their provinces.
+**Historiographical Verdict**: Modern archival research has **categorically disproven** this legend as the origin point, since verified manuscripts from 1767, 1798, and 1817 predate the siege by decades. Nonetheless, military historians acknowledge an underlying truth: **the 19th-century Carlist Wars and Peninsular War acted as powerful nationwide distribution channels**, spreading the technique from province to province as conscripts returned home.
+
+### E. 19th-Century Culinary Literature: The First Cookbooks
+From oral rural heritage, the potato omelette quickly graduated into published culinary treatises:
+* **1854 — José López Camuñas (*La cocina perfeccionada*)**: Published one of the earliest explicit cookbook recipes titled *Tortilla de patatas*, instructing cooks to slice potatoes thinly and fry them gently over moderate heat.
+* **1881 — Fidel Romero de Gállego (*El Hogar o Cocina sin desorden*, Zaragoza)**: Included a concise recipe for *Tortilla de Patatas Fritas*, establishing standard regional home cooking practices.
+* **1894 — Ángel Muro (*El Practicón*)**: Fully canonized the recipe within national Spanish gastronomy, setting guidelines for olive oil temperature and potato thickness.
+* **1913 — Emilia Pardo Bazán (*La cocina española antigua*)**: Proudly defended the humble tortilla against the French gastronomic hegemony dominating aristocratic banquets.
+
+---
+
+## 3.1. Historiographical Veracity Audit: Fact, Myth or Culinary Opinion?
+
+To assist researchers and culinary enthusiasts seeking genuine historical truth, this matrix audits popular claims against primary archival sources:
+
+| Popular Claim | Category | Verdict & Archival Evidence | Source Reference |
+| :--- | :--- | :--- | :--- |
+| **"General Zumalacárregui invented the tortilla in 1835"** | **DISPROVEN MYTH** | **FALSE**. Primary documents from 1767, 1798, and 1817 prove the recipe existed decades prior. The legend only arose in late 19th-century folklore. | CSIC Archives; General Archive of Navarre. |
+| **"Villanueva de la Serena (1798) is the earliest documented skillet recipe"** | **DOCUMENTED FACT** | **TRUE**. Joseph de Tena Godoy and the Marquis of Robledo documented frying potato and beaten egg in a skillet with olive oil to replace bread. | *Semanario de Agricultura y Artes*, #85 (Aug 16, 1798). |
+| **"Joseph Antonio Valcárcel linked potatoes and tortillas in 1767"** | **DOCUMENTED FACT** | **TRUE**. The earliest explicit printed citation of potatoes used in "guisados y tortillas" in Spain. | Valcárcel, *Agricultura General*, Vol. III (1767). |
+| **"Lancelot de Casteau invented the tortilla in Belgium in 1604"** | **INTERNET HOAX** | **FALSE**. In *Ouverture de cuisine* (1604), Casteau prepared boiled potatoes in butter or in cheese pies, but never a Spanish potato omelette. | Lancelot de Casteau, *Ouverture de cuisine* (1604). |
+| **"The 'French omelette' arose in Cádiz in 1810 due to potato shortages"** | **WAR SATIRE & ETYMOLOGY** | **PARTIAL TRUTH**. Plain egg omelettes existed since Rome. However, the Spanish term "tortilla francesa" was popularized ironically during the French siege when potatoes ran out. | Siege of Cádiz Chronicles (1810–1812); Alexander Hunter (1806). |
+| **"The word 'tortilla' derives from the Aztec corn tortilla"** | **FALSE ETYMOLOGY** | **FALSE**. Aztecs ate corn *tlaxcalli*. Spanish conquistadors named it "tortilla" by visual analogy with European flat round cakes. The egg tortilla does not derive from corn. | Chronicles of the Indies (Cortés, 1519). |
+| **"The original 1798 or 1817 recipe required onion"** | **CULINARY OPINION** | **TRADITION / DEBATE**. Neither 1767, 1798, nor 1817 documents specify onion as mandatory. Onion spread in 19th-century taverns for cost reduction and moisture. | 18th & 19th-century agricultural treatises. |
+| **"Runny or liquid center (Betanzos style) is a modern novelty"** | **FACT / SCIENCE** | **CENTURY-OLD TRADITION**. Galicia's Betanzos style is historic. Modern commercial catering requires reaching **70°C for 2 minutes** (or **63°C for 20 seconds**) per RD 1021/2022 and max. **4 hours** at room temp. | Royal Decree 1021/2022; UPV Salmonella Study. |
+
+---
 
 ---
 
@@ -230,13 +281,19 @@ As detailed in our **[Food Safety Science Hub](/en/science)**, modern Spanish re
 * **1st Century CE**: Apicius documents the *Ova Spongia ex Lacte* in Imperial Rome.
 * **1532**: Spanish explorers first observe the potato in Peru.
 * **1573**: First recorded European potato consumption at Seville's Hospital de las Cinco Llagas.
-* **1611**: Royal chef Francisco Martínez Montiño publishes recipes for folded herb tortillas.
-* **1798**: Joseph de Tena Godoy and the Marquis of Robledo document the first fried potato-and-egg skillet cake in **Villanueva de la Serena (Extremadura)**.
-* **1817**: The anonymous *Memorial to the Cortes of Navarre* details the potato omelette as widespread peasant subsistence food.
-* **1835**: The legend of General Tomás de Zumalacárregui emerges during the Carlist Siege of Bilbao.
-* **1894**: Ángel Muro codifies the classic recipe in *El Practicón*.
+* **1611**: Royal chef Francisco Martínez Montiño publishes recipes for folded herb tortillas in the Spanish court.
+* **1767**: Joseph Antonio Valcárcel (*Agricultura General*, Vol. III) records the earliest known printed reference to potatoes in "stews and tortillas" in Spain.
+* **1772**: Jaume Roig documents beaten egg tortillas with potatoes in La Mancha for the Barcelona Board of Commerce.
+* **1798**: Joseph de Tena Godoy and the Marquis of Robledo formulate the earliest skillet protocol in **Villanueva de la Serena (Badajoz)** (letter signed Feb 27, 1798; published Aug 16, 1798).
+* **1810–1812**: Siege of Cádiz; ironic popular birth of the "tortilla francesa" nomenclature during severe potato blockades.
+* **1817**: The anonymous *Memorial to the Cortes of Navarre* details the potato omelette with breadcrumbs as essential peasant subsistence food.
+* **1835**: Legend of General Tomás de Zumalacárregui (Carlist Wars); historiographically disproven as the origin point, but pivotal nationwide military spreading vector.
+* **1854**: José López Camuñas (*La cocina perfeccionada*) publishes one of the earliest printed cookbook recipes in Spain.
+* **1881**: Fidel Romero de Gállego (*El Hogar o Cocina sin desorden*, Zaragoza) publishes his recipe for "Tortilla de Patatas Fritas".
+* **1894**: Ángel Muro codifies the classic recipe into the national canon in *El Practicón*.
+* **1913**: Emilia Pardo Bazán defends the potato omelette in *La cocina española antigua*.
 * **1936–1945**: The "orange peel fake tortilla" invented during the Spanish Civil War and post-war hunger years.
-* **1990–Present**: Global tapas explosion: celebrated rise of the **[Tortilla de Betanzos](/en/recipes/betanzos-style-spanish-omelette)**, modernist deconstructions, and international culinary acclaim.
+* **1990–Present**: Global tapas explosion: rise of the **[Tortilla de Betanzos](/en/recipes/betanzos-style-spanish-omelette)**, modern bactericidal safety standards (**Royal Decree 1021/2022**: **70°C for 2 minutes** or **63°C for 20 seconds**), and international acclaim.
 
 ---
 

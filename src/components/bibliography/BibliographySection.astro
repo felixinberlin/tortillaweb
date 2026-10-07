@@ -1,0 +1,190 @@
+---
+import { getBibliographyForArticle, getBibliographyByIds, type LocalizedBibliographyItem } from '@/lib/bibliography';
+import { BookOpen, ExternalLink, ShieldCheck, Quote, ChevronRight, FileText, CheckCircle2 } from 'lucide-react';
+
+interface Props {
+  articleSlug?: string;
+  sourceIds?: string[];
+  lang?: 'es' | 'en' | 'de';
+  title?: string;
+  description?: string;
+  limit?: number;
+  showMasterLink?: boolean;
+}
+
+const {
+  articleSlug = 'history',
+  sourceIds,
+  lang = 'es',
+  title,
+  description,
+  limit,
+  showMasterLink = true
+} = Astro.props;
+
+let sources: LocalizedBibliographyItem[] = [];
+
+if (sourceIds && sourceIds.length > 0) {
+  sources = await getBibliographyByIds(sourceIds, lang);
+} else if (articleSlug) {
+  sources = await getBibliographyForArticle(articleSlug, lang);
+}
+
+if (limit && limit > 0) {
+  sources = sources.slice(0, limit);
+}
+
+const defaultTitles = {
+  es: {
+    heading: "Bibliografía & Fuentes Documentales",
+    subheading: "Obras académicas, archivos históricos, legislación oficial y tratados culinarios que sustentan esta investigación.",
+    badge: "Archivo Documental Primario",
+    viewAll: "Consultar Archivo Bibliográfico Completo",
+    takeaway: "Conclusión documental / Hallazgo clave:",
+    officialCode: "Registro Oficial:",
+    verifiedBadge: "Fuente Primaria Verificada"
+  },
+  en: {
+    heading: "Bibliography & Documentary Sources",
+    subheading: "Academic treatises, historical manuscripts, official gazette laws, and culinary canon underpinning this research.",
+    badge: "Primary Archival Sources",
+    viewAll: "Explore Master Bibliography & Reference Archive",
+    takeaway: "Documentary Finding / Core Evidence:",
+    officialCode: "Official Record:",
+    verifiedBadge: "Verified Primary Source"
+  },
+  de: {
+    heading: "Bibliographie & Dokumentarische Quellen",
+    subheading: "Wissenschaftliche Monografien, historische Manuskripte, Gesetzblätter und Meisterrezepte, die diese Recherche stützen.",
+    badge: "Primärquellen-Archiv",
+    viewAll: "Vollständiges Bibliographie-Archiv ansehen",
+    takeaway: "Wissenschaftlicher Kernbefund:",
+    officialCode: "Offizielles Register:",
+    verifiedBadge: "Geprüfte Primärquelle"
+  }
+};
+
+const texts = defaultTitles[lang] || defaultTitles.es;
+const displayHeading = title || texts.heading;
+const displaySubheading = description || texts.subheading;
+---
+
+{sources.length > 0 && (
+  <section class="bibliography-section mt-12 pt-8 border-t-2 border-[#8D6E63]/20" aria-label={displayHeading}>
+    <div class="space-y-4 mb-6">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#FFB800]/15 text-[#8D6E63] dark:text-[#FFB800] text-xs font-mono font-bold border border-[#FFB800]/30">
+          <BookOpen class="w-3.5 h-3.5" />
+          <span>{texts.badge}</span>
+        </div>
+
+        {showMasterLink && (
+          <a
+            href={`/${lang}/bibliografia`}
+            class="text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline inline-flex items-center gap-1 group"
+          >
+            <span>{texts.viewAll}</span>
+            <ChevronRight class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
+        )}
+      </div>
+
+      <div>
+        <h3 class="text-xl md:text-2xl font-serif-heading font-bold text-foreground">
+          {displayHeading}
+        </h3>
+        <p class="text-xs md:text-sm text-muted-foreground mt-1 max-w-3xl leading-relaxed">
+          {displaySubheading}
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {sources.map((item) => (
+        <article class="p-4 sm:p-5 rounded-xl bg-card border border-border shadow-xs hover:border-[#FFB800]/50 transition-all flex flex-col justify-between space-y-3">
+          <div class="space-y-2.5">
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <span class="text-[10px] font-mono uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-accent text-foreground border border-border">
+                {item.typeLabel}
+              </span>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-mono font-bold text-[#8D6E63] dark:text-[#FFB800]">
+                  {item.year}
+                </span>
+                {item.verified && (
+                  <span class="inline-flex items-center gap-0.5 text-[10px] font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded" title={texts.verifiedBadge}>
+                    <CheckCircle2 class="w-3 h-3" />
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <!-- Title & Authors -->
+            <div>
+              <h4 class="text-sm sm:text-base font-serif-heading font-bold text-foreground leading-snug">
+                {item.title}
+              </h4>
+              <p class="text-xs font-medium text-muted-foreground mt-0.5">
+                {item.authors.join(', ')} {item.publisher ? `· ${item.publisher}` : ''} {item.location ? `(${item.location})` : ''}
+              </p>
+            </div>
+
+            <!-- Canonical Citation snippet -->
+            <div class="p-2 rounded bg-accent/70 border border-border text-[11px] font-mono text-muted-foreground leading-relaxed break-words">
+              {item.citationText}
+            </div>
+
+            <!-- Summary & Key Takeaway -->
+            <p class="text-xs text-foreground/90 leading-relaxed">
+              {item.summary}
+            </p>
+
+            {item.keyTakeaway && (
+              <div class="text-xs bg-[#FFB800]/10 border-l-2 border-[#FFB800] p-2 rounded-r text-foreground/90 leading-relaxed">
+                <span class="font-bold text-[#8D6E63] dark:text-[#FFB800] block text-[11px]">
+                  {texts.takeaway}
+                </span>
+                <span set:html={item.keyTakeaway} />
+              </div>
+            )}
+
+            {item.quote && (
+              <blockquote class="italic text-xs text-muted-foreground border-l-2 border-border pl-2.5 py-0.5 my-1">
+                "{item.quote}"
+              </blockquote>
+            )}
+          </div>
+
+          <!-- Footer Actions & Links -->
+          <div class="pt-2 border-t border-border/70 flex items-center justify-between text-xs">
+            {item.officialCode ? (
+              <span class="text-[11px] font-mono text-muted-foreground">
+                {item.officialCode}
+              </span>
+            ) : (
+              <span class="text-[11px] font-mono text-muted-foreground">
+                {item.categoryLabel}
+              </span>
+            )}
+
+            {item.url ? (
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline"
+              >
+                <span>Documento</span>
+                <ExternalLink class="w-3 h-3" />
+              </a>
+            ) : (
+              <span class="text-[10px] text-muted-foreground font-mono">Archivo Histórico</span>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+)}

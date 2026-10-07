@@ -273,6 +273,54 @@ const videoCollection = defineCollection({
   }),
 });
 
+const bibliographyCollection = defineCollection({
+  loader: glob({ 
+    pattern: '**/*.json', 
+    base: './src/content/bibliography',
+    generateId: ({ entry }) => entry.replace(/\.json$/, '').replace(/\//g, '-'),
+  }),
+  schema: z.object({
+    id: z.string(),
+    title: localizedStringSchema,
+    authors: z.array(z.string()),
+    year: z.union([z.number(), z.string()]),
+    type: z.enum([
+      'manuscript',
+      'academic_book',
+      'academic_paper',
+      'legislation',
+      'official_report',
+      'culinary_canon',
+      'survey',
+      'historical_chronicle',
+      'gastronomic_press',
+      'archive',
+      'website',
+    ]),
+    category: z.enum([
+      'history',
+      'science',
+      'safety',
+      'gastronomy',
+      'sociology',
+      'agronomy',
+    ]),
+    publication: z.string().optional(),
+    publisher: z.string().optional(),
+    location: z.string().optional(),
+    url: z.string().optional(),
+    doi: z.string().optional(),
+    officialCode: z.string().optional(),
+    citationText: z.string(),
+    summary: localizedStringSchema,
+    keyTakeaway: localizedStringSchema.optional(),
+    quote: localizedStringSchema.optional(),
+    relatedArticleSlugs: z.array(z.string()).default([]),
+    verified: z.boolean().default(true),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 export const collections = {
   recipes: recipeCollection,
   taxonomies: taxonomyCollection,
@@ -286,4 +334,5 @@ export const collections = {
   guides: guidesCollection,
   stories: storiesCollection,
   videos: videoCollection,
+  bibliography: bibliographyCollection,
 };

@@ -2,10 +2,11 @@
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Calendar, Clock, Quote, ChevronRight, User, ListOrdered, Scale } from 'lucide-react';
+import { BookOpen, Calendar, Clock, Quote, ChevronRight, User, ListOrdered, Scale, CheckCircle2, XCircle, AlertCircle, HelpCircle, ShieldCheck } from 'lucide-react';
 import { getCollection, render } from 'astro:content';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+import BibliographySection from '@/components/bibliography/BibliographySection.astro';
 import { supportedLanguages } from '@/lib/i18n';
 import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
@@ -49,7 +50,7 @@ const articleDescription = currentEntry?.data.description || (
 const uiLabels = {
   es: {
     badge: "Manuscrito Gastronómico & Crónica Histórica",
-    readTime: "7 min de lectura",
+    readTime: "8 min de lectura",
     era: "Siglos XVI – XXI",
     keyMilestone: "1798 Villanueva de la Serena",
     tocTitle: "Índice del Manuscrito",
@@ -61,10 +62,13 @@ const uiLabels = {
     chefNoteText: "«La tortilla de patatas no nació de la abundancia, sino de la necesidad, la imaginación culinaria y la transformación agrícola tras el encuentro de dos mundos.»",
     timelineSummaryTitle: "Hitos Cronológicos Destacados",
     backToTop: "Volver arriba",
+    factCheckBadge: "Auditoría Historiográfica",
+    factCheckTitle: "Fact-Check: Hechos vs Mitos",
+    factCheckDesc: "Verificación de las 5 afirmaciones más buscadas en Google con base en archivos del CSIC.",
   },
   en: {
     badge: "Gastronomic Manuscript & Historical Chronicle",
-    readTime: "7 min read",
+    readTime: "8 min read",
     era: "16th – 21st Centuries",
     keyMilestone: "1798 Villanueva de la Serena",
     tocTitle: "Table of Contents",
@@ -76,10 +80,13 @@ const uiLabels = {
     chefNoteText: "“The tortilla de patatas was born not from abundance, but from necessity, culinary ingenuity, and agricultural transformation following the meeting of two worlds.”",
     timelineSummaryTitle: "Key Chronological Milestones",
     backToTop: "Back to top",
+    factCheckBadge: "Historiographical Audit",
+    factCheckTitle: "Fact-Check: Fact vs Myth",
+    factCheckDesc: "Verification of the top search queries based on primary CSIC and regional archive evidence.",
   },
   de: {
     badge: "Gastronomisches Manuskript & Historische Chronik",
-    readTime: "7 Min. Lesezeit",
+    readTime: "8 Min. Lesezeit",
     era: "16. – 21. Jahrhundert",
     keyMilestone: "1798 Villanueva de la Serena",
     tocTitle: "Inhaltsverzeichnis",
@@ -91,44 +98,86 @@ const uiLabels = {
     chefNoteText: "„Die Tortilla de Patatas entstand nicht aus Überfluss, sondern aus Notwendigkeit, kulinarischer Erfindungskraft und dem landwirtschaftlichen Wandel.“",
     timelineSummaryTitle: "Wichtige chronologische Meilensteine",
     backToTop: "Nach oben",
+    factCheckBadge: "Faktencheck-Audit",
+    factCheckTitle: "Fact-Check: Fakt vs Mythos",
+    factCheckDesc: "Überprüfung der meistgesuchten Thesen anhand von Primärquellen des spanischen Forschungsrats CSIC.",
   }
 };
 
 const labels = uiLabels[currentLang] || uiLabels.es;
 
 const keyMilestones = [
-  { year: "S. XVI", title: currentLang === 'en' ? "Arrives in Europe" : currentLang === 'de' ? "Ankunft in Europa" : "Llegada a Europa", tag: "Andes" },
-  { year: "1604", title: "Lancelot de Casteau", tag: "*Ouverture de cuisine*" },
-  { year: "1798", title: "Villanueva de la Serena", tag: "Tena Godoy & Robledo" },
-  { year: "1817", title: "Navarra Rural", tag: "Primeras notas rurales" },
-  { year: "1940s", title: "Años del Hambre", tag: "Falsa tortilla" },
-  { year: "S. XXI", title: currentLang === 'en' ? "Global Symbol" : currentLang === 'de' ? "Globales Symbol" : "Símbolo Mundial", tag: "Gastronomía" },
+  { year: "1573", title: currentLang === 'en' ? "Seville Hospital" : currentLang === 'de' ? "Spital Sevilla" : "Hospital Sevilla", tag: currentLang === 'en' ? "1st European Eating" : currentLang === 'de' ? "1. Verzehr" : "1er Consumo" },
+  { year: "1767", title: "J. A. Valcárcel", tag: currentLang === 'en' ? "1st Printed Mention" : currentLang === 'de' ? "1. Druckbeleg" : "1ª Mención Impresa" },
+  { year: "1798", title: "Villanueva Serena", tag: currentLang === 'en' ? "1st Skillet Protocol" : currentLang === 'de' ? "1. Pfannenprotokoll" : "1ª Receta Sartén" },
+  { year: "1817", title: "Navarra Rural", tag: currentLang === 'en' ? "Peasant Practice" : currentLang === 'de' ? "Bäuerlicher Alltag" : "Práctica Campesina" },
+  { year: "1854", title: "J. López Camuñas", tag: currentLang === 'en' ? "1st Cookbook" : currentLang === 'de' ? "1. Kochbuch" : "1er Libro Cocina" },
+  { year: "S. XXI", title: currentLang === 'en' ? "Global Icon" : currentLang === 'de' ? "Globales Symbol" : "Símbolo Mundial", tag: "Betanzos & Tapas" },
 ];
 
 const keyFigures = [
   {
-    name: "Lancelot de Casteau",
-    year: "1604",
-    role: currentLang === 'en' ? "European Master Chef" : currentLang === 'de' ? "Europäischer Meisterkoch" : "Maestro Cocinero Europeo",
-    desc: currentLang === 'en' ? "Documented early European potato preparations in *Ouverture de cuisine*." : currentLang === 'de' ? "Dokumentierte frühe europäische Kartoffelgerichte in *Ouverture de cuisine*." : "Documentó las primeras preparaciones europeas con patata en *Ouverture de cuisine*."
-  },
-  {
-    name: "Francisco Martínez Montiño",
-    year: "1611",
-    role: currentLang === 'en' ? "Royal Court Chef" : currentLang === 'de' ? "Hofkoch König Philips" : "Cocinero de la Corte Real",
-    desc: currentLang === 'en' ? "Author of *Arte de Cocina*, featuring egg dishes like the *tortilla de la Cartuja*." : currentLang === 'de' ? "Autor von *Arte de Cocina*, der Eiergerichte wie die *Tortilla de la Cartuja* erfand." : "Autor de *Arte de Cocina*, creador de recetas con huevo como la *tortilla de la Cartuja*."
+    name: "Joseph Antonio Valcárcel",
+    year: "1767",
+    role: currentLang === 'en' ? "Enlightenment Agronomist" : currentLang === 'de' ? "Aufklärungs-Agronom" : "Agrónomo Ilustrado",
+    desc: currentLang === 'en' ? "Authored 'Agricultura General' (Vol. III), recording the earliest printed mention of potatoes in tortillas." : currentLang === 'de' ? "Autor von 'Agricultura General', frühester Druckbeleg für Kartoffeln in spanischen Tortillas." : "Autor de 'Agricultura General', primera mención documental expresa de patatas en 'guisados y tortillas'."
   },
   {
     name: "J. de Tena Godoy & M. de Robledo",
     year: "1798",
     role: currentLang === 'en' ? "Pioneers of Villanueva" : currentLang === 'de' ? "Pioniere aus Villanueva" : "Pioneros de Villanueva",
-    desc: currentLang === 'en' ? "Researched by J. López Linage; documented an early precursor during cereal shortages in Extremadura." : currentLang === 'de' ? "Nach Forschungen von J. López Linage Dokumentation eines Vorläufers in der Extremadura." : "Investigado por J. López Linage; documentaron una preparación económica durante la escasez de trigo."
+    desc: currentLang === 'en' ? "Documented the earliest skillet protocol frying potato and beaten egg in olive oil to combat wheat famine." : currentLang === 'de' ? "Erstes technisches Pfannenprotokoll für gebratenes Kartoffel-Ei-Pfannenbrot in Olivenöl." : "Documentaron en 1798 la primera fórmula técnica en sartén con aceite para paliar la falta de pan de trigo."
+  },
+  {
+    name: "José López Camuñas",
+    year: "1854",
+    role: currentLang === 'en' ? "Cookbook Author" : currentLang === 'de' ? "Kochbuch-Autor" : "Maestro de Cocina",
+    desc: currentLang === 'en' ? "Published 'La cocina perfeccionada', containing one of the earliest printed cookbook recipes for potato tortilla." : currentLang === 'de' ? "Veröffentlichte in 'La cocina perfeccionada' eines der ersten formal gedruckten Kochbuchrezepte." : "Publicó en 'La cocina perfeccionada' una de las primeras recetas formales impresas de 'Tortilla de patatas'."
   },
   {
     name: "Gen. Tomás de Zumalacárregui",
     year: "1835",
-    role: currentLang === 'en' ? "Popular Legend" : currentLang === 'de' ? "Populäre Legende" : "Leyenda Popular",
-    desc: currentLang === 'en' ? "Popular folklore credits him with feeding troops in the Carlist Wars, though historians view it as myth." : currentLang === 'de' ? "Laut Volksmund erfand er die Tortilla im Karlistenkrieg — historisch eher Legende." : "La tradición popular le atribuía la invención para nutrir a las tropas en las Guerras Carlistas."
+    role: currentLang === 'en' ? "Carlist General (Folklore)" : currentLang === 'de' ? "Karlisten-General (Mythos)" : "General Carlista (Folclore)",
+    desc: currentLang === 'en' ? "Popular legend credits him with its invention (disproven by 1767 & 1798 records), but his army spread it nationwide." : currentLang === 'de' ? "Laut Volksmund Erfinder (durch 1767 & 1798 widerlegt), fungierte jedoch als massiver Verbreitungskanal." : "La tradición popular le atribuía el invento (refutado por textos de 1767 y 1798); sus tropas actuaron como gran difusor."
+  }
+];
+
+const factCheckAudits = [
+  {
+    claim: currentLang === 'en' ? "Zumalacárregui invented the tortilla in 1835" : currentLang === 'de' ? "Zumalacárregui erfand die Tortilla 1835" : "¿Zumalacárregui inventó la tortilla en 1835?",
+    status: 'false',
+    statusLabel: currentLang === 'en' ? "Disproven Myth" : currentLang === 'de' ? "Widerlegter Mythos" : "Mito Refutado",
+    evidence: currentLang === 'en' ? "Documents from 1767, 1798 and 1817 prove it existed decades prior." : currentLang === 'de' ? "Archive von 1767, 1798 und 1817 beweisen, dass sie viel älter ist." : "Documentos de 1767, 1798 y 1817 demuestran que el plato existía décadas antes."
+  },
+  {
+    claim: currentLang === 'en' ? "Villanueva de la Serena is the 1st skillet recipe" : currentLang === 'de' ? "Villanueva de la Serena 1798 erstes Pfannenprotokoll" : "¿Villanueva de la Serena (1798) es la 1ª receta en sartén?",
+    status: 'true',
+    statusLabel: currentLang === 'en' ? "Documented Fact" : currentLang === 'de' ? "Belegter Fakt" : "Hecho Documentado",
+    evidence: currentLang === 'en' ? "Tena Godoy & Robledo recorded skillet frying with olive oil on Feb 27, 1798." : currentLang === 'de' ? "Tena Godoy & Robledo dokumentierten das Pfannenbraten am 27. Feb. 1798." : "Tena Godoy y Robledo registraron la mezcla frita en sartén con aceite el 27 feb 1798."
+  },
+  {
+    claim: currentLang === 'en' ? "Earliest written mention: Valcárcel (1767)" : currentLang === 'de' ? "Älteste Erwähnung: Valcárcel (1767)" : "¿La mención escrita más antigua es de 1767?",
+    status: 'true',
+    statusLabel: currentLang === 'en' ? "Documented Fact" : currentLang === 'de' ? "Belegter Fakt" : "Hecho Documentado",
+    evidence: currentLang === 'en' ? "Valcárcel's 'Agricultura General' (Vol. III) cited potatoes in 'stews and tortillas'." : currentLang === 'de' ? "Valcárcel nannte Kartoffeln in 'Eintöpfen und Tortillas'." : "Valcárcel en 'Agricultura General' (Tomo III) citó patatas en 'guisados y tortillas'."
+  },
+  {
+    claim: currentLang === 'en' ? "Lancelot de Casteau invented it in Belgium (1604)" : currentLang === 'de' ? "Lancelot de Casteau erfand sie 1604" : "¿Lancelot de Casteau la inventó en 1604 en Bélgica?",
+    status: 'false',
+    statusLabel: currentLang === 'en' ? "Web Hoax" : currentLang === 'de' ? "Internet-Hoax" : "Bulo de Internet",
+    evidence: currentLang === 'en' ? "Casteau cooked boiled potatoes and cheese pies, never a potato omelette." : currentLang === 'de' ? "Casteau kochte Kartoffeln in Butter oder Pasteten, nie eine Eiertortilla." : "Casteau cocinó patatas hervidas y pasteles con queso, nunca una tortilla de patatas."
+  },
+  {
+    claim: currentLang === 'en' ? "'Tortilla francesa' named in Cádiz siege (1810)" : currentLang === 'de' ? "'Tortilla francesa' Name aus Cádiz (1810)" : "¿La 'tortilla francesa' nació en el Sitio de Cádiz (1810)?",
+    status: 'partial',
+    statusLabel: currentLang === 'en' ? "Satire & Etymology" : currentLang === 'de' ? "Spott & Etymologie" : "Sátira Gaditana",
+    evidence: currentLang === 'en' ? "Plain egg omelette is ancient, but the satirical name spread during potato shortages in Cádiz." : currentLang === 'de' ? "Eieromeletts sind antik; der spanische Spottname entstand bei Kartoffelnot in Cádiz." : "El huevo solo es milenario; el apelativo satírico nació en Cádiz al agotarse las patatas."
+  },
+  {
+    claim: currentLang === 'en' ? "Authentic original recipe required onion" : currentLang === 'de' ? "Originalrezept verlangte zwingend Zwiebel" : "¿La receta original auténtica llevaba cebolla?",
+    status: 'opinion',
+    statusLabel: currentLang === 'en' ? "Culinary Debate" : currentLang === 'de' ? "Tradition / Debatte" : "Debate Culinario",
+    evidence: currentLang === 'en' ? "Neither 1767, 1798 nor 1817 texts mention onion. It spread later in 19th-c. taverns." : currentLang === 'de' ? "Weder 1767, 1798 noch 1817 nennen Zwiebeln; sie verbreitete sich erst später." : "Ni 1767, 1798 ni 1817 prescriben cebolla; se generalizó más tarde en tabernas por jugosidad."
   }
 ];
 
@@ -259,6 +308,49 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
             </CardContent>
           </Card>
 
+          <!-- Fact-Checking & Veracity Audit Card -->
+          <Card class="card-notebook p-5 bg-card border-t-2 border-t-[#2E7D32]">
+            <CardHeader class="p-0 pb-3 border-b border-border space-y-1">
+              <div class="flex items-center justify-between">
+                <CardTitle class="text-base font-serif-heading font-bold text-foreground flex items-center gap-2">
+                  <ShieldCheck class="w-4 h-4 text-[#2E7D32]" />
+                  {labels.factCheckTitle}
+                </CardTitle>
+                <Badge variant="outline" class="text-[10px] uppercase font-mono tracking-wider border-[#2E7D32]/30 text-[#2E7D32] bg-[#2E7D32]/10">
+                  {labels.factCheckBadge}
+                </Badge>
+              </div>
+              <p class="text-[11px] text-muted-foreground leading-snug">
+                {labels.factCheckDesc}
+              </p>
+            </CardHeader>
+            <CardContent class="p-0 pt-3 space-y-2.5">
+              {factCheckAudits.map((item) => (
+                <div class="p-2.5 rounded-lg bg-accent/80 border border-border text-xs space-y-1">
+                  <div class="flex items-start justify-between gap-1.5">
+                    <span class="font-semibold text-foreground text-xs leading-snug">{item.claim}</span>
+                    <span class:list={[
+                      "shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded border inline-flex items-center gap-1",
+                      item.status === 'true' && "text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                      item.status === 'false' && "text-rose-700 dark:text-rose-400 bg-rose-500/10 border-rose-500/30",
+                      item.status === 'partial' && "text-amber-700 dark:text-amber-400 bg-amber-500/10 border-amber-500/30",
+                      item.status === 'opinion' && "text-sky-700 dark:text-sky-400 bg-sky-500/10 border-sky-500/30"
+                    ]}>
+                      {item.status === 'true' && <CheckCircle2 class="w-2.5 h-2.5" />}
+                      {item.status === 'false' && <XCircle class="w-2.5 h-2.5" />}
+                      {item.status === 'partial' && <AlertCircle class="w-2.5 h-2.5" />}
+                      {item.status === 'opinion' && <HelpCircle class="w-2.5 h-2.5" />}
+                      {item.statusLabel}
+                    </span>
+                  </div>
+                  <p class="text-[11px] text-muted-foreground leading-relaxed">
+                    {item.evidence}
+                  </p>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+
           <!-- Debate Highlights Card -->
           <Card class="card-notebook p-5 bg-accent border border-border">
             <div class="space-y-3">
@@ -279,6 +371,38 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
             </div>
           </Card>
 
+          <!-- Master Bibliography Link Card -->
+          <Card class="card-notebook p-5 bg-card border-t-2 border-t-[#FFB800]">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                  <BookOpen class="w-3.5 h-3.5 text-[#FFB800]" />
+                  <span>{currentLang === 'es' ? 'Evidencias' : currentLang === 'de' ? 'Quellen' : 'Evidence'}</span>
+                </span>
+                <Badge variant="outline" class="text-[10px] font-mono border-[#FFB800]/40 text-[#8D6E63] dark:text-[#FFB800] bg-[#FFB800]/10">
+                  {currentLang === 'es' ? '19+ Fuentes' : currentLang === 'de' ? '19+ Quellen' : '19+ Sources'}
+                </Badge>
+              </div>
+              <h4 class="font-serif-heading font-bold text-sm text-foreground">
+                {currentLang === 'es' ? 'Archivo Bibliográfico Maestro' : currentLang === 'de' ? 'Wissenschaftliches Quellenarchiv' : 'Master Reference Archive'}
+              </h4>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                {currentLang === 'es' 
+                  ? 'Consulta los manuscritos de 1767 y 1798, leyes del BOE y estudios científicos en nuestro índice general.'
+                  : currentLang === 'de'
+                  ? 'Entdecke Manuskripte aus 1767 & 1798, BOE-Gesetze und Fachaufsätze in unserem Gesamtverzeichnis.'
+                  : 'Examine original 1767 & 1798 manuscripts, BOE official gazettes, and academic monographs.'}
+              </p>
+              <a
+                href={`/${lang}/bibliografia`}
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline transition-colors pt-1"
+              >
+                <span>{currentLang === 'es' ? 'Ver todas las fuentes y enlaces' : currentLang === 'de' ? 'Alle Quellen & Links öffnen' : 'Browse all sources & links'}</span>
+                <ChevronRight class="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </Card>
+
         </aside>
 
         <!-- Article Prose Content Container (8 cols on lg) -->
@@ -293,6 +417,9 @@ const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
                 <p>No se pudo cargar el artículo de historia.</p>
               </div>
             )}
+
+            <!-- Documentary Sources & Primary Archives Section -->
+            <BibliographySection articleSlug="history" lang={currentLang} />
 
             <!-- Back to top button -->
             <div class="pt-8 mt-10 border-t border-border flex items-center justify-between text-xs text-muted-foreground">

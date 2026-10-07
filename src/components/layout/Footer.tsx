@@ -73,6 +73,7 @@ export default function Footer({ lang = "es", currentPath: propPath }: FooterPro
               { path: "/techniques", label: t("nav.techniques", "Técnicas & Volteado") },
               { path: "/science", label: t("nav.science", "Ciencia & Seguridad Alimentaria") },
               { path: "/history", label: t("nav.history", "Historia & Cronología 1767-2025") },
+              { path: "/bibliografia", label: getRouteLabel("bibliografia", (lang as SupportedLocale) || "es") },
               { path: "/mapapremios", label: getRouteLabel("mapaPremios", (lang as SupportedLocale) || "es") },
               { path: "/about", label: t("nav.aboutAndContact", "Sobre Nosotros & Contacto") },
               { path: "/aviso-legal", label: t("nav.impressum", "Aviso Legal e Impressum") },

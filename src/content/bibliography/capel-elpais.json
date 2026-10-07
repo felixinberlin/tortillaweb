@@ -1,0 +1,30 @@
+{
+  "id": "capel-elpais",
+  "title": {
+    "es": "Crónicas gastronómicas y antropología de la tortilla (1990-2024)",
+    "en": "Gastronomic Chronicles and Tortilla Anthropology (1990-2024)",
+    "de": "Gastronomische Chroniken und Anthropologie der Tortilla (1990-2024)"
+  },
+  "authors": ["José Carlos Capel"],
+  "year": 2024,
+  "type": "gastronomic_press",
+  "category": "gastronomy",
+  "publication": "El País Gastronomía",
+  "publisher": "Ediciones El País",
+  "location": "Madrid, España",
+  "url": "https://elpais.com/noticias/jose-carlos-capel/",
+  "citationText": "Capel, J. C. (1990–2024). Crónicas y ensayos sobre el arte de la tortilla de patatas. El País Gastronomía.",
+  "summary": {
+    "es": "Colección de artículos y análisis del decano de la crítica gastronómica española, presidente de Madrid Fusión y miembro de la Real Academia de Gastronomía, documentando la técnica purista de Betanzos, el debate de la cebolla y los mejores templos tortilleros de la península.",
+    "en": "Body of journalistic criticism by the dean of Spanish food writing, president of Madrid Fusión and Spanish Royal Academy of Gastronomy member, chronicling Betanzos runny style, the onion debate, and benchmark bars across Spain.",
+    "de": "Aufsatzsammlung des Doyens der spanischen Gastronomiekritik und Madrid Fusión-Präsidenten über die Betanzos-Tradition, den Zwiebelstreit und die besten Tortilla-Lokale Spaniens."
+  },
+  "keyTakeaway": {
+    "es": "Aportó la definición canónica moderna de la tortilla de Betanzos: patata finísima frita crujiente y sumergida en huevo batido para un sellado de apenas segundos por cada cara en sartén humeante.",
+    "en": "Coined the canonical modern definition of Betanzos style: ultra-thin crispy fried potatoes drenched in egg curd, seared for mere seconds per side in a smoking pan.",
+    "de": "Lieferte die kanonische Definition des Betanzos-Stils: hauchdünne knusprige Kartoffelscheiben im Ei-Bad, nur wenige Sekunden pro Seite in glühend heißer Pfanne pochiert."
+  },
+  "relatedArticleSlugs": ["recipes", "recetas", "regiones", "betanzos", "mapapremios"],
+  "verified": true,
+  "tags": ["jose_carlos_capel", "el_pais", "betanzos", "madrid_fusion", "critica"]
+}

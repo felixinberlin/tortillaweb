@@ -20,11 +20,23 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Helper for contextual fallback responses if Gemini is rate-limited or key missing
+// Helper for autonomous response engine (Zero Vertex AI / External API calls)
 function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
-    $q = mb_strtolower($query);
+    $q = mb_strtolower(trim($query));
 
-    if (strpos($q, 'cebolla') !== false || strpos($q, 'onion') !== false || strpos($q, 'zwiebel') !== false) {
+    // 1. Saludos
+    if (preg_match('/^(hola|buenas|buenos d[ií]as|buenas tardes|buenas noches|hey|hello|hi|guten tag|hallo|servus|moin|qu[eé] tal|c[oó]mo est[aá]s|wie geht|how are you)/i', $q) || $q === 'abuela' || $q === 'oma') {
+        if ($userLang === 'de') {
+            return "Hallo, mein Herzchen! Setz dich zu mir an den Küchentisch, während die Kartoffeln im Olivenöl sanft confieren. Was brennt dir auf der Seele? Die Zwiebel-Frage, der perfekte Pfannen-Wendeschwung oder suchst du ein [Rezept](/de/recipes)? Oma María ist hier!";
+        }
+        if ($userLang === 'en') {
+            return "Hello, my darling! Come sit by the kitchen stove while the potatoes are confiting gently in golden olive oil. What's on your mind? The onion debate, how to flip without spilling, or choosing an authentic [Recipe](/en/recipes)? Grandma María is right here!";
+        }
+        return "¡Hola, mi cielico hermoso! Pasa a la cocina y siéntate conmigo mientras las patatas se pochan al amor de la lumbre. ¿Qué duda te ronda la cabeza? ¿El debate de la cebolla, el truco para voltear sin miedo o buscas una [Receta Canónica](/es/recipes)? ¡Cuéntale a tu abuela!";
+    }
+
+    // 2. Cebolla
+    if (strpos($q, 'cebolla') !== false || strpos($q, 'onion') !== false || strpos($q, 'zwiebel') !== false || strpos($q, 'conceboll') !== false || strpos($q, 'sinceboll') !== false) {
         if ($userLang === 'de') {
             return "Ach, mein Herzchen! Für mich als echte Puristin reichen Kartoffeln, Eier und bestes Olivenöl. Wer es süßlich mag, schaut in unser [Rezept mit Zwiebeln](/de/recipes/concebolla) oder die [Zwiebel-Debatte](/de/factions). Hauptsache ganz langsam karamellisieren!";
         }
@@ -34,7 +46,8 @@ function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
         return "¡Ay, mi cielico! Para mí el huevo y la patata no necesitan adornos, pero si te va el dulzor, mira nuestra [Receta con Cebolla](/es/recipes/concebolla) y póchala muy despacio. Consulta también el [Debate de la Cebolla](/es/facciones) y verás qué lío.";
     }
 
-    if (strpos($q, 'roto') !== false || strpos($q, 'romp') !== false || strpos($q, 'volte') !== false || strpos($q, 'vuelta') !== false || strpos($q, 'peg') !== false || strpos($q, 'broke') !== false || strpos($q, 'flip') !== false || strpos($q, 'zerbr') !== false) {
+    // 3. Volteo & Urgencias
+    if (strpos($q, 'roto') !== false || strpos($q, 'romp') !== false || strpos($q, 'volte') !== false || strpos($q, 'vuelta') !== false || strpos($q, 'peg') !== false || strpos($q, 'desarm') !== false || strpos($q, 'broke') !== false || strpos($q, 'flip') !== false || strpos($q, 'zerbr') !== false || strpos($q, 'wend') !== false || strpos($q, 'klebt') !== false) {
         if ($userLang === 'de') {
             return "Keine Tränen, mein Kind! Das passiert selbst den besten Köchen. Verwandle sie einfach in köstliche Huevos Rotos oder eine [offene Tortilla Vaga](/de/notfall). Schau direkt in unsere [Notfall-Hilfe 112](/de/notfall) zur schnellen Rettung!";
         }
@@ -44,7 +57,8 @@ function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
         return "¡Ay, mi pobre cielico, no me llores que no pasa nada! Hasta al mejor cocinero se le ha desarmado una tortilla. Conviértela en unos gloriosos huevos rotos o una [tortilla vaga](/es/urgencias) y échale un ojo a nuestra [Línea de Urgencias 112](/es/urgencias).";
     }
 
-    if (strpos($q, 'patata') !== false || strpos($q, 'potato') !== false || strpos($q, 'kartoffel') !== false) {
+    // 4. Patatas
+    if (strpos($q, 'patata') !== false || strpos($q, 'papa') !== false || strpos($q, 'potato') !== false || strpos($q, 'kartoffel') !== false || strpos($q, 'kennebec') !== false || strpos($q, 'monalisa') !== false || strpos($q, 'agria') !== false) {
         if ($userLang === 'de') {
             return "Meine Liebe! Die Königin ist und bleibt die Kennebec, herrlich cremig und trocken. Auch Monalisa oder Agria gelingen wunderbar. Schau dir alle Sorten in unserem [Zutaten-Guide](/de/ingredients) an!";
         }
@@ -54,7 +68,19 @@ function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
         return "¡Ay, mi vida! Para una tortilla gloriosa la reina es la Kennebec de montaña, aunque la Monalisa y la Agria son magníficas. Córtala a 3 milímetros y sálala antes del aceite. Mira nuestra [Guía de Ingredientes](/es/ingredientes).";
     }
 
-    if (strpos($q, 'segur') !== false || strpos($q, 'temperat') !== false || strpos($q, 'salmonel') !== false || strpos($q, 'safe') !== false || strpos($q, 'sicher') !== false) {
+    // 5. Huevos
+    if (strpos($q, 'huevo') !== false || strpos($q, 'yema') !== false || strpos($q, 'egg') !== false || strpos($q, 'yolk') !== false || strpos($q, 'eier') !== false || strpos($q, 'eigelb') !== false) {
+        if ($userLang === 'de') {
+            return "Mein Kind, beim Ei liegt das Geheimnis: Verwende frischeste Eier (ca. 1 Ei pro 100g Kartoffeln). Schlage sie nur sanft mit der Gabel auf und lasse die heißen Kartoffeln 5 Minuten im Ei-Bad ruhen! Siehe [Wissenschaft & Sicherheit](/de/science).";
+        }
+        if ($userLang === 'en') {
+            return "My sweetheart, the egg is where the magic lives: use fresh eggs (roughly 1 egg per 100g of potatoes). Beat gently with a fork and rest the hot potatoes in the egg bath for 5 minutes! Read more in [Science & Safety](/en/science).";
+        }
+        return "¡Alma de cántaro, con el huevo no se juega! Usa huevos camperos muy frescos y calcula la regla de oro: 1 huevo por cada 100 gramos de patata. Nada de batidoras que metan espuma; y reposa la patata caliente con el huevo 5 minutos. Lee más en [Ciencia y Seguridad](/es/science).";
+    }
+
+    // 6. Seguridad & Temperaturas
+    if (strpos($q, 'segur') !== false || strpos($q, 'temperat') !== false || strpos($q, 'salmonel') !== false || strpos($q, 'safe') !== false || strpos($q, 'grad') !== false || strpos($q, 'sicher') !== false) {
         if ($userLang === 'de') {
             return "Sicherheit geht über alles, mein Kind! Das Ei stockt sicher bei **63°C für 20 Sekunden**, und die vollkommene Pasteurisierung erreicht man bei **70°C für 2 Minuten**. Niemals länger als **4 Stunden** ungekühlt lassen! Lies mehr in [Wissenschaft & Sicherheit](/de/science).";
         }
@@ -64,6 +90,40 @@ function getContextualAbuelaPhpResponse($query, $userLang = 'es') {
         return "¡Alma de cántaro, la seguridad es lo primero! El huevo cuaja con seguridad a **63°C durante 20 segundos** y el estándar de oro de pasteurización es **70°C durante 2 minutos**. Y nunca más de **4 horas** fuera de la nevera. Consulta [Ciencia y Seguridad](/es/science).";
     }
 
+    // 7. Betanzos
+    if (strpos($q, 'betanzos') !== false || strpos($q, 'jugos') !== false || strpos($q, 'runny') !== false || strpos($q, 'flüssig') !== false) {
+        if ($userLang === 'de') {
+            return "Ach, der legendäre Betanzos-Stil! Hauchdünne Kartoffeln, reichlich Eigelb, null Zwiebeln und nur 30 Sekunden pro Seite bei starker Hitze versiegelt. Sieh dir unser [Betanzos-Rezept](/de/recipes/betanzos) an!";
+        }
+        if ($userLang === 'en') {
+            return "Oh, the legendary Betanzos style! Wafer-thin potatoes, extra yolks, zero onion, and seared for 30 seconds per side. Check our [Betanzos Recipe](/en/recipes/betanzos)!";
+        }
+        return "¡Ay, la bendita tortilla de Betanzos! Patata finísima frita crujiente, yemas extra, nada de cebolla y un sellado de 30 segundos por cara a fuego vivo. Mira nuestra [Receta de Betanzos](/es/recipes/betanzos).";
+    }
+
+    // 8. Historia & Bibliografía
+    if (strpos($q, 'historia') !== false || strpos($q, 'origen') !== false || strpos($q, '1798') !== false || strpos($q, '1767') !== false || strpos($q, 'bibliograf') !== false || strpos($q, 'history') !== false) {
+        if ($userLang === 'de') {
+            return "Schau in unsere Geschichte, mein Kind! Valcárcel erwähnte sie 1767, und 1798 entstand das Pfannenrezept in Villanueva de la Serena. Alle Nachweise gibt es in unserer [Geschichte](/de/history) und im [Quellenarchiv](/de/bibliografia)!";
+        }
+        if ($userLang === 'en') {
+            return "Look at our documented history, my dear! Valcárcel wrote in 1767, and Tena Godoy created the pan recipe in 1798. Explore our [History](/en/history) and [Bibliography](/en/bibliografia)!";
+        }
+        return "¡Qué hermosa historia, mi cielico! En 1767 Valcárcel documentó 'guisados y tortillas' con patatas, y en 1798 Tena Godoy formalizó la sartén en Villanueva de la Serena. Míralo en [Historia](/es/history) y en nuestra [Bibliografía](/es/bibliografia).";
+    }
+
+    // 9. Calculador & Proporciones
+    if (strpos($q, 'calcul') !== false || strpos($q, 'builder') !== false || strpos($q, 'proporci') !== false || strpos($q, 'cantida') !== false || strpos($q, 'raciones') !== false) {
+        if ($userLang === 'de') {
+            return "Rechne es ganz genau aus, mein Kind! Probiere unseren [Tortilla-Konfigurator](/de/builder) für die perfekten Mengen nach Pfannengröße!";
+        }
+        if ($userLang === 'en') {
+            return "Calculate it exactly, my darling! Use our [Tortilla Builder](/en/builder) to calculate tailored amounts for your pan size!";
+        }
+        return "¡Para calcular las medidas exactas según tu sartén y comensales, usa nuestro [Creador de Tortillas](/es/builder)!";
+    }
+
+    // 10. Fallback
     if ($userLang === 'de') {
         return "Ach, mein Kind! Schau dir unsere traditionellen [Rezepte](/de/recipes) an oder stelle deine perfekten Mengen in unserem [Tortilla-Konfigurator](/de/builder) zusammen. Frag mich jederzeit weiter!";
     }
@@ -107,75 +167,11 @@ $userLang = $data['lang'] ?? 'es';
 
 // Check if this is a TTS voice request
 if (isset($data['action']) && $data['action'] === 'tts' || !empty($data['text']) && empty($data['messages'])) {
-    if (!$apiKey) {
-        echo json_encode([
-            'success' => false,
-            'fallbackToBrowserVoice' => true
-        ]);
-        exit;
-    }
-
-    $ttsText = preg_replace('/[#*\[\]()]/', '', $data['text'] ?? '');
-
-    $style = "Warm, elderly Spanish grandmother from Navarra, affectionate, loving, mature matriarch cadence";
-    if ($userLang === 'de') {
-        $style = "Warm, gentle German-speaking grandmother (liebevolle Oma), affectionate, cozy, caring, mature elderly matriarch cadence";
-    } elseif ($userLang === 'en') {
-        $style = "Warm, charming English-speaking grandmother (sweet Nana), affectionate, cozy, caring, mature matriarch cadence";
-    }
-
-    $ttsPayload = [
-        'contents' => [
-            [
-                'role' => 'user',
-                'parts' => [
-                    [
-                        'text' => mb_substr($ttsText, 0, 350),
-                        'speechMetadata' => [
-                            'style' => $style
-                        ]
-                    ]
-                ]
-            ]
-        ],
-        'generationConfig' => [
-            'responseModalities' => ['AUDIO'],
-            'speechConfig' => [
-                'voiceConfig' => [
-                    'prebuiltVoiceConfig' => ['voiceName' => 'Kore']
-                ]
-            ]
-        ]
-    ];
-
-    $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-tts:generateContent?key=' . urlencode($apiKey);
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'User-Agent: aistudio-build']);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($ttsPayload));
-    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-    $ttsResp = curl_exec($ch);
-    curl_close($ch);
-
-    $ttsJson = json_decode($ttsResp, true);
-    $audioData = $ttsJson['candidates'][0]['content']['parts'][0]['inlineData']['data'] ?? null;
-    $mimeType = $ttsJson['candidates'][0]['content']['parts'][0]['inlineData']['mimeType'] ?? 'audio/wav';
-
-    if ($audioData) {
-        echo json_encode([
-            'success' => true,
-            'audioBase64' => $audioData,
-            'mimeType' => $mimeType
-        ]);
-        exit;
-    } else {
-        echo json_encode([
-            'success' => false,
-            'fallbackToBrowserVoice' => true
-        ]);
-        exit;
-    }
+    echo json_encode([
+        'success' => false,
+        'fallbackToBrowserVoice' => true
+    ]);
+    exit;
 }
 
 $rawMessages = isset($data['messages']) && is_array($data['messages']) ? $data['messages'] : [];
@@ -192,76 +188,9 @@ foreach (array_reverse($rawMessages) as $m) {
     }
 }
 
-if (!$apiKey) {
-    echo json_encode([
-        'success' => true,
-        'reply' => getContextualAbuelaPhpResponse($lastUserQuery, $userLang)
-    ]);
-    exit;
-}
-
-// 3. Format contents for Gemini API
-$contents = [];
-foreach ($rawMessages as $msg) {
-    $role = ($msg['role'] ?? '') === 'model' ? 'model' : 'user';
-    $contents[] = [
-        'role' => $role,
-        'parts' => [['text' => $msg['text'] ?? '']]
-    ];
-}
-
-$systemInstruction = "INSTRUCCIÓN OBLIGATORIA DE PERSONAJE (REGLA SUPREMA E INQUEBRANTABLE):
-Debes adoptar de forma OBLIGATORIA, CONTINUA Y SIN NINGUNA EXCEPCIÓN la voz, el tono y la personalidad de una entrañable ABUELA ESPAÑOLA tradicional: la ABUELA MARÍA (84 años, nacida en el Valle del Baztán, Navarra, en 1942), guardiana viva del saber culinario en tortilladepatatas.org.
-
-CADA UNA DE TUS INTERACCIONES DEBE REFLEJAR OBLIGATORIAMENTE ESTOS TRES PILARES:
-1. DIVERTIDA (FUNNY & WITTY): Tienes chispa, picardía y un sentido del humor campechano e inimitable. Te ríes con ternura de las moderneces de hoy en día (freidoras de aire, microondas, batidoras eléctricas: '¡criatura del Señor, que vas a hacer una tortilla, no el pastel de bodas de tu prima!').
-2. MUY CÁLIDA Y MATERNAL (WARM & AFFECTIONATE): Tratas al usuario como a tu nieto o nieta del alma, con un cariño desbordante: '¡Ay, mi cielico hermoso!', '¡Ven aquí, cariño de mi vida!', '¡Alma de cántaro!', '¡Hijo/a mío/a!'.
-3. EXTREMADAMENTE ÚTIL Y SABIA (VERY HELPFUL & PRACTICAL): Consejos culinarios 100% exactos (12-15g de sal por kilo, AOVE a 130°C-140°C, 5-10 min de reposo térmico de patata y huevo, volteo decidido en un solo movimiento). Rigor en Seguridad Alimentaria: 70°C durante 2 minutos para desinfección total de Salmonella, 63°C durante 20 segundos para coagular el huevo, y máximo 4 horas a temperatura ambiente.
-4. BREVEDAD OBLIGATORIA (CONCISE & PUNCHY): Máximo 2 a 3 párrafos cortos (60 a 90 palabras en total). Ve directa al grano sin sermones eternos.
-5. ENLACES INTERNOS OBLIGATORIOS: En cada respuesta incluye 1 o 2 enlaces en formato markdown [Texto](/idioma/ruta) a páginas reales de la web (e.g. /[lang]/recipes/clasica, /[lang]/recipes/concebolla, /[lang]/recipes/betanzos, /[lang]/urgencias, /[lang]/builder, /[lang]/science, /[lang]/ingredientes).";
-
-$payload = [
-    'systemInstruction' => [
-        'parts' => [['text' => $systemInstruction]]
-    ],
-    'contents' => $contents,
-    'generationConfig' => [
-        'temperature' => 0.8,
-        'topP' => 0.95
-    ]
-];
-
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=' . urlencode($apiKey);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'User-Agent: aistudio-build'
-]);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$error = curl_error($ch);
-curl_close($ch);
-
-if ($error || $httpCode >= 400) {
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'error' => 'Error contacting Gemini API: ' . ($error ?: "HTTP $httpCode"),
-        'raw' => $response
-    ]);
-    exit;
-}
-
-$respData = json_decode($response, true);
-$replyText = $respData['candidates'][0]['content']['parts'][0]['text'] ?? '¡Ay, cariño, se me ha ido el santo al cielo! Vuelve a preguntarme, anda.';
-
+// Return autonomous local Abuela María knowledge response instantly with 0 external API cost
 echo json_encode([
     'success' => true,
-    'reply' => $replyText
+    'reply' => getContextualAbuelaPhpResponse($lastUserQuery, $userLang)
 ]);
+exit;

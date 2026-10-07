@@ -1,0 +1,38 @@
+{
+  "id": "tena-godoy-1798",
+  "title": {
+    "es": "Carta sobre el pan de patatas y preparación con sartén y huevos (Villanueva de la Serena)",
+    "en": "Letter on Potato Bread and Pan Preparation with Eggs (Villanueva de la Serena)",
+    "de": "Brief über Kartoffelbrot und Pfannenzubereitung mit Eiern (Villanueva de la Serena)"
+  },
+  "authors": [
+    "Joseph de Tena Godoy y Malfeyto",
+    "Marqués de Robledo"
+  ],
+  "year": 1798,
+  "type": "manuscript",
+  "category": "history",
+  "publication": "Semanario de Agricultura y Artes Dirigido a los Párrocos",
+  "publisher": "Real Imprenta",
+  "location": "Madrid, España (Vol. IV, Nº 85, pp. 111-112)",
+  "url": "http://hemerotecadigital.bne.es/",
+  "citationText": "Tena Godoy y Malfeyto, J. de, & Marqués de Robledo. (1798). Carta remitida a la redacción sobre el pan de patatas. Semanario de Agricultura y Artes Dirigido a los Párrocos, IV(85), 111–112.",
+  "summary": {
+    "es": "Manuscrito fechado el 27 de febrero de 1798 y publicado el 16 de agosto de 1798 en Madrid, que describe el procedimiento técnico ilustrado de mezclar patatas cocidas con huevos batidos y freírlas en sartén con aceite como alternativa económica al pan de trigo durante las hambrunas en Extremadura.",
+    "en": "Manuscript dated February 27, 1798, and published August 16, 1798, in Madrid, describing the Enlightenment technique of mixing boiled potatoes with beaten eggs and frying them in a skillet with oil as an affordable wheat bread substitute during Extremaduran famines.",
+    "de": "Manuskript vom 27. Februar 1798, veröffentlicht am 16. August 1798 in Madrid, das die aufklärerische Technik beschreibt, gekochte Kartoffeln mit verquirlten Eiern zu vermengen und in einer Pfanne mit Olivenöl als Weizenbrot-Ersatz während Hungersnöten in der Extremadura zu braten."
+  },
+  "keyTakeaway": {
+    "es": "Constituye la primera descripción empírica detallada del método de fritura en sartén de patata y huevo con aceite, rescatada por el investigador del CSIC Javier López Linage en 2008.",
+    "en": "Represents the earliest detailed empirical method of pan-frying potato and egg with oil, uncovered by CSIC researcher Javier López Linage in 2008.",
+    "de": "Erste detaillierte empirische Beschreibung des Pfannenbratens von Kartoffeln und Eiern mit Öl, 2008 von CSIC-Forscher Javier López Linage wiederentdeckt."
+  },
+  "quote": {
+    "es": "Hacen unas tortas que puestas en la sartén se fríen con aceite, y si se les añade algún huevo batido resultan sumamente gustosas y nutritivas.",
+    "en": "They make cakes that, placed in the skillet, are fried in oil, and if some beaten egg is added they turn out exceptionally tasty and nourishing.",
+    "de": "Sie formen Fladen, die in die Pfanne gelegt und in Öl gebraten werden, und wenn man verquirltes Ei hinzufügt, schmecken sie überaus köstlich und nahrhaft."
+  },
+  "relatedArticleSlugs": ["history", "historia", "ciencia", "origenes"],
+  "verified": true,
+  "tags": ["villanueva_de_la_serena", "extremadura", "csic", "1798", "ilustracion"]
+}

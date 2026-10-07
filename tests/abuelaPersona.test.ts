@@ -47,4 +47,29 @@ describe("Abuela María AI Persona & Knowledge Base Tests", () => {
     expect(svgContent).toContain("eye-left");
     expect(svgContent).toContain("mouth");
   });
+
+  it("should provide autonomous responses with zero external Vertex AI credits needed", async () => {
+    const { askAbuelaMaria, generateAbuelaVoice } = await import("../src/lib/ai/abuelaPersona");
+
+    // Test onion question in Spanish
+    const onionReplyEs = await askAbuelaMaria([{ role: "user", text: "¿La tortilla lleva cebolla?" }], "es");
+    expect(onionReplyEs).toContain("cielico");
+    expect(onionReplyEs).toContain("/es/recipes/concebolla");
+
+    // Test flip emergency in English
+    const flipReplyEn = await askAbuelaMaria([{ role: "user", text: "My tortilla broke during the flip!" }], "en");
+    expect(flipReplyEn).toContain("sweetheart");
+    expect(flipReplyEn).toContain("/en/emergency");
+
+    // Test safety in German
+    const safetyReplyDe = await askAbuelaMaria([{ role: "user", text: "Ist flüssiges Ei sicher vor Salmonellen?" }], "de");
+    expect(safetyReplyDe).toContain("63°C für 20 Sekunden");
+    expect(safetyReplyDe).toContain("70°C für 2 Minuten");
+    expect(safetyReplyDe).toContain("4 Stunden");
+
+    // Test voice fallback to browser synthesis without cloud costs
+    const voiceResult = await generateAbuelaVoice("¡Hola mi cielico!", "es");
+    expect(voiceResult.fallbackToBrowserVoice).toBe(true);
+    expect(voiceResult.success).toBe(false);
+  });
 });

@@ -1,0 +1,32 @@
+{
+  "id": "lujan-perucho-1970",
+  "title": {
+    "es": "El libro de la cocina española: Gastronomía e historia",
+    "en": "The Book of Spanish Cuisine: Gastronomy and History",
+    "de": "Das Buch der spanischen Küche: Gastronomie und Geschichte"
+  },
+  "authors": [
+    "Néstor Luján",
+    "Juan Perucho"
+  ],
+  "year": 1970,
+  "type": "academic_book",
+  "category": "history",
+  "publisher": "Ediciones Danae / Los 5 Sentidos",
+  "location": "Barcelona, España",
+  "officialCode": "ISBN 978-84-7506-646-2",
+  "citationText": "Luján, N., & Perucho, J. (1970). El libro de la cocina española. Barcelona: Ediciones Danae.",
+  "summary": {
+    "es": "Tratado ensayístico clásico sobre las raíces históricas y literarias de la culinaria española, analizando la génesis de la tortilla y la etimología de la 'tortilla a la francesa' durante el Sitio de Cádiz (1810-1812).",
+    "en": "Classic treatise on the historical and literary roots of Spanish cuisine, analyzing the emergence of the potato tortilla and the etymology of 'tortilla a la francesa' during the Siege of Cádiz (1810-1812).",
+    "de": "Klassisches Werk über die historischen und literarischen Wurzeln der spanischen Küche mit Analyse zur Herkunft der 'Tortilla a la francesa' während der Belagerung von Cádiz."
+  },
+  "keyTakeaway": {
+    "es": "Documenta la evolución cultural y el testimonio gastronómico del siglo XIX y XX, subrayando cómo el ingenio gaditano acuñó el término irónico de tortilla francesa al faltar patatas por el cerco napoleónico.",
+    "en": "Documents 19th and 20th century culinary testimony, showing how Cádiz locals ironically coined 'French omelette' when French blockades cut off potato supplies.",
+    "de": "Dokumentiert den Wandel im 19. und 20. Jahrhundert und wie die Belagerung von Cádiz zur scherzhaften Bezeichnung der schlichten Eiertortilla führte."
+  },
+  "relatedArticleSlugs": ["history", "historia", "curiosidades"],
+  "verified": true,
+  "tags": ["nestor_lujan", "cadiz_1810", "tortilla_francesa", "historia_cultural"]
+}

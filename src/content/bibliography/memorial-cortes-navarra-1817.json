@@ -1,0 +1,33 @@
+{
+  "id": "memorial-cortes-navarra-1817",
+  "title": {
+    "es": "Memorial sobre la miseria de los labradores de Navarra a las Cortes Forales (Memorial Ratón)",
+    "en": "Memorial on the Poverty of Navarrese Farmers to the Cortes of Navarra (Memorial Ratón)",
+    "de": "Denkschrift über die Not der navarresischen Bauern an die Cortes von Navarra (Memorial Ratón)"
+  },
+  "authors": ["Diputación Foral de Navarra"],
+  "year": 1817,
+  "type": "official_report",
+  "category": "history",
+  "publication": "Actas de las Cortes del Reino de Navarra",
+  "location": "Pamplona, Navarra, España",
+  "citationText": "Diputación Foral de Navarra. (1817). Memorial sobre la extrema pobreza de los labradores y la carestía de subsistencias. Archivo General de Navarra, Actas de las Cortes.",
+  "summary": {
+    "es": "Documento histórico oficial que refleja la alimentación de subsistencia de las familias campesinas de la Cuenca de Pamplona, donde las mujeres estiraban escasos recursos elaborando tortillas familiares.",
+    "en": "Official historical archival record recording subsistence nutrition among peasant families in the Pamplona basin, where women stretched meager resources into shared family tortillas.",
+    "de": "Offizielles historisches Dokument über die Subsistenzernährung von Bauernfamilien im Becken von Pamplona, in dem Frauen knappe Ressourcen zu Familientortillas streckten."
+  },
+  "keyTakeaway": {
+    "es": "Primer registro documental conocido que describe la tortilla de patata como plato doméstico y familiar compartido (dos o tres huevos mezclados con patatas y atapurres de pan para alimentar a cinco o seis personas).",
+    "en": "First known archival record documenting the potato tortilla as a shared domestic family meal (mixing 2-3 eggs with potatoes and bread crumbs to feed 5-6 people).",
+    "de": "Älteste bekannte Akte, die die Kartoffeltortilla als gemeinsames Familiengericht dokumentiert (2-3 Eier mit Kartoffeln und Brotkrumen für 5-6 Personen gestreckt)."
+  },
+  "quote": {
+    "es": "Dos o tres huevos en tortilla para cinco o seis personas, porque nuestras mujeres la hacen grande con pocos huevos, mezclando patatas, atapurres de pan u otra cosa.",
+    "en": "Two or three eggs in an omelette for five or six people, because our women make it large with few eggs, mixing potatoes, breadcrumbs or other things.",
+    "de": "Zwei oder drei Eier als Tortilla für fünf oder sechs Personen, weil unsere Frauen sie mit wenigen Eiern groß machen, indem sie Kartoffeln, Brotkrumen oder anderes beimengen."
+  },
+  "relatedArticleSlugs": ["history", "historia", "regiones", "navarra"],
+  "verified": true,
+  "tags": ["navarra", "pamplona", "memorial_raton", "1817", "campesinado"]
+}

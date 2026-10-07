@@ -140,7 +140,7 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
     };
   }, []);
 
-  // Initialize Speech Recognition (Mic)
+  // Check Speech Recognition support without initializing mic on page load
   useEffect(() => {
     if (typeof window !== "undefined") {
       const SpeechRecognition = 
@@ -149,67 +149,9 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
 
       if (SpeechRecognition) {
         setSpeechSupported(true);
-        const recognition = new SpeechRecognition();
-        recognition.continuous = false;
-        recognition.interimResults = true;
-        recognition.lang = currentLang === "de" ? "de-DE" : currentLang === "en" ? "en-US" : "es-ES";
-
-        recognition.onstart = () => {
-          setIsListening(true);
-          setMicNotice(null);
-          // Stop any ongoing grandma speech when user starts talking
-          if (window.speechSynthesis) {
-            window.speechSynthesis.cancel();
-            setIsSpeaking(false);
-          }
-        };
-
-        recognition.onresult = (event: any) => {
-          let currentTranscript = "";
-          for (let i = event.resultIndex; i < event.results.length; i++) {
-            currentTranscript += event.results[i][0].transcript;
-          }
-          setInputText(currentTranscript);
-
-          // If the recognition identifies a final sentence, automatically submit to Abuela!
-          if (event.results[event.results.length - 1].isFinal) {
-            setIsListening(false);
-            if (currentTranscript.trim()) {
-              handleSendMessage(currentTranscript.trim(), true);
-            }
-          }
-        };
-
-        recognition.onerror = (event: any) => {
-          console.warn("Speech recognition error:", event.error);
-          setIsListening(false);
-          if (event.error === "not-allowed") {
-            setMicNotice(
-              currentLang === "de" 
-                ? "Mikrofonzugriff wurde im Browser blockiert." 
-                : currentLang === "en" 
-                ? "Microphone access was denied in browser." 
-                : "Permiso de micrófono denegado en el navegador."
-            );
-          } else if (event.error !== "no-speech") {
-            setMicNotice(
-              currentLang === "de" 
-                ? "Sprachaufnahme unterbrochen. Bitte erneut versuchen." 
-                : currentLang === "en" 
-                ? "Voice recognition interrupted. Please try again." 
-                : "Se interrumpió la escucha de voz. Pulsa el micro de nuevo."
-            );
-          }
-        };
-
-        recognition.onend = () => {
-          setIsListening(false);
-        };
-
-        recognitionRef.current = recognition;
       }
     }
-  }, [currentLang]);
+  }, []);
 
   const toggleMic = async () => {
     if (!speechSupported) {
@@ -228,32 +170,90 @@ export const AbuelaChat: React.FC<AbuelaChatProps> = ({
         recognitionRef.current?.stop();
       } catch (e) {}
       setIsListening(false);
-    } else {
-      try {
-        setMicNotice(null);
+      return;
+    }
 
-        // Pre-prompt microphone permission via getUserMedia
-        if (typeof navigator !== "undefined" && navigator.mediaDevices?.getUserMedia) {
-          try {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            stream.getTracks().forEach((track) => track.stop());
-          } catch (permErr: any) {
-            console.warn("Microphone permission prompt result:", permErr);
-            setMicNotice(
-              currentLang === "de"
-                ? "Mikrofonzugriff blockiert. Klicke auf 🔒 in der Adressleiste oder öffne die Seite im Vollbild-Tab."
-                : currentLang === "en"
-                ? "Microphone access blocked. Click 🔒 in address bar to allow, or open in a full tab."
-                : "Permiso de micrófono bloqueado. Haz clic en el candado 🔒 de la barra del navegador o abre la web en pestaña completa."
-            );
-            return;
+    try {
+      setMicNotice(null);
+
+      // Lazily create SpeechRecognition only when the user explicitly clicks the microphone button
+      const SpeechRecognition = 
+        (window as any).SpeechRecognition || 
+        (window as any).webkitSpeechRecognition;
+
+      if (!SpeechRecognition) {
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.lang = currentLang === "de" ? "de-DE" : currentLang === "en" ? "en-US" : "es-ES";
+
+      recognition.onstart = () => {
+        setIsListening(true);
+        setMicNotice(null);
+        // Stop any ongoing grandma speech when user starts talking
+        if (typeof window !== "undefined" && window.speechSynthesis) {
+          window.speechSynthesis.cancel();
+          setIsSpeaking(false);
+        }
+      };
+
+      recognition.onresult = (event: any) => {
+        let currentTranscript = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          currentTranscript += event.results[i][0].transcript;
+        }
+        setInputText(currentTranscript);
+
+        // If the recognition identifies a final sentence, automatically submit to Abuela!
+        if (event.results[event.results.length - 1].isFinal) {
+          setIsListening(false);
+          if (currentTranscript.trim()) {
+            handleSendMessage(currentTranscript.trim(), true);
           }
         }
+      };
 
-        recognitionRef.current?.start();
-      } catch (e) {
-        console.warn("Could not start speech recognition:", e);
-      }
+      recognition.onerror = (event: any) => {
+        console.warn("Speech recognition error:", event.error);
+        setIsListening(false);
+        if (event.error === "not-allowed") {
+          setMicNotice(
+            currentLang === "de" 
+              ? "Mikrofonzugriff wurde im Browser abgelehnt. Bitte erlaube das Mikrofon in den Seiteneinstellungen." 
+              : currentLang === "en" 
+              ? "Microphone access was denied in browser. Please enable microphone permissions." 
+              : "Permiso de micrófono denegado. Permite el acceso al micrófono en la barra del navegador."
+          );
+        } else if (event.error !== "no-speech") {
+          setMicNotice(
+            currentLang === "de" 
+              ? "Sprachaufnahme unterbrochen. Bitte erneut versuchen." 
+              : currentLang === "en" 
+              ? "Voice recognition interrupted. Please try again." 
+              : "Se interrumpió la escucha de voz. Pulsa el micro de nuevo."
+          );
+        }
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognitionRef.current = recognition;
+      recognition.start();
+    } catch (e: any) {
+      console.warn("Could not start speech recognition:", e);
+      setIsListening(false);
+      setMicNotice(
+        currentLang === "de"
+          ? "Mikrofon konnte nicht aktiviert werden. Bitte Berechtigungen prüfen."
+          : currentLang === "en"
+          ? "Could not activate microphone. Please check permissions."
+          : "No se pudo activar el micrófono. Comprueba los permisos."
+      );
     }
   };
 

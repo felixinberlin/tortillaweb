@@ -1,0 +1,34 @@
+{
+  "id": "valcarcel-1767",
+  "title": {
+    "es": "Agricultura General y Gobierno de la Casa de Campo (Tomo III)",
+    "en": "General Agriculture and Country House Management (Volume III)",
+    "de": "Allgemeine Landwirtschaft und Landhausverwaltung (Band III)"
+  },
+  "authors": ["Joseph Antonio Valcárcel"],
+  "year": 1767,
+  "type": "academic_book",
+  "category": "history",
+  "publication": "Agricultura General y Gobierno de la Casa de Campo",
+  "publisher": "Imprenta de Joseph Thomás Lucas",
+  "location": "Valencia, España",
+  "citationText": "Valcárcel, J. A. (1767). Agricultura General y Gobierno de la Casa de Campo (Tomo III). Valencia: Imprenta de Joseph Thomás Lucas.",
+  "summary": {
+    "es": "Primer testimonio impreso conocido en la literatura española que vincula explícitamente las patatas con su preparación culinaria en guisados y tortillas.",
+    "en": "Earliest known printed record in Spanish literature explicitly linking potatoes to culinary use in stews and omelettes (tortillas).",
+    "de": "Älteste bekannte gedruckte Erwähnung in der spanischen Literatur, die Kartoffeln explizit mit der Zubereitung in Eintöpfen und Tortillas verbindet."
+  },
+  "keyTakeaway": {
+    "es": "Demuestra que la combinación de huevo y patata bajo el nombre de 'tortilla' ya era conocida en la culinaria popular española al menos tres décadas antes de los experimentos de Villanueva de la Serena de 1798.",
+    "en": "Proves that combining egg and potato under the name 'tortilla' was already present in Spanish culinary vernacular at least three decades before the 1798 Villanueva de la Serena experiments.",
+    "de": "Beweist, dass die Verbindung von Ei und Kartoffel unter dem Begriff 'Tortilla' in der spanischen Küche bereits mindestens drei Jahrzehnte vor den Experimenten von Villanueva de la Serena (1798) bekannt war."
+  },
+  "quote": {
+    "es": "En España se usan regularmente en guisados y tortillas.",
+    "en": "In Spain they are regularly used in stews and tortillas.",
+    "de": "In Spanien werden sie regelmäßig in Eintöpfen und Tortillas verwendet."
+  },
+  "relatedArticleSlugs": ["history", "historia", "ciencia", "origenes"],
+  "verified": true,
+  "tags": ["primer_registro", "siglo_xviii", "valencia", "historiografia"]
+}

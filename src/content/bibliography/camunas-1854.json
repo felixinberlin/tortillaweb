@@ -1,0 +1,28 @@
+{
+  "id": "camunas-1854",
+  "title": {
+    "es": "La cocina perfeccionada: Libro de guisados y repostería",
+    "en": "The Perfected Kitchen: Book of Stews and Pastries",
+    "de": "Die vervollkommnete Küche: Handbuch der Eintöpfe und Konditorei"
+  },
+  "authors": ["M. Camuñas"],
+  "year": 1854,
+  "type": "culinary_canon",
+  "category": "gastronomy",
+  "publisher": "Imprenta de D. F. Sánchez",
+  "location": "Madrid, España",
+  "citationText": "Camuñas, M. (1854). La cocina perfeccionada: Libro de guisados, repostería, pastelería y botillería. Madrid: Imprenta de D. F. Sánchez.",
+  "summary": {
+    "es": "Primer recetario gastronómico impreso en España que incluye una fórmula formal para la tortilla de patatas bajo un título de receta estructurado, describiendo el corte en rodajas, fritura previa y cuajado con huevo.",
+    "en": "First printed cookbook in Spain featuring a formal recipe for potato omelette under an explicit section heading, detailing slicing, pre-frying, and setting with beaten eggs.",
+    "de": "Erstes gedrucktes Kochbuch in Spanien mit einem formalen Rezept für Kartoffeltortilla unter eigenem Eintrag, das Scheibenschneiden, Vorbraten und Stockenlassen beschreibt."
+  },
+  "keyTakeaway": {
+    "es": "Marca la transición crucial de la tortilla de plato de subsistencia rural o militar a preparación estandarizada y codificada en la culinaria urbana burguesa del siglo XIX.",
+    "en": "Marks the historic pivot of the tortilla from rural subsistence food or military emergency ration into codified bourgeois urban cuisine.",
+    "de": "Markiert den Übergang der Tortilla von der bäuerlichen Subsistenz- und Militärration zur bürgerlich kodifizierten Rezeptur des 19. Jahrhunderts."
+  },
+  "relatedArticleSlugs": ["history", "historia", "recipes", "recetas"],
+  "verified": true,
+  "tags": ["recetario", "1854", "madrid", "primer_recetario"]
+}

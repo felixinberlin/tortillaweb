@@ -1,0 +1,38 @@
+{
+  "id": "rd-1021-2022",
+  "title": {
+    "es": "Real Decreto 1021/2022, de 13 de diciembre: Higiene y requisitos para la elaboración con huevo",
+    "en": "Royal Decree 1021/2022, December 13: Hygiene Requirements for Foods Prepared with Egg",
+    "de": "Königliches Dekret 1021/2022 vom 13. Dezember: Hygieneanforderungen für eierhaltige Speisen"
+  },
+  "authors": [
+    "Ministerio de Consumo",
+    "Agencia Española de Seguridad Alimentaria y Nutrición (AESAN)"
+  ],
+  "year": 2022,
+  "type": "legislation",
+  "category": "safety",
+  "publication": "Boletín Oficial del Estado (BOE)",
+  "location": "Madrid, España (BOE núm. 305, pp. 177435-177452)",
+  "officialCode": "BOE-A-2022-21443",
+  "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-21443",
+  "citationText": "España. (2022). Real Decreto 1021/2022, de 13 de diciembre, por el que se regulan determinados requisitos en materia de higiene de la producción y comercialización de los productos alimenticios en establecimientos de comercio al por menor. Boletín Oficial del Estado, 305, BOE-A-2022-21443.",
+  "summary": {
+    "es": "Normativa legal vigente en España que actualizó el histórico RD 1254/1991, autorizando expresamente el uso de huevo fresco en hostelería y restauración siempre que se alcancen parámetros térmicos bactericidas estrictos o servicio inmediato.",
+    "en": "Current Spanish health regulation updating RD 1254/1991, explicitly allowing fresh shell eggs in retail and restaurants provided strict bactericidal heat treatment or immediate consumption conditions are observed.",
+    "de": "Geltende spanische Hygieneverordnung, die RD 1254/1991 ablöste und frische Schaleneier in der Gastronomie unter Einhaltung strenger mikrobiologischer Hitzeschwellen zulässt."
+  },
+  "keyTakeaway": {
+    "es": "Fija los tres pilares legales obligatorios: tratamiento térmico a **70°C for 2 minutes** en el centro de la masa, o a **63°C for 20 seconds** con servicio inmediato, y un límite máximo de exposición ambiental de **4 hours** antes de refrigeración a <8°C.",
+    "en": "Mandates the three legal gold standards: core cooking to **70°C for 2 minutes**, or **63°C for 20 seconds** if served immediately, and a strict **4 hours** ambient holding limit before refrigerated disposal.",
+    "de": "Regelt die drei gesetzlichen Grundpfeiler: Erhitzung auf **70°C for 2 minutes** im Kern, oder **63°C for 20 seconds** bei sofortigem Verzehr, sowie maximal **4 hours** bei Raumtemperatur."
+  },
+  "quote": {
+    "es": "Se someterán a un tratamiento térmico donde se alcance una temperatura de 70 °C o superior durante al menos 2 minutos en el centro del producto, o cualquier otra combinación equivalente de tiempo y temperatura, como 63 °C durante al menos 20 segundos para consumo inmediato.",
+    "en": "They shall undergo thermal treatment reaching 70 °C or higher for at least 2 minutes at the product core, or any equivalent time-temperature combination such as 63 °C for at least 20 seconds for immediate service.",
+    "de": "Sie müssen einer Wärmebehandlung unterzogen werden, bei der im Kern mindestens 2 Minuten lang 70 °C erreicht werden, oder einer gleichwertigen Kombination wie 63 °C für mindestens 20 Sekunden bei sofortigem Verzehr."
+  },
+  "relatedArticleSlugs": ["science", "ciencia", "seguridad", "laboratorio"],
+  "verified": true,
+  "tags": ["boe", "aesan", "salmonella", "70c_2min", "seguridad_alimentaria"]
+}

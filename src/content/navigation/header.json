@@ -64,6 +64,15 @@
           }
         },
         {
+          "key": "bibliografia",
+          "href": "/bibliografia",
+          "label": {
+            "es": "Bibliografía & Fuentes 📚",
+            "en": "Bibliography & Sources 📚",
+            "de": "Bibliographie & Quellen 📚"
+          }
+        },
+        {
           "key": "trivia",
           "href": "/trivia",
           "label": {

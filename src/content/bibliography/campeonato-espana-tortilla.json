@@ -1,0 +1,32 @@
+{
+  "id": "campeonato-espana-tortilla",
+  "title": {
+    "es": "Actas y Registro del Campeonato de España de Tortilla de Patatas (1999-2025)",
+    "en": "Records and Registry of the Spanish National Tortilla Championship (1999-2025)",
+    "de": "Offizielle Register der spanischen Tortilla-Meisterschaft (1999-2025)"
+  },
+  "authors": [
+    "Rafael García Santos",
+    "Alicante Gastronómica / Lo Mejor de la Gastronomía"
+  ],
+  "year": 2025,
+  "type": "culinary_canon",
+  "category": "gastronomy",
+  "publication": "Lo Mejor de la Gastronomía / Alicante Gastronómica",
+  "location": "San Sebastián / Alicante, España",
+  "url": "https://alicantegastronomica.com/",
+  "citationText": "García Santos, R. (1999–2025). Palmarés histórico del Campeonato de España de Tortilla de Patatas. San Sebastián / Alicante: Lo Mejor de la Gastronomía.",
+  "summary": {
+    "es": "El certamen culinario más prestigioso y riguroso de España, fundado por el crítico gastronómico Rafael García Santos. Ha consagrado los dos grandes estilos competitivos: la tortilla de Betanzos sin cebolla y de yema fluida, y la tortilla tradicional con cebolla caramelizada.",
+    "en": "The most prestigious and rigorous culinary championship in Spain, established by gastronomic critic Rafael García Santos. Codified Spain's two competing high styles: runny yolk Betanzos (onionless) and caramelized onion classic.",
+    "de": "Spaniens renommiertester Wettbewerb für Kartoffeltortillas, gegründet vom Kritiker Rafael García Santos. Begründete die zwei Spitzenstile: flüssiges Betanzos (ohne Zwiebel) und karamellisierte Zwiebeltortilla."
+  },
+  "keyTakeaway": {
+    "es": "Establece el canon de campeones nacionales: Alberto García Ponte & Ana María Suárez (Mesón O Pote, Betanzos), Senén González (Sagartoki, Vitoria), Ciriaco San Sebastián, Pedro Martino (Naguar/L'Ablanu), Itxaso Cisneros (Bar Izaro, Bilbao), y Carlos Olabarria (La Tortillería).",
+    "en": "Establishes the national championship canon: Alberto García Ponte & Ana María Suárez (Mesón O Pote), Senén González (Sagartoki), Ciriaco San Sebastián, Pedro Martino, Itxaso Cisneros (Bar Izaro), and Carlos Olabarria.",
+    "de": "Legt den nationalen Meisterkanon fest: Alberto García Ponte & Ana María Suárez (Mesón O Pote), Senén González (Sagartoki), Pedro Martino und weitere Preisträger."
+  },
+  "relatedArticleSlugs": ["recipes", "recetas", "mapapremios", "estilos"],
+  "verified": true,
+  "tags": ["campeonato_espana", "rafael_garcia_santos", "meson_o_pote", "sagartoki", "betanzos"]
+}

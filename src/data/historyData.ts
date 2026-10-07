@@ -50,7 +50,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1767 - 1772",
         title: "Primeras Menciones Ilustradas",
         location: "España",
-        description: "Joseph Valcárcel (1767) y Roig (1772) registran las primigenias menciones que vinculan la patata americana con preparaciones de huevo batido en la cocina popular.",
+        description: "Joseph Antonio Valcárcel (1767) documenta por primera vez patatas en 'guisados y tortillas' en su 'Agricultura General'. En 1772, Jaume Roig constata su consumo en La Mancha.",
         badge: "Siglo de las Luces",
         tagType: "origin"
       },
@@ -58,7 +58,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1798",
         title: "Origen Geográfico Documentado",
         location: "Villanueva de la Serena (Badajoz)",
-        description: "Documentos de Extremadura detallan cómo el ingenio local creó la fórmula de patata y huevo como respuesta nutritiva a la escasez agrícola.",
+        description: "Carta firmada el 27 de febrero de 1798 por Joseph de Tena Godoy y el Marqués de Robledo (publicada en agosto en el Semanario de Agricultura nº 85): primera formulación técnica en sartén con aceite.",
         badge: "Hito Fundacional",
         tagType: "origin"
       },
@@ -66,7 +66,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1810 - 1812",
         title: "El Sitio de Cádiz y la 'Tortilla Francesa'",
         location: "Cádiz",
-        description: "Durante el bloqueo napoleónico, la falta de patatas obligó a cocinar el huevo solo. Con humor gaditano, la bautizaron 'tortilla francesa' para diferenciarla de la 'española'.",
+        description: "Durante el bloqueo napoleónico, la falta de patatas obligó a cocinar el huevo solo. Con ironía gaditana, la bautizaron 'tortilla francesa' para diferenciarla de la 'española'.",
         badge: "Conflicto & Lenguaje",
         tagType: "war"
       },
@@ -74,7 +74,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1817",
         title: "El Memorial de Navarra",
         location: "Navarra",
-        description: "Documento oficial presentado a las Cortes que describe cómo los campesinos 'estiraban' los escasos huevos mezclándolos con patatas para alimentar a familias numerosas.",
+        description: "Documento oficial presentado a las Cortes ('memorial de ratonera') que describe cómo las campesinas 'estiraban' pocos huevos con patatas y atapurres de pan para saciar familias.",
         badge: "Respuesta a la Penuria",
         tagType: "survival"
       },
@@ -82,9 +82,25 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1835",
         title: "Leyenda del General Zumalacárregui",
         location: "Guerras Carlistas",
-        description: "La tradición narra que una campesina anónima improvisó el plato para el general Carlista para nutrir a sus tropas de forma rápida, económica y calórica.",
+        description: "La tradición atribuía la invención a una campesina para el general en el Sitio de Bilbao. Mito refutado como origen, pero vector crucial de difusión militar por toda España.",
         badge: "Mito Gastronómico",
         tagType: "war"
+      },
+      {
+        year: "1854",
+        title: "Primera Receta Impresa en Recetario",
+        location: "Madrid",
+        description: "José López Camuñas publica en 'La cocina perfeccionada' una de las primeras recetas formalmente impresas bajo el título de 'Tortilla de patatas'.",
+        badge: "Codificación Culinaria",
+        tagType: "origin"
+      },
+      {
+        year: "1894",
+        title: "Canon Gastronómico Nacional",
+        location: "Madrid",
+        description: "Ángel Muro consagra la receta en 'El Practicón', fijando el estándar técnico de corte y pochado en aceite de oliva virgen.",
+        badge: "Tratado Canónico",
+        tagType: "modern"
       },
       {
         year: "1940s",
@@ -98,12 +114,12 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1991 - 2025",
         title: "Alertas Sanitarias y Control Epidemiológico",
         location: "Valencia, Madrid, Galicia",
-        description: "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C durante 2 minutos** y ovoproductos.",
+        description: "Brotes históricos como Casa Dani (2023) y Trasan Fest (2025) impulsan protocolos de seguridad alimentaria: **70°C durante 2 minutos** o **63°C durante 20 segundos** y ovoproductos.",
         badge: "Seguridad Alimentaria",
         tagType: "safety"
       },
       {
-        year: "2024 - 2025+",
+        year: "2024 - 2026+",
         title: "Revolución Digital y Versiones Veganas",
         location: "España Digital",
         description: "El delivery alcanza 8.000M€. Surgen versiones veganas con harina de garbanzo y almidón de tapioca para alérgicos e intolerantes.",
@@ -230,7 +246,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1767 - 1772",
         title: "First Enlightenment Citations",
         location: "Spain",
-        description: "Joseph Valcárcel (1767) and Roig (1772) record the earliest documentary references linking potatoes with beaten egg preparations.",
+        description: "Joseph Antonio Valcárcel (1767) documents potatoes in 'stews and tortillas' in 'Agricultura General'. In 1772, Jaume Roig confirms rural consumption in La Mancha.",
         badge: "Enlightenment Era",
         tagType: "origin"
       },
@@ -238,7 +254,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1798",
         title: "Documented Birthplace",
         location: "Villanueva de la Serena (Badajoz)",
-        description: "Extremaduran historical archives detail how local ingenuity created the potato and egg formula as a nutritious answer to agricultural scarcity.",
+        description: "Letter signed Feb 27, 1798, by Joseph de Tena Godoy and the Marquis of Robledo (published in August in Semanario de Agricultura #85): first technical skillet protocol in olive oil.",
         badge: "Foundational Milestone",
         tagType: "origin"
       },
@@ -246,7 +262,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1810 - 1812",
         title: "Siege of Cádiz & 'French Omelette'",
         location: "Cádiz",
-        description: "During the Napoleonic blockade, potato depletion forced citizens to cook plain egg omelettes, ironically naming them 'French omelettes'.",
+        description: "During the Napoleonic blockade, potato depletion forced citizens to cook plain egg omelettes, ironically naming them 'French omelettes' vs Spanish ones.",
         badge: "Conflict & Nomenclature",
         tagType: "war"
       },
@@ -254,7 +270,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1817",
         title: "Navarra Memorial",
         location: "Navarra",
-        description: "Official submission to the Cortes advocating potato omelettes to stretch scarce eggs and feed impoverished rural families.",
+        description: "Official submission to the regional Cortes ('memorial de ratonera') describing how peasant women stretched scarce eggs with potatoes and breadcrumbs.",
         badge: "Survival Solution",
         tagType: "survival"
       },
@@ -262,9 +278,25 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1835",
         title: "General Zumalacárregui Legend",
         location: "Carlist Wars",
-        description: "Tradition holds that an anonymous farmwoman created the dish for Carlist troops to provide a dense, affordable military ration.",
+        description: "Tradition attributed invention to a peasant woman for the general during the Siege of Bilbao. Disproven as origin, but vital military geographic spreader.",
         badge: "Gastronomic Legend",
         tagType: "war"
+      },
+      {
+        year: "1854",
+        title: "First Printed Cookbook Recipe",
+        location: "Madrid",
+        description: "José López Camuñas publishes one of the earliest formal recipes explicitly titled 'Tortilla de patatas' in 'La cocina perfeccionada'.",
+        badge: "Culinary Codification",
+        tagType: "origin"
+      },
+      {
+        year: "1894",
+        title: "National Gastronomic Canon",
+        location: "Madrid",
+        description: "Ángel Muro canonizes the recipe in 'El Practicón', establishing standard techniques for slicing and slow poaching in extra virgin olive oil.",
+        badge: "Canonical Treatise",
+        tagType: "modern"
       },
       {
         year: "1940s",
@@ -278,16 +310,16 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1991 - 2025",
         title: "Public Health Outbreaks & Pasteurization",
         location: "Spain",
-        description: "Outbreaks such as Casa Dani (2023) and Trasan Fest (2025) drive safety regulations: **70°C for 2 minutes** and liquid egg products.",
+        description: "Outbreaks such as Casa Dani (2023) and Trasan Fest (2025) drive safety regulations: **70°C for 2 minutes** or **63°C for 20 seconds** and liquid egg products.",
         badge: "Food Safety",
         tagType: "safety"
       },
       {
-        year: "2024 - 2025+",
+        year: "2024 - 2026+",
         title: "Digital Delivery & Vegan Innovations",
         location: "Contemporary Spain",
         description: "Online food delivery reaches €8 billion. Chickpea flour and tapioca starch enable egg-free, allergen-safe tortillas.",
-        badge: "Digital Era",
+        badge: "Contemporary Era",
         tagType: "modern"
       }
     ],
@@ -405,7 +437,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1767 - 1772",
         title: "Erste Dokumentierte Erwähnungen",
         location: "Spanien",
-        description: "Joseph Valcárcel (1767) und Roig (1772) hielten die ersten schriftlichen Nachweise über Kartoffeln mit verquirlten Eiern fest.",
+        description: "Joseph Antonio Valcárcel (1767) dokumentiert erstmals Kartoffeln in 'Eintöpfen und Tortillas' (*Agricultura General*). 1772 bestätigt Jaume Roig den Verzehr in La Mancha.",
         badge: "Zeitalter der Aufklärung",
         tagType: "origin"
       },
@@ -413,7 +445,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1798",
         title: "Dokumentierte Geburtsstätte",
         location: "Villanueva de la Serena (Extremadura)",
-        description: "Archive aus Extremadura belegen die genaue Kombination aus Kartoffel und Ei als nährstoffreiche Antwort auf Hungersnöte.",
+        description: "Brief vom 27. Februar 1798 von Joseph de Tena Godoy und dem Marqués de Robledo (publiziert August 1798 im Semanario de Agricultura Nr. 85): erstes Pfannenprotokoll mit Olivenöl.",
         badge: "Gründungs-Meilenstein",
         tagType: "origin"
       },
@@ -421,7 +453,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1810 - 1812",
         title: "Belagerung von Cádiz & 'Tortilla Francesa'",
         location: "Cádiz",
-        description: "Mangel an Kartoffeln zwang die Bürger zum Omelett rein aus Eiern – spöttisch 'französisches Omelett' genannt.",
+        description: "Mangel an Kartoffeln zwang die Bürger zum Omelett rein aus Eiern – spöttisch 'französisches Omelett' zur Unterscheidung vom spanischen genannt.",
         badge: "Konflikt & Name",
         tagType: "war"
       },
@@ -429,7 +461,7 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1817",
         title: "Das Navarra-Denkmal",
         location: "Navarra",
-        description: "Offizielles Dokument an die Cortes über die Streckung weniger Eier mit reichlich Kartoffeln für arme Landfamilien.",
+        description: "Offizielles Dokument an die Cortes ('memorial de ratonera') über die Streckung weniger Eier mit Kartoffeln und Brotresten für arme Landfamilien.",
         badge: "Überlebensmittel",
         tagType: "survival"
       },
@@ -437,9 +469,25 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1835",
         title: "Legende von General Zumalacárregui",
         location: "Karlistenkriege",
-        description: "Eine Bäuerin soll das nahrhafte, günstige Gericht improvisiert haben, um Karlistentruppen schnell zu verpflegen.",
+        description: "Der Volksmund schrieb die Erfindung einer Bäuerin bei der Belagerung von Bilbao zu. Als Ursprung widerlegt, doch historisch ein massiver Verbreitungskanal.",
         badge: "Mythen & Legenden",
         tagType: "war"
+      },
+      {
+        year: "1854",
+        title: "Erstes Gedrucktes Kochbuchrezept",
+        location: "Madrid",
+        description: "José López Camuñas veröffentlicht in 'La cocina perfeccionada' eines der ersten formalen Kochbuchrezepte als 'Tortilla de patatas'.",
+        badge: "Kulinarische Kodifizierung",
+        tagType: "origin"
+      },
+      {
+        year: "1894",
+        title: "Nationaler Gastronomiekanon",
+        location: "Madrid",
+        description: "Ángel Muro erhebt die Rezeptur in 'El Practicón' zum spanischen Nationalstandard und kodifiziert das sanfte Garen in nativem Olivenöl.",
+        badge: "Kanonisches Werk",
+        tagType: "modern"
       },
       {
         year: "1940er",
@@ -453,16 +501,16 @@ export const historyData: Record<string, HistoryPageContent> = {
         year: "1991 - 2025",
         title: "Ausbrüche & Inaktivierungs-Standards",
         location: "Spanien",
-        description: "Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C für 2 Minuten** und Flüssigei.",
+        description: "Ausbrüche wie Casa Dani (2023) und Trasan Fest (2025) erfordern strenge Regeln: **70°C für 2 Minuten** oder **63°C für 20 Sekunden** und Flüssigei.",
         badge: "Lebensmittelsicherheit",
         tagType: "safety"
       },
       {
-        year: "2024 - 2025+",
+        year: "2024 - 2026+",
         title: "Digitales Delivery & Vegane Alternativen",
         location: "Modernes Spanien",
         description: "Online-Delivery erreicht 8 Mrd. Euro. Kichererbsenmehl und Tapiokastärke ermöglichen allergiefreie, vegane Tortillas.",
-        badge: "Digitales Zeitalter",
+        badge: "Moderne Ära",
         tagType: "modern"
       }
     ],

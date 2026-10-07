@@ -1,0 +1,31 @@
+{
+  "id": "neiker-mapa-tubers",
+  "title": {
+    "es": "Evaluación agronómica y reológica de cultivares de patata para fritura y pochado",
+    "en": "Agronomic and Rheological Evaluation of Potato Cultivars for Frying and Poaching",
+    "de": "Agronomische und rheologische Bewertung von Kartoffelsorten zum Frittieren und Pochieren"
+  },
+  "authors": [
+    "Instituto Vasco de Investigación y Desarrollo Agrario (NEIKER)",
+    "Ministerio de Agricultura, Pesca y Alimentación (MAPA)"
+  ],
+  "year": 2019,
+  "type": "official_report",
+  "category": "agronomy",
+  "publication": "Informes Técnicos del Sector de la Patata en España",
+  "location": "Vitoria-Gasteiz / Madrid, España",
+  "citationText": "NEIKER & MAPA. (2019). Caracterización de materia seca, azúcares reductores y aptitud culinaria de cultivares de patata en España. Vitoria-Gasteiz: NEIKER.",
+  "summary": {
+    "es": "Informes agronómicos que cuantifican la materia seca (% dry matter) y azúcares reductores de las variedades de patata más empleadas en la tortilla: Monalisa (18-20%), Kennebec (20-22%), y Agria (22-24%), así como el comportamiento térmico en fritura y pochado en aceite de oliva virgen extra.",
+    "en": "Technical agronomic reports quantifying dry matter percentage and reducing sugars across key tortilla potato cultivars: Monalisa (18-20%), Kennebec (20-22%), and Agria (22-24%), alongside thermal behavior during extra virgin olive oil confit.",
+    "de": "Agronomische Berichte zur Trockenmasse und reduzierenden Zuckern der wichtigsten Tortilla-Kartoffelsorten: Monalisa (18-20%), Kennebec (20-22%) und Agria (22-24%) sowie Verhalten beim Confieren in nativem Olivenöl extra."
+  },
+  "keyTakeaway": {
+    "es": "Identifica que el corte irregular 'chascado' (snapping) quiebra las paredes amiloplásticas liberando almidón soluble libre, mientras que un pochado controlado a 110 °C – 140 °C evita la formación de acrilamida (>170 °C) logrando una textura mantecosa óptima.",
+    "en": "Discloses that the irregular 'chascar' (snapping) cut breaks amyloplast cell walls to release free amylopectin, while simmering at 110 °C – 140 °C suppresses acrylamide formation (>170 °C) to achieve a buttery tender core.",
+    "de": "Zeigt, dass das Brechen ('chascar') Amyloplastwände öffnet und lösliche Stärke freisetzt, während ein kontrolliertes Garen bei 110 °C – 140 °C Acrylamidbildung verhindert."
+  },
+  "relatedArticleSlugs": ["science", "ciencia", "ingredientes", "patata"],
+  "verified": true,
+  "tags": ["patata", "agria", "kennebec", "monalisa", "neiker", "mapa"]
+}

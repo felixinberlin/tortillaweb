@@ -1,0 +1,29 @@
+{
+  "id": "ortega-1972",
+  "title": {
+    "es": "1080 recetas de cocina (Receta nº 165: Tortilla española)",
+    "en": "1080 Recipes (Recipe #165: Classic Spanish Tortilla)",
+    "de": "1080 Rezepte (Rezept Nr. 165: Spanische Tortilla)"
+  },
+  "authors": ["Simone Ortega"],
+  "year": 1972,
+  "type": "culinary_canon",
+  "category": "gastronomy",
+  "publisher": "Alianza Editorial",
+  "location": "Madrid, España",
+  "officialCode": "ISBN 978-84-206-9133-6",
+  "citationText": "Ortega, S. (1972). 1080 recetas de cocina. Madrid: Alianza Editorial (Receta 165: 'Tortilla española clásica', p. 112).",
+  "summary": {
+    "es": "El recetario doméstico más vendido y leído de la historia contemporánea española (más de 3 millones de ejemplares). Fija la proporción doméstica clásica de patata, huevo y sal para millones de hogares durante medio siglo.",
+    "en": "The most widely read and influential domestic cookbook in modern Spanish history (over 3 million copies sold). Codified classic home cooking ratios of potato, egg, and salt for multiple generations.",
+    "de": "Das meistverkaufte spanische Kochbuch des 20. Jahrhunderts (über 3 Millionen Exemplare). Prägte die häuslichen Grundverhältnisse von Kartoffel, Ei und Salz für Generationen."
+  },
+  "keyTakeaway": {
+    "es": "Representa el patrón estándar de la cocina casera tradicional de las familias españolas: cuajado medio-firme, cebolla opcional según gusto familiar, y fritura pausada en sartén.",
+    "en": "Represents the standard paradigm of traditional family home cooking: medium-firm curd, optional onion to taste, and gentle frying.",
+    "de": "Repräsentiert das Standardmodell der traditionellen Familienküche: mittelfestes Stocken, Zwiebel nach Belieben und schonendes Anbraten."
+  },
+  "relatedArticleSlugs": ["recipes", "recetas", "history", "historia"],
+  "verified": true,
+  "tags": ["simone_ortega", "1080_recetas", "alianza_editorial", "canon_domestico"]
+}

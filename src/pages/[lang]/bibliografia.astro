@@ -1,0 +1,166 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getLocalizedBibliography } from '@/lib/bibliography';
+import { BibliographyDirectory } from '@/components/bibliography/BibliographyDirectory.tsx';
+import { BookOpen, ShieldCheck, History, Award, ExternalLink, Library, CheckCircle2 } from 'lucide-react';
+import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
+import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+import { supportedLanguages } from '@/lib/i18n';
+
+export function getStaticPaths() {
+  return supportedLanguages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang = 'es' } = Astro.params;
+const currentLang = (lang === 'es' || lang === 'en' || lang === 'de') ? lang : 'es';
+
+const bibliographyItems = await getLocalizedBibliography(currentLang);
+
+const pageMeta = {
+  es: {
+    title: "Bibliografía & Fuentes Documentales | tortilladepatatas.org",
+    description: "Archivo maestro de manuscritos del siglo XVIII, investigaciones del CSIC, normativa de seguridad (RD 1021/2022), tratados culinarios y encuestas del CIS que sustentan tortilladepatatas.org.",
+    heroBadge: "Archivo Maestro de Evidencias & Procedencia de Datos",
+    heroTitle: "Bibliografía & Fuentes Documentales",
+    heroSubtitle: "La investigación rigurosa que sustenta la enciclopedia: desde las actas de 1767 y 1798 hasta los modelos cinéticos de Salmonella, los estudios demoscópicos del CIS y los recetarios históricos canónicos.",
+    stat1Title: "19+ Fuentes Verificadas",
+    stat1Sub: "Manuscritos, leyes, tratados y ciencia",
+    stat2Title: "470+ Años de Registro",
+    stat2Sub: "Desde 1553 (Cieza de León) hasta 2026",
+    stat3Title: "100% Sin Especulación",
+    stat3Sub: "Hechos documentados vs. leyendas etiquetadas",
+    backToHome: "Volver al Inicio",
+  },
+  en: {
+    title: "Bibliography & Master Reference Archive | tortilladepatatas.org",
+    description: "Master documentary archive of 18th-century manuscripts, CSIC research, safety laws (RD 1021/2022), food science treatises, and CIS national polls underpinning tortilladepatatas.org.",
+    heroBadge: "Master Evidence Archive & Data Provenance",
+    heroTitle: "Bibliography & Documentary Sources",
+    heroSubtitle: "The rigorous archival research behind our encyclopedia: from the 1767 and 1798 manuscripts to Salmonella inactivation kinetics, CIS national polls, and canonical historic cookbooks.",
+    stat1Title: "19+ Verified Sources",
+    stat1Sub: "Manuscripts, statutes, treatises & science",
+    stat2Title: "470+ Years of Records",
+    stat2Sub: "From 1553 (Cieza de León) to 2026",
+    stat3Title: "100% Evidence-Grounded",
+    stat3Sub: "Documented facts vs. clearly labeled legends",
+    backToHome: "Back to Home",
+  },
+  de: {
+    title: "Bibliographie & Dokumentarisches Quellenarchiv | tortilladepatatas.org",
+    description: "Meisterarchiv historischer Manuskripte aus dem 18. Jahrhundert, CSIC-Forschung, Hygienevorschriften (RD 1021/2022), Physikabhandlungen und CIS-Umfragen.",
+    heroBadge: "Quellenarchiv & Daten-Provenienz",
+    heroTitle: "Bibliographie & Quellenverzeichnis",
+    heroSubtitle: "Die wissenschaftliche Recherche hinter der Enzyklopädie: von den Akten von 1767 und 1798 über mikrobiologische Salmonellen-Kinetik bis zu den kanonischen Kochbüchern Spaniens.",
+    stat1Title: "19+ Geprüfte Quellen",
+    stat1Sub: "Manuskripte, Gesetze, Fachbücher & Studien",
+    stat2Title: "470+ Jahre Schriftquellen",
+    stat2Sub: "Von 1553 (Cieza de León) bis 2026",
+    stat3Title: "100% Faktenbasiert",
+    stat3Sub: "Dokumentierte Fakten vs. deklarierte Mythen",
+    backToHome: "Zur Startseite",
+  },
+};
+
+const meta = pageMeta[currentLang] || pageMeta.es;
+
+const breadcrumbs = [
+  { name: currentLang === 'es' ? 'Inicio' : currentLang === 'de' ? 'Start' : 'Home', url: `/${currentLang}` },
+  { name: meta.heroTitle, url: `/${currentLang}/bibliografia` }
+];
+---
+
+<Layout
+  title={meta.title}
+  description={meta.description}
+  lang={currentLang}
+  canonicalUrl={`https://tortilladepatatas.org/${currentLang}/bibliografia`}
+>
+  <div class="min-h-screen bg-[#FDFBF7] dark:bg-[#181615] text-foreground">
+    <!-- Breadcrumb Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+      <nav class="flex items-center gap-2 text-xs text-muted-foreground font-mono" aria-label="Breadcrumbs">
+        {breadcrumbs.map((crumb, idx) => (
+          <div class="flex items-center gap-2">
+            {idx > 0 && <span>/</span>}
+            <a href={crumb.url} class="hover:text-foreground transition-colors">
+              {crumb.name}
+            </a>
+          </div>
+        ))}
+      </nav>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-10">
+      <div class="space-y-4 max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFB800]/15 text-[#8D6E63] dark:text-[#FFB800] text-xs font-mono font-bold border border-[#FFB800]/30">
+          <Library class="w-3.5 h-3.5" />
+          <span>{meta.heroBadge}</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif-heading font-bold text-foreground tracking-tight leading-tight">
+          {meta.heroTitle}
+        </h1>
+
+        <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+          {meta.heroSubtitle}
+        </p>
+      </div>
+
+      <!-- Quick Proof & Rigor Counters -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+        <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-2xs space-y-1">
+          <div class="flex items-center gap-2 text-[#FFB800]">
+            <BookOpen class="w-4 h-4" />
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">Colección</span>
+          </div>
+          <div class="text-xl sm:text-2xl font-bold font-serif-heading text-foreground">
+            {meta.stat1Title}
+          </div>
+          <p class="text-xs text-muted-foreground">
+            {meta.stat1Sub}
+          </p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-2xs space-y-1">
+          <div class="flex items-center gap-2 text-[#8D6E63] dark:text-[#FFB800]">
+            <History class="w-4 h-4" />
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">Cronología</span>
+          </div>
+          <div class="text-xl sm:text-2xl font-bold font-serif-heading text-foreground">
+            {meta.stat2Title}
+          </div>
+          <p class="text-xs text-muted-foreground">
+            {meta.stat2Sub}
+          </p>
+        </div>
+
+        <div class="p-4 sm:p-5 rounded-2xl bg-card border border-border shadow-2xs space-y-1">
+          <div class="flex items-center gap-2 text-[#2E7D32]">
+            <CheckCircle2 class="w-4 h-4" />
+            <span class="font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">Rigor Editorial</span>
+          </div>
+          <div class="text-xl sm:text-2xl font-bold font-serif-heading text-foreground">
+            {meta.stat3Title}
+          </div>
+          <p class="text-xs text-muted-foreground">
+            {meta.stat3Sub}
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Interactive Directory -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+      <BibliographyDirectory client:load initialItems={bibliographyItems} lang={currentLang} />
+    </main>
+
+    <!-- Interconnected Knowledge Hub -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
+      <InterconnectedKnowledgeHub lang={currentLang} currentPath={`/${currentLang}/bibliografia`} client:visible />
+      <CulinaryJourneyProgress lang={currentLang} currentStepPath={`/${currentLang}/bibliografia`} client:visible />
+    </div>
+  </div>
+</Layout>

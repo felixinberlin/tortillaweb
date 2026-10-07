@@ -1,0 +1,35 @@
+{
+  "id": "mcgee-2004",
+  "title": {
+    "es": "La cocina y los alimentos: Enciclopedia de la ciencia y la cultura de la comida",
+    "en": "On Food and Cooking: The Science and Lore of the Kitchen",
+    "de": "Über das Essen und Kochen: Wissenschaft und Kultur der Küche"
+  },
+  "authors": ["Harold McGee"],
+  "year": 2004,
+  "type": "academic_book",
+  "category": "science",
+  "publisher": "Scribner / Debate (Edición española)",
+  "location": "Nueva York / Barcelona",
+  "officialCode": "ISBN 978-0-684-80001-1",
+  "url": "https://curiouscook.typepad.com/",
+  "citationText": "McGee, H. (2004). On Food and Cooking: The Science and Lore of the Kitchen. New York: Scribner (Chapter 2: 'Eggs', pp. 68–117).",
+  "summary": {
+    "es": "Tratado fundamental de ciencia culinaria que desglosa la desnaturalización y coagulación de las proteínas del huevo (ovotransferrina a 62-65 °C, lipovitelina a 65-70 °C, ovoalbúmina a 80-84 °C) y el impacto del cloruro sódico (sal) en la retención hídrica del gel.",
+    "en": "Definitive food science treatise detailing egg protein denaturation and coagulation phases (ovotransferrin at 62-65 °C, lipovitellin at 65-70 °C, ovalbumin at 80-84 °C) and sodium chloride's role in tenderizing protein gel networks.",
+    "de": "Grundlegendes Werk der kulinarischen Physik über Eiweiß-Denaturierung (Ovotransferrin bei 62-65 °C, Lipovitellin bei 65-70 °C, Ovalbumin bei 80-84 °C) und den Einfluss von Kochsalz auf das Gelnetzwerk."
+  },
+  "keyTakeaway": {
+    "es": "Explica científicamente por qué la tortilla jugosa logra su textura melosa sin escurrir agua (sinéresis) gracias a la cocción controlada por debajo de 70-73 °C y el reposo en baño de huevo templado.",
+    "en": "Scientifically explains how runny tortillas achieve creamy custard viscosity without weeping water (syneresis) through thermal control below 70-73 °C and the pre-soak in warm egg bath.",
+    "de": "Erklärt physikalisch, warum saftige Tortillas ohne Flüssigkeitsverlust (Synärese) cremig binden, wenn sie unter 70-73 °C gegart werden und im warmen Ei-Bad ruhen."
+  },
+  "quote": {
+    "es": "A 62-65 °C la ovotransferrina empieza a desplegarse formando un gel tierno; a 80 °C la ovoalbúmina consolida una red rígida y densa.",
+    "en": "At 62-65 °C ovotransferrin begins to unfold into a tender gel; at 80 °C ovalbumin sets into a firm, rigid network.",
+    "de": "Bei 62-65 °C entfaltet sich Ovotransferrin zu einem zarten Gel; bei 80 °C verfestigt Ovalbumin ein starres, dichtes Netzwerk."
+  },
+  "relatedArticleSlugs": ["science", "ciencia", "tecnicas", "ingredientes"],
+  "verified": true,
+  "tags": ["ciencia_culinaria", "proteinas_huevo", "harold_mcgee", "coagulacion"]
+}

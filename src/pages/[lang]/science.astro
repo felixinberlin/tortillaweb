@@ -9,6 +9,7 @@ import { getCollection, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import CulinaryJourneyProgress from '@/components/navigation/CulinaryJourneyProgress.tsx';
 import InterconnectedKnowledgeHub from '@/components/navigation/InterconnectedKnowledgeHub.tsx';
+import BibliographySection from '@/components/bibliography/BibliographySection.astro';
 
 export function getStaticPaths() {
   return supportedLanguages.map((lang) => ({
@@ -236,6 +237,38 @@ const sidebarLabels = {
           </div>
         </Card>
 
+        <!-- Master Bibliography Link Card -->
+        <Card class="card-notebook p-5 bg-card border-t-2 border-t-[#2E7D32]">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                <ShieldCheck class="w-3.5 h-3.5 text-[#2E7D32]" />
+                <span>{lang === 'es' ? 'Evidencia Legal' : lang === 'de' ? 'Gesetze & Physik' : 'Legal & Physics'}</span>
+              </span>
+              <Badge variant="outline" class="text-[10px] font-mono border-[#2E7D32]/40 text-[#2E7D32] bg-[#2E7D32]/10">
+                RD 1021/2022
+              </Badge>
+            </div>
+            <h4 class="font-serif-heading font-bold text-sm text-foreground">
+              {lang === 'es' ? 'Archivo de Fuentes & BOE' : lang === 'de' ? 'Quellenverzeichnis & Gesetze' : 'Reference & Statute Archive'}
+            </h4>
+            <p class="text-xs text-muted-foreground leading-relaxed">
+              {lang === 'es' 
+                ? 'Accede al texto oficial del BOE, informes ICMSF de Salmonella y estudios reológicos de Harold McGee y Hervé This.'
+                : lang === 'de'
+                ? 'Offizielle Gesetzblätter (BOE), ICMSF-Mikrobiologie und physikalische Studien von Harold McGee & Hervé This.'
+                : 'Access official BOE gazette laws, ICMSF Salmonella kinetics, and food physics papers by McGee & This.'}
+            </p>
+            <a
+              href={`/${lang}/bibliografia`}
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] hover:underline transition-colors pt-1"
+            >
+              <span>{lang === 'es' ? 'Ver bibliografía completa' : lang === 'de' ? 'Gesamte Bibliographie ansehen' : 'Explore full bibliography'}</span>
+              <ChevronRight class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </Card>
+
       </aside>
 
       <!-- Article Prose Content Container (8 cols on lg) -->
@@ -250,6 +283,9 @@ const sidebarLabels = {
               <p>No se pudo cargar el artículo científico.</p>
             </div>
           )}
+
+          <!-- Documentary Sources Section -->
+          <BibliographySection articleSlug="science" lang={lang} />
 
           <!-- Back to top & Citation Footer -->
           <div class="pt-8 mt-10 border-t border-border flex items-center justify-between text-xs text-muted-foreground">

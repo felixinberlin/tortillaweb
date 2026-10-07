@@ -161,4 +161,9 @@ export const ROUTES: Record<RouteId, RouteDefinition> = {
     slug: { es: 'mapapremios', en: 'mapapremios', de: 'mapapremios' },
     label: { es: 'Mapa de Tortillas Premiadas', en: 'Award-Winning Tortilla Map', de: 'Karte der preisgekrönten Tortillas' },
   },
+  bibliografia: {
+    id: 'bibliografia',
+    slug: { es: 'bibliografia', en: 'bibliografia', de: 'bibliografia' },
+    label: { es: 'Bibliografía & Fuentes', en: 'Bibliography & Sources', de: 'Bibliographie & Quellen' },
+  },
 };

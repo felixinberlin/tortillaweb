@@ -1,0 +1,33 @@
+{
+  "id": "sahagun-1577",
+  "title": {
+    "es": "Historia General de las Cosas de la Nueva España (Códice Florentino)",
+    "en": "General History of the Things of New Spain (Florentine Codex)",
+    "de": "Allgemeine Geschichte der Dinge von Neu-Spanien (Florentiner Kodex)"
+  },
+  "authors": ["Fray Bernardino de Sahagún"],
+  "year": 1577,
+  "type": "manuscript",
+  "category": "history",
+  "publisher": "Manuscrito bilingüe náhuatl-castellano",
+  "location": "Tlatelolco, México / Biblioteca Medicea Laurenziana, Florencia",
+  "citationText": "Sahagún, B. de. (1577). Historia general de las cosas de la Nueva España (Códice Florentino, Libros VIII y X). Manuscrito conservado en la Biblioteca Medicea Laurenziana de Florencia.",
+  "summary": {
+    "es": "Crónica etnográfica monumental que documenta las prácticas alimentarias mesoamericanas en el tianguis de Tlatelolco, incluyendo las 'totolin tetl' (huevos de aves en tortas cocidas) y las 'tlaxcalli' de maíz.",
+    "en": "Monumental ethnographic chronicle documenting Mesoamerican culinary markets in Tlatelolco, recording 'totolin tetl' (poultry egg cakes) and corn 'tlaxcalli'.",
+    "de": "Monumentale ethnografische Chronik der mesoamerikanischen Märkte von Tlatelolco, die 'totolin tetl' (Vogeleierfladen) und Mais-'tlaxcalli' beschreibt."
+  },
+  "keyTakeaway": {
+    "es": "Aclara la falsa homonimia histórica: los conquistadores llamaron 'tortilla' a las 'tlaxcalli' mexicas de maíz por su forma redonda y plana, pero los aztecas también consumían preparaciones de huevo de pavo cuajado ('totolin tetl'). No guardan relación genética con la tortilla de patatas española, sino convergencia técnica independiente.",
+    "en": "Clarifies the linguistic homonymy: Spanish colonizers called Mexican corn 'tlaxcalli' tortillas due to flat round shape, while Aztecs also cooked turkey egg cakes ('totolin tetl'). They are independent culinary convergences, not precursors to the potato omelette.",
+    "de": "Klärt die historische Namensgleichheit: Spanische Konquistadoren nannten mexikanische Mais-Tlaxcalli wegen der runden Form Tortillas, während Azteken auch Puteneierfladen zubereiteten. Dies ist eine unabhängige kulinarische Konvergenz."
+  },
+  "quote": {
+    "es": "Vendían tortillas de huevos de aves diversas, revueltos y cocidos en cazuelas planas de barro.",
+    "en": "They sold omelettes of eggs from various birds, stirred and cooked in flat earthenware pans.",
+    "de": "Sie verkauften Fladen aus Eiern verschiedener Vögel, verquirlt und in flachen Tonschalen gegart."
+  },
+  "relatedArticleSlugs": ["history", "historia", "curiosidades"],
+  "verified": true,
+  "tags": ["mesoamerica", "aztecas", "etimologia", "codice_florentino"]
+}

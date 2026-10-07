@@ -1,0 +1,31 @@
+{
+  "id": "cis-estudio-3340-3418",
+  "title": {
+    "es": "Encuestas sobre Hábitos Gastronómicos y Debates Culinarios (Estudios CIS 3340 y 3418)",
+    "en": "Surveys on Gastronomic Habits and Culinary Debates (CIS Studies 3340 & 3418)",
+    "de": "Umfragen zu gastronomischen Gewohnheiten und kulinarischen Debatten (CIS-Studien 3340 & 3418)"
+  },
+  "authors": [
+    "Centro de Investigaciones Sociológicas (CIS)"
+  ],
+  "year": 2023,
+  "type": "survey",
+  "category": "sociology",
+  "publication": "Banco de Datos del Centro de Investigaciones Sociológicas",
+  "location": "Madrid, España",
+  "url": "https://www.cis.es/",
+  "citationText": "Centro de Investigaciones Sociológicas (CIS). (2021, 2023). Encuestas sobre hábitos gastronómicos de los españoles (Estudios nº 3340 y 3418). Madrid: CIS.",
+  "summary": {
+    "es": "Estudios demoscópicos sociológicos a escala representativa de toda la población española que miden científicamente las dos grandes polarizaciones culturales de la tortilla: el debate de la cebolla y el punto de cuajado del huevo.",
+    "en": "Nationally representative sociological surveys measuring Spain's two core tortilla disputes: the presence of onion and egg doneness.",
+    "de": "Repräsentative soziologische Erhebungen in ganz Spanien über die beiden zentralen Streitfragen der Tortilla: die Zwiebel-Kontroverse und der Gargrad des Eies."
+  },
+  "keyTakeaway": {
+    "es": "Resultados contrastados: 70.4% se declaran 'concebollistas' frente al 20.9% 'sincebollistas'; en el punto de cocción, el 53.9% prefiere la tortilla jugosa / poco hecha frente al 43.1% que la prefiere muy cuajada.",
+    "en": "Statistically verified findings: 70.4% favor onion ('concebollistas') vs 20.9% without onion ('sincebollistas'); on doneness, 53.9% prefer juicy/runny vs 43.1% well-done.",
+    "de": "Statistisch gesicherte Ergebnisse: 70,4% befürworten Zwiebeln gegenüber 20,9% ohne Zwiebeln; beim Gargrad bevorzugen 53,9% eine saftige/flüssige Konsistenz gegenüber 43,1% durchgebraten."
+  },
+  "relatedArticleSlugs": ["history", "historia", "facciones", "encuestas"],
+  "verified": true,
+  "tags": ["cis", "sociologia", "concebollistas", "sincebollistas", "doneness"]
+}

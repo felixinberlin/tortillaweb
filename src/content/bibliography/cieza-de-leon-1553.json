@@ -1,0 +1,31 @@
+{
+  "id": "cieza-de-leon-1553",
+  "title": {
+    "es": "Crónica del Perú y registros de introducción de la patata en Europa (1553-1573)",
+    "en": "Chronicle of Peru and European Potato Introduction Records (1553-1573)",
+    "de": "Chronik von Peru und Aufzeichnungen zur Einführung der Kartoffel in Europa (1553-1573)"
+  },
+  "authors": [
+    "Pedro Cieza de León",
+    "Archivo del Hospital de las Cinco Llagas de Sevilla"
+  ],
+  "year": 1553,
+  "type": "historical_chronicle",
+  "category": "history",
+  "publisher": "Martín de Montesdoca",
+  "location": "Sevilla, España",
+  "citationText": "Cieza de León, P. (1553). Parte primera de la Chrónica del Perú. Sevilla: Martín de Montesdoca. / Archivo de la Diputación Provincial de Sevilla (1573), Libro de compras del Hospital de la Sangre.",
+  "summary": {
+    "es": "Primera descripción impresa en lengua castellana de la patata andina ('Solanum tuberosum') por Pedro Cieza de León, junto con los libros de contabilidad del Hospital de las Cinco Llagas de Sevilla (1573), que documentan la primera compra hospitalaria de patatas en suelo europeo para alimentar a enfermos e indigentes.",
+    "en": "First printed description in the Spanish language of the Andean potato ('Solanum tuberosum') by Pedro Cieza de León, paired with the 1573 accounting ledgers of the Hospital de las Cinco Llagas in Seville, recording the earliest institutional purchase of potatoes in Europe for patients and indigent care.",
+    "de": "Erste gedruckte spanische Beschreibung der Andenkartoffel ('Solanum tuberosum') von Pedro Cieza de León sowie die Rechnungsbücher des Hospital de las Cinco Llagas in Sevilla von 1573 mit dem frühesten europäischen Ankauf von Kartoffeln für Patienten."
+  },
+  "keyTakeaway": {
+    "es": "Establece con precisión documental que la patata no entró como manjar aristocrático, sino como alimento medicinal y de asistencia hospitalaria en Sevilla antes de difundirse a la agricultura popular.",
+    "en": "Documentally establishes that the potato entered Europe as hospital nourishment and charitable medicine in Seville before expanding into folk agriculture.",
+    "de": "Belegt dokumentarisch, dass die Kartoffel nicht als Hofspeise, sondern als Krankenhaustrost und Nährhilfe in Sevilla ihren Einzug in Europa hielt."
+  },
+  "relatedArticleSlugs": ["history", "historia", "ingredientes", "patata"],
+  "verified": true,
+  "tags": ["peru", "sevilla", "hospital_de_las_cinco_llagas", "1553", "1573"]
+}

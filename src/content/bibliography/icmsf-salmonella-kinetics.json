@@ -1,0 +1,31 @@
+{
+  "id": "icmsf-salmonella-kinetics",
+  "title": {
+    "es": "Microorganismos de los alimentos: Características de los patógenos microbianos (Cinética de Salmonella)",
+    "en": "Microorganisms in Foods: Characteristics of Microbial Pathogens (Salmonella Inactivation Kinetics)",
+    "de": "Mikroorganismen in Lebensmitteln: Eigenschaften mikrobieller Krankheitserreger (Salmonellen-Kinetik)"
+  },
+  "authors": [
+    "International Commission on Microbiological Specifications for Foods (ICMSF)"
+  ],
+  "year": 1996,
+  "type": "academic_book",
+  "category": "science",
+  "publisher": "Blackie Academic & Professional / Springer",
+  "location": "Londres, Reino Unido",
+  "officialCode": "ISBN 978-0-412-47350-0",
+  "citationText": "ICMSF. (1996). Microorganisms in Foods 5: Microbiological Specifications of Food Pathogens. London: Blackie Academic & Professional (pp. 217–264).",
+  "summary": {
+    "es": "Tratado internacional de referencia sobre cinética de destrucción térmica (valores D y z) de 'Salmonella enterica serovar Enteritidis' en matriz de huevo entero y emulsiones lipídicas.",
+    "en": "International benchmark reference on thermal death kinetics (D- and z-values) of 'Salmonella enterica serovar Enteritidis' in whole egg matrix and lipid emulsions.",
+    "de": "Internationales Referenzwerk zur thermischen Abtötungskinetik (D- und z-Werte) von 'Salmonella enterica serovar Enteritidis' in Vollei- und Fettmatrizen."
+  },
+  "keyTakeaway": {
+    "es": "Proporciona el fundamento matemático biofísico que respalda por qué **70°C for 2 minutes** garantiza una reducción de 5 a 7 logaritmos (>99.999%) de células viables de Salmonella en tortilla de patatas.",
+    "en": "Provides the biophysical mathematical basis proving that **70°C for 2 minutes** achieves a 5-log to 7-log reduction (>99.999%) of viable Salmonella cells in potato omelette matrix.",
+    "de": "Liefert die biophysikalisch-mathematische Grundlage, weshalb **70°C for 2 minutes** eine Reduktion um 5 bis 7 Zehnerpotenzen (>99,999%) lebensfähiger Salmonellen gewährleistet."
+  },
+  "relatedArticleSlugs": ["science", "ciencia", "seguridad", "laboratorio"],
+  "verified": true,
+  "tags": ["icmsf", "microbiologia", "salmonella", "valores_d", "cinetica_termica"]
+}

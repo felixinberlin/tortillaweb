@@ -30,7 +30,8 @@ export type RouteId =
   | 'monoFood'
   | 'emergency'
   | 'abuela'
-  | 'mapaPremios';
+  | 'mapaPremios'
+  | 'bibliografia';
 
 export type CanonicalType =
   | 'recipe'

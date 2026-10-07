@@ -1,0 +1,29 @@
+{
+  "id": "this-2006",
+  "title": {
+    "es": "Gastronomía Molecular: Explorando la ciencia del sabor y los geles",
+    "en": "Molecular Gastronomy: Exploring the Science of Flavor and Gel Matrices",
+    "de": "Molekulargastronomie: Erkundung der Wissenschaft des Geschmacks und der Gelsysteme"
+  },
+  "authors": ["Hervé This"],
+  "year": 2006,
+  "type": "academic_book",
+  "category": "science",
+  "publisher": "Columbia University Press",
+  "location": "Nueva York, EE. UU.",
+  "officialCode": "ISBN 978-0-231-13312-8",
+  "citationText": "This, H. (2006). Molecular Gastronomy: Exploring the Science of Flavor. New York: Columbia University Press (Section: 'The Softness of Egg Gels', pp. 45–52).",
+  "summary": {
+    "es": "Estudio biofísico pionero de Hervé This sobre la interacción coloidal de geles mixtos termorreversibles e irreversibles en emulsiones de huevo, lípidos y almidón gelatinizado.",
+    "en": "Pioneering biophysical study by Hervé This on colloidal dynamics in mixed gel networks consisting of egg albumen, yolk lipids, and gelatinized potato starch.",
+    "de": "Biophysikalische Pionierstudie von Hervé This über kolloidale Dynamiken in gemischten Gelnetzwerken aus Eiklar, Eidotterlipiden und verkleisterter Kartoffelstärke."
+  },
+  "keyTakeaway": {
+    "es": "Formaliza la ecuación físico-química del reposo de la patata caliente con el huevo crudo antes de cuajar: el intercambio osmótico y la liberación de amilopectina estabilizan la textura final frente al choque térmico de la sartén.",
+    "en": "Formalizes the physicochemical equation behind resting hot confited potatoes in raw egg before pan-searing: osmotic exchange and amylopectin leaching buffer against thermal shock in the skillet.",
+    "de": "Beschreibt die physikalisch-chemische Gleichung des Ruhens heißer confierter Kartoffeln im rohen Ei: Osmotischer Austausch und Amylopektinfreisetzung puffern den Temperaturschock beim Anbraten."
+  },
+  "relatedArticleSlugs": ["science", "ciencia", "tecnicas", "laboratorio"],
+  "verified": true,
+  "tags": ["gastronomia_molecular", "herve_this", "geles", "emulsion"]
+}

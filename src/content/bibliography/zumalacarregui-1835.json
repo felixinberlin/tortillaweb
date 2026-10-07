@@ -1,0 +1,27 @@
+{
+  "id": "zumalacarregui-1835",
+  "title": {
+    "es": "Tradición militar carlista del General Zumalacárregui en el Sitio de Bilbao",
+    "en": "Carlist Military Tradition of General Zumalacárregui during the Siege of Bilbao",
+    "de": "Karlistische Militärüberlieferung von General Zumalacárregui bei der Belagerung von Bilbao"
+  },
+  "authors": ["Tradición Historiográfica Oral del Siglo XIX"],
+  "year": 1835,
+  "type": "historical_chronicle",
+  "category": "history",
+  "location": "Navarra y País Vasco, España",
+  "citationText": "Crónicas carlistas del siglo XIX. (1835). Narraciones de la Primera Guerra Carlista y la intendencia militar en el asedio de Bilbao.",
+  "summary": {
+    "es": "Leyenda tradicional y memoria oral que atribuye la popularización y difusión de la tortilla de patatas al general carlista Tomás de Zumalacárregui, quien supuestamente la adoptó tras degustarla preparada por una campesina navarra como vianda sencilla y nutritiva para sus tropas.",
+    "en": "Traditional legend and oral chronicle attributing the popularization and military adoption of the tortilla to Carlist General Tomás de Zumalacárregui, who allegedly encountered it prepared by an anonymous Navarrese farmwife during the First Carlist War.",
+    "de": "Traditionelle Legende und mündliche Überlieferung, die die Verbreitung der Tortilla dem karlistischen General Tomás de Zumalacárregui zuschreibt, der sie angeblich bei einer navarresischen Bäuerin während der Belagerung von Bilbao kennenlernte."
+  },
+  "keyTakeaway": {
+    "es": "Categorizada estrictamente como LEYENDA con valor antropológico: aunque Zumalacárregui no inventó la tortilla (precedida por los textos de 1767, 1798 y 1817), el ejército carlista contribuyó decididamente a su estandarización y difusión como ración militar.",
+    "en": "Strictly categorized as LEGEND with cultural value: although Zumalacárregui did not invent the tortilla (preceded by 1767, 1798, and 1817 documents), Carlist logistical use accelerated its standardization across Spain.",
+    "de": "Streng als LEGENDE mit kulturhistorischem Wert eingestuft: Obwohl Zumalacárregui die Tortilla nicht erfunden hat, trug das karlistische Heer zu ihrer Verbreitung als Militärverpflegung bei."
+  },
+  "relatedArticleSlugs": ["history", "historia", "regiones", "navarra"],
+  "verified": true,
+  "tags": ["leyenda", "carlistas", "zumalacarregui", "bilbao", "siglo_xix"]
+}

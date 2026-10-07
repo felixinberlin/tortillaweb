@@ -78,6 +78,7 @@ const iconMap: Record<string, any> = {
   videos: Video,
   utensilios: Utensils,
   tienda: ShoppingBag,
+  bibliografia: BookOpen,
   about: Info,
   contact: Mail,
 };
