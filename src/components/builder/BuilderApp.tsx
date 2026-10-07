@@ -216,7 +216,8 @@ export default function BuilderApp({ lang = "es" }: BuilderAppProps) {
                 key={num}
                 type="button"
                 onClick={() => handleDinersChange(num)}
-                className={`px-3 py-1 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
+                aria-pressed={diners === num}
+                className={`px-3 py-1 rounded-xl text-xs font-extrabold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 ${
                   diners === num
                     ? "bg-[#8D6E63] text-white dark:bg-[#FFB800] dark:text-[#1C1917] shadow-2xs"
                     : "text-muted-foreground hover:text-foreground hover:bg-secondary"

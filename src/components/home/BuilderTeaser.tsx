@@ -56,7 +56,8 @@ export default function BuilderTeaser({ lang = "es" }: BuilderTeaserProps) {
                   <button
                     type="button"
                     onClick={() => setHasOnion(!hasOnion)}
-                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all cursor-pointer ${
+                    aria-pressed={hasOnion}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 ${
                       hasOnion
                         ? "bg-[#2E7D32]/10 dark:bg-[#2E7D32]/25 text-[#2E7D32] dark:text-[#81C784] border-[#2E7D32]/30"
                         : "bg-muted text-muted-foreground border-border"

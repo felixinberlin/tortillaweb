@@ -88,7 +88,8 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
               type="button"
               onClick={onClearExtras}
               className="text-2xs font-bold text-destructive hover:bg-destructive/10 h-7 px-2.5 rounded-lg flex items-center gap-1 cursor-pointer transition-colors"
-              title={isEs ? "Eliminar todos los ingredientes extra" : "Remove all extra ingredients"}
+              title={isEs ? "Eliminar todos los ingredientes extra" : isDe ? "Alle Extra-Zutaten entfernen" : "Remove all extra ingredients"}
+              aria-label={isEs ? "Eliminar todos los ingredientes extra" : isDe ? "Alle Extra-Zutaten entfernen" : "Remove all extra ingredients"}
             >
               <Trash2 className="w-3 h-3" />
               <span>{isEs ? "Quitar extras" : isDe ? "Extras entfernen" : "Clear extras"}</span>
@@ -99,7 +100,9 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
             className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary cursor-pointer transition-colors"
-            aria-label={isExpanded ? "Collapse ingredients bar" : "Expand ingredients bar"}
+            aria-label={isExpanded ? (isEs ? "Contraer barra de ingredientes" : isDe ? "Zutatenleiste einklappen" : "Collapse ingredients bar") : (isEs ? "Expandir barra de ingredientes" : isDe ? "Zutatenleiste ausklappen" : "Expand ingredients bar")}
+            aria-expanded={isExpanded}
+            aria-controls="selected-ingredients-details"
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
@@ -108,7 +111,7 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
 
       {/* Expandable Content Area */}
       {isExpanded && (
-        <div className="p-4 bg-card">
+        <div id="selected-ingredients-details" className="p-4 bg-card">
           <div className="flex flex-wrap items-center gap-2">
             {/* 1. Base Huevos */}
             <div className="inline-flex items-center gap-1.5 bg-accent border border-border px-3 py-1.5 rounded-xl text-xs">
@@ -166,7 +169,8 @@ export const SelectedIngredientsBar: React.FC<SelectedIngredientsBarProps> = ({
                     type="button"
                     onClick={() => onUpdateExtra(extra.id, 0)}
                     className="text-muted-foreground hover:text-destructive ml-1 cursor-pointer"
-                    title={isEs ? "Quitar ingrediente" : "Remove ingredient"}
+                    title={isEs ? `Quitar ${name}` : isDe ? `${name} entfernen` : `Remove ${name}`}
+                    aria-label={isEs ? `Quitar ${name}` : isDe ? `${name} entfernen` : `Remove ${name}`}
                   >
                     ×
                   </button>

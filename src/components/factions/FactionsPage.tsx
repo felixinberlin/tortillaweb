@@ -358,7 +358,8 @@ export default function FactionsPage({ lang = "es", factions = [], pageData = {}
                 key={fac.id}
                 type="button"
                 onClick={() => handleVote(fac.id)}
-                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                aria-pressed={isSelected}
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 ${
                   isSelected
                     ? "bg-[#FFF7EA] border-[#FFB800] ring-2 ring-[#FFB800]/50 shadow-xs"
                     : "bg-white border-[#E8E2D5] hover:border-amber-300 hover:bg-[#FAF6EE]"
