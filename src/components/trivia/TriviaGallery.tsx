@@ -304,6 +304,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               onClick={() => setSearchQuery('')}
               className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 rounded-full text-muted-foreground hover:text-foreground hover:bg-stone-100 transition-colors"
               title="Clear search"
+              aria-label="Clear search"
             >
               <X className="w-4 h-4" />
             </button>
@@ -425,7 +426,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               {statusFilter !== 'all' && (
                 <span className="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-900 font-bold flex items-center gap-1">
                   {statusFilter === 'proved' ? t.proved : t.unproved}
-                  <X className="w-3 h-3 cursor-pointer" onClick={() => setStatusFilter('all')} />
+                  <button type="button" onClick={() => setStatusFilter('all')} aria-label="Remove status filter"><X className="w-3 h-3" /></button>
                 </span>
               )}
             </div>
@@ -623,6 +624,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
                       onClick={() => toggleLike(item.id)}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#E8E2D5] text-foreground/80 hover:text-amber-900 hover:border-amber-400 transition-all cursor-pointer min-h-[36px]"
                       title={t.didYouKnow}
+                      aria-label={t.didYouKnow}
                     >
                       <ThumbsUp className="w-3.5 h-3.5 text-[#FFB800]" />
                       <span className="font-bold">{likes[item.id] || 0}</span>
@@ -632,6 +634,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
                       onClick={() => handleShare(titleText)}
                       className="inline-flex items-center gap-1 px-2.5 py-1.5 text-muted-foreground hover:text-foreground transition-colors cursor-pointer min-h-[36px]"
                       title="Compartir"
+                      aria-label="Compartir"
                     >
                       <Share2 className="w-3.5 h-3.5" />
                     </button>
@@ -659,6 +662,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === 1}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="First Page"
+              aria-label="First Page"
             >
               <ChevronsLeft className="w-4 h-4" />
             </button>
@@ -669,6 +673,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === 1}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Previous Page"
+              aria-label="Previous Page"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -703,6 +708,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === totalPages}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Next Page"
+              aria-label="Next Page"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -713,6 +719,7 @@ export default function TriviaGallery({ facts, currentLang }: TriviaGalleryProps
               disabled={safeCurrentPage === totalPages}
               className="p-2 rounded-xl border border-[#E8E2D5] bg-white text-foreground/80 hover:bg-[#FAF6EE] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               title="Last Page"
+              aria-label="Last Page"
             >
               <ChevronsRight className="w-4 h-4" />
             </button>

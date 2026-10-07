@@ -324,7 +324,8 @@ export const StepIngredients: React.FC<StepIngredientsProps> = ({
                     key={c.id}
                     type="button"
                     onClick={() => setPotatoCut(c.id)}
-                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer relative ${
+                    aria-pressed={potatoCut === c.id}
+                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1 ${
                       potatoCut === c.id
                         ? "border-[#FFB800] bg-[#FFB800]/15 dark:bg-[#FFB800]/25 text-foreground shadow-2xs"
                         : "border-border bg-card hover:bg-accent text-foreground/80"

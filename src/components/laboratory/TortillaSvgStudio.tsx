@@ -398,6 +398,7 @@ export default function TortillaSvgStudio({ lang = "es" }: TortillaSvgStudioProp
                       key={opt.id}
                       type="button"
                       onClick={() => setDoneness(opt.id)}
+                      aria-pressed={isSelected}
                       className={`flex items-center justify-between p-2.5 rounded-xl border text-left transition-all ${
                         isSelected
                           ? "bg-amber-500/15 border-amber-500 text-stone-100"
@@ -433,6 +434,7 @@ export default function TortillaSvgStudio({ lang = "es" }: TortillaSvgStudioProp
                       key={cutId}
                       type="button"
                       onClick={() => setPotatoCut(cutId)}
+                      aria-pressed={isSelected}
                       className={`p-2.5 rounded-xl border text-left transition-all ${
                         isSelected
                           ? "bg-amber-500/15 border-amber-500 text-stone-100"

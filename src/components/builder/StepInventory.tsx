@@ -145,7 +145,7 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
                       onClick={() => onUpdateExtra(item.ingredientId, Math.max(0, qty - 1))}
                       disabled={qty === 0}
                       className="p-1 rounded-md hover:bg-secondary disabled:opacity-30 cursor-pointer"
-                      aria-label="Decrease quantity"
+                      aria-label={isEs ? `Reducir cantidad de ${getLocalizedName(item)}` : isDe ? `Menge von ${getLocalizedName(item)} verringern` : `Decrease quantity of ${getLocalizedName(item)}`}
                     >
                       <Minus className="w-3 h-3" />
                     </button>
@@ -154,7 +154,7 @@ export const StepInventory: React.FC<StepInventoryProps> = ({
                       type="button"
                       onClick={() => onUpdateExtra(item.ingredientId, qty + 1)}
                       className="p-1 rounded-md hover:bg-secondary cursor-pointer"
-                      aria-label="Increase quantity"
+                      aria-label={isEs ? `Aumentar cantidad de ${getLocalizedName(item)}` : isDe ? `Menge von ${getLocalizedName(item)} erhöhen` : `Increase quantity of ${getLocalizedName(item)}`}
                     >
                       <Plus className="w-3 h-3" />
                     </button>
