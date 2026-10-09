@@ -138,6 +138,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           type="button"
           onClick={handleCopyLink}
           title={isEs ? "Copiar URL permanente" : "Copy permanent URL"}
+          aria-label={isEs ? "Copiar URL permanente" : "Copy permanent URL"}
           className="p-2 rounded-xl bg-card border border-border hover:border-[#FFB800] text-foreground hover:text-[#8D6E63] dark:hover:text-[#FFB800] transition-colors shadow-2xs cursor-pointer flex items-center justify-center"
         >
           {copied ? <Check className="w-4 h-4 text-[#2E7D32]" /> : <Copy className="w-4 h-4" />}
@@ -148,6 +149,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           title="WhatsApp"
+          aria-label={isEs ? "Compartir por WhatsApp" : "Share via WhatsApp"}
           className="p-2 rounded-xl bg-card border border-border hover:border-[#25D366] text-foreground hover:text-[#25D366] transition-colors shadow-2xs flex items-center justify-center"
         >
           <MessageCircle className="w-4 h-4" />
@@ -158,6 +160,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           title="Telegram"
+          aria-label={isEs ? "Compartir por Telegram" : "Share via Telegram"}
           className="p-2 rounded-xl bg-card border border-border hover:border-[#0088cc] text-foreground hover:text-[#0088cc] transition-colors shadow-2xs flex items-center justify-center"
         >
           <Send className="w-4 h-4" />
@@ -168,6 +171,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           title="X / Twitter"
+          aria-label={isEs ? "Compartir en X / Twitter" : "Share on X / Twitter"}
           className="p-2 rounded-xl bg-card border border-border hover:border-[#1DA1F2] text-foreground hover:text-[#1DA1F2] transition-colors shadow-2xs flex items-center justify-center"
         >
           <Share2 className="w-4 h-4" />
@@ -176,6 +180,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         <a
           href={emailUrl}
           title="Email"
+          aria-label={isEs ? "Compartir por Email" : "Share via Email"}
           className="p-2 rounded-xl bg-card border border-border hover:border-[#EA4335] text-foreground hover:text-[#EA4335] transition-colors shadow-2xs flex items-center justify-center"
         >
           <Mail className="w-4 h-4" />
@@ -186,6 +191,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
             type="button"
             onClick={handleNativeShare}
             title={isEs ? "Más aplicaciones" : "More apps"}
+            aria-label={isEs ? "Más aplicaciones" : "More apps"}
             className="p-2 rounded-xl bg-[#FFB800]/20 text-[#8D6E63] dark:text-[#FFB800] hover:bg-[#FFB800]/30 transition-colors shadow-2xs cursor-pointer flex items-center justify-center"
           >
             <Globe className="w-4 h-4" />
@@ -202,6 +208,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         <button
           type="button"
           onClick={handleCopyLink}
+          aria-label={isEs ? "Copiar URL" : "Copy URL"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-card border border-border hover:border-[#FFB800] text-xs font-bold text-foreground transition-all shadow-2xs cursor-pointer"
         >
           {copied ? <Check className="w-3.5 h-3.5 text-[#2E7D32]" /> : <Copy className="w-3.5 h-3.5" />}
@@ -212,6 +219,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={isEs ? "Compartir por WhatsApp" : "Share via WhatsApp"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-xs font-bold text-[#1E7E34] dark:text-[#25D366] transition-all shadow-2xs"
         >
           <MessageCircle className="w-3.5 h-3.5" />
@@ -222,6 +230,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           href={telegramUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={isEs ? "Compartir por Telegram" : "Share via Telegram"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 text-xs font-bold text-[#006699] dark:text-[#29b6f6] transition-all shadow-2xs"
         >
           <Send className="w-3.5 h-3.5" />
@@ -232,6 +241,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           href={twitterUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={isEs ? "Compartir en X / Twitter" : "Share on X / Twitter"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 border border-[#1DA1F2]/30 text-xs font-bold text-[#0c7abf] dark:text-[#40b3ff] transition-all shadow-2xs"
         >
           <Share2 className="w-3.5 h-3.5" />
@@ -242,6 +252,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           href={facebookUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={isEs ? "Compartir en Facebook" : "Share on Facebook"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-xs font-bold text-[#1150a8] dark:text-[#4285f4] transition-all shadow-2xs"
         >
           <ExternalLink className="w-3.5 h-3.5" />
@@ -250,6 +261,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
 
         <a
           href={emailUrl}
+          aria-label={isEs ? "Compartir por Email" : "Share via Email"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-card border border-border hover:border-[#FFB800] text-xs font-bold text-foreground transition-all shadow-2xs"
         >
           <Mail className="w-3.5 h-3.5" />
@@ -260,6 +272,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           <button
             type="button"
             onClick={handleNativeShare}
+            aria-label={isEs ? "Más aplicaciones" : "More apps"}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFB800]/20 hover:bg-[#FFB800]/30 border border-[#FFB800]/40 text-xs font-bold text-[#8D6E63] dark:text-[#FFB800] transition-all shadow-2xs cursor-pointer"
           >
             <Globe className="w-3.5 h-3.5" />
@@ -297,6 +310,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
         <button
           type="button"
           onClick={() => setShowBookmarkTip(!showBookmarkTip)}
+          aria-label={isEs ? "Guardar en Marcadores" : "Save to Bookmarks"}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-secondary/80 hover:bg-secondary text-foreground text-xs font-bold transition-colors cursor-pointer self-start sm:self-auto border border-border"
         >
           <Bookmark className="w-3.5 h-3.5 text-[#FFB800]" />
@@ -362,6 +376,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={isEs ? "Compartir por WhatsApp" : "Share via WhatsApp"}
             className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-xs font-bold text-[#1E7E34] dark:text-[#25D366] transition-all shadow-2xs hover:scale-102"
           >
             <MessageCircle className="w-4 h-4 shrink-0" />
@@ -373,6 +388,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
             href={telegramUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={isEs ? "Compartir por Telegram" : "Share via Telegram"}
             className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-[#0088cc]/10 hover:bg-[#0088cc]/20 border border-[#0088cc]/30 text-xs font-bold text-[#006699] dark:text-[#29b6f6] transition-all shadow-2xs hover:scale-102"
           >
             <Send className="w-4 h-4 shrink-0" />
@@ -384,6 +400,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
             href={twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={isEs ? "Compartir en X / Twitter" : "Share on X / Twitter"}
             className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 border border-[#1DA1F2]/30 text-xs font-bold text-[#0c7abf] dark:text-[#40b3ff] transition-all shadow-2xs hover:scale-102"
           >
             <Share2 className="w-4 h-4 shrink-0" />
@@ -395,6 +412,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
             href={facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={isEs ? "Compartir en Facebook" : "Share on Facebook"}
             className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-xs font-bold text-[#1150a8] dark:text-[#4285f4] transition-all shadow-2xs hover:scale-102"
           >
             <ExternalLink className="w-4 h-4 shrink-0" />
@@ -404,6 +422,7 @@ export const ShareButtons: React.FC<ShareButtonsProps> = ({
           {/* Email */}
           <a
             href={emailUrl}
+            aria-label={isEs ? "Compartir por Email" : "Share via Email"}
             className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-accent hover:bg-secondary border border-border text-xs font-bold text-foreground transition-all shadow-2xs hover:scale-102"
           >
             <Mail className="w-4 h-4 shrink-0" />
